@@ -45,6 +45,8 @@ Incident response procedures and troubleshooting guides — the collective knowl
 
 This living document is maintained by the community. If you find something outdated or missing, please contribute. Knowledge shared is knowledge strengthened.
 
+> *The watchful eyes of Osgiliath see all — even the smallest change ripples across the Anduin.*
+
 ---
 
 **Ready to begin?** Head over to [Quick Start](/docs/quickstart/overview) to get up and running.
