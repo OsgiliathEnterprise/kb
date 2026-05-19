@@ -15,6 +15,10 @@
 .env.test.local
 .env.production.local
 
+# Hermes publisher
+.hermes/
+.publisher.log
+
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
