@@ -1,0 +1,488 @@
+/* ===================================================================
+   Osgiliath Theme - The Bridge Between Knowledge and Wisdom
+   Inspired by the ancient capital of Gondor, where light meets shadow
+   =================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* --- CSS Custom Properties (Design Tokens) --- */
+:root {
+  /* Primary palette - Osgiliath gold and white stone */
+  --osg-gold: #c9a84c;
+  --osg-gold-light: #e8d48b;
+  --osg-gold-dark: #8a6d2b;
+  --osg-gold-glow: rgba(201, 168, 76, 0.15);
+
+  /* White stone of Gondor */
+  --osg-stone: #f0ebe1;
+  --osg-stone-light: #f7f4ed;
+  --osg-stone-dark: #d4cdc0;
+
+  /* Deep shadow - Mordor side */
+  --osg-shadow: #0a0c10;
+  --osg-shadow-light: #1a1d24;
+  --osg-shadow-mid: #2a2d34;
+  --osg-shadow-dark: #050608;
+
+  /* Anduin river blue */
+  --osg-river: #3a7ca5;
+  --osg-river-light: #5ba3c9;
+  --osg-river-dark: #2a5a75;
+
+  /* Fire of Minas Tirith */
+  --osg-fire: #d4572a;
+  --osg-fire-light: #e8734a;
+
+  /* Typography */
+  --font-heading: 'Cinzel', serif;
+  --font-body: 'Inter', sans-serif;
+  --font-quote: 'Crimson Text', serif;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+
+  /* Borders */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow: 400ms ease;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.5);
+  --shadow-gold: 0 0 20px rgba(201, 168, 76, 0.2);
+  --shadow-gold-strong: 0 0 30px rgba(201, 168, 76, 0.35);
+}
+
+/* --- Docusaurus Theme Overrides --- */
+[data-theme='dark'] {
+  --ifm-color-primary: var(--osg-gold);
+  --ifm-color-primary-dark: var(--osg-gold-dark);
+  --ifm-color-primary-darker: #7a5f24;
+  --ifm-color-primary-darkest: #654d1c;
+  --ifm-color-primary-light: var(--osg-gold-light);
+  --ifm-color-primary-lighter: #f0dcc0;
+  --ifm-color-primary-lightest: #f5e8cc;
+
+  --ifm-background-color: var(--osg-shadow);
+  --ifm-background-surface-color: var(--osg-shadow-light);
+  --ifm-color-content: var(--osg-stone);
+  --ifm-color-content-secondary: var(--osg-stone-dark);
+
+  --ifm-navbar-background-color: rgba(10, 12, 16, 0.95);
+  --ifm-footer-background-color: var(--osg-shadow-dark);
+
+  --ifm-menu-color: var(--osg-stone-dark);
+  --ifm-menu-color-active: var(--osg-gold);
+  --ifm-menu-color-background-active: rgba(201, 168, 76, 0.1);
+
+  --docusaurus-highlighted-code-line-bg: rgba(201, 168, 76, 0.15);
+  --ifm-breadcrumb-separator-filter: none;
+
+  --ifm-code-background: rgba(201, 168, 76, 0.1);
+  --ifm-scrollbar-bg-color: var(--osg-shadow-mid);
+  --ifm-scrollbar-thumb-bg-color: var(--osg-gold-dark);
+}
+
+[data-theme='light'] {
+  --ifm-color-primary: var(--osg-gold-dark);
+  --ifm-color-primary-dark: #7a5f24;
+  --ifm-color-primary-darker: #654d1c;
+  --ifm-color-primary-darkest: #554018;
+  --ifm-color-primary-light: var(--osg-gold);
+  --ifm-color-primary-lighter: var(--osg-gold-light);
+  --ifm-color-primary-lightest: #f5e8cc;
+
+  --ifm-background-color: var(--osg-stone-light);
+  --ifm-background-surface-color: #ffffff;
+  --ifm-color-content: #2a2d34;
+  --ifm-color-content-secondary: #5a5d64;
+
+  --ifm-navbar-background-color: rgba(240, 235, 225, 0.95);
+  --ifm-footer-background-color: var(--osg-shadow);
+
+  --ifm-menu-color: #5a5d64;
+  --ifm-menu-color-active: var(--osg-gold-dark);
+  --ifm-menu-color-background-active: rgba(138, 109, 43, 0.1);
+
+  --docusaurus-highlighted-code-line-bg: rgba(138, 109, 43, 0.15);
+  --ifm-breadcrumb-separator-filter: none;
+}
+
+/* --- Global Styles --- */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- Typography --- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+h1 {
+  font-size: 2.5rem;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 2rem;
+  line-height: 1.3;
+}
+
+h3 {
+  font-size: 1.5rem;
+  line-height: 1.4;
+}
+
+/* --- Navbar --- */
+.navbar {
+  border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.navbar__brand {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.navbar__title {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.navbar__link {
+  font-weight: 500;
+  transition: color var(--transition-fast);
+}
+
+.navbar__link:hover {
+  color: var(--osg-gold) !important;
+}
+
+.navbar__link--active {
+  color: var(--osg-gold) !important;
+  border-bottom: 2px solid var(--osg-gold);
+}
+
+/* --- Sidebar --- */
+.menu {
+  font-family: var(--font-body);
+}
+
+.menu__link {
+  font-weight: 400;
+  border-radius: var(--border-radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.menu__link:hover {
+  background-color: var(--ifm-menu-color-background-active) !important;
+}
+
+.menu__link--active {
+  font-weight: 600;
+  color: var(--ifm-menu-color-active) !important;
+}
+
+.menu__list-item-collapsible {
+  border-radius: var(--border-radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.menu__list-item-collapsible:hover {
+  background-color: var(--ifm-menu-color-background-active) !important;
+}
+
+.menu__caret:hover::before {
+  background-color: var(--ifm-menu-color-background-active) !important;
+}
+
+/* --- Cards --- */
+.card {
+  border: 1px solid rgba(201, 168, 76, 0.15) !important;
+  border-radius: var(--border-radius-md) !important;
+  transition: all var(--transition-normal) !important;
+  overflow: hidden;
+}
+
+.card:hover {
+  border-color: rgba(201, 168, 76, 0.4) !important;
+  box-shadow: var(--shadow-gold) !important;
+  transform: translateY(-2px);
+}
+
+.card__header {
+  border-bottom: 1px solid rgba(201, 168, 76, 0.1) !important;
+}
+
+.card__heading {
+  font-family: var(--font-heading);
+  font-weight: 600;
+}
+
+/* --- Buttons --- */
+.button {
+  border-radius: var(--border-radius-md);
+  font-weight: 500;
+  transition: all var(--transition-fast);
+}
+
+.button--primary {
+  background: linear-gradient(135deg, var(--osg-gold), var(--osg-gold-dark));
+  border: none;
+  color: var(--osg-shadow);
+  font-weight: 600;
+}
+
+.button--primary:hover {
+  background: linear-gradient(135deg, var(--osg-gold-light), var(--osg-gold));
+  box-shadow: var(--shadow-gold-strong);
+  color: var(--osg-shadow) !important;
+}
+
+.button--secondary {
+  border: 1px solid var(--osg-gold);
+  color: var(--osg-gold);
+}
+
+.button--secondary:hover {
+  background-color: var(--osg-gold-glow);
+  border-color: var(--osg-gold-light);
+  color: var(--osg-gold-light);
+}
+
+/* --- Code blocks --- */
+code {
+  border-radius: var(--border-radius-sm);
+  font-size: 0.9em;
+}
+
+pre {
+  border-radius: var(--border-radius-md);
+  border: 1px solid rgba(201, 168, 76, 0.15);
+}
+
+/* --- Breadcrumbs --- */
+.breadcrumbs__item--active .breadcrumbs__link {
+  color: var(--osg-gold);
+}
+
+.breadcrumbs__link {
+  transition: color var(--transition-fast);
+}
+
+.breadcrumbs__link:hover {
+  color: var(--osg-gold-light) !important;
+}
+
+/* --- Footer --- */
+.footer {
+  border-top: 1px solid rgba(201, 168, 76, 0.15);
+}
+
+.footer__title {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--osg-gold);
+}
+
+.footer__link-item {
+  transition: color var(--transition-fast);
+}
+
+.footer__link-item:hover {
+  color: var(--osg-gold-light) !important;
+}
+
+.footer__copyright {
+  color: var(--osg-stone-dark);
+}
+
+/* --- Admonitions (Notes, Warnings, etc.) --- */
+.theme-admonition {
+  border-radius: var(--border-radius-md) !important;
+  border-width: 1px !important;
+}
+
+.theme-admonition-note {
+  border-color: var(--osg-river) !important;
+}
+
+.theme-admonition-warning {
+  border-color: var(--osg-gold) !important;
+}
+
+.theme-admonition-danger {
+  border-color: var(--osg-fire) !important;
+}
+
+.theme-admonition-tip {
+  border-color: #4caf50 !important;
+}
+
+/* --- Table of Contents --- */
+.table-of-contents__link--active {
+  color: var(--osg-gold);
+  font-weight: 600;
+}
+
+.table-of-contents__link:hover {
+  color: var(--osg-gold-light);
+}
+
+/* --- Pagination --- */
+.pagination-nav__link {
+  border-color: rgba(201, 168, 76, 0.2) !important;
+  border-radius: var(--border-radius-md) !important;
+  transition: all var(--transition-normal) !important;
+}
+
+.pagination-nav__link:hover {
+  border-color: var(--osg-gold) !important;
+  background-color: var(--osg-gold-glow) !important;
+}
+
+/* --- Version Badge --- */
+.badge {
+  border-radius: var(--border-radius-sm);
+}
+
+/* --- Last Updated --- */
+.last-updated {
+  color: var(--osg-stone-dark);
+  font-style: italic;
+  font-family: var(--font-quote);
+}
+
+/* --- Search --- */
+.DocSearch-Button {
+  border-radius: var(--border-radius-md) !important;
+  border-color: rgba(201, 168, 76, 0.2) !important;
+  transition: all var(--transition-fast) !important;
+}
+
+.DocSearch-Button:hover {
+  border-color: var(--osg-gold) !important;
+  box-shadow: var(--shadow-gold) !important;
+}
+
+/* --- Scrollbar --- */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--ifm-scrollbar-bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--ifm-scrollbar-thumb-bg-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--osg-gold);
+}
+
+/* --- Selection --- */
+::selection {
+  background-color: rgba(201, 168, 76, 0.3);
+  color: var(--osg-stone);
+}
+
+/* --- Animations --- */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes pulse-gold {
+  0%, 100% { box-shadow: var(--shadow-gold); }
+  50% { box-shadow: var(--shadow-gold-strong); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.25rem; }
+
+  .navbar__title {
+    font-size: 1.1rem;
+  }
+}
+
+/* --- Decorative divider (for pages) --- */
+.osg-divider {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--osg-gold), transparent);
+  border: none;
+  margin: var(--spacing-2xl) 0;
+  opacity: 0.3;
+}
+
+/* --- Quote styling --- */
+blockquote {
+  font-family: var(--font-quote);
+  border-left: 3px solid var(--osg-gold);
+  padding-left: var(--spacing-lg);
+  margin-left: 0;
+  font-style: italic;
+  color: var(--osg-stone-dark);
+}
+
+/* --- Tag/Badge styling --- */
+.tag {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius-sm);
+  font-size: 0.8em;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.tag--gold {
+  background-color: var(--osg-gold-glow);
+  color: var(--osg-gold);
+  border: 1px solid rgba(201, 168, 76, 0.3);
+}
+
+.tag--river {
+  background-color: rgba(58, 124, 165, 0.15);
+  color: var(--osg-river-light);
+  border: 1px solid rgba(58, 124, 165, 0.3);
+}
+
+.tag--fire {
+  background-color: rgba(212, 87, 42, 0.15);
+  color: var(--osg-fire-light);
+  border: 1px solid rgba(212, 87, 42, 0.3);
+}
