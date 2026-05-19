@@ -85,7 +85,7 @@ create_ghpages() {
 
   git add -A
   git commit -m "publish: initial KB website ($DATE_STAMP)" || true
-  git push "$REMOTE" HEAD:"$TARGET_BRANCH" --force
+  git push "$REMOTE" HEAD:"refs/heads/$TARGET_BRANCH" --force
 
   # Clean up
   cd "$REPO_DIR"
@@ -230,7 +230,7 @@ force_merge() {
   git diff --cached --quiet || \
     git commit -m "publish: auto-merge $branch (stale > ${PR_MAX_AGE_DAYS}d)"
 
-  git push "$REMOTE" HEAD:"$TARGET_BRANCH" --force
+  git push "$REMOTE" HEAD:"refs/heads/$TARGET_BRANCH" --force
 
   # Tag
   local tag_name="${TAG_PREFIX}-merged-${DATE_STAMP}"
