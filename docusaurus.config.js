@@ -14,10 +14,8 @@ const config = {
   url: 'https://OsgiliathEnterprise.github.io',
   baseUrl: '/kb/',
 
-  deployment: {
-    type: 'github',
-    organization: 'OsgiliathEnterprise',
-  },
+  organizationName: 'OsgiliathEnterprise',
+  projectName: 'kb',
 
   onBrokenLinks: 'throw',
 
