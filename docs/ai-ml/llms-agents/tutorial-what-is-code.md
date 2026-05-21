@@ -1,10 +1,13 @@
 ---
+
 title: "What Is Code? (Unmesh Joshi, Thoughtworks)"
 description: "What Is Code? (Unmesh Joshi, Thoughtworks)"
-tags: [tutorial,learning, AI & Machine Learning]
+tags: [tutorial,learning, "AI & Machine Learning"]
 date: 2026-05-18
-sidebar_label: What Is Code? (Unmesh Joshi, Thoughtworks)
+sidebar_label: "What Is Code? (Unmesh Joshi, Thoughtworks)"
+
 ---
+
 
 
 # What Is Code? (Unmesh Joshi, Thoughtworks)

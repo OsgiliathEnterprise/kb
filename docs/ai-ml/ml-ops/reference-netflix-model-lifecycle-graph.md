@@ -1,10 +1,13 @@
 ---
+
 title: "Netflix Model Lifecycle Graph: Democratizing ML at Scale"
 description: "Netflix Model Lifecycle Graph: Democratizing ML at Scale"
 tags: [ml-ops,metadata,lineage,netflix,mlops, General]
 date: 2026-05-19
-sidebar_label: Netflix Model Lifecycle Graph: Democratizing ML at Scale
+sidebar_label: "Netflix Model Lifecycle Graph: Democratizing ML at Scale"
+
 ---
+
 
 
 

@@ -1,10 +1,13 @@
 ---
+
 title: "GitHub Takes Aim at Claude Code and Codex with Its New Copilot App"
 description: "GitHub Takes Aim at Claude Code and Codex with Its New Copilot App"
-tags: [howto,guide, AI & Machine Learning]
+tags: [howto,guide, "AI & Machine Learning"]
 date: 2026-05-17
-sidebar_label: GitHub Takes Aim at Claude Code and Codex with Its New Copil
+sidebar_label: "GitHub Takes Aim at Claude Code and Codex with Its New Copil"
+
 ---
+
 
 
 # GitHub Takes Aim at Claude Code and Codex with Its New Copilot App

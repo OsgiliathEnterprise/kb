@@ -1,10 +1,13 @@
 ---
+
 title: "AI is a technology not a product"
 description: "AI is a technology not a product"
-tags: [reference,documentation, AI & Machine Learning]
+tags: [reference,documentation, "AI & Machine Learning"]
 date: 2026-05-17
-sidebar_label: AI is a technology not a product
+sidebar_label: "AI is a technology not a product"
+
 ---
+
 
 
 # AI is a technology not a product

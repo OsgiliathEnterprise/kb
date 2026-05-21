@@ -1,8 +1,11 @@
 ---
+
 sidebar_position: 1
-title: Welcome to the Archives
-description: Introduction to the Osgiliath Enterprise Knowledge Base
+title: "Welcome to the Archives"
+description: "Introduction to the Osgiliath Enterprise Knowledge Base"
+
 ---
+
 
 # Welcome to the Archives
 

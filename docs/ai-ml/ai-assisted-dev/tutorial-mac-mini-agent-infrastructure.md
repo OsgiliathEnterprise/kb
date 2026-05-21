@@ -1,10 +1,13 @@
 ---
+
 title: "The Mac mini Just Became Infrastructure"
 description: "The Mac mini Just Became Infrastructure"
-tags: [tutorial,learning, AI & Machine Learning]
+tags: [tutorial,learning, "AI & Machine Learning"]
 date: 2026-05-17
-sidebar_label: The Mac mini Just Became Infrastructure
+sidebar_label: "The Mac mini Just Became Infrastructure"
+
 ---
+
 
 
 # The Mac mini Just Became Infrastructure
@@ -84,8 +87,8 @@ ollama rm <model-name>
 - **Network exposure** — if exposing Ollama locally, add authentication to prevent unauthorized access
 
 ## Related Topics
-- [howto-forward-deployed-engineer-ai](.howto-forward-deployed-engineer-ai)
-- [reference-the-hidden-cost-of-build-vs-buy-for-agentic-ai-in-regulated-](.reference-the-hidden-cost-of-build-vs-buy-for-agentic-ai-in-regulated-)
+- [howto-forward-deployed-engineer-ai](./howto-forward-deployed-engineer-ai)
+- [reference-the-hidden-cost-of-build-vs-buy-for-agentic-ai-in-regulated](./reference-the-hidden-cost-of-build-vs-buy-for-agentic-ai-in-regulated)
 
 ## References
 - 📰 [The Mac mini just became infrastructure](https://thenewstack.io/mac-mini-agent-infrastructure/) via TheNewStack (2026-05-17)

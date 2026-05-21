@@ -1,10 +1,13 @@
 ---
+
 title: "Benchmarking AI Agents on Kubernetes"
 description: "Benchmarking AI Agents on Kubernetes"
-tags: [example,casestudy, Cloud & Infrastructure]
+tags: [example,casestudy, "Cloud & Infrastructure"]
 date: 2026-05-17
-sidebar_label: Benchmarking AI Agents on Kubernetes
+sidebar_label: "Benchmarking AI Agents on Kubernetes"
+
 ---
+
 
 
 # Benchmarking AI Agents on Kubernetes

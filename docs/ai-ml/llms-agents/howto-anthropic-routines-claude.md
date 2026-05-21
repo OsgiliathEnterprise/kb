@@ -1,10 +1,13 @@
 ---
+
 title: "Anthropic Introduces Routines for Claude Code Automation"
 description: "Anthropic Introduces Routines for Claude Code Automation"
-tags: [howto,guide, AI & Machine Learning]
+tags: [howto,guide, "AI & Machine Learning"]
 date: 2026-05-17
-sidebar_label: Anthropic Introduces Routines for Claude Code Automation
+sidebar_label: "Anthropic Introduces Routines for Claude Code Automation"
+
 ---
+
 
 
 # Anthropic Introduces Routines for Claude Code Automation

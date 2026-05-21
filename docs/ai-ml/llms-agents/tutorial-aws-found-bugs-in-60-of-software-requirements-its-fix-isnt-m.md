@@ -1,10 +1,13 @@
 ---
+
 title: "AWS found bugs in 60% of software requirements. Its fix isn’t more AI — it’s a 50-year-old logic engine."
 description: "AWS found bugs in 60% of software requirements. Its fix isn’t more AI — it’s a 50-year-old logic engine."
-tags: [tutorial,learning, AI & Machine Learning]
+tags: [tutorial,learning, "AI & Machine Learning"]
 date: 2026-05-17
-sidebar_label: AWS found bugs in 60% of software requirements. Its fix isn’
+sidebar_label: "AWS found bugs in 60% of software requirements. Its fix isn’"
+
 ---
+
 
 
 # AWS found bugs in 60% of software requirements. Its fix isn’t more AI — it’s a 50-year-old logic engine.

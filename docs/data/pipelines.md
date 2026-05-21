@@ -1,7 +1,10 @@
 ---
+
 sidebar_position: 1
-title: Data Pipelines
+title: "Data Pipelines"
+
 ---
+
 
 # Data Pipelines
 

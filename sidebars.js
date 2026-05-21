@@ -26,7 +26,7 @@ const sidebars = {
           items: [
             'ai-ml/ai-assisted-dev/howto-forward-deployed-engineer-ai',
             'ai-ml/ai-assisted-dev/howto-fragments-may-5-lattice-framework',
-            'ai-ml/ai-assisted-dev/reference-the-hidden-cost-of-build-vs-buy-for-agentic-ai-in-regulated-',
+            'ai-ml/ai-assisted-dev/reference-the-hidden-cost-of-build-vs-buy-for-agentic-ai-in-regulated',
             'ai-ml/ai-assisted-dev/tutorial-mac-mini-agent-infrastructure',
           ],
         },
@@ -35,7 +35,7 @@ const sidebars = {
           label: 'LLMs & Agents',
           items: [
             'ai-ml/llms-agents/example-structured-prompt-driven-development-spdd',
-            'ai-ml/llms-agents/example-the-clean-up-cost-of-ai-generated-code-is-what-the-velocity-',
+            'ai-ml/llms-agents/example-the-clean-up-cost-of-ai-generated-code-is-what-the-velocity',
             'ai-ml/llms-agents/howto-anthropic-routines-claude',
             'ai-ml/llms-agents/howto-aws-bedrock-agentcore-payments',
             'ai-ml/llms-agents/howto-aws-mcp-server-ga',

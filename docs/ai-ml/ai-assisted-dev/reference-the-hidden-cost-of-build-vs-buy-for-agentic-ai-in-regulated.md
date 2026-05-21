@@ -1,10 +1,13 @@
 ---
+
 title: "The hidden cost of build vs. buy for agentic AI in regulated industries"
 description: "The hidden cost of build vs. buy for agentic AI in regulated industries"
-tags: [reference,documentation, AI & Machine Learning]
+tags: [reference,documentation, "AI & Machine Learning"]
 date: 2026-05-17
-sidebar_label: The hidden cost of build vs. buy for agentic AI in regulated
+sidebar_label: "The hidden cost of build vs. buy for agentic AI in regulated"
+
 ---
+
 
 
 # The hidden cost of build vs. buy for agentic AI in regulated industries

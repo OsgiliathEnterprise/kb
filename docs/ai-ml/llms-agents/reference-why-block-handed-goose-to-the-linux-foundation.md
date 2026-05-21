@@ -1,10 +1,13 @@
 ---
+
 title: "Why Block handed Goose to the Linux Foundation"
 description: "Why Block handed Goose to the Linux Foundation"
-tags: [reference,documentation, AI & Machine Learning]
+tags: [reference,documentation, "AI & Machine Learning"]
 date: 2026-05-17
-sidebar_label: Why Block handed Goose to the Linux Foundation
+sidebar_label: "Why Block handed Goose to the Linux Foundation"
+
 ---
+
 
 
 # Why Block handed Goose to the Linux Foundation

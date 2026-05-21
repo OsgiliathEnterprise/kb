@@ -1,10 +1,13 @@
 ---
+
 title: "How to Emulate LEFT JOIN FETCH Using Record-Based Projections"
 description: "How to Emulate LEFT JOIN FETCH Using Record-Based Projections"
 tags: [howto,guide, Programming]
 date: 2026-05-17
-sidebar_label: How to Emulate LEFT JOIN FETCH Using Record-Based Projection
+sidebar_label: "How to Emulate LEFT JOIN FETCH Using Record-Based Projection"
+
 ---
+
 
 
 # How to Emulate LEFT JOIN FETCH Using Record-Based Projections

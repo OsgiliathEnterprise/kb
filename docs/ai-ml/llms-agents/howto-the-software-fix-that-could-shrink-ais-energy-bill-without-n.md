@@ -1,10 +1,13 @@
 ---
+
 title: "The software fix that could shrink AI’s energy bill without new hardware"
 description: "The software fix that could shrink AI’s energy bill without new hardware"
-tags: [howto,guide, AI & Machine Learning]
+tags: [howto,guide, "AI & Machine Learning"]
 date: 2026-05-17
-sidebar_label: The software fix that could shrink AI’s energy bill without 
+sidebar_label: "The software fix that could shrink AI’s energy bill without"
+
 ---
+
 
 
 # The software fix that could shrink AI’s energy bill without new hardware

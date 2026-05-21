@@ -1,10 +1,13 @@
 ---
+
 title: "S3 Vectors: RAG Without Vector Database"
 description: "S3 Vectors: RAG Without Vector Database"
 tags: [aws,s3,rag,vectors,serverless, General]
 date: 2026-05-19
-sidebar_label: S3 Vectors: RAG Without Vector Database
+sidebar_label: "S3 Vectors: RAG Without Vector Database"
+
 ---
+
 
 
 
@@ -18,7 +21,7 @@ Amazon S3 Vectors eliminates the need for external vector databases (Pinecone, W
 - **Scale:** Up to 2 billion vectors per index across 31+ AWS regions
 - **Architecture:** 3 phases, 2 services (S3 Vectors + Amazon Bedrock), zero infrastructure
 - **Cost:** Pay-per-use; up to 90% cheaper than managed alternatives at scale
-- **Latency:** ~100ms (frequent queries), <1s (infrequent queries)
+- **Latency:** ~100ms (frequent queries), \<1s (infrequent queries)
 
 ## Comparison: S3 Vectors vs Managed Vector DB
 
@@ -26,7 +29,7 @@ Amazon S3 Vectors eliminates the need for external vector databases (Pinecone, W
 |---------|-----------|-------------------|
 | Infrastructure | None - fully serverless | Clusters, shards, replicas |
 | Scale | 2B vectors/index, 10K indexes/bucket | Varies, often requires re-sharding |
-| Query Latency | ~100ms (frequent), <1s (infrequent) | ~10-50ms |
+| Query Latency | ~100ms (frequent), \<1s (infrequent) | ~10-50ms |
 | Cost Model | Pay per PUT + storage + query | Hourly/monthly compute + storage |
 | Metadata Filtering | Up to 50 keys | Full query language |
 | Best For | RAG, agent memory, semantic search | High-QPS production search |

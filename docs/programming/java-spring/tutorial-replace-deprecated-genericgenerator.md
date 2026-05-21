@@ -1,10 +1,13 @@
 ---
+
 title: "The Best Way to Replace the Deprecated @GenericGenerator"
 description: "The Best Way to Replace the Deprecated @GenericGenerator"
 tags: [tutorial,learning, Programming]
 date: 2026-05-17
-sidebar_label: The Best Way to Replace the Deprecated @GenericGenerator
+sidebar_label: "The Best Way to Replace the Deprecated @GenericGenerator"
+
 ---
+
 
 
 # The Best Way to Replace the Deprecated @GenericGenerator

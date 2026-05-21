@@ -1,10 +1,13 @@
 ---
+
 title: "Every AI Subscription Is a Ticking Time Bomb for Enterprise"
 description: "Every AI Subscription Is a Ticking Time Bomb for Enterprise"
-tags: [reference,documentation, AI & Machine Learning]
+tags: [reference,documentation, "AI & Machine Learning"]
 date: 2026-05-17
-sidebar_label: Every AI Subscription Is a Ticking Time Bomb for Enterprise
+sidebar_label: "Every AI Subscription Is a Ticking Time Bomb for Enterprise"
+
 ---
+
 
 
 # Every AI Subscription Is a Ticking Time Bomb for Enterprise

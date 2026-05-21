@@ -1,10 +1,13 @@
 ---
+
 title: "Fragments: May 5 — Lattice Framework, Internal Reprogrammability & AI Liability"
 description: "Fragments: May 5 — Lattice Framework, Internal Reprogrammability & AI Liability"
-tags: [howto,guide, AI & Machine Learning]
+tags: [howto, guide, "AI & Machine Learning"]
 date: 2026-05-18
-sidebar_label: Fragments: May 5 — Lattice Framework, Internal Reprogrammabi
+sidebar_label: "Fragments: May 5 — Lattice Framework, Internal Reprogrammability & AI Liability"
+
 ---
+
 
 
 # Fragments: May 5 — Lattice Framework, Internal Reprogrammability & AI Liability

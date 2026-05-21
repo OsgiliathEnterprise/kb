@@ -1,10 +1,13 @@
 ---
+
 title: "Context-Aware Authorization for AI Agents"
 description: "Context-Aware Authorization for AI Agents"
 tags: [security,authorization,ai-agents,rbac,middleware, General]
 date: 2026-05-19
-sidebar_label: Context-Aware Authorization for AI Agents
+sidebar_label: "Context-Aware Authorization for AI Agents"
+
 ---
+
 
 
 

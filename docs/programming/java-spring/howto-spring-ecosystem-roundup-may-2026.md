@@ -1,10 +1,13 @@
 ---
+
 title: "Spring Ecosystem Roundup: May 2026 — AI Integration, Upgrades & OSS Security"
 description: "Spring Ecosystem Roundup: May 2026 — AI Integration, Upgrades & OSS Security"
 tags: [howto,guide, Programming]
 date: 2026-05-17
-sidebar_label: Spring Ecosystem Roundup: May 2026 — AI Integration, Upgrade
+sidebar_label: "Spring Ecosystem Roundup: May 2026 — AI Integration, Upgrade"
+
 ---
+
 
 
 # Spring Ecosystem Roundup: May 2026 — AI Integration, Upgrades & OSS Security

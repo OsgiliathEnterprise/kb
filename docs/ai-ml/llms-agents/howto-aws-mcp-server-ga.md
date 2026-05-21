@@ -1,10 +1,13 @@
 ---
+
 title: "The AWS MCP Server is Now Generally Available"
 description: "The AWS MCP Server is Now Generally Available"
-tags: [howto,guide, AI & Machine Learning]
+tags: [howto,guide, "AI & Machine Learning"]
 date: 2026-05-17
-sidebar_label: The AWS MCP Server is Now Generally Available
+sidebar_label: "The AWS MCP Server is Now Generally Available"
+
 ---
+
 
 
 # The AWS MCP Server is Now Generally Available

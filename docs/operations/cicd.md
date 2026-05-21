@@ -1,7 +1,10 @@
 ---
+
 sidebar_position: 3
-title: CI/CD Pipelines
+title: "CI/CD Pipelines"
+
 ---
+
 
 # CI/CD Pipelines
 

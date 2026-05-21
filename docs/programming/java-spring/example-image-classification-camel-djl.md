@@ -1,10 +1,13 @@
 ---
+
 title: "Building an Image Classification Pipeline with Apache Camel & DJL"
 description: "Building an Image Classification Pipeline with Apache Camel & DJL"
 tags: [example,casestudy, Programming]
 date: 2026-05-18
-sidebar_label: Building an Image Classification Pipeline with Apache Camel 
+sidebar_label: "Building an Image Classification Pipeline with Apache Camel"
+
 ---
+
 
 
 # Building an Image Classification Pipeline with Apache Camel & DJL

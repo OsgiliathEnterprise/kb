@@ -1,10 +1,13 @@
 ---
+
 title: "Apple Silicon costs more than OpenRouter"
 description: "Apple Silicon costs more than OpenRouter"
-tags: [reference,documentation, AI & Machine Learning]
+tags: [reference,documentation, "AI & Machine Learning"]
 date: 2026-05-17
-sidebar_label: Apple Silicon costs more than OpenRouter
+sidebar_label: "Apple Silicon costs more than OpenRouter"
+
 ---
+
 
 
 # Apple Silicon costs more than OpenRouter

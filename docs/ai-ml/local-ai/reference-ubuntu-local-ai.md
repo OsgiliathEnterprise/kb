@@ -1,10 +1,13 @@
 ---
+
 title: "Ubuntu Embraces Local AI Instead of Cloud-First OS Integration"
 description: "Ubuntu Embraces Local AI Instead of Cloud-First OS Integration"
-tags: [reference,documentation, AI & Machine Learning]
+tags: [reference,documentation, "AI & Machine Learning"]
 date: 2026-05-17
-sidebar_label: Ubuntu Embraces Local AI Instead of Cloud-First OS Integrati
+sidebar_label: "Ubuntu Embraces Local AI Instead of Cloud-First OS Integrati"
+
 ---
+
 
 
 # Ubuntu Embraces Local AI Instead of Cloud-First OS Integration

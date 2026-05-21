@@ -1,7 +1,10 @@
 ---
+
 sidebar_position: 2
-title: Troubleshooting Guide
+title: "Troubleshooting Guide"
+
 ---
+
 
 # Troubleshooting Guide
 

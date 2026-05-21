@@ -1,10 +1,13 @@
 ---
+
 title: "Discord Reveals How a Hidden Circular Dependency Triggered Its March Voice Outage"
 description: "Discord Reveals How a Hidden Circular Dependency Triggered Its March Voice Outage"
-tags: [reference,documentation, Developer Tools & Practices]
+tags: [reference,documentation, "Developer Tools & Practices"]
 date: 2026-05-17
-sidebar_label: Discord Reveals How a Hidden Circular Dependency Triggered I
+sidebar_label: "Discord Reveals How a Hidden Circular Dependency Triggered I"
+
 ---
+
 
 
 # Discord Reveals How a Hidden Circular Dependency Triggered Its March Voice Outage

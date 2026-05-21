@@ -1,7 +1,10 @@
 ---
+
 sidebar_position: 2
-title: Authentication
+title: "Authentication"
+
 ---
+
 
 # Authentication
 

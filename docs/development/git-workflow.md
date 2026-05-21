@@ -1,7 +1,10 @@
 ---
+
 sidebar_position: 2
-title: Git Workflow
+title: "Git Workflow"
+
 ---
+
 
 # Git Workflow
 

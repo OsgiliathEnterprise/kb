@@ -1,10 +1,13 @@
 ---
+
 title: "Cloudflare Introduces Workflows V2 with Deterministic Execution and 50K Concurrent Workflows"
 description: "Cloudflare Introduces Workflows V2 with Deterministic Execution and 50K Concurrent Workflows"
-tags: [howto,guide, AI & Machine Learning]
+tags: [howto,guide, "AI & Machine Learning"]
 date: 2026-05-17
-sidebar_label: Cloudflare Introduces Workflows V2 with Deterministic Execut
+sidebar_label: "Cloudflare Introduces Workflows V2 with Deterministic Execut"
+
 ---
+
 
 
 # Cloudflare Introduces Workflows V2 with Deterministic Execution and 50K Concurrent Workflows

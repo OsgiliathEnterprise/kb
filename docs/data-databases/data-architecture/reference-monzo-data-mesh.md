@@ -1,10 +1,13 @@
 ---
+
 title: "Neobank Monzo Builds Governed Data Mesh Across 100 Teams and 12,000 dbt Models"
 description: "Neobank Monzo Builds Governed Data Mesh Across 100 Teams and 12,000 dbt Models"
-tags: [reference,documentation, Data & Databases]
+tags: [reference,documentation, "Data & Databases"]
 date: 2026-05-17
-sidebar_label: Neobank Monzo Builds Governed Data Mesh Across 100 Teams and
+sidebar_label: "Neobank Monzo Builds Governed Data Mesh Across 100 Teams and"
+
 ---
+
 
 
 # Neobank Monzo Builds Governed Data Mesh Across 100 Teams and 12,000 dbt Models

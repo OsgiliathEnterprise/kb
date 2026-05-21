@@ -1,10 +1,13 @@
 ---
-title: "Forward Deployed Engineer Is AI's Hottest Job as OpenAI and Google Race to Hire"
-description: "Forward Deployed Engineer Is AI's Hottest Job as OpenAI and Google Race to Hire"
-tags: [howto,guide, AI & Machine Learning]
+
+title: "Forward Deployed Engineer Is AIs Hottest Job as OpenAI and Google Race to Hire"
+description: "Forward Deployed Engineer Is AIs Hottest Job as OpenAI and Google Race to Hire"
+tags: [howto,guide, "AI & Machine Learning"]
 date: 2026-05-17
-sidebar_label: Forward Deployed Engineer Is AI's Hottest Job as OpenAI and 
+sidebar_label: "Forward Deployed Engineer Is AIs Hottest Job as OpenAI and"
+
 ---
+
 
 
 # Forward Deployed Engineer Is AI's Hottest Job as OpenAI and Google Race to Hire

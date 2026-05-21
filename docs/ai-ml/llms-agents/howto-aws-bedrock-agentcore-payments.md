@@ -1,10 +1,13 @@
 ---
+
 title: "AWS Weekly Roundup: Amazon Bedrock AgentCore Payments, Agent Toolkit for AWS"
 description: "AWS Weekly Roundup: Amazon Bedrock AgentCore Payments, Agent Toolkit for AWS"
-tags: [howto,guide, AI & Machine Learning]
+tags: [howto,guide, "AI & Machine Learning"]
 date: 2026-05-17
-sidebar_label: AWS Weekly Roundup: Amazon Bedrock AgentCore Payments, Agent
+sidebar_label: "AWS Weekly Roundup: Amazon Bedrock AgentCore Payments, Agent"
+
 ---
+
 
 
 # AWS Weekly Roundup: Amazon Bedrock AgentCore Payments, Agent Toolkit for AWS

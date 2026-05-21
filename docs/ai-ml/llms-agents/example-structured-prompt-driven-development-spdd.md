@@ -1,10 +1,13 @@
 ---
+
 title: "Structured-Prompt-Driven Development (SPDD)"
 description: "Structured-Prompt-Driven Development (SPDD)"
-tags: [example,casestudy, AI & Machine Learning]
+tags: [example,casestudy, "AI & Machine Learning"]
 date: 2026-05-18
-sidebar_label: Structured-Prompt-Driven Development (SPDD)
+sidebar_label: "Structured-Prompt-Driven Development (SPDD)"
+
 ---
+
 
 
 # Structured-Prompt-Driven Development (SPDD)

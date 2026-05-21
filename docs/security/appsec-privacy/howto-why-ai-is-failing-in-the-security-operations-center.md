@@ -1,10 +1,13 @@
 ---
+
 title: "Why AI is failing in the security operations center"
 description: "Why AI is failing in the security operations center"
-tags: [howto,guide, Security & Privacy]
+tags: [howto,guide, "Security & Privacy"]
 date: 2026-05-17
-sidebar_label: Why AI is failing in the security operations center
+sidebar_label: "Why AI is failing in the security operations center"
+
 ---
+
 
 diataxis: howto
 domain: Security & Privacy

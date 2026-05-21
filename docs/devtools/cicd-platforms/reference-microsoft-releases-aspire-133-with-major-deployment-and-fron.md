@@ -1,10 +1,13 @@
 ---
+
 title: "Microsoft Releases Aspire 13.3 with Major Deployment and Frontend Updates"
 description: "Microsoft Releases Aspire 13.3 with Major Deployment and Frontend Updates"
-tags: [reference,documentation, Developer Tools & Practices]
+tags: [reference,documentation, "Developer Tools & Practices"]
 date: 2026-05-17
-sidebar_label: Microsoft Releases Aspire 13.3 with Major Deployment and Fro
+sidebar_label: "Microsoft Releases Aspire 13.3 with Major Deployment and Fro"
+
 ---
+
 
 
 # Microsoft Releases Aspire 13.3 with Major Deployment and Frontend Updates

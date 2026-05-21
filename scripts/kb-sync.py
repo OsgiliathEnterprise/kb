@@ -110,14 +110,25 @@ def convert_kb_to_docusaurus(kb_file, output_file):
     body = body.rstrip() + "\n"
     
     # Create Docusaurus frontmatter
-    sidebar_label = title[:60] if len(title) > 60 else title
-    
+    # Truncate sidebar_label at word boundary, max 60 chars
+    if len(title) > 60:
+        truncated = title[:60].rsplit(' ', 1)[0]
+        sidebar_label = truncated if truncated else title[:60]
+    else:
+        sidebar_label = title
+
+    # Remove embedded quotes that break YAML double-quoted strings
+    safe_title = title.replace('"', '').replace("'", "")
+    safe_sidebar = sidebar_label.replace('"', '').replace("'", "")
+    # Domain names with & or commas need quoting in YAML arrays
+    safe_domain = domain.replace('"', '').replace("'", "")
+
     frontmatter = f"""---
-title: "{title}"
-description: "{title}"
-tags: [{tags}, {domain}]
+title: "{safe_title}"
+description: "{safe_title}"
+tags: [{tags}, "{safe_domain}"]
 date: {date}
-sidebar_label: {sidebar_label}
+sidebar_label: "{safe_sidebar}"
 ---
 
 """
@@ -138,6 +149,10 @@ for kb_file in kb_files:
         continue
     
     filename = kb_file.stem
+    # Clean filename: lowercase, strip trailing hyphens/dots, max 80 chars
+    if len(filename) > 80:
+        filename = filename[:80].rsplit(' ', 1)[0]
+    filename = filename.rstrip('-_.')
     output_file = DOCS_DIR / dest_folder / f"{filename}.md"
     
     # Check if update or add

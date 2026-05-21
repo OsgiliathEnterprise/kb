@@ -1,10 +1,13 @@
 ---
+
 title: "OpenAI Open-Sources Symphony: Autonomous Coding Agent Orchestration"
 description: "OpenAI Open-Sources Symphony: Autonomous Coding Agent Orchestration"
-tags: [news,article, AI & Machine Learning]
+tags: [news,article, "AI & Machine Learning"]
 date: 2026-05-18
-sidebar_label: OpenAI Open-Sources Symphony: Autonomous Coding Agent Orches
+sidebar_label: "OpenAI Open-Sources Symphony: Autonomous Coding Agent Orches"
+
 ---
+
 
 
 # OpenAI Open-Sources Symphony: Autonomous Coding Agent Orchestration

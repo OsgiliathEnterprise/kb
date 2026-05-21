@@ -1,7 +1,10 @@
 ---
+
 sidebar_position: 1
-title: Coding Standards
+title: "Coding Standards"
+
 ---
+
 
 # Coding Standards
 

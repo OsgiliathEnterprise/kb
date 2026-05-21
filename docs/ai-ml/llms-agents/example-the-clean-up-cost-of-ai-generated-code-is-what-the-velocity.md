@@ -1,10 +1,13 @@
 ---
+
 title: "The clean-up cost of AI-generated code is what the velocity narrative leaves out"
 description: "The clean-up cost of AI-generated code is what the velocity narrative leaves out"
-tags: [example,casestudy, AI & Machine Learning]
+tags: [example,casestudy, "AI & Machine Learning"]
 date: 2026-05-17
-sidebar_label: The clean-up cost of AI-generated code is what the velocity 
+sidebar_label: "The clean-up cost of AI-generated code is what the velocity"
+
 ---
+
 
 
 # The clean-up cost of AI-generated code is what the velocity narrative leaves out

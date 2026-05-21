@@ -1,10 +1,13 @@
 ---
+
 title: "Kubernetes v1.36 Release Overview"
 description: "Kubernetes v1.36 Release Overview"
-tags: [reference,documentation, Cloud & Infrastructure]
+tags: [reference,documentation, "Cloud & Infrastructure"]
 date: 2026-05-17
-sidebar_label: Kubernetes v1.36 Release Overview
+sidebar_label: "Kubernetes v1.36 Release Overview"
+
 ---
+
 
 
 # Kubernetes v1.36 Release Overview

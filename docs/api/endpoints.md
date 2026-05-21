@@ -1,7 +1,10 @@
 ---
+
 sidebar_position: 3
-title: Endpoints Reference
+title: "Endpoints Reference"
+
 ---
+
 
 # Endpoints Reference
 

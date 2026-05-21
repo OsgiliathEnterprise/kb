@@ -1,10 +1,13 @@
 ---
+
 title: "Agent Protocol Stack: MCP vs A2A vs AG-UI"
 description: "Agent Protocol Stack: MCP vs A2A vs AG-UI"
 tags: [agents,protocols,mcp,a2a,ag-ui,architecture, General]
 date: 2026-05-19
-sidebar_label: Agent Protocol Stack: MCP vs A2A vs AG-UI
+sidebar_label: "Agent Protocol Stack: MCP vs A2A vs AG-UI"
+
 ---
+
 
 
 
@@ -18,9 +21,9 @@ Three emerging protocols for AI agent systems that work together at different la
 
 | Protocol | Created By | Connects | Purpose |
 |----------|------------|----------|---------|
-| **MCP** | Anthropic | Agent <-> Tools & Data | "How does my agent use tools?" |
-| **A2A** | Google / Linux Foundation | Agent <-> Agent | "How do agents talk to each other?" |
-| **AG-UI** | CopilotKit | Agent <-> User Interface | "How does my agent talk to the user?" |
+| **MCP** | Anthropic | Agent \<-> Tools & Data | "How does my agent use tools?" |
+| **A2A** | Google / Linux Foundation | Agent \<-> Agent | "How do agents talk to each other?" |
+| **AG-UI** | CopilotKit | Agent \<-> User Interface | "How does my agent talk to the user?" |
 
 ## MCP (Model Context Protocol) - Tool Layer
 
