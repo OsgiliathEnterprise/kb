@@ -1,14 +1,12 @@
 ---
-
-title: "The clean-up cost of AI-generated code is what the velocity narrative leaves out"
-description: "The clean-up cost of AI-generated code is what the velocity narrative leaves out"
-tags: [example,casestudy, "AI & Machine Learning"]
+title: "The Clean-Up Cost of AI-Generated Code Is What the Velocity Narrative Leaves Out"
+slug: /ai-ml/llms-agents/example-the-clean-up-cost-of-ai-generated-code-is-what-the-velocity
+description: "AI-generated code delivers unprecedented velocity, but the long-term cleanup costs are systematically ignored. Hidden debt accumulates across engineering teams, independent developers, citizen developers, and platform ecosystems."
+tags: [AI, code-generation, technical-debt, security, cleanup-costs]
 date: 2026-05-17
-sidebar_label: "The clean-up cost of AI-generated code is what the velocity"
-
+source: The New Stack
+source_url: https://thenewstack.io/cleanup-cost-ai-code/
 ---
-
-
 
 # The clean-up cost of AI-generated code is what the velocity narrative leaves out
 
@@ -36,4 +34,4 @@ AI-generated code delivers unprecedented velocity, but the long-term cleanup cos
 | **P1** | Reviewer Fatigue | Implement AI-assisted code review tools; rotate review assignments to prevent burnout |
 
 ## References
-- 📰 Original: [The clean-up cost of AI-generated code](https://thenewstack.io/cleanup-cost-ai-code/) by Ankit Agrawal, The New Stack (2026-05-16)
+- Original: [The clean-up cost of AI-generated code](https://thenewstack.io/cleanup-cost-ai-code/) by Ankit Agrawal, The New Stack (2026-05-16)

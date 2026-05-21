@@ -26,7 +26,6 @@ const sidebars = {
           items: [
             'ai-ml/ai-assisted-dev/howto-forward-deployed-engineer-ai',
             'ai-ml/ai-assisted-dev/howto-fragments-may-5-lattice-framework',
-            'ai-ml/ai-assisted-dev/reference-the-hidden-cost-of-build-vs-buy-for-agentic-ai-in-regulated',
             'ai-ml/ai-assisted-dev/tutorial-mac-mini-agent-infrastructure',
           ],
         },
@@ -35,7 +34,7 @@ const sidebars = {
           label: 'LLMs & Agents',
           items: [
             'ai-ml/llms-agents/example-structured-prompt-driven-development-spdd',
-            'ai-ml/llms-agents/example-the-clean-up-cost-of-ai-generated-code-is-what-the-velocity',
+            'ai-ml/llms-agents/example-the-clean-up-cost-of-ai-generated-code-is-what-the-velocity-',
             'ai-ml/llms-agents/howto-anthropic-routines-claude',
             'ai-ml/llms-agents/howto-aws-bedrock-agentcore-payments',
             'ai-ml/llms-agents/howto-aws-mcp-server-ga',
@@ -45,7 +44,6 @@ const sidebars = {
             'ai-ml/llms-agents/news-openai-symphony-agents',
             'ai-ml/llms-agents/reference-agent-protocol-stack-mcp-a2a-ag-ui',
             'ai-ml/llms-agents/reference-ai-is-a-technology-not-a-product',
-            'ai-ml/llms-agents/reference-apple-silicon-costs-more-than-openrouter',
             'ai-ml/llms-agents/reference-every-ai-subscription-is-a-ticking-time-bomb-for-enterprise',
             'ai-ml/llms-agents/reference-i-dont-think-ai-will-make-your-processes-go-faster',
             'ai-ml/llms-agents/reference-why-block-handed-goose-to-the-linux-foundation',
@@ -88,7 +86,6 @@ const sidebars = {
           type: 'category',
           label: 'Kubernetes',
           items: [
-            'cloud-infra/kubernetes/example-benchmarking-ai-agents-on-kubernetes',
             'cloud-infra/kubernetes/reference-kubernetes-v136-release-overview',
           ],
         },
@@ -121,13 +118,7 @@ const sidebars = {
             'devtools/architecture-reliability/reference-three-layer-architecture-production-ai',
           ],
         },
-        {
-          type: 'category',
-          label: 'CI/CD & Platforms',
-          items: [
-            'devtools/cicd-platforms/reference-microsoft-releases-aspire-133-with-major-deployment-and-fron',
-          ],
-        },
+
       ],
     },
     {
