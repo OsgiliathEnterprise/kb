@@ -1,6 +1,6 @@
 ---
 title: AI is a technology not a product
-diataxis: Reference
+diataxis: Explanation
 domain: AI & Machine Learning
 topic: LLMs & Agents
 source: Hacker News

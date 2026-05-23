@@ -1,6 +1,6 @@
 ---
 title: 'S3 Vectors: RAG Without Vector Database'
-diataxis: Reference
+diataxis: Explanation
 domain: Cloud & Infrastructure
 topic: ''
 source: https://feeds.dzone.com/link/23558/17344321/build-rag-without-vector-database
@@ -29,6 +29,29 @@ Amazon S3 Vectors eliminates the need for external vector databases (Pinecone, W
 | Best For | RAG, agent memory, semantic search | High-QPS production search |
 
 **Tradeoff:** S3 Vectors trades single-digit-millisecond latency for zero operational overhead and dramatically lower costs.
+
+## Vector Database Fundamentals
+
+A vector database stores and retrieves **embeddings** — numerical representations of data in vector space. Unlike traditional databases that look up records by exact match, vector databases implement **Approximate Nearest Neighbor (ANN)** algorithms to find records semantically similar to a given input.
+
+### Distance Metrics
+| Metric | Best For | Notes |
+|--------|----------|-------|
+| **Cosine Similarity** | Text embeddings, semantic search | Measures angle between vectors, ignores magnitude; most common for text |
+| **Euclidean (L2)** | Image embeddings, spatial data | Measures straight-line distance; sensitive to vector magnitude |
+| **Dot Product** | Pre-normalized vectors | Fast computation; equivalent to cosine when vectors are unit-normalized |
+
+### ANN vs. Exact Nearest Neighbor
+- **KNN (Exact):** Guarantees finding the true nearest neighbors but scales poorly (O(n·d) per query)
+- **ANN (Approximate):** Trades small accuracy loss for dramatic speedup using indexing structures (HNSW, IVF, PQ)
+- S3 Vectors uses ANN internally, achieving ~100ms latency at billion-vector scale
+
+### Common Use Cases
+- Similarity search and semantic search
+- Retrieval-augmented generation (RAG)
+- Recommendation engines
+- Multi-modal search (text → image, image → text)
+- Object detection and anomaly detection
 
 ## Implementation (~50 Lines Python)
 

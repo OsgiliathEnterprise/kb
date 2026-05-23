@@ -1,7 +1,7 @@
 ---
 title: Discord Reveals How a Hidden Circular Dependency Triggered Its March Voice
   Outage
-diataxis: Reference
+diataxis: Explanation
 domain: Developer Tools & Practices
 topic: Architecture & Reliability
 source: InfoQ

@@ -3,7 +3,7 @@ title: How to Enable Nvidia 3D Acceleration (VirGL) in a System-Wide QEMU/KVM VM
   Fedora
 diataxis: How-to Guide
 domain: Cloud & Infrastructure
-topic: ''
+topic: Virtualization
 source: ''
 date: 2026-05-18
 ---

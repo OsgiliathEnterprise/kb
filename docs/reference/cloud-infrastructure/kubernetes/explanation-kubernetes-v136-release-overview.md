@@ -1,6 +1,6 @@
 ---
 title: 'Kubernetes v1.36: ハル (Haru) — Release Overview'
-diataxis: Reference
+diataxis: Explanation
 domain: Cloud & Infrastructure
 topic: Kubernetes
 source: Kubernetes

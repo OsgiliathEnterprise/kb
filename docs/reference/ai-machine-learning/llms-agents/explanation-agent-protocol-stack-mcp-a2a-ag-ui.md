@@ -1,6 +1,6 @@
 ---
 title: 'Agent Protocol Stack: MCP vs A2A vs AG-UI'
-diataxis: Reference
+diataxis: Explanation
 domain: AI & Machine Learning
 topic: LLMs & Agents
 source: https://feeds.dzone.com/link/23558/17342004/mcp-vs-a2a-vs-agui

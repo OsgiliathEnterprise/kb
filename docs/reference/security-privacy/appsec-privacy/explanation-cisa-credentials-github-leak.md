@@ -1,6 +1,6 @@
 ---
 title: 'CISA Sensitive Data Leak: Public GitHub Repository Exposure'
-diataxis: Reference
+diataxis: Explanation
 domain: Security & Privacy
 topic: AppSec & Privacy
 source: Developpez

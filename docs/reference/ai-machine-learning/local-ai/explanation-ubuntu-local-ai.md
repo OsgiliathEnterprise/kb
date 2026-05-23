@@ -1,6 +1,6 @@
 ---
 title: Ubuntu Embraces Local AI Instead of Cloud-First OS Integration
-diataxis: Reference
+diataxis: Explanation
 domain: AI & Machine Learning
 topic: Local AI
 source: InfoQ

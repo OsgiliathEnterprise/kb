@@ -18,11 +18,13 @@ DOCS_DIR  = Path("/home/tcharlopenclaw/code/kb/docs/")
 SIDEBARS  = Path("/home/tcharlopenclaw/code/kb/sidebars.js")
 
 # Diátaxis type mapping from filename prefix
+# Note: KB uses 'explanation' instead of 'reference' — both map to 'reference' docs path
 DIATAXIS_TYPES = {
     'tutorial': 'tutorials',
     'howto': 'how-to',
     'how-to': 'how-to',
     'reference': 'reference',
+    'explanation': 'reference',
     'example': 'examples',
     'news': 'reference',  # news articles become references
 }
@@ -68,13 +70,22 @@ def sanitize_dirname(name: str) -> str:
     return slug
 
 
-def detect_diataxis_type(filename: str) -> str:
-    """Extract Diátaxis type from filename prefix."""
+def detect_diataxis_type(filename: str) -> tuple:
+    """Extract (docs_path, display_label) from filename prefix."""
     name = filename.lower().replace(".md", "").replace(".mdx", "")
-    for prefix, diataxis_type in DIATAXIS_TYPES.items():
+    display_map = {
+        'tutorial': ('tutorials', 'Tutorial'),
+        'howto': ('how-to', 'How-to Guide'),
+        'how-to': ('how-to', 'How-to Guide'),
+        'reference': ('reference', 'Reference'),
+        'explanation': ('reference', 'Explanation'),
+        'example': ('examples', 'Example'),
+        'news': ('reference', 'News'),
+    }
+    for prefix, (docs_path, label) in display_map.items():
         if name.startswith(prefix + '-') or name.startswith(prefix + '_'):
-            return diataxis_type
-    return 'reference'  # default
+            return docs_path, label
+    return 'reference', 'Explanation'  # default
 
 
 def fix_yaml_frontmatter(content: str, meta: dict, diataxis_type: str) -> str:
@@ -94,17 +105,12 @@ def fix_yaml_frontmatter(content: str, meta: dict, diataxis_type: str) -> str:
         body = content
         existing = {}
 
-    # Map internal type to display-friendly Diátaxis label
-    diataxis_display = {
-        'tutorials': 'Tutorial',
-        'how-to': 'How-to Guide',
-        'reference': 'Reference',
-        'examples': 'Example',
-    }
+    # Use diataxis_label from meta if available, else fallback to diataxis_type
+    diataxis_display = meta.get('diataxis_label', diataxis_type.replace('-', ' ').title())
 
     frontmatter = {
         'title': meta.get('title', ''),
-        'diataxis': diataxis_display.get(diataxis_type, 'Reference'),
+        'diataxis': diataxis_display,
         'domain': meta.get('domain', ''),
         'topic': meta.get('topic', ''),
         'source': meta.get('source', ''),
@@ -203,7 +209,7 @@ def map_kb_to_docs_path(kb_file: Path) -> tuple:
     title = meta.get('title', '') or extract_title_from_content(content)
 
     # Detect Diátaxis type from filename
-    diataxis_type = detect_diataxis_type(parts[-1])
+    diataxis_path, diataxis_label = detect_diataxis_type(parts[-1])
 
     # Build domain/topic path
     if len(parts) >= 3:
@@ -220,11 +226,11 @@ def map_kb_to_docs_path(kb_file: Path) -> tuple:
 
     slug = sanitize_filename(parts[-1])
 
-    # Build docs path: docs/<diataxis-type>/<domain>[/<topic>]/<slug>.md
+    # Build docs path: docs/<diataxis-path>/<domain>[/<topic>]/<slug>.md
     if topic:
-        dest_dir = DOCS_DIR / diataxis_type / domain / topic
+        dest_dir = DOCS_DIR / diataxis_path / domain / topic
     else:
-        dest_dir = DOCS_DIR / diataxis_type / domain
+        dest_dir = DOCS_DIR / diataxis_path / domain
 
     dest_file = dest_dir / f"{slug}.md"
 
@@ -235,7 +241,8 @@ def map_kb_to_docs_path(kb_file: Path) -> tuple:
         'source': meta.get('source', ''),
         'source_url': meta.get('source_url', ''),
         'created': meta.get('created', meta.get('research_date', '')),
-        'diataxis': diataxis_type,
+        'diataxis': diataxis_path,
+        'diataxis_label': diataxis_label,
     }
 
 
@@ -403,9 +410,10 @@ def count_by_type():
     counts = {}
     for dirpath, dirnames, filenames in os.walk(DOCS_DIR):
         dp = Path(dirpath)
-        parent = dp.parent.name if dp.parent != dp else ''
-        if parent in ('tutorials', 'how-to', 'reference', 'examples'):
-            counts[parent] = counts.get(parent, 0) + len(filenames)
+        rel = dp.relative_to(DOCS_DIR)
+        top_level = rel.parts[0] if rel.parts else ''
+        if top_level in ('tutorials', 'how-to', 'reference', 'examples'):
+            counts[top_level] = counts.get(top_level, 0) + len(filenames)
     return counts
 
 

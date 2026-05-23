@@ -1,9 +1,15 @@
 ---
 title: 'JDK 27 Post-Quantum TLS: Hybrid Key Exchange with ML-KEM'
-diataxis: Reference
-domain: REFERENCE
-topic: ''
-source: https://inside.java/2026/05/17/quality-heads-up/
+diataxis: Explanation
+domain: Programming
+topic: Java & Spring
+source: ''
+source_url: https://inside.java/2026/05/17/quality-heads-up/
+keywords:
+- knowledge-base
+- Java & Spring
+- Programming
+- reference
 ---
 # JDK 27 Post-Quantum TLS: Hybrid Key Exchange with ML-KEM
 

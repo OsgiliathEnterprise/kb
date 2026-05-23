@@ -1,9 +1,15 @@
 ---
 title: Securing AI Agent Infrastructure with MCP Tunnels and Sandboxes
-diataxis: Reference
-domain: HOWTO
-topic: ''
-source: https://thenewstack.io/anthropic-mcp-tunnels-sandboxes/
+diataxis: How-to Guide
+domain: AI & Machine Learning
+topic: LLMs & Agents
+source: ''
+source_url: https://thenewstack.io/anthropic-mcp-tunnels-sandboxes/
+keywords:
+- knowledge-base
+- LLMs & Agents
+- AI & Machine Learning
+- how-to
 ---
 # Securing AI Agent Infrastructure with MCP Tunnels and Sandboxes
 

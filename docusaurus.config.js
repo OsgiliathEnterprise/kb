@@ -59,7 +59,18 @@ const config = {
     ],
   ],
 
-  plugins: [],
+  // Indexed local search — no Algolia needed
+  plugins: [
+    [
+      '@cmfcmf/docusaurus-search-local',
+      {
+        indexDocs: true,
+        indexBlog: false,
+        indexPages: false,
+        language: ['en'],
+      },
+    ],
+  ],
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
@@ -85,6 +96,10 @@ const config = {
             sidebarId: 'main',
             position: 'left',
             label: 'Learn',
+          },
+          {
+            type: 'search',
+            position: 'right',
           },
           {
             href: 'https://github.com/OsgiliathEnterprise',
@@ -114,8 +129,8 @@ const config = {
                 href: '/how-to/ai-machine-learning/llms-agents/howto-anthropic-routines-claude',
               },
               {
-                label: 'Reference',
-                href: '/reference/ai-machine-learning/llms-agents/reference-ai-is-a-technology-not-a-product',
+                label: 'Explanations',
+                href: '/reference/ai-machine-learning/llms-agents/explanation-ai-is-a-technology-not-a-product',
               },
               {
                 label: 'Examples',
@@ -140,7 +155,7 @@ const config = {
               },
               {
                 label: 'Security & Privacy',
-                href: '/reference/security-privacy/appsec-privacy/reference-chromium-browser-fetch-vulnerability',
+                href: '/reference/security-privacy/appsec-privacy/explanation-chromium-browser-fetch-vulnerability',
               },
             ],
           },
@@ -169,10 +184,6 @@ const config = {
         {name: 'description', content: 'Osgiliath Learning Hub — Daily tutorials, how-to guides, and technical reference on AI, cloud infrastructure, programming, and more.'},
         {name: 'keywords', content: 'tutorials, how-to guides, reference, AI, machine learning, cloud, kubernetes, programming, security, learning'},
       ],
-      // Enable Algolia-like search (DocSearch or local)
-      search: {
-        hideable: true,
-      },
     }),
 };
 

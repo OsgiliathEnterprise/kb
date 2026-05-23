@@ -1,5 +1,23 @@
 [
   {
+    "title": "Mcp Tunnels Sandboxes",
+    "type": "How-To",
+    "link": "/how-to/ai-machine-learning/llms-agents/howto-mcp-tunnels-sandboxes",
+    "time": "4 min read"
+  },
+  {
+    "title": "Nvidia 3D Acceleration Qemu Kvm Fedora",
+    "type": "How-To",
+    "link": "/how-to/cloud-infrastructure/virtualization/howto-nvidia-3d-acceleration-qemu-kvm-fedora",
+    "time": "4 min read"
+  },
+  {
+    "title": "Jvm Crash Analysis Jcmd",
+    "type": "How-To",
+    "link": "/how-to/programming/java-spring/howto-jvm-crash-analysis-jcmd",
+    "time": "4 min read"
+  },
+  {
     "title": "Replace Deprecated Genericgenerator",
     "type": "Tutorials",
     "link": "/tutorials/programming/java-spring/tutorial-replace-deprecated-genericgenerator",
@@ -16,23 +34,5 @@
     "type": "Tutorials",
     "link": "/tutorials/ai-machine-learning/aiassisted-development/tutorial-mac-mini-agent-infrastructure",
     "time": "6 min read"
-  },
-  {
-    "title": "Interrogatory Llm",
-    "type": "Tutorials",
-    "link": "/tutorials/ai-machine-learning/llms-agents/tutorial-interrogatory-llm",
-    "time": "2 min read"
-  },
-  {
-    "title": "Cisa Credentials Github Leak",
-    "type": "Reference",
-    "link": "/reference/security-privacy/appsec-privacy/reference-cisa-credentials-github-leak",
-    "time": "4 min read"
-  },
-  {
-    "title": "Context Aware Authorization Ai Agents",
-    "type": "Reference",
-    "link": "/reference/security-privacy/appsec-privacy/reference-context-aware-authorization-ai-agents",
-    "time": "3 min read"
   }
 ]

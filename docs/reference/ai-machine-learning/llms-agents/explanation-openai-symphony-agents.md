@@ -1,6 +1,6 @@
 ---
 title: 'OpenAI Open-Sources Symphony: Autonomous Coding Agent Orchestration'
-diataxis: Reference
+diataxis: Explanation
 domain: AI & Machine Learning
 topic: LLMs & Agents
 source: InfoQ
