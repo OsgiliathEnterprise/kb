@@ -21,10 +21,10 @@ function DiataxisNav() {
       color: '#c9a84c',
     },
     {
-      title: 'Reference',
-      description: 'Technical documentation, specifications, and factual information. Quick lookups for developers.',
+      title: 'Explanations',
+      description: 'Technical explanations, concepts, and factual information. Quick lookups for developers.',
       icon: '📖',
-      link: BASE_URL + 'reference/ai-machine-learning/llms-agents/reference-ai-is-a-technology-not-a-product',
+      link: BASE_URL + 'explanations/ai-machine-learning/llms-agents/explanation-ai-is-a-technology-not-a-product',
       color: '#d4572a',
     },
     {
@@ -68,9 +68,9 @@ function DomainExplorer() {
     { name: 'AI & Machine Learning', topics: 'LLMs, Local AI, ML Ops, Agent Dev', link: BASE_URL + 'tutorials/ai-machine-learning/llms-agents/tutorial-interrogatory-llm' },
     { name: 'Cloud & Infrastructure', topics: 'Kubernetes, GPU, Cloud Platforms', link: BASE_URL + 'how-to/cloud-infrastructure/kubernetes/howto-running-agents-on-kubernetes-with-agent-sandbox' },
     { name: 'Programming', topics: 'Java, Spring, Query Optimization', link: BASE_URL + 'how-to/programming/java-spring/howto-clean-up-test-data-spring' },
-    { name: 'Developer Tools', topics: 'CI/CD, Architecture, Reliability', link: BASE_URL + 'reference/developer-tools-practices/cicd-platforms/reference-ci-for-coding-agents' },
-    { name: 'Data & Databases', topics: 'Data Mesh, Warehousing, Pipelines', link: BASE_URL + 'reference/data-databases/data-architecture/reference-monzo-data-mesh' },
-    { name: 'Security & Privacy', topics: 'AppSec, Vulnerabilities, Auth', link: BASE_URL + 'reference/security-privacy/appsec-privacy/reference-chromium-browser-fetch-vulnerability' },
+    { name: 'Developer Tools', topics: 'CI/CD, Architecture, Reliability', link: BASE_URL + 'explanations/developer-tools-practices/cicd-platforms/explanation-ci-for-coding-agents' },
+    { name: 'Data & Databases', topics: 'Data Mesh, Warehousing, Pipelines', link: BASE_URL + 'explanations/data-databases/data-architecture/explanation-monzo-data-mesh' },
+    { name: 'Security & Privacy', topics: 'AppSec, Vulnerabilities, Auth', link: BASE_URL + 'explanations/security-privacy/appsec-privacy/explanation-chromium-browser-fetch-vulnerability' },
   ];
 
   return (
@@ -101,8 +101,8 @@ function WhatsNew() {
     { title: 'What Is Code', type: 'Tutorials', link: BASE_URL + 'tutorials/ai-machine-learning/llms-agents/tutorial-what-is-code', time: '4 min read' },
     { title: 'Mac Mini Agent Infrastructure', type: 'Tutorials', link: BASE_URL + 'tutorials/ai-machine-learning/aiassisted-development/tutorial-mac-mini-agent-infrastructure', time: '6 min read' },
     { title: 'Interrogatory Llm', type: 'Tutorials', link: BASE_URL + 'tutorials/ai-machine-learning/llms-agents/tutorial-interrogatory-llm', time: '2 min read' },
-    { title: 'Cisa Credentials Github Leak', type: 'Reference', link: BASE_URL + 'reference/security-privacy/appsec-privacy/reference-cisa-credentials-github-leak', time: '4 min read' },
-    { title: 'Context Aware Authorization Ai Agents', type: 'Reference', link: BASE_URL + 'reference/security-privacy/appsec-privacy/reference-context-aware-authorization-ai-agents', time: '3 min read' },
+    { title: 'Cisa Credentials Github Leak', type: 'Explanation', link: BASE_URL + 'explanations/security-privacy/appsec-privacy/explanation-cisa-credentials-github-leak', time: '4 min read' },
+    { title: 'Context Aware Authorization Ai Agents', type: 'Explanation', link: BASE_URL + 'explanations/security-privacy/appsec-privacy/explanation-context-aware-authorization-ai-agents', time: '3 min read' },
   ];
 
   return (
@@ -139,12 +139,12 @@ function DailyPick() {
     const articles = [
       { title: 'What is Code? A Deep Dive', link: BASE_URL + 'tutorials/ai-machine-learning/llms-agents/tutorial-what-is-code', type: 'Tutorial' },
       { title: 'Anthropic Routines for Claude', link: BASE_URL + 'how-to/ai-machine-learning/llms-agents/howto-anthropic-routines-claude', type: 'How-to' },
-      { title: 'Agent Protocol Stack: MCP, A2A, AG-UI', link: BASE_URL + 'reference/ai-machine-learning/llms-agents/reference-agent-protocol-stack-mcp-a2a-ag-ui', type: 'Reference' },
+      { title: 'Agent Protocol Stack: MCP, A2A, AG-UI', link: BASE_URL + 'explanations/ai-machine-learning/llms-agents/explanation-agent-protocol-stack-mcp-a2a-ag-ui', type: 'Explanation' },
       { title: 'Mac Mini Agent Infrastructure', link: BASE_URL + 'tutorials/ai-machine-learning/aiassisted-development/tutorial-mac-mini-agent-infrastructure', type: 'Tutorial' },
       { title: 'MySQL Query Optimization', link: BASE_URL + 'how-to/programming/java-spring/howto-mysql-query-optimization-releem', type: 'How-to' },
-      { title: 'Kubernetes v1.36 Release Overview', link: BASE_URL + 'reference/cloud-infrastructure/kubernetes/reference-kubernetes-v136-release-overview', type: 'Reference' },
+      { title: 'Kubernetes v1.36 Release Overview', link: BASE_URL + 'explanations/cloud-infrastructure/kubernetes/explanation-kubernetes-v136-release-overview', type: 'Explanation' },
       { title: 'Linux Second Severe Vulnerability', link: BASE_URL + 'how-to/security-privacy/appsec-privacy/howto-linux-second-severe-vulnerability', type: 'How-to' },
-      { title: 'Monzo Data Mesh Architecture', link: BASE_URL + 'reference/data-databases/data-architecture/reference-monzo-data-mesh', type: 'Reference' },
+      { title: 'Monzo Data Mesh Architecture', link: BASE_URL + 'explanations/data-databases/data-architecture/explanation-monzo-data-mesh', type: 'Explanation' },
     ];
     const dayOfYear = Math.floor((Date.now() - new Date(new Date().getFullYear(), 0, 0).getTime()) / 86400000);
     setPick(articles[dayOfYear % articles.length]);
@@ -233,7 +233,7 @@ function DailyUpdate() {
           <div>
             <h3 className={styles.updateTitle}>Fresh Content Every Day</h3>
             <p className={styles.updateText}>
-              New tutorials, how-to guides, and references are added daily from our automated research pipeline.
+              New tutorials, how-to guides, and explanations are added daily from our automated research pipeline.
               Check back regularly to discover what's new.
             </p>
           </div>
@@ -247,7 +247,7 @@ export default function Home() {
   return (
     <Layout
       title="Osgiliath Learning Hub"
-      description="Tutorials, How-to Guides, and Reference — Updated Daily"
+      description="Tutorials, How-to Guides, and Explanations — Updated Daily"
     >
       <header className={styles.hero}>
         <div className={styles.heroOverlay} />
@@ -256,7 +256,7 @@ export default function Home() {
             <div className={styles.heroBadge}>LEARNING HUB</div>
             <h1 className={styles.heroTitle}>Osgiliath</h1>
             <p className={styles.heroSubtitle}>
-              Your daily source for tutorials, guides, and technical reference
+              Your daily source for tutorials, guides, and technical explanations
             </p>
             <p className={styles.heroDescription}>
               Curated learning content on AI, cloud infrastructure, programming, security, and more.

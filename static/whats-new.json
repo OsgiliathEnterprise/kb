@@ -1,38 +1,38 @@
 [
   {
-    "title": "Mcp Tunnels Sandboxes",
-    "type": "How-To",
-    "link": "/how-to/ai-machine-learning/llms-agents/howto-mcp-tunnels-sandboxes",
+    "title": "Cisa Credentials Github Leak",
+    "type": "Explanation",
+    "link": "/explanations/security-privacy/appsec-privacy/explanation-cisa-credentials-github-leak",
     "time": "4 min read"
   },
   {
-    "title": "Nvidia 3D Acceleration Qemu Kvm Fedora",
-    "type": "How-To",
-    "link": "/how-to/cloud-infrastructure/virtualization/howto-nvidia-3d-acceleration-qemu-kvm-fedora",
+    "title": "Chromium Browser Fetch Vulnerability",
+    "type": "Explanation",
+    "link": "/explanations/security-privacy/appsec-privacy/explanation-chromium-browser-fetch-vulnerability",
     "time": "4 min read"
   },
   {
-    "title": "Jvm Crash Analysis Jcmd",
-    "type": "How-To",
-    "link": "/how-to/programming/java-spring/howto-jvm-crash-analysis-jcmd",
+    "title": "Ci For Coding Agents",
+    "type": "Explanation",
+    "link": "/explanations/developer-tools-practices/cicd-platforms/explanation-ci-for-coding-agents",
     "time": "4 min read"
   },
   {
-    "title": "Replace Deprecated Genericgenerator",
-    "type": "Tutorials",
-    "link": "/tutorials/programming/java-spring/tutorial-replace-deprecated-genericgenerator",
+    "title": "Discord Reveals How A Hidden Circular Dependency Triggered I",
+    "type": "Explanation",
+    "link": "/explanations/developer-tools-practices/architecture-reliability/explanation-discord-reveals-how-a-hidden-circular-dependency-triggered-i",
     "time": "2 min read"
   },
   {
-    "title": "What Is Code",
-    "type": "Tutorials",
-    "link": "/tutorials/ai-machine-learning/llms-agents/tutorial-what-is-code",
-    "time": "4 min read"
+    "title": "Vibe Coding",
+    "type": "Explanation",
+    "link": "/explanations/ai-machine-learning/aiassisted-development/explanation-vibe-coding",
+    "time": "5 min read"
   },
   {
-    "title": "Mac Mini Agent Infrastructure",
-    "type": "Tutorials",
-    "link": "/tutorials/ai-machine-learning/aiassisted-development/tutorial-mac-mini-agent-infrastructure",
-    "time": "6 min read"
+    "title": "Caching Agentic Java Systems",
+    "type": "Explanation",
+    "link": "/explanations/ai-machine-learning/aiassisted-development/explanation-caching-agentic-java-systems",
+    "time": "5 min read"
   }
 ]

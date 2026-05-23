@@ -18,15 +18,16 @@ DOCS_DIR  = Path("/home/tcharlopenclaw/code/kb/docs/")
 SIDEBARS  = Path("/home/tcharlopenclaw/code/kb/sidebars.js")
 
 # Diátaxis type mapping from filename prefix
-# Note: KB uses 'explanation' instead of 'reference' — both map to 'reference' docs path
+# KB types: HOWTO, TUTORIAL, EXPLANATION, EXAMPLE — REFERENCE type is NOT used
+# Note: 'explanation' and 'reference' both map to 'explanations' docs path
 DIATAXIS_TYPES = {
     'tutorial': 'tutorials',
     'howto': 'how-to',
     'how-to': 'how-to',
-    'reference': 'reference',
-    'explanation': 'reference',
+    'reference': 'explanations',
+    'explanation': 'explanations',
     'example': 'examples',
-    'news': 'reference',  # news articles become references
+    'news': 'explanations',  # news articles become explanations
 }
 
 # Domain display names
@@ -77,15 +78,15 @@ def detect_diataxis_type(filename: str) -> tuple:
         'tutorial': ('tutorials', 'Tutorial'),
         'howto': ('how-to', 'How-to Guide'),
         'how-to': ('how-to', 'How-to Guide'),
-        'reference': ('reference', 'Reference'),
-        'explanation': ('reference', 'Explanation'),
+        'reference': ('explanations', 'Explanation'),
+        'explanation': ('explanations', 'Explanation'),
         'example': ('examples', 'Example'),
-        'news': ('reference', 'News'),
+        'news': ('explanations', 'Explanation'),
     }
     for prefix, (docs_path, label) in display_map.items():
         if name.startswith(prefix + '-') or name.startswith(prefix + '_'):
             return docs_path, label
-    return 'reference', 'Explanation'  # default
+    return 'explanations', 'Explanation'  # default
 
 
 def fix_yaml_frontmatter(content: str, meta: dict, diataxis_type: str) -> str:
@@ -320,7 +321,7 @@ def update_sidebars():
     diataxis_order = [
         ('tutorials', 'Tutorials', 'book-open'),
         ('how-to', 'How-to Guides', 'wrench'),
-        ('reference', 'Reference', 'book'),
+        ('explanations', 'Explanations', 'book'),
         ('examples', 'Examples', 'code'),
     ]
 
@@ -412,7 +413,7 @@ def count_by_type():
         dp = Path(dirpath)
         rel = dp.relative_to(DOCS_DIR)
         top_level = rel.parts[0] if rel.parts else ''
-        if top_level in ('tutorials', 'how-to', 'reference', 'examples'):
+        if top_level in ('tutorials', 'how-to', 'explanations', 'examples'):
             counts[top_level] = counts.get(top_level, 0) + len(filenames)
     return counts
 
@@ -431,10 +432,10 @@ def generate_whats_new():
                 parts = rel.parts
                 if len(parts) >= 2:
                     diataxis_type = parts[0]
-                    title_match = re.match(r'(tutorial|howto|how-to|reference|example)-(.+)', f.replace('.md', ''))
+                    title_match = re.match(r'(tutorial|howto|how-to|explanation|example)-(.+)', f.replace('.md', ''))
                     if title_match:
                         title = title_match.group(2).replace('-', ' ').title()
-                        type_label = diataxis_type.replace('how-to', 'How-to').title()
+                        type_label = diataxis_type.replace('how-to', 'How-to').replace('explanations', 'Explanation').title()
                         # Estimate reading time (200 words/min average)
                         try:
                             content = fp.read_text(encoding='utf-8')
