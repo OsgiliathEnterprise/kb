@@ -4,7 +4,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Osgiliath Learning Hub',
-  tagline: 'Tutorials, How-to Guides, and Reference — Updated Daily',
+  tagline: 'Tutorials, How-to Guides, and Explanations — Updated Daily',
   favicon: 'img/favicon.svg',
 
   future: {
@@ -62,7 +62,7 @@ const config = {
   // Indexed local search — no Algolia needed
   plugins: [
     [
-      '@cmfcmf/docusaurus-search-local',
+      '@easyops-cn/docusaurus-search-local',
       {
         indexDocs: true,
         indexBlog: false,
@@ -130,7 +130,7 @@ const config = {
               },
               {
                 label: 'Explanations',
-                href: '/reference/ai-machine-learning/llms-agents/explanation-ai-is-a-technology-not-a-product',
+                href: '/explanations/ai-machine-learning/llms-agents/explanation-ai-is-a-technology-not-a-product',
               },
               {
                 label: 'Examples',
@@ -155,7 +155,7 @@ const config = {
               },
               {
                 label: 'Security & Privacy',
-                href: '/reference/security-privacy/appsec-privacy/explanation-chromium-browser-fetch-vulnerability',
+                href: '/explanations/security-privacy/appsec-privacy/explanation-chromium-browser-fetch-vulnerability',
               },
             ],
           },
@@ -181,8 +181,8 @@ const config = {
         additionalLanguages: ['bash', 'powershell', 'json', 'yaml', 'docker', 'diff', 'python', 'javascript', 'typescript', 'rust', 'go'],
       },
       metadata: [
-        {name: 'description', content: 'Osgiliath Learning Hub — Daily tutorials, how-to guides, and technical reference on AI, cloud infrastructure, programming, and more.'},
-        {name: 'keywords', content: 'tutorials, how-to guides, reference, AI, machine learning, cloud, kubernetes, programming, security, learning'},
+        {name: 'description', content: 'Osgiliath Learning Hub — Daily tutorials, how-to guides, and explanations on AI, cloud infrastructure, programming, and more.'},
+        {name: 'keywords', content: 'tutorials, how-to guides, explanations, examples, AI, machine learning, cloud, kubernetes, programming, security, learning'},
       ],
     }),
 };
