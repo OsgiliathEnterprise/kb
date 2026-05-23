@@ -1,35 +1,37 @@
 import Layout from '@theme/Layout';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import React from 'react';
 import styles from './index.module.css';
 
 function DiataxisNav() {
+  const baseUrl = useBaseUrl('');
   const types = [
     {
       title: 'Tutorials',
       description: 'Step-by-step learning paths for beginners and intermediate learners. Master new topics from the ground up.',
       icon: '📘',
-      link: '/tutorials/ai-machine-learning/llms-agents/tutorial-interrogatory-llm',
+      link: `${baseUrl}tutorials/ai-machine-learning/llms-agents/tutorial-interrogatory-llm`,
       color: '#3a7ca5',
     },
     {
       title: 'How-to Guides',
       description: 'Goal-oriented guides that solve specific problems. Get from A to B with clear, actionable steps.',
       icon: '🛠️',
-      link: '/how-to/ai-machine-learning/llms-agents/howto-anthropic-routines-claude',
+      link: `${baseUrl}how-to/ai-machine-learning/llms-agents/howto-anthropic-routines-claude`,
       color: '#c9a84c',
     },
     {
       title: 'Reference',
       description: 'Technical documentation, specifications, and factual information. Quick lookups for developers.',
       icon: '📖',
-      link: '/reference/ai-machine-learning/llms-agents/reference-ai-is-a-technology-not-a-product',
+      link: `${baseUrl}reference/ai-machine-learning/llms-agents/reference-ai-is-a-technology-not-a-product`,
       color: '#d4572a',
     },
     {
       title: 'Examples',
       description: 'Working code, demos, and concrete implementations. See it in action before you build it yourself.',
       icon: '💡',
-      link: '/examples/ai-machine-learning/llms-agents/example-structured-prompt-driven-development-spdd',
+      link: `${baseUrl}examples/ai-machine-learning/llms-agents/example-structured-prompt-driven-development-spdd`,
       color: '#5ba3c9',
     },
   ];
@@ -62,13 +64,14 @@ function DiataxisNav() {
 }
 
 function DomainExplorer() {
+  const baseUrl = useBaseUrl('');
   const domains = [
-    { name: 'AI & Machine Learning', topics: 'LLMs, Local AI, ML Ops, Agent Dev', link: '/tutorials/ai-machine-learning/llms-agents/tutorial-interrogatory-llm' },
-    { name: 'Cloud & Infrastructure', topics: 'Kubernetes, GPU, Cloud Platforms', link: '/how-to/cloud-infrastructure/kubernetes/howto-running-agents-on-kubernetes-with-agent-sandbox' },
-    { name: 'Programming', topics: 'Java, Spring, Query Optimization', link: '/how-to/programming/java-spring/howto-clean-up-test-data-spring' },
-    { name: 'Developer Tools', topics: 'CI/CD, Architecture, Reliability', link: '/reference/developer-tools-practices/cicd-platforms/reference-ci-for-coding-agents' },
-    { name: 'Data & Databases', topics: 'Data Mesh, Warehousing, Pipelines', link: '/reference/data-databases/data-architecture/reference-monzo-data-mesh' },
-    { name: 'Security & Privacy', topics: 'AppSec, Vulnerabilities, Auth', link: '/reference/security-privacy/appsec-privacy/reference-chromium-browser-fetch-vulnerability' },
+    { name: 'AI & Machine Learning', topics: 'LLMs, Local AI, ML Ops, Agent Dev', link: `${baseUrl}tutorials/ai-machine-learning/llms-agents/tutorial-interrogatory-llm` },
+    { name: 'Cloud & Infrastructure', topics: 'Kubernetes, GPU, Cloud Platforms', link: `${baseUrl}how-to/cloud-infrastructure/kubernetes/howto-running-agents-on-kubernetes-with-agent-sandbox` },
+    { name: 'Programming', topics: 'Java, Spring, Query Optimization', link: `${baseUrl}how-to/programming/java-spring/howto-clean-up-test-data-spring` },
+    { name: 'Developer Tools', topics: 'CI/CD, Architecture, Reliability', link: `${baseUrl}reference/developer-tools-practices/cicd-platforms/reference-ci-for-coding-agents` },
+    { name: 'Data & Databases', topics: 'Data Mesh, Warehousing, Pipelines', link: `${baseUrl}reference/data-databases/data-architecture/reference-monzo-data-mesh` },
+    { name: 'Security & Privacy', topics: 'AppSec, Vulnerabilities, Auth', link: `${baseUrl}reference/security-privacy/appsec-privacy/reference-chromium-browser-fetch-vulnerability` },
   ];
 
   return (
@@ -112,6 +115,7 @@ function DailyUpdate() {
 }
 
 export default function Home() {
+  const baseUrl = useBaseUrl('');
   return (
     <Layout
       title="Osgiliath Learning Hub"
@@ -131,10 +135,10 @@ export default function Home() {
               Organized by the Diátaxis framework so you always find what you need.
             </p>
             <div className={styles.heroActions}>
-              <a className="button button--primary button--lg" href="/tutorials/ai-machine-learning/llms-agents/tutorial-interrogatory-llm">
+              <a className="button button--primary button--lg" href={`${baseUrl}tutorials/ai-machine-learning/llms-agents/tutorial-interrogatory-llm`}>
                 Start Exploring
               </a>
-              <a className="button button--secondary button--lg" href="/how-to/ai-machine-learning/llms-agents/howto-anthropic-routines-claude">
+              <a className="button button--secondary button--lg" href={`${baseUrl}how-to/ai-machine-learning/llms-agents/howto-anthropic-routines-claude`}>
                 Browse How-to Guides
               </a>
             </div>
