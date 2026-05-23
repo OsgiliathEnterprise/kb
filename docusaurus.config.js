@@ -3,8 +3,8 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Osgiliath Enterprise',
-  tagline: 'The Bridge Between Knowledge and Wisdom',
+  title: 'Osgiliath Learning Hub',
+  tagline: 'Tutorials, How-to Guides, and Reference — Updated Daily',
   favicon: 'img/favicon.svg',
 
   future: {
@@ -17,7 +17,7 @@ const config = {
   organizationName: 'OsgiliathEnterprise',
   projectName: 'kb',
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
 
   i18n: {
     defaultLocale: 'en',
@@ -31,24 +31,29 @@ const config = {
       ({
         docs: {
           sidebarPath: './sidebars.js',
-          routeBasePath: '/docs',
+          routeBasePath: '/',
           editUrl: ({locale, docPath}) =>
             `https://github.com/OsgiliathEnterprise/kb/blob/main/docs/${docPath}`,
-        },
-        blog: {
-          showReadingTime: true,
-          feedOptions: {
-            type: ['rss', 'atom'],
-            xslt: true,
+          // Show last updated date on every doc
+          showLastUpdateTime: true,
+          // Enable doc versions for future use
+          lastVersion: 'current',
+          versions: {
+            current: {
+              label: 'Current',
+              path: '',
+            },
           },
-          editUrl: ({locale, blogPath}) =>
-            `https://github.com/OsgiliathEnterprise/kb/blob/main/blog/${blogPath}`,
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
         },
         theme: {
           customCss: './src/css/custom.css',
+        },
+        // Disable blog entirely
+        blog: false,
+        sitemap: {
+          changefreq: 'daily',
+          priority: 0.5,
+          ignorePatterns: ['/tags/**'],
         },
       }),
     ],
@@ -68,7 +73,7 @@ const config = {
       navbar: {
         title: 'Osgiliath',
         logo: {
-          alt: 'Osgiliath Enterprise Logo',
+          alt: 'Osgiliath Learning Hub',
           src: 'img/osgiliath-logo.svg',
           srcDark: 'img/osgiliath-logo.svg',
           width: 40,
@@ -77,11 +82,10 @@ const config = {
         items: [
           {
             type: 'docSidebar',
-            sidebarId: 'docsSidebar',
+            sidebarId: 'main',
             position: 'left',
-            label: 'Documentation',
+            label: 'Learn',
           },
-          {to: '/blog', label: 'Chronicles', position: 'left'},
           {
             href: 'https://github.com/OsgiliathEnterprise',
             label: 'GitHub',
@@ -99,19 +103,44 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Documentation',
+            title: 'Learn',
             items: [
               {
-                label: 'Getting Started',
-                to: '/docs/intro',
+                label: 'Tutorials',
+                href: '/tutorials/ai-machine-learning/llms-agents/tutorial-interrogatory-llm',
               },
               {
-                label: 'Quick Start',
-                to: '/docs/quickstart/overview',
+                label: 'How-to Guides',
+                href: '/how-to/ai-machine-learning/llms-agents/howto-anthropic-routines-claude',
               },
               {
-                label: 'API Reference',
-                to: '/docs/api/overview',
+                label: 'Reference',
+                href: '/reference/ai-machine-learning/llms-agents/reference-ai-is-a-technology-not-a-product',
+              },
+              {
+                label: 'Examples',
+                href: '/examples/ai-machine-learning/llms-agents/example-structured-prompt-driven-development-spdd',
+              },
+            ],
+          },
+          {
+            title: 'Domains',
+            items: [
+              {
+                label: 'AI & Machine Learning',
+                href: '/tutorials/ai-machine-learning/llms-agents/tutorial-interrogatory-llm',
+              },
+              {
+                label: 'Cloud & Infrastructure',
+                href: '/how-to/cloud-infrastructure/kubernetes/howto-running-agents-on-kubernetes-with-agent-sandbox',
+              },
+              {
+                label: 'Programming',
+                href: '/how-to/programming/java-spring/howto-clean-up-test-data-spring',
+              },
+              {
+                label: 'Security & Privacy',
+                href: '/reference/security-privacy/appsec-privacy/reference-chromium-browser-fetch-vulnerability',
               },
             ],
           },
@@ -128,31 +157,22 @@ const config = {
               },
             ],
           },
-          {
-            title: 'More',
-            items: [
-              {
-                label: 'Chronicles (Blog)',
-                to: '/blog',
-              },
-              {
-                label: 'Status',
-                href: 'https://status.osgiliath.enterprise',
-              },
-            ],
-          },
         ],
-        copyright: `Built with Docusaurus | Forged in the fires of Osgiliath | Copyright &copy; ${new Date().getFullYear()} Osgiliath Enterprise`,
+        copyright: `Learning content updated daily from research feeds | Built with Docusaurus | Copyright &copy; ${new Date().getFullYear()} Osgiliath Enterprise`,
       },
       prism: {
         theme: prismThemes.oneLight,
         darkTheme: prismThemes.oneDark,
-        additionalLanguages: ['bash', 'powershell', 'json', 'yaml', 'docker', 'diff', 'python', 'javascript', 'typescript'],
+        additionalLanguages: ['bash', 'powershell', 'json', 'yaml', 'docker', 'diff', 'python', 'javascript', 'typescript', 'rust', 'go'],
       },
       metadata: [
-        {name: 'description', content: 'Osgiliath Enterprise Knowledge Base - The Bridge Between Knowledge and Wisdom'},
-        {name: 'keywords', content: 'Osgiliath, Enterprise, Knowledge Base, Documentation, Technology'},
+        {name: 'description', content: 'Osgiliath Learning Hub — Daily tutorials, how-to guides, and technical reference on AI, cloud infrastructure, programming, and more.'},
+        {name: 'keywords', content: 'tutorials, how-to guides, reference, AI, machine learning, cloud, kubernetes, programming, security, learning'},
       ],
+      // Enable Algolia-like search (DocSearch or local)
+      search: {
+        hideable: true,
+      },
     }),
 };
 

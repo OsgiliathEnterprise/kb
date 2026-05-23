@@ -1,11 +1,11 @@
 /* ===================================================================
-   Osgiliath Landing Page Styles
+   Osgiliath Learning Hub — Homepage Styles
    =================================================================== */
 
 /* --- Hero Section --- */
 .hero {
   position: relative;
-  min-height: 100vh;
+  min-height: 70vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -19,6 +19,7 @@
     var(--osg-shadow-light) 70%,
     var(--osg-shadow) 100%
   );
+  padding: 4rem 0;
 }
 
 .heroOverlay {
@@ -63,7 +64,7 @@
 
 .heroTitle {
   font-family: 'Cinzel', serif;
-  font-size: 5rem;
+  font-size: 4.5rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   color: var(--osg-gold);
@@ -74,16 +75,15 @@
 
 .heroSubtitle {
   font-family: 'Cinzel', serif;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 400;
-  font-style: italic;
   color: var(--osg-stone-dark);
   letter-spacing: 0.03em;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .heroDescription {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   line-height: 1.8;
   color: var(--osg-stone-dark);
   max-width: 600px;
@@ -103,60 +103,76 @@
   font-weight: 600;
 }
 
-.heroScroll {
-  position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  color: var(--osg-gold);
-  opacity: 0.5;
-  animation: bounce 2s infinite;
-}
-
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
-  40% { transform: translateX(-50%) translateY(-10px); }
-  60% { transform: translateX(-50%) translateY(-5px); }
-}
-
-/* --- Features Section --- */
-.features {
-  padding: 6rem 0;
+/* --- Sections --- */
+.section {
+  padding: 5rem 0;
   background: var(--ifm-background-color);
 }
 
-.featuresGrid {
+.sectionAlt {
+  padding: 5rem 0;
+  background: linear-gradient(
+    180deg,
+    var(--ifm-background-color) 0%,
+    rgba(201, 168, 76, 0.02) 50%,
+    var(--ifm-background-color) 100%
+  );
+}
+
+.sectionTitle {
+  font-family: 'Cinzel', serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--osg-gold);
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.sectionSubtitle {
+  text-align: center;
+  color: var(--ifm-color-content-secondary);
+  font-size: 1rem;
+  margin-bottom: 3rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* --- Diátaxis Cards --- */
+.grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1.5rem;
 }
 
-.featureCard {
+.card {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding: 2rem;
   border: 1px solid rgba(201, 168, 76, 0.12);
+  border-top: 3px solid var(--osg-gold);
   border-radius: 12px;
   background: var(--ifm-background-surface-color);
   text-decoration: none !important;
   transition: all 0.3s ease;
   animation: fade-in 0.6s ease-out both;
+  position: relative;
+  overflow: hidden;
 }
 
-.featureCard:hover {
+.card:hover {
   border-color: rgba(201, 168, 76, 0.4);
   box-shadow: 0 0 20px rgba(201, 168, 76, 0.15);
   transform: translateY(-4px);
 }
 
-.featureIcon {
+.cardIcon {
   font-size: 2.5rem;
   margin-bottom: 1rem;
-  filter: grayscale(0.2);
 }
 
-.featureTitle {
+.cardTitle {
   font-family: 'Cinzel', serif;
   font-size: 1.25rem;
   font-weight: 600;
@@ -164,89 +180,98 @@
   margin-bottom: 0.75rem;
 }
 
-.featureDescription {
+.cardDescription {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--ifm-color-content-secondary);
+  flex-grow: 1;
+}
+
+.cardArrow {
+  font-size: 1.5rem;
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover .cardArrow {
+  opacity: 1;
+}
+
+/* --- Domain Grid --- */
+.domainGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.domainCard {
+  padding: 1.5rem;
+  border: 1px solid rgba(201, 168, 76, 0.1);
+  border-radius: 8px;
+  background: var(--ifm-background-surface-color);
+  text-decoration: none !important;
+  transition: all 0.3s ease;
+}
+
+.domainCard:hover {
+  border-color: rgba(201, 168, 76, 0.3);
+  box-shadow: 0 0 12px rgba(201, 168, 76, 0.1);
+}
+
+.domainName {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ifm-color-content);
+  margin-bottom: 0.5rem;
+}
+
+.domainTopics {
+  font-size: 0.85rem;
+  color: var(--ifm-color-content-secondary);
+  line-height: 1.5;
+}
+
+/* --- Daily Update Banner --- */
+.updateBanner {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem;
+  border: 1px solid rgba(58, 124, 165, 0.3);
+  border-radius: 12px;
+  background: rgba(58, 124, 165, 0.05);
+}
+
+.updateIcon {
+  font-size: 3rem;
+  flex-shrink: 0;
+}
+
+.updateTitle {
+  font-family: 'Cinzel', serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--osg-river-light);
+  margin-bottom: 0.5rem;
+}
+
+.updateText {
   font-size: 0.95rem;
   line-height: 1.6;
   color: var(--ifm-color-content-secondary);
 }
 
-/* --- Quote Section --- */
-.quoteSection {
-  padding: 4rem 0;
-  text-align: center;
-  background: linear-gradient(
-    180deg,
-    var(--ifm-background-color) 0%,
-    rgba(201, 168, 76, 0.03) 50%,
-    var(--ifm-background-color) 100%
-  );
-}
-
-.quote {
-  max-width: 700px;
-  margin: 0 auto;
-  font-family: 'Crimson Text', serif;
-  font-size: 1.5rem;
-  font-style: italic;
-  color: var(--osg-stone-dark);
-  border-left: 3px solid var(--osg-gold);
-  padding-left: 2rem;
-  text-align: left;
-  position: relative;
-}
-
-.quote::before {
-  content: '"';
-  position: absolute;
-  top: -1rem;
-  left: -0.5rem;
-  font-size: 4rem;
-  color: var(--osg-gold);
-  opacity: 0.3;
-  font-family: 'Cinzel', serif;
-}
-
-.quote footer {
-  margin-top: 1rem;
-  font-size: 1rem;
-  color: var(--osg-gold);
-  font-style: normal;
-}
-
-/* --- Stats Section --- */
-.statsSection {
-  padding: 4rem 0;
-  border-top: 1px solid rgba(201, 168, 76, 0.1);
-}
-
-.statsGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  text-align: center;
-}
-
-.statItem {
-  padding: 2rem;
-}
-
-.statNumber {
-  font-family: 'Cinzel', serif;
-  font-size: 3rem;
-  font-weight: 700;
-  color: var(--osg-gold);
-  margin-bottom: 0.5rem;
-}
-
-.statLabel {
-  font-size: 0.9rem;
-  color: var(--ifm-color-content-secondary);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-}
-
 /* --- Responsive --- */
 @media (max-width: 768px) {
+  .hero {
+    min-height: 60vh;
+    padding: 3rem 0;
+  }
+
   .heroTitle {
     font-size: 3rem;
   }
@@ -259,21 +284,25 @@
     font-size: 1rem;
   }
 
-  .featuresGrid {
+  .section, .sectionAlt {
+    padding: 3rem 0;
+  }
+
+  .sectionTitle {
+    font-size: 1.5rem;
+  }
+
+  .grid {
     grid-template-columns: 1fr;
   }
 
-  .statsGrid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
+  .domainGrid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  .statNumber {
-    font-size: 2rem;
-  }
-
-  .quote {
-    font-size: 1.2rem;
+  .updateBanner {
+    flex-direction: column;
+    text-align: center;
   }
 }
 
@@ -288,5 +317,9 @@
 
   .heroActions .button--lg {
     width: 100%;
+  }
+
+  .domainGrid {
+    grid-template-columns: 1fr;
   }
 }
