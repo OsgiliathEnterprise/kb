@@ -394,67 +394,6 @@
   color: var(--ifm-color-content-secondary);
 }
 
-/* --- Bookmarks --- */
-.emptyBookmarks {
-  text-align: center;
-  padding: 3rem;
-  border: 1px dashed rgba(201, 168, 76, 0.2);
-  border-radius: 12px;
-  color: var(--ifm-color-content-secondary);
-}
-
-.bookmarkGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
-}
-
-.bookmarkCard {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 1rem;
-  border: 1px solid rgba(201, 168, 76, 0.1);
-  border-radius: 8px;
-  background: var(--ifm-background-surface-color);
-  text-decoration: none !important;
-  color: var(--ifm-color-content);
-  transition: all 0.3s ease;
-}
-
-.bookmarkCard:hover {
-  border-color: rgba(201, 168, 76, 0.3);
-  box-shadow: 0 0 12px rgba(201, 168, 76, 0.1);
-}
-
-.clearBookmarks {
-  padding: 0.75rem 1.5rem;
-  border: 1px solid rgba(212, 87, 42, 0.3);
-  border-radius: 8px;
-  background-color: rgba(212, 87, 42, 0.05);
-  color: #d4572a;
-  cursor: pointer;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
-
-.clearBookmarks:hover {
-  background-color: rgba(212, 87, 42, 0.1);
-}
-
-.saveConfirmation {
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  padding: 1rem 1.5rem;
-  border-radius: 8px;
-  background-color: rgba(58, 124, 165, 0.9);
-  color: white;
-  font-weight: 600;
-  animation: fade-in 0.3s ease-out;
-  z-index: 1000;
-}
-
 /* --- Responsive --- */
 @media (max-width: 768px) {
   .hero {

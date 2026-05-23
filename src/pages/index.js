@@ -171,59 +171,6 @@ function DailyPick() {
   );
 }
 
-function BookmarkManager() {
-  const [bookmarks, setBookmarks] = useState(() => {
-    try {
-      return JSON.parse(localStorage.getItem('osgiliath-bookmarks') || '[]');
-    } catch {
-      return [];
-    }
-  });
-
-  const [saved, setSaved] = useState(false);
-
-  useEffect(() => {
-    localStorage.setItem('osgiliath-bookmarks', JSON.stringify(bookmarks));
-  }, [bookmarks]);
-
-  const handleBookmark = (url) => {
-    if (!bookmarks.includes(url)) {
-      setBookmarks([...bookmarks, url]);
-      setSaved(true);
-      setTimeout(() => setSaved(false), 2000);
-    }
-  };
-
-  return (
-    <section className={styles.section}>
-      <div className="container">
-        <h2 className={styles.sectionTitle}>📚 Your Bookmarks</h2>
-        <p className={styles.sectionSubtitle}>
-          Save articles you want to read later. Your bookmarks persist in your browser.
-        </p>
-        {bookmarks.length === 0 ? (
-          <div className={styles.emptyBookmarks}>
-            <p>No bookmarks yet. Use the bookmark button on article pages to save your favorites.</p>
-          </div>
-        ) : (
-          <div className={styles.bookmarkGrid}>
-            {bookmarks.map((url, idx) => (
-              <a key={idx} href={url} className={styles.bookmarkCard}>
-                <span>🔖</span>
-                <span>{new URL(url, window.location.origin).pathname.replace(BASE_URL, '').split('/')[1] || 'Saved Article'}</span>
-              </a>
-            ))}
-            <button className={styles.clearBookmarks} onClick={() => setBookmarks([])}>
-              Clear All
-            </button>
-          </div>
-        )}
-        {saved && <div className={styles.saveConfirmation}>✓ Saved to bookmarks!</div>}
-      </div>
-    </section>
-  );
-}
-
 function DailyUpdate() {
   return (
     <section className={styles.section}>
@@ -279,7 +226,6 @@ export default function Home() {
         <WhatsNew />
         <DiataxisNav />
         <DomainExplorer />
-        <BookmarkManager />
         <DailyUpdate />
       </main>
     </Layout>
