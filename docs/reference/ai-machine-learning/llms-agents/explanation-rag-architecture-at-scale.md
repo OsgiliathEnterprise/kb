@@ -1,9 +1,15 @@
 ---
 title: 'Production RAG Architecture: Why Retrieval Fails at Scale'
-diataxis: Reference
-domain: REFERENCE
-topic: ''
-source: https://thenewstack.io/rag-retrieval-scaling-architecture/
+diataxis: Explanation
+domain: AI & Machine Learning
+topic: LLMs & Agents
+source: ''
+source_url: https://thenewstack.io/rag-retrieval-scaling-architecture/
+keywords:
+- knowledge-base
+- LLMs & Agents
+- AI & Machine Learning
+- reference
 ---
 # Production RAG Architecture: Why Retrieval Fails at Scale
 
@@ -171,9 +177,85 @@ excalidraw://
 }
 ```
 
+## Chunking Strategies
+
+How you break documents into chunks fundamentally affects retrieval quality. Different data types require different chunking approaches:
+
+### Fixed-Length with Overlap
+The simplest and fastest approach. Split text into fixed-size chunks (e.g., 500–1000 tokens) with 10–20% overlap between consecutive chunks to preserve semantic context at chunk boundaries.
+
+### Syntax-Based Chunking
+Break documents at natural linguistic boundaries — sentences, paragraphs, or sections. Libraries like **spaCy** or **NLTK** can identify sentence boundaries automatically. This preserves meaning better than arbitrary token cuts.
+
+### File-Format-Aware Chunking
+Respect the native structure of source files:
+- **Code files:** Chunk by function or class boundaries, not line counts
+- **HTML:** Keep `<table>` and `<img>` elements intact
+- **PDFs:** Preserve section headings and table structures
+- Libraries like **Unstructured** or **LangChain** automate format-aware chunking
+
+> **Rule of thumb:** If your data has natural boundaries, use them. Arbitrary chunk sizes introduce semantic fragmentation that degrades retrieval.
+
+## Encoder Improvements
+
+### Dense vs. Sparse Vectors
+- **Dense vectors** encode semantic meaning — compact, fewer zeros, capture conceptual similarity
+- **Sparse vectors** encode term identity — dictionary-length, mostly zeros, excel at exact keyword matching
+- **Hybrid approaches** combine both: dense vectors for semantic search + sparse vectors (BM25, SPLADE) for keyword precision
+
+### Advanced Similarity Methods
+- **Approximate Nearest Neighbor (ANN):** Faster than exact KNN at scale, with configurable accuracy tradeoffs
+- **Dot Product Scoring:** Enhances similarity scoring beyond cosine distance
+- **Late Interactions:** Compare words more precisely _after_ retrieval, refining document ranking and improving search relevance
+- **SPLADE + Query Expansion:** Combines sparse representations with query expansion strategies to improve both accuracy and recall
+
+## Retriever-Centric Optimization
+
+### Pre-Training Techniques
+- **Inverse Cloze Task (ICT):** Train the retriever to predict masked text within documents, learning retrieval patterns from the data distribution itself
+- **Supervised Retriever Optimization:** Align retrieval probabilities with the generator model's likelihood distribution by scoring response perplexity and minimizing KL divergence between retriever selections and model likelihoods
+
+### Reranking Techniques
+Apply reranking at training time to prioritize the most relevant retrieved documents, improving the retriever's selection quality over time.
+
+## Evaluation and Benchmarks
+
+Production RAG systems should be evaluated using established benchmarks:
+
+| Benchmark | Purpose | Coverage |
+|-----------|---------|----------|
+| **BEIR** | Zero-shot IR evaluation | Heterogeneous datasets across multiple domains |
+| **Natural Questions** | Large-scale QA evaluation | Google Research dataset, open-domain question answering |
+| **Retrieval Recall** | Pipeline-stage recall tracking | Custom metric: % of ground-truth docs reaching each funnel stage |
+| **Context Noise** | Irrelevant context measurement | Custom metric: % of non-relevant tokens in the final prompt |
+
+> **Key insight:** Evaluate retrieval as an end-to-end system, not just the final LLM output. Track recall degradation across each funnel stage.
+
+## Additional Challenges Beyond Retrieval
+
+### Prompt Stuffing
+RAG systems inject retrieved context into prompts, effectively "stuffing" additional information before the LLM processes the query. This prioritizes new information over pre-existing training knowledge but introduces risks:
+- Context window limits constrain how much retrieved content fits
+- The LLM may still misinterpret retrieved context, generating false statements from factually correct sources
+- Example: An LLM retrieving a book titled "Barack Hussein Obama: America's First Muslim President?" may assert Obama was Muslim, missing the rhetorical question mark
+
+### Hallucination Persistence
+RAG reduces but does not eliminate hallucination. The LLM can still:
+- Hallucinate around source material in its response
+- Generate answers when it should indicate uncertainty
+- Misinterpret context from retrieved documents
+
+### Knowledge Cutoff Awareness
+Even with RAG, models may not recognize when retrieved information contradicts their training data, leading to blended or confused responses.
+
 ## References
 
 - [Why production RAG systems give confident, wrong answers at scale](https://thenewstack.io/rag-retrieval-scaling-architecture/) (The New Stack, 2026-05-19)
 - [A complete 2026 guide to modern RAG architectures](https://www.linkedin.com/pulse/complete-2026-guide-modern-rag-architectures-how-retrieval-pathan-rx1nf) (LinkedIn)
 - [RAG Systems in Production: Chunking, Retrieval, and Reranking](https://www.elysiate.com/blog/rag-systems-production-guide-chunking-retrieval-2025) (Elysiate, 2025)
 - [RAG Techniques Compared: A Practical Guide](https://blog.starmorph.com/blog/rag-techniques-compared-best-practices-guide) (Starmorph Blog)
+- [Retrieval-augmented generation — Wikipedia](https://en.wikipedia.org/wiki/Retrieval-augmented_generation) (enriched 2026-05-23)
+- [Vector database — Wikipedia](https://en.wikipedia.org/wiki/Vector_database) (enriched 2026-05-23)
+- [Information retrieval — Wikipedia](https://en.wikipedia.org/wiki/Information_retrieval) (enriched 2026-05-23)
+- MIT Technology Review: LLM context misinterpretation examples
+- Ars Technica: RAG and hallucination limitations

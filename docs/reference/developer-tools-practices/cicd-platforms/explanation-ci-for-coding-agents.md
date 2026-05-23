@@ -1,6 +1,6 @@
 ---
 title: 'CI Wasn''t Built for Coding Agents: The Rise of "Plans"'
-diataxis: Reference
+diataxis: Explanation
 domain: Developer Tools & Practices
 topic: CI-CD & Platforms
 source: TheNewStack

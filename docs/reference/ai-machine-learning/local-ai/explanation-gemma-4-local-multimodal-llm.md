@@ -1,6 +1,6 @@
 ---
 title: 'Gemma 4: Local Multimodal LLM Guide'
-diataxis: Reference
+diataxis: Explanation
 domain: AI & Machine Learning
 topic: Local AI
 source: https://feeds.dzone.com/link/23558/17344251/run-gemma-4-locally-guide

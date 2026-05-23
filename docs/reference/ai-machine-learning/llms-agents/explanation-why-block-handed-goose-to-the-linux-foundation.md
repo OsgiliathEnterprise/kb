@@ -1,6 +1,6 @@
 ---
 title: Why Block handed Goose to the Linux Foundation
-diataxis: Reference
+diataxis: Explanation
 domain: AI & Machine Learning
 topic: LLMs & Agents
 source: The New Stack

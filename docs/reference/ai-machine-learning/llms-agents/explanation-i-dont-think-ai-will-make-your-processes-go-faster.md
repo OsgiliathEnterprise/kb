@@ -1,6 +1,6 @@
 ---
 title: I don't think AI will make your processes go faster
-diataxis: Reference
+diataxis: Explanation
 domain: AI & Machine Learning
 topic: LLMs & Agents
 source: Hacker News

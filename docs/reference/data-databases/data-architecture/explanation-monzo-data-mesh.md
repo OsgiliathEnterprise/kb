@@ -1,6 +1,6 @@
 ---
 title: Neobank Monzo Builds Governed Data Mesh Across 100 Teams and 12,000 dbt Models
-diataxis: Reference
+diataxis: Explanation
 domain: Data & Databases
 topic: Data Architecture
 source: InfoQ

@@ -35,18 +35,22 @@ const sidebars = {
         {
           type: 'category',
           label: 'Llms Agents',
-          items: ['how-to/ai-machine-learning/llms-agents/howto-anthropic-routines-claude', 'how-to/ai-machine-learning/llms-agents/howto-aws-bedrock-agentcore-payments', 'how-to/ai-machine-learning/llms-agents/howto-aws-mcp-server-ga'],
+          items: ['how-to/ai-machine-learning/llms-agents/howto-anthropic-routines-claude', 'how-to/ai-machine-learning/llms-agents/howto-aws-bedrock-agentcore-payments', 'how-to/ai-machine-learning/llms-agents/howto-aws-mcp-server-ga', 'how-to/ai-machine-learning/llms-agents/howto-mcp-tunnels-sandboxes'],
         },
         {
           type: 'category',
           label: 'Kubernetes',
           items: ['how-to/cloud-infrastructure/kubernetes/howto-running-agents-on-kubernetes-with-agent-sandbox'],
         },
-        'how-to/general/howto-nvidia-3d-acceleration-qemu-kvm-fedora',
+        {
+          type: 'category',
+          label: 'Virtualization',
+          items: ['how-to/cloud-infrastructure/virtualization/howto-nvidia-3d-acceleration-qemu-kvm-fedora'],
+        },
         {
           type: 'category',
           label: 'Java Spring',
-          items: ['how-to/programming/java-spring/howto-clean-up-test-data-spring', 'how-to/programming/java-spring/howto-emulate-left-join-fetch-projections', 'how-to/programming/java-spring/howto-mysql-query-optimization-releem', 'how-to/programming/java-spring/howto-spring-ecosystem-roundup-may-2026'],
+          items: ['how-to/programming/java-spring/howto-clean-up-test-data-spring', 'how-to/programming/java-spring/howto-emulate-left-join-fetch-projections', 'how-to/programming/java-spring/howto-jvm-crash-analysis-jcmd', 'how-to/programming/java-spring/howto-mysql-query-optimization-releem', 'how-to/programming/java-spring/howto-spring-ecosystem-roundup-may-2026'],
         },
         {
           type: 'category',
@@ -62,48 +66,59 @@ const sidebars = {
       items: [
         {
           type: 'category',
+          label: 'Aiassisted Development',
+          items: ['reference/ai-machine-learning/aiassisted-development/explanation-caching-agentic-java-systems', 'reference/ai-machine-learning/aiassisted-development/explanation-vibe-coding'],
+        },
+        {
+          type: 'category',
           label: 'Llms Agents',
-          items: ['reference/ai-machine-learning/llms-agents/news-openai-symphony-agents', 'reference/ai-machine-learning/llms-agents/reference-agent-protocol-stack-mcp-a2a-ag-ui', 'reference/ai-machine-learning/llms-agents/reference-ai-is-a-technology-not-a-product', 'reference/ai-machine-learning/llms-agents/reference-every-ai-subscription-is-a-ticking-time-bomb-for-enterprise', 'reference/ai-machine-learning/llms-agents/reference-i-dont-think-ai-will-make-your-processes-go-faster', 'reference/ai-machine-learning/llms-agents/reference-maintainability-sensors-for-coding-agents', 'reference/ai-machine-learning/llms-agents/reference-why-block-handed-goose-to-the-linux-foundation'],
+          items: ['reference/ai-machine-learning/llms-agents/explanation-agent-protocol-stack-mcp-a2a-ag-ui', 'reference/ai-machine-learning/llms-agents/explanation-ai-is-a-technology-not-a-product', 'reference/ai-machine-learning/llms-agents/explanation-every-ai-subscription-is-a-ticking-time-bomb-for-enterprise', 'reference/ai-machine-learning/llms-agents/explanation-i-dont-think-ai-will-make-your-processes-go-faster', 'reference/ai-machine-learning/llms-agents/explanation-maintainability-sensors-for-coding-agents', 'reference/ai-machine-learning/llms-agents/explanation-openai-symphony-agents', 'reference/ai-machine-learning/llms-agents/explanation-rag-architecture-at-scale', 'reference/ai-machine-learning/llms-agents/explanation-why-block-handed-goose-to-the-linux-foundation'],
         },
         {
           type: 'category',
           label: 'Local Ai',
-          items: ['reference/ai-machine-learning/local-ai/reference-gemma-4-local-multimodal-llm', 'reference/ai-machine-learning/local-ai/reference-ubuntu-local-ai'],
+          items: ['reference/ai-machine-learning/local-ai/explanation-gemma-4-local-multimodal-llm', 'reference/ai-machine-learning/local-ai/explanation-ubuntu-local-ai'],
         },
         {
           type: 'category',
           label: 'Ml Ops',
-          items: ['reference/ai-machine-learning/ml-ops/reference-netflix-model-lifecycle-graph'],
+          items: ['reference/ai-machine-learning/ml-ops/explanation-netflix-model-lifecycle-graph'],
         },
         {
           type: 'category',
           label: 'Kubernetes',
-          items: ['reference/cloud-infrastructure/kubernetes/reference-kubernetes-v136-release-overview'],
+          items: ['reference/cloud-infrastructure/kubernetes/explanation-kubernetes-v136-release-overview', 'reference/cloud-infrastructure/kubernetes/explanation-kubernetes-v136-user-namespaces-ga'],
+        },
+        {
+          type: 'category',
+          label: 'Observability',
+          items: ['reference/cloud-infrastructure/observability/explanation-opentelemetry-ga'],
         },
         {
           type: 'category',
           label: 'Data Architecture',
-          items: ['reference/data-databases/data-architecture/reference-monzo-data-mesh'],
+          items: ['reference/data-databases/data-architecture/explanation-monzo-data-mesh'],
         },
         {
           type: 'category',
           label: 'Architecture Reliability',
-          items: ['reference/developer-tools-practices/architecture-reliability/reference-discord-reveals-how-a-hidden-circular-dependency-triggered-i', 'reference/developer-tools-practices/architecture-reliability/reference-three-layer-architecture-production-ai'],
+          items: ['reference/developer-tools-practices/architecture-reliability/explanation-discord-reveals-how-a-hidden-circular-dependency-triggered-i', 'reference/developer-tools-practices/architecture-reliability/explanation-three-layer-architecture-production-ai'],
         },
         {
           type: 'category',
           label: 'Cicd Platforms',
-          items: ['reference/developer-tools-practices/cicd-platforms/reference-ci-for-coding-agents'],
+          items: ['reference/developer-tools-practices/cicd-platforms/explanation-ci-for-coding-agents'],
         },
-        'reference/general/coding-agent-maintainability-sensors',
-        'reference/general/jdk27-post-quantum-tls',
-        'reference/general/mcp-tunnels-sandboxes',
-        'reference/general/rag-architecture-at-scale',
-        'reference/general/reference-s3-vectors-rag-without-vector-db',
+        'reference/general/explanation-s3-vectors-rag-without-vector-db',
+        {
+          type: 'category',
+          label: 'Java Spring',
+          items: ['reference/programming/java-spring/explanation-jdk27-post-quantum-tls'],
+        },
         {
           type: 'category',
           label: 'Appsec Privacy',
-          items: ['reference/security-privacy/appsec-privacy/reference-chromium-browser-fetch-vulnerability', 'reference/security-privacy/appsec-privacy/reference-cisa-credentials-github-leak', 'reference/security-privacy/appsec-privacy/reference-context-aware-authorization-ai-agents'],
+          items: ['reference/security-privacy/appsec-privacy/explanation-chromium-browser-fetch-vulnerability', 'reference/security-privacy/appsec-privacy/explanation-cisa-credentials-github-leak', 'reference/security-privacy/appsec-privacy/explanation-context-aware-authorization-ai-agents'],
         },
       ],
     },

@@ -1,6 +1,6 @@
 ---
 title: Every AI Subscription Is a Ticking Time Bomb for Enterprise
-diataxis: Reference
+diataxis: Explanation
 domain: AI & Machine Learning
 topic: LLMs & Agents
 source: Hacker News

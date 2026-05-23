@@ -1,6 +1,6 @@
 ---
 title: Maintainability Sensors for Coding Agents
-diataxis: Reference
+diataxis: Explanation
 domain: AI & Machine Learning
 topic: LLMs & Agents
 source: MartinFowler
@@ -17,8 +17,14 @@ keywords:
 ## Summary
 Practical framework from Thoughtworks for using computational and inferential "sensors" to monitor and improve codebase maintainability ("internal quality") and enable AI coding agents to self-correct. Sensors run at three stages: during coding sessions, after CI integration, and on scheduled intervals.
 
+**Maintainability** = low-risk, easy changes over time.
+
 ## Why This Matters
 Tangled codebases cause AI agents to look in wrong places, miss duplicates, or load excessive context. Traditional static analysis tools gain new value when agents can use their output to self-correct mistakes — but the tools must be configured with AI-specific rules and guidance.
+
+### Base Tools
+- **IDEs/Agents:** Cursor, Claude Code, OpenCode
+- **Models:** Claude Sonnet (default), Claude Opus (planning/analysis), Cursor `composer-2` (implementation)
 
 ## Sensor Architecture & Timing
 
@@ -44,11 +50,42 @@ Custom ESLint formatters inject architectural context and judgment prompts. Exam
 - **Trade-offs emerge** (e.g., `max-lines` led to prop-heavy React components)
 - Static analysis misses semantic quality
 
+### Managing Warnings
+- AI can make judgment calls and suppress warnings with inline reasons
+- For thresholds (e.g., max lines, complexity), AI is instructed to **slightly increase thresholds** rather than permanently suppress
+- This preserves constraints while avoiding binary compliance choices
+- **Cost-Benefit Shift:** AI drastically lowers the cost of writing custom rules/scripts
+
 ## Static Code Analysis: Dependency Rules
 
 - **Tool:** `dependency-cruiser` enforces layered architecture (`routes → services → clients + domain`)
 - **Self-Correction:** Custom error messages recap architectural concepts; AI absorbed the steep config learning curve
 - **Takeaway:** Effective replacement for markdown structure guides, but limited to what's expressible via imports/folder structure
+
+### Configuration Example
+```json
+{
+  "name": "clients-no-services",
+  "comment": "API clients must not depend on the orchestration layer above them.",
+  "severity": "error",
+  "from": { "path": "^server/clients/", "pathNot": "/__tests__/" },
+  "to": { "path": "^server/services/" }
+}
+```
+
+Custom error messages recap the layering concept:
+```
+ERROR clients-no-services
+API clients must not depend on the orchestration layer above them.
+[Layers: routes -> services -> clients + domain;
+ Services orchestrate: fetch data via clients, compute via domain -- no I/O, no SDKs, no knowledge of data fetching.]
+```
+
+### Observations
+- AI absorbed the steep learning curve of `dependency-cruiser` syntax
+- Agent violated rules initially but self-corrected effectively
+- Successfully enforced React hook conventions and caught out-of-structure folder creation
+- **Limitation:** Only enforces what's expressible via imports, filenames, and folder paths
 
 ## Static Code Analysis: Coupling Data
 
@@ -56,6 +93,18 @@ Custom ESLint formatters inject architectural context and judgment prompts. Exam
 - **Prompt Strategy:** Ground LLM analysis in deterministic CLI output, not static browsing alone
 - **False Positives:** LLM misidentified intentional patterns (DI factory, shared Zod schema) as "god modules"
 - **Takeaway:** "Good/bad" coupling is highly context-dependent; better suited for **risk triage during code review**
+
+### For Human Consumption
+Visualizations (e.g., dependency graphs) help identify:
+- Hotspot files with excessive coupling
+- Circular dependencies
+- Architectural violations
+
+### For Agent Feedback
+Automated coupling metrics feed back into agent prompts, enabling:
+- Real-time awareness of architectural impact
+- Self-correction before violations become entrenched
+- Data-driven refactoring decisions
 
 ## Mutation Testing
 
@@ -105,6 +154,7 @@ Custom ESLint formatters inject architectural context and judgment prompts. Exam
 
 - 📰 [Maintainability sensors for coding agents](https://martinfowler.com/articles/sensors-for-coding-agents.html) via MartinFowler (May 19, 2026)
 - 📰 [Three more static code analysis sensors](https://martinfowler.com/articles/sensors-for-coding-agents.html#StaticCodeAnalysisDependencyRules) via MartinFowler (May 20, 2026)
+- 📰 [Harness engineering for coding agent users](https://martinfowler.com/articles/harness-engineering.html) via MartinFowler (April 2, 2026)
 - 🔍 [SWE-CI: Evaluating Agent Capabilities in Maintaining Software](https://arxiv.org/abs/2603.03823) (March 2026)
 - 🔍 [Maintainability sensors discussion](https://engineered.at/articles/maintainability-sensors-for-coding-agents) via Engineered.at
 
