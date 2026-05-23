@@ -1,16 +1,12 @@
-name: CI - Build Check
+name: CI - Build and Deploy
 
 on:
   push:
     branches:
       - master
-  pull_request:
-    branches:
-      - master
-      - gh-pages
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   build:
@@ -36,7 +32,40 @@ jobs:
       - name: Build site
         run: npm run build
 
-      - name: Check for broken links
+      - name: Check build output
         run: |
           echo "Build completed successfully"
           echo "Output files: $(ls build/ | wc -l)"
+
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build site
+        run: npm run build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./build
+          force_orphan: true
+          commit_message: "deploy: KB website update"
