@@ -2,92 +2,109 @@ import Layout from '@theme/Layout';
 import React from 'react';
 import styles from './index.module.css';
 
-function HomepageFeatures() {
-  const features = [
+function DiataxisNav() {
+  const types = [
     {
-      title: 'Architecture & Design',
-      description: (
-        <>
-          System architecture patterns, design decisions, and technical blueprints
-          that shape our infrastructure.
-        </>
-      ),
-      icon: '⚔',
-      link: '/docs/category/architecture',
+      title: 'Tutorials',
+      description: 'Step-by-step learning paths for beginners and intermediate learners. Master new topics from the ground up.',
+      icon: '📘',
+      link: '/tutorials/ai-machine-learning/llms-agents/tutorial-interrogatory-llm',
+      color: '#3a7ca5',
     },
     {
-      title: 'Operations & Deployment',
-      description: (
-        <>
-          CI/CD pipelines, container orchestration, monitoring, and the art
-          of keeping the realm running smoothly.
-        </>
-      ),
-      icon: '🛡',
-      link: '/docs/category/operations',
+      title: 'How-to Guides',
+      description: 'Goal-oriented guides that solve specific problems. Get from A to B with clear, actionable steps.',
+      icon: '🛠️',
+      link: '/how-to/ai-machine-learning/llms-agents/howto-anthropic-routines-claude',
+      color: '#c9a84c',
     },
     {
-      title: 'Security & Compliance',
-      description: (
-        <>
-          Threat modeling, access controls, audit trails, and the vigilant
-          watch against the shadows.
-        </>
-      ),
-      icon: '🔥',
-      link: '/docs/category/security',
-    },
-    {
-      title: 'Development Guides',
-      description: (
-        <>
-          Coding standards, development workflows, API references, and the
-          tools of the craft.
-        </>
-      ),
-      icon: '📜',
-      link: '/docs/category/development',
-    },
-    {
-      title: 'Data & Analytics',
-      description: (
-        <>
-          Data pipelines, warehousing strategies, ML operations, and turning
-          raw information into wisdom.
-        </>
-      ),
-      icon: '💎',
-      link: '/docs/category/data',
-    },
-    {
-      title: 'Runbooks & Playbooks',
-      description: (
-        <>
-          Incident response procedures, troubleshooting guides, and the
-          collective knowledge of the watch.
-        </>
-      ),
+      title: 'Reference',
+      description: 'Technical documentation, specifications, and factual information. Quick lookups for developers.',
       icon: '📖',
-      link: '/docs/category/runbooks',
+      link: '/reference/ai-machine-learning/llms-agents/reference-ai-is-a-technology-not-a-product',
+      color: '#d4572a',
+    },
+    {
+      title: 'Examples',
+      description: 'Working code, demos, and concrete implementations. See it in action before you build it yourself.',
+      icon: '💡',
+      link: '/examples/ai-machine-learning/llms-agents/example-structured-prompt-driven-development-spdd',
+      color: '#5ba3c9',
     },
   ];
 
   return (
-    <section className={styles.features}>
+    <section className={styles.section}>
       <div className="container">
-        <div className={styles.featuresGrid}>
-          {features.map((props, idx) => (
+        <h2 className={styles.sectionTitle}>Explore by Learning Type</h2>
+        <p className={styles.sectionSubtitle}>
+          Content organized using the Diátaxis framework — find exactly what you need.
+        </p>
+        <div className={styles.grid}>
+          {types.map((props, idx) => (
             <a
               key={idx}
               href={props.link}
-              className={styles.featureCard}
-              style={{ animationDelay: `${idx * 0.1}s` }}
+              className={styles.card}
+              style={{ animationDelay: `${idx * 0.1}s`, borderTopColor: props.color }}
             >
-              <div className={styles.featureIcon}>{props.icon}</div>
-              <h3 className={styles.featureTitle}>{props.title}</h3>
-              <p className={styles.featureDescription}>{props.description}</p>
+              <div className={styles.cardIcon}>{props.icon}</div>
+              <h3 className={styles.cardTitle}>{props.title}</h3>
+              <p className={styles.cardDescription}>{props.description}</p>
+              <span className={styles.cardArrow} style={{ color: props.color }}>→</span>
             </a>
           ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function DomainExplorer() {
+  const domains = [
+    { name: 'AI & Machine Learning', topics: 'LLMs, Local AI, ML Ops, Agent Dev', link: '/tutorials/ai-machine-learning/llms-agents/tutorial-interrogatory-llm' },
+    { name: 'Cloud & Infrastructure', topics: 'Kubernetes, GPU, Cloud Platforms', link: '/how-to/cloud-infrastructure/kubernetes/howto-running-agents-on-kubernetes-with-agent-sandbox' },
+    { name: 'Programming', topics: 'Java, Spring, Query Optimization', link: '/how-to/programming/java-spring/howto-clean-up-test-data-spring' },
+    { name: 'Developer Tools', topics: 'CI/CD, Architecture, Reliability', link: '/reference/developer-tools-practices/cicd-platforms/reference-ci-for-coding-agents' },
+    { name: 'Data & Databases', topics: 'Data Mesh, Warehousing, Pipelines', link: '/reference/data-databases/data-architecture/reference-monzo-data-mesh' },
+    { name: 'Security & Privacy', topics: 'AppSec, Vulnerabilities, Auth', link: '/reference/security-privacy/appsec-privacy/reference-chromium-browser-fetch-vulnerability' },
+  ];
+
+  return (
+    <section className={styles.sectionAlt}>
+      <div className="container">
+        <h2 className={styles.sectionTitle}>Browse by Domain</h2>
+        <div className={styles.domainGrid}>
+          {domains.map((domain, idx) => (
+            <a
+              key={idx}
+              href={domain.link}
+              className={styles.domainCard}
+            >
+              <h4 className={styles.domainName}>{domain.name}</h4>
+              <p className={styles.domainTopics}>{domain.topics}</p>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function DailyUpdate() {
+  return (
+    <section className={styles.section}>
+      <div className="container">
+        <div className={styles.updateBanner}>
+          <div className={styles.updateIcon}>🔄</div>
+          <div>
+            <h3 className={styles.updateTitle}>Fresh Content Every Day</h3>
+            <p className={styles.updateText}>
+              New tutorials, how-to guides, and references are added daily from our automated research pipeline.
+              Check back regularly to discover what's new.
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -97,71 +114,38 @@ function HomepageFeatures() {
 export default function Home() {
   return (
     <Layout
-      title="Osgiliath Enterprise Knowledge Base"
-      description="The Bridge Between Knowledge and Wisdom"
+      title="Osgiliath Learning Hub"
+      description="Tutorials, How-to Guides, and Reference — Updated Daily"
     >
       <header className={styles.hero}>
         <div className={styles.heroOverlay} />
         <div className="container">
           <div className={styles.heroContent}>
-            <div className={styles.heroBadge}>ENTERPRISE KNOWLEDGE BASE</div>
+            <div className={styles.heroBadge}>LEARNING HUB</div>
             <h1 className={styles.heroTitle}>Osgiliath</h1>
             <p className={styles.heroSubtitle}>
-              The Bridge Between Knowledge and Wisdom
+              Your daily source for tutorials, guides, and technical reference
             </p>
             <p className={styles.heroDescription}>
-              Welcome to the ancient capital of our technical documentation.
-              Like the great city upon the Anduin, this knowledge base stands
-              as the bridge connecting the light of understanding with the
-              depths of technical mastery.
+              Curated learning content on AI, cloud infrastructure, programming, security, and more.
+              Organized by the Diátaxis framework so you always find what you need.
             </p>
             <div className={styles.heroActions}>
-              <a className="button button--primary button--lg" href="/docs/intro">
-                Enter the Archives
+              <a className="button button--primary button--lg" href="/tutorials/ai-machine-learning/llms-agents/tutorial-interrogatory-llm">
+                Start Exploring
               </a>
-              <a className="button button--secondary button--lg" href="/docs/category/quick-start">
-                Quick Start
+              <a className="button button--secondary button--lg" href="/how-to/ai-machine-learning/llms-agents/howto-anthropic-routines-claude">
+                Browse How-to Guides
               </a>
             </div>
           </div>
-        </div>
-        <div className={styles.heroScroll}>
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
-          </svg>
         </div>
       </header>
 
       <main>
-        <HomepageFeatures />
-
-        <section className={styles.quoteSection}>
-          <div className="container">
-            <blockquote className={styles.quote}>
-              "Even the smallest person can change the course of the future."
-              <footer>— The Archives of Osgiliath</footer>
-            </blockquote>
-          </div>
-        </section>
-
-        <section className={styles.statsSection}>
-          <div className="container">
-            <div className={styles.statsGrid}>
-              <div className={styles.statItem}>
-                <div className={styles.statNumber}>∞</div>
-                <div className={styles.statLabel}>Knowledge to Share</div>
-              </div>
-              <div className={styles.statItem}>
-                <div className={styles.statNumber}>24/7</div>
-                <div className={styles.statLabel}>Always Accessible</div>
-              </div>
-              <div className={styles.statItem}>
-                <div className={styles.statNumber}>1</div>
-                <div className={styles.statLabel}>United Realm</div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <DiataxisNav />
+        <DomainExplorer />
+        <DailyUpdate />
       </main>
     </Layout>
   );
