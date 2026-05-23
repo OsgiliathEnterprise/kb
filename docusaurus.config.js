@@ -7,10 +7,6 @@ const config = {
   tagline: 'Tutorials, How-to Guides, and Explanations — Updated Daily',
   favicon: 'img/favicon.svg',
 
-  future: {
-    v4: true,
-  },
-
   url: 'https://OsgiliathEnterprise.github.io',
   baseUrl: '/kb/',
 
