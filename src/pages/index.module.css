@@ -265,6 +265,196 @@
   color: var(--ifm-color-content-secondary);
 }
 
+/* --- Daily Pick --- */
+.dailyPickSection {
+  padding: 3rem 0;
+  background: linear-gradient(
+    180deg,
+    var(--ifm-background-color) 0%,
+    rgba(201, 168, 76, 0.03) 50%,
+    var(--ifm-background-color) 100%
+  );
+}
+
+.dailyPickCard {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem;
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  border-radius: 12px;
+  background: rgba(201, 168, 76, 0.05);
+  max-width: 800px;
+  margin: 0 auto;
+  animation: fade-in 0.6s ease-out;
+}
+
+.dailyPickIcon {
+  font-size: 3rem;
+  flex-shrink: 0;
+}
+
+.dailyPickContent {
+  flex-grow: 1;
+}
+
+.dailyPickBadge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--osg-gold);
+  background-color: rgba(201, 168, 76, 0.1);
+  margin-bottom: 0.5rem;
+}
+
+.dailyPickTitle {
+  font-family: 'Cinzel', serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--ifm-color-content);
+  margin-bottom: 0.25rem;
+}
+
+.dailyPickType {
+  font-size: 0.9rem;
+  color: var(--ifm-color-content-secondary);
+}
+
+.dailyPickLink {
+  padding: 0.75rem 1.5rem;
+  border: 1px solid rgba(201, 168, 76, 0.4);
+  border-radius: 8px;
+  background-color: rgba(201, 168, 76, 0.08);
+  color: var(--osg-gold);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.dailyPickLink:hover {
+  background-color: rgba(201, 168, 76, 0.15);
+  box-shadow: 0 0 12px rgba(201, 168, 76, 0.2);
+}
+
+/* --- What's New --- */
+.whatsNewGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.whatsNewCard {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  border: 1px solid rgba(201, 168, 76, 0.1);
+  border-radius: 8px;
+  background: var(--ifm-background-surface-color);
+  text-decoration: none !important;
+  transition: all 0.3s ease;
+  animation: fade-in 0.5s ease-out both;
+}
+
+.whatsNewCard:hover {
+  border-color: rgba(201, 168, 76, 0.3);
+  box-shadow: 0 0 12px rgba(201, 168, 76, 0.1);
+  transform: translateY(-2px);
+}
+
+.whatsNewType {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--osg-river-light);
+  background-color: rgba(58, 124, 165, 0.1);
+  margin-bottom: 0.75rem;
+  align-self: flex-start;
+}
+
+.whatsNewTitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ifm-color-content);
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.whatsNewTime {
+  font-size: 0.8rem;
+  color: var(--ifm-color-content-secondary);
+}
+
+/* --- Bookmarks --- */
+.emptyBookmarks {
+  text-align: center;
+  padding: 3rem;
+  border: 1px dashed rgba(201, 168, 76, 0.2);
+  border-radius: 12px;
+  color: var(--ifm-color-content-secondary);
+}
+
+.bookmarkGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.bookmarkCard {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  border: 1px solid rgba(201, 168, 76, 0.1);
+  border-radius: 8px;
+  background: var(--ifm-background-surface-color);
+  text-decoration: none !important;
+  color: var(--ifm-color-content);
+  transition: all 0.3s ease;
+}
+
+.bookmarkCard:hover {
+  border-color: rgba(201, 168, 76, 0.3);
+  box-shadow: 0 0 12px rgba(201, 168, 76, 0.1);
+}
+
+.clearBookmarks {
+  padding: 0.75rem 1.5rem;
+  border: 1px solid rgba(212, 87, 42, 0.3);
+  border-radius: 8px;
+  background-color: rgba(212, 87, 42, 0.05);
+  color: #d4572a;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.clearBookmarks:hover {
+  background-color: rgba(212, 87, 42, 0.1);
+}
+
+.saveConfirmation {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  background-color: rgba(58, 124, 165, 0.9);
+  color: white;
+  font-weight: 600;
+  animation: fade-in 0.3s ease-out;
+  z-index: 1000;
+}
+
 /* --- Responsive --- */
 @media (max-width: 768px) {
   .hero {
@@ -303,6 +493,15 @@
   .updateBanner {
     flex-direction: column;
     text-align: center;
+  }
+
+  .dailyPickCard {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .whatsNewGrid {
+    grid-template-columns: 1fr;
   }
 }
 

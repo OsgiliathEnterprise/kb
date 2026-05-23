@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Replace Deprecated Genericgenerator",
+    "type": "Tutorials",
+    "link": "/tutorials/programming/java-spring/tutorial-replace-deprecated-genericgenerator",
+    "time": "2 min read"
+  },
+  {
+    "title": "What Is Code",
+    "type": "Tutorials",
+    "link": "/tutorials/ai-machine-learning/llms-agents/tutorial-what-is-code",
+    "time": "4 min read"
+  },
+  {
+    "title": "Mac Mini Agent Infrastructure",
+    "type": "Tutorials",
+    "link": "/tutorials/ai-machine-learning/aiassisted-development/tutorial-mac-mini-agent-infrastructure",
+    "time": "6 min read"
+  },
+  {
+    "title": "Interrogatory Llm",
+    "type": "Tutorials",
+    "link": "/tutorials/ai-machine-learning/llms-agents/tutorial-interrogatory-llm",
+    "time": "2 min read"
+  },
+  {
+    "title": "Cisa Credentials Github Leak",
+    "type": "Reference",
+    "link": "/reference/security-privacy/appsec-privacy/reference-cisa-credentials-github-leak",
+    "time": "4 min read"
+  },
+  {
+    "title": "Context Aware Authorization Ai Agents",
+    "type": "Reference",
+    "link": "/reference/security-privacy/appsec-privacy/reference-context-aware-authorization-ai-agents",
+    "time": "3 min read"
+  }
+]

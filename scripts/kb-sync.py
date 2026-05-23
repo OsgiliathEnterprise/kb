@@ -409,6 +409,55 @@ def count_by_type():
     return counts
 
 
+def generate_whats_new():
+    """Generate recent content list for homepage."""
+    import json
+    
+    recent = []
+    for dirpath, dirnames, filenames in os.walk(DOCS_DIR):
+        dp = Path(dirpath)
+        for f in filenames:
+            if f.endswith('.md'):
+                fp = dp / f
+                rel = fp.relative_to(DOCS_DIR)
+                parts = rel.parts
+                if len(parts) >= 2:
+                    diataxis_type = parts[0]
+                    title_match = re.match(r'(tutorial|howto|how-to|reference|example)-(.+)', f.replace('.md', ''))
+                    if title_match:
+                        title = title_match.group(2).replace('-', ' ').title()
+                        type_label = diataxis_type.replace('how-to', 'How-to').title()
+                        # Estimate reading time (200 words/min average)
+                        try:
+                            content = fp.read_text(encoding='utf-8')
+                            words = len(content.split())
+                            read_time = max(1, round(words / 200))
+                        except:
+                            read_time = 3
+                        recent.append({
+                            'title': title,
+                            'type': type_label,
+                            'link': '/' + '/'.join(parts).replace('.md', ''),
+                            'time': f'{read_time} min read',
+                            'mtime': fp.stat().st_mtime,
+                        })
+    
+    # Sort by modification time (newest first), take top 6
+    recent.sort(key=lambda x: x['mtime'], reverse=True)
+    recent = recent[:6]
+    
+    # Remove mtime from output
+    for r in recent:
+        del r['mtime']
+    
+    # Write to JSON file for homepage to consume
+    whats_new_path = Path('/home/tcharlopenclaw/code/kb/static/whats-new.json')
+    with open(whats_new_path, 'w') as f:
+        json.dump(recent, f, indent=2)
+    
+    return recent
+
+
 if __name__ == "__main__":
     try:
         changed = sync_kb()
@@ -419,6 +468,12 @@ if __name__ == "__main__":
         for t, c in sorted(counts.items()):
             print(f"  {t}: {c}")
         print(f"  Total: {total}")
+        
+        # Generate what's new data
+        recent = generate_whats_new()
+        print(f"\nWhat's New ({len(recent)} items):")
+        for r in recent:
+            print(f"  [{r['type']}] {r['title']} ({r['time']})")
 
         if errors:
             print(f"\nErrors encountered: {len(errors)}")

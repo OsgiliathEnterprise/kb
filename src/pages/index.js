@@ -1,6 +1,8 @@
 import Layout from '@theme/Layout';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './index.module.css';
+
+const BASE_URL = '/kb/';
 
 function DiataxisNav() {
   const types = [
@@ -8,28 +10,28 @@ function DiataxisNav() {
       title: 'Tutorials',
       description: 'Step-by-step learning paths for beginners and intermediate learners. Master new topics from the ground up.',
       icon: '📘',
-      link: '/tutorials/ai-machine-learning/llms-agents/tutorial-interrogatory-llm',
+      link: BASE_URL + 'tutorials/ai-machine-learning/llms-agents/tutorial-interrogatory-llm',
       color: '#3a7ca5',
     },
     {
       title: 'How-to Guides',
       description: 'Goal-oriented guides that solve specific problems. Get from A to B with clear, actionable steps.',
       icon: '🛠️',
-      link: '/how-to/ai-machine-learning/llms-agents/howto-anthropic-routines-claude',
+      link: BASE_URL + 'how-to/ai-machine-learning/llms-agents/howto-anthropic-routines-claude',
       color: '#c9a84c',
     },
     {
       title: 'Reference',
       description: 'Technical documentation, specifications, and factual information. Quick lookups for developers.',
       icon: '📖',
-      link: '/reference/ai-machine-learning/llms-agents/reference-ai-is-a-technology-not-a-product',
+      link: BASE_URL + 'reference/ai-machine-learning/llms-agents/reference-ai-is-a-technology-not-a-product',
       color: '#d4572a',
     },
     {
       title: 'Examples',
       description: 'Working code, demos, and concrete implementations. See it in action before you build it yourself.',
       icon: '💡',
-      link: '/examples/ai-machine-learning/llms-agents/example-structured-prompt-driven-development-spdd',
+      link: BASE_URL + 'examples/ai-machine-learning/llms-agents/example-structured-prompt-driven-development-spdd',
       color: '#5ba3c9',
     },
   ];
@@ -63,12 +65,12 @@ function DiataxisNav() {
 
 function DomainExplorer() {
   const domains = [
-    { name: 'AI & Machine Learning', topics: 'LLMs, Local AI, ML Ops, Agent Dev', link: '/tutorials/ai-machine-learning/llms-agents/tutorial-interrogatory-llm' },
-    { name: 'Cloud & Infrastructure', topics: 'Kubernetes, GPU, Cloud Platforms', link: '/how-to/cloud-infrastructure/kubernetes/howto-running-agents-on-kubernetes-with-agent-sandbox' },
-    { name: 'Programming', topics: 'Java, Spring, Query Optimization', link: '/how-to/programming/java-spring/howto-clean-up-test-data-spring' },
-    { name: 'Developer Tools', topics: 'CI/CD, Architecture, Reliability', link: '/reference/developer-tools-practices/cicd-platforms/reference-ci-for-coding-agents' },
-    { name: 'Data & Databases', topics: 'Data Mesh, Warehousing, Pipelines', link: '/reference/data-databases/data-architecture/reference-monzo-data-mesh' },
-    { name: 'Security & Privacy', topics: 'AppSec, Vulnerabilities, Auth', link: '/reference/security-privacy/appsec-privacy/reference-chromium-browser-fetch-vulnerability' },
+    { name: 'AI & Machine Learning', topics: 'LLMs, Local AI, ML Ops, Agent Dev', link: BASE_URL + 'tutorials/ai-machine-learning/llms-agents/tutorial-interrogatory-llm' },
+    { name: 'Cloud & Infrastructure', topics: 'Kubernetes, GPU, Cloud Platforms', link: BASE_URL + 'how-to/cloud-infrastructure/kubernetes/howto-running-agents-on-kubernetes-with-agent-sandbox' },
+    { name: 'Programming', topics: 'Java, Spring, Query Optimization', link: BASE_URL + 'how-to/programming/java-spring/howto-clean-up-test-data-spring' },
+    { name: 'Developer Tools', topics: 'CI/CD, Architecture, Reliability', link: BASE_URL + 'reference/developer-tools-practices/cicd-platforms/reference-ci-for-coding-agents' },
+    { name: 'Data & Databases', topics: 'Data Mesh, Warehousing, Pipelines', link: BASE_URL + 'reference/data-databases/data-architecture/reference-monzo-data-mesh' },
+    { name: 'Security & Privacy', topics: 'AppSec, Vulnerabilities, Auth', link: BASE_URL + 'reference/security-privacy/appsec-privacy/reference-chromium-browser-fetch-vulnerability' },
   ];
 
   return (
@@ -87,6 +89,136 @@ function DomainExplorer() {
             </a>
           ))}
         </div>
+      </div>
+    </section>
+  );
+}
+
+function WhatsNew() {
+  // Recent content — updated by sync script
+  const recent = [
+    { title: 'Replace Deprecated Genericgenerator', type: 'Tutorials', link: BASE_URL + 'tutorials/programming/java-spring/tutorial-replace-deprecated-genericgenerator', time: '2 min read' },
+    { title: 'What Is Code', type: 'Tutorials', link: BASE_URL + 'tutorials/ai-machine-learning/llms-agents/tutorial-what-is-code', time: '4 min read' },
+    { title: 'Mac Mini Agent Infrastructure', type: 'Tutorials', link: BASE_URL + 'tutorials/ai-machine-learning/aiassisted-development/tutorial-mac-mini-agent-infrastructure', time: '6 min read' },
+    { title: 'Interrogatory Llm', type: 'Tutorials', link: BASE_URL + 'tutorials/ai-machine-learning/llms-agents/tutorial-interrogatory-llm', time: '2 min read' },
+    { title: 'Cisa Credentials Github Leak', type: 'Reference', link: BASE_URL + 'reference/security-privacy/appsec-privacy/reference-cisa-credentials-github-leak', time: '4 min read' },
+    { title: 'Context Aware Authorization Ai Agents', type: 'Reference', link: BASE_URL + 'reference/security-privacy/appsec-privacy/reference-context-aware-authorization-ai-agents', time: '3 min read' },
+  ];
+
+  return (
+    <section className={styles.section}>
+      <div className="container">
+        <h2 className={styles.sectionTitle}>🔥 What's New</h2>
+        <p className={styles.sectionSubtitle}>
+          Fresh content added to the learning hub — updated daily from our research pipeline.
+        </p>
+        <div className={styles.whatsNewGrid}>
+          {recent.map((item, idx) => (
+            <a
+              key={idx}
+              href={item.link}
+              className={styles.whatsNewCard}
+              style={{ animationDelay: `${idx * 0.05}s` }}
+            >
+              <span className={styles.whatsNewType}>{item.type}</span>
+              <h4 className={styles.whatsNewTitle}>{item.title}</h4>
+              <span className={styles.whatsNewTime}>{item.time}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function DailyPick() {
+  const [pick, setPick] = useState(null);
+
+  useEffect(() => {
+    // Rotate picks based on day of year
+    const articles = [
+      { title: 'What is Code? A Deep Dive', link: BASE_URL + 'tutorials/ai-machine-learning/llms-agents/tutorial-what-is-code', type: 'Tutorial' },
+      { title: 'Anthropic Routines for Claude', link: BASE_URL + 'how-to/ai-machine-learning/llms-agents/howto-anthropic-routines-claude', type: 'How-to' },
+      { title: 'Agent Protocol Stack: MCP, A2A, AG-UI', link: BASE_URL + 'reference/ai-machine-learning/llms-agents/reference-agent-protocol-stack-mcp-a2a-ag-ui', type: 'Reference' },
+      { title: 'Mac Mini Agent Infrastructure', link: BASE_URL + 'tutorials/ai-machine-learning/aiassisted-development/tutorial-mac-mini-agent-infrastructure', type: 'Tutorial' },
+      { title: 'MySQL Query Optimization', link: BASE_URL + 'how-to/programming/java-spring/howto-mysql-query-optimization-releem', type: 'How-to' },
+      { title: 'Kubernetes v1.36 Release Overview', link: BASE_URL + 'reference/cloud-infrastructure/kubernetes/reference-kubernetes-v136-release-overview', type: 'Reference' },
+      { title: 'Linux Second Severe Vulnerability', link: BASE_URL + 'how-to/security-privacy/appsec-privacy/howto-linux-second-severe-vulnerability', type: 'How-to' },
+      { title: 'Monzo Data Mesh Architecture', link: BASE_URL + 'reference/data-databases/data-architecture/reference-monzo-data-mesh', type: 'Reference' },
+    ];
+    const dayOfYear = Math.floor((Date.now() - new Date(new Date().getFullYear(), 0, 0).getTime()) / 86400000);
+    setPick(articles[dayOfYear % articles.length]);
+  }, []);
+
+  if (!pick) return null;
+
+  return (
+    <section className={styles.dailyPickSection}>
+      <div className="container">
+        <div className={styles.dailyPickCard}>
+          <div className={styles.dailyPickIcon}>⭐</div>
+          <div className={styles.dailyPickContent}>
+            <span className={styles.dailyPickBadge}>DAILY PICK</span>
+            <h3 className={styles.dailyPickTitle}>{pick.title}</h3>
+            <p className={styles.dailyPickType}>{pick.type}</p>
+          </div>
+          <a href={pick.link} className={styles.dailyPickLink}>
+            Read Now →
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function BookmarkManager() {
+  const [bookmarks, setBookmarks] = useState(() => {
+    try {
+      return JSON.parse(localStorage.getItem('osgiliath-bookmarks') || '[]');
+    } catch {
+      return [];
+    }
+  });
+
+  const [saved, setSaved] = useState(false);
+
+  useEffect(() => {
+    localStorage.setItem('osgiliath-bookmarks', JSON.stringify(bookmarks));
+  }, [bookmarks]);
+
+  const handleBookmark = (url) => {
+    if (!bookmarks.includes(url)) {
+      setBookmarks([...bookmarks, url]);
+      setSaved(true);
+      setTimeout(() => setSaved(false), 2000);
+    }
+  };
+
+  return (
+    <section className={styles.section}>
+      <div className="container">
+        <h2 className={styles.sectionTitle}>📚 Your Bookmarks</h2>
+        <p className={styles.sectionSubtitle}>
+          Save articles you want to read later. Your bookmarks persist in your browser.
+        </p>
+        {bookmarks.length === 0 ? (
+          <div className={styles.emptyBookmarks}>
+            <p>No bookmarks yet. Use the bookmark button on article pages to save your favorites.</p>
+          </div>
+        ) : (
+          <div className={styles.bookmarkGrid}>
+            {bookmarks.map((url, idx) => (
+              <a key={idx} href={url} className={styles.bookmarkCard}>
+                <span>🔖</span>
+                <span>{new URL(url, window.location.origin).pathname.replace(BASE_URL, '').split('/')[1] || 'Saved Article'}</span>
+              </a>
+            ))}
+            <button className={styles.clearBookmarks} onClick={() => setBookmarks([])}>
+              Clear All
+            </button>
+          </div>
+        )}
+        {saved && <div className={styles.saveConfirmation}>✓ Saved to bookmarks!</div>}
       </div>
     </section>
   );
@@ -131,10 +263,10 @@ export default function Home() {
               Organized by the Diátaxis framework so you always find what you need.
             </p>
             <div className={styles.heroActions}>
-              <a className="button button--primary button--lg" href="/tutorials/ai-machine-learning/llms-agents/tutorial-interrogatory-llm">
+              <a className="button button--primary button--lg" href={BASE_URL + 'tutorials/ai-machine-learning/llms-agents/tutorial-interrogatory-llm'}>
                 Start Exploring
               </a>
-              <a className="button button--secondary button--lg" href="/how-to/ai-machine-learning/llms-agents/howto-anthropic-routines-claude">
+              <a className="button button--secondary button--lg" href={BASE_URL + 'how-to/ai-machine-learning/llms-agents/howto-anthropic-routines-claude'}>
                 Browse How-to Guides
               </a>
             </div>
@@ -143,8 +275,11 @@ export default function Home() {
       </header>
 
       <main>
+        <DailyPick />
+        <WhatsNew />
         <DiataxisNav />
         <DomainExplorer />
+        <BookmarkManager />
         <DailyUpdate />
       </main>
     </Layout>
