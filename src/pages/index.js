@@ -1,10 +1,10 @@
 import Layout from '@theme/Layout';
-import useBaseUrl from '@docusaurus/useBaseUrl';
+
 import React from 'react';
 import styles from './index.module.css';
 
 function DiataxisNav() {
-  const baseUrl = useBaseUrl('');
+  const baseUrl = '/kb/';
   const types = [
     {
       title: 'Tutorials',
@@ -64,7 +64,7 @@ function DiataxisNav() {
 }
 
 function DomainExplorer() {
-  const baseUrl = useBaseUrl('');
+  const baseUrl = '/kb/';
   const domains = [
     { name: 'AI & Machine Learning', topics: 'LLMs, Local AI, ML Ops, Agent Dev', link: `${baseUrl}tutorials/ai-machine-learning/llms-agents/tutorial-interrogatory-llm` },
     { name: 'Cloud & Infrastructure', topics: 'Kubernetes, GPU, Cloud Platforms', link: `${baseUrl}how-to/cloud-infrastructure/kubernetes/howto-running-agents-on-kubernetes-with-agent-sandbox` },
@@ -115,7 +115,7 @@ function DailyUpdate() {
 }
 
 export default function Home() {
-  const baseUrl = useBaseUrl('');
+  const baseUrl = '/kb/';
   return (
     <Layout
       title="Osgiliath Learning Hub"
