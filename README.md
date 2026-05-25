@@ -1,6 +1,6 @@
 # Website
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+This repo produces the [Osgiliath tutorials website](https://osgiliathenterprise.github.io/kb/), your daily tutorials and how to!
 
 ## Installation
 
