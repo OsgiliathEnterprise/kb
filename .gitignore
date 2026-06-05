@@ -7,6 +7,16 @@
 # Generated files
 .docusaurus
 .cache-loader
+assets/
+examples/**/*.html
+explanations/**/*.html
+how-to/**/*.html
+tutorials/**/*.html
+search/
+whats-new.json
+sitemap.xml
+404.html
+index.html
 
 # Misc
 .DS_Store
