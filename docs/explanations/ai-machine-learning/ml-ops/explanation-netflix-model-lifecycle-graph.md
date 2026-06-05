@@ -3,7 +3,14 @@ title: 'Netflix Model Lifecycle Graph: Democratizing ML at Scale'
 diataxis: Explanation
 domain: AI & Machine Learning
 topic: ML Ops
-source: https://netflixtechblog.com/democratizing-machine-learning-at-netflix-building-the-model-lifecycle-graph-5cc6d5828bb1
+source: Netflix TechBlog
+source_url: https://netflixtechblog.com/democratizing-machine-learning-at-netflix-building-the-model-lifecycle-graph-5cc6d5828bb1
+date: 2026-05-19
+keywords:
+- knowledge-base
+- ML Ops
+- AI & Machine Learning
+- explanations
 ---
 # Netflix Model Lifecycle Graph: Democratizing ML at Scale
 

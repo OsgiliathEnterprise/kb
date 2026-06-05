@@ -129,6 +129,32 @@ Automated coupling metrics feed back into agent prompts, enabling:
 - **Tool:** GitLeaks for secret detection in pre-commit hooks
 - **Takeaway:** Prevents secrets from ever reaching the repository; agents respect pre-commit failures
 
+## The Hidden Cleanup Cost of AI-Generated Code
+
+AI-generated code delivers unprecedented velocity, but the long-term cleanup costs are systematically ignored. The hidden debt accumulates across engineering teams, independent developers, citizen developers, and platform ecosystems, creating a dangerous asymmetry between creation speed and remediation capacity.
+
+### Front-Loaded Benefits vs. Hidden Costs
+New API endpoints, bug fixes, and prototypes ship in 30 minutes to a few hours. Democratization of development for citizen developers. But the cleanup bill comes later:
+
+**Hidden Cleanup Costs by Archetype:**
+- *Engineering Orgs:* Senior engineers bear heavy review burden; junior developers face skill erosion; quality debt from code duplication and subtle logic flaws
+- *Independent Developers:* Personal brand/reputation risk; one buggy release can trigger platform suspension
+- *Citizen Developers:* Code lacks tests, logging, error handling; debugging falls back to engineering teams
+- *Ecosystems & Platforms:* High volume of low-quality submissions overwhelms review; approved apps evolve via AI requesting higher permissions
+
+### The Security Cleanup Bill
+- **More Code, More Bugs:** AI security pass rates have remained flat since 2023 (Veracode Spring 2026 data)
+- **The Patch Window Has Closed:** Exploitation timelines collapsed from months/years to days/hours
+- **Defenders' Burnout:** Security headcount hasn't scaled to match vulnerability volume; FIRST predicts >50,000 CVEs in 2026
+- **NIST** announced it will stop enriching most CVEs due to 263% submission surge (2020-2025)
+
+### Actionable Mitigation Strategies
+
+| Priority | Risk Area | Recommended Actions |
+|:--------:|:----------|:--------------------|
+| **P0** | Security & Patch Gap | Treat AI code with higher scrutiny; run AI-enabled SAST/DAST/SCA on every PR; measure fixed findings, not discovered ones |
+| **P1** | Reviewer Fatigue | Implement AI-assisted code review tools; rotate review assignments to prevent burnout |
+
 ## Actionable Takeaways
 
 1. **Configure AI-specific linting rules** — default presets miss common AI failure modes (excessive complexity, function length)
@@ -155,8 +181,13 @@ Automated coupling metrics feed back into agent prompts, enabling:
 - 📰 [Maintainability sensors for coding agents](https://martinfowler.com/articles/sensors-for-coding-agents.html) via MartinFowler (May 19, 2026)
 - 📰 [Three more static code analysis sensors](https://martinfowler.com/articles/sensors-for-coding-agents.html#StaticCodeAnalysisDependencyRules) via MartinFowler (May 20, 2026)
 - 📰 [Harness engineering for coding agent users](https://martinfowler.com/articles/harness-engineering.html) via MartinFowler (April 2, 2026)
+- 📰 [The clean-up cost of AI-generated code](https://thenewstack.io/cleanup-cost-ai-code/) by Ankit Agrawal, The New Stack (May 16, 2026)
 - 🔍 [SWE-CI: Evaluating Agent Capabilities in Maintaining Software](https://arxiv.org/abs/2603.03823) (March 2026)
+- 🔍 [To What Extent Does Agent-generated Code Require Long-term Maintenance?](https://arxiv.org/html/2605.06464v2) — Empirical study on AI code maintainability (May 2026)
+- 🔍 [Agentic AI Coding: Best Practice Patterns for Speed with Quality](https://codescene.com/blog/agentic-ai-coding-best-practice-patterns-for-speed-with-quality) via CodeScene (Feb 2026)
 - 🔍 [Maintainability sensors discussion](https://engineered.at/articles/maintainability-sensors-for-coding-agents) via Engineered.at
 
 ---
 *Created by Hermes Agent Knowledge Researcher — Daily Deep Research Pipeline (May 22, 2026)*
+*Merged by KB Zookeeper on 2026-05-28: added AI code cleanup cost analysis from The New Stack*
+*Enriched 2026-05-28 with web research: arXiv study on AI code long-term maintainability, CodeScene best practice patterns for agentic coding*

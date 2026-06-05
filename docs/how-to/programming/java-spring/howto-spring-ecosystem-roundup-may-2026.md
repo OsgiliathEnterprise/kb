@@ -15,22 +15,93 @@ keywords:
 # Spring Ecosystem Roundup: May 2026 — AI Integration, Upgrades & OSS Security
 
 ## Summary
-Combined roundup of Spring Framework developments for mid-May 2026, covering Spring AI integration and capabilities (now at 2.0.0-M6), Spring Boot 4.1 preview features, release train schedule changes, and open-source software (OSS) security management in enterprise environments. Merged from "This Week in Spring" (May 12 & 19) and "Spring Office Hours Podcast S5E15 & S5E16".
+Combined roundup of Spring Framework developments for mid-May 2026, covering Spring AI integration and capabilities (now at 2.0.0-M7, final milestone before GA on May 28), Spring Boot 4.1 preview features, release train schedule changes, and open-source software (OSS) security management in enterprise environments. Merged from "This Week in Spring" (May 12 & 19), "Spring Office Hours Podcast S5E15 & S5E16", and Spring AI 2.0.0-M7 milestone release notes.
 
-**Key Update (May 19):** May release train shifted from May 11-22 to June 1-5. Spring AI 2.0.0-M6 released. Spring Boot 4.1 previewing gRPC support, OpenTelemetry enhancements, and more.
+**Key Update (May 27):** Spring AI 2.0.0-M8 released — final milestone before GA. Dash-separated property convention, ChatOptions#mutate type-specific returns, Jackson YAML exclusion fix, MistralAiApi mapping improvements. Bug fixes: Google GenAI dependency issue, PGVector without JDBC, API key requirement breaking cookie auth. GA expected May 28, 2026. Spring Boot 3.x EOL June 30, 2026.
 
 ## Topic 1: Spring AI Integration & Capabilities
 
 ### Version Status (May 2026)
-- **Spring AI 1.0.6** — Stable release, production-ready
-- **Spring AI 1.1.6** — Latest feature release
-- **Spring AI 2.0.0-M6** — Milestone 6, previewing next-gen AI features
+- **Spring AI 1.0.8** — Latest stable patch release
+- **Spring AI 1.1.7** — Latest feature release
+- **Spring AI 2.0.0-M8** — Final milestone before GA (May 28, 2026)
 
 ### Key Points
 - Spring AI continues expanding provider support and integration capabilities
 - ChatClient, Embedding, Tools/Function Calling, RAG, Structured Outputs, and Observability all available
 - Provider comparison: Anthropic, OpenAI, Azure, Google, Amazon Bedrock, Ollama
 - Spring AI team led by Adib Saikali (featured in "A Bootiful Podcast" May 14)
+- **M7 Highlights:** ToolSpec fluent API (declarative tool definitions), updated Gemini integration, dependency cleanup (CosmosDB removed), full Spring Boot 4 compatibility
+- **M8 Highlights (May 27):** Dash-separated Spring Boot property convention, ChatOptions#mutate type-specific returns, Jackson YAML exclusion from json-schema-validator, improved MistralAiApi Jackson mapping. Bug fixes: Google GenAI dependency issue, PGVector without JDBC support, API key requirement breaking cookie/session auth, transitive auto-config dependency regression
+
+### ToolSpec Fluent API (NEW in 2.0)
+A declarative API for defining AI tool specifications — cleaner separation of concerns, type-safe contracts:
+```java
+ToolSpec weatherTool = ToolSpec.builder("getWeather")
+    .description("Get current weather for a location")
+    .inputType(WeatherRequest.class)
+    .outputType(WeatherResponse.class)
+    .build();
+```
+
+### Supported Model Providers (2.0)
+| Provider | Chat | Vision | Embedding | Audio |
+|----------|------|--------|-----------|-------|
+| OpenAI | ✅ | ✅ | ✅ | ✅ |
+| Anthropic (Claude) | ✅ | ✅ | ❌ | ❌ |
+| Google Gemini | ✅ | ✅ | ✅ | ✅ |
+| Ollama (local) | ✅ | ✅ | ✅ | ❌ |
+| Azure OpenAI | ✅ | ✅ | ✅ | ✅ |
+
+### Migration Guide: Spring AI 1.x → 2.0
+
+**⚠️ Critical: Two-Step Migration Required**
+Spring AI 2.0 requires Spring Boot 4.0 (hard dependency). You cannot skip directly from 3.x to 4.0 — the upgrade path is:
+1. **Step 1:** Migrate to Spring Boot 3.5 first → surface and fix all deprecation warnings
+2. **Step 2:** Jump to Spring Boot 4.0 + Spring AI 2.0
+
+Skipping the intermediate step usually means being surprised by removed APIs at compile time.
+
+**Hard Dependencies for 2.0:**
+- Spring Boot 4.0 (not 3.x)
+- Spring Framework 7
+- Java 17 minimum (21 recommended)
+- Jackson 3 (replaces Jackson 2)
+
+#### Jackson 3 Migration — Highest-Risk Change
+Jackson 3 moves packages from `com.fasterxml.jackson` to `tools.jackson`. The rename fails at compile time (easy to fix), but the invisible changes are dangerous:
+- **Date serialization defaults changed** — Unix timestamps may break downstream clients
+- **Property ordering defaults changed** — JSON output shape changes silently
+- **Action:** Run full integration test suite before AND after Jackson upgrade, diff JSON output explicitly
+
+#### Setters Removed — Builder Pattern Required
+Every model provider options class (OpenAI, Anthropic, Bedrock, Mistral, Ollama, etc.) dropped setter methods. This is a compile-time break:
+```java
+// ❌ Broken in Spring AI 2.0
+var options = new OpenAiChatOptions();
+options.setTemperature(0.7);
+options.setModel("gpt-4o");
+
+// ✅ Correct — builder pattern required
+var options = OpenAiChatOptions.builder()
+    .model("gpt-4o")
+    .temperature(0.7)
+    .build();
+```
+**Action:** Global search for `.setTemperature`, `.setModel`, `.setMaxTokens` across your codebase.
+
+#### Full Migration Checklist
+1. Update dependencies (`spring-ai-bom: 2.0.0`, `spring-boot: 4.0.x`)
+2. Migrate to Spring Boot 3.5 first, fix all deprecations
+3. Replace CosmosDB vector store → Redis or PGVector
+4. Update tool definitions → migrate from `FunctionCallback` to `ToolSpec`
+5. Replace all Jackson 2 imports (`com.fasterxml.jackson` → `tools.jackson`)
+6. Replace all setter calls with builder pattern
+7. Update model configuration → new application properties for 2.0
+8. Run integration tests, diff JSON output for Jackson 3 date/ordering changes
+9. Test streaming responses → verify Observable/Flux integration
+
+**⏰ Deadline:** Spring Boot 3.5 and Spring Framework 6.2 both reach end-of-life June 30, 2026 — exactly 33 days after Spring AI 2.0 GA (May 28). After June 30, neither version receives security patches or CVE fixes. Teams that want Spring AI 2.0 and long-term support do not have the luxury of a leisurely migration.
 
 ### Practical Setup
 1. **[Spring AI Reference Docs](https://docs.spring.io/spring-ai/reference/index.html)** — Full API reference: ChatClient, Embedding, Tools/Function Calling, RAG, Structured Outputs, Observability
@@ -84,9 +155,15 @@ Combined roundup of Spring Framework developments for mid-May 2026, covering Spr
 - 📰 Original: [This Week in Spring - May 19th, 2026](https://spring.io/blog/2026/05/19/this-week-in-spring-may-19-2026) via Spring Blog
 - 📰 Original: [Spring Office Hours Podcast: S5E15 - Upgrading Spring and OSS Security](https://spring.io/blog/2026/05/11/spring-office-hours-podcast-S5E15) via Spring Blog
 - 📰 Original: [Spring Office Hours Podcast: S5E16 - May Release Train Shift & Spring Boot 4.1](https://spring.io/blog/2026/05/19/spring-office-hours-podcast-S5E16) via Spring Blog
+- 📰 Original: [Spring AI 1.0.8, 1.1.7, 2.0.0-M7 Available Now](https://spring.io/blog/2026/05/23/spring-ai-1-0-8-1-1-7-2-0-0-M7-available-now) via Spring Blog
+- 📰 Original: [Spring AI 2.0.0-M8 Available Now](https://spring.io/blog/2026/05/27/spring-ai-2-0-0-M8-available-now) via Spring Blog
+- 📰 [Spring AI 2.0 Is Coming May 28 — June 30 Deadline Urgency](https://www.herodevs.com/blog-posts/spring-ai-2-0-is-coming-may-28-here-is-why-that-makes-the-june-30-deadline-more-urgent-not-less) via HeroDevs
 - 📋 [Spring Boot 4.1 Release Notes](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-4.1-Release-Notes) via GitHub Wiki
 - 🎙️ [A Bootiful Podcast: Adib Saikali (Spring AI Lead)](https://spring.io/blog/2026/05/14/a-bootiful-podcast-daniel-adib-saikali) via Spring Blog
 
 ---
-*Merged by KB Zookeeper on 2026-05-19*
+*Merged by KB Zookeeper on 2026-05-28*
 *Enriched 2026-05-22 with Spring Boot 4.1 preview features, release train shift, Spring AI 2.0.0-M6, community tools*
+*Enriched 2026-05-28 with Spring AI 2.0.0-M7 milestone: ToolSpec API, Gemini updates, migration guide, model provider matrix*
+*Enriched 2026-05-30 with Jackson 3 migration details (package rename, date/ordering defaults), builder pattern replacement, two-step migration path, Spring Boot 4 hard dependency*
+*Enriched 2026-06-01 with Spring AI 2.0.0-M8 final milestone: dash-separated properties, ChatOptions#mutate type-specific returns, Jackson YAML exclusion, MistralAiApi mapping fixes, Google GenAI/PGVector/API key bug fixes*

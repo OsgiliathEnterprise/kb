@@ -20,6 +20,12 @@ Kubernetes v1.36, themed **"Haru"** (春, spring), delivers **70 enhancements**:
 ## Release Theme
 The logo, created by avocadoneko / Natsuho Ide, draws inspiration from Hokusai's *Thirty-six Views of Mount Fuji*. The calligraphy 晴れに翔け (hare ni kake) means "soar into clear skies" — a wish for the release and the community.
 
+## Community Scale
+Contributions from **106 companies** and **491 individuals**. The release blog describes it as arriving "as the season turns and the light shifts on the mountain."
+
+## Security Focus
+v1.36 has a strong emphasis on security hardening — User Namespaces (GA), Fine-Grained Kubelet Authz (GA), Service ExternalIPs removal, and Mutating Admission Policies all tighten the default security posture. InfoQ characterizes this as "security defaults tighten as AI workload support matures."
+
 ## Why This Release Matters
 v1.36 is a significant maturity release — multiple Alpha/Beta features graduate to GA/Beta, improving stability guarantees for production clusters. The scaling improvements (sharded list/watch, PSI metrics) directly address challenges in large clusters (10K+ nodes), while the DRA and workload-aware scheduling features lay groundwork for AI/ML workloads on Kubernetes.
 
@@ -89,6 +95,33 @@ Volume group snapshots, introduced as Alpha in v1.27, moved to Beta in v1.32 and
 - Crash-consistent snapshots for sets of volumes
 - Behind the scenes, Kubernetes uses a leader volume pattern to coordinate snapshot timing
 
+### 3. User Namespaces in Pods (GA)
+Linux user namespaces reached **General Availability** in v1.36 after a 10-year development timeline (6 years of active Kubernetes development). This is one of the longest-running feature efforts in the project's history.
+
+**Why it matters:** Solves a fundamental container security problem — without user namespaces, a process running as root inside a container is also root on the host. User namespaces remap UIDs/GIDs so that "root in the container" is a non-privileged user on the host.
+
+**Key breakthrough — ID-Mapped Mounts:** Before Linux 5.12's ID-mapped mounts, the runtime had to chown every file on every mount (O(n) operation). ID-mapped mounts translate UIDs/GIDs on-the-fly at the mount boundary, making setup O(1).
+
+**How to use:**
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: secure-workload
+spec:
+  hostUsers: false  # Run in a separate user namespace
+  containers:
+    - name: app
+      image: my-app:latest
+      # No container image modifications needed
+```
+
+**Platform support:** Linux-only (kernel ≥ 3.8 for user namespaces, ≥ 5.12 for ID-mapped mounts).
+
+**Key authors:** Rodrigo Campos Catelin (Amutable), Giuseppe Scrivano (Red Hat).
+
+**KEP:** #127 (SIG Node)
+
 ---
 
 ## 🟡 Beta Features
@@ -109,16 +142,13 @@ Kubernetes native types can now be validated declaratively using validation-gen,
 ### 6. Node Log Query (Beta)
 Native API for querying node logs, improving debugging workflows without SSH access.
 
-### 7. User Namespaces in Pods (Beta)
-Support for Linux user namespaces within pods, enabling stronger isolation without full root access.
-
-### 8. Staleness Mitigation for Controllers
+### 7. Staleness Mitigation for Controllers
 Reduces unnecessary reconciliation cycles for controllers when resources haven't actually changed.
 
-### 9. Mutable Container Resources (When Job Suspended)
+### 8. Mutable Container Resources (When Job Suspended)
 Allows modifying container resources on suspended Jobs, enabling dynamic resource adjustment without recreating Jobs.
 
-### 10. Mixed Version Proxy (Beta)
+### 9. Mixed Version Proxy (Beta)
 Introduced as Alpha in v1.28 under the `UnknownVersionInteroperabilityProxy` feature gate, Mixed Version Proxy (MVP) graduates to Beta in v1.36.
 
 **Why it matters:** Makes cluster upgrades safer by ensuring that requests for resources not yet known to an older API server are correctly routed to a newer peer API server, instead of returning an incorrect 404 Not Found.
@@ -144,6 +174,69 @@ v1.36 introduces a significant architectural evolution for workload-aware schedu
 - **Atomic PodGroup Scheduling:** New PodGroup scheduling cycle evaluates the entire group atomically — either all pods in the group are bound together, or none are (beyond v1.35's minimum-count gang scheduling)
 - Better support for AI/ML and batch workload patterns
 - **KEPs:** #4671, #5547, #5832, #5732, #5710 (SIG Scheduling + SIG Apps)
+
+#### Deep Dive: Workload-Aware Scheduling
+
+**The Problem:** Traditional Kubernetes scheduling assumes independent pods. AI/ML workloads violate this assumption:
+
+```
+Traditional Workload          AI/ML Workload
+────────────────────          ────────────────
+Pod A ──► Schedule            PodGroup A
+Pod B ──► Schedule            ├── Pod A (GPU 0)
+Pod C ──► Schedule            ├── Pod B (GPU 1)     ◄── Must start together
+                              ├── Pod C (GPU 2)     ◄── All-or-nothing
+                              └── Pod D (GPU 3)
+```
+
+**Key features:**
+- **PodGroup API (Alpha):** Groups related pods for coordinated scheduling with `minMembers`, `scheduleTimeoutSeconds`, and `topologyPolicy`
+- **Gang Scheduling:** Pods within a PodGroup are scheduled atomically — all or nothing
+- **Topology-Aware Placement:** NUMA awareness, GPU topology (NVLink vs PCIe), network topology (cross-rack minimization)
+- **Workload-Aware Preemption:** Preempt entire workload groups rather than individual pods
+- **DRA Integration:** GPU partitioning, dynamic resource adjustment, hardware-aware scheduling
+
+**PodGroup Example:**
+```yaml
+apiVersion: scheduling.k8s.io/v1alpha1
+kind: PodGroup
+metadata:
+  name: training-job-alpha
+spec:
+  minMembers: 4
+  scheduleTimeoutSeconds: 300
+  topologyPolicy: "Strict"
+  template:
+    spec:
+      containers:
+      - name: trainer
+        image: pytorch:2.4
+        resources:
+          requests:
+            nvidia.com/gpu: 1
+```
+
+**v1.35 vs v1.36 Scheduling Comparison:**
+
+| Feature | v1.35 | v1.36 |
+|---------|-------|-------|
+| Pod scheduling | ✅ Stable | ✅ Stable |
+| PodGroup API | ❌ | ✅ Alpha |
+| Gang scheduling | ❌ | ✅ Alpha |
+| Topology-aware placement | ❌ | ✅ Alpha |
+| Workload preemption | ❌ | ✅ Alpha |
+| DRA integration | ✅ Beta | ✅ Enhanced |
+| In-place pod resize | ✅ Alpha | ✅ Beta |
+
+**Migration Path:** Enable `WorkloadAwareScheduling` feature gate, test in staging, start with simple homogeneous PodGroups before complex topologies.
+
+**Use Cases:** Distributed training jobs (PyTorch across 8 GPUs), multi-node inference serving, batch processing pipelines.
+
+#### Workload-Aware Preemption Details
+For the first time, kube-scheduler treats a PodGroup as one preemption unit and refuses to start a preemption it cannot finish — eliminating partial preemption failures that leave the cluster in an inconsistent state. This is critical for AI/ML workloads where preempting only some pods in a training group would waste all GPU resources.
+
+#### Resource Health Status (Beta)
+Before v1.36, Kubernetes lacked a native way to report the health of allocated devices, making it difficult to diagnose Pod crashes caused by hardware failures. Resource health status now exposes device health information directly in the Pod status, giving users and controllers crucial visibility to quickly identify and react to device failures.
 
 ### 6. Dynamic Resource Allocation (DRA) — Next Era
 DRA continues to mature in v1.36 with feature graduations, usability improvements, and new capabilities extending DRA to native resources like memory and CPU.
@@ -179,7 +272,10 @@ The `.spec.externalIPs` field for Service is deprecated and removed.
 - [[reference-monzo-data-mesh|Monzo Data Mesh Architecture]]
 
 ## References
-- 📰 [Official v1.36 Release Announcement](https://kubernetes.io/blog/2026/04/22/kubernetes-v1-36-release/) (April 22, 2026)
+- [Kubernetes v1.36 Release Announcement: ハル (Haru)](https://kubernetes.io/blog/2026/04/22/kubernetes-v1-36-release/)
+- [InfoQ: Kubernetes v1.36 Released — Security Defaults Tighten as AI Workloads Gain Traction](https://www.infoq.com/news/2026/05/kubernetes-1-36-released/)
+- [Sysdig: Kubernetes 1.36 New Security Features](https://www.sysdig.com/blog/kubernetes-1-36-new-security-features)
+- [ScaleOps: Kubernetes 1.36 Resource Management — What Actually Changed](https://scaleops.com/blog/kubernetes-1-36/)
 - 📰 [PSI Metrics GA](https://kubernetes.io/blog/2026/05/12/kubernetes-v1-36-psi-metrics-ga/) (May 12, 2026)
 - 📰 [Server-Side Sharded List/Watch](https://kubernetes.io/blog/2026/05/06/kubernetes-v1-36-server-side-sharded-list-and-watch/) (May 6, 2026)
 - 📰 [DRA Updates](https://kubernetes.io/blog/2026/05/07/kubernetes-v1-36-dra-136-updates/) (May 7, 2026)
@@ -188,9 +284,13 @@ The `.spec.externalIPs` field for Service is deprecated and removed.
 - 📰 [Service ExternalIPs Deprecation](https://kubernetes.io/blog/2026/05/14/kubernetes-v1-36-deprecation-and-removal-of-service-externalips/) (May 14, 2026)
 - 📰 [Mixed Version Proxy Beta](https://kubernetes.io/blog/2026/05/15/kubernetes-1-36-feature-mixed-version-proxy-beta/) (May 15, 2026)
 - 📰 [CCM Route Sync Metric](https://kubernetes.io/blog/2026/05/15/ccm-new-metric-route-sync-total/) (May 15, 2026)
+- 📰 [User Namespaces GA](https://kubernetes.io/blog/2026/04/23/kubernetes-v1-36-userns-ga/) (April 23, 2026)
 - 🔍 [Kernel PSI Documentation](https://docs.kernel.org/accounting/psi.html)
 - 🔍 [Kubernetes PSI Guide](https://kubernetes.io/docs/reference/instrumentation/understand-psi-metrics/)
+- 🔍 [KEP-127: User Namespaces](https://github.com/kubernetes/enhancements/tree/master/keps/sig-node/127-user-namespaces)
 
 ---
-*Merged by Hermes Agent KB maintenance — consolidated 8 individual v1.36 release notes into comprehensive overview*
-*Enriched 2026-05-22 with official release page data: Haru theme, fine-grained auth GA, resource health status beta, WAS PodGroup details, additional beta features*
+*Merged by Hermes Agent KB maintenance — consolidated 9 individual v1.36 release notes into comprehensive overview (including user namespaces GA detail)*
+*Enriched 2026-05-22 with official release page data: Haru theme, fine-grained auth GA, resource health status beta, WAS PodGroup details, additional beta features, user namespaces GA*
+*Enriched 2026-05-28 with web research: workload-aware preemption atomicity, resource health status beta details, InfoQ release coverage, Sysdig security features, ScaleOps resource management analysis*
+*Enriched 2026-05-30 with community scale data (106 companies, 491 contributors), security focus summary from InfoQ characterization*

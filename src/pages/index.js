@@ -10,7 +10,7 @@ function DiataxisNav() {
       title: 'Tutorials',
       description: 'Step-by-step learning paths for beginners and intermediate learners. Master new topics from the ground up.',
       icon: '📘',
-      link: BASE_URL + 'tutorials/ai-machine-learning/llms-agents/tutorial-interrogatory-llm',
+      link: BASE_URL + 'tutorials/ai-machine-learning/llms-agents/tutorial-what-is-code',
       color: '#3a7ca5',
     },
     {
@@ -24,7 +24,7 @@ function DiataxisNav() {
       title: 'Explanations',
       description: 'Technical explanations, concepts, and factual information. Quick lookups for developers.',
       icon: '📖',
-      link: BASE_URL + 'explanations/ai-machine-learning/llms-agents/explanation-ai-is-a-technology-not-a-product',
+      link: BASE_URL + 'explanations/ai-machine-learning/llms-agents/explanation-agent-protocol-stack-mcp-a2a-ag-ui',
       color: '#d4572a',
     },
     {
@@ -65,7 +65,7 @@ function DiataxisNav() {
 
 function DomainExplorer() {
   const domains = [
-    { name: 'AI & Machine Learning', topics: 'LLMs, Local AI, ML Ops, Agent Dev', link: BASE_URL + 'tutorials/ai-machine-learning/llms-agents/tutorial-interrogatory-llm' },
+    { name: 'AI & Machine Learning', topics: 'LLMs, Local AI, ML Ops, Agent Dev', link: BASE_URL + 'tutorials/ai-machine-learning/llms-agents/tutorial-what-is-code' },
     { name: 'Cloud & Infrastructure', topics: 'Kubernetes, GPU, Cloud Platforms', link: BASE_URL + 'how-to/cloud-infrastructure/kubernetes/howto-running-agents-on-kubernetes-with-agent-sandbox' },
     { name: 'Programming', topics: 'Java, Spring, Query Optimization', link: BASE_URL + 'how-to/programming/java-spring/howto-clean-up-test-data-spring' },
     { name: 'Developer Tools', topics: 'CI/CD, Architecture, Reliability', link: BASE_URL + 'explanations/developer-tools-practices/cicd-platforms/explanation-ci-for-coding-agents' },
@@ -100,8 +100,7 @@ function WhatsNew() {
     { title: 'Replace Deprecated Genericgenerator', type: 'Tutorials', link: BASE_URL + 'tutorials/programming/java-spring/tutorial-replace-deprecated-genericgenerator', time: '2 min read' },
     { title: 'What Is Code', type: 'Tutorials', link: BASE_URL + 'tutorials/ai-machine-learning/llms-agents/tutorial-what-is-code', time: '4 min read' },
     { title: 'Mac Mini Agent Infrastructure', type: 'Tutorials', link: BASE_URL + 'tutorials/ai-machine-learning/aiassisted-development/tutorial-mac-mini-agent-infrastructure', time: '6 min read' },
-    { title: 'Interrogatory Llm', type: 'Tutorials', link: BASE_URL + 'tutorials/ai-machine-learning/llms-agents/tutorial-interrogatory-llm', time: '2 min read' },
-    { title: 'Cisa Credentials Github Leak', type: 'Explanation', link: BASE_URL + 'explanations/security-privacy/appsec-privacy/explanation-cisa-credentials-github-leak', time: '4 min read' },
+    { title: 'Spring Security in the AI Era', type: 'Explanation', link: BASE_URL + 'explanations/programming/java-spring/explanation-spring-security-ai-era', time: '3 min read' },
     { title: 'Context Aware Authorization Ai Agents', type: 'Explanation', link: BASE_URL + 'explanations/security-privacy/appsec-privacy/explanation-context-aware-authorization-ai-agents', time: '3 min read' },
   ];
 
@@ -141,7 +140,7 @@ function DailyPick() {
       { title: 'Anthropic Routines for Claude', link: BASE_URL + 'how-to/ai-machine-learning/llms-agents/howto-anthropic-routines-claude', type: 'How-to' },
       { title: 'Agent Protocol Stack: MCP, A2A, AG-UI', link: BASE_URL + 'explanations/ai-machine-learning/llms-agents/explanation-agent-protocol-stack-mcp-a2a-ag-ui', type: 'Explanation' },
       { title: 'Mac Mini Agent Infrastructure', link: BASE_URL + 'tutorials/ai-machine-learning/aiassisted-development/tutorial-mac-mini-agent-infrastructure', type: 'Tutorial' },
-      { title: 'MySQL Query Optimization', link: BASE_URL + 'how-to/programming/java-spring/howto-mysql-query-optimization-releem', type: 'How-to' },
+      { title: 'Spring Ecosystem Roundup May 2026', link: BASE_URL + 'how-to/programming/java-spring/howto-spring-ecosystem-roundup-may-2026', type: 'How-to' },
       { title: 'Kubernetes v1.36 Release Overview', link: BASE_URL + 'explanations/cloud-infrastructure/kubernetes/explanation-kubernetes-v136-release-overview', type: 'Explanation' },
       { title: 'Linux Second Severe Vulnerability', link: BASE_URL + 'how-to/security-privacy/appsec-privacy/howto-linux-second-severe-vulnerability', type: 'How-to' },
       { title: 'Monzo Data Mesh Architecture', link: BASE_URL + 'explanations/data-databases/data-architecture/explanation-monzo-data-mesh', type: 'Explanation' },
@@ -210,7 +209,7 @@ export default function Home() {
               Organized by the Diátaxis framework so you always find what you need.
             </p>
             <div className={styles.heroActions}>
-              <a className="button button--primary button--lg" href={BASE_URL + 'tutorials/ai-machine-learning/llms-agents/tutorial-interrogatory-llm'}>
+              <a className="button button--primary button--lg" href={BASE_URL + 'tutorials/ai-machine-learning/llms-agents/tutorial-what-is-code'}>
                 Start Exploring
               </a>
               <a className="button button--secondary button--lg" href={BASE_URL + 'how-to/ai-machine-learning/llms-agents/howto-anthropic-routines-claude'}>

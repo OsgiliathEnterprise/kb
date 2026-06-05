@@ -3,7 +3,14 @@ title: Context-Aware Authorization for AI Agents
 diataxis: Explanation
 domain: Security & Privacy
 topic: AppSec & Privacy
-source: https://feeds.dzone.com/link/23558/17341966/context-aware-authorization
+source: DZone
+source_url: https://feeds.dzone.com/link/23558/17341966/context-aware-authorization
+date: 2026-05-19
+keywords:
+- knowledge-base
+- AppSec & Privacy
+- Security & Privacy
+- explanations
 ---
 # Context-Aware Authorization for AI Agents
 

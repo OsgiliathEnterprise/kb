@@ -1,38 +1,38 @@
 [
   {
-    "title": "Cisa Credentials Github Leak",
+    "title": "Spring Security Ai Era",
     "type": "Explanation",
-    "link": "/explanations/security-privacy/appsec-privacy/explanation-cisa-credentials-github-leak",
-    "time": "4 min read"
+    "link": "/explanations/programming/java-spring/explanation-spring-security-ai-era",
+    "time": "6 min read"
   },
   {
-    "title": "Chromium Browser Fetch Vulnerability",
-    "type": "Explanation",
-    "link": "/explanations/security-privacy/appsec-privacy/explanation-chromium-browser-fetch-vulnerability",
-    "time": "4 min read"
+    "title": "Spring Ecosystem Roundup May 2026",
+    "type": "How-To",
+    "link": "/how-to/programming/java-spring/howto-spring-ecosystem-roundup-may-2026",
+    "time": "7 min read"
   },
   {
-    "title": "Ci For Coding Agents",
-    "type": "Explanation",
-    "link": "/explanations/developer-tools-practices/cicd-platforms/explanation-ci-for-coding-agents",
-    "time": "4 min read"
-  },
-  {
-    "title": "Discord Reveals How A Hidden Circular Dependency Triggered I",
-    "type": "Explanation",
-    "link": "/explanations/developer-tools-practices/architecture-reliability/explanation-discord-reveals-how-a-hidden-circular-dependency-triggered-i",
+    "title": "Emulate Left Join Fetch Projections",
+    "type": "How-To",
+    "link": "/how-to/programming/java-spring/howto-emulate-left-join-fetch-projections",
     "time": "2 min read"
   },
   {
-    "title": "Vibe Coding",
-    "type": "Explanation",
-    "link": "/explanations/ai-machine-learning/aiassisted-development/explanation-vibe-coding",
-    "time": "5 min read"
+    "title": "Clean Up Test Data Spring",
+    "type": "How-To",
+    "link": "/how-to/programming/java-spring/howto-clean-up-test-data-spring",
+    "time": "2 min read"
   },
   {
-    "title": "Caching Agentic Java Systems",
+    "title": "Replace Deprecated Genericgenerator",
+    "type": "Tutorials",
+    "link": "/tutorials/programming/java-spring/tutorial-replace-deprecated-genericgenerator",
+    "time": "2 min read"
+  },
+  {
+    "title": "Monzo Data Mesh",
     "type": "Explanation",
-    "link": "/explanations/ai-machine-learning/aiassisted-development/explanation-caching-agentic-java-systems",
-    "time": "5 min read"
+    "link": "/explanations/data-databases/data-architecture/explanation-monzo-data-mesh",
+    "time": "3 min read"
   }
 ]

@@ -3,7 +3,14 @@ title: 'Gemma 4: Local Multimodal LLM Guide'
 diataxis: Explanation
 domain: AI & Machine Learning
 topic: Local AI
-source: https://feeds.dzone.com/link/23558/17344251/run-gemma-4-locally-guide
+source: DZone
+source_url: https://feeds.dzone.com/link/23558/17344251/run-gemma-4-locally-guide
+date: 2026-05-19
+keywords:
+- knowledge-base
+- Local AI
+- AI & Machine Learning
+- explanations
 ---
 # Gemma 4: Running Google's Open Multimodal LLM Locally
 

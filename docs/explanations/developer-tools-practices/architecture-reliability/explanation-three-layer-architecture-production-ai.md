@@ -3,7 +3,14 @@ title: Three-Layer Architecture for Production-Ready AI Software
 diataxis: Explanation
 domain: Developer Tools & Practices
 topic: Architecture & Reliability
-source: https://dev.to/hackmamba/the-three-layer-architecture-that-makes-software-production-ready-2pdh
+source: Dev.to
+source_url: https://dev.to/hackmamba/the-three-layer-architecture-that-makes-software-production-ready-2pdh
+date: 2026-05-19
+keywords:
+- knowledge-base
+- Architecture & Reliability
+- Developer Tools & Practices
+- explanations
 ---
 # Three-Layer Architecture for Production-Ready AI Software
 

@@ -122,7 +122,7 @@ const config = {
             items: [
               {
                 label: 'Tutorials',
-                href: '/tutorials/ai-machine-learning/llms-agents/tutorial-interrogatory-llm',
+                href: '/tutorials/ai-machine-learning/llms-agents/tutorial-what-is-code',
               },
               {
                 label: 'How-to Guides',
@@ -130,7 +130,7 @@ const config = {
               },
               {
                 label: 'Explanations',
-                href: '/explanations/ai-machine-learning/llms-agents/explanation-ai-is-a-technology-not-a-product',
+                href: '/explanations/ai-machine-learning/llms-agents/explanation-agent-protocol-stack-mcp-a2a-ag-ui',
               },
               {
                 label: 'Examples',
@@ -143,7 +143,7 @@ const config = {
             items: [
               {
                 label: 'AI & Machine Learning',
-                href: '/tutorials/ai-machine-learning/llms-agents/tutorial-interrogatory-llm',
+                href: '/tutorials/ai-machine-learning/llms-agents/tutorial-what-is-code',
               },
               {
                 label: 'Cloud & Infrastructure',
