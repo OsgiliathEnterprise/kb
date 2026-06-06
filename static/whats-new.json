@@ -1,21 +1,21 @@
 [
   {
-    "title": "Spring Security Ai Era",
+    "title": "K8S Dashboard To Headlamp Transition",
+    "type": "How-To",
+    "link": "/how-to/cloud-infrastructure/kubernetes/howto-k8s-dashboard-to-headlamp-transition",
+    "time": "4 min read"
+  },
+  {
+    "title": "S3 Vectors Rag Without Vector Db",
     "type": "Explanation",
-    "link": "/explanations/programming/java-spring/explanation-spring-security-ai-era",
-    "time": "6 min read"
+    "link": "/explanations/general/explanation-s3-vectors-rag-without-vector-db",
+    "time": "3 min read"
   },
   {
-    "title": "Spring Ecosystem Roundup May 2026",
+    "title": "Ai Agent Kubectl Access Patterns",
     "type": "How-To",
-    "link": "/how-to/programming/java-spring/howto-spring-ecosystem-roundup-may-2026",
-    "time": "7 min read"
-  },
-  {
-    "title": "Emulate Left Join Fetch Projections",
-    "type": "How-To",
-    "link": "/how-to/programming/java-spring/howto-emulate-left-join-fetch-projections",
-    "time": "2 min read"
+    "link": "/how-to/security-privacy/appsec-privacy/howto-ai-agent-kubectl-access-patterns",
+    "time": "18 min read"
   },
   {
     "title": "Clean Up Test Data Spring",
@@ -24,15 +24,15 @@
     "time": "2 min read"
   },
   {
-    "title": "Replace Deprecated Genericgenerator",
-    "type": "Tutorials",
-    "link": "/tutorials/programming/java-spring/tutorial-replace-deprecated-genericgenerator",
+    "title": "Emulate Left Join Fetch Projections",
+    "type": "How-To",
+    "link": "/how-to/programming/java-spring/howto-emulate-left-join-fetch-projections",
     "time": "2 min read"
   },
   {
-    "title": "Monzo Data Mesh",
-    "type": "Explanation",
-    "link": "/explanations/data-databases/data-architecture/explanation-monzo-data-mesh",
-    "time": "3 min read"
+    "title": "Spring Ecosystem Roundup May 2026",
+    "type": "How-To",
+    "link": "/how-to/programming/java-spring/howto-spring-ecosystem-roundup-may-2026",
+    "time": "7 min read"
   }
 ]

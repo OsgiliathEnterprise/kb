@@ -61,6 +61,84 @@ const sidebars = {
     },
     {
       type: 'category',
+      label: 'Explanations',
+      collapsed: true,
+      items: [
+        {
+          type: 'category',
+          label: 'Aiassisted Development',
+          items: ['explanations/ai-machine-learning/aiassisted-development/explanation-caching-agentic-java-systems', 'explanations/ai-machine-learning/aiassisted-development/explanation-vibe-coding'],
+        },
+        {
+          type: 'category',
+          label: 'Llms Agents',
+          items: ['explanations/ai-machine-learning/llms-agents/explanation-agent-protocol-stack-mcp-a2a-ag-ui', 'explanations/ai-machine-learning/llms-agents/explanation-maintainability-sensors-for-coding-agents', 'explanations/ai-machine-learning/llms-agents/explanation-rag-architecture-at-scale'],
+        },
+        {
+          type: 'category',
+          label: 'Local Ai',
+          items: ['explanations/ai-machine-learning/local-ai/explanation-gemma-4-local-multimodal-llm'],
+        },
+        {
+          type: 'category',
+          label: 'Ml Ops',
+          items: ['explanations/ai-machine-learning/ml-ops/explanation-netflix-model-lifecycle-graph'],
+        },
+        {
+          type: 'category',
+          label: 'Agenttooling',
+          items: ['explanations/aiinfrastructure/agenttooling/jetbrains-ide-native-search-for-agents'],
+        },
+        {
+          type: 'category',
+          label: 'Kubernetes',
+          items: ['explanations/cloud-infrastructure/kubernetes/explanation-kubernetes-v136-release-overview'],
+        },
+        {
+          type: 'category',
+          label: 'Observability',
+          items: ['explanations/cloud-infrastructure/observability/explanation-opentelemetry-ga'],
+        },
+        {
+          type: 'category',
+          label: 'Data Architecture',
+          items: ['explanations/data-databases/data-architecture/explanation-monzo-data-mesh'],
+        },
+        {
+          type: 'category',
+          label: 'Architecture Reliability',
+          items: ['explanations/developer-tools-practices/architecture-reliability/explanation-discord-circular-dependency-voice-outage', 'explanations/developer-tools-practices/architecture-reliability/explanation-three-layer-architecture-production-ai'],
+        },
+        {
+          type: 'category',
+          label: 'Cicd Platforms',
+          items: ['explanations/developer-tools-practices/cicd-platforms/explanation-ci-for-coding-agents'],
+        },
+        {
+          type: 'category',
+          label: 'Cicdpipelines',
+          items: ['explanations/devsecops/cicdpipelines/gitlab-19-devsecops-features'],
+        },
+        'explanations/general/explanation-s3-vectors-rag-without-vector-db',
+        {
+          type: 'category',
+          label: 'Java Spring',
+          items: ['explanations/programming/java-spring/explanation-jdk27-post-quantum-tls', 'explanations/programming/java-spring/explanation-spring-security-ai-era'],
+        },
+        {
+          type: 'category',
+          label: 'Appsec Privacy',
+          items: ['explanations/security-privacy/appsec-privacy/explanation-chromium-browser-fetch-vulnerability', 'explanations/security-privacy/appsec-privacy/explanation-cisa-credentials-github-leak', 'explanations/security-privacy/appsec-privacy/explanation-context-aware-authorization-ai-agents', 'explanations/security-privacy/appsec-privacy/explanation-frontier-ai-models-security-failures'],
+        },
+        {
+          type: 'category',
+          label: 'Mobilearchitecture',
+          items: ['explanations/softwareengineering/mobilearchitecture/react-native-bridge-to-jsi-migration'],
+        },
+      ],
+    },
+    {
+      type: 'category',
       label: 'Examples',
       collapsed: true,
       items: [
