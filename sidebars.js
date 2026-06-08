@@ -39,6 +39,11 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Aiframeworks',
+          items: ['how-to/aiinfrastructure/aiframeworks/howto-spring-ai-2-0-0-rc1-release'],
+        },
+        {
+          type: 'category',
           label: 'Kubernetes',
           items: ['how-to/cloud-infrastructure/kubernetes/howto-k8s-dashboard-to-headlamp-transition', 'how-to/cloud-infrastructure/kubernetes/howto-running-agents-on-kubernetes-with-agent-sandbox'],
         },
@@ -86,8 +91,23 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Agentinfrastructure',
+          items: ['explanations/aiinfrastructure/agentinfrastructure/explanation-enterprise-agentic-platforms', 'explanations/aiinfrastructure/agentinfrastructure/explanation-runtime-engineering-for-agents'],
+        },
+        {
+          type: 'category',
+          label: 'Agentsecurity',
+          items: ['explanations/aiinfrastructure/agentsecurity/boxagnts-runtime-sandboxed-execution'],
+        },
+        {
+          type: 'category',
           label: 'Agenttooling',
-          items: ['explanations/aiinfrastructure/agenttooling/jetbrains-ide-native-search-for-agents'],
+          items: ['explanations/aiinfrastructure/agenttooling/browser-use-framework-tutorial', 'explanations/aiinfrastructure/agenttooling/jetbrains-ide-native-search-for-agents'],
+        },
+        {
+          type: 'category',
+          label: 'Aiengineering',
+          items: ['explanations/aiinfrastructure/aiengineering/notebook-to-production-ai-howto'],
         },
         {
           type: 'category',
@@ -123,7 +143,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Java Spring',
-          items: ['explanations/programming/java-spring/explanation-jdk27-post-quantum-tls', 'explanations/programming/java-spring/explanation-spring-security-ai-era'],
+          items: ['explanations/programming/java-spring/explanation-jdk27-post-quantum-tls', 'explanations/programming/java-spring/explanation-jfr-ai-monitoring', 'explanations/programming/java-spring/explanation-spring-security-ai-era'],
         },
         {
           type: 'category',
@@ -132,8 +152,18 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Distributedsystems',
+          items: ['explanations/softwareengineering/distributedsystems/squirix-client-server-cache-architecture'],
+        },
+        {
+          type: 'category',
           label: 'Mobilearchitecture',
           items: ['explanations/softwareengineering/mobilearchitecture/react-native-bridge-to-jsi-migration'],
+        },
+        {
+          type: 'category',
+          label: 'Webperformance',
+          items: ['explanations/softwareengineering/webperformance/inp-legacy-site-optimization'],
         },
       ],
     },

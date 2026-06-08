@@ -1,38 +1,38 @@
 [
   {
-    "title": "K8S Dashboard To Headlamp Transition",
+    "title": "Enterprise Agentic Platforms",
+    "type": "Explanation",
+    "link": "/explanations/aiinfrastructure/agentinfrastructure/explanation-enterprise-agentic-platforms",
+    "time": "5 min read"
+  },
+  {
+    "title": "Runtime Engineering For Agents",
+    "type": "Explanation",
+    "link": "/explanations/aiinfrastructure/agentinfrastructure/explanation-runtime-engineering-for-agents",
+    "time": "6 min read"
+  },
+  {
+    "title": "Spring Ai 2 0 0 Rc1 Release",
     "type": "How-To",
-    "link": "/how-to/cloud-infrastructure/kubernetes/howto-k8s-dashboard-to-headlamp-transition",
+    "link": "/how-to/aiinfrastructure/aiframeworks/howto-spring-ai-2-0-0-rc1-release",
+    "time": "6 min read"
+  },
+  {
+    "title": "Jdk27 Post Quantum Tls",
+    "type": "Explanation",
+    "link": "/explanations/programming/java-spring/explanation-jdk27-post-quantum-tls",
+    "time": "5 min read"
+  },
+  {
+    "title": "Jfr Ai Monitoring",
+    "type": "Explanation",
+    "link": "/explanations/programming/java-spring/explanation-jfr-ai-monitoring",
     "time": "4 min read"
   },
   {
-    "title": "S3 Vectors Rag Without Vector Db",
+    "title": "Opentelemetry Ga",
     "type": "Explanation",
-    "link": "/explanations/general/explanation-s3-vectors-rag-without-vector-db",
-    "time": "3 min read"
-  },
-  {
-    "title": "Ai Agent Kubectl Access Patterns",
-    "type": "How-To",
-    "link": "/how-to/security-privacy/appsec-privacy/howto-ai-agent-kubectl-access-patterns",
-    "time": "18 min read"
-  },
-  {
-    "title": "Clean Up Test Data Spring",
-    "type": "How-To",
-    "link": "/how-to/programming/java-spring/howto-clean-up-test-data-spring",
-    "time": "2 min read"
-  },
-  {
-    "title": "Emulate Left Join Fetch Projections",
-    "type": "How-To",
-    "link": "/how-to/programming/java-spring/howto-emulate-left-join-fetch-projections",
-    "time": "2 min read"
-  },
-  {
-    "title": "Spring Ecosystem Roundup May 2026",
-    "type": "How-To",
-    "link": "/how-to/programming/java-spring/howto-spring-ecosystem-roundup-may-2026",
+    "link": "/explanations/cloud-infrastructure/observability/explanation-opentelemetry-ga",
     "time": "7 min read"
   }
 ]

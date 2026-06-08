@@ -2,7 +2,6 @@
 title: 'S3 Vectors: RAG Without Vector Database'
 diataxis: Explanation
 domain: Cloud & Infrastructure
-topic: ''
 source: DZone
 source_url: https://feeds.dzone.com/link/23558/17344321/build-rag-without-vector-database
 keywords:

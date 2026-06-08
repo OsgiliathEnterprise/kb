@@ -53,6 +53,11 @@ The agent protocol landscape has evolved from fragmented, custom integrations in
 - **Backed by:** Anthropic, OpenAI, Google, and Microsoft
 - **2026 Roadmap priorities:** Transport scalability, agent communication, governance maturation, enterprise readiness
 
+### MCP SDK 2.0.0-RC1 (June 2026)
+- **Java SDK upgraded to 2.0.0-RC1** — adopted by Spring AI 2.0.0-RC1
+- **Key changes:** Streamlined tool execution architecture, refined JSON-RPC transport handling, improved error propagation
+- **Enterprise adoption:** Spring AI's MCP SDK upgrade signals Java ecosystem readiness for MCP 2.0
+
 ### MCP Governance Model
 - **Delegation model** allows Working Groups with proven track records to accept SEPs and publish extension updates within their domain without full core-maintainer review
 - **Charter template** every WG and IG maintains publicly: scope, active deliverables, success criteria, and retirement conditions

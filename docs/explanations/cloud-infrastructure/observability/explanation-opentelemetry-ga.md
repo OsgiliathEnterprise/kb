@@ -78,10 +78,70 @@ In traditional observability, humans review dashboards and set alerts. In the AI
 OpenTelemetry's standardized data model makes it possible for AI agents to interpret telemetry consistently across heterogeneous environments — a prerequisite for truly autonomous operations.
 
 ### Implications
-
+### Implications
 - **Unified observability for AI/ML pipelines** — the same telemetry standards apply to model serving infrastructure as they do to application services
 - **Reduced friction for AI-driven AIOps** — standardized inputs mean AI tools can be plugged in without custom adapters
 - **New responsibility for data quality** — as AI agents depend on telemetry, the accuracy and completeness of OpenTelemetry instrumentation becomes critical
+
+## GenAI Semantic Conventions: Observability for AI Agents
+
+One of the most impactful developments alongside OpenTelemetry GA is the maturation of **GenAI semantic conventions** — a standardized schema for instrumenting LLM calls, agent reasoning chains, and AI tool invocations.
+
+### The Problem They Solve
+
+Before GenAI conventions, every observability tool (Langfuse, LangSmith, Arize Phoenix, Helicone, Traceloop) captured different attributes in incompatible schemas. Moving between tools meant rewriting instrumentation. Cross-provider agent traces (e.g., OpenAI orchestrator calling Anthropic sub-agents) produced disconnected trace trees with no common vocabulary.
+
+### What the Spec Defines
+
+The GenAI semantic conventions organize observability signals into **four categories**:
+
+| Category | Purpose |
+|----------|---------|
+| **Model spans** | Individual LLM API calls with token usage, model names, finish reasons |
+| **Agent spans** | Multi-step reasoning chains with tool calls, retrievals, sub-agent delegation |
+| **Token spans** | Token-level granularity for cost tracking and prompt analysis |
+| **Content events** | Privacy-safe prompt/completion content via span events (not attributes) |
+
+### Core Attribute Namespace
+
+A compliant span for any LLM call includes:
+
+| Attribute | Description |
+|-----------|-------------|
+| `gen_ai.system` | Provider identifier (e.g., `openai`, `anthropic`, `aws.bedrock`) |
+| `gen_ai.operation.name` | Operation type (e.g., `chat`, `completion`, `execute_tool`) |
+| `gen_ai.request.model` | Model name as sent in the request |
+| `gen_ai.response.model` | Model name returned by provider (may differ) |
+| `gen_ai.usage.input_tokens` | Tokens consumed by the prompt |
+| `gen_ai.usage.output_tokens` | Tokens in the completion |
+| `gen_ai.response.finish_reasons` | Stop reasons array |
+| `gen_ai.request.temperature` | Sampling temperature |
+
+### Privacy-Safe Content Handling
+
+The spec explicitly **prohibits** storing prompt and completion text as span attributes (PII time-bomb in production). Instead:
+- Content goes in **span events** (`gen_ai.content.prompt`, `gen_ai.content.completion`)
+- OTel Collector processors can strip these events before they leave your network
+- Latency, cost, and error metrics stay intact while content is redacted
+
+### Agent Spans: Tracing Reasoning Chains
+
+For multi-step agent systems, each tool call, retrieval step, and LLM invocation becomes a child span, producing a waterfall trace of the full reasoning chain. You can see exactly which tool invocation caused a 30-second delay, which retrieval returned empty context (leading to hallucination), and which LLM call consumed 40% of your token budget.
+
+### Vendor Adoption Status
+
+| Vendor | Status |
+|--------|--------|
+| **DataDog** | Native GenAI semantic convention support in OTel v1.37 |
+| **Arize Phoenix** | Built on OpenTelemetry; 50+ LLM frameworks/providers supported |
+| **Langfuse** | Native OTel backend endpoint understands GenAI conventions |
+| **Traceloop** | Leading the GenAI semantic convention working group; OpenLLMetry SDK |
+| **Grafana Loki** | Collecting LLM traces using GenAI conventions |
+| **LangSmith** | Supports OTel as import path but doesn't yet emit native GenAI attributes |
+
+### Migration Note
+
+The GenAI conventions are currently in **development status** (pre-stable). Teams using OTel v1.36.0 or earlier should use the `OTEL_SEMCONV_STABILITY_OPT_IN` environment variable for dual-emission during migration. Auto-instrumentation via OpenLLMetry SDK is the fastest production path for most teams.
 
 ## Challenges Ahead
 

@@ -31,6 +31,14 @@ Optimized for bursty workloads. Supports **scale-to-zero** during idle periods w
 ### Stable Identity
 Assigns a persistent hostname and network identity to each Sandbox, enabling seamless multi-agent discovery and communication.
 
+## Current Status (June 8, 2026)
+
+- **Latest release:** v0.4.6 (May 14, 2026) — no newer release as of this update
+- **Project status:** Active Kubernetes SIG Apps subproject, launched at KubeCon NA 2025
+- **Adoption:** Google announced GKE Agent Sandbox support at Next '26
+- **Key CRDs:** `Sandbox` (core workload), `SandboxTemplate` (security policy), `SandboxEnvironment` (runtime config)
+- **Production readiness:** Still pre-GA; API surface may change before stable release
+
 ## Installation
 
 ```bash

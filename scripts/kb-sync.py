@@ -122,7 +122,15 @@ def fix_yaml_frontmatter(content: str, meta: dict, diataxis_type: str) -> str:
     if meta.get('created'):
         frontmatter['date'] = meta.get('created')
     if meta.get('source_url'):
-        frontmatter['keywords'] = ['knowledge-base', meta.get('topic', ''), meta.get('domain', ''), diataxis_type]
+        kw = ['knowledge-base']
+        topic_val = meta.get('topic', '')
+        domain_val = meta.get('domain', '')
+        if topic_val:
+            kw.append(topic_val)
+        if domain_val:
+            kw.append(domain_val)
+        kw.append(diataxis_type)
+        frontmatter['keywords'] = kw
 
     # Use proper YAML serialization to avoid quoting issues
     yaml_str = yaml.dump(frontmatter, default_flow_style=False, allow_unicode=True, sort_keys=False)
