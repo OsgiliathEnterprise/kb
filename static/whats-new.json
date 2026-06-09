@@ -1,26 +1,14 @@
 [
   {
-    "title": "Enterprise Agentic Platforms",
-    "type": "Explanation",
-    "link": "/explanations/aiinfrastructure/agentinfrastructure/explanation-enterprise-agentic-platforms",
-    "time": "5 min read"
-  },
-  {
     "title": "Runtime Engineering For Agents",
     "type": "Explanation",
     "link": "/explanations/aiinfrastructure/agentinfrastructure/explanation-runtime-engineering-for-agents",
-    "time": "6 min read"
+    "time": "9 min read"
   },
   {
-    "title": "Spring Ai 2 0 0 Rc1 Release",
-    "type": "How-To",
-    "link": "/how-to/aiinfrastructure/aiframeworks/howto-spring-ai-2-0-0-rc1-release",
-    "time": "6 min read"
-  },
-  {
-    "title": "Jdk27 Post Quantum Tls",
+    "title": "Enterprise Agentic Platforms",
     "type": "Explanation",
-    "link": "/explanations/programming/java-spring/explanation-jdk27-post-quantum-tls",
+    "link": "/explanations/aiinfrastructure/agentinfrastructure/explanation-enterprise-agentic-platforms",
     "time": "5 min read"
   },
   {
@@ -30,9 +18,21 @@
     "time": "4 min read"
   },
   {
-    "title": "Opentelemetry Ga",
+    "title": "K8S Dashboard To Headlamp Transition",
+    "type": "How-To",
+    "link": "/how-to/cloud-infrastructure/kubernetes/howto-k8s-dashboard-to-headlamp-transition",
+    "time": "4 min read"
+  },
+  {
+    "title": "S3 Vectors Rag Without Vector Db",
     "type": "Explanation",
-    "link": "/explanations/cloud-infrastructure/observability/explanation-opentelemetry-ga",
-    "time": "7 min read"
+    "link": "/explanations/general/explanation-s3-vectors-rag-without-vector-db",
+    "time": "3 min read"
+  },
+  {
+    "title": "Ai Agent Kubectl Access Patterns",
+    "type": "How-To",
+    "link": "/how-to/security-privacy/appsec-privacy/howto-ai-agent-kubectl-access-patterns",
+    "time": "18 min read"
   }
 ]

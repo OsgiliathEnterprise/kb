@@ -77,6 +77,16 @@ Controls the **resource** dimension:
 
 ## BoxAgnts Runtime: WASM Sandboxing in Practice
 
+### The Trust Boundary Problem
+
+Most agent architectures follow this dangerous pattern:
+
+```
+LLM → Tool Call → Python Runtime → Shell Command → Host System
+```
+
+This creates an architectural paradox: **untrusted planner → trusted execution**. The model decides what to execute, what to access, and when to stop, but the model itself is exposed to prompt injection, adversarial documents, and untrusted content.
+
 ### Architecture
 
 BoxAgnts inserts a **WebAssembly sandbox** between the agent planner and the execution environment:
@@ -238,6 +248,75 @@ title: Agent Runtime Engineering Architecture
 - **Error rates** — Tool call failures, sandbox escapes
 - **Resource utilization** — CPU, memory, network
 - **Cost per task** — Token cost + infrastructure cost
+
+---
+
+## BoxAgnts Source-Level Defense Mechanisms
+
+### Runtime Hard Constraints (Rust Implementation)
+
+From BoxAgnts source (`boxagnts/query/src/query.rs`):
+
+```rust
+// Protection mechanisms in the query loop
+const MAX_TOKENS_RECOVERY_LIMIT: u32 = 3; // Recovery attempt cap
+const MAX_TOKENS_RECOVERY_MSG: &str = "..."; // Recovery message
+
+// Inside the loop:
+// - turn counter (prevents infinite loops)
+// - max_tokens recovery mechanism (prevents token-exhaustion deadlock)
+// - budget checking (prevents cost runaway)
+// - cancel_token signal (interruptible at any time)
+```
+
+These are **runtime-level hard constraints**, not prompt-level suggestions.
+
+### Hard vs. Soft Guard Comparison
+
+| Approach | Example | Enforcement |
+|----------|---------|-------------|
+| Prompt-level | "Don't modify production" | Soft (model may ignore) |
+| Runtime-level | WASM sandbox + permission check | Hard (cannot bypass) |
+| Budget-level | Max tokens per turn | Hard (enforced by runtime) |
+| Time-level | Turn counter limit | Hard (prevents infinite loops) |
+
+### Traditional vs. Sandboxed Agent Comparison
+
+| Feature | Traditional Agents | Sandboxed Agents (BoxAgnts) |
+|---------|-------------------|----------------------------|
+| Execution model | Direct Python/shell | WASM sandbox |
+| Safety mechanism | Prompt instructions | Runtime hard constraints |
+| Failure isolation | None assumed | Multi-layer defense |
+| Cost control | Manual monitoring | Built-in budget checking |
+| Interruption | Depends on model | Cancel token at runtime |
+| Infinite loop prevention | Prompt-based | Turn counter (hard limit) |
+
+---
+
+## Best Practices for Agent Execution Safety
+
+1. **Never trust the planner** — Assume the LLM will make mistakes or be manipulated
+2. **Implement hard resource limits** — Token budgets, turn limits, and time budgets
+3. **Use sandboxed execution** — WASM, containers, or VMs for tool execution
+4. **Log all agent actions** — Audit trail for debugging and compliance
+5. **Design for interruption** — Agents should be cancellable at any point
+6. **Separate planning from execution** — Clear boundary between decision-making and action
+7. **Defense in depth** — Layer prompt engineering, query governance, permission checks, WASM sandboxing, and OS-level boundaries
+
+### Why This Matters for Scaling
+
+1. **Scaling requires safety** — As agents gain more operational authority, the cost of mistakes increases proportionally
+2. **Model capability ≠ production readiness** — A smart model with no execution boundaries is a liability
+3. **Compliance and audit** — Hard constraints provide verifiable safety guarantees for regulated environments
+4. **Multi-tenant safety** — Sandboxed execution enables safe multi-agent environments
+
+### Industry Convergence
+
+Multiple independent projects are converging on similar patterns:
+- **Anthropic's MCP tunnels and sandboxes** — Moving toward execution isolation
+- **Google's Remy agent infrastructure** — Emphasis on agent safety layers
+- **Kubernetes agent sandboxes** — Container-level isolation for agents
+- **Northflank sandboxing guide** — Comprehensive isolation technology comparison
 
 ---
 

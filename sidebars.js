@@ -96,11 +96,6 @@ const sidebars = {
         },
         {
           type: 'category',
-          label: 'Agentsecurity',
-          items: ['explanations/aiinfrastructure/agentsecurity/boxagnts-runtime-sandboxed-execution'],
-        },
-        {
-          type: 'category',
           label: 'Agenttooling',
           items: ['explanations/aiinfrastructure/agenttooling/browser-use-framework-tutorial', 'explanations/aiinfrastructure/agenttooling/jetbrains-ide-native-search-for-agents'],
         },
