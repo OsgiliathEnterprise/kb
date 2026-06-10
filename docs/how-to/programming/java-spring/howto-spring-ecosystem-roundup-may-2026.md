@@ -142,8 +142,70 @@ var options = OpenAiChatOptions.builder()
 - **[spring-idempotency-kit](https://github.com/Atlancia-Labs/spring-idempotency-kit)** — Supports idempotent API operations
 - **[Paketo Buildpack](https://blog.paketo.io/posts/spring-boot-performance/)** — Performance improvements in Spring Boot buildpacks
 
+## Topic 4: Spring AI 2.0.0-RC1 — Breaking Changes and New Features
+
+### Release Position (June 10, 2026)
+- **RC1 released:** June 6, 2026 — GA expected shortly
+- **Spring Boot 3.x EOL:** June 30, 2026 — hard migration deadline
+- **Hard dependencies:** Spring Boot 4.0, Spring Framework 7, Java 17+ (21 recommended), Jackson 3
+
+### Breaking Changes: Tool Calling Overhaul
+
+**Tool execution removed from `ChatModel`** — all tool calling must now flow through `ChatClient` with `ToolCallingAdvisor`:
+```java
+// ❌ Broken — internal tool execution removed from ChatModel
+ChatModel model = new OpenAiChatModel(...);
+model.call(prompt); // No longer handles tool execution internally
+
+// ✅ Correct — use ChatClient with ToolCallingAdvisor
+ChatClient client = ChatClient.builder(model)
+    .defaultAdvisors(new ToolCallingAdvisor())
+    .build();
+client.prompt("What's the weather?").call();
+```
+
+**Removed APIs:**
+- `internalToolExecutionEnabled` — removed entirely
+- `toolNames()` / `toolBeanDefinitionNames()` — removed from ChatOptions and related classes
+- `ToolSpec` consumer API — removed from `ChatClient.tools()`
+- `SpringBeanToolCallbackResolver` — removed; tools must be explicit `ToolCallback` beans
+
+**Renamed:** `ToolCallAdvisor` → `ToolCallingAdvisor` (deprecated subclass retained for backward compatibility)
+
+### New Features in RC1
+
+1. **Tool Search Advisor** — `ToolSearchToolCallingAdvisor` with three `ToolIndex` implementations (vector store, Lucene, regex) enables on-demand tool discovery
+2. **EntityParamSpec** — `ChatClient.entity()` accepts per-call structured output config (`enableProviderNative`, `enableSchemaValidation`)
+3. **Chat Memory improvements** — turn-boundary snapping, duplicate prevention, timestamp field in JdbcChatMemoryRepository
+4. **Simplified streaming aggregation** — `ChatClientMessageAggregator` as static field
+
+### Model Provider Updates (RC1)
+
+| Change | Details |
+|--------|---------|
+| Mistral AI | Removed `devstral-medium-latest`, replaced `devstral-small-latest` with `devstral-latest`, retired Pixtral Large |
+| DeepSeek | Added V4 chat model constants |
+| MiniMax | Dedicated support removed; use Anthropic-compatible integration |
+
+### Bug Fixes
+- Span hierarchy in streaming paths — Micrometer Tracing parent scope fix
+- `OpenAiChatModel.stream()` buffering — now only buffers tool call segments
+- DeepSeek V4 function calling — fixed 400 Bad Request
+- OpenAI options merging — fixed customHeaders and timestampGranularities
+
+### RC1-Specific Migration Checklist
+1. **Audit tool calling code** — move all tool execution from `ChatModel.call()` to `ChatClient` with `ToolCallingAdvisor`
+2. **Replace `ToolCallAdvisor`** with `ToolCallingAdvisor`
+3. **Remove `toolNames()` / `toolBeanDefinitionNames()` usage** — register tools as explicit `ToolCallback` beans
+4. **Replace `N()` calls** with `n()` in options builders
+5. **Update `ChatClientCustomizer`** to `ChatClientBuilderCustomizer`
+6. **Replace SLF4J imports** with `LogFactory.getLog(getClass())`
+7. **Update vector store advisor module** from `spring-ai-advisors-vector-store` to `spring-ai-vector-store-advisor`
+8. **Test streaming paths** — verify tracing span hierarchy is correct
+9. **Run full integration test suite** — especially JSON output diffs (Jackson 3 defaults)
+
 ## Actionable Steps
-1. Review Spring AI 2.0.0-M6 docs if integrating LLM capabilities into Spring apps
+1. Review Spring AI 2.0.0-RC1 docs if integrating LLM capabilities into Spring apps
 2. Check Spring Boot 4.1 release notes for gRPC, OpenTelemetry, and OAuth2 features
 3. Adjust upgrade timelines — May release train shifted to June 1-5, 2026
 4. Set up automated dependency scanning (Dependabot/Snyk/OWASP) for OSS security
@@ -157,7 +219,10 @@ var options = OpenAiChatOptions.builder()
 - 📰 Original: [Spring Office Hours Podcast: S5E16 - May Release Train Shift & Spring Boot 4.1](https://spring.io/blog/2026/05/19/spring-office-hours-podcast-S5E16) via Spring Blog
 - 📰 Original: [Spring AI 1.0.8, 1.1.7, 2.0.0-M7 Available Now](https://spring.io/blog/2026/05/23/spring-ai-1-0-8-1-1-7-2-0-0-M7-available-now) via Spring Blog
 - 📰 Original: [Spring AI 2.0.0-M8 Available Now](https://spring.io/blog/2026/05/27/spring-ai-2-0-0-M8-available-now) via Spring Blog
+- 📰 Original: [Spring AI 2.0.0-RC1 Available Now](https://spring.io/blog/2026/06/06/spring-ai-2-0-0-RC1-available-now) via Spring Blog
 - 📰 [Spring AI 2.0 Is Coming May 28 — June 30 Deadline Urgency](https://www.herodevs.com/blog-posts/spring-ai-2-0-is-coming-may-28-here-is-why-that-makes-the-june-30-deadline-more-urgent-not-less) via HeroDevs
+- 📋 [Release Notes: 2.0.0-RC1](https://github.com/spring-projects/spring-ai/releases/tag/v2.0.0-RC1) via GitHub
+- 📖 [2.0.0-RC1 Documentation](https://docs.spring.io/spring-ai/reference/2.0/index.html)
 - 📋 [Spring Boot 4.1 Release Notes](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-4.1-Release-Notes) via GitHub Wiki
 - 🎙️ [A Bootiful Podcast: Adib Saikali (Spring AI Lead)](https://spring.io/blog/2026/05/14/a-bootiful-podcast-daniel-adib-saikali) via Spring Blog
 

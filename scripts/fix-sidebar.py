@@ -16,11 +16,11 @@ DOMAIN_LABELS = {
     'general': 'General',
 }
 
-DIATAXIS_ORDER = ['tutorials', 'how-to', 'reference', 'examples']
+DIATAXIS_ORDER = ['tutorials', 'how-to', 'explanations', 'examples']
 DIATAXIS_LABELS = {
     'tutorials': 'Tutorials',
     'how-to': 'How-to Guides',
-    'reference': 'Reference',
+    'explanations': 'Explanations',
     'examples': 'Examples',
 }
 
@@ -66,11 +66,6 @@ def build_sidebar():
 
 def sidebar_to_js(categories):
     lines = ["const sidebars = {", "  main: ["]
-    lines.append("    {")
-    lines.append("      type: 'doc',")
-    lines.append("      id: 'index',")
-    lines.append("      label: 'Discover',")
-    lines.append("    },")
 
     for cat_label, cat_items in categories:
         lines.append("    {")

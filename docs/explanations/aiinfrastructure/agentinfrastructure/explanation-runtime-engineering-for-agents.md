@@ -293,6 +293,79 @@ These are **runtime-level hard constraints**, not prompt-level suggestions.
 
 ---
 
+## Managed Agent Infrastructure: MCP Tunnels and Self-Hosted Sandboxes
+
+### Anthropic's Approach (May 2026)
+
+Anthropic announced two critical infrastructure features for **Claude Managed Agents**:
+
+1. **Self-hosted sandboxes** (Public Beta) — move tool execution to customer infrastructure
+2. **MCP tunnels** (Research Preview) — secure connectivity to internal MCP servers without public internet exposure
+
+### Self-Hosted Sandboxes
+
+**Purpose:** Isolate tool execution to shield internal networks from rogue agent scripts and prevent sensitive data leakage.
+
+**Architecture split:**
+- **Agent loop** (perception, reasoning, orchestration, context management, error recovery) → remains on Anthropic cloud
+- **Tool execution** → moves to customer's self-hosted environment
+
+**Supported infrastructure providers:**
+
+| Provider | Strength |
+|----------|----------|
+| Cloudflare | Edge computing, serverless sandboxes |
+| Daytona | Development environments, filesystem control |
+| Modal | Custom container runtime, sub-second startup, GPU resources |
+| Vercel | Serverless functions, edge deployment |
+
+**Provider selection guide:**
+- Need filesystem control + dynamic package install? → **Daytona**
+- Need GPU resources or custom containers? → **Modal**
+- Need edge deployment? → **Cloudflare** or **Vercel**
+
+**Deployment steps:**
+1. Choose a sandbox provider based on requirements
+2. Configure workspace settings in Claude Console (swap cloud-managed API tokens for local auth keys, adjust network routing)
+3. Zero integration changes — existing Claude Managed Agents setups work without modification
+
+**Real-world example — Clay (B2B Data Platform):** Uses Daytona sandboxes for their Sculptor AI co-pilot, enabling filesystem control, external storage mounting, and dynamic package installation.
+
+### MCP Tunnels
+
+**Purpose:** Connect to internal MCP servers inside private networks without public internet exposure.
+
+**Mechanism:** Lightweight gateway establishing a single outbound connection, configured via Claude Console workspace settings.
+
+```
+[Internal MCP Server] ←→ [MCP Tunnel Gateway] ←→ [Claude Managed Agent]
+     (private)              (single outbound)        (Anthropic cloud)
+```
+
+**Configuration:**
+1. Set up MCP tunnel in Claude Console workspace settings
+2. Specify internal MCP server endpoints
+3. Tunnel establishes secure outbound connection
+4. No inbound firewall rules needed
+
+### Enterprise Use Cases
+
+| Company | Application | Infrastructure | Benefit |
+|---------|-------------|----------------|---------|
+| Rogo | Institutional finance analyst | Claude + Vercel sandboxes | Proprietary financial data stays isolated |
+| DoorDash | Internal productivity agent | Evaluating Modal | Custom runtime, sub-second startup, massive scaling |
+
+### Security Checklist
+
+- [ ] Evaluate sandbox provider based on compliance requirements
+- [ ] Configure MCP tunnels for all internal services agents need to access
+- [ ] Set up workspace-level access controls in Claude Console
+- [ ] Monitor agent tool execution logs for anomalous behavior
+- [ ] Implement network segmentation between sandbox environments
+- [ ] Regular security audits of agent-generated code and commands
+
+---
+
 ## Best Practices for Agent Execution Safety
 
 1. **Never trust the planner** — Assume the LLM will make mistakes or be manipulated
@@ -324,8 +397,10 @@ Multiple independent projects are converging on similar patterns:
 
 - **BoxAgnts Runtime:** [BoxAgnts Runtime (7) — Sandboxed Execution](https://dev.to/guyoung/boxagnts-runtime-7-sandboxed-execution-rebuilding-agent-infrastructure-4kj3) (DEV.to, June 2026)
 - **Northflank sandboxing guide:** [How to sandbox AI agents in 2026](https://northflank.com/) (comprehensive isolation comparison)
+- **Anthropic MCP Tunnels & Sandboxes:** [Anthropic debuts MCP tunnels and self-hosted sandboxes](https://thenewstack.io/anthropic-mcp-tunnels-sandboxes/) (The New Stack, May 2026)
+- **Claude Managed Agents:** [Documentation](https://docs.anthropic.com/en/docs/agents/managed-agents) (Anthropic)
+- **Model Context Protocol:** [Specification](https://modelcontextprotocol.io/) (MCP)
 - **Related KB:** [Running Agents on Kubernetes with Agent Sandbox](Cloud & Infrastructure/Kubernetes/howto-running-agents-on-kubernetes-with-agent-sandbox.md)
-- **Related KB:** [MCP Tunnels and Self-Hosted Sandboxes](AI & Machine Learning/LLMs & Agents/howto-mcp-tunnels-sandboxes.md)
 - **Related KB:** [Context-Aware Authorization for AI Agents](Security & Privacy/AppSec & Privacy/explanation-context-aware-authorization-ai-agents.md)
 
 ---
@@ -333,6 +408,5 @@ Multiple independent projects are converging on similar patterns:
 ## See Also
 
 - [Running Agents on Kubernetes with Agent Sandbox](Cloud & Infrastructure/Kubernetes/howto-running-agents-on-kubernetes-with-agent-sandbox.md)
-- [MCP Tunnels and Self-Hosted Sandboxes](AI & Machine Learning/LLMs & Agents/howto-mcp-tunnels-sandboxes.md)
 - [Context-Aware Authorization for AI Agents](Security & Privacy/AppSec & Privacy/explanation-context-aware-authorization-ai-agents.md)
 - [Enterprise Agentic Platforms](explanation-enterprise-agentic-platforms.md)

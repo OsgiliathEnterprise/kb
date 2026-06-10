@@ -35,12 +35,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Llms Agents',
-          items: ['how-to/ai-machine-learning/llms-agents/howto-anthropic-routines-claude', 'how-to/ai-machine-learning/llms-agents/howto-mcp-tunnels-sandboxes'],
-        },
-        {
-          type: 'category',
-          label: 'Aiframeworks',
-          items: ['how-to/aiinfrastructure/aiframeworks/howto-spring-ai-2-0-0-rc1-release'],
+          items: ['how-to/ai-machine-learning/llms-agents/howto-anthropic-routines-claude'],
         },
         {
           type: 'category',

@@ -1,15 +1,21 @@
 [
   {
-    "title": "Runtime Engineering For Agents",
-    "type": "Explanation",
-    "link": "/explanations/aiinfrastructure/agentinfrastructure/explanation-runtime-engineering-for-agents",
-    "time": "9 min read"
-  },
-  {
     "title": "Enterprise Agentic Platforms",
     "type": "Explanation",
     "link": "/explanations/aiinfrastructure/agentinfrastructure/explanation-enterprise-agentic-platforms",
-    "time": "5 min read"
+    "time": "4 min read"
+  },
+  {
+    "title": "Runtime Engineering For Agents",
+    "type": "Explanation",
+    "link": "/explanations/aiinfrastructure/agentinfrastructure/explanation-runtime-engineering-for-agents",
+    "time": "11 min read"
+  },
+  {
+    "title": "Spring Ecosystem Roundup May 2026",
+    "type": "How-To",
+    "link": "/how-to/programming/java-spring/howto-spring-ecosystem-roundup-may-2026",
+    "time": "9 min read"
   },
   {
     "title": "Jfr Ai Monitoring",
@@ -22,12 +28,6 @@
     "type": "How-To",
     "link": "/how-to/cloud-infrastructure/kubernetes/howto-k8s-dashboard-to-headlamp-transition",
     "time": "4 min read"
-  },
-  {
-    "title": "S3 Vectors Rag Without Vector Db",
-    "type": "Explanation",
-    "link": "/explanations/general/explanation-s3-vectors-rag-without-vector-db",
-    "time": "3 min read"
   },
   {
     "title": "Ai Agent Kubectl Access Patterns",
