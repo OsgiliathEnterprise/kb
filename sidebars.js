@@ -101,6 +101,11 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Aiframeworks',
+          items: ['explanations/aiinfrastructure/aiframeworks/google-diffusiongemma-text-diffusion-model'],
+        },
+        {
+          type: 'category',
           label: 'Kubernetes',
           items: ['explanations/cloud-infrastructure/kubernetes/explanation-kubernetes-v136-release-overview'],
         },
@@ -108,6 +113,11 @@ const sidebars = {
           type: 'category',
           label: 'Observability',
           items: ['explanations/cloud-infrastructure/observability/explanation-opentelemetry-ga'],
+        },
+        {
+          type: 'category',
+          label: 'Cloudsecurity',
+          items: ['explanations/cloudnative/cloudsecurity/aws-graviton5-nitro-isolation-engine'],
         },
         {
           type: 'category',
@@ -128,6 +138,11 @@ const sidebars = {
           type: 'category',
           label: 'Cicdpipelines',
           items: ['explanations/devsecops/cicdpipelines/gitlab-19-devsecops-features'],
+        },
+        {
+          type: 'category',
+          label: 'Vulnerabilitymanagement',
+          items: ['explanations/devsecops/vulnerabilitymanagement/cisa-ai-vulnerability-directive-3-day-patch'],
         },
         'explanations/general/explanation-s3-vectors-rag-without-vector-db',
         {

@@ -15,18 +15,19 @@ keywords:
 
 ## Overview
 
-The agent protocol landscape has evolved from fragmented, custom integrations into a **four-layer protocol stack** — MCP, A2A, x402, and AG-UI — that turns isolated AI models into interoperable, autonomous economic participants. Each layer solves a different problem at a different level of the architecture, the same way TCP, HTTP, and HTML work together to make the web function.
+The agent protocol landscape has evolved from fragmented, custom integrations into a **five-layer protocol stack** — MCP, A2A, x402, AG-UI, and A2UI — that turns isolated AI models into interoperable, autonomous economic participants. Each layer solves a different problem at a different level of the architecture, the same way TCP, HTTP, and HTML work together to make the web function.
 
-> **Key insight:** Most production agent deployments in 2026 need at least two of these layers. An agent that only uses MCP can call tools but cannot collaborate with other agents. An agent that only uses A2A can delegate tasks but cannot pay for services. The most interoperable deployments compose multiple layers.
+> **Key insight:** Most production agent deployments in 2026 need at least two of these layers. An agent that only uses MCP can call tools but cannot collaborate with other agents. An agent that only uses A2A can delegate tasks but cannot pay for services. The most interoperable deployments compose multiple layers. **A2UI** (June 2026) represents the newest addition — a protocol for agents to generate rich, interactive UIs that render natively across platforms.
 
-## The Four-Layer Agent Stack
+## The Five-Layer Agent Stack
 
 | Layer | Protocol | Connects | Creator | Status |
 |-------|----------|----------|---------|--------|
 | **Tools** | MCP | Agent &lt;-> Tools & Data | Anthropic (Nov 2024) | GA, de facto standard |
 | **Communication** | A2A | Agent &lt;-> Agent | Google / LF (Apr 2025) | GA |
 | **Payments** | x402 / AP2 / MPP | Agent &lt;-> Payment Rails | Coinbase, Google, Stripe | Preview (via AgentCore) |
-| **Interface** | AG-UI | Agent &lt;-> User Interface | CopilotKit (2025) | GA |
+| **Interface (Events)** | AG-UI | Agent &lt;-> User Interface | CopilotKit (2025) | GA |
+| **Interface (Declarative)** | A2UI | Agent &lt;-> Rich UI | Google + CopilotKit (2025) | v0.9.1 Current, v1.0 Candidate |
 
 ## Protocol Comparison
 
@@ -57,10 +58,36 @@ The agent protocol landscape has evolved from fragmented, custom integrations in
 - **Java SDK upgraded to 2.0.0-RC1** — adopted by Spring AI 2.0.0-RC1
 - **Key changes:** Streamlined tool execution architecture, refined JSON-RPC transport handling, improved error propagation
 - **Enterprise adoption:** Spring AI's MCP SDK upgrade signals Java ecosystem readiness for MCP 2.0
-
 ### MCP Governance Model
+
 - **Delegation model** allows Working Groups with proven track records to accept SEPs and publish extension updates within their domain without full core-maintainer review
 - **Charter template** every WG and IG maintains publicly: scope, active deliverables, success criteria, and retirement conditions
+
+### MCP 2026 Roadmap (Updated March 2026)
+
+The official MCP roadmap defines four priority areas for 2026:
+
+**1. Transport Evolution and Scalability**
+- Next-generation transport: evolve Streamable HTTP to run statelessly across multiple server instances behind load balancers
+- Scalable session handling: define session creation, resumption, and migration for transparent server restarts and scale-out
+- MCP Server Cards: standard for exposing structured server metadata via `.well-known` URLs
+
+**2. Agent Communication**
+- Tasks primitive (SEP-1686) retry semantics: what happens on transient failures, who decides to retry
+- Expiry policies: how long results are retained after completion, how clients learn results have expired
+
+**3. Governance Maturation**
+- Contributor Ladder: progression from community participant → core maintainer with explicit nomination criteria
+- Delegation model for mature Working Groups
+- Public charter templates reviewed quarterly
+
+**4. Enterprise Readiness**
+- Audit trails and observability: end-to-end visibility into client-server interactions for compliance pipelines
+- Enterprise-managed auth: SSO-integrated flows (Cross-App Access) replacing static client secrets
+- Gateway and proxy patterns: authorization propagation, session semantics through intermediaries
+- Configuration portability: configure once, works across different MCP clients
+
+**On the Horizon:** Triggers and event-driven updates (webhooks), streamed results for interactive scenarios, reference-based results
 
 ## A2A (Agent-to-Agent) - Collaboration Layer
 
@@ -91,6 +118,37 @@ The agent protocol landscape has evolved from fragmented, custom integrations in
   - **Interrupts:** `INTERRUPT` for human-in-the-loop approvals
 - **Use when:** Real-time chat, collaborative editing, live dashboards
 - **Don't use for:** Background/batch jobs
+
+## A2UI (Agent-to-User Interface) - Declarative UI Layer
+
+- **Architecture:** Declarative JSON protocol for agent-driven UI generation
+- **Primitives:**
+  - **Surfaces:** Named UI containers (e.g., `main`, `sidebar`, `modal`)
+  - **Components:** Pre-approved UI widgets from client-side catalogs (Angular, Flutter, React, Lit renderers)
+  - **Data Binding:** Adjacency-list model connecting data to components
+  - **Actions:** User interactions flow back to the agent
+- **Key Differentiator from AG-UI:** AG-UI streams *events* (text, tool calls, state deltas); A2UI streams *declarative UI descriptions* that render as native components
+- **Security Model:** Declarative data format, not executable code — agents can only use pre-approved components from your catalog, preventing UI injection attacks
+- **Use when:** Agents need to generate rich, interactive interfaces (forms, charts, maps) that render natively
+- **Don't use for:** Simple text chat (AG-UI is lighter-weight)
+
+### A2UI Version History
+
+| Version | Status | Highlights |
+|---------|--------|------------|
+| v0.8 | Legacy | Baseline surfaces, components, data binding, adjacency list model |
+| v0.9 | Stable | Prompt-First philosophy, `createSurface`, client-side functions, custom catalogs, modular schemas |
+| v0.9.1 | **Current** | Standardized `application/a2ui+json` MIME type, relaxed surfaceId constraints |
+| v1.0 | Candidate | Client-to-server RPC (`actionResponse`), action IDs, renamed `theme` to `surfaceProperties` |
+
+### A2UI Ecosystem
+
+- **Created by:** Google with contributions from CopilotKit and the open source community
+- **License:** Apache 2.0
+- **Renderers:** Angular, Flutter, Lit, Markdown, React
+- **Transports:** A2A protocol (communicates A2UI messages between agents and clients)
+- **Integration:** A2UI + MCP (agents can use MCP tools while generating A2UI responses)
+- **A2UI Composer:** Visual editor by CopilotKit for generating A2UI JSON without coding
 
 ## Integration Pattern
 

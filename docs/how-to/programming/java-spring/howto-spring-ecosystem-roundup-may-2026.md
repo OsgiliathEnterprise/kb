@@ -19,12 +19,16 @@ Combined roundup of Spring Framework developments for mid-May 2026, covering Spr
 
 **Key Update (May 27):** Spring AI 2.0.0-M8 released — final milestone before GA. Dash-separated property convention, ChatOptions#mutate type-specific returns, Jackson YAML exclusion fix, MistralAiApi mapping improvements. Bug fixes: Google GenAI dependency issue, PGVector without JDBC, API key requirement breaking cookie auth. GA expected May 28, 2026. Spring Boot 3.x EOL June 30, 2026.
 
+**Key Update (June 2026):** Spring AI 2.0.0-RC1 released with tool search consolidation, ToolCallingAdvisor rename (backward-compat shims), span hierarchy fixes in streaming paths. Spring AI 2.0.0-RC2 followed with Bedrock SDK dependency fix. GA imminent.
+
 ## Topic 1: Spring AI Integration & Capabilities
 
-### Version Status (May 2026)
+### Version Status (June 2026)
 - **Spring AI 1.0.8** — Latest stable patch release
 - **Spring AI 1.1.7** — Latest feature release
-- **Spring AI 2.0.0-M8** — Final milestone before GA (May 28, 2026)
+- **Spring AI 2.0.0-RC1** — First release candidate (tool search consolidation, ToolCallingAdvisor rename, span hierarchy fixes)
+- **Spring AI 2.0.0-RC2** — Second release candidate (Bedrock SDK dependency fix, ToolCallingAdvisor improvements)
+- **GA expected:** Very soon (originally targeted May 28, 2026)
 
 ### Key Points
 - Spring AI continues expanding provider support and integration capabilities

@@ -185,12 +185,12 @@ title: Agentic Enterprise Architecture
 
 - **Original article:** ["Whoever builds the most joyous product wins": The agent war begins](https://thenewstack.io/snowflake-coco-agentic-enterprise/) (TheNewStack, June 2026)
 - **Snowflake Summit 26 coverage:** Various sources
-- **Related KB:** [Three-Layer Architecture for Production AI](Developer Tools & Practices/Architecture & Reliability/explanation-three-layer-architecture-production-ai.md)
+- **Related KB:** [Three-Layer Architecture for Production AI](../../developer-tools-practices/architecture-reliability/explanation-three-layer-architecture-production-ai.md)
 - **Related KB:** [Runtime Engineering for Agents](explanation-runtime-engineering-for-agents.md) (includes MCP Tunnels & Sandboxes content)
 
 ---
 
 ## See Also
 
-- [Three-Layer Architecture for Production AI](Developer Tools & Practices/Architecture & Reliability/explanation-three-layer-architecture-production-ai.md)
+- [Three-Layer Architecture for Production AI](../../developer-tools-practices/architecture-reliability/explanation-three-layer-architecture-production-ai.md)
 - [Runtime Engineering for Agents](explanation-runtime-engineering-for-agents.md)
