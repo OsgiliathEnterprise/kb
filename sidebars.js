@@ -91,13 +91,18 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Agentsecurity',
+          items: ['explanations/aiinfrastructure/agentsecurity/ladybird-browser-ends-public-prs-ai-security'],
+        },
+        {
+          type: 'category',
           label: 'Agenttooling',
           items: ['explanations/aiinfrastructure/agenttooling/browser-use-framework-tutorial', 'explanations/aiinfrastructure/agenttooling/jetbrains-ide-native-search-for-agents'],
         },
         {
           type: 'category',
           label: 'Aiengineering',
-          items: ['explanations/aiinfrastructure/aiengineering/notebook-to-production-ai-howto'],
+          items: ['explanations/aiinfrastructure/aiengineering/medium-feature-store-bottleneck-lessons', 'explanations/aiinfrastructure/aiengineering/notebook-to-production-ai-howto'],
         },
         {
           type: 'category',
@@ -141,8 +146,13 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Threatlandscape',
+          items: ['explanations/devsecops/threatlandscape/gartner-four-critical-cybersecurity-threats-2026'],
+        },
+        {
+          type: 'category',
           label: 'Vulnerabilitymanagement',
-          items: ['explanations/devsecops/vulnerabilitymanagement/cisa-ai-vulnerability-directive-3-day-patch'],
+          items: ['explanations/devsecops/vulnerabilitymanagement/cisa-ai-vulnerability-directive-3-day-patch', 'explanations/devsecops/vulnerabilitymanagement/cve-2026-31431-copy-fail-linux-kernel-privilege-escalation'],
         },
         'explanations/general/explanation-s3-vectors-rag-without-vector-db',
         {

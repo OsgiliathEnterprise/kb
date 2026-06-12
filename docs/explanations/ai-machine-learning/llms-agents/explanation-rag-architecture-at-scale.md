@@ -231,6 +231,58 @@ Production RAG systems should be evaluated using established benchmarks:
 
 > **Key insight:** Evaluate retrieval as an end-to-end system, not just the final LLM output. Track recall degradation across each funnel stage.
 
+## Advanced RAG Patterns (2026)
+
+### GraphRAG
+GraphRAG extends traditional RAG by incorporating **knowledge graphs** alongside vector embeddings. Instead of flat document chunks, GraphRAG builds a graph of entities, relationships, and facts from the source data, enabling:
+
+- **Multi-hop reasoning** — Answer questions that require traversing relationships across multiple documents
+- **Entity resolution** — Disambiguate entities with the same name in different contexts
+- **Structured knowledge extraction** — Automatically extract entities and relationships during ingestion
+- **Better handling of complex queries** — Queries like "What are the common themes across projects that use technology X and were completed in 2025?" benefit from graph traversal
+
+**When to use GraphRAG:** Domain knowledge has rich entity relationships (legal, medical, financial, technical documentation)
+
+### Agentic RAG
+Agentic RAG integrates RAG into the **agent's decision-making loop** rather than treating retrieval as a fixed pipeline:
+
+- **Dynamic query decomposition** — Agent breaks complex queries into sub-queries, retrieves for each, then synthesizes
+- **Iterative retrieval** — Agent can re-query based on initial results, refining search strategy
+- **Tool-augmented retrieval** — Agent uses MCP tools to fetch complementary data (APIs, databases) alongside vector search
+- **Self-correction** — Agent evaluates its own retrieved context quality and adjusts if needed
+
+**Key insight:** Agentic RAG treats retrieval as a **reasoning step**, not a fixed preprocessing step.
+
+### Corrective RAG (CRAG)
+CRAG adds a **correction step** between retrieval and generation:
+
+1. **Retrieve** documents using standard RAG
+2. **Evaluate** retrieved documents for relevance and correctness
+3. **Correct** by re-retrieving if initial results are insufficient
+4. **Generate** final response with corrected context
+
+This reduces the impact of poor initial retrieval without requiring perfect first-pass accuracy.
+
+### RAGAS Evaluation Framework
+Production RAG systems should be evaluated using **RAGAS** (RAG Assessment) metrics:
+
+| Metric | Measures | Target |
+|--------|----------|--------|
+| **Context Precision** | % of retrieved context actually relevant | >80% |
+| **Context Recall** | % of ground-truth info present in retrieved context | >90% |
+| **Faithfulness** | % of generated answer supported by retrieved context | >85% |
+| **Answer Relevance** | How directly the answer addresses the question | >80% |
+| **Context Entity Recall** | % of key entities from ground truth present in context | >85% |
+
+### Chunk-Level Access Control
+Enterprise RAG systems implement **row-level security** at the chunk level:
+
+- **User-aware retrieval** — Only return chunks the authenticated user has permission to see
+- **Dynamic filtering** — Apply access controls during retrieval, not after
+- **Metadata-based scoping** — Use document metadata (department, classification, owner) for fine-grained control
+
+---
+
 ## Additional Challenges Beyond Retrieval
 
 ### Prompt Stuffing

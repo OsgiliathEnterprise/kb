@@ -400,13 +400,13 @@ Multiple independent projects are converging on similar patterns:
 - **Anthropic MCP Tunnels & Sandboxes:** [Anthropic debuts MCP tunnels and self-hosted sandboxes](https://thenewstack.io/anthropic-mcp-tunnels-sandboxes/) (The New Stack, May 2026)
 - **Claude Managed Agents:** [Documentation](https://docs.anthropic.com/en/docs/agents/managed-agents) (Anthropic)
 - **Model Context Protocol:** [Specification](https://modelcontextprotocol.io/) (MCP)
-- **Related KB:** [Running Agents on Kubernetes with Agent Sandbox](../../../how-to/cloud-infrastructure/kubernetes/howto-running-agents-on-kubernetes-with-agent-sandbox.md)
-- **Related KB:** [Context-Aware Authorization for AI Agents](../../security-privacy/appsec-privacy/explanation-context-aware-authorization-ai-agents.md)
+- **Related KB:** [Running Agents on Kubernetes with Agent Sandbox](Cloud & Infrastructure/Kubernetes/howto-running-agents-on-kubernetes-with-agent-sandbox.md)
+- **Related KB:** [Context-Aware Authorization for AI Agents](Security & Privacy/AppSec & Privacy/explanation-context-aware-authorization-ai-agents.md)
 
 ---
 
 ## See Also
 
-- [Running Agents on Kubernetes with Agent Sandbox](../../../how-to/cloud-infrastructure/kubernetes/howto-running-agents-on-kubernetes-with-agent-sandbox.md)
-- [Context-Aware Authorization for AI Agents](../../security-privacy/appsec-privacy/explanation-context-aware-authorization-ai-agents.md)
+- [Running Agents on Kubernetes with Agent Sandbox](Cloud & Infrastructure/Kubernetes/howto-running-agents-on-kubernetes-with-agent-sandbox.md)
+- [Context-Aware Authorization for AI Agents](Security & Privacy/AppSec & Privacy/explanation-context-aware-authorization-ai-agents.md)
 - [Enterprise Agentic Platforms](explanation-enterprise-agentic-platforms.md)

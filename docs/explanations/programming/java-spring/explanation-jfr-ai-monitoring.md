@@ -188,12 +188,12 @@ public class JFRMonitor {
 - **Original article:** [Intelligent JVM Monitoring: Combining JDK Flight Recorder with AI](https://inside.java/2026/06/02/jfr-ai-monitor/) (Inside.Java, June 2026)
 - **JavaOne 2026 video:** [YouTube](https://www.youtube.com/watch?v=L5d966dUfhM) (full technical walkthrough)
 - **JFR documentation:** [OpenJDK JFR docs](https://jdk.java.net/)
-- **Related KB:** [Post-Mortem JVM Crash Analysis with jcmd](../../../how-to/programming/java-spring/howto-jvm-crash-analysis-jcmd.md)
-- **Related KB:** [OpenTelemetry GA](../../cloud-infrastructure/observability/explanation-opentelemetry-ga.md)
+- **Related KB:** [Post-Mortem JVM Crash Analysis with jcmd](Programming/Java & Spring/howto-jvm-crash-analysis-jcmd.md)
+- **Related KB:** [OpenTelemetry GA](Cloud & Infrastructure/Observability/explanation-opentelemetry-ga.md)
 
 ---
 
 ## See Also
 
-- [Post-Mortem JVM Crash Analysis with jcmd](../../../how-to/programming/java-spring/howto-jvm-crash-analysis-jcmd.md) — Complementary post-mortem analysis
-- [OpenTelemetry GA](../../cloud-infrastructure/observability/explanation-opentelemetry-ga.md) — Broader observability standards
+- [Post-Mortem JVM Crash Analysis with jcmd](Programming/Java & Spring/howto-jvm-crash-analysis-jcmd.md) — Complementary post-mortem analysis
+- [OpenTelemetry GA](Cloud & Infrastructure/Observability/explanation-opentelemetry-ga.md) — Broader observability standards

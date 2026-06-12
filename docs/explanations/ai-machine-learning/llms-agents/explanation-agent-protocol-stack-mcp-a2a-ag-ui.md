@@ -56,8 +56,18 @@ The agent protocol landscape has evolved from fragmented, custom integrations in
 
 ### MCP SDK 2.0.0-RC1 (June 2026)
 - **Java SDK upgraded to 2.0.0-RC1** — adopted by Spring AI 2.0.0-RC1
+- **C# SDK v1.0 released** — official Microsoft SDK with icon support for tools, resources, and prompts via `IconSource` attribute
 - **Key changes:** Streamlined tool execution architecture, refined JSON-RPC transport handling, improved error propagation
 - **Enterprise adoption:** Spring AI's MCP SDK upgrade signals Java ecosystem readiness for MCP 2.0
+
+### MCP Apps (January 2026)
+- **MCP Apps now live as official MCP extension** — first official extension to the MCP protocol
+- **Purpose:** Bring UI capabilities to MCP clients, enabling agents to generate interactive UIs directly through MCP
+- **Status:** Production-ready, part of MCP ecosystem
+
+### MCP Production Concerns
+- **Context window waste:** Perplexity reported 72% of agent context window consumed by tool schemas (from just 3 MCP servers via Apideck) before processing a single query
+- **Mitigation strategies:** Selective tool exposure, schema compression, lazy-loading tool definitions
 ### MCP Governance Model
 
 - **Delegation model** allows Working Groups with proven track records to accept SEPs and publish extension updates within their domain without full core-maintainer review
