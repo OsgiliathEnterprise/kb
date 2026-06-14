@@ -1,0 +1,36 @@
+name: Ping Google Sitemap
+
+on:
+  push:
+    branches:
+      - gh-pages
+
+jobs:
+  ping-google:
+    name: Notify Google of sitemap update
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+
+    steps:
+      - name: Ping Google Search Console
+        run: |
+          SITEMAP_URL="https://OsgiliathEnterprise.github.io/kb/sitemap.xml"
+          GOOGLE_PING="https://www.google.com/webmasters/sitemaps/ping?sitemap=${SITEMAP_URL}"
+
+          echo "Pinging Google at: ${GOOGLE_PING}"
+          HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" --max-time 10 "${GOOGLE_PING}" || echo "000")
+
+          echo "Google responded with HTTP ${HTTP_CODE}"
+
+          if [ "${HTTP_CODE}" != "200" ]; then
+            echo "::warning::Google sitemap ping returned HTTP ${HTTP_CODE}"
+          else
+            echo "Google sitemap ping successful"
+          fi
+
+      - name: Fetch and count sitemap URLs
+        run: |
+          SITEMAP_URL="https://OsgiliathEnterprise.github.io/kb/sitemap.xml"
+          curl -s --max-time 10 "${SITEMAP_URL}" > /tmp/sitemap.xml || { echo "::error::Failed to fetch sitemap"; exit 1; }
+          URL_COUNT=$(grep -o '<loc>' /tmp/sitemap.xml | wc -l)
+          echo "Sitemap contains ${URL_COUNT} URLs"
