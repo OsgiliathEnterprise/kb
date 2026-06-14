@@ -2,10 +2,25 @@
 import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
+// Google Search Console verification key (injected via CI env var)
+const googleSearchConsoleKey = process.env.GOOGLE_SEARCH_CONSOLE_META_KEY || '';
+
+/** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Osgiliath Learning Hub',
   tagline: 'Tutorials, How-to Guides, and Explanations — Updated Daily',
   favicon: 'img/favicon.svg',
+
+  // Inject Google Search Console verification meta tag
+  headTags: googleSearchConsoleKey
+    ? [{
+        tagName: 'meta',
+        attributes: {
+          name: 'google-site-verification',
+          content: googleSearchConsoleKey,
+        },
+      }]
+    : [],
 
   future: {
     v4: true,
