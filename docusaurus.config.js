@@ -26,7 +26,7 @@ const config = {
     v4: true,
   },
 
-  url: 'https://OsgiliathEnterprise.github.io',
+  url: 'https://osgiliathenterprise.github.io',
   baseUrl: '/kb/',
 
   organizationName: 'OsgiliathEnterprise',

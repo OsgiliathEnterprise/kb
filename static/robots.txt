@@ -1,6 +1,6 @@
 # Osgiliath Learning Hub - robots.txt
 # Allow all crawlers, point to sitemap
-Sitemap: https://OsgiliathEnterprise.github.io/kb/sitemap.xml
+Sitemap: https://osgiliathenterprise.github.io/kb/sitemap.xml
 
 User-agent: *
 Allow: /
