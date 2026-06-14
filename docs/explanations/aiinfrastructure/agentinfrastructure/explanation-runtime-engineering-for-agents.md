@@ -409,4 +409,4 @@ Multiple independent projects are converging on similar patterns:
 
 - [Running Agents on Kubernetes with Agent Sandbox](Cloud & Infrastructure/Kubernetes/howto-running-agents-on-kubernetes-with-agent-sandbox.md)
 - [Context-Aware Authorization for AI Agents](Security & Privacy/AppSec & Privacy/explanation-context-aware-authorization-ai-agents.md)
-- [Enterprise Agentic Platforms](explanation-enterprise-agentic-platforms.md)
+- [Enterprise Agentic Platforms](AI-Infrastructure/Agent-Infrastructure/explanation-enterprise-agentic-platforms.md)

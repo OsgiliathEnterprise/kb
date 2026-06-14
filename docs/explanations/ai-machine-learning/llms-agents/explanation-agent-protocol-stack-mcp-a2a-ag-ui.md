@@ -409,6 +409,40 @@ Firecracker (AWS Lambda/Fargate technology) provides the strongest isolation:
 4. **Sandboxed execution environments**: Use gVisor or Firecracker for MCP server isolation
 5. **Audit logging**: Track all tool calls, command drift, and resource access patterns
 
+## MCP 2026 Roadmap: What's Next
+
+The MCP 2026 roadmap (published March 5, 2026) shifts from date-based releases to priority areas owned by Working Groups. Four focus areas address production pain points from 2025 deployments:
+
+### 1. Transport Evolution and Scalability
+- **Stateless session models** with explicit creation, resumption, and migration protocols
+- **Load-balancer-friendly patterns** eliminating sticky routing requirements
+- **MCP Server Cards** — standardized metadata format at `.well-known` endpoints for discovery without live connections
+- Owned by the Transports Working Group; no new official transports added (preserves compatibility)
+
+### 2. Agent Communication: Asynchronous Tasks
+- **Retry semantics** for transient failures (exponential backoff guidelines)
+- **Expiry policies** defining result retention duration and client notification
+- Owned by the Agents Working Group; mirrors MCP's proven ship-experiment-harden cycle
+
+### 3. Governance Maturation
+- **Contributor Ladder** (participant → WG contributor → lead maintainer)
+- **Delegation model** allowing trusted Working Groups to approve domain-specific SEPs
+- Expected to accelerate SEP throughput by 3–4× for priority-aligned proposals
+
+### 4. Enterprise Readiness
+- **Audit trails**, corporate SSO flows, gateway/proxy behavior
+- Most solutions delivered as **extensions** (audit logging schemas, Cross-App Access patterns)
+- Core changes kept minimal to preserve simplicity for smaller deployments
+
+### MCP vs. A2A: Strategic Context
+Analysis of 2026 adoption trends shows organizations using **MCP for data/tool access** and **A2A for multi-agent collaboration** achieve **40–60% faster workflow development** than single-protocol approaches. Attempting to force inter-agent messaging through MCP alone leads to unnecessary complexity — hybrid architectures deliver superior results.
+
+### Emerging Capabilities (On the Horizon)
+- Triggers and event-driven updates (webhooks with ordering guarantees)
+- Streamed and reference-based result types for large payloads
+- Deeper security enhancements (DPoP, Workload Identity Federation)
+- Extensions ecosystem maturation (Skills primitive, registry support)
+
 ## Key Insight
 
 > "They're not competing - they're complementary. Each one solves a different problem at a different layer of the agent architecture."

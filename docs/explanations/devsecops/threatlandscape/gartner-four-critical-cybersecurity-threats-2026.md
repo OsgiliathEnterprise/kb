@@ -105,8 +105,9 @@ excalidraw-end
 ## Cross-Reference with KB
 
 This analysis complements existing KB entries on:
-- [CISA AI Vulnerability Directive](../vulnerabilitymanagement/cisa-ai-vulnerability-directive-3-day-patch.md)
-- [Spring Security in AI Era](../../programming/java-spring/explanation-spring-security-ai-era.md)
+- [CISA AI Vulnerability Directive](../../Vulnerability-Management/CISA-AI-Directive/cisa-ai-vulnerability-directive-3-day-patch.md)
+- [Miasma Worm Supply Chain Attack](../Supply-Chain-Security/AI-Agent-Supply-Chain/miasma-worm-ai-agent-supply-chain-attack.md)
+- [Spring Security in AI Era](../AI-Security-Impact/Open-Source-Security-Reports/spring-security-ai-era-report-surge.md)
 
 ## References
 

@@ -112,8 +112,9 @@ excalidraw-end
 ## Cross-Reference with KB
 
 This entry relates to:
-- [Notebook to Production AI](notebook-to-production-ai-howto.md)
-- [OpenTelemetry GA - Vendor Neutrality Reality](../../cloud-infrastructure/observability/explanation-opentelemetry-ga.md)
+- [Production RAG Failure Modes](../Retrieval-Systems/RAG-Architecture/production-rag-failure-modes.md)
+- [Notebook to Production AI](../AI-Engineering/Notebook-to-Production/notebook-to-production-ai-howto.md)
+- [OpenTelemetry Vendor Neutrality](../Agent-Observability/OpenTelemetry-Ecosystem/opentelemetry-vendor-neutrality-reality.md)
 
 ## References
 

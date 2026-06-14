@@ -105,7 +105,9 @@ excalidraw-end
 ## Cross-Reference with KB
 
 This entry relates to:
-- [Maintainability Sensors for Coding Agents](../../ai-machine-learning/llms-agents/explanation-maintainability-sensors-for-coding-agents.md)
+- [AI Code Speed vs. Security](../../DevSecOps/Supply-Chain-Security/AI-Generated-Code/ai-code-speed-vs-security.md)
+- [Miasma Worm Supply Chain Attack](../../DevSecOps/Supply-Chain-Security/AI-Agent-Supply-Chain/miasma-worm-ai-agent-supply-chain-attack.md)
+- [Maintainability Sensors for Agents](../../Software-Engineering/Code-Quality/Coding-Agent-Sensors/maintainability-sensors-for-agents.md)
 
 ## References
 

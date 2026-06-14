@@ -29,6 +29,11 @@ index.html
 .hermes/
 .publisher.log
 
+# Helper scripts (not part of site content)
+scripts/check_docs.py
+scripts/check_mdx.py
+scripts/fix_mdx_urls.py
+
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*

@@ -152,7 +152,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Vulnerabilitymanagement',
-          items: ['explanations/devsecops/vulnerabilitymanagement/cisa-ai-vulnerability-directive-3-day-patch', 'explanations/devsecops/vulnerabilitymanagement/cve-2026-31431-copy-fail-linux-kernel-privilege-escalation'],
+          items: ['explanations/devsecops/vulnerabilitymanagement/cisa-ai-vulnerability-directive-3-day-patch'],
         },
         'explanations/general/explanation-s3-vectors-rag-without-vector-db',
         {
