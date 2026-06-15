@@ -1,5 +1,23 @@
 [
   {
+    "title": "Ai Agent Kubectl Access Patterns",
+    "type": "How-To",
+    "link": "/how-to/security-privacy/appsec-privacy/howto-ai-agent-kubectl-access-patterns",
+    "time": "18 min read"
+  },
+  {
+    "title": "K8S Dashboard To Headlamp Transition",
+    "type": "How-To",
+    "link": "/how-to/cloud-infrastructure/kubernetes/howto-k8s-dashboard-to-headlamp-transition",
+    "time": "4 min read"
+  },
+  {
+    "title": "Jfr Ai Monitoring",
+    "type": "Explanation",
+    "link": "/explanations/programming/java-spring/explanation-jfr-ai-monitoring",
+    "time": "4 min read"
+  },
+  {
     "title": "Enterprise Agentic Platforms",
     "type": "Explanation",
     "link": "/explanations/aiinfrastructure/agentinfrastructure/explanation-enterprise-agentic-platforms",
@@ -12,27 +30,9 @@
     "time": "11 min read"
   },
   {
-    "title": "Jfr Ai Monitoring",
-    "type": "Explanation",
-    "link": "/explanations/programming/java-spring/explanation-jfr-ai-monitoring",
-    "time": "4 min read"
-  },
-  {
-    "title": "K8S Dashboard To Headlamp Transition",
-    "type": "How-To",
-    "link": "/how-to/cloud-infrastructure/kubernetes/howto-k8s-dashboard-to-headlamp-transition",
-    "time": "4 min read"
-  },
-  {
     "title": "Agent Protocol Stack Mcp A2A Ag Ui",
     "type": "Explanation",
     "link": "/explanations/ai-machine-learning/llms-agents/explanation-agent-protocol-stack-mcp-a2a-ag-ui",
     "time": "17 min read"
-  },
-  {
-    "title": "Linux Second Severe Vulnerability",
-    "type": "How-To",
-    "link": "/how-to/security-privacy/appsec-privacy/howto-linux-second-severe-vulnerability",
-    "time": "6 min read"
   }
 ]

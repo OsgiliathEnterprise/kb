@@ -195,6 +195,33 @@ def extract_yaml_metadata(content: str) -> dict:
     return {}
 
 
+def is_public_content(meta: dict) -> bool:
+    """Check if content should be published based on visibility metadata.
+
+    Visibility rules:
+    - visibility: 'public' -> publish
+    - visibility: 'private' -> skip
+    - no visibility field -> default to 'public' for backwards compatibility
+    - enriched_from contains private sources -> treat as private
+    """
+    visibility = meta.get('visibility', 'public').lower()
+
+    # Explicit private -> skip
+    if visibility == 'private':
+        return False
+
+    # Check if enriched_from contains private markers
+    enriched_from = meta.get('enriched_from', [])
+    if isinstance(enriched_from, list):
+        for source in enriched_from:
+            if isinstance(source, dict) and source.get('private'):
+                return False
+            if isinstance(source, str) and source.startswith('private:'):
+                return False
+
+    return True
+
+
 def map_kb_to_docs_path(kb_file: Path) -> tuple:
     """Map a KB file path to docs/ destination organized by Diátaxis type."""
     rel = kb_file.relative_to(KB_SOURCE)
@@ -252,6 +279,8 @@ def map_kb_to_docs_path(kb_file: Path) -> tuple:
         'created': meta.get('created', meta.get('research_date', '')),
         'diataxis': diataxis_path,
         'diataxis_label': diataxis_label,
+        'visibility': meta.get('visibility', 'public'),
+        'enriched_from': meta.get('enriched_from', []),
     }
 
 
@@ -272,9 +301,16 @@ def sync_kb():
 
     # Process each KB file
     new_files = {}
+    skipped_private = []
     for kb_file in kb_files:
         dest_file, meta = map_kb_to_docs_path(kb_file)
         if dest_file is None:
+            continue
+
+        # Visibility filter: skip private content
+        if not is_public_content(meta):
+            skipped_private.append(str(kb_file.relative_to(KB_SOURCE)))
+            print(f"  PRIVATE: {kb_file.relative_to(KB_SOURCE)} (visibility={meta.get('visibility', 'public')})")
             continue
 
         rel_dest = dest_file.relative_to(DOCS_DIR)
@@ -318,6 +354,8 @@ def sync_kb():
                 pass
 
     print(f"\nSync complete: {len(added)} added, {len(updated)} updated, {len(removed)} removed")
+    if skipped_private:
+        print(f"  Skipped {len(skipped_private)} private file(s) (not published to website)")
     return len(added) + len(updated) > 0 or len(removed) > 0
 
 

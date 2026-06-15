@@ -54,6 +54,28 @@ preflight() {
   log "HEAD = $(git_run rev-parse --short HEAD) ($SOURCE_BRANCH)"
 }
 
+# ── Visibility gate: reject private content in docs/ ──────────────────────────
+visibility_gate() {
+  log "Running visibility gate (checking docs/ for private content)..."
+  cd "$REPO_DIR"
+
+  local gate_output
+  gate_output="$(python3 "$REPO_DIR/scripts/visibility-gate.py" 2>&1)"
+  local gate_exit=$?
+
+  if [ $gate_exit -ne 0 ]; then
+    err "VISIBILITY GATE FAILED"
+    echo "$gate_output" | while IFS= read -r line; do
+      err "  $line"
+    done
+    err "Aborting publish — private content would leak to the website."
+    err "Fix: run kb-sync.py to filter private content, then retry"
+    exit 1
+  fi
+
+  log "Visibility gate passed — no private content in docs/"
+}
+
 # ── Build ─────────────────────────────────────────────────────────────────────
 build_site() {
   log "Building site..."
@@ -253,6 +275,10 @@ force_merge() {
 # ── Main ──────────────────────────────────────────────────────────────────────
 main() {
   preflight
+
+  # Safety gate: abort if private content leaked into docs/
+  visibility_gate
+
   build_site
 
   # Check if gh-pages exists on remote
