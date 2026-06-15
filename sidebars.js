@@ -146,6 +146,11 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Supplychainsecurity',
+          items: ['explanations/devsecops/supplychainsecurity/miasma-worm-ai-agent-supply-chain'],
+        },
+        {
+          type: 'category',
           label: 'Threatlandscape',
           items: ['explanations/devsecops/threatlandscape/gartner-four-critical-cybersecurity-threats-2026'],
         },
@@ -169,6 +174,16 @@ const sidebars = {
           type: 'category',
           label: 'Distributedsystems',
           items: ['explanations/softwareengineering/distributedsystems/squirix-client-server-cache-architecture'],
+        },
+        {
+          type: 'category',
+          label: 'Gpucomputing',
+          items: ['explanations/softwareengineering/gpucomputing/babylon-gpu-tensor-cores-java'],
+        },
+        {
+          type: 'category',
+          label: 'Jvmperformance',
+          items: ['explanations/softwareengineering/jvmperformance/zgc-weak-reference-optimization'],
         },
         {
           type: 'category',

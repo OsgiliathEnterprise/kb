@@ -1,9 +1,9 @@
 [
   {
-    "title": "Ai Agent Kubectl Access Patterns",
-    "type": "How-To",
-    "link": "/how-to/security-privacy/appsec-privacy/howto-ai-agent-kubectl-access-patterns",
-    "time": "18 min read"
+    "title": "Jfr Ai Monitoring",
+    "type": "Explanation",
+    "link": "/explanations/programming/java-spring/explanation-jfr-ai-monitoring",
+    "time": "4 min read"
   },
   {
     "title": "K8S Dashboard To Headlamp Transition",
@@ -12,10 +12,10 @@
     "time": "4 min read"
   },
   {
-    "title": "Jfr Ai Monitoring",
-    "type": "Explanation",
-    "link": "/explanations/programming/java-spring/explanation-jfr-ai-monitoring",
-    "time": "4 min read"
+    "title": "Ai Agent Kubectl Access Patterns",
+    "type": "How-To",
+    "link": "/how-to/security-privacy/appsec-privacy/howto-ai-agent-kubectl-access-patterns",
+    "time": "18 min read"
   },
   {
     "title": "Enterprise Agentic Platforms",
