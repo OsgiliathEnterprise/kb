@@ -146,7 +146,19 @@ var options = OpenAiChatOptions.builder()
 - **[spring-idempotency-kit](https://github.com/Atlancia-Labs/spring-idempotency-kit)** — Supports idempotent API operations
 - **[Paketo Buildpack](https://blog.paketo.io/posts/spring-boot-performance/)** — Performance improvements in Spring Boot buildpacks
 
-## Topic 4: Spring AI 2.0.0-RC1 — Breaking Changes and New Features
+## Topic 4: Spring Framework 7.0 & Hibernate ORM 7 Updates
+
+### Spring Framework 7.0.6 / 6.2.17 (March 2026)
+- **Spring Framework 7.0.6** — Latest 7.x patch release, maintains Java 17+ baseline with Jakarta EE 10 alignment
+- **Spring Framework 6.2.17** — Long-term support branch, final 6.2.x release before full focus on 7.x
+- **Migration path:** Spring Framework 6.2 → 7.0 involves package renames (org.springframework → org.springframework), Jakarta namespace updates, and builder pattern replacements
+
+### Hibernate ORM 7.x Status
+- **Hibernate 7** — Full Jakarta EE alignment, deprecated `@GenericGenerator` removed, new identifier generation APIs
+- **Migration impact:** Applications using `@GenericGenerator` must migrate to `@SequenceGenerator`/`@TableGenerator` or custom `IdentifierGenerator` implementations
+- **Spring Boot 4** bundles Hibernate 7.x by default — ensure entity mapping compatibility before upgrade
+
+## Topic 5: Spring AI 2.0.0-RC1 — Breaking Changes and New Features
 
 ### Release Position (June 10, 2026)
 - **RC1 released:** June 6, 2026 — GA expected shortly
@@ -229,6 +241,8 @@ client.prompt("What's the weather?").call();
 - 📖 [2.0.0-RC1 Documentation](https://docs.spring.io/spring-ai/reference/2.0/index.html)
 - 📋 [Spring Boot 4.1 Release Notes](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-4.1-Release-Notes) via GitHub Wiki
 - 🎙️ [A Bootiful Podcast: Adib Saikali (Spring AI Lead)](https://spring.io/blog/2026/05/14/a-bootiful-podcast-daniel-adib-saikali) via Spring Blog
+- 🔍 [Spring Framework 6.2.17 and 7.0.6 Available Now](https://spring.io/blog/2026/03/13/spring-framework-6-2-17-and-7-0-6-available-now/) (enriched 2026-06-16)
+- 🔍 [Hibernate ORM Releases](https://hibernate.org/orm/releases/) (enriched 2026-06-16)
 
 ---
 *Merged by KB Zookeeper on 2026-05-28*
@@ -236,3 +250,4 @@ client.prompt("What's the weather?").call();
 *Enriched 2026-05-28 with Spring AI 2.0.0-M7 milestone: ToolSpec API, Gemini updates, migration guide, model provider matrix*
 *Enriched 2026-05-30 with Jackson 3 migration details (package rename, date/ordering defaults), builder pattern replacement, two-step migration path, Spring Boot 4 hard dependency*
 *Enriched 2026-06-01 with Spring AI 2.0.0-M8 final milestone: dash-separated properties, ChatOptions#mutate type-specific returns, Jackson YAML exclusion, MistralAiApi mapping fixes, Google GenAI/PGVector/API key bug fixes*
+*Enriched 2026-06-16 with Spring Framework 7.0.6 / 6.2.17 release notes, Hibernate ORM 7.x release status*

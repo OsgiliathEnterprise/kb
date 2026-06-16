@@ -38,5 +38,13 @@ Discord released a detailed postmortem on its March 25, 2026 voice outage, revea
 4. **Test Under Degradation** — simulate scenarios where recovery mechanisms are stressed alongside primary services
 5. **Prioritize Simplicity** — clear fault boundaries and minimal inter-service coupling reduce blast radius
 
+## Circular Dependency Detection Tools (2026)
+- **Static Analysis**: Tools like [ArchUnit](https://www.archunit.org/) (Java), [Structure101](https://structure101.com/), and [NDepend](https://www.ndepend.com/) can detect cyclic dependencies at compile time
+- **Runtime Detection**: Distributed tracing systems (OpenTelemetry, Jaeger) can identify circular call patterns in production
+- **Architecture Guardrails**: Integration with CI/CD pipelines to block deployments that introduce new dependency cycles
+- **Graph-Based Analysis**: Model service dependencies as directed graphs; use cycle-detection algorithms (DFS-based) to flag problematic patterns
+
 ## References
 - 📰 Original: [Discord Reveals How a Hidden Circular Dependency Triggered Its March Voice Outage](https://www.infoq.com/news/2026/05/discord-circular-dependency/) via InfoQ (2026-05-15)
+- 🔍 [Cyclic Dependency Detection in Microservices](https://github.com/AbdoAnss/cyclic-dependency-microservices-detection) (enriched 2026-06-16)
+- 🔍 [Domain-Based Cyclic Dependencies in Microservice Architecture](https://link.springer.com/content/pdf/10.1007/978-3-030-86044-8_15.pdf) (enriched 2026-06-16)

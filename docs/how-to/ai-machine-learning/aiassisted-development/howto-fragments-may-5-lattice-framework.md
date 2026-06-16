@@ -64,7 +64,6 @@ Willem van den Ende argues local/open models now meet daily agentic dev needs:
 ## Related Topics
 - [[example-structured-prompt-driven-development-spdd|Structured-Prompt-Driven Development (SPDD)]]
 - [[tutorial-what-is-code|What Is Code?]]
-- [[howto-forward-deployed-engineer-ai|Forward Deployed Engineer]]
 
 ## References
 - 📰 [Fragments: May 5](https://martinfowler.com/fragments/2026-05-05.html) via MartinFowler (May 5, 2026)

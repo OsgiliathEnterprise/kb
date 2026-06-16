@@ -101,8 +101,8 @@ Delivered as scoped, loadable instructions compatible with modern AI harnesses (
 
 ## Related Topics
 
-- [[reference-maintainability-sensors-for-coding-agents|Maintainability Sensors for Coding Agents]]
-- [[reference-kubernetes-v136-release-overview|Kubernetes v1.36 Release Overview]]
+- [[explanation-maintainability-sensors-for-coding-agents|Maintainability Sensors for Coding Agents]]
+- [[explanation-kubernetes-v136-release-overview|Kubernetes v1.36 Release Overview]]
 
 ## References
 

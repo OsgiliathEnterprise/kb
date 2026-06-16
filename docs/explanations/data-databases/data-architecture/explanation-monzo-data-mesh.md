@@ -52,7 +52,7 @@ Distributed ownership enabled through automated guardrails:
 - **Implicit dependencies are a risk**: Cross-team data sharing without formal interfaces leads to redundant computation and inconsistent results
 
 ## Related Topics
-- [[reference-kubernetes-v136-release-overview|Kubernetes v1.36 Release Overview]] (workload-aware scheduling, infrastructure patterns)
+- [[explanation-kubernetes-v136-release-overview|Kubernetes v1.36 Release Overview]] (workload-aware scheduling, infrastructure patterns)
 
 ## References
 - 📰 Original: [Neobank Monzo Builds Governed Data Mesh Across 100 Teams and 12,000 dbt Models](https://www.infoq.com/news/2026/05/monzo-data-mesh/) via InfoQ (2026-05-17)

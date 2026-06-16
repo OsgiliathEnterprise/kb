@@ -54,6 +54,7 @@ The "design" aspect containing concepts, boundaries, and relationships for human
 ### Cognitive Debt
 - Accumulates when LLMs generate plausible, compiling code faster than the team builds understanding
 - The problem is not that the LLM generated code — the problem is that the code introduced vocabulary faster than the developers built understanding
+- **2026 Benchmark Data (Opsera AI Coding Impact Report):** Teams using AI coding assistants see 20-40% faster initial development, but without proper governance, up to 30% of AI-generated code requires rework due to architectural misalignment. Organizations that invest in domain vocabulary and abstraction design before AI-assisted coding see 2-3x higher code quality scores.
 
 ### Code as Context/Harness for LLMs
 - Well-structured code with clear semantics **is** the primary context/harness for LLMs
@@ -108,10 +109,11 @@ Write(T, N, key, value):
 - **Skipping abstraction design:** Jumping straight to code generation without defining types, interfaces, and invariants
 
 ## Related Topics
-- [[structured-prompt-driven-development-spdd|Structured-Prompt-Driven Development (SPDD)]]
-- [[tutorial-interrogatory-llm|Bliki: Interrogatory LLM]]
+- [[example-structured-prompt-driven-development-spdd|Structured-Prompt-Driven Development (SPDD)]]
 
 ## References
 - 📰 [What Is Code?](https://martinfowler.com/articles/what-is-code.html) via MartinFowler (May 12, 2026)
 - 🔍 [AWS Automated Reasoning Explained](https://aws.amazon.com/what-is/automated-reasoning/)
 - 🔍 [Formal Reasoning Meets LLMs - ACM CACM](https://cacm.acm.org/research/formal-reasoning-meets-llms-toward-ai-for-mathematics-and-verification/)
+- 🔍 [Opsera AI Coding Impact 2026 Benchmark Report](https://opsera.ai/resources/report/ai-coding-impact-2026-benchmark-report/) (enriched 2026-06-16)
+- 🔍 [AI Coding Assistants in 2026: Avoiding Pitfalls](https://sdtimes.com/ai/ai-coding-assistants-in-2026-avoiding-pitfalls-and-maximizing-value/) (enriched 2026-06-16)

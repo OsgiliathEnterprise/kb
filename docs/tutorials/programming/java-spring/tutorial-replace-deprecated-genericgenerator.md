@@ -85,7 +85,6 @@ public class MyCustomGenerator implements IdentifierGenerator {
 
 ## Related Topics
 - [[howto-clean-up-test-data-spring|Clean Up Test Data with Spring and Hibernate]]
-- [[howto-mysql-query-optimization-releem|MySQL Query Optimization with Releem]]
 
 ## References
 - 📰 Original: [The best way to replace the deprecated GenericGenerator](https://vladmihalcea.com/replace-deprecated-genericgenerator/) via VladMihalcea (2026-05-17)

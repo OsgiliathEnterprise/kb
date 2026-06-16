@@ -269,7 +269,7 @@ The `.spec.externalIPs` field for Service is deprecated and removed.
 ---
 
 ## Related Topics
-- [[reference-monzo-data-mesh|Monzo Data Mesh Architecture]]
+- [[explanation-monzo-data-mesh|Monzo Data Mesh Architecture]]
 
 ## References
 - [Kubernetes v1.36 Release Announcement: ハル (Haru)](https://kubernetes.io/blog/2026/04/22/kubernetes-v1-36-release/)

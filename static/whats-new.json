@@ -1,38 +1,38 @@
 [
   {
+    "title": "Image Classification Camel Djl",
+    "type": "Examples",
+    "link": "/examples/programming/java-spring/example-image-classification-camel-djl",
+    "time": "2 min read"
+  },
+  {
+    "title": "Spring Ecosystem Roundup May 2026",
+    "type": "How-To",
+    "link": "/how-to/programming/java-spring/howto-spring-ecosystem-roundup-may-2026",
+    "time": "10 min read"
+  },
+  {
+    "title": "Replace Deprecated Genericgenerator",
+    "type": "Tutorials",
+    "link": "/tutorials/programming/java-spring/tutorial-replace-deprecated-genericgenerator",
+    "time": "2 min read"
+  },
+  {
+    "title": "Clean Up Test Data Spring",
+    "type": "How-To",
+    "link": "/how-to/programming/java-spring/howto-clean-up-test-data-spring",
+    "time": "2 min read"
+  },
+  {
     "title": "Jfr Ai Monitoring",
     "type": "Explanation",
     "link": "/explanations/programming/java-spring/explanation-jfr-ai-monitoring",
     "time": "4 min read"
   },
   {
-    "title": "K8S Dashboard To Headlamp Transition",
-    "type": "How-To",
-    "link": "/how-to/cloud-infrastructure/kubernetes/howto-k8s-dashboard-to-headlamp-transition",
-    "time": "4 min read"
-  },
-  {
-    "title": "Ai Agent Kubectl Access Patterns",
-    "type": "How-To",
-    "link": "/how-to/security-privacy/appsec-privacy/howto-ai-agent-kubectl-access-patterns",
-    "time": "18 min read"
-  },
-  {
-    "title": "Enterprise Agentic Platforms",
+    "title": "Monzo Data Mesh",
     "type": "Explanation",
-    "link": "/explanations/aiinfrastructure/agentinfrastructure/explanation-enterprise-agentic-platforms",
-    "time": "4 min read"
-  },
-  {
-    "title": "Runtime Engineering For Agents",
-    "type": "Explanation",
-    "link": "/explanations/aiinfrastructure/agentinfrastructure/explanation-runtime-engineering-for-agents",
-    "time": "11 min read"
-  },
-  {
-    "title": "Agent Protocol Stack Mcp A2A Ag Ui",
-    "type": "Explanation",
-    "link": "/explanations/ai-machine-learning/llms-agents/explanation-agent-protocol-stack-mcp-a2a-ag-ui",
-    "time": "17 min read"
+    "link": "/explanations/data-databases/data-architecture/explanation-monzo-data-mesh",
+    "time": "3 min read"
   }
 ]

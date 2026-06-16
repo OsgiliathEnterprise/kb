@@ -178,8 +178,8 @@ sandbox.execute("python3 agent_script.py")
 
 ## Related Topics
 
-- [[reference-kubernetes-v136-release-overview|Kubernetes v1.36 Release Overview]]
-- [[reference-ci-for-coding-agents|CI for Coding Agents: Plans]]
+- [[explanation-kubernetes-v136-release-overview|Kubernetes v1.36 Release Overview]]
+- [[explanation-ci-for-coding-agents|CI for Coding Agents: Plans]]
 - [[howto-anthropic-routines-claude|Anthropic Routines for Claude Code]]
 
 ## Agent Orchestration Landscape (Merged: OpenAI Symphony)

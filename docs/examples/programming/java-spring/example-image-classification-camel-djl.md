@@ -98,7 +98,7 @@ dependencies {
 - **Ignoring engine compatibility:** DJL supports multiple engines (MXNet, PyTorch, TensorFlow) — ensure the native library matches your platform
 
 ## Related Topics
-- [[howto-spring-weekly-may-12-2026|Spring Weekly May 12, 2026]]
+- [[howto-spring-ecosystem-roundup-may-2026|Spring Ecosystem Roundup: May 2026]]
 
 ## References
 - 📰 [Building an Image Classification Pipeline With Camel and DJL](https://dzone.com/articles/image-classification-pipeline-camel-djl) via DZone (2026)

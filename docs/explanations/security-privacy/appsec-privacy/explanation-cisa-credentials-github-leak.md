@@ -112,8 +112,8 @@ GitGuardian's automated public scanning service flagged the exposure. This demon
 
 ## Related Topics
 
-- [[reference-chromium-browser-fetch-vulnerability|Chromium Browser Fetch Vulnerability]]
-- [[reference-context-aware-authorization-ai-agents|Context-Aware Authorization for AI Agents]]
+- [[explanation-chromium-browser-fetch-vulnerability|Chromium Browser Fetch Vulnerability]]
+- [[explanation-context-aware-authorization-ai-agents|Context-Aware Authorization for AI Agents]]
 
 ## References
 

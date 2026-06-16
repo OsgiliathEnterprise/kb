@@ -82,7 +82,6 @@ class MyServiceTest {
 
 ## Related Topics
 - [[tutorial-replace-deprecated-genericgenerator|Replace Deprecated @GenericGenerator]]
-- [[howto-mysql-query-optimization-releem|MySQL Query Optimization with Releem]]
 
 ## References
 - 📰 Original: [The best way to clean up test data with Spring and Hibernate](https://vladmihalcea.com/clean-up-test-data-spring/) via VladMihalcea (2026-05-17)

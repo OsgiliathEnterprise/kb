@@ -163,9 +163,7 @@ sudo tailscale up --advertise-route=192.168.1.0/24
 - Many developers run multiple agents sharing the same Mac mini substrate
 
 ## Related Topics
-- [[howto-forward-deployed-engineer-ai|Forward Deployed Engineer in AI]]
-- [[reference-gemma-4-local-multimodal-llm|Gemma 4 Local Multimodal LLM]]
-- [[reference-ubuntu-local-ai|Ubuntu Local AI]]
+- [[explanation-gemma-4-local-multimodal-llm|Gemma 4 Local Multimodal LLM]]
 
 ## References
 - 📰 [The Mac mini just became infrastructure](https://thenewstack.io/mac-mini-agent-infrastructure/) via TheNewStack (2026-05-17)
