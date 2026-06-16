@@ -66,9 +66,16 @@ const config = {
         // Disable blog entirely
         blog: false,
         sitemap: {
+          lastmod: 'datetime',
           changefreq: 'daily',
           priority: 0.5,
-          ignorePatterns: ['/tags/**'],
+          ignorePatterns: ['/tags/**', '/search', '/search/**'],
+          createSitemapItems: async (params) => {
+            const {defaultCreateSitemapItems, ...rest} = params;
+            const items = await defaultCreateSitemapItems(rest);
+            // Exclude search page from sitemap
+            return items.filter((item) => !item.url.includes('/search'));
+          },
         },
       }),
     ],
