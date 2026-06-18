@@ -1,15 +1,21 @@
 [
   {
-    "title": "Image Classification Camel Djl",
-    "type": "Examples",
-    "link": "/examples/programming/java-spring/example-image-classification-camel-djl",
-    "time": "2 min read"
+    "title": "Jfr Ai Monitoring",
+    "type": "Explanation",
+    "link": "/explanations/programming/java-spring/explanation-jfr-ai-monitoring",
+    "time": "4 min read"
   },
   {
-    "title": "Spring Ecosystem Roundup May 2026",
+    "title": "K8S Dashboard To Headlamp Transition",
     "type": "How-To",
-    "link": "/how-to/programming/java-spring/howto-spring-ecosystem-roundup-may-2026",
-    "time": "10 min read"
+    "link": "/how-to/cloud-infrastructure/kubernetes/howto-k8s-dashboard-to-headlamp-transition",
+    "time": "4 min read"
+  },
+  {
+    "title": "Ai Agent Kubectl Access Patterns",
+    "type": "How-To",
+    "link": "/how-to/security-privacy/appsec-privacy/howto-ai-agent-kubectl-access-patterns",
+    "time": "18 min read"
   },
   {
     "title": "Replace Deprecated Genericgenerator",
@@ -18,21 +24,15 @@
     "time": "2 min read"
   },
   {
-    "title": "Clean Up Test Data Spring",
-    "type": "How-To",
-    "link": "/how-to/programming/java-spring/howto-clean-up-test-data-spring",
-    "time": "2 min read"
+    "title": "Mac Mini Agent Infrastructure",
+    "type": "Tutorials",
+    "link": "/tutorials/ai-machine-learning/aiassisted-development/tutorial-mac-mini-agent-infrastructure",
+    "time": "6 min read"
   },
   {
-    "title": "Jfr Ai Monitoring",
-    "type": "Explanation",
-    "link": "/explanations/programming/java-spring/explanation-jfr-ai-monitoring",
-    "time": "4 min read"
-  },
-  {
-    "title": "Monzo Data Mesh",
-    "type": "Explanation",
-    "link": "/explanations/data-databases/data-architecture/explanation-monzo-data-mesh",
-    "time": "3 min read"
+    "title": "What Is Code",
+    "type": "Tutorials",
+    "link": "/tutorials/ai-machine-learning/llms-agents/tutorial-what-is-code",
+    "time": "5 min read"
   }
 ]

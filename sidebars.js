@@ -102,12 +102,22 @@ const sidebars = {
         {
           type: 'category',
           label: 'Aiengineering',
-          items: ['explanations/aiinfrastructure/aiengineering/medium-feature-store-bottleneck-lessons', 'explanations/aiinfrastructure/aiengineering/notebook-to-production-ai-howto'],
+          items: ['explanations/aiinfrastructure/aiengineering/medium-feature-store-bottleneck-lessons', 'explanations/aiinfrastructure/aiengineering/notebook-to-production-ai-howto', 'explanations/aiinfrastructure/aiengineering/sonarsweep-ai-training-data-quality'],
         },
         {
           type: 'category',
           label: 'Aiframeworks',
           items: ['explanations/aiinfrastructure/aiframeworks/google-diffusiongemma-text-diffusion-model'],
+        },
+        {
+          type: 'category',
+          label: 'Aistrategy',
+          items: ['explanations/aiinfrastructure/aistrategy/model-triage-routing-patterns'],
+        },
+        {
+          type: 'category',
+          label: 'Datagovernance',
+          items: ['explanations/aiinfrastructure/datagovernance/lakefs-agentic-ai-data-sandbox'],
         },
         {
           type: 'category',
@@ -172,6 +182,16 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Aiagentverification',
+          items: ['explanations/softwareengineering/aiagentverification/async-ai-agent-verification'],
+        },
+        {
+          type: 'category',
+          label: 'Aiassisteddevelopment',
+          items: ['explanations/softwareengineering/aiassisteddevelopment/deterministic-ai-spring-upgrades'],
+        },
+        {
+          type: 'category',
           label: 'Distributedsystems',
           items: ['explanations/softwareengineering/distributedsystems/squirix-client-server-cache-architecture'],
         },
@@ -189,6 +209,11 @@ const sidebars = {
           type: 'category',
           label: 'Mobilearchitecture',
           items: ['explanations/softwareengineering/mobilearchitecture/react-native-bridge-to-jsi-migration'],
+        },
+        {
+          type: 'category',
+          label: 'Security',
+          items: ['explanations/softwareengineering/security/chainguard-greyware-scanner'],
         },
         {
           type: 'category',

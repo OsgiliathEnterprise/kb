@@ -111,6 +111,18 @@ The superadditivity (81% >> 7% + 36%) arises because:
 - Pre-loaded data lets clear logic run without barrier overhead
 - Together they eliminate both the traversal AND the per-reference cost
 
+## JDK 25/26 GC Landscape Context
+
+As of JDK 25 (JEP 523), G1 became the universal default across all environments — including constrained ones that previously fell back to Serial GC. However, ZGC and Shenandoah have both gone fully generational and are production-ready:
+
+| Dimension | G1 | ZGC (generational) | Shenandoah (generational) |
+|-----------|----|--------------------|---------------------------|
+| Pause behavior | 20–200ms typical, up to 500ms large heaps | 0.1–0.5ms typical, sub-millisecond target | Sub-millisecond pauses |
+| Generational | Yes (JDK 25 finalized) | Yes (non-generational removed JDK 24) | Yes (finalized JDK 25) |
+| Best for | General-purpose, balanced throughput/latency | Large heaps, low-latency requirements | Low-latency, large heaps |
+
+The weak reference optimization research is particularly relevant because ZGC's generational mode increases the frequency of young-generation collections, amplifying the per-reference processing cost that this thesis addresses.
+
 ## Implications for JDK 27+
 
 This research directly informs the generational ZGC work being targeted for JDK 27. The key takeaway is that **weak reference processing is a solvable problem** — the question is whether the JDK team adopts pipeline optimizations (lower risk, immediate benefit) or the more radical `@weak` field annotation (higher risk, requires language change).
@@ -213,3 +225,5 @@ excalidraw://v1
 - [Original article: Simplifying Weak Reference Processing in ZGC](https://inside.java/2026/06/11/thesis-simplify-weak-reference-processing-zgc)
 - [OpenJDK Issue JDK-8029205](https://bugs.openjdk.org/browse/JDK-8029205) — Weak reference processing overhead
 - [ZGC Documentation](https://docs.oracle.com/en/java/javase/21/gctuning/z-garbage-collector.html)
+- [JavaCodeGeeks: JVM GC Decision in 2026 — G1 vs ZGC vs Shenandoah](https://www.javacodegeeks.com/2026/04/the-jvm-garbage-collector-decision-in-2026-g1-vs-zgc-vs-shenandoah-for-real-workloads.html)
+- [OpenJDK ZGC Wiki](https://wiki.openjdk.org/spaces/zgc/pages/34668579/Main)

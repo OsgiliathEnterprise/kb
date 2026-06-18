@@ -108,6 +108,15 @@ Understanding the old JSON bridge teaches fundamental concepts about:
 - Why serialization bottlenecks matter in mobile performance
 - The architectural evolution of React Native
 
+## RN 0.85 Impact Summary
+
+As confirmed by field engineering analysis (923, May 2026), RN 0.85 removed:
+- All fallback bridge code
+- The interoperability layer for legacy bridge modules
+- Any compatibility shim
+
+**Key finding**: Every app and library targeting RN 0.85+ must run on the New Architecture — there is no alternative path. Teams that delayed migration past RN 0.81 (when the bridge compatibility layer was last available) face mandatory rewrites of all custom native modules.
+
 ## Architecture Comparison Diagram
 
 ```
@@ -143,3 +152,5 @@ excalidraw-end
 - [React Native New Architecture Migration Guide (2026)](https://www.agilesoftlabs.com/blog/2026/03/react-native-new-architecture-migration)
 - [React Native JSI Deep Dive — Bridge vs JSI](https://heartit.tech/react-native-jsi-deep-dive-part-2-the-bridge-is-dead-long-live-jsi/)
 - [React Native 0.76 Release Notes](https://github.com/facebook/react-native/releases)
+- [923: React Native 0.85 — What the Bridge Removal Means](https://www.ninetwothree.co/blog/react-native-0-85-bridge-removal)
+- [React Native 0.85 Release Blog](https://reactnative.dev/blog/2026/04/07/react-native-0.85)

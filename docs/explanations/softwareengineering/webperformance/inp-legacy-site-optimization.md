@@ -208,6 +208,16 @@ After implementing changes, verify improvement:
 2. **Over-yielding** — Too many yields make the UI feel janky; balance responsiveness with throughput
 3. **Ignoring third-party scripts** — Chat widgets and analytics are often the real bottleneck
 4. **Testing only in development** — INP is a real-user metric; lab tests (Lighthouse) may not reflect production
+5. **Confusing TBT with INP** — Lighthouse's Total Blocking Time correlates with INP but diverges significantly on interaction-heavy pages; do not optimize for TBT and assume INP will follow
+6. **Ignoring the three-phase model** — INP captures input delay + processing time + presentation delay for every interaction, not just the first; FID only measured the first phase of the first interaction
+
+## INP Measurement Best Practices
+
+### Lab vs. Field Data
+INP is primarily a **field metric**. Use Chrome UX Report (CrUX) data as ground truth — available through BigQuery, the CrUX API, or PageSpeed Insights. The data covers a 28-day rolling window from real Chrome users.
+
+### Future-Proofing
+Google has indicated the 200ms "good" threshold may tighten in future updates. **Plan for 150ms if you want headroom.**
 
 ## Best Practices
 
@@ -222,3 +232,5 @@ After implementing changes, verify improvement:
 - [web-vitals Library](https://github.com/GoogleChrome/web-vitals)
 - [Google: Interaction to Next Paint (INP)](https://web.dev/articles/inp)
 - [PageSpeed Insights](https://pagespeed.web.dev/)
+- [SiteGrade: Core Web Vitals 2026 — INP Update and What Changed](https://sitegrade.io/en/blog/core-web-vitals-2026-inp-update/)
+- [HTTP Archive: Core Web Vitals data](https://httparchive.org/)
