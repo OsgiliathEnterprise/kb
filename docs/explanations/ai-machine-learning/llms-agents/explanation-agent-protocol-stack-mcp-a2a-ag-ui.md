@@ -461,6 +461,10 @@ Analysis of 2026 adoption trends shows organizations using **MCP for data/tool a
 - 🔒 [OWASP AI Agent Security Cheat Sheet (2026)](https://cheatsheetseries.owasp.org/cheatsheets/AI_Agent_Security_Cheat_Sheet.html)
 - 🔒 [Zylos AI Agent Sandboxing Research (2026)](https://zylos.ai/research/2026-04-04-ai-agent-sandboxing-security-isolation/)
 - 🔒 [MCP Security Patterns 2026: gVisor vs Firecracker](https://dev.to/chunxiaoxx/mcp-security-patterns-2026-gvisor-vs-firecracker-for-ai-agent-sandboxing-3hp7)
+- 📰 [The 2026 MCP Roadmap: Transport Scalability, Agent Communication, Governance](https://blog.modelcontextprotocol.io/posts/2026-mcp-roadmap/) (MCP Blog, 2026)
+- 📰 [MCP's Biggest Growing Pains for Production Use](https://thenewstack.io/model-context-protocol-roadmap-2026/) (TheNewStack, 2026)
 
 ---
+
 *Merged and enriched by KB Zookeeper on 2026-06-03*
+*Enriched 2026-06-21 with 2026 MCP roadmap, agent communication governance, production readiness data*

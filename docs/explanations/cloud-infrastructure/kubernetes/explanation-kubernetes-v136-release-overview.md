@@ -294,3 +294,4 @@ The `.spec.externalIPs` field for Service is deprecated and removed.
 *Enriched 2026-05-22 with official release page data: Haru theme, fine-grained auth GA, resource health status beta, WAS PodGroup details, additional beta features, user namespaces GA*
 *Enriched 2026-05-28 with web research: workload-aware preemption atomicity, resource health status beta details, InfoQ release coverage, Sysdig security features, ScaleOps resource management analysis*
 *Enriched 2026-05-30 with community scale data (106 companies, 491 contributors), security focus summary from InfoQ characterization*
+*Enriched 2026-06-21 with official v1.36 release announcement data, Haru theme details, additional stable features cross-reference*

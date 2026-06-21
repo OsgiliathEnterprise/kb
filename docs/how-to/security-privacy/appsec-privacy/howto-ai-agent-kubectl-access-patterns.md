@@ -882,15 +882,15 @@ The [Agent Sandbox controller](https://agent-sandbox.sigs.k8s.io/) provides a st
 
 ## References
 
-1. **Original Article:** Mike Anderson, "Your AI Agent Should Not Have Direct kubectl Access" — DEV.to, 2026-06-02. [dev.to article](https://dev.to/mike_anderson_d01f52129fb/your-ai-agent-should-not-have-direct-kubectl-access-b1o)
-2. **Kubernetes RBAC Documentation:** [Kubernetes RBAC docs](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)
-3. **Kubernetes Secrets Security Warning:** [Kubernetes Secrets docs](https://kubernetes.io/docs/concepts/configuration/secret/#security)
-4. **OWASP LLM Top 10:** [OWASP LLM Top 10](https://owasp.org/www-project-top-10-large-language-model-applications/)
-5. **Kubernetes Pod Security Standards:** [Pod Security Standards](https://kubernetes.io/docs/concepts/security/pod-security-standards/)
-6. **ValidatingAdmissionPolicy (Kubernetes v1.30+):** [ValidatingAdmissionPolicy docs](https://kubernetes.io/docs/reference/access-authn-authz/validating-admission-policy/)
-7. **Kyverno Policy Engine:** [kyverno.io](https://kyverno.io/)
-8. **OPA Gatekeeper:** [OPA Gatekeeper](https://openpolicyagent.github.io/gatekeeper/)
-9. **OWASP AI Agent Security Cheat Sheet (2026):** [OWASP AI Agent Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/AI_Agent_Security_Cheat_Sheet.html)
-10. **Zylos AI Agent Sandboxing Research (2026):** [Zylos Research](https://zylos.ai/research/2026-04-04-ai-agent-sandboxing-security-isolation/)
-11. **Kubernetes Agent Sandbox (k8s-sigs):** [agent-sandbox.sigs.k8s.io](https://agent-sandbox.sigs.k8s.io/)
-12. **Veracode 2025 AI-Generated Code Security Report:** [Veracode](https://www.veracode.com/)
+1. **Original Article:** Mike Anderson, "Your AI Agent Should Not Have Direct kubectl Access" — DEV.to, 2026-06-02. https://dev.to/mike_anderson_d01f52129fb/your-ai-agent-should-not-have-direct-kubectl-access-b1o
+2. **Kubernetes RBAC Documentation:** https://kubernetes.io/docs/reference/access-authn-authz/rbac/
+3. **Kubernetes Secrets Security Warning:** https://kubernetes.io/docs/concepts/configuration/secret/#security
+4. **OWASP LLM Top 10:** https://owasp.org/www-project-top-10-large-language-model-applications/
+5. **Kubernetes Pod Security Standards:** https://kubernetes.io/docs/concepts/security/pod-security-standards/
+6. **ValidatingAdmissionPolicy (Kubernetes v1.30+):** https://kubernetes.io/docs/reference/access-authn-authz/validating-admission-policy/
+7. **Kyverno Policy Engine:** https://kyverno.io/
+8. **OPA Gatekeeper:** https://openpolicyagent.github.io/gatekeeper/
+9. **OWASP AI Agent Security Cheat Sheet (2026):** https://cheatsheetseries.owasp.org/cheatsheets/AI_Agent_Security_Cheat_Sheet.html
+10. **Zylos AI Agent Sandboxing Research (2026):** https://zylos.ai/research/2026-04-04-ai-agent-sandboxing-security-isolation/
+11. **Kubernetes Agent Sandbox (k8s-sigs):** https://agent-sandbox.sigs.k8s.io/
+12. **Veracode 2025 AI-Generated Code Security Report:** https://www.veracode.com/
