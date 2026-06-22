@@ -63,6 +63,28 @@ Vibe coding introduces several categories of risk that users should understand b
 | **Dependency drift** | Generated code may pull in outdated, unmaintained, or conflicting packages | **Medium** | Review dependency lists if possible; use containerization |
 | **Lock-in to LLM provider** | Projects become tightly coupled to a specific model's output style and capabilities | **Low-Medium** | Document prompts and outputs for reproducibility |
 
+## The Vibe Coding Spectrum
+
+Vibe coding is not a single monolithic practice — it exists on a **spectrum** ranging from unstructured, no-review prompting to highly structured AI-assisted engineering. The appropriate mode depends on developer experience, project stakes, tooling, and personal preferences.
+
+### Three Generations of AI Coding (2021–2026)
+
+| Generation | Era | Characteristics | Examples |
+|---|---|---|---|
+| **Gen 1: AI-Assisted** | 2021–2023 | Autocomplete, inline suggestions, chat-based Q&A | GitHub Copilot, ChatGPT code mode |
+| **Gen 2: AI-Native** | 2024–2025 | Full-file generation, multi-file edits, repo-aware agents | Cursor, Claude Code, Codex CLI |
+| **Gen 3: Agentic** | 2026+ | Autonomous multi-step workflows, self-correction, CI/CD integration | Anthropic Routines, OpenClaw, CI-integrated agents |
+
+### Three Modes on the Spectrum
+
+| Mode | Description | Code Review | Best For |
+|---|---|---|---|
+| **Full Vibe (No Review)** | Describe goals in plain language, accept AI output without reading diffs | None | Throwaway scripts, personal tools, rapid prototyping |
+| **Structured AI-Assisted** | AI generates code, developer reviews diffs, runs tests, and refactors | Selective (diff review) | Feature development, bug fixes, refactoring |
+| **Agentic Engineering** | AI agents operate in CI/CD pipelines with human oversight, automated testing, and governance | Automated + human review | Production systems, long-lived codebases |
+
+**Adoption context (2026):** Satya Nadella reported AI writes 20–30% of Microsoft's code. Y Combinator's Winter 2025 batch found ~25% of startups shipped codebases where AI generated the majority. The JetBrains 2025 Developer Ecosystem Survey (24,000+ developers across 194 countries) found **85% regularly use AI tools** and **62% rely on at least one AI coding assistant**.
+
 ## When to Use Vibe Coding
 
 Vibe coding is **best suited** for:

@@ -101,3 +101,14 @@ When event arrives, MDS:
 - Metadata service unifies without replacing existing tools
 - Graph-based approach enables discovery, lineage, and impact analysis
 - Asynchronous design prevents blocking while maintaining freshness
+- **Key insight (2026):** The Model Lifecycle Graph represents ML entities as interconnected nodes and relationships rather than isolated pipeline stages — this shift from linear to graph-based thinking is what enables true cross-domain ML governance.
+
+## Additional Context
+
+Netflix's ML ecosystem spans **over 500 models** across recommendation, personalization, content creation, and operations. The Metadata Service (MDS) was built to solve the "needle in a haystack" problem where data scientists couldn't trace model lineage, feature dependencies, or impact of changes across the organization. The system processes events from multiple sources (Kafka, SNS) and maintains a real-time graph in Datomic with Elasticsearch for full-text search.
+
+## References
+
+- [Netflix TechBlog: Democratizing ML at Netflix](https://netflixtechblog.com/democratizing-machine-learning-at-netflix-building-the-model-lifecycle-graph-5cc6d5828bb1)
+- [InfoQ: Netflix Introduces Model Lifecycle Graph](https://www.infoq.com/news/2026/05/netflix-ml-graph/)
+- [tldr.tech/data: Netflix's ML Metadata Graph](https://tldr.tech/data/2026-05-07)

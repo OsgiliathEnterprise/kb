@@ -1,38 +1,38 @@
 [
   {
-    "title": "Reliable Agentic Ai Systems Prince Case Study",
-    "type": "Explanation",
-    "link": "/explanations/aiinfrastructure/aiengineering/explanation-reliable-agentic-ai-systems-prince-case-study",
-    "time": "6 min read"
-  },
-  {
-    "title": "Enterprise Agentic Platforms",
-    "type": "Explanation",
-    "link": "/explanations/aiinfrastructure/agentinfrastructure/explanation-enterprise-agentic-platforms",
-    "time": "5 min read"
-  },
-  {
-    "title": "Jdk26 Performance Improvements",
-    "type": "Explanation",
-    "link": "/explanations/softwareengineering/jvmperformance/explanation-jdk26-performance-improvements",
-    "time": "5 min read"
-  },
-  {
     "title": "Jfr Ai Monitoring",
     "type": "Explanation",
     "link": "/explanations/programming/java-spring/explanation-jfr-ai-monitoring",
     "time": "4 min read"
   },
   {
-    "title": "Kubernetes V136 Release Overview",
+    "title": "Opentelemetry Ga",
     "type": "Explanation",
-    "link": "/explanations/cloud-infrastructure/kubernetes/explanation-kubernetes-v136-release-overview",
-    "time": "11 min read"
+    "link": "/explanations/cloud-infrastructure/observability/explanation-opentelemetry-ga",
+    "time": "8 min read"
   },
   {
     "title": "K8S Dashboard To Headlamp Transition",
     "type": "How-To",
     "link": "/how-to/cloud-infrastructure/kubernetes/howto-k8s-dashboard-to-headlamp-transition",
     "time": "4 min read"
+  },
+  {
+    "title": "Netflix Model Lifecycle Graph",
+    "type": "Explanation",
+    "link": "/explanations/ai-machine-learning/ml-ops/explanation-netflix-model-lifecycle-graph",
+    "time": "4 min read"
+  },
+  {
+    "title": "Vibe Coding",
+    "type": "Explanation",
+    "link": "/explanations/ai-machine-learning/aiassisted-development/explanation-vibe-coding",
+    "time": "6 min read"
+  },
+  {
+    "title": "Gemma 4 Local Multimodal Llm",
+    "type": "Explanation",
+    "link": "/explanations/ai-machine-learning/local-ai/explanation-gemma-4-local-multimodal-llm",
+    "time": "3 min read"
   }
 ]
