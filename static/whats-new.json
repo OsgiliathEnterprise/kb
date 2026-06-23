@@ -6,16 +6,22 @@
     "time": "4 min read"
   },
   {
-    "title": "Opentelemetry Ga",
-    "type": "Explanation",
-    "link": "/explanations/cloud-infrastructure/observability/explanation-opentelemetry-ga",
-    "time": "8 min read"
-  },
-  {
     "title": "K8S Dashboard To Headlamp Transition",
     "type": "How-To",
     "link": "/how-to/cloud-infrastructure/kubernetes/howto-k8s-dashboard-to-headlamp-transition",
     "time": "4 min read"
+  },
+  {
+    "title": "Ai Agent Kubectl Access Patterns",
+    "type": "How-To",
+    "link": "/how-to/security-privacy/appsec-privacy/howto-ai-agent-kubectl-access-patterns",
+    "time": "18 min read"
+  },
+  {
+    "title": "Opentelemetry Ga",
+    "type": "Explanation",
+    "link": "/explanations/cloud-infrastructure/observability/explanation-opentelemetry-ga",
+    "time": "8 min read"
   },
   {
     "title": "Netflix Model Lifecycle Graph",
@@ -28,11 +34,5 @@
     "type": "Explanation",
     "link": "/explanations/ai-machine-learning/aiassisted-development/explanation-vibe-coding",
     "time": "6 min read"
-  },
-  {
-    "title": "Gemma 4 Local Multimodal Llm",
-    "type": "Explanation",
-    "link": "/explanations/ai-machine-learning/local-ai/explanation-gemma-4-local-multimodal-llm",
-    "time": "3 min read"
   }
 ]
