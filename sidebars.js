@@ -86,23 +86,28 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Agentblueprints',
+          items: ['explanations/aiinfrastructure/agentblueprints/nvidia-openclaw-agent-blueprints-harness'],
+        },
+        {
+          type: 'category',
           label: 'Agentinfrastructure',
           items: ['explanations/aiinfrastructure/agentinfrastructure/explanation-enterprise-agentic-platforms', 'explanations/aiinfrastructure/agentinfrastructure/explanation-runtime-engineering-for-agents'],
         },
         {
           type: 'category',
           label: 'Agentsecurity',
-          items: ['explanations/aiinfrastructure/agentsecurity/ladybird-browser-ends-public-prs-ai-security'],
+          items: ['explanations/aiinfrastructure/agentsecurity/ladybird-browser-ends-public-prs-ai-security', 'explanations/aiinfrastructure/agentsecurity/tailscale-aperture-ai-agent-infrastructure'],
         },
         {
           type: 'category',
           label: 'Agenttooling',
-          items: ['explanations/aiinfrastructure/agenttooling/browser-use-framework-tutorial', 'explanations/aiinfrastructure/agenttooling/jetbrains-ide-native-search-for-agents'],
+          items: ['explanations/aiinfrastructure/agenttooling/block-goose-slack-agent-orchestration', 'explanations/aiinfrastructure/agenttooling/browser-use-framework-tutorial', 'explanations/aiinfrastructure/agenttooling/jetbrains-ide-native-search-for-agents'],
         },
         {
           type: 'category',
           label: 'Aiengineering',
-          items: ['explanations/aiinfrastructure/aiengineering/explanation-reliable-agentic-ai-systems-prince-case-study', 'explanations/aiinfrastructure/aiengineering/medium-feature-store-bottleneck-lessons', 'explanations/aiinfrastructure/aiengineering/notebook-to-production-ai-howto', 'explanations/aiinfrastructure/aiengineering/sonarsweep-ai-training-data-quality'],
+          items: ['explanations/aiinfrastructure/aiengineering/debugging-probabilistic-ai-systems', 'explanations/aiinfrastructure/aiengineering/explanation-reliable-agentic-ai-systems-prince-case-study', 'explanations/aiinfrastructure/aiengineering/medium-feature-store-bottleneck-lessons', 'explanations/aiinfrastructure/aiengineering/notebook-to-production-ai-howto', 'explanations/aiinfrastructure/aiengineering/sonarsweep-ai-training-data-quality'],
         },
         {
           type: 'category',
@@ -117,7 +122,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Datagovernance',
-          items: ['explanations/aiinfrastructure/datagovernance/lakefs-agentic-ai-data-sandbox'],
+          items: ['explanations/aiinfrastructure/datagovernance/aws-context-knowledge-graph-agents', 'explanations/aiinfrastructure/datagovernance/lakefs-agentic-ai-data-sandbox'],
         },
         {
           type: 'category',
@@ -152,7 +157,12 @@ const sidebars = {
         {
           type: 'category',
           label: 'Cicdpipelines',
-          items: ['explanations/devsecops/cicdpipelines/gitlab-19-devsecops-features'],
+          items: ['explanations/devsecops/cicdpipelines/aws-devops-agent-merge-queue-bouncer', 'explanations/devsecops/cicdpipelines/gitlab-19-devsecops-features'],
+        },
+        {
+          type: 'category',
+          label: 'Staticanalysis',
+          items: ['explanations/devsecops/staticanalysis/checkmarx-sast-engine-orchestration-over-llm'],
         },
         {
           type: 'category',
