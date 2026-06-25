@@ -107,7 +107,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Aiengineering',
-          items: ['explanations/aiinfrastructure/aiengineering/debugging-probabilistic-ai-systems', 'explanations/aiinfrastructure/aiengineering/explanation-reliable-agentic-ai-systems-prince-case-study', 'explanations/aiinfrastructure/aiengineering/medium-feature-store-bottleneck-lessons', 'explanations/aiinfrastructure/aiengineering/notebook-to-production-ai-howto', 'explanations/aiinfrastructure/aiengineering/sonarsweep-ai-training-data-quality'],
+          items: ['explanations/aiinfrastructure/aiengineering/aws-sagemaker-ml-deployment-guide', 'explanations/aiinfrastructure/aiengineering/debugging-probabilistic-ai-systems', 'explanations/aiinfrastructure/aiengineering/explanation-reliable-agentic-ai-systems-prince-case-study', 'explanations/aiinfrastructure/aiengineering/medium-feature-store-bottleneck-lessons', 'explanations/aiinfrastructure/aiengineering/notebook-to-production-ai-howto', 'explanations/aiinfrastructure/aiengineering/sonarsweep-ai-training-data-quality'],
         },
         {
           type: 'category',
@@ -138,6 +138,11 @@ const sidebars = {
           type: 'category',
           label: 'Cloudsecurity',
           items: ['explanations/cloudnative/cloudsecurity/aws-graviton5-nitro-isolation-engine'],
+        },
+        {
+          type: 'category',
+          label: 'Costoptimization',
+          items: ['explanations/cloudnative/costoptimization/cloud-cost-tagging-strategy'],
         },
         {
           type: 'category',
@@ -224,6 +229,11 @@ const sidebars = {
           type: 'category',
           label: 'Security',
           items: ['explanations/softwareengineering/security/chainguard-greyware-scanner'],
+        },
+        {
+          type: 'category',
+          label: 'Webarchitecture',
+          items: ['explanations/softwareengineering/webarchitecture/event-streams-polling-patterns'],
         },
         {
           type: 'category',
