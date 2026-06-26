@@ -102,12 +102,12 @@ const sidebars = {
         {
           type: 'category',
           label: 'Agenttooling',
-          items: ['explanations/aiinfrastructure/agenttooling/block-goose-slack-agent-orchestration', 'explanations/aiinfrastructure/agenttooling/browser-use-framework-tutorial', 'explanations/aiinfrastructure/agenttooling/jetbrains-ide-native-search-for-agents'],
+          items: ['explanations/aiinfrastructure/agenttooling/block-builderbot-enterprise-ai-agents', 'explanations/aiinfrastructure/agenttooling/browser-use-framework-tutorial', 'explanations/aiinfrastructure/agenttooling/jetbrains-ide-native-search-for-agents'],
         },
         {
           type: 'category',
           label: 'Aiengineering',
-          items: ['explanations/aiinfrastructure/aiengineering/aws-sagemaker-ml-deployment-guide', 'explanations/aiinfrastructure/aiengineering/debugging-probabilistic-ai-systems', 'explanations/aiinfrastructure/aiengineering/explanation-reliable-agentic-ai-systems-prince-case-study', 'explanations/aiinfrastructure/aiengineering/medium-feature-store-bottleneck-lessons', 'explanations/aiinfrastructure/aiengineering/notebook-to-production-ai-howto', 'explanations/aiinfrastructure/aiengineering/sonarsweep-ai-training-data-quality'],
+          items: ['explanations/aiinfrastructure/aiengineering/aws-sagemaker-ml-deployment-guide', 'explanations/aiinfrastructure/aiengineering/explanation-reliable-agentic-ai-systems-prince-case-study', 'explanations/aiinfrastructure/aiengineering/medium-feature-store-bottleneck-lessons', 'explanations/aiinfrastructure/aiengineering/notebook-to-production-ai-howto', 'explanations/aiinfrastructure/aiengineering/probabilistic-ai-debugging-tutorial', 'explanations/aiinfrastructure/aiengineering/sonarsweep-ai-training-data-quality', 'explanations/aiinfrastructure/aiengineering/valkey-ai-backporting-provenance-guard'],
         },
         {
           type: 'category',
@@ -117,7 +117,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Aistrategy',
-          items: ['explanations/aiinfrastructure/aistrategy/model-triage-routing-patterns'],
+          items: ['explanations/aiinfrastructure/aistrategy/model-triage-routing-patterns', 'explanations/aiinfrastructure/aistrategy/open-weight-models-after-fable-ban'],
         },
         {
           type: 'category',
