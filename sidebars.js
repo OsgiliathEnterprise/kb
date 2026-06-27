@@ -152,7 +152,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Architecture Reliability',
-          items: ['explanations/developer-tools-practices/architecture-reliability/explanation-discord-circular-dependency-voice-outage', 'explanations/developer-tools-practices/architecture-reliability/explanation-three-layer-architecture-production-ai'],
+          items: ['explanations/developer-tools-practices/architecture-reliability/explanation-three-layer-architecture-production-ai'],
         },
         {
           type: 'category',
