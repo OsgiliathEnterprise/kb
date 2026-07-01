@@ -86,23 +86,28 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Agentblueprints',
+          items: ['explanations/aiinfrastructure/agentblueprints/nvidia-openclaw-agent-blueprints-harness'],
+        },
+        {
+          type: 'category',
           label: 'Agentinfrastructure',
           items: ['explanations/aiinfrastructure/agentinfrastructure/explanation-enterprise-agentic-platforms', 'explanations/aiinfrastructure/agentinfrastructure/explanation-runtime-engineering-for-agents'],
         },
         {
           type: 'category',
           label: 'Agentsecurity',
-          items: ['explanations/aiinfrastructure/agentsecurity/ladybird-browser-ends-public-prs-ai-security'],
+          items: ['explanations/aiinfrastructure/agentsecurity/ladybird-browser-ends-public-prs-ai-security', 'explanations/aiinfrastructure/agentsecurity/tailscale-aperture-ai-agent-infrastructure'],
         },
         {
           type: 'category',
           label: 'Agenttooling',
-          items: ['explanations/aiinfrastructure/agenttooling/browser-use-framework-tutorial', 'explanations/aiinfrastructure/agenttooling/jetbrains-ide-native-search-for-agents'],
+          items: ['explanations/aiinfrastructure/agenttooling/block-builderbot-enterprise-ai-agents', 'explanations/aiinfrastructure/agenttooling/browser-use-framework-tutorial', 'explanations/aiinfrastructure/agenttooling/jetbrains-ide-native-search-for-agents'],
         },
         {
           type: 'category',
           label: 'Aiengineering',
-          items: ['explanations/aiinfrastructure/aiengineering/medium-feature-store-bottleneck-lessons', 'explanations/aiinfrastructure/aiengineering/notebook-to-production-ai-howto', 'explanations/aiinfrastructure/aiengineering/sonarsweep-ai-training-data-quality'],
+          items: ['explanations/aiinfrastructure/aiengineering/aws-sagemaker-ml-deployment-guide', 'explanations/aiinfrastructure/aiengineering/explanation-reliable-agentic-ai-systems-prince-case-study', 'explanations/aiinfrastructure/aiengineering/medium-feature-store-bottleneck-lessons', 'explanations/aiinfrastructure/aiengineering/notebook-to-production-ai-howto', 'explanations/aiinfrastructure/aiengineering/probabilistic-ai-debugging-tutorial', 'explanations/aiinfrastructure/aiengineering/sonarsweep-ai-training-data-quality', 'explanations/aiinfrastructure/aiengineering/valkey-ai-backporting-provenance-guard'],
         },
         {
           type: 'category',
@@ -112,12 +117,12 @@ const sidebars = {
         {
           type: 'category',
           label: 'Aistrategy',
-          items: ['explanations/aiinfrastructure/aistrategy/model-triage-routing-patterns'],
+          items: ['explanations/aiinfrastructure/aistrategy/model-triage-routing-patterns', 'explanations/aiinfrastructure/aistrategy/open-weight-models-after-fable-ban'],
         },
         {
           type: 'category',
           label: 'Datagovernance',
-          items: ['explanations/aiinfrastructure/datagovernance/lakefs-agentic-ai-data-sandbox'],
+          items: ['explanations/aiinfrastructure/datagovernance/aws-context-knowledge-graph-agents', 'explanations/aiinfrastructure/datagovernance/lakefs-agentic-ai-data-sandbox'],
         },
         {
           type: 'category',
@@ -136,13 +141,18 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Costoptimization',
+          items: ['explanations/cloudnative/costoptimization/cloud-cost-tagging-strategy'],
+        },
+        {
+          type: 'category',
           label: 'Data Architecture',
           items: ['explanations/data-databases/data-architecture/explanation-monzo-data-mesh'],
         },
         {
           type: 'category',
           label: 'Architecture Reliability',
-          items: ['explanations/developer-tools-practices/architecture-reliability/explanation-discord-circular-dependency-voice-outage', 'explanations/developer-tools-practices/architecture-reliability/explanation-three-layer-architecture-production-ai'],
+          items: ['explanations/developer-tools-practices/architecture-reliability/explanation-three-layer-architecture-production-ai'],
         },
         {
           type: 'category',
@@ -152,7 +162,12 @@ const sidebars = {
         {
           type: 'category',
           label: 'Cicdpipelines',
-          items: ['explanations/devsecops/cicdpipelines/gitlab-19-devsecops-features'],
+          items: ['explanations/devsecops/cicdpipelines/aws-devops-agent-merge-queue-bouncer', 'explanations/devsecops/cicdpipelines/gitlab-19-devsecops-features'],
+        },
+        {
+          type: 'category',
+          label: 'Staticanalysis',
+          items: ['explanations/devsecops/staticanalysis/checkmarx-sast-engine-orchestration-over-llm'],
         },
         {
           type: 'category',
@@ -203,7 +218,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Jvmperformance',
-          items: ['explanations/softwareengineering/jvmperformance/zgc-weak-reference-optimization'],
+          items: ['explanations/softwareengineering/jvmperformance/explanation-jdk26-performance-improvements', 'explanations/softwareengineering/jvmperformance/zgc-weak-reference-optimization'],
         },
         {
           type: 'category',
@@ -214,6 +229,11 @@ const sidebars = {
           type: 'category',
           label: 'Security',
           items: ['explanations/softwareengineering/security/chainguard-greyware-scanner'],
+        },
+        {
+          type: 'category',
+          label: 'Webarchitecture',
+          items: ['explanations/softwareengineering/webarchitecture/event-streams-polling-patterns'],
         },
         {
           type: 'category',

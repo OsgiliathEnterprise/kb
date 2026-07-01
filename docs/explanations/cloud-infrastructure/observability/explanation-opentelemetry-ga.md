@@ -190,3 +190,5 @@ Placeholder: OpenTelemetry Architecture Overview
 - [OpenTelemetry Hits General Availability — The New Stack](https://thenewstack.io/opentelemetry-hits-general-availability/)
 - [CNCF Project Graduation Criteria](https://github.com/cncf/toc/blob/main/process/graduation_criteria.md)
 - [OpenTelemetry Official Site](https://opentelemetry.io/)
+- [AI Agent Observability — Evolving Standards and Best Practices (OpenTelemetry Blog)](https://opentelemetry.io/blog/2025/ai-agent-observability/) — Details the GenAI observability project's work on semantic conventions for AI agent telemetry.
+- [OpenTelemetry Graduation Announcement (CNCF)](https://www.cncf.io/announcements/2026/05/21/cloud-native-computing-foundation-announces-opentelemetrys-graduation-solidifying-status-as-the-de-facto-observability-standard/) — Official CNCF graduation announcement.

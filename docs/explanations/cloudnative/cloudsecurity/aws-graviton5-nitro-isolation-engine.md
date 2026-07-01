@@ -134,3 +134,5 @@ Formal verification is the first approach that can **prove** isolation propertie
 - [AWS Graviton5 Nitro Isolation Engine (The New Stack)](https://thenewstack.io/graviton5-nitro-isolation-engine/)
 - [AWS Graviton5 Documentation](https://aws.amazon.com/ec2/graviton/)
 - [Formal Methods in Cloud Security Research](https://www.usenix.org/conference/usenixsecurity24)
+- [EC2's Formally Verified Isolation Engine (Amazon Science)](https://www.amazon.science/blog/ec2s-formally-verified-isolation-engine-provides-mathematical-assurance-of-virtual-machine-isolation) — Details the Isabelle/HOL formal verification effort yielding **330,000 lines of machine-checked proofs**.
+- [PLDI 2026 Tutorial: Deep Dive into AWS Nitro Isolation Engine](https://pldi26.sigplan.org/details/pldi-2026-tutorials/7/Deep-dive-into-the-AWS-Nitro-Isolation-Engine) — Academic tutorial covering the design and verification methodology.

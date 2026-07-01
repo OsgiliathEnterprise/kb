@@ -100,3 +100,21 @@ response = ollama.chat(model="gemma4", messages=[...], tools=tools)
 ## Key Insight
 
 Gemma 4 represents a significant leap for local deployment with native multimodal support and clean licensing, making it viable for edge devices through enterprise workstations.
+
+## Benchmark Highlights (2026)
+
+| Model | MMLU | HumanEval | AIME 2026 | Context | Notes |
+|-------|------|-----------|-----------|---------|-------|
+| **Gemma 4 31B Dense** | 87.1% | 82.7% | 89.2% | 256K | #3 open model globally |
+| **Gemma 4 26B MoE** | 82.7% | — | — | 256K | 26B params, 4B active |
+| **Gemma 4 E4B** | — | — | — | 256K | Efficient 4B for edge |
+| **Gemma 4 E2B** | — | — | — | 256K | Ultra-lightweight 2.3B |
+
+All models ship under **Apache 2.0** license with unified multimodal architecture (text + vision + audio). The 31B Dense model ranks as the **#3 open model in the world** for its size class, outperforming Llama 4 and Qwen 3.5 on several benchmarks.
+
+## References
+
+- [Google Blog: Gemma 4 Announcement](https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/)
+- [Gemma 4 Developer Guide: Benchmarks & Local Setup (Lushbinary)](https://lushbinary.com/blog/gemma-4-developer-guide-benchmarks-architecture-local-deployment-2026/)
+- [Gemma 4 Benchmarks 2026](https://gemma4-ai.com/blog/gemma4-benchmark)
+- [Gemma 4 12B Multimodal Local AI Guide (explainx.ai)](https://explainx.ai/blog/google-gemma-4-12b-multimodal-local-ai-model-2026)

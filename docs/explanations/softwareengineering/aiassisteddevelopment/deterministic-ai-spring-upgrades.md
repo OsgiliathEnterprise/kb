@@ -179,6 +179,25 @@ Use centralized agent skills with project-specific guidance.
 ./mvnw verify
 ```
 
+## The Spring Petclinic Example (Why Pure AI Fails)
+
+Upgrading even a simple Spring Boot application (Petclinic) from 3.5.x to 4 using a pure AI coding assistant produced:
+- Unrequested changes (renamed starters, modified imports)
+- Compiler warnings about deprecated methods
+- At least one compilation error
+- Required multiple additional iterations to fix
+
+This was a **simple** application with few entities. Legacy projects with hundreds of modules are orders of magnitude worse. Broadcom estimated that ~50% of Spring Boot apps were still on Spring Boot 2.7 or earlier (as of 2025).
+
+> "If the solution for an incompatibility is deterministic, we recommend that organizations create their own recipes and configure common migration patterns with our Tanzu CLI tools." — VMware Tanzu Spring Team
+
+## Process Automation at Scale
+
+For large organizations, Spring upgrades should be:
+1. **Triggered automatically** by CI/CD pipelines (not individual developers)
+2. **Configured** via CLI or AI coding agent with appropriate skills
+3. **Applied** across hundreds of Git repositories deterministically
+
 ## Key Takeaways
 
 1. **Deterministic tools for deterministic problems** — OpenRewrite handles API incompatibilities with guaranteed results
@@ -186,6 +205,8 @@ Use centralized agent skills with project-specific guidance.
 3. **Hybrid approach reduces risk** — Combine both tools for comprehensive upgrades
 4. **No token cost for deterministic work** — Save AI budget for tasks that need creativity
 5. **Repeatable upgrades** — OpenRewrite recipes can be version-controlled and reused
+6. **Security-driven upgrades need speed** — CVE remediation requires fast, correct migration paths
+7. **AI coding agents are not type-aware** — They do not understand the correctness of expressions, leading to compilation errors
 
 ## References
 
@@ -193,3 +214,5 @@ Use centralized agent skills with project-specific guidance.
 - [OpenRewrite Documentation](https://docs.openrewrite.org/)
 - [VMware Tanzu: Spring Upgrade Tools](https://tanzu.vmware.com/)
 - [Spring Boot Migration Guide](https://docs.spring.io/spring-boot/docs/current/reference/html/single-spring-boot.html)
+- [VMware Tanzu Spring](https://tanzu.vmware.com/spring)
+- [OpenRewrite](https://openrewrite.org)

@@ -194,3 +194,10 @@ title: Agentic Enterprise Architecture
 
 - [Three-Layer Architecture for Production AI](Developer Tools & Practices/Architecture & Reliability/explanation-three-layer-architecture-production-ai.md)
 - [Runtime Engineering for Agents](AI-Infrastructure/Agent-Infrastructure/explanation-runtime-engineering-for-agents.md)
+- 📰 [Enterprise Agentic AI Platform Architecture: The 2026 Complete Guide](https://www.ampcome.com/post/enterprise-agentic-ai-platform-architecture-2026) (AmPCome, 2026)
+- 📰 [Agentic AI Orchestration: 7 Strategic Pillars for Scalable AI in 2026](https://www.techment.com/blogs/agentic-ai-orchestration-scalable-ai-2026/) (Techment, 2026)
+- 📰 [The Enterprise AI Agent Readiness Checklist 2026](https://zepic.com/article/the-enterprise-ai-agent-readiness-checklist-2026-security-governance-and-scale) (Zepic, 2026)
+
+---
+
+*Enriched 2026-06-21 with web research: enterprise agentic AI architecture guides, orchestration pillars, readiness checklists*

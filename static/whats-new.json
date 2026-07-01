@@ -18,21 +18,21 @@
     "time": "18 min read"
   },
   {
-    "title": "Replace Deprecated Genericgenerator",
-    "type": "Tutorials",
-    "link": "/tutorials/programming/java-spring/tutorial-replace-deprecated-genericgenerator",
-    "time": "2 min read"
+    "title": "Opentelemetry Ga",
+    "type": "Explanation",
+    "link": "/explanations/cloud-infrastructure/observability/explanation-opentelemetry-ga",
+    "time": "8 min read"
   },
   {
-    "title": "Mac Mini Agent Infrastructure",
-    "type": "Tutorials",
-    "link": "/tutorials/ai-machine-learning/aiassisted-development/tutorial-mac-mini-agent-infrastructure",
+    "title": "Netflix Model Lifecycle Graph",
+    "type": "Explanation",
+    "link": "/explanations/ai-machine-learning/ml-ops/explanation-netflix-model-lifecycle-graph",
+    "time": "4 min read"
+  },
+  {
+    "title": "Vibe Coding",
+    "type": "Explanation",
+    "link": "/explanations/ai-machine-learning/aiassisted-development/explanation-vibe-coding",
     "time": "6 min read"
-  },
-  {
-    "title": "What Is Code",
-    "type": "Tutorials",
-    "link": "/tutorials/ai-machine-learning/llms-agents/tutorial-what-is-code",
-    "time": "5 min read"
   }
 ]
