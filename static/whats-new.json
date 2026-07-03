@@ -18,21 +18,21 @@
     "time": "18 min read"
   },
   {
-    "title": "Opentelemetry Ga",
+    "title": "Jdk26 Performance Improvements",
     "type": "Explanation",
-    "link": "/explanations/cloud-infrastructure/observability/explanation-opentelemetry-ga",
-    "time": "8 min read"
+    "link": "/explanations/softwareengineering/jvmperformance/explanation-jdk26-performance-improvements",
+    "time": "5 min read"
   },
   {
-    "title": "Netflix Model Lifecycle Graph",
+    "title": "Reliable Agentic Ai Systems Prince Case Study",
     "type": "Explanation",
-    "link": "/explanations/ai-machine-learning/ml-ops/explanation-netflix-model-lifecycle-graph",
-    "time": "4 min read"
-  },
-  {
-    "title": "Vibe Coding",
-    "type": "Explanation",
-    "link": "/explanations/ai-machine-learning/aiassisted-development/explanation-vibe-coding",
+    "link": "/explanations/aiinfrastructure/aiengineering/explanation-reliable-agentic-ai-systems-prince-case-study",
     "time": "6 min read"
+  },
+  {
+    "title": "Kubernetes V136 Release Overview",
+    "type": "Explanation",
+    "link": "/explanations/cloud-infrastructure/kubernetes/explanation-kubernetes-v136-release-overview",
+    "time": "11 min read"
   }
 ]
