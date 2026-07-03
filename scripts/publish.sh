@@ -76,6 +76,26 @@ visibility_gate() {
   log "Visibility gate passed — no private content in docs/"
 }
 
+# ── MDX precheck: fix angle-bracket URLs that break MDX/JSX parser ─────────────
+mdx_precheck() {
+  log "Running MDX precheck (fixing angle-bracket URLs and <number patterns)..."
+  cd "$REPO_DIR"
+
+  # Fix angle-bracket URLs: <https://...> -> [URL](https://...)
+  # Fix <number patterns: <1% -> &lt;1% (prevents JSX tag interpretation)
+  local fixed=0
+  while IFS= read -r -d '' file; do
+    if sed -i \
+      -e 's|<\(https\?://[^>]*\)>|[\1](\1)|g' \
+      -e 's|<\([0-9]\)|&lt;\1|g' \
+      "$file" 2>/dev/null; then
+      fixed=$((fixed + 1))
+    fi
+  done < <(find docs/ -name '*.md' -print0)
+
+  log "MDX precheck complete — scanned $fixed files"
+}
+
 # ── Build ─────────────────────────────────────────────────────────────────────
 build_site() {
   log "Building site..."
@@ -278,6 +298,9 @@ main() {
 
   # Safety gate: abort if private content leaked into docs/
   visibility_gate
+
+  # Fix MDX-incompatible patterns before building
+  mdx_precheck
 
   build_site
 
