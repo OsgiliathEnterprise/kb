@@ -1,5 +1,23 @@
 [
   {
+    "title": "Apple Safari Mcp Server",
+    "type": "Explanation",
+    "link": "/explanations/aiinfrastructure/agenttooling/explanation-apple-safari-mcp-server",
+    "time": "10 min read"
+  },
+  {
+    "title": "Sentry Mcp Agentjacking Vulnerability",
+    "type": "Explanation",
+    "link": "/explanations/devsecops/supplychainsecurity/explanation-sentry-mcp-agentjacking-vulnerability",
+    "time": "12 min read"
+  },
+  {
+    "title": "Zgc Evolution Decade",
+    "type": "Explanation",
+    "link": "/explanations/softwareengineering/jvmperformance/explanation-zgc-evolution-decade",
+    "time": "14 min read"
+  },
+  {
     "title": "Jfr Ai Monitoring",
     "type": "Explanation",
     "link": "/explanations/programming/java-spring/explanation-jfr-ai-monitoring",
@@ -16,23 +34,5 @@
     "type": "How-To",
     "link": "/how-to/security-privacy/appsec-privacy/howto-ai-agent-kubectl-access-patterns",
     "time": "18 min read"
-  },
-  {
-    "title": "Jdk26 Performance Improvements",
-    "type": "Explanation",
-    "link": "/explanations/softwareengineering/jvmperformance/explanation-jdk26-performance-improvements",
-    "time": "5 min read"
-  },
-  {
-    "title": "Reliable Agentic Ai Systems Prince Case Study",
-    "type": "Explanation",
-    "link": "/explanations/aiinfrastructure/aiengineering/explanation-reliable-agentic-ai-systems-prince-case-study",
-    "time": "6 min read"
-  },
-  {
-    "title": "Kubernetes V136 Release Overview",
-    "type": "Explanation",
-    "link": "/explanations/cloud-infrastructure/kubernetes/explanation-kubernetes-v136-release-overview",
-    "time": "11 min read"
   }
 ]

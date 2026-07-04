@@ -102,7 +102,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Agenttooling',
-          items: ['explanations/aiinfrastructure/agenttooling/block-builderbot-enterprise-ai-agents', 'explanations/aiinfrastructure/agenttooling/browser-use-framework-tutorial', 'explanations/aiinfrastructure/agenttooling/jetbrains-ide-native-search-for-agents'],
+          items: ['explanations/aiinfrastructure/agenttooling/block-builderbot-enterprise-ai-agents', 'explanations/aiinfrastructure/agenttooling/browser-use-framework-tutorial', 'explanations/aiinfrastructure/agenttooling/explanation-apple-safari-mcp-server', 'explanations/aiinfrastructure/agenttooling/jetbrains-ide-native-search-for-agents'],
         },
         {
           type: 'category',
@@ -172,7 +172,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Supplychainsecurity',
-          items: ['explanations/devsecops/supplychainsecurity/miasma-worm-ai-agent-supply-chain'],
+          items: ['explanations/devsecops/supplychainsecurity/explanation-sentry-mcp-agentjacking-vulnerability', 'explanations/devsecops/supplychainsecurity/miasma-worm-ai-agent-supply-chain'],
         },
         {
           type: 'category',
@@ -218,7 +218,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Jvmperformance',
-          items: ['explanations/softwareengineering/jvmperformance/explanation-jdk26-performance-improvements', 'explanations/softwareengineering/jvmperformance/zgc-weak-reference-optimization'],
+          items: ['explanations/softwareengineering/jvmperformance/explanation-jdk26-performance-improvements', 'explanations/softwareengineering/jvmperformance/explanation-zgc-evolution-decade', 'explanations/softwareengineering/jvmperformance/zgc-weak-reference-optimization'],
         },
         {
           type: 'category',
