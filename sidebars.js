@@ -40,7 +40,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Kubernetes',
-          items: ['how-to/cloud-infrastructure/kubernetes/howto-k8s-dashboard-to-headlamp-transition', 'how-to/cloud-infrastructure/kubernetes/howto-running-agents-on-kubernetes-with-agent-sandbox'],
+          items: ['how-to/cloud-infrastructure/kubernetes/howto-headlamp-cluster-api-plugin', 'how-to/cloud-infrastructure/kubernetes/howto-k8s-dashboard-to-headlamp-transition', 'how-to/cloud-infrastructure/kubernetes/howto-running-agents-on-kubernetes-with-agent-sandbox'],
         },
         {
           type: 'category',
@@ -56,6 +56,11 @@ const sidebars = {
           type: 'category',
           label: 'Appsec Privacy',
           items: ['how-to/security-privacy/appsec-privacy/howto-ai-agent-kubectl-access-patterns', 'how-to/security-privacy/appsec-privacy/howto-linux-second-severe-vulnerability'],
+        },
+        {
+          type: 'category',
+          label: 'Webarchitecture',
+          items: ['how-to/softwareengineering/webarchitecture/howto-accessibility-beyond-axe'],
         },
       ],
     },
@@ -161,6 +166,11 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Runtime Environments',
+          items: ['explanations/developer-tools-practices/runtime-environments/explanation-deno-29-desktop-apps'],
+        },
+        {
+          type: 'category',
           label: 'Cicdpipelines',
           items: ['explanations/devsecops/cicdpipelines/aws-devops-agent-merge-queue-bouncer', 'explanations/devsecops/cicdpipelines/gitlab-19-devsecops-features'],
         },
@@ -204,6 +214,11 @@ const sidebars = {
           type: 'category',
           label: 'Aiassisteddevelopment',
           items: ['explanations/softwareengineering/aiassisteddevelopment/deterministic-ai-spring-upgrades'],
+        },
+        {
+          type: 'category',
+          label: 'Architecturefundamentals',
+          items: ['explanations/softwareengineering/architecturefundamentals/explanation-google-sre-cheat-sheet'],
         },
         {
           type: 'category',

@@ -127,6 +127,6 @@ Before migrating from Kubernetes Dashboard to Headlamp:
 ## References
 
 - **Original Article**: [From Kubernetes Dashboard to Headlamp: Understanding the Transition](https://kubernetes.io/blog/2026/06/01/dashboard-to-headlamp/) — Kubernetes Blog, June 1, 2026 (Will Case, Headlamp)
-- **Headlamp Project**: https://headlamp.dev
-- **Headlamp GitHub**: https://github.com/headlamp-k8s/headlamp
-- **Kubernetes Dashboard (Archived)**: https://github.com/kubernetes/dashboard
+- **Headlamp Project**: [https://headlamp.dev](https://headlamp.dev)
+- **Headlamp GitHub**: [https://github.com/headlamp-k8s/headlamp](https://github.com/headlamp-k8s/headlamp)
+- **Kubernetes Dashboard (Archived)**: [https://github.com/kubernetes/dashboard](https://github.com/kubernetes/dashboard)

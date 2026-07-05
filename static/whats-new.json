@@ -1,15 +1,15 @@
 [
   {
-    "title": "Apple Safari Mcp Server",
-    "type": "Explanation",
-    "link": "/explanations/aiinfrastructure/agenttooling/explanation-apple-safari-mcp-server",
-    "time": "10 min read"
+    "title": "Accessibility Beyond Axe",
+    "type": "How-To",
+    "link": "/how-to/softwareengineering/webarchitecture/howto-accessibility-beyond-axe",
+    "time": "4 min read"
   },
   {
-    "title": "Sentry Mcp Agentjacking Vulnerability",
+    "title": "Google Sre Cheat Sheet",
     "type": "Explanation",
-    "link": "/explanations/devsecops/supplychainsecurity/explanation-sentry-mcp-agentjacking-vulnerability",
-    "time": "12 min read"
+    "link": "/explanations/softwareengineering/architecturefundamentals/explanation-google-sre-cheat-sheet",
+    "time": "5 min read"
   },
   {
     "title": "Zgc Evolution Decade",
@@ -24,15 +24,15 @@
     "time": "4 min read"
   },
   {
+    "title": "Headlamp Cluster Api Plugin",
+    "type": "How-To",
+    "link": "/how-to/cloud-infrastructure/kubernetes/howto-headlamp-cluster-api-plugin",
+    "time": "4 min read"
+  },
+  {
     "title": "K8S Dashboard To Headlamp Transition",
     "type": "How-To",
     "link": "/how-to/cloud-infrastructure/kubernetes/howto-k8s-dashboard-to-headlamp-transition",
     "time": "4 min read"
-  },
-  {
-    "title": "Ai Agent Kubectl Access Patterns",
-    "type": "How-To",
-    "link": "/how-to/security-privacy/appsec-privacy/howto-ai-agent-kubectl-access-patterns",
-    "time": "18 min read"
   }
 ]
