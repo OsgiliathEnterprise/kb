@@ -1,15 +1,15 @@
 [
   {
-    "title": "Accessibility Beyond Axe",
+    "title": "Ai Cost Budgeting",
     "type": "How-To",
-    "link": "/how-to/softwareengineering/webarchitecture/howto-accessibility-beyond-axe",
-    "time": "4 min read"
+    "link": "/how-to/aiinfrastructure/aistrategy/howto-ai-cost-budgeting",
+    "time": "5 min read"
   },
   {
-    "title": "Google Sre Cheat Sheet",
+    "title": "Document Ingestion Complexity",
     "type": "Explanation",
-    "link": "/explanations/softwareengineering/architecturefundamentals/explanation-google-sre-cheat-sheet",
-    "time": "5 min read"
+    "link": "/explanations/aiinfrastructure/aiengineering/explanation-document-ingestion-complexity",
+    "time": "4 min read"
   },
   {
     "title": "Zgc Evolution Decade",
@@ -24,15 +24,15 @@
     "time": "4 min read"
   },
   {
-    "title": "Headlamp Cluster Api Plugin",
-    "type": "How-To",
-    "link": "/how-to/cloud-infrastructure/kubernetes/howto-headlamp-cluster-api-plugin",
-    "time": "4 min read"
-  },
-  {
     "title": "K8S Dashboard To Headlamp Transition",
     "type": "How-To",
     "link": "/how-to/cloud-infrastructure/kubernetes/howto-k8s-dashboard-to-headlamp-transition",
+    "time": "4 min read"
+  },
+  {
+    "title": "Kotlin Toolchain Amper 011",
+    "type": "Explanation",
+    "link": "/explanations/developer-tools-practices/runtime-environments/explanation-kotlin-toolchain-amper-011",
     "time": "4 min read"
   }
 ]

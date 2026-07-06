@@ -3,8 +3,9 @@ title: 'Google DiffusionGemma: Text Diffusion for 4x Faster Inference'
 diataxis: Explanation
 domain: AI-Infrastructure
 topic: AI-Frameworks
-source: ''
+source: TheNewStack
 source_url: https://thenewstack.io/google-diffusiongemma-text-diffusion/
+date: 2026-06-11
 keywords:
 - knowledge-base
 - AI-Frameworks

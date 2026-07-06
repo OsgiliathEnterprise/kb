@@ -27,7 +27,7 @@ ZGC (Z Garbage Collector) is a low-latency, concurrent garbage collector introdu
 **JEP 333: Z Garbage Collector (Experimental)**
 
 - First production-like release of ZGC
-- Target: Pause times &lt;1ms for heaps from 8 MB to 16 TB
+- Target: Pause times `&lt;1ms` for heaps from 8 MB to 16 TB
 - Architecture: **Non-generational**, **moving** collector using **colored pointers** and **load barriers**
 - Required experimental flags:
 

@@ -3,8 +3,9 @@ title: IDE-Native Search for AI Coding Agents - Speed and Cost Analysis
 diataxis: Explanation
 domain: AI-Infrastructure
 topic: Agent-Tooling
-source: ''
+source: JetBrains Blog
 source_url: https://blog.jetbrains.com/ai/2026/05/what-happens-when-you-give-agents-ide-native-seach-tools/
+date: 2026-06-01
 keywords:
 - knowledge-base
 - Agent-Tooling
