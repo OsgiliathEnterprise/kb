@@ -24,6 +24,18 @@
     "time": "4 min read"
   },
   {
+    "title": "Opentelemetry Ga",
+    "type": "Explanation",
+    "link": "/explanations/cloud-infrastructure/observability/explanation-opentelemetry-ga",
+    "time": "8 min read"
+  },
+  {
+    "title": "Kubernetes V136 Release Overview",
+    "type": "Explanation",
+    "link": "/explanations/cloud-infrastructure/kubernetes/explanation-kubernetes-v136-release-overview",
+    "time": "12 min read"
+  },
+  {
     "title": "K8S Dashboard To Headlamp Transition",
     "type": "How-To",
     "link": "/how-to/cloud-infrastructure/kubernetes/howto-k8s-dashboard-to-headlamp-transition",
