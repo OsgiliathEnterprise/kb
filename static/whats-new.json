@@ -34,5 +34,11 @@
     "type": "How-To",
     "link": "/how-to/cloud-infrastructure/kubernetes/howto-k8s-dashboard-to-headlamp-transition",
     "time": "4 min read"
+  },
+  {
+    "title": "Ai Agent Kubectl Access Patterns",
+    "type": "How-To",
+    "link": "/how-to/security-privacy/appsec-privacy/howto-ai-agent-kubectl-access-patterns",
+    "time": "18 min read"
   }
 ]
