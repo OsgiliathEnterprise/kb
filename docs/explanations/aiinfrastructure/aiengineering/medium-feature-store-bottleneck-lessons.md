@@ -3,8 +3,9 @@ title: 'When Your Data Model Is the Bottleneck: Lessons from Medium''s Feature S
 diataxis: Explanation
 domain: AI-Infrastructure
 topic: AI-Engineering
-source: ''
+source: TheNewStack
 source_url: https://thenewstack.io/medium-scylladb-feature-store/
+date: 2026-06-12
 keywords:
 - knowledge-base
 - AI-Engineering

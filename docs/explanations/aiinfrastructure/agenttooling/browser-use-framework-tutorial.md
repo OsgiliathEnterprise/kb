@@ -3,8 +3,9 @@ title: 'browser-use: Open-Source Browser Automation for AI Agents'
 diataxis: Explanation
 domain: AI-Infrastructure
 topic: Agent-Tooling
-source: ''
+source: Dev.to / Lynkr
 source_url: https://dev.to/lynkr/what-is-browser-use-and-how-to-run-it-through-lynkr-9fn
+date: 2026-06-07
 keywords:
 - knowledge-base
 - Agent-Tooling

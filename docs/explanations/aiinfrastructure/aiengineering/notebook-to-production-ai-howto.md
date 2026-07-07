@@ -3,8 +3,9 @@ title: 'From Jupyter Notebook to Production: Shipping AI Systems That Actually W
 diataxis: Explanation
 domain: AI-Infrastructure
 topic: AI-Engineering
-source: ''
+source: TheNewStack
 source_url: https://thenewstack.io/notebook-to-production-ai/
+date: 2026-06-07
 keywords:
 - knowledge-base
 - AI-Engineering

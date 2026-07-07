@@ -39,6 +39,11 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Aistrategy',
+          items: ['how-to/aiinfrastructure/aistrategy/howto-ai-cost-budgeting'],
+        },
+        {
+          type: 'category',
           label: 'Kubernetes',
           items: ['how-to/cloud-infrastructure/kubernetes/howto-headlamp-cluster-api-plugin', 'how-to/cloud-infrastructure/kubernetes/howto-k8s-dashboard-to-headlamp-transition', 'how-to/cloud-infrastructure/kubernetes/howto-running-agents-on-kubernetes-with-agent-sandbox'],
         },
@@ -112,7 +117,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Aiengineering',
-          items: ['explanations/aiinfrastructure/aiengineering/aws-sagemaker-ml-deployment-guide', 'explanations/aiinfrastructure/aiengineering/explanation-reliable-agentic-ai-systems-prince-case-study', 'explanations/aiinfrastructure/aiengineering/medium-feature-store-bottleneck-lessons', 'explanations/aiinfrastructure/aiengineering/notebook-to-production-ai-howto', 'explanations/aiinfrastructure/aiengineering/probabilistic-ai-debugging-tutorial', 'explanations/aiinfrastructure/aiengineering/sonarsweep-ai-training-data-quality', 'explanations/aiinfrastructure/aiengineering/valkey-ai-backporting-provenance-guard'],
+          items: ['explanations/aiinfrastructure/aiengineering/aws-sagemaker-ml-deployment-guide', 'explanations/aiinfrastructure/aiengineering/explanation-document-ingestion-complexity', 'explanations/aiinfrastructure/aiengineering/explanation-reliable-agentic-ai-systems-prince-case-study', 'explanations/aiinfrastructure/aiengineering/medium-feature-store-bottleneck-lessons', 'explanations/aiinfrastructure/aiengineering/notebook-to-production-ai-howto', 'explanations/aiinfrastructure/aiengineering/probabilistic-ai-debugging-tutorial', 'explanations/aiinfrastructure/aiengineering/sonarsweep-ai-training-data-quality', 'explanations/aiinfrastructure/aiengineering/valkey-ai-backporting-provenance-guard'],
         },
         {
           type: 'category',
@@ -167,7 +172,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Runtime Environments',
-          items: ['explanations/developer-tools-practices/runtime-environments/explanation-deno-29-desktop-apps'],
+          items: ['explanations/developer-tools-practices/runtime-environments/explanation-deno-29-desktop-apps', 'explanations/developer-tools-practices/runtime-environments/explanation-kotlin-toolchain-amper-011'],
         },
         {
           type: 'category',

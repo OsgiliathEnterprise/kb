@@ -3,8 +3,9 @@ title: Ladybird Browser Ends Public Pull Requests Due to AI Security Concerns
 diataxis: Explanation
 domain: AI-Infrastructure
 topic: Agent-Security
-source: ''
+source: Developpez.com
 source_url: https://intelligence-artificielle.developpez.com/actu/384032/
+date: 2026-06-12
 keywords:
 - knowledge-base
 - Agent-Security
