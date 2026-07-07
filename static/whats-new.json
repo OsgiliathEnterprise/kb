@@ -34,5 +34,11 @@
     "type": "Explanation",
     "link": "/explanations/developer-tools-practices/runtime-environments/explanation-kotlin-toolchain-amper-011",
     "time": "4 min read"
+  },
+  {
+    "title": "Ai Agent Kubectl Access Patterns",
+    "type": "How-To",
+    "link": "/how-to/security-privacy/appsec-privacy/howto-ai-agent-kubectl-access-patterns",
+    "time": "18 min read"
   }
 ]
