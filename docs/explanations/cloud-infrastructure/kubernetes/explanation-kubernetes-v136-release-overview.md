@@ -40,7 +40,19 @@ v1.36 is a significant maturity release — multiple Alpha/Beta features graduat
 
 **KEP:** #2862 (SIG Auth + SIG Node)
 
-### 2. PSI Metrics for Kubernetes (GA)
+### 2. SELinux Volume Label Changes (GA)
+**NEW in v1.36** — SELinux volume label management graduates to GA. ⚠️ Note: This change may have implications starting in v1.37 — clusters relying on SELinux volume relabeling should test before upgrading.
+
+### 3. Declarative Validation (GA)
+Declarative validation with validation-gen graduates to GA, providing Kubernetes native types with declarative validation without custom webhooks.
+
+### 4. Admission Policies That Can't Be Deleted (GA)
+Admission policies gain protection against deletion, preventing accidental removal of critical security policies.
+
+### 5. Tiered Memory Protection with Memory QoS (GA)
+Memory Quality of Service tiers for better memory management and protection in multi-tenant environments.
+
+### 6. PSI Metrics for Kubernetes (GA)
 Pressure Stall Information (PSI) metrics graduate to General Availability. Unlike traditional utilization metrics, PSI tracks **tasks stalled and time lost**, packaged as percentages across configurable time windows.
 
 **Why it matters:** Monitoring CPU or memory usage alone can be misleading. A node may report XX% (below 100%) CPU utilization while certain tasks experience severe latency due to scheduling delays. PSI fills this gap with cumulative totals and moving averages (10s, 60s, 300s windows).
@@ -152,6 +164,15 @@ Allows modifying container resources on suspended Jobs, enabling dynamic resourc
 Introduced as Alpha in v1.28 under the `UnknownVersionInteroperabilityProxy` feature gate, Mixed Version Proxy (MVP) graduates to Beta in v1.36.
 
 **Why it matters:** Makes cluster upgrades safer by ensuring that requests for resources not yet known to an older API server are correctly routed to a newer peer API server, instead of returning an incorrect 404 Not Found.
+
+### 10. Pod-Level Resource Managers (Alpha)
+**NEW in v1.36** — Introduces a new alpha framework for managing pod-level resources beyond the traditional container-level model, enabling more flexible resource allocation patterns.
+
+### 11. In-Place Vertical Scaling for Pod-Level Resources (Beta)
+**NEW in v1.36** — In-place vertical pod resizing graduates to Beta, allowing resource adjustments without pod restarts.
+
+### 12. Staleness Mitigation and Observability for Controllers
+**NEW in v1.36** — Improves controller health monitoring and reduces stale resource states in large clusters.
 
 ---
 
@@ -295,3 +316,4 @@ The `.spec.externalIPs` field for Service is deprecated and removed.
 *Enriched 2026-05-28 with web research: workload-aware preemption atomicity, resource health status beta details, InfoQ release coverage, Sysdig security features, ScaleOps resource management analysis*
 *Enriched 2026-05-30 with community scale data (106 companies, 491 contributors), security focus summary from InfoQ characterization*
 *Enriched 2026-06-21 with official v1.36 release announcement data, Haru theme details, additional stable features cross-reference*
+*Enriched 2026-07-07 with official release page: SELinux volume label GA, Declarative Validation GA, Admission Policies deletion protection, Tiered Memory QoS, Pod-Level Resource Managers Alpha, In-Place Vertical Scaling Beta, Staleness Mitigation for Controllers*

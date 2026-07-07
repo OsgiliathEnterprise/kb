@@ -143,6 +143,24 @@ For multi-step agent systems, each tool call, retrieval step, and LLM invocation
 
 The GenAI conventions are currently in **development status** (pre-stable). Teams using OTel v1.36.0 or earlier should use the `OTEL_SEMCONV_STABILITY_OPT_IN` environment variable for dual-emission during migration. Auto-instrumentation via OpenLLMetry SDK is the fastest production path for most teams.
 
+## Vendor Distributions: Elastic Distributions of OpenTelemetry (EDOT)
+
+Alongside OpenTelemetry's CNCF GA, **Elastic announced General Availability of Elastic Distributions of OpenTelemetry (EDOT)** in April 2025. EDOT provides production-ready, enterprise-supported versions of the OTel Collector and language SDKs:
+
+### EDOT Components (GA)
+- **EDOT Collector** — OTel Collector with Elastic's processors, receivers, and exporters
+- **EDOT SDKs** — Java, Python, NodeJS, .NET, PHP, iOS, Android
+- **Zero-code instrumentation** — Drop-in agent-based instrumentation option
+
+### Key Benefits
+- Production-ready backed by expert OTel support
+- No vendor lock-in — no proprietary add-ons or schema conversion
+- Preserves OpenTelemetry standards
+- Kubernetes-native telemetry ingestion
+
+### Migration Note
+Teams can use EDOT as a supported alternative to vanilla OTel components, with the same data model and export capabilities.
+
 ## Challenges Ahead
 
 GA is a milestone, not a finish line. The OpenTelemetry community continues to grapple with several significant challenges:
