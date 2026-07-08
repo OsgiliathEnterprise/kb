@@ -1,15 +1,15 @@
 [
   {
-    "title": "Ai Cost Budgeting",
-    "type": "How-To",
-    "link": "/how-to/aiinfrastructure/aistrategy/howto-ai-cost-budgeting",
-    "time": "5 min read"
+    "title": "Claude Sonnet 5 Agents",
+    "type": "Explanation",
+    "link": "/explanations/aiinfrastructure/aiframeworks/explanation-claude-sonnet-5-agents",
+    "time": "3 min read"
   },
   {
-    "title": "Document Ingestion Complexity",
-    "type": "Explanation",
-    "link": "/explanations/aiinfrastructure/aiengineering/explanation-document-ingestion-complexity",
-    "time": "4 min read"
+    "title": "Content Security Policy Csp",
+    "type": "How-To",
+    "link": "/how-to/devsecops/securitytesting/howto-content-security-policy-csp",
+    "time": "3 min read"
   },
   {
     "title": "Zgc Evolution Decade",
@@ -24,33 +24,15 @@
     "time": "4 min read"
   },
   {
-    "title": "Opentelemetry Ga",
+    "title": "Wg Device Management",
     "type": "Explanation",
-    "link": "/explanations/cloud-infrastructure/observability/explanation-opentelemetry-ga",
-    "time": "8 min read"
-  },
-  {
-    "title": "Kubernetes V136 Release Overview",
-    "type": "Explanation",
-    "link": "/explanations/cloud-infrastructure/kubernetes/explanation-kubernetes-v136-release-overview",
-    "time": "12 min read"
+    "link": "/explanations/cloud-infrastructure/kubernetes/explanation-wg-device-management",
+    "time": "3 min read"
   },
   {
     "title": "K8S Dashboard To Headlamp Transition",
     "type": "How-To",
     "link": "/how-to/cloud-infrastructure/kubernetes/howto-k8s-dashboard-to-headlamp-transition",
     "time": "4 min read"
-  },
-  {
-    "title": "Kotlin Toolchain Amper 011",
-    "type": "Explanation",
-    "link": "/explanations/developer-tools-practices/runtime-environments/explanation-kotlin-toolchain-amper-011",
-    "time": "4 min read"
-  },
-  {
-    "title": "Ai Agent Kubectl Access Patterns",
-    "type": "How-To",
-    "link": "/how-to/security-privacy/appsec-privacy/howto-ai-agent-kubectl-access-patterns",
-    "time": "18 min read"
   }
 ]
