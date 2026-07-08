@@ -54,6 +54,11 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Securitytesting',
+          items: ['how-to/devsecops/securitytesting/howto-content-security-policy-csp'],
+        },
+        {
+          type: 'category',
           label: 'Java Spring',
           items: ['how-to/programming/java-spring/howto-clean-up-test-data-spring', 'how-to/programming/java-spring/howto-emulate-left-join-fetch-projections', 'how-to/programming/java-spring/howto-jvm-crash-analysis-jcmd', 'how-to/programming/java-spring/howto-spring-ecosystem-roundup-may-2026'],
         },
@@ -122,7 +127,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Aiframeworks',
-          items: ['explanations/aiinfrastructure/aiframeworks/google-diffusiongemma-text-diffusion-model'],
+          items: ['explanations/aiinfrastructure/aiframeworks/explanation-claude-sonnet-5-agents', 'explanations/aiinfrastructure/aiframeworks/google-diffusiongemma-text-diffusion-model'],
         },
         {
           type: 'category',
@@ -137,7 +142,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Kubernetes',
-          items: ['explanations/cloud-infrastructure/kubernetes/explanation-kubernetes-v136-release-overview'],
+          items: ['explanations/cloud-infrastructure/kubernetes/explanation-kubernetes-v136-release-overview', 'explanations/cloud-infrastructure/kubernetes/explanation-wg-device-management'],
         },
         {
           type: 'category',
