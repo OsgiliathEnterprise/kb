@@ -1,15 +1,9 @@
 [
   {
-    "title": "Claude Sonnet 5 Agents",
+    "title": "Mcp Enterprise Authorization Layer",
     "type": "Explanation",
-    "link": "/explanations/aiinfrastructure/aiframeworks/explanation-claude-sonnet-5-agents",
-    "time": "3 min read"
-  },
-  {
-    "title": "Content Security Policy Csp",
-    "type": "How-To",
-    "link": "/how-to/devsecops/securitytesting/howto-content-security-policy-csp",
-    "time": "3 min read"
+    "link": "/explanations/aiinfrastructure/agentinfrastructure/explanation-mcp-enterprise-authorization-layer",
+    "time": "5 min read"
   },
   {
     "title": "Zgc Evolution Decade",
@@ -24,15 +18,21 @@
     "time": "4 min read"
   },
   {
-    "title": "Wg Device Management",
+    "title": "Database Storage Next Frontier",
     "type": "Explanation",
-    "link": "/explanations/cloud-infrastructure/kubernetes/explanation-wg-device-management",
-    "time": "3 min read"
+    "link": "/explanations/data-databases/data-storage-engines/explanation-database-storage-next-frontier",
+    "time": "5 min read"
   },
   {
     "title": "K8S Dashboard To Headlamp Transition",
     "type": "How-To",
     "link": "/how-to/cloud-infrastructure/kubernetes/howto-k8s-dashboard-to-headlamp-transition",
     "time": "4 min read"
+  },
+  {
+    "title": "Vercel Eve Agents As Directories",
+    "type": "Explanation",
+    "link": "/explanations/developer-tools-practices/agent-frameworks/explanation-vercel-eve-agents-as-directories",
+    "time": "5 min read"
   }
 ]

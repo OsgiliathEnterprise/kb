@@ -107,7 +107,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Agentinfrastructure',
-          items: ['explanations/aiinfrastructure/agentinfrastructure/explanation-enterprise-agentic-platforms', 'explanations/aiinfrastructure/agentinfrastructure/explanation-runtime-engineering-for-agents'],
+          items: ['explanations/aiinfrastructure/agentinfrastructure/explanation-enterprise-agentic-platforms', 'explanations/aiinfrastructure/agentinfrastructure/explanation-mcp-enterprise-authorization-layer', 'explanations/aiinfrastructure/agentinfrastructure/explanation-runtime-engineering-for-agents'],
         },
         {
           type: 'category',
@@ -163,6 +163,16 @@ const sidebars = {
           type: 'category',
           label: 'Data Architecture',
           items: ['explanations/data-databases/data-architecture/explanation-monzo-data-mesh'],
+        },
+        {
+          type: 'category',
+          label: 'Data Storage Engines',
+          items: ['explanations/data-databases/data-storage-engines/explanation-database-storage-next-frontier'],
+        },
+        {
+          type: 'category',
+          label: 'Agent Frameworks',
+          items: ['explanations/developer-tools-practices/agent-frameworks/explanation-vercel-eve-agents-as-directories'],
         },
         {
           type: 'category',
