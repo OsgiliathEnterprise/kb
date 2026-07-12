@@ -45,7 +45,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Kubernetes',
-          items: ['how-to/cloud-infrastructure/kubernetes/howto-headlamp-cluster-api-plugin', 'how-to/cloud-infrastructure/kubernetes/howto-k8s-dashboard-to-headlamp-transition', 'how-to/cloud-infrastructure/kubernetes/howto-running-agents-on-kubernetes-with-agent-sandbox'],
+          items: ['how-to/cloud-infrastructure/kubernetes/howto-headlamp-cluster-api-plugin', 'how-to/cloud-infrastructure/kubernetes/howto-headlamp-knative-plugin', 'how-to/cloud-infrastructure/kubernetes/howto-headlamp-volcano-plugin', 'how-to/cloud-infrastructure/kubernetes/howto-k8s-dashboard-to-headlamp-transition', 'how-to/cloud-infrastructure/kubernetes/howto-running-agents-on-kubernetes-with-agent-sandbox'],
         },
         {
           type: 'category',
@@ -117,7 +117,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Agenttooling',
-          items: ['explanations/aiinfrastructure/agenttooling/block-builderbot-enterprise-ai-agents', 'explanations/aiinfrastructure/agenttooling/browser-use-framework-tutorial', 'explanations/aiinfrastructure/agenttooling/explanation-apple-safari-mcp-server', 'explanations/aiinfrastructure/agenttooling/jetbrains-ide-native-search-for-agents'],
+          items: ['explanations/aiinfrastructure/agenttooling/block-builderbot-enterprise-ai-agents', 'explanations/aiinfrastructure/agenttooling/browser-use-framework-tutorial', 'explanations/aiinfrastructure/agenttooling/explanation-apple-safari-mcp-server', 'explanations/aiinfrastructure/agenttooling/explanation-safari-mcp-server', 'explanations/aiinfrastructure/agenttooling/jetbrains-ide-native-search-for-agents'],
         },
         {
           type: 'category',
@@ -153,6 +153,11 @@ const sidebars = {
           type: 'category',
           label: 'Cloudsecurity',
           items: ['explanations/cloudnative/cloudsecurity/aws-graviton5-nitro-isolation-engine'],
+        },
+        {
+          type: 'category',
+          label: 'Containerorchestration',
+          items: ['explanations/cloudnative/containerorchestration/explanation-volcano-headlamp-plugin'],
         },
         {
           type: 'category',
@@ -202,7 +207,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Supplychainsecurity',
-          items: ['explanations/devsecops/supplychainsecurity/explanation-sentry-mcp-agentjacking-vulnerability', 'explanations/devsecops/supplychainsecurity/miasma-worm-ai-agent-supply-chain'],
+          items: ['explanations/devsecops/supplychainsecurity/explanation-agentjacking-sentry-mcp', 'explanations/devsecops/supplychainsecurity/explanation-sentry-mcp-agentjacking-vulnerability', 'explanations/devsecops/supplychainsecurity/miasma-worm-ai-agent-supply-chain'],
         },
         {
           type: 'category',
@@ -218,7 +223,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Java Spring',
-          items: ['explanations/programming/java-spring/explanation-jdk27-post-quantum-tls', 'explanations/programming/java-spring/explanation-jfr-ai-monitoring', 'explanations/programming/java-spring/explanation-spring-security-ai-era'],
+          items: ['explanations/programming/java-spring/explanation-jdk27-post-quantum-tls', 'explanations/programming/java-spring/explanation-jep531-lazy-constants', 'explanations/programming/java-spring/explanation-jfr-ai-monitoring', 'explanations/programming/java-spring/explanation-spring-security-ai-era'],
         },
         {
           type: 'category',
@@ -228,7 +233,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Aiagentverification',
-          items: ['explanations/softwareengineering/aiagentverification/async-ai-agent-verification'],
+          items: ['explanations/softwareengineering/aiagentverification/async-ai-agent-verification', 'explanations/softwareengineering/aiagentverification/explanation-kubernetes-ai-policy'],
         },
         {
           type: 'category',
