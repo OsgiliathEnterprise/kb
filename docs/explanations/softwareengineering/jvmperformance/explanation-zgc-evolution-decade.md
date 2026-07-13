@@ -156,8 +156,8 @@ java -XX:+UseZGC -XX:+ZGenerational \
 java -XX:+UseZGC -Xmx64g MyApp
 
 # Verify with JFR:
-jcmd &lt;pid&gt; JFR.start name=zgc_profile settings=profile duration=60s
-jcmd &lt;pid&gt; JFR.dump name=zgc_profile file=zgc.jfr
+jcmd <pid> JFR.start name=zgc_profile settings=profile duration=60s
+jcmd <pid> JFR.dump name=zgc_profile file=zgc.jfr
 ```
 
 ### JDK 22 (March 2024) — Continued Optimizations
@@ -418,14 +418,14 @@ java -XX:+UseZGC -XX:+PrintCommandLineFlags -version
 java -XX:+UseZGC -XX:+PrintFlagsFinal | grep -i "^.*z"
 
 # Monitor ZGC in real-time with jcmd
-jcmd &lt;pid&gt; GC.heap_info
-jcmd &lt;pid&gt; GC.run  # Force a GC cycle (for testing)
+jcmd <pid> GC.heap_info
+jcmd <pid> GC.run  # Force a GC cycle (for testing)
 
 # JFR profiling with ZGC events
-jcmd &lt;pid&gt; JFR.start name=zgc_analysis settings=profile duration=120s
-jcmd &lt;pid&gt; JFR.check  # Verify recording
-jcmd &lt;pid&gt; JFR.stop name=zgc_analysis
-jcmd &lt;pid&gt; JFR.dump name=zgc_analysis file=zgc-profile.jfr
+jcmd <pid> JFR.start name=zgc_analysis settings=profile duration=120s
+jcmd <pid> JFR.check  # Verify recording
+jcmd <pid> JFR.stop name=zgc_analysis
+jcmd <pid> JFR.dump name=zgc_analysis file=zgc-profile.jfr
 ```
 
 ### Reading ZGC Logs

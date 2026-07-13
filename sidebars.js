@@ -117,7 +117,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Agenttooling',
-          items: ['explanations/aiinfrastructure/agenttooling/block-builderbot-enterprise-ai-agents', 'explanations/aiinfrastructure/agenttooling/browser-use-framework-tutorial', 'explanations/aiinfrastructure/agenttooling/explanation-apple-safari-mcp-server', 'explanations/aiinfrastructure/agenttooling/explanation-safari-mcp-server', 'explanations/aiinfrastructure/agenttooling/jetbrains-ide-native-search-for-agents'],
+          items: ['explanations/aiinfrastructure/agenttooling/block-builderbot-enterprise-ai-agents', 'explanations/aiinfrastructure/agenttooling/browser-use-framework-tutorial', 'explanations/aiinfrastructure/agenttooling/explanation-apple-safari-mcp-server', 'explanations/aiinfrastructure/agenttooling/jetbrains-ide-native-search-for-agents'],
         },
         {
           type: 'category',
@@ -157,7 +157,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Containerorchestration',
-          items: ['explanations/cloudnative/containerorchestration/explanation-volcano-headlamp-plugin'],
+          items: ['explanations/cloudnative/containerorchestration/explanation-kubernetes-dra-device-management', 'explanations/cloudnative/containerorchestration/explanation-volcano-headlamp-plugin'],
         },
         {
           type: 'category',
@@ -207,7 +207,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Supplychainsecurity',
-          items: ['explanations/devsecops/supplychainsecurity/explanation-agentjacking-sentry-mcp', 'explanations/devsecops/supplychainsecurity/explanation-sentry-mcp-agentjacking-vulnerability', 'explanations/devsecops/supplychainsecurity/miasma-worm-ai-agent-supply-chain'],
+          items: ['explanations/devsecops/supplychainsecurity/explanation-sentry-mcp-agentjacking-vulnerability', 'explanations/devsecops/supplychainsecurity/miasma-worm-ai-agent-supply-chain'],
         },
         {
           type: 'category',
@@ -273,7 +273,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Webarchitecture',
-          items: ['explanations/softwareengineering/webarchitecture/event-streams-polling-patterns'],
+          items: ['explanations/softwareengineering/webarchitecture/event-streams-polling-patterns', 'explanations/softwareengineering/webarchitecture/explanation-accessibility-testing-gaps-axe-limits'],
         },
         {
           type: 'category',

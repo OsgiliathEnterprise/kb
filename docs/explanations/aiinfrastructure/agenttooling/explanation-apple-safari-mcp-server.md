@@ -282,8 +282,53 @@ A typical agent workflow using Safari MCP might look like:
 
 5. **Hybrid approach is pragmatic:** Use Safari MCP for on-device macOS workflows and open-source alternatives (browser-use, Playwright MCP) for server-side or cross-platform needs.
 
+## Apple's safaridriver --mcp vs. Community safari-mcp
+
+Apple ships an official `safaridriver --mcp` with Safari Technology Preview 247+. A separate community project called `safari-mcp` also exists. They serve different use cases:
+
+| Feature | Apple `safaridriver --mcp` | Community `safari-mcp` |
+|---------|---------------------------|----------------------|
+| Session model | Isolated WebDriver session | Real logged-in Safari |
+| Access to cookies/logins | No | Yes |
+| Availability | Safari Technology Preview 247+ | Stable Safari, any Mac |
+| Background operation | Dedicated automation window | Background, no focus steal |
+| Tool count | ~17 tools | 96 tools |
+| Cookies/LocalStorage/IndexedDB | No | 10 dedicated tools |
+| Network mocking | Read-only | Yes |
+| Official support | Apple/WebKit | Community (MIT license) |
+
+### Using Apple's safaridriver --mcp
+
+**Prerequisites:**
+1. Install [Safari Technology Preview](https://developer.apple.com/safari/technology-preview/)
+2. Enable: Safari Settings → Advanced → Show features for web developers
+3. Enable: Safari Settings → Developer → Enable remote automation and external agents
+
+**Claude Code:**
+```bash
+claude mcp add safari-mcp-stp -- "/Applications/Safari Technology Preview.app/Contents/MacOS/safaridriver" --mcp
+```
+
+**Codex CLI:**
+```bash
+codex mcp add safari-mcp-stp -- "/Applications/Safari Technology Preview.app/Contents/MacOS/safaridriver" --mcp
+```
+
+**Generic MCP config** (`mcp.json` or `config.json`):
+```json
+{
+  "safari-mcp-stp": {
+    "command": "/Applications/Safari Technology Preview.app/Contents/MacOS/safaridriver",
+    "args": ["--mcp"]
+  }
+}
+```
+
+> **Practical recommendation:** Use Apple's official `safaridriver --mcp` for reproducible, isolated debugging and testing. Use the community `safari-mcp` when you need access to authenticated sessions, cookies, or background automation on stable Safari.
+
 ## References
 
+- [WebKit: Introducing the Safari MCP server](https://webkit.org/blog/18136/introducing-the-safari-mcp-server-for-web-developers/)
 - [DEV.to: Apple Shipped an Official Safari MCP — I Read All 17 Tools](https://dev.to/achiya-automation/apple-shipped-an-official-safari-mcp-i-read-all-17-tools-heres-why-im-keeping-mine-32l3)
 - [Apple Developer: Safari MCP Server Documentation](https://developer.apple.com/documentation/safari-services/safari-mcp-server)
 - [WWDC 2025 Sessions](https://developer.apple.com/videos/worldwide-developers-conference-2025/)

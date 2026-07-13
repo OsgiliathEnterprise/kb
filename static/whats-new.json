@@ -1,38 +1,38 @@
 [
   {
-    "title": "Volcano Headlamp Plugin",
+    "title": "Kubernetes Dra Device Management",
     "type": "Explanation",
-    "link": "/explanations/cloudnative/containerorchestration/explanation-volcano-headlamp-plugin",
+    "link": "/explanations/cloudnative/containerorchestration/explanation-kubernetes-dra-device-management",
+    "time": "4 min read"
+  },
+  {
+    "title": "Apple Safari Mcp Server",
+    "type": "Explanation",
+    "link": "/explanations/aiinfrastructure/agenttooling/explanation-apple-safari-mcp-server",
+    "time": "11 min read"
+  },
+  {
+    "title": "Claude Sonnet 5 Agents",
+    "type": "Explanation",
+    "link": "/explanations/aiinfrastructure/aiframeworks/explanation-claude-sonnet-5-agents",
     "time": "3 min read"
   },
   {
-    "title": "Safari Mcp Server",
+    "title": "Sentry Mcp Agentjacking Vulnerability",
     "type": "Explanation",
-    "link": "/explanations/aiinfrastructure/agenttooling/explanation-safari-mcp-server",
-    "time": "5 min read"
+    "link": "/explanations/devsecops/supplychainsecurity/explanation-sentry-mcp-agentjacking-vulnerability",
+    "time": "13 min read"
   },
   {
-    "title": "Agentjacking Sentry Mcp",
+    "title": "Accessibility Testing Gaps Axe Limits",
     "type": "Explanation",
-    "link": "/explanations/devsecops/supplychainsecurity/explanation-agentjacking-sentry-mcp",
+    "link": "/explanations/softwareengineering/webarchitecture/explanation-accessibility-testing-gaps-axe-limits",
     "time": "5 min read"
-  },
-  {
-    "title": "Kubernetes Ai Policy",
-    "type": "Explanation",
-    "link": "/explanations/softwareengineering/aiagentverification/explanation-kubernetes-ai-policy",
-    "time": "4 min read"
   },
   {
     "title": "Zgc Evolution Decade",
     "type": "Explanation",
     "link": "/explanations/softwareengineering/jvmperformance/explanation-zgc-evolution-decade",
     "time": "14 min read"
-  },
-  {
-    "title": "Jep531 Lazy Constants",
-    "type": "Explanation",
-    "link": "/explanations/programming/java-spring/explanation-jep531-lazy-constants",
-    "time": "5 min read"
   }
 ]

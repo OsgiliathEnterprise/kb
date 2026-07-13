@@ -53,18 +53,18 @@ This makes it suitable for **autonomous agent deployments** where the model need
 
 ### 3. Cost Positioning
 
-The key differentiator is **cost per agentic task**. While models like Claude Opus or GPT-5.x may offer superior reasoning, Sonnet 5 targets the **volume workloads** where:
+The key differentiator is **cost per agentic task**. Sonnet 5 narrows the gap to Opus 4.8 at significantly lower prices — its performance is close to Opus 4.8 on agentic benchmarks, but at roughly half the cost.
 
-- Thousands of agent invocations per day are needed
-- Tasks require moderate reasoning (not frontier-level)
-- Tool use is the primary bottleneck (not model quality)
+**Official Pricing** (via Claude API, `claude-sonnet-5`):
+- Standard: $3/M input tokens, $15/M output tokens
+- Introductory (through August 31, 2026): $2/M input, $10/M output
+- Opus 4.8 for comparison: $5/M input, $25/M output
 
-```
-Cost comparison (estimated per 1M tokens):
-- Claude Opus: ~$15-25 input / $75-150 output
-- Claude Sonnet 5: ~$3-5 input / $15-25 output
-- Claude Haiku: ~$0.25-1 input / $1-3 output
-```
+**Available across all plans**: Default model for Free and Pro plans; available to Max, Team, and Enterprise users.
+
+**Effort levels**: Sonnet 5 supports adjustable effort (low → xhigh), providing a wider range of cost-performance options. At medium effort, it offers substantially improved cost efficiency; at higher effort, it can match Opus 4.8 on some tasks.
+
+**Safety**: Anthropic's safety assessments found Sonnet 5 shows a lower rate of undesirable behaviors than Sonnet 4.6, and is generally safer to use in agentic contexts. It has a much lower ability to perform cybersecurity tasks than Opus models. Sonnet 5 is part of Anthropic's Cyber Verification Program.
 
 ---
 
