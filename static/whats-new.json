@@ -1,5 +1,29 @@
 [
   {
+    "title": "Zgc Evolution Decade",
+    "type": "Explanation",
+    "link": "/explanations/softwareengineering/jvmperformance/explanation-zgc-evolution-decade",
+    "time": "14 min read"
+  },
+  {
+    "title": "Jfr Ai Monitoring",
+    "type": "Explanation",
+    "link": "/explanations/programming/java-spring/explanation-jfr-ai-monitoring",
+    "time": "4 min read"
+  },
+  {
+    "title": "K8S Dashboard To Headlamp Transition",
+    "type": "How-To",
+    "link": "/how-to/cloud-infrastructure/kubernetes/howto-k8s-dashboard-to-headlamp-transition",
+    "time": "4 min read"
+  },
+  {
+    "title": "Ai Agent Kubectl Access Patterns",
+    "type": "How-To",
+    "link": "/how-to/security-privacy/appsec-privacy/howto-ai-agent-kubectl-access-patterns",
+    "time": "18 min read"
+  },
+  {
     "title": "Kubernetes Dra Device Management",
     "type": "Explanation",
     "link": "/explanations/cloudnative/containerorchestration/explanation-kubernetes-dra-device-management",
@@ -10,29 +34,5 @@
     "type": "Explanation",
     "link": "/explanations/aiinfrastructure/agenttooling/explanation-apple-safari-mcp-server",
     "time": "11 min read"
-  },
-  {
-    "title": "Claude Sonnet 5 Agents",
-    "type": "Explanation",
-    "link": "/explanations/aiinfrastructure/aiframeworks/explanation-claude-sonnet-5-agents",
-    "time": "3 min read"
-  },
-  {
-    "title": "Sentry Mcp Agentjacking Vulnerability",
-    "type": "Explanation",
-    "link": "/explanations/devsecops/supplychainsecurity/explanation-sentry-mcp-agentjacking-vulnerability",
-    "time": "13 min read"
-  },
-  {
-    "title": "Accessibility Testing Gaps Axe Limits",
-    "type": "Explanation",
-    "link": "/explanations/softwareengineering/webarchitecture/explanation-accessibility-testing-gaps-axe-limits",
-    "time": "5 min read"
-  },
-  {
-    "title": "Zgc Evolution Decade",
-    "type": "Explanation",
-    "link": "/explanations/softwareengineering/jvmperformance/explanation-zgc-evolution-decade",
-    "time": "14 min read"
   }
 ]

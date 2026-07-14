@@ -28,7 +28,7 @@ This note covers the JFR + AI monitoring paradigm presented at JavaOne 2026 by O
 
 ### What is JFR?
 
-JDK Flight Recorder captures detailed runtime diagnostics data (GC events, CPU usage, memory allocation, thread contention, safepoints, method compilation) with **&lt;1% overhead** in production. Available since JDK 14 (GA in JDK 15).
+JDK Flight Recorder captures detailed runtime diagnostics data (GC events, CPU usage, memory allocation, thread contention, safepoints, method compilation) with **\u003c1% overhead** in production. Available since JDK 14 (GA in JDK 15).
 
 ### The Streaming/Consumer API
 
