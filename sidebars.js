@@ -45,7 +45,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Kubernetes',
-          items: ['how-to/cloud-infrastructure/kubernetes/howto-headlamp-cluster-api-plugin', 'how-to/cloud-infrastructure/kubernetes/howto-k8s-dashboard-to-headlamp-transition', 'how-to/cloud-infrastructure/kubernetes/howto-running-agents-on-kubernetes-with-agent-sandbox'],
+          items: ['how-to/cloud-infrastructure/kubernetes/howto-headlamp-cluster-api-plugin', 'how-to/cloud-infrastructure/kubernetes/howto-headlamp-knative-plugin', 'how-to/cloud-infrastructure/kubernetes/howto-headlamp-volcano-plugin', 'how-to/cloud-infrastructure/kubernetes/howto-k8s-dashboard-to-headlamp-transition', 'how-to/cloud-infrastructure/kubernetes/howto-running-agents-on-kubernetes-with-agent-sandbox'],
         },
         {
           type: 'category',
@@ -107,7 +107,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Agentinfrastructure',
-          items: ['explanations/aiinfrastructure/agentinfrastructure/explanation-enterprise-agentic-platforms', 'explanations/aiinfrastructure/agentinfrastructure/explanation-runtime-engineering-for-agents'],
+          items: ['explanations/aiinfrastructure/agentinfrastructure/explanation-enterprise-agentic-platforms', 'explanations/aiinfrastructure/agentinfrastructure/explanation-mcp-enterprise-authorization-layer', 'explanations/aiinfrastructure/agentinfrastructure/explanation-runtime-engineering-for-agents'],
         },
         {
           type: 'category',
@@ -156,6 +156,11 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Containerorchestration',
+          items: ['explanations/cloudnative/containerorchestration/explanation-kubernetes-dra-device-management', 'explanations/cloudnative/containerorchestration/explanation-volcano-headlamp-plugin'],
+        },
+        {
+          type: 'category',
           label: 'Costoptimization',
           items: ['explanations/cloudnative/costoptimization/cloud-cost-tagging-strategy'],
         },
@@ -163,6 +168,16 @@ const sidebars = {
           type: 'category',
           label: 'Data Architecture',
           items: ['explanations/data-databases/data-architecture/explanation-monzo-data-mesh'],
+        },
+        {
+          type: 'category',
+          label: 'Data Storage Engines',
+          items: ['explanations/data-databases/data-storage-engines/explanation-database-storage-next-frontier'],
+        },
+        {
+          type: 'category',
+          label: 'Agent Frameworks',
+          items: ['explanations/developer-tools-practices/agent-frameworks/explanation-vercel-eve-agents-as-directories'],
         },
         {
           type: 'category',
@@ -192,7 +207,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Supplychainsecurity',
-          items: ['explanations/devsecops/supplychainsecurity/explanation-sentry-mcp-agentjacking-vulnerability', 'explanations/devsecops/supplychainsecurity/miasma-worm-ai-agent-supply-chain'],
+          items: ['explanations/devsecops/supplychainsecurity/explanation-agentjacking-sentry-mcp-injection', 'explanations/devsecops/supplychainsecurity/explanation-sentry-mcp-agentjacking-vulnerability', 'explanations/devsecops/supplychainsecurity/miasma-worm-ai-agent-supply-chain'],
         },
         {
           type: 'category',
@@ -208,7 +223,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Java Spring',
-          items: ['explanations/programming/java-spring/explanation-jdk27-post-quantum-tls', 'explanations/programming/java-spring/explanation-jfr-ai-monitoring', 'explanations/programming/java-spring/explanation-spring-security-ai-era'],
+          items: ['explanations/programming/java-spring/explanation-jdk27-post-quantum-tls', 'explanations/programming/java-spring/explanation-jep531-lazy-constants', 'explanations/programming/java-spring/explanation-jfr-ai-monitoring', 'explanations/programming/java-spring/explanation-spring-security-ai-era'],
         },
         {
           type: 'category',
@@ -218,7 +233,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Aiagentverification',
-          items: ['explanations/softwareengineering/aiagentverification/async-ai-agent-verification'],
+          items: ['explanations/softwareengineering/aiagentverification/async-ai-agent-verification', 'explanations/softwareengineering/aiagentverification/explanation-kubernetes-ai-policy'],
         },
         {
           type: 'category',
@@ -258,7 +273,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Webarchitecture',
-          items: ['explanations/softwareengineering/webarchitecture/event-streams-polling-patterns'],
+          items: ['explanations/softwareengineering/webarchitecture/event-streams-polling-patterns', 'explanations/softwareengineering/webarchitecture/explanation-accessibility-testing-gaps-axe-limits'],
         },
         {
           type: 'category',
