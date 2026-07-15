@@ -155,7 +155,21 @@ Training Phase:
 1. **Noise schedule**: Optimized for text rather than images
 2. **Embedding space**: Text represented as continuous vectors during diffusion
 3. **Step count**: T ≈ 10-20 steps vs. N ≈ 50-200 for autoregressive
-4. **Context window**: Maintains Gemma's context capabilities
+4. **Context window**: Maintains Gemma's context capabilities (up to 262,144 tokens)
+5. **Model size**: 26B MoE model activating only 3.8B parameters during inference, deployable within 18 GB VRAM (quantized)
+
+### Block Autoregressive Denoising
+
+For sequences longer than 256 tokens, DiffusionGemma uses a hybrid approach:
+
+- **Prefill (Causal)**: Uses causal attention to ingest prompt context and write to the KV cache
+- **Denoising (Bidirectional)**: Uses bidirectional attention to iteratively denoise the 256-token canvas. Every token can attend to every other token, enabling global context awareness
+- **Commit**: Once a block is fully denoised, it's committed to the KV cache and the model proceeds to the next block
+
+This enables:
+- **Self-correction**: The model can "fix" earlier mistakes during denoising — a capability AR models lack
+- **Global context awareness**: Unlike AR models that only "look backward," bidirectional attention lets every token see the entire canvas
+- **Efficient long-context scaling**: Combines parallel diffusion speed with sequential AR stability
 
 ## Ecosystem Support
 

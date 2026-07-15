@@ -1,15 +1,21 @@
 [
   {
-    "title": "Claude Sonnet 5 Agents",
+    "title": "Apple Safari Mcp Server",
     "type": "Explanation",
-    "link": "/explanations/aiinfrastructure/aiframeworks/explanation-claude-sonnet-5-agents",
-    "time": "3 min read"
+    "link": "/explanations/aiinfrastructure/agenttooling/explanation-apple-safari-mcp-server",
+    "time": "9 min read"
   },
   {
-    "title": "Content Security Policy Csp",
-    "type": "How-To",
-    "link": "/how-to/devsecops/securitytesting/howto-content-security-policy-csp",
-    "time": "3 min read"
+    "title": "Sentry Mcp Agentjacking Vulnerability",
+    "type": "Explanation",
+    "link": "/explanations/devsecops/supplychainsecurity/explanation-sentry-mcp-agentjacking-vulnerability",
+    "time": "14 min read"
+  },
+  {
+    "title": "Agentjacking Sentry Mcp Injection",
+    "type": "Explanation",
+    "link": "/explanations/devsecops/supplychainsecurity/explanation-agentjacking-sentry-mcp-injection",
+    "time": "6 min read"
   },
   {
     "title": "Zgc Evolution Decade",
@@ -22,12 +28,6 @@
     "type": "Explanation",
     "link": "/explanations/programming/java-spring/explanation-jfr-ai-monitoring",
     "time": "4 min read"
-  },
-  {
-    "title": "Wg Device Management",
-    "type": "Explanation",
-    "link": "/explanations/cloud-infrastructure/kubernetes/explanation-wg-device-management",
-    "time": "3 min read"
   },
   {
     "title": "K8S Dashboard To Headlamp Transition",
