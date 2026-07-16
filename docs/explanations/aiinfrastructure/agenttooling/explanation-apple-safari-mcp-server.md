@@ -3,14 +3,7 @@ title: Apple's Official Safari MCP Server vs. Community Alternatives
 diataxis: Explanation
 domain: AI-Infrastructure
 topic: Agent-Tooling
-source: DEV.to (achiya-automation)
-source_url: https://dev.to/achiya-automation/apple-shipped-an-official-safari-mcp-i-read-all-17-tools-heres-why-im-keeping-mine-32l3
-date: 2026-07-15
-keywords:
-- knowledge-base
-- Agent-Tooling
-- AI-Infrastructure
-- explanations
+source: ''
 ---
 # Apple's Official Safari MCP Server vs. Community Alternatives
 
@@ -117,7 +110,6 @@ This model prioritizes **capability and convenience** over isolation.
 
 ## Excalidraw: Two Trust Models Compared
 
-```
 <details>
 <summary>Open in Excalidraw</summary>
 
@@ -433,6 +425,7 @@ This model prioritizes **capability and convenience** over isolation.
   ]
 }
 ```
+</details>
 
 ## Scorecard Summary
 

@@ -207,7 +207,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Supplychainsecurity',
-          items: ['explanations/devsecops/supplychainsecurity/explanation-agentjacking-sentry-mcp-injection', 'explanations/devsecops/supplychainsecurity/explanation-sentry-mcp-agentjacking-vulnerability', 'explanations/devsecops/supplychainsecurity/miasma-worm-ai-agent-supply-chain'],
+          items: ['explanations/devsecops/supplychainsecurity/explanation-sentry-mcp-agentjacking-vulnerability', 'explanations/devsecops/supplychainsecurity/miasma-worm-ai-agent-supply-chain'],
         },
         {
           type: 'category',
