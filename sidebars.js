@@ -166,6 +166,11 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Serverlesscomputing',
+          items: ['explanations/cloudnative/serverlesscomputing/explanation-knative-headlamp-plugin'],
+        },
+        {
+          type: 'category',
           label: 'Data Architecture',
           items: ['explanations/data-databases/data-architecture/explanation-monzo-data-mesh'],
         },
@@ -198,6 +203,11 @@ const sidebars = {
           type: 'category',
           label: 'Cicdpipelines',
           items: ['explanations/devsecops/cicdpipelines/aws-devops-agent-merge-queue-bouncer', 'explanations/devsecops/cicdpipelines/gitlab-19-devsecops-features'],
+        },
+        {
+          type: 'category',
+          label: 'Cryptography',
+          items: ['explanations/devsecops/cryptography/explanation-post-quantum-tls-jdk27'],
         },
         {
           type: 'category',

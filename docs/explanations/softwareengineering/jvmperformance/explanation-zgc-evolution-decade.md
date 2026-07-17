@@ -386,7 +386,7 @@ java -XX:+UseZGC -Xmx64g \
 | Scenario | Recommended GC | Reason |
 |----------|---------------|--------|
 | General-purpose, moderate heap (&lt;32 GB) | **G1** | Balanced, well-tested, default |
-| Large heap (>32 GB), low latency requirement | **ZGC** | Sub-ms pauses scale to multi-TB heaps |
+| Large heap (&gt;32 GB), low latency requirement | **ZGC** | Sub-ms pauses scale to multi-TB heaps |
 | Large heap, low latency, RHEL ecosystem | **Shenandoah** | Red Hat's collector, well-integrated in RHEL |
 | Maximum throughput, latency not critical | **Parallel GC** | Highest allocation throughput |
 | Small application, minimal overhead | **Serial GC** (constrained envs) / G1 | Lowest memory overhead |

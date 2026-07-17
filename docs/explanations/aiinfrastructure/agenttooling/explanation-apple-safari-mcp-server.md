@@ -110,6 +110,7 @@ This model prioritizes **capability and convenience** over isolation.
 
 ## Excalidraw: Two Trust Models Compared
 
+```
 <details>
 <summary>Open in Excalidraw</summary>
 
@@ -425,7 +426,7 @@ This model prioritizes **capability and convenience** over isolation.
   ]
 }
 ```
-</details>
+
 
 ## Scorecard Summary
 

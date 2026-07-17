@@ -1,15 +1,27 @@
 [
   {
+    "title": "Knative Headlamp Plugin",
+    "type": "Explanation",
+    "link": "/explanations/cloudnative/serverlesscomputing/explanation-knative-headlamp-plugin",
+    "time": "5 min read"
+  },
+  {
+    "title": "Enterprise Agentic Platforms",
+    "type": "Explanation",
+    "link": "/explanations/aiinfrastructure/agentinfrastructure/explanation-enterprise-agentic-platforms",
+    "time": "8 min read"
+  },
+  {
     "title": "Apple Safari Mcp Server",
     "type": "Explanation",
     "link": "/explanations/aiinfrastructure/agenttooling/explanation-apple-safari-mcp-server",
     "time": "9 min read"
   },
   {
-    "title": "Sentry Mcp Agentjacking Vulnerability",
+    "title": "Post Quantum Tls Jdk27",
     "type": "Explanation",
-    "link": "/explanations/devsecops/supplychainsecurity/explanation-sentry-mcp-agentjacking-vulnerability",
-    "time": "14 min read"
+    "link": "/explanations/devsecops/cryptography/explanation-post-quantum-tls-jdk27",
+    "time": "4 min read"
   },
   {
     "title": "Zgc Evolution Decade",
@@ -22,17 +34,5 @@
     "type": "Explanation",
     "link": "/explanations/programming/java-spring/explanation-jfr-ai-monitoring",
     "time": "4 min read"
-  },
-  {
-    "title": "K8S Dashboard To Headlamp Transition",
-    "type": "How-To",
-    "link": "/how-to/cloud-infrastructure/kubernetes/howto-k8s-dashboard-to-headlamp-transition",
-    "time": "4 min read"
-  },
-  {
-    "title": "Ai Agent Kubectl Access Patterns",
-    "type": "How-To",
-    "link": "/how-to/security-privacy/appsec-privacy/howto-ai-agent-kubectl-access-patterns",
-    "time": "18 min read"
   }
 ]
