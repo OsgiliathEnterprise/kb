@@ -45,7 +45,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Kubernetes',
-          items: ['how-to/cloud-infrastructure/kubernetes/howto-headlamp-cluster-api-plugin', 'how-to/cloud-infrastructure/kubernetes/howto-headlamp-knative-plugin', 'how-to/cloud-infrastructure/kubernetes/howto-headlamp-volcano-plugin', 'how-to/cloud-infrastructure/kubernetes/howto-k8s-dashboard-to-headlamp-transition', 'how-to/cloud-infrastructure/kubernetes/howto-running-agents-on-kubernetes-with-agent-sandbox'],
+          items: ['how-to/cloud-infrastructure/kubernetes/howto-headlamp-cluster-api-plugin', 'how-to/cloud-infrastructure/kubernetes/howto-k8s-dashboard-to-headlamp-transition', 'how-to/cloud-infrastructure/kubernetes/howto-running-agents-on-kubernetes-with-agent-sandbox'],
         },
         {
           type: 'category',
@@ -197,7 +197,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Runtime Environments',
-          items: ['explanations/developer-tools-practices/runtime-environments/explanation-deno-29-desktop-apps', 'explanations/developer-tools-practices/runtime-environments/explanation-kotlin-toolchain-amper-011'],
+          items: ['explanations/developer-tools-practices/runtime-environments/explanation-kotlin-toolchain-amper-011'],
         },
         {
           type: 'category',
@@ -233,7 +233,12 @@ const sidebars = {
         {
           type: 'category',
           label: 'Java Spring',
-          items: ['explanations/programming/java-spring/explanation-jdk27-post-quantum-tls', 'explanations/programming/java-spring/explanation-jep531-lazy-constants', 'explanations/programming/java-spring/explanation-jfr-ai-monitoring', 'explanations/programming/java-spring/explanation-spring-security-ai-era'],
+          items: ['explanations/programming/java-spring/explanation-jep531-lazy-constants', 'explanations/programming/java-spring/explanation-jfr-ai-monitoring', 'explanations/programming/java-spring/explanation-spring-security-ai-era'],
+        },
+        {
+          type: 'category',
+          label: 'Javascript Typescript',
+          items: ['explanations/programming/javascript-typescript/explanation-deno-2-9-desktop-native-apps'],
         },
         {
           type: 'category',

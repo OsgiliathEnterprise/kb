@@ -1,11 +1,5 @@
 [
   {
-    "title": "Apple Safari Mcp Server",
-    "type": "Explanation",
-    "link": "/explanations/aiinfrastructure/agenttooling/explanation-apple-safari-mcp-server",
-    "time": "9 min read"
-  },
-  {
     "title": "Zgc Evolution Decade",
     "type": "Explanation",
     "link": "/explanations/softwareengineering/jvmperformance/explanation-zgc-evolution-decade",
@@ -30,9 +24,15 @@
     "time": "18 min read"
   },
   {
-    "title": "Knative Headlamp Plugin",
+    "title": "Apple Safari Mcp Server",
     "type": "Explanation",
-    "link": "/explanations/cloudnative/serverlesscomputing/explanation-knative-headlamp-plugin",
-    "time": "5 min read"
+    "link": "/explanations/aiinfrastructure/agenttooling/explanation-apple-safari-mcp-server",
+    "time": "9 min read"
+  },
+  {
+    "title": "Volcano Headlamp Plugin",
+    "type": "Explanation",
+    "link": "/explanations/cloudnative/containerorchestration/explanation-volcano-headlamp-plugin",
+    "time": "3 min read"
   }
 ]

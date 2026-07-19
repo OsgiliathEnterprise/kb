@@ -137,6 +137,36 @@ ML-KEM (formerly known as Kyber) is a lattice-based key encapsulation mechanism 
 - **TLS 1.3 only**: Post-quantum key exchange is only available in TLS 1.3 (not TLS 1.2)
 - **Performance impact**: Slight increase in handshake latency due to ML-KEM computation (typically &lt;50ms additional overhead)
 
+## Enterprise Migration Guidance
+
+### The Urgency
+- **State actor threat:** Some analysts predict state actors may have quantum decryption capabilities as early as 2028
+- **NIST deadlines:** RSA, ECDSA, EdDSA, DH, and ECDH will be **deprecated by 2030** and **completely disallowed by 2035**
+- **Enterprise migration timeline:** Large enterprises require 12–15 years for complete PQC migration
+
+### Java PQC Roadmap
+
+| JDK Version | JEP | Feature | Status |
+|-------------|-----|---------|--------|
+| **JDK 21** (Sep 2023) | JEP 452 | KEM API — the foundation | GA |
+| **JDK 24** (Mar 2024) | JEP 496 | ML-KEM algorithm implementation (FIPS 203) | GA |
+| **JDK 24** (Mar 2024) | JEP 497 | ML-DSA digital signatures | GA |
+| **JDK 27** (Sep 2026) | JEP 527 | Hybrid TLS 1.3 key exchange | Targeted |
+
+**Important:** JDK 24 provides the cryptographic primitives but does NOT integrate them into TLS by default. JEP 527 in JDK 27 fills that gap.
+
+### What Teams Should Do Now
+1. **Inventory TLS endpoints:** Map all services using TLS 1.3 and identify those handling long-lived sensitive data
+2. **Test with early-access builds:** Use JDK 27 EA builds to validate hybrid key exchange
+3. **Plan the upgrade path:** JDK 27 GA is scheduled for September 2026
+4. **Verify peer support:** Confirm downstream clients support hybrid key exchange (or will gracefully fall back)
+5. **Monitor NIST timeline:** Track deprecation deadlines — RSA/ECDSA deprecated by 2030, disallowed by 2035
+
+### For High-Security Environments
+- Enforce hybrid schemes exclusively via `SSLParameters::setNamedGroups`
+- Use `SecP384r1MLKEM1024` (highest security level) instead of the default `X25519MLKEM768`
+- Combine with certificate pinning and mutual TLS for defense in depth
+
 ## Excalidraw Diagram
 
 ```excalidraw

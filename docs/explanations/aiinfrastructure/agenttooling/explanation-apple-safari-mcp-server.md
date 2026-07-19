@@ -428,6 +428,7 @@ This model prioritizes **capability and convenience** over isolation.
 
 </details>
 
+
 ## Scorecard Summary
 
 | Dimension | Apple Official | Community `safari-mcp` |
