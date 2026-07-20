@@ -6,18 +6,6 @@
     "time": "9 min read"
   },
   {
-    "title": "Sentry Mcp Agentjacking Vulnerability",
-    "type": "Explanation",
-    "link": "/explanations/devsecops/supplychainsecurity/explanation-sentry-mcp-agentjacking-vulnerability",
-    "time": "14 min read"
-  },
-  {
-    "title": "Agentjacking Sentry Mcp Injection",
-    "type": "Explanation",
-    "link": "/explanations/devsecops/supplychainsecurity/explanation-agentjacking-sentry-mcp-injection",
-    "time": "6 min read"
-  },
-  {
     "title": "Zgc Evolution Decade",
     "type": "Explanation",
     "link": "/explanations/softwareengineering/jvmperformance/explanation-zgc-evolution-decade",
@@ -34,5 +22,17 @@
     "type": "How-To",
     "link": "/how-to/cloud-infrastructure/kubernetes/howto-k8s-dashboard-to-headlamp-transition",
     "time": "4 min read"
+  },
+  {
+    "title": "Ai Agent Kubectl Access Patterns",
+    "type": "How-To",
+    "link": "/how-to/security-privacy/appsec-privacy/howto-ai-agent-kubectl-access-patterns",
+    "time": "18 min read"
+  },
+  {
+    "title": "Volcano Headlamp Plugin",
+    "type": "Explanation",
+    "link": "/explanations/cloudnative/containerorchestration/explanation-volcano-headlamp-plugin",
+    "time": "3 min read"
   }
 ]
