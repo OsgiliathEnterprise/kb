@@ -1,5 +1,11 @@
 [
   {
+    "title": "Apple Safari Mcp Server",
+    "type": "Explanation",
+    "link": "/explanations/aiinfrastructure/agenttooling/explanation-apple-safari-mcp-server",
+    "time": "9 min read"
+  },
+  {
     "title": "Zgc Evolution Decade",
     "type": "Explanation",
     "link": "/explanations/softwareengineering/jvmperformance/explanation-zgc-evolution-decade",
@@ -22,12 +28,6 @@
     "type": "How-To",
     "link": "/how-to/security-privacy/appsec-privacy/howto-ai-agent-kubectl-access-patterns",
     "time": "18 min read"
-  },
-  {
-    "title": "Apple Safari Mcp Server",
-    "type": "Explanation",
-    "link": "/explanations/aiinfrastructure/agenttooling/explanation-apple-safari-mcp-server",
-    "time": "9 min read"
   },
   {
     "title": "Volcano Headlamp Plugin",
