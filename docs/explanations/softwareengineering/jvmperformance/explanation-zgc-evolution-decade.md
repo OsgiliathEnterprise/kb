@@ -27,7 +27,7 @@ ZGC (Z Garbage Collector) is a low-latency, concurrent garbage collector introdu
 **JEP 333: Z Garbage Collector (Experimental)**
 
 - First production-like release of ZGC
-- Target: Pause times \u003c1ms for heaps from 8 MB to 16 TB
+- Target: Pause times &lt;1ms for heaps from 8 MB to 16 TB
 - Architecture: **Non-generational**, **moving** collector using **colored pointers** and **load barriers**
 - Required experimental flags:
 
@@ -36,9 +36,9 @@ java -XX:+UnlockExperimentalVMOptions -XX:+UseZGC -Xmx8g MyApp
 ```
 
 - Key metrics from initial benchmarks:
-  - 8 GB heap, full GC: \u003c1ms pause
+  - 8 GB heap, full GC: &lt;1ms pause
   - Allocation throughput: ~2 GB/s on reference hardware (Intel Xeon E5-2699 v3)
-  - 32 GB heap, full GC: still \u003c2ms pause
+  - 32 GB heap, full GC: still &lt;2ms pause
 
 - **Architectural innovation**: Colored pointers encode object location metadata in unused address bits (requires 48-bit virtual address space on x64). This eliminates the need for separate forwarding tables used by G1/Shenandoah.
 
@@ -270,13 +270,13 @@ Old GC:  Concurrent mark + relocate entire heap (~sub-millisecond)
 
 | JDK Version | Heap Size | Young GC Pause | Old GC Pause | Notes |
 |-------------|-----------|----------------|--------------|-------|
-| JDK 11 | 8 GB | N/A (~1ms) | \u003c1ms | Non-generational, single GC type |
-| JDK 13 | 8 GB | N/A (~0.5ms) | \u003c0.8ms | Page-based allocation |
-| JDK 14 | 8 GB | \u003c0.2ms | \u003c1ms | Generational (experimental) |
-| JDK 17 | 32 GB | \u003c0.15ms | \u003c0.5ms | LTS, generational mature |
-| JDK 21 | 64 GB | \u003c0.1ms | \u003c0.4ms | LTS, generational production |
-| JDK 24 | 256 GB | \u003c0.1ms | \u003c0.3ms | Non-generational removed |
-| JDK 26 | 1 TB | \u003c0.1ms | \u003c0.5ms | Latest optimizations |
+| JDK 11 | 8 GB | N/A (~1ms) | &lt;1ms | Non-generational, single GC type |
+| JDK 13 | 8 GB | N/A (~0.5ms) | &lt;0.8ms | Page-based allocation |
+| JDK 14 | 8 GB | &lt;0.2ms | &lt;1ms | Generational (experimental) |
+| JDK 17 | 32 GB | &lt;0.15ms | &lt;0.5ms | LTS, generational mature |
+| JDK 21 | 64 GB | &lt;0.1ms | &lt;0.4ms | LTS, generational production |
+| JDK 24 | 256 GB | &lt;0.1ms | &lt;0.3ms | Non-generational removed |
+| JDK 26 | 1 TB | &lt;0.1ms | &lt;0.5ms | Latest optimizations |
 
 ### Allocation Throughput
 
@@ -375,7 +375,7 @@ java -XX:+UseZGC -Xmx64g \
 | **Platform support** | All platforms | x64, AArch64, RISC-V (limited) | x64, AArch64 |
 | **Memory overhead** | Moderate (~5% for regions) | Low (~2% for page structures) | Moderate (~5% for metadata) |
 | **Heap size range** | 1 GB – 64 GB (optimal) | 8 MB – 16 TB | 1 GB – 1 TB+ |
-| **Pause time target** | 200ms (configurable via `-XX:MaxGCPauseMillis`) | \u003c1ms | \u003c1ms |
+| **Pause time target** | 200ms (configurable via `-XX:MaxGCPauseMillis`) | &lt;1ms | &lt;1ms |
 | **Typical young GC pause** | 1–20ms | 0.05–0.2ms | 0.1–0.5ms |
 | **Typical old GC pause** | 50–500ms | 0.2–0.8ms | 0.3–1.0ms |
 | **Allocation throughput** | High | Very high (improved significantly since JDK 13) | High |
@@ -385,7 +385,7 @@ java -XX:+UseZGC -Xmx64g \
 
 | Scenario | Recommended GC | Reason |
 |----------|---------------|--------|
-| General-purpose, moderate heap (\u003c32 GB) | **G1** | Balanced, well-tested, default |
+| General-purpose, moderate heap (&lt;32 GB) | **G1** | Balanced, well-tested, default |
 | Large heap (>32 GB), low latency requirement | **ZGC** | Sub-ms pauses scale to multi-TB heaps |
 | Large heap, low latency, RHEL ecosystem | **Shenandoah** | Red Hat's collector, well-integrated in RHEL |
 | Maximum throughput, latency not critical | **Parallel GC** | Highest allocation throughput |

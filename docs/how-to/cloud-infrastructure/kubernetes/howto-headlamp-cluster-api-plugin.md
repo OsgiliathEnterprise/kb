@@ -1,164 +1,205 @@
 ---
-title: 'Headlamp Cluster API Plugin: Managing Clusters from the UI'
+title: Managing Cluster API Resources with the Headlamp CAPI Plugin
 diataxis: How-to Guide
 domain: Cloud & Infrastructure
 topic: Kubernetes
 source: Kubernetes Blog
 source_url: https://kubernetes.io/blog/2026/06/25/headlamp-cluster-api-plugin/
-date: 2026-07-05
+date: 2026-07-21
 keywords:
 - knowledge-base
 - Kubernetes
 - Cloud & Infrastructure
 - how-to
 ---
-# Headlamp Cluster API Plugin: Managing Clusters from the UI
+# Managing Cluster API Resources with the Headlamp CAPI Plugin
 
-## Overview
+## Summary
 
-The **Headlamp Cluster API plugin** brings Cluster API (CAPI) workload cluster management directly into the Headlamp Kubernetes dashboard. Previously, CAPI operations required `kubectl` commands or separate management tools. This plugin enables visual inspection and management of CAPI resources including `Cluster`, `MachineDeployment`, `MachineSet`, and `Machine` objects — all from a unified UI.
+The **Headlamp Cluster API plugin** (Alpha release, June 2026) brings visual management of Cluster API (CAPI) resources directly into the Headlamp UI. CAPI provides declarative, Kubernetes-native APIs for provisioning, upgrading, and managing the lifecycle of Kubernetes clusters — but historically, managing CAPI resources required raw `kubectl` commands and deep familiarity with ownership hierarchies. This plugin eliminates that friction.
 
-This HOWTO covers installation, configuration, and practical usage patterns for the plugin.
+## What the Plugin Provides
 
----
-
-## What Is Cluster API?
-
-**Cluster API** is a Kubernetes subproject that declaratively manages Kubernetes clusters using the same control-plane patterns as Kubernetes itself. Key concepts:
-
-| Resource | Purpose |
-|----------|---------|
-| `Cluster` | Represents a managed Kubernetes cluster |
-| `MachineDeployment` | Declares desired number of worker nodes |
-| `MachineSet` | Ensures a set of identical machines are running |
-| `Machine` | Represents an individual node in the cluster |
-
-The management cluster runs CAPI controllers that reconcile these resources against actual infrastructure (AWS, Azure, GCP, vSphere, Docker/kind, etc.).
-
----
+| Feature | Description |
+|---------|-------------|
+| **Cluster overview** | Live control plane and worker replica status |
+| **Machine visibility** | MachineDeployments, MachineSets, Machines, MachinePools with conditions |
+| **CAPI dashboard** | Centralized health view, provider info, remediation guidance |
+| **Control plane monitoring** | KubeadmControlPlane replicas, versions, associated Machines |
+| **Scale from UI** | Scale MachineDeployments and MachineSets directly in Headlamp |
+| **Owned resource hierarchy** | Trace relationships between clusters, deployments, sets, and machines |
+| **KubeadmConfig inspection** | Bootstrap configs, files, kubelet args, join/init settings |
+| **Topology awareness** | Auto-detect and label ClusterClass-managed resources |
+| **Map view** | Visualize Cluster, Control Plane, and Worker relationships |
+| **Dynamic API versioning** | Supports both v1beta1 and v1beta2 CAPI versions |
+| **Prometheus metrics** | Inline metrics on CAPI resource detail pages (with Prometheus plugin) |
 
 ## Installation
 
 ### Prerequisites
 
-- Headlamp installed (v0.25.0+)
-- A management cluster with Cluster API providers configured
-- `kubectl` access to the management cluster
+- Headlamp installed (desktop or in-cluster)
+- A management cluster with Cluster API resources
+- (Optional) Headlamp Prometheus plugin for metrics integration
 
-### Install via Plugin Marketplace
+### Steps
 
-```bash
-# If using Headlamp CLI
-headlamp plugins install cluster-api
+1. **Install the plugin via Headlamp Plugin Catalog:**
+   - Open Headlamp
+   - Navigate to **Plugin Catalog**
+   - Search for "Cluster API"
+   - Click **Install**
+   - Reload Headlamp
 
-# Or add to your plugin configuration
-# ~/.config/headlamp/plugins.json
-{
-  "plugins": [
-    {
-      "name": "cluster-api",
-      "url": "https://github.com/headlamp-k8s/headlamp-cluster-api/releases/latest/download/cluster-api-plugin.tar.gz"
-    }
-  ]
-}
-```
+2. **Install from source:**
+   ```bash
+   # Clone the plugins repository
+   git clone https://github.com/headlamp-k8s/plugins.git
+   cd plugins/cluster-api
+   # Follow README.md for build and installation steps
+   ```
 
-### Install from Source
-
-```bash
-git clone https://github.com/headlamp-k8s/headlamp-cluster-api.git
-cd headlamp-cluster-api
-npm install
-npm run build
-# Copy the built plugin to your Headlamp plugins directory
-```
-
----
+See the [official plugin README](https://github.com/headlamp-k8s/plugins/blob/main/cluster-api/README.md) for detailed installation instructions.
 
 ## Using the Plugin
 
-### Viewing Cluster Resources
+### 1. Cluster API Dashboard
 
-After installation, the plugin adds a **Cluster API** section in the Headlamp sidebar:
+The dashboard provides a centralized view of all CAPI resources and their health:
 
-1. Navigate to **Cluster API → Clusters** to see all managed clusters
-2. Click on a cluster to view its **machines**, **status**, and **conditions**
-3. Use the **MachineDeployments** view to scale worker nodes visually
+- **Overview cards**: Status of clusters, Machines, MachineDeployments, MachinePools, MachineSets, and control planes
+- **Active condition issues**: Highlights degraded or unhealthy resources
+- **Provider information**: Shows which infrastructure providers are in use
+- **Configuration template counts**: Tracks ClusterClass and template usage
+- **Remediation guidance**: When issues are detected, the dashboard provides diagnostic commands and troubleshooting steps
 
-### Common Operations
+### 2. Cluster List and Detail Views
 
-| Operation | Plugin UI | Equivalent kubectl |
-|-----------|-----------|-------------------|
-| List clusters | Clusters view | `kubectl get clusters -A` |
-| Scale deployment | Edit MachineDeployment replicas | `kubectl scale machinedeployment <name> --replicas=N` |
-| View machine status | Machine detail page | `kubectl describe machine <name>` |
-| Check cluster conditions | Cluster conditions tab | `kubectl get cluster <name> -o yaml` |
+**Cluster list view** shows all Cluster resources in the management cluster with:
+- Control plane replica status (running, pending, failed)
+- Worker replica status
+- Infrastructure provider and version
+- Age and conditions
 
-### Multi-Cluster Workflow
+**Cluster detail view** provides:
+- Resource status and conditions
+- Infrastructure references (provider-specific resources)
+- Control plane references
+- Related Machines with their individual status
+- Topology information (for ClusterClass-managed clusters)
 
-The plugin integrates with Headlamp's multi-cluster support:
+### 3. Machine Resource Management
 
-```yaml
-# ~/.config/headlamp/clusters.yaml
-clusters:
-  - name: "management"
-    kubeconfig: "~/.kube/config-management"
-  - name: "workload-us-east"
-    kubeconfig: "~/.kube/config-workload-east"
-  - name: "workload-eu-west"
-    kubeconfig: "~/.kube/config-workload-west"
+Dedicated views for **MachineDeployments**, **MachineSets**, **Machines**, and **MachinePools** surface:
+- Replica counts (desired vs. actual)
+- Ownership relationships (which Cluster owns this resource)
+- Provider IDs
+- Kubernetes versions
+- Conditions and events
+
+### 4. Scaling from the UI
+
+MachineDeployments and MachineSets include a **Scale action** dialog:
+- Adjust replica counts directly from Headlamp
+- No terminal commands needed
+- For topology-managed clusters, the plugin indicates when scaling should be performed at the Cluster level instead
+
+### 5. Bootstrap Configuration Inspection
+
+**KubeadmConfig** resources can be inspected in a structured format:
+- Inline files (pre-bootstrap scripts, cloud-init data)
+- Kubelet arguments
+- Extra volumes
+- Join and init settings
+- No need to decode raw YAML or secrets manually
+
+### 6. Map View
+
+The visual **map view** displays:
+- Cluster → Control Plane → Worker resource relationships
+- Ownership hierarchies at a glance
+- Resource health states (color-coded)
+- Faster understanding of complex multi-cluster setups
+
+### 7. Prometheus Metrics Integration
+
+When the Headlamp Prometheus plugin is installed and configured:
+- Metrics are embedded inline on CAPI resource detail pages
+- View resource health and performance data alongside status conditions
+- No need to switch to a separate Prometheus/Grafana dashboard
+- Correlate infrastructure state with live metrics during debugging
+
+## Architecture Diagram
+
+```excalidraw
+* Excalidraw - Headlamp Cluster API Plugin Architecture
+  {"type":"excalidraw","version":2,"source":"https://excalidraw.com"}
+  ,
+  {"type":"frame","id":"frame-headlamp","x":40,"y":40,"width":320,"height":440,"strokeColor":"#6366f1","backgroundColor":"#eef2ff","label":"Headlamp + CAPI Plugin"},
+  {"type":"frame","id":"frame-capi","x":440,"y":40,"width":320,"height":440,"strokeColor":"#10b981","backgroundColor":"#ecfdf5","label":"Cluster API Resources"},
+  {"type":"frame","id":"frame-infra","x":840,"y":40,"width":240,"height":440,"strokeColor":"#f59e0b","backgroundColor":"#fffbeb","label":"Infrastructure Providers"},
+
+  -- Headlamp plugin features
+  {"type":"rectangle","id":"hl-dashboard","x":60,"y":80,"width":280,"height":45,"backgroundColor":"#c7d2fe","strokeColor":"#6366f1","rounding":true,"label":"CAPI Dashboard (Health Overview)"},
+  {"type":"rectangle","id":"hl-cluster-list","x":60,"y":140,"width":280,"height":45,"backgroundColor":"#c7d2fe","strokeColor":"#6366f1","rounding":true,"label":"Cluster List + Detail Views"},
+  {"type":"rectangle","id":"hl-machine","x":60,"y":200,"width":280,"height":45,"backgroundColor":"#c7d2fe","strokeColor":"#6366f1","rounding":true,"label":"Machine Resources (Deployments, Sets, Pools)"},
+  {"type":"rectangle","id":"hl-scale","x":60,"y":260,"width":280,"height":45,"backgroundColor":"#c7d2fe","strokeColor":"#6366f1","rounding":true,"label":"Scale Action (UI-Based)"},
+  {"type":"rectangle","id":"hl-bootstrap","x":60,"y":320,"width":280,"height":45,"backgroundColor":"#c7d2fe","strokeColor":"#6366f1","rounding":true,"label":"KubeadmConfig Inspection"},
+  {"type":"rectangle","id":"hl-map","x":60,"y":380,"width":280,"height":45,"backgroundColor":"#c7d2fe","strokeColor":"#6366f1","rounding":true,"label":"Map View (Relationships)"},
+  {"type":"rectangle","id":"hl-prometheus","x":60,"y":440,"width":280,"height":45,"backgroundColor":"#c7d2fe","strokeColor":"#6366f1","rounding":true,"label":"Prometheus Metrics (Inline)"},
+
+  -- CAPI resources
+  {"type":"rectangle","id":"capi-cluster","x":460,"y":80,"width":280,"height":45,"backgroundColor":"#a7f3d0","strokeColor":"#10b981","rounding":true,"label":"Cluster (CAPI CRD)"},
+  {"type":"rectangle","id":"capi-ctrlplane","x":460,"y":140,"width":280,"height":45,"backgroundColor":"#a7f3d0","strokeColor":"#10b981","rounding":true,"label":"KubeadmControlPlane"},
+  {"type":"rectangle","id":"capi-md","x":460,"y":200,"width":280,"height":45,"backgroundColor":"#a7f3d0","strokeColor":"#10b981","rounding":true,"label":"MachineDeployment / MachineSet"},
+  {"type":"rectangle","id":"capi-machine","x":460,"y":260,"width":280,"height":45,"backgroundColor":"#a7f3d0","strokeColor":"#10b981","rounding":true,"label":"Machine / MachinePool"},
+  {"type":"rectangle","id":"capi-kubeadmconfig","x":460,"y":320,"width":280,"height":45,"backgroundColor":"#a7f3d0","strokeColor":"#10b981","rounding":true,"label":"KubeadmConfig / KubeadmConfigTemplate"},
+  {"type":"rectangle","id":"capi-clusterclass","x":460,"y":380,"width":280,"height":45,"backgroundColor":"#a7f3d0","strokeColor":"#10b981","rounding":true,"label":"ClusterClass (Topology)"},
+
+  -- Infrastructure providers
+  {"type":"rectangle","id":"infra-aws","x":860,"y":80,"width":200,"height":45,"backgroundColor":"#fde68a","strokeColor":"#f59e0b","rounding":true,"label":"AWS (CAPA)"},
+  {"type":"rectangle","id":"infra-azure","x":860,"y":140,"width":200,"height":45,"backgroundColor":"#fde68a","strokeColor":"#f59e0b","rounding":true,"label":"Azure (CAPZ)"},
+  {"type":"rectangle","id":"infra-gcp","x":860,"y":200,"width":200,"height":45,"backgroundColor":"#fde68a","strokeColor":"#f59e0b","rounding":true,"label":"GCP (CAPG)"},
+  {"type":"rectangle","id":"infra-docker","x":860,"y":260,"width":200,"height":45,"backgroundColor":"#fde68a","strokeColor":"#f59e0b","rounding":true,"label":"Docker (kind/cluster-api)"},
+
+  -- Connections
+  {"type":"arrow","id":"conn1","x":340,"y":102,"x2":440,"y2":102,"strokeColor":"#6366f1","strokeWidth":2,"roughness":2,"startArrowhead":"arrow","label":"Visualizes"},
+  {"type":"arrow","id":"conn2","x":720,"y":102,"x2":840,"y2":102,"strokeColor":"#10b981","strokeWidth":2,"roughness":2,"startArrowhead":"arrow","label":"Provisions"},
+  {"type":"arrow","id":"conn3","x":720,"y":162,"x2":840,"y2":162,"strokeColor":"#10b981","strokeWidth":2,"roughness":2,"startArrowhead":"arrow"},
+  {"type":"arrow","id":"conn4","x":720,"y":222,"x2":840,"y2":222,"strokeColor":"#10b981","strokeWidth":2,"roughness":2,"startArrowhead":"arrow"},
+
+  -- Legend
+  {"type":"text","id":"legend","x":40,"y":520,"fontSize":14,"text":"🟣 Headlamp Plugin | 🟢 CAPI Resources | 🟡 Infrastructure Providers"}
 ```
 
-The Cluster API plugin shows management resources in the management cluster context, while you can switch to workload clusters for day-2 operations.
+## Key Benefits Over CLI Workflow
 
----
+| Task | CLI (`kubectl`) | Headlamp CAPI Plugin |
+|------|-----------------|---------------------|
+| View cluster health | Multiple `kubectl get` + `describe` commands | Single dashboard view |
+| Debug machine failures | Manual condition parsing from YAML | Visual conditions + remediation guidance |
+| Scale machine deployments | `kubectl edit machinedeployment` | UI scale dialog |
+| Trace ownership chains | `kubectl get --show-labels` + manual correlation | Map view with automatic hierarchy |
+| Inspect bootstrap config | `kubectl get kubeadmconfig -o yaml` | Structured UI view |
+| Correlate with metrics | Switch to Prometheus/Grafana | Inline on detail pages |
 
-## Architecture
+## Limitations
 
-```
-┌─────────────────────────────────────────────┐
-│              Headlamp UI                     │
-│  ┌───────────────────────────────────────┐   │
-│  │   Cluster API Plugin                   │   │
-│  │  ┌─────────┐ ┌──────────┐ ┌────────┐ │   │
-│  │  │ Clusters│ │ Machines │ │ Deploy │ │   │
-│  │  │  View   │ │  Status  │ │  ments │ │   │
-│  │  └─────────┘ └──────────┘ └────────┘ │   │
-│  └───────────────────────────────────────┘   │
-│                 │                             │
-│         Kubernetes API (management cluster)   │
-└─────────────────────────────────────────────┘
-                 │
-┌────────────────▼─────────────────────────────┐
-│           CAPI Controllers                    │
-│  ┌─────────┐ ┌──────────┐ ┌──────────────┐  │
-│  │ Cluster │ │ Machine  │ │ Infra        │  │
-│  │  Ctrl   │ │  Ctrl    │ │ Providers    │  │
-│  └─────────┘ └──────────┘ └──────────────┘  │
-└─────────────────────────────────────────────┘
-                 │
-┌────────────────▼─────────────────────────────┐
-│         Cloud / Infrastructure Providers      │
-│  (AWS, Azure, GCP, vSphere, kind, Docker)    │
-└─────────────────────────────────────────────┘
-```
+- **Alpha release** — API and features may change
+- Does not replace `kubectl` or CAPI CLI for automation and scripting
+- Requires CAPI resources to already exist in a management cluster
 
-> **Excalidraw diagram:** *Three-tier architecture showing the Headlamp UI with the Cluster API plugin at the top, the CAPI controllers in the management cluster in the middle, and infrastructure providers at the bottom. Arrows flow downward from UI to API to controllers to infrastructure, with status feedback flowing upward.*
+## Future Work
 
----
-
-## Tips and Best Practices
-
-1. **Namespace awareness**: CAPI resources are namespaced. The plugin lets you filter by namespace — use this to isolate production vs. staging clusters.
-2. **Condition monitoring**: The plugin surfaces CAPI conditions (Ready, ControlPlaneReady, InfrastructureReady) as visual indicators. Treat non-Ready conditions as alerts.
-3. **Machine health checks**: Combine with the CAPI Machine Health Check feature to automatically remediate unhealthy nodes.
-4. **Plugin updates**: Headlamp plugins are independently versioned. Check for updates via the plugin marketplace or GitHub releases.
-
----
+Planned improvements include:
+- Additional CAPI provider support
+- Richer scheduling insights
+- More workflow-oriented visibility across multi-cluster operations
+- Enhanced Prometheus integration
 
 ## References
 
-- [Headlamp Cluster API Plugin Announcement](https://kubernetes.io/blog/2026/06/25/headlamp-cluster-api-plugin/) — Kubernetes Blog, June 2026
-- [Headlamp Project](https://headlamp.dev)
-- [Cluster API Book](https://cluster-api.sigs.k8s.io/)
-- [Headlamp GitHub](https://github.com/headlamp-k8s/headlamp)
+- [Original Article: Introducing the Cluster API plugin for Headlamp](https://kubernetes.io/blog/2026/06/25/headlamp-cluster-api-plugin/) — Kubernetes Blog, June 25, 2026
+- [Headlamp CAPI Plugin Repository](https://github.com/headlamp-k8s/plugins/tree/main/cluster-api)
+- [Cluster API Documentation](https://cluster-api.sigs.k8s.io/)
+- [Headlamp Project](https://headlamp.dev/)
