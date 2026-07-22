@@ -26,22 +26,30 @@ Traditional SAST tools were designed for human-written code at human pace. The a
 - **False positive fatigue**: Legacy scanners produce too many false positives to be actionable at AI-code scale
 - **Context gap**: Most SAST tools lack understanding of AI-generated code patterns and their unique security characteristics
 
-## Checkmarx's Approach: Orchestration Over LLM Size
+## Checkmarx's Approach: Three-Component Hybrid Engine
 
-The key insight from Checkmarx is that the LLM itself is not the bottleneck—the orchestration layer around it is:
+The new SAST engine is built on three distinct components, with the real differentiator being the orchestration layer:
 
-### Multi-Phase Analysis Pipeline
+### Component 1: Deterministic Scanner
+A traditional, rule-based static analysis engine that handles well-known vulnerability patterns with high precision and low cost.
 
-1. **Pre-filtering**: Lightweight static analysis to narrow the search space before expensive LLM calls
-2. **Context-aware LLM analysis**: Targeted LLM calls with precise code context windows
-3. **Cross-referencing**: Results correlated against known vulnerability databases and code patterns
-4. **False positive reduction**: Multi-stage validation to suppress noise before results reach developers
+### Component 2: Security-Trained LLM
+A large language model specifically trained on security data, capable of understanding nuanced code patterns and AI-generated code characteristics.
+
+### Component 3: Finding Analysis Engine (The Differentiator)
+The **Finding Analysis Engine** filters and validates results from both the deterministic scanner and the LLM before findings ever reach developers. This is where the real competitive advantage lies:
+
+- **False positive suppression**: Multi-stage validation eliminates noise
+- **Result correlation**: Cross-references findings against known vulnerability databases
+- **Developer-facing output**: Only high-confidence findings make it through
+- **Cost optimization**: Reduces unnecessary LLM calls by pre-filtering
 
 ### Why This Matters
 
 - **Cost efficiency**: Fewer LLM calls per repository scan means lower operational costs
 - **Accuracy**: Multi-stage validation reduces false positives, increasing developer trust
 - **Scalability**: The orchestration layer can handle the volume of AI-generated code without degradation
+- **Developer experience**: Teams see fewer, higher-quality findings — reducing alert fatigue
 
 ## Key Takeaways
 
@@ -49,8 +57,10 @@ The key insight from Checkmarx is that the LLM itself is not the bottleneck—th
 - The competitive advantage lies in orchestration, not LLM selection
 - AI-generated code requires different scanning strategies than human-written code
 - False positive reduction is critical for developer adoption at scale
+- The Finding Analysis Engine represents a paradigm shift: post-analysis filtering over pre-analysis detection
 
 ## References
 
 - [Checkmarx's new SAST engine isn't about the LLM. It's about what happens after.](https://thenewstack.io/checkmarx-ai-llm-sast-security/)
+- [Checkmarx SAST Overview](https://docs.checkmarx.com/en/34965-46311-checkmarx-sast-overview.html)
 - [Checkmarx official documentation](https://www.checkmarx.com/)

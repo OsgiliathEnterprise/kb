@@ -361,6 +361,51 @@ Data Scientists    ML Engineers     Operations
 └─────────────────────────────────────────────────────────────┘
 ```
 
+## Feature Store: Preventing Training-Serving Skew
+
+A feature store ensures that features computed during training are identical to those available at inference time. Without this, **training-serving skew** silently degrades model quality.
+
+### Feature Store Options
+
+| Tool | Type | Best For |
+|------|------|----------|
+| **Feast** | Open source | Self-hosted, flexible feature pipelines |
+| **AWS SageMaker Feature Store** | Managed | AWS-native teams |
+| **Tecton** | Commercial | Enterprise-grade, multi-framework |
+
+> **Practical heuristic**: For most startups, a simple pattern works — compute features as SQL transformations in a data warehouse, materialize them to a feature table, and use that table for both training and online serving. A full feature store is overkill until you have 20+ features or multiple models sharing features.
+
+## Model Serving Options
+
+A trained model needs to be loaded and exposed as an API endpoint. The serving layer handles batching, scaling, and latency requirements:
+
+| Serving Option | Description | Trade-offs |
+|---------------|-------------|------------|
+| **BentoML** | Framework-agnostic, good DX | Deploys to Kubernetes, good for general ML |
+| **Triton Inference Server** | High-performance GPU serving | Complex to configure |
+| **AWS SageMaker Endpoints** | Managed, auto-scaling | Vendor-locked, expensive at scale |
+| **FastAPI + custom container** | Simple for low-traffic models | Requires building scaling layer yourself |
+
+> **Recommendation**: For most production ML APIs serving under 1,000 req/s, a FastAPI wrapper around a BentoML-packaged model on Kubernetes is a practical starting point.
+
+## MLOps Maturity Model (Google)
+
+Google's maturity model helps teams assess where they stand:
+
+| Level | Automation | CI/CD | Monitoring |
+|-------|-----------|-------|------------|
+| **Level 0: Manual** | None | None | None |
+| **Level 1: Pipeline** | Pipeline automation | Partial | Basic |
+| **Level 2: CI/CD** | Full automation | Full | Advanced |
+
+> **Key insight**: According to Gartner's 2026 report, 85% of enterprise AI projects fail within the first 18 months without proper MLOps practices. Implementing the right MLOps framework can reduce this failure rate to below 15%.
+
+## A Practical 6-Week Path from Notebook to Production
+
+1. **Week 1-2: Packaging and serving** — Refactor notebook code into a Python module with `train()` and `predict()` functions, add MLflow tracking, containerize with FastAPI, deploy to Kubernetes
+2. **Week 3-4: Pipeline automation** — Build a training pipeline (Kubeflow or Airflow), connect to model registry, add data validation checks
+3. **Week 5-6: Monitoring and retraining** — Deploy Evidently for drift detection, set up alerts, define retraining policy (scheduled or drift-triggered)
+
 ## Common Pitfalls
 
 1. **Skipping data versioning** — You can't reproduce results without it
@@ -369,6 +414,8 @@ Data Scientists    ML Engineers     Operations
 4. **Manual deployment** — Error-prone and slow
 5. **No monitoring** — You won't know when things break
 6. **Treating notebooks as production code** — They're not designed for it
+7. **Overbuilding too early** — You don't need Kubeflow Pipelines for one model; a scheduled `python train.py` with MLflow is sufficient until you have multiple models
+8. **No rollback mechanism** — The model registry should store the previous production model; rolling back should be a single command
 
 ## Best Practices
 
@@ -379,6 +426,7 @@ Data Scientists    ML Engineers     Operations
 5. **Document model cards** — Transparency about model capabilities and limitations
 6. **Plan for rollback** — Quick recovery from model failures
 7. **Test data pipelines** — Data quality is as important as code quality
+8. **Ensure feature consistency** — Training-serving skew is the most common silent failure; ensure training features are computed with the same logic as serving features
 
 ## References
 
@@ -386,3 +434,5 @@ Data Scientists    ML Engineers     Operations
 - [MLflow Documentation](https://mlflow.org/docs/)
 - [DVC (Data Version Control)](https://dvc.org/)
 - [Google: MLOps Best Practices](https://cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning)
+- [MLOps in 2026: Taking ML Models From Jupyter Notebook to Production](https://rkssh.com/blog/mlops-pipeline-jupyter-to-production) (enriched 2026-07-21)
+- [MLOps 2026: Model to Production Best Practices](https://ekolsoft.com/en/b/mlops-2026-model-to-production-best-practices) (enriched 2026-07-21)
