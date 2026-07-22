@@ -45,12 +45,17 @@ const sidebars = {
         {
           type: 'category',
           label: 'Kubernetes',
-          items: ['how-to/cloud-infrastructure/kubernetes/howto-headlamp-cluster-api-plugin', 'how-to/cloud-infrastructure/kubernetes/howto-k8s-dashboard-to-headlamp-transition', 'how-to/cloud-infrastructure/kubernetes/howto-running-agents-on-kubernetes-with-agent-sandbox'],
+          items: ['how-to/cloud-infrastructure/kubernetes/howto-k8s-dashboard-to-headlamp-transition', 'how-to/cloud-infrastructure/kubernetes/howto-running-agents-on-kubernetes-with-agent-sandbox'],
         },
         {
           type: 'category',
           label: 'Virtualization',
           items: ['how-to/cloud-infrastructure/virtualization/howto-nvidia-3d-acceleration-qemu-kvm-fedora'],
+        },
+        {
+          type: 'category',
+          label: 'Containerorchestration',
+          items: ['how-to/cloudnative/containerorchestration/howto-headlamp-cluster-api-plugin'],
         },
         {
           type: 'category',
@@ -142,7 +147,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Kubernetes',
-          items: ['explanations/cloud-infrastructure/kubernetes/explanation-kubernetes-v136-release-overview', 'explanations/cloud-infrastructure/kubernetes/explanation-wg-device-management'],
+          items: ['explanations/cloud-infrastructure/kubernetes/explanation-kubernetes-v136-release-overview'],
         },
         {
           type: 'category',
@@ -258,12 +263,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Aiassisteddevelopment',
-          items: ['explanations/softwareengineering/aiassisteddevelopment/deterministic-ai-spring-upgrades'],
-        },
-        {
-          type: 'category',
-          label: 'Architecturefundamentals',
-          items: ['explanations/softwareengineering/architecturefundamentals/explanation-google-sre-cheat-sheet'],
+          items: ['explanations/softwareengineering/aiassisteddevelopment/deterministic-ai-spring-upgrades', 'explanations/softwareengineering/aiassisteddevelopment/explanation-kubernetes-ai-policy-open-source'],
         },
         {
           type: 'category',

@@ -1,5 +1,17 @@
 [
   {
+    "title": "Headlamp Cluster Api Plugin",
+    "type": "How-To",
+    "link": "/how-to/cloudnative/containerorchestration/howto-headlamp-cluster-api-plugin",
+    "time": "5 min read"
+  },
+  {
+    "title": "Kubernetes Ai Policy Open Source",
+    "type": "Explanation",
+    "link": "/explanations/softwareengineering/aiassisteddevelopment/explanation-kubernetes-ai-policy-open-source",
+    "time": "4 min read"
+  },
+  {
     "title": "Knative Headlamp Plugin",
     "type": "Explanation",
     "link": "/explanations/cloudnative/serverlesscomputing/explanation-knative-headlamp-plugin",
@@ -22,17 +34,5 @@
     "type": "Explanation",
     "link": "/explanations/aiinfrastructure/agenttooling/explanation-apple-safari-mcp-server",
     "time": "9 min read"
-  },
-  {
-    "title": "Post Quantum Tls Jdk27",
-    "type": "Explanation",
-    "link": "/explanations/devsecops/cryptography/explanation-post-quantum-tls-jdk27",
-    "time": "6 min read"
-  },
-  {
-    "title": "Sentry Mcp Agentjacking Vulnerability",
-    "type": "Explanation",
-    "link": "/explanations/devsecops/supplychainsecurity/explanation-sentry-mcp-agentjacking-vulnerability",
-    "time": "14 min read"
   }
 ]
