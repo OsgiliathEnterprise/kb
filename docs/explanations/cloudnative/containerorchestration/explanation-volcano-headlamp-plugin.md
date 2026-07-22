@@ -135,10 +135,15 @@ end note
 enduml
 ```
 
+## Limitations
+
+- **Alpha release** — plugin is still maturing
+- Does not replace `kubectl` or Volcano CLI for automation and scripting
+
 ## Future Work
 
 Planned improvements include:
-- Prometheus integration for metrics
+- Prometheus integration for metrics on Volcano resources
 - Richer scheduling insights
 - More workflow-oriented visibility across Volcano workloads
 

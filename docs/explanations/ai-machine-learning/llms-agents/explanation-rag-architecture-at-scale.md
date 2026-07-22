@@ -300,12 +300,51 @@ RAG reduces but does not eliminate hallucination. The LLM can still:
 ### Knowledge Cutoff Awareness
 Even with RAG, models may not recognize when retrieved information contradicts their training data, leading to blended or confused responses.
 
+## RAG vs. Fine-Tuning vs. Long-Context: Decision Framework
+
+| Pattern | When to Use | Why |
+|---------|-------------|-----|
+| **RAG** | Answers depend on facts in your data that may change | Grounded, up-to-date, citable |
+| **Fine-tuning** | Issue is style, format, tool-use conventions, or narrow skill | Bakes in behavior without factual recall |
+| **Long-context** | Entire relevant corpus fits in prompt (single contract, one codebase) | Simple when cost/latency acceptable |
+
+> **Why RAG wins for most cases**: (1) Cost — every prompt pays for every token; (2) Latency — attention over long contexts is slower; (3) Precision — "lost in the middle" effect means models retrieve worse from the middle of long contexts. RAG sidesteps all three by sending only the most relevant ~2-8 KB of context per request.
+
+## Embedding Model Selection (2026)
+
+| Tier | Models | Notes |
+|------|--------|-------|
+| **Hosted, paid** | OpenAI `text-embedding-3-large`, Voyage AI `voyage-3`, Cohere `embed-v3` | Strongest benchmarks, multilingual |
+| **Hosted, free/open** | Jina `jina-embeddings-v3`, BGE family | Strong quality at near-zero cost |
+| **Self-hosted** | BGE-M3, E5-Mistral, Nomic Embed | Privacy-sensitive workloads |
+
+> **Practical heuristic**: Pick a strong general-purpose model and don't change it until you have an eval harness showing a concrete deficiency. Changing models requires re-embedding the entire corpus.
+
+## Vector Store Comparison (2026)
+
+| Store | Best For | Notes |
+|-------|----------|-------|
+| **pgvector** | Teams already using Postgres | Handles 5M+ vectors, co-located data |
+| **Qdrant** | Strong filtering, multi-tenancy | Rust core, predictable latency |
+| **Pinecone** | Fully managed, high QPS | Vendor-locked, expensive at scale |
+| **Weaviate** | Built-in hybrid search | Good all-in-one option |
+
+> **Default recommendation**: Use pgvector if you already run Postgres and have fewer than ~5M chunks.
+
+## Latency Budget for Production RAG
+
+- **Target**: Under 2 seconds time-to-first-token for chat UX
+- **Retrieval**: ~50-150 ms (warm index)
+- **Reranking**: ~100-300 ms (20 candidates)
+- **LLM**: Remainder (stream response)
+
 ## References
 
 - [Why production RAG systems give confident, wrong answers at scale](https://thenewstack.io/rag-retrieval-scaling-architecture/) (The New Stack, 2026-05-19)
 - [A complete 2026 guide to modern RAG architectures](https://www.linkedin.com/pulse/complete-2026-guide-modern-rag-architectures-how-retrieval-pathan-rx1nf) (LinkedIn)
 - [RAG Systems in Production: Chunking, Retrieval, and Reranking](https://www.elysiate.com/blog/rag-systems-production-guide-chunking-retrieval-2025) (Elysiate, 2025)
 - [RAG Techniques Compared: A Practical Guide](https://blog.starmorph.com/blog/rag-techniques-compared-best-practices-guide) (Starmorph Blog)
+- [RAG Architecture Guide (2026): Production-Grade Retrieval-Augmented Generation](https://www.nirajiitr.com/guides/rag-architecture) (enriched 2026-07-21)
 - [Retrieval-augmented generation — Wikipedia](https://en.wikipedia.org/wiki/Retrieval-augmented_generation) (enriched 2026-05-23)
 - [Vector database — Wikipedia](https://en.wikipedia.org/wiki/Vector_database) (enriched 2026-05-23)
 - [Information retrieval — Wikipedia](https://en.wikipedia.org/wiki/Information_retrieval) (enriched 2026-05-23)

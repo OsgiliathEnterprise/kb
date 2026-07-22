@@ -45,12 +45,17 @@ const sidebars = {
         {
           type: 'category',
           label: 'Kubernetes',
-          items: ['how-to/cloud-infrastructure/kubernetes/howto-headlamp-cluster-api-plugin', 'how-to/cloud-infrastructure/kubernetes/howto-headlamp-knative-plugin', 'how-to/cloud-infrastructure/kubernetes/howto-headlamp-volcano-plugin', 'how-to/cloud-infrastructure/kubernetes/howto-k8s-dashboard-to-headlamp-transition', 'how-to/cloud-infrastructure/kubernetes/howto-running-agents-on-kubernetes-with-agent-sandbox'],
+          items: ['how-to/cloud-infrastructure/kubernetes/howto-k8s-dashboard-to-headlamp-transition', 'how-to/cloud-infrastructure/kubernetes/howto-running-agents-on-kubernetes-with-agent-sandbox'],
         },
         {
           type: 'category',
           label: 'Virtualization',
           items: ['how-to/cloud-infrastructure/virtualization/howto-nvidia-3d-acceleration-qemu-kvm-fedora'],
+        },
+        {
+          type: 'category',
+          label: 'Containerorchestration',
+          items: ['how-to/cloudnative/containerorchestration/howto-headlamp-cluster-api-plugin'],
         },
         {
           type: 'category',
@@ -142,12 +147,17 @@ const sidebars = {
         {
           type: 'category',
           label: 'Kubernetes',
-          items: ['explanations/cloud-infrastructure/kubernetes/explanation-kubernetes-v136-release-overview', 'explanations/cloud-infrastructure/kubernetes/explanation-wg-device-management'],
+          items: ['explanations/cloud-infrastructure/kubernetes/explanation-kubernetes-v136-release-overview'],
         },
         {
           type: 'category',
           label: 'Observability',
           items: ['explanations/cloud-infrastructure/observability/explanation-opentelemetry-ga'],
+        },
+        {
+          type: 'category',
+          label: 'Sitereliabilityengineering',
+          items: ['explanations/cloud-infrastructure/sitereliabilityengineering/explanation-google-sre-cheat-sheet'],
         },
         {
           type: 'category',
@@ -163,6 +173,11 @@ const sidebars = {
           type: 'category',
           label: 'Costoptimization',
           items: ['explanations/cloudnative/costoptimization/cloud-cost-tagging-strategy'],
+        },
+        {
+          type: 'category',
+          label: 'Serverlesscomputing',
+          items: ['explanations/cloudnative/serverlesscomputing/explanation-knative-headlamp-plugin'],
         },
         {
           type: 'category',
@@ -192,12 +207,17 @@ const sidebars = {
         {
           type: 'category',
           label: 'Runtime Environments',
-          items: ['explanations/developer-tools-practices/runtime-environments/explanation-deno-29-desktop-apps', 'explanations/developer-tools-practices/runtime-environments/explanation-kotlin-toolchain-amper-011'],
+          items: ['explanations/developer-tools-practices/runtime-environments/explanation-kotlin-toolchain-amper-011'],
         },
         {
           type: 'category',
           label: 'Cicdpipelines',
           items: ['explanations/devsecops/cicdpipelines/aws-devops-agent-merge-queue-bouncer', 'explanations/devsecops/cicdpipelines/gitlab-19-devsecops-features'],
+        },
+        {
+          type: 'category',
+          label: 'Cryptography',
+          items: ['explanations/devsecops/cryptography/explanation-post-quantum-tls-jdk27'],
         },
         {
           type: 'category',
@@ -207,7 +227,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Supplychainsecurity',
-          items: ['explanations/devsecops/supplychainsecurity/explanation-agentjacking-sentry-mcp-injection', 'explanations/devsecops/supplychainsecurity/explanation-sentry-mcp-agentjacking-vulnerability', 'explanations/devsecops/supplychainsecurity/miasma-worm-ai-agent-supply-chain'],
+          items: ['explanations/devsecops/supplychainsecurity/explanation-sentry-mcp-agentjacking-vulnerability', 'explanations/devsecops/supplychainsecurity/miasma-worm-ai-agent-supply-chain'],
         },
         {
           type: 'category',
@@ -223,7 +243,12 @@ const sidebars = {
         {
           type: 'category',
           label: 'Java Spring',
-          items: ['explanations/programming/java-spring/explanation-jdk27-post-quantum-tls', 'explanations/programming/java-spring/explanation-jep531-lazy-constants', 'explanations/programming/java-spring/explanation-jfr-ai-monitoring', 'explanations/programming/java-spring/explanation-spring-security-ai-era'],
+          items: ['explanations/programming/java-spring/explanation-jep531-lazy-constants', 'explanations/programming/java-spring/explanation-jfr-ai-monitoring', 'explanations/programming/java-spring/explanation-spring-security-ai-era'],
+        },
+        {
+          type: 'category',
+          label: 'Javascript Typescript',
+          items: ['explanations/programming/javascript-typescript/explanation-deno-2-9-desktop-native-apps'],
         },
         {
           type: 'category',
@@ -238,12 +263,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Aiassisteddevelopment',
-          items: ['explanations/softwareengineering/aiassisteddevelopment/deterministic-ai-spring-upgrades'],
-        },
-        {
-          type: 'category',
-          label: 'Architecturefundamentals',
-          items: ['explanations/softwareengineering/architecturefundamentals/explanation-google-sre-cheat-sheet'],
+          items: ['explanations/softwareengineering/aiassisteddevelopment/deterministic-ai-spring-upgrades', 'explanations/softwareengineering/aiassisteddevelopment/explanation-kubernetes-ai-policy-open-source'],
         },
         {
           type: 'category',

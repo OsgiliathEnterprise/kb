@@ -47,12 +47,24 @@ Beyond basic checks, the agent can:
 - **Performance benchmarking**: Measure impact of changes on system performance
 - **Rollback recommendation**: Suggest rollback if tests fail in production
 
+## AWS DevOps Agent: Generally Available (March 2026)
+
+AWS DevOps Agent reached **General Availability** in March 2026. It is positioned as a "frontier agent" — an always-available AI teammate that works across AWS, multicloud, and on-prem environments.
+
+### Full Capabilities at GA
+
+- **Deployment acceleration**: Validates and accelerates code change deployments
+- **Application optimization**: Keeps applications running optimally post-deployment
+- **Multi-environment support**: Works across AWS, multicloud, and on-prem infrastructure
+- **Frontier-class reasoning**: Uses advanced LLM capabilities for complex deployment decisions
+
 ## Architecture Implications
 
 - **Shift-left AI**: AI quality gates happen earlier in the pipeline
 - **Autonomous testing**: Tests run without human intervention
 - **Continuous validation**: Every merge is validated by AI before human review
 - **Feedback loops**: AI learns from review outcomes to improve future assessments
+- **Multi-cloud reach**: Not limited to AWS — operates across heterogeneous environments
 
 ## Key Takeaways
 
@@ -60,8 +72,11 @@ Beyond basic checks, the agent can:
 - Merge queue automation is critical for handling AI-generated code volume
 - Autonomous testing reduces the burden on human reviewers
 - AWS sees DevOps agents as essential infrastructure for AI-era software delivery
+- The GA release signals industry-wide shift toward AI-native CI/CD pipelines
 
 ## References
 
 - [AWS puts an AI bouncer at the merge queue](https://thenewstack.io/aws-devops-agent-ai-delivery-pipeline/)
+- [AWS DevOps Agent (Frontier Agent)](https://aws.amazon.com/devops-agent/)
+- [AWS DevOps Agent GA Announcement](https://aws.amazon.com/about-aws/whats-new/2026/03/aws-devops-agent-generally-available/)
 - [AWS DevOps services](https://aws.amazon.com/devops/)
