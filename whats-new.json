@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Knative Headlamp Plugin",
+    "type": "Explanation",
+    "link": "/explanations/cloudnative/serverlesscomputing/explanation-knative-headlamp-plugin",
+    "time": "5 min read"
+  },
+  {
+    "title": "Headlamp Cluster Api Plugin",
+    "type": "How-To",
+    "link": "/how-to/cloudnative/containerorchestration/howto-headlamp-cluster-api-plugin",
+    "time": "5 min read"
+  },
+  {
+    "title": "Volcano Headlamp Plugin",
+    "type": "Explanation",
+    "link": "/explanations/cloudnative/containerorchestration/explanation-volcano-headlamp-plugin",
+    "time": "3 min read"
+  },
+  {
+    "title": "Enterprise Agentic Platforms",
+    "type": "Explanation",
+    "link": "/explanations/aiinfrastructure/agentinfrastructure/explanation-enterprise-agentic-platforms",
+    "time": "8 min read"
+  },
+  {
+    "title": "Apple Safari Mcp Server",
+    "type": "Explanation",
+    "link": "/explanations/aiinfrastructure/agenttooling/explanation-apple-safari-mcp-server",
+    "time": "9 min read"
+  },
+  {
+    "title": "Post Quantum Tls Jdk27",
+    "type": "Explanation",
+    "link": "/explanations/devsecops/cryptography/explanation-post-quantum-tls-jdk27",
+    "time": "6 min read"
+  }
+]
