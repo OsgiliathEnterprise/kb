@@ -59,6 +59,11 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Runtime Environments',
+          items: ['how-to/developer-tools-practices/runtime-environments/howto-deno-29-desktop-and-migration'],
+        },
+        {
+          type: 'category',
           label: 'Securitytesting',
           items: ['how-to/devsecops/securitytesting/howto-content-security-policy-csp'],
         },
@@ -84,6 +89,11 @@ const sidebars = {
       label: 'Explanations',
       collapsed: true,
       items: [
+        {
+          type: 'category',
+          label: 'Agenticsystems',
+          items: ['explanations/ai-machine-learning/agenticsystems/explanation-ai-cost-budget-architecture'],
+        },
         {
           type: 'category',
           label: 'Aiassisted Development',

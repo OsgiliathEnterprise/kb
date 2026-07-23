@@ -1,5 +1,29 @@
 [
   {
+    "title": "Ai Cost Budget Architecture",
+    "type": "Explanation",
+    "link": "/explanations/ai-machine-learning/agenticsystems/explanation-ai-cost-budget-architecture",
+    "time": "3 min read"
+  },
+  {
+    "title": "Deno 29 Desktop And Migration",
+    "type": "How-To",
+    "link": "/how-to/developer-tools-practices/runtime-environments/howto-deno-29-desktop-and-migration",
+    "time": "4 min read"
+  },
+  {
+    "title": "Cisa Credentials Github Leak",
+    "type": "Explanation",
+    "link": "/explanations/security-privacy/appsec-privacy/explanation-cisa-credentials-github-leak",
+    "time": "4 min read"
+  },
+  {
+    "title": "Chromium Browser Fetch Vulnerability",
+    "type": "Explanation",
+    "link": "/explanations/security-privacy/appsec-privacy/explanation-chromium-browser-fetch-vulnerability",
+    "time": "4 min read"
+  },
+  {
     "title": "Knative Headlamp Plugin",
     "type": "Explanation",
     "link": "/explanations/cloudnative/serverlesscomputing/explanation-knative-headlamp-plugin",
@@ -10,29 +34,5 @@
     "type": "How-To",
     "link": "/how-to/cloudnative/containerorchestration/howto-headlamp-cluster-api-plugin",
     "time": "5 min read"
-  },
-  {
-    "title": "Volcano Headlamp Plugin",
-    "type": "Explanation",
-    "link": "/explanations/cloudnative/containerorchestration/explanation-volcano-headlamp-plugin",
-    "time": "3 min read"
-  },
-  {
-    "title": "Enterprise Agentic Platforms",
-    "type": "Explanation",
-    "link": "/explanations/aiinfrastructure/agentinfrastructure/explanation-enterprise-agentic-platforms",
-    "time": "8 min read"
-  },
-  {
-    "title": "Apple Safari Mcp Server",
-    "type": "Explanation",
-    "link": "/explanations/aiinfrastructure/agenttooling/explanation-apple-safari-mcp-server",
-    "time": "9 min read"
-  },
-  {
-    "title": "Post Quantum Tls Jdk27",
-    "type": "Explanation",
-    "link": "/explanations/devsecops/cryptography/explanation-post-quantum-tls-jdk27",
-    "time": "6 min read"
   }
 ]
