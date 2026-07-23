@@ -94,6 +94,7 @@ GitGuardian's automated public scanning service flagged the exposure. This demon
 - Audit access logs for unauthorized usage of exposed credentials
 - Review and revoke all AWS tokens, SSH keys, and SAML certificates
 - Implement preventive measures to avoid recurrence
+- **Update (July 2026)**: CISA issued a postmortem on the incident. AWS keys remained valid for approximately 48 hours after takedown. The exposure lasted 183 days (Nov 2025 - May 2026).
 
 ## Key Takeaways
 
