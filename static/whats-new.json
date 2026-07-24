@@ -1,15 +1,21 @@
 [
   {
+    "title": "Deno 29 Desktop And Migration",
+    "type": "How-To",
+    "link": "/how-to/developer-tools-practices/runtime-environments/howto-deno-29-desktop-and-migration",
+    "time": "5 min read"
+  },
+  {
+    "title": "Three Layer Architecture Production Ai",
+    "type": "Explanation",
+    "link": "/explanations/developer-tools-practices/architecture-reliability/explanation-three-layer-architecture-production-ai",
+    "time": "3 min read"
+  },
+  {
     "title": "Ai Cost Budget Architecture",
     "type": "Explanation",
     "link": "/explanations/ai-machine-learning/agenticsystems/explanation-ai-cost-budget-architecture",
     "time": "3 min read"
-  },
-  {
-    "title": "Deno 29 Desktop And Migration",
-    "type": "How-To",
-    "link": "/how-to/developer-tools-practices/runtime-environments/howto-deno-29-desktop-and-migration",
-    "time": "4 min read"
   },
   {
     "title": "Cisa Credentials Github Leak",
@@ -27,12 +33,6 @@
     "title": "Knative Headlamp Plugin",
     "type": "Explanation",
     "link": "/explanations/cloudnative/serverlesscomputing/explanation-knative-headlamp-plugin",
-    "time": "5 min read"
-  },
-  {
-    "title": "Headlamp Cluster Api Plugin",
-    "type": "How-To",
-    "link": "/how-to/cloudnative/containerorchestration/howto-headlamp-cluster-api-plugin",
     "time": "5 min read"
   }
 ]

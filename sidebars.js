@@ -257,11 +257,6 @@ const sidebars = {
         },
         {
           type: 'category',
-          label: 'Javascript Typescript',
-          items: ['explanations/programming/javascript-typescript/explanation-deno-2-9-desktop-native-apps'],
-        },
-        {
-          type: 'category',
           label: 'Appsec Privacy',
           items: ['explanations/security-privacy/appsec-privacy/explanation-chromium-browser-fetch-vulnerability', 'explanations/security-privacy/appsec-privacy/explanation-cisa-credentials-github-leak', 'explanations/security-privacy/appsec-privacy/explanation-context-aware-authorization-ai-agents', 'explanations/security-privacy/appsec-privacy/explanation-frontier-ai-models-security-failures'],
         },
