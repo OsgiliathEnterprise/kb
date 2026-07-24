@@ -18,11 +18,23 @@ keywords:
 
 Deno 2.9 was released on June 25, 2026, introducing three major areas of improvement: native desktop application development via `deno desktop`, seamless migration from Node.js ecosystems, and significant performance gains across startup time, memory usage, and HTTP throughput.
 
+## What is Deno?
+
+Deno is a secure, modern runtime for JavaScript, TypeScript, and WebAssembly built on:
+
+- **V8** JavaScript engine (same as Chrome/Node.js)
+- **Rust** for the core runtime
+- **MIT** open-source license
+
+Created by Ryan Dahl (original Node.js creator) and Bert Belder, Deno combines runtime and package management in a single binary — no separate package manager needed. Deno 2.9 aligns with **Node.js 26** compatibility target.
+
 ## Deno Desktop: Native Apps from Web Frameworks
 
 ### What It Solves
 
 Building desktop applications traditionally requires Electron (heavy, ~200MB+ binaries), Tauri (requires Rust knowledge), or other frameworks with separate toolchains. `deno desktop` eliminates this gap by compiling existing web projects directly into standalone native binaries.
+
+**Status:** Requires the canary build; API may change before stable release.
 
 ### Architecture
 
@@ -182,9 +194,39 @@ min-release-age=0      # opt out entirely
 
 Defends against stolen-maintainer-token attacks by refusing to install older versions of a package that were published after a newer version.
 
+## Enhanced Web Cryptography API
+
+Extended with modern and **post-quantum** algorithms based on NIST proposals.
+
+## Tooling Improvements
+
+- `deno compile --bundle` produces smaller binaries
+- `deno bundle`, `deno fmt`, `deno task` refined
+- Snapshot and parameterized testing support
+- More granular OpenTelemetry tracing for observability
+
+## Comparison: Deno Desktop vs. Electron vs. Tauri
+
+| Feature | Electron | Tauri | Deno Desktop |
+|---------|----------|-------|--------------|
+| Runtime bundled | Node.js + Chromium | Webview only | Deno + Webview |
+| Binary size | Large (200+ MB) | Small (~10 MB) | Medium (Deno runtime) |
+| IPC model | Heavy IPC | System-level IPC | Direct (same process) |
+| Language | JS/TS | Rust + JS/TS | JS/TS native |
+| Package mgmt | npm (separate) | npm (separate) | Built-in |
+
+## Use Cases for Deno 2.9
+
+1. **Desktop apps from web stacks**: Ship a Next.js or SvelteKit app as a native binary without rewriting
+2. **Low-memory server deployments**: Stable 62 MB RSS enables denser deployments
+3. **Node.js migration**: Drop-in replacement with lockfile compatibility
+4. **Frontend testing in Deno**: CSS imports + constructable stylesheets enable browser-like testing
+5. **Post-quantum crypto readiness**: NIST-aligned algorithms in Web Crypto API
+
 ## References
 
 - [Deno 2.9 Release Notes](https://deno.com/blog/v2.9)
 - [Deno Desktop Documentation](https://docs.deno.com/runtime/desktop/)
 - [Switching Package Manager to Deno](https://docs.deno.com/runtime/migrate/switch_package_manager/)
 - [Developpez Coverage](https://javascript.developpez.com/actu/384649/)
+- [ishu.dev: Deno 2.9 Deep Dive](https://ishu.dev/post/deno-2-9-desktop-native-apps-cold-start-2026-07-02)
