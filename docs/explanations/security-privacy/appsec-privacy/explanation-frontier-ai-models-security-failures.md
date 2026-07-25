@@ -53,9 +53,17 @@ The research reveals a fundamental gap between how AI safety is measured (single
 
 4. **Cisco argues** that this kind of configuration-driven safety variation isn't captured by any public benchmark or model card and that AI providers should disclose safety-relevant effects of deployment-time settings alongside capability benchmarks.
 
-## Attack Strategy Analysis
+## Attack Strategy Analysis (Expanded)
 
-Cisco decomposed multi-turn outcomes across **five attack strategy families**. Within each family, the spread between the most- and least-exposed models ranged from **79 to 89 percentage points**, meaning a model's vulnerability depends heavily on the specific attack strategy used.
+Cisco decomposed multi-turn outcomes across **five attack strategy families**. The study ran roughly 30,000 single-turn prompts and nearly 7,000 multi-turn attacks across more than 1,400 conversations.
+
+### The Five Multi-Turn Attack Families
+
+1. **Role-play and persona adoption** — The attacker asks the model to adopt a persona for which the harmful output is in-character (e.g., a fictional character, a "research assistant with no restrictions"). Historically correlates with the highest success rates of any single technique.
+2. **Contextual ambiguity** — Rather than stating the harmful objective directly, the attacker builds a context in which the harmful answer is the locally helpful one. The model optimizes for being helpful within a frame the attacker controls.
+3. **Refusal reframing** — When the model refuses, the attacker reinterprets the refusal as a misunderstanding, narrows the request, or claims a legitimate purpose, then re-asks. Each refusal becomes a data point the attacker uses to find the boundary.
+4. **Information decomposition** — The harmful objective is broken into individually benign sub-requests. No single turn trips a safety classifier, but the assembled outputs accomplish the goal.
+5. **Crescendo-style escalation** — The attacker starts well inside policy and escalates one small step at a time. Because each step is only marginally more sensitive than the last, the model's per-turn judgment never registers a sharp enough change to refuse.
 
 ### Single-Turn Attack Procedure Rankings
 
@@ -72,6 +80,10 @@ Cisco decomposed multi-turn outcomes across **five attack strategy families**. W
 
 - **Procedural attacks**: Imposter AI, Soft Paraphrase, System Prompts
 - **Content-based attacks**: Hate Speech, Profanity, Specialized Advice
+
+### Additional Research
+
+An independent Nature Communications paper by Hagendorff et al. (2026) confirmed these findings, showing multi-turn jailbreak success rates of **92-97%** against major frontier and open-weight models — compared to near-zero rates on single-turn benchmarks.
 
 ## Important Caveats
 
@@ -127,6 +139,10 @@ This means:
 ## References
 
 - [Original article: "OpenAI, Anthropic, Google, Amazon, and xAI all fail on type of attack, study finds" — The New Stack](https://thenewstack.io/cisco-frontier-ai-models-fail/)
+- [Safeguard: Cisco Multi-Turn Jailbreak Study, Frontier Models, May 2026](https://safeguard.sh/resources/blog/cisco-multi-turn-jailbreak-frontier-models-may-2026)
+- [Help Net Security: Frontier AI models collapse under multi-turn AI attacks](https://www.helpnetsecurity.com/2026/05/28/cisco-multi-turn-ai-attacks/)
+- [Cisco blog: Proprietary Problems: No Frontier Model Is Multi-Turn Immune](https://blogs.cisco.com/ai/proprietary-problems)
+- [Nature Communications: Hagendorff et al. multi-turn jailbreak study (2026)](https://algeriatech.news/multi-turn-jailbreak-92-97-percent-success-llm-iterative-attacks-cisco-nature-research-2026/)
 - Cisco Frontier AI Model Security Research (referenced in article)
 
 ---

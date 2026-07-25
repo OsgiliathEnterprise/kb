@@ -161,13 +161,28 @@ Alongside OpenTelemetry's CNCF GA, **Elastic announced General Availability of E
 ### Migration Note
 Teams can use EDOT as a supported alternative to vanilla OTel components, with the same data model and export capabilities.
 
-## Challenges Ahead
+## Practical Challenges in 2026
 
 GA is a milestone, not a finish line. The OpenTelemetry community continues to grapple with several significant challenges:
 
 ### Complexity
 
 OpenTelemetry is powerful but complex. The combination of SDKs, collectors, exporters, propagators, and semantic conventions presents a steep learning curve. Simplifying the onboarding experience remains an active priority.
+
+### The Cardinality Problem
+
+OTel doesn't stop you from creating metrics with unbounded cardinality. Adding `user_id` as an attribute to a high-traffic metric will destroy your Prometheus backend. OTel gives you the power to do this; it doesn't protect you from it.
+
+**Best practice:** Keep high-cardinality data (user IDs, order IDs) in traces, not metrics. Metrics should use low-cardinality attributes (status codes, service names, regions).
+
+### Context Propagation Gaps
+
+Auto-instrumentation handles standard HTTP and gRPC well. It doesn't handle:
+- Custom async message queues with proprietary protocols
+- Background jobs triggered by cron
+- External vendor SDKs that don't propagate OTel context
+
+You'll need manual instrumentation for these edge cases. Budget time for it.
 
 ### Breaking Changes
 
@@ -176,6 +191,10 @@ As the specification matures, some changes inevitably break compatibility with e
 ### Performance Regressions at Scale
 
 At massive scale, instrumentation overhead becomes non-negotiable. Several high-profile performance regressions have been discovered and fixed, but the community must remain vigilant — especially as telemetry volumes grow with the adoption of AI workloads.
+
+### Vendor Lock-In Isn't Dead
+
+OTel standardizes data collection and transmission, not data analysis. The value you get from your observability platform (alerting, dashboards, ML-based anomaly detection) is still vendor-specific. Migrating analysis tools is still painful — just less painful than migrating instrumentation code.
 
 ## Summary
 

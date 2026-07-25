@@ -1,5 +1,29 @@
 [
   {
+    "title": "Opentelemetry Ga",
+    "type": "Explanation",
+    "link": "/explanations/cloud-infrastructure/observability/explanation-opentelemetry-ga",
+    "time": "9 min read"
+  },
+  {
+    "title": "Volcano Headlamp Plugin",
+    "type": "How-To",
+    "link": "/how-to/cloud-infrastructure/kubernetes/howto-volcano-headlamp-plugin",
+    "time": "3 min read"
+  },
+  {
+    "title": "Claude Sonnet 5 Agentic Model",
+    "type": "Explanation",
+    "link": "/explanations/ai-machine-learning/llms-agents/explanation-claude-sonnet-5-agentic-model",
+    "time": "4 min read"
+  },
+  {
+    "title": "Frontier Ai Models Security Failures",
+    "type": "Explanation",
+    "link": "/explanations/security-privacy/appsec-privacy/explanation-frontier-ai-models-security-failures",
+    "time": "9 min read"
+  },
+  {
     "title": "Deno 29 Desktop And Migration",
     "type": "How-To",
     "link": "/how-to/developer-tools-practices/runtime-environments/howto-deno-29-desktop-and-migration",
@@ -10,29 +34,5 @@
     "type": "Explanation",
     "link": "/explanations/developer-tools-practices/architecture-reliability/explanation-three-layer-architecture-production-ai",
     "time": "3 min read"
-  },
-  {
-    "title": "Ai Cost Budget Architecture",
-    "type": "Explanation",
-    "link": "/explanations/ai-machine-learning/agenticsystems/explanation-ai-cost-budget-architecture",
-    "time": "3 min read"
-  },
-  {
-    "title": "Cisa Credentials Github Leak",
-    "type": "Explanation",
-    "link": "/explanations/security-privacy/appsec-privacy/explanation-cisa-credentials-github-leak",
-    "time": "4 min read"
-  },
-  {
-    "title": "Chromium Browser Fetch Vulnerability",
-    "type": "Explanation",
-    "link": "/explanations/security-privacy/appsec-privacy/explanation-chromium-browser-fetch-vulnerability",
-    "time": "4 min read"
-  },
-  {
-    "title": "Knative Headlamp Plugin",
-    "type": "Explanation",
-    "link": "/explanations/cloudnative/serverlesscomputing/explanation-knative-headlamp-plugin",
-    "time": "5 min read"
   }
 ]
