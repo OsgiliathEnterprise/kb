@@ -45,7 +45,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Kubernetes',
-          items: ['how-to/cloud-infrastructure/kubernetes/howto-k8s-dashboard-to-headlamp-transition', 'how-to/cloud-infrastructure/kubernetes/howto-running-agents-on-kubernetes-with-agent-sandbox'],
+          items: ['how-to/cloud-infrastructure/kubernetes/howto-k8s-dashboard-to-headlamp-transition', 'how-to/cloud-infrastructure/kubernetes/howto-running-agents-on-kubernetes-with-agent-sandbox', 'how-to/cloud-infrastructure/kubernetes/howto-volcano-headlamp-plugin'],
         },
         {
           type: 'category',
@@ -102,7 +102,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Llms Agents',
-          items: ['explanations/ai-machine-learning/llms-agents/explanation-agent-protocol-stack-mcp-a2a-ag-ui', 'explanations/ai-machine-learning/llms-agents/explanation-maintainability-sensors-for-coding-agents', 'explanations/ai-machine-learning/llms-agents/explanation-rag-architecture-at-scale'],
+          items: ['explanations/ai-machine-learning/llms-agents/explanation-agent-protocol-stack-mcp-a2a-ag-ui', 'explanations/ai-machine-learning/llms-agents/explanation-claude-sonnet-5-agentic-model', 'explanations/ai-machine-learning/llms-agents/explanation-maintainability-sensors-for-coding-agents', 'explanations/ai-machine-learning/llms-agents/explanation-rag-architecture-at-scale'],
         },
         {
           type: 'category',
@@ -142,7 +142,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Aiframeworks',
-          items: ['explanations/aiinfrastructure/aiframeworks/explanation-claude-sonnet-5-agents', 'explanations/aiinfrastructure/aiframeworks/google-diffusiongemma-text-diffusion-model'],
+          items: ['explanations/aiinfrastructure/aiframeworks/google-diffusiongemma-text-diffusion-model'],
         },
         {
           type: 'category',
@@ -177,7 +177,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Containerorchestration',
-          items: ['explanations/cloudnative/containerorchestration/explanation-kubernetes-dra-device-management', 'explanations/cloudnative/containerorchestration/explanation-volcano-headlamp-plugin'],
+          items: ['explanations/cloudnative/containerorchestration/explanation-kubernetes-dra-device-management'],
         },
         {
           type: 'category',
@@ -268,7 +268,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Aiassisteddevelopment',
-          items: ['explanations/softwareengineering/aiassisteddevelopment/deterministic-ai-spring-upgrades', 'explanations/softwareengineering/aiassisteddevelopment/explanation-kubernetes-ai-policy-open-source'],
+          items: ['explanations/softwareengineering/aiassisteddevelopment/deterministic-ai-spring-upgrades'],
         },
         {
           type: 'category',

@@ -153,12 +153,28 @@ else:
     agent_sees = result["safe_payload"]
 ```
 
+## Attack Evolution: GitHub Source Repo Vector (June 2026)
+
+A parallel Miasma worm campaign targeted GitHub source repositories directly, bypassing the npm registry entirely. The attack:
+
+- **Planted a 4.3 MB payload** via commits titled `chore: update dependencies [skip ci]`
+- **Wired auto-execution through five developer tools**: Claude Code, Gemini CLI, Cursor, VS Code, and `npm test` scripts
+- **Used legitimate auto-run features** — Claude/Gemini `SessionStart` hooks, Cursor project rules, VS Code folder-open tasks
+- **Affected 120+ repos** including Microsoft Azure's `durabletask` repository (1,718 stars)
+- **Backdated commit timestamps** to 2020 to hide in dormant branches
+- **Used stolen PATs** from real Microsoft contributors
+
+The dropper is a staged Bun loader with AES-128-GCM encrypted payloads. It downloads Bun if not present, keeping the worm off the victim's Node install. The payload is a multi-cloud credential harvester targeting AWS, Azure, GCP, Vault, Kubernetes, npm, and GitHub secrets.
+
+**Key insight:** Cloning a repo is safe. Opening it in an AI coding agent is not. The attack surface shifted from package registries to source repositories themselves.
+
 ## Key Takeaways
 
 1. **The attack surface is tool outputs, not user prompts** — Miasma exploited the gap between what tools return and what agents do with that content
 2. **Every repository an agent writes to is one poisoned tool result away from compromise**
 3. **Existing security tools were not designed for agentic workflows** — they watch for known patterns, not semantic manipulation
 4. **The fix is straightforward** — put a scrub layer on every tool result before it reaches the agent
+5. **Source repos are now attack vectors** — the worm bypassed package registries entirely, targeting GitHub directly via config-file auto-run hooks
 
 ## Excalidraw Diagram
 
@@ -304,5 +320,6 @@ excalidraw://v1
 
 - [Original article: The Miasma Worm on DEV.to](https://dev.to/coridev/the-miasma-worm-how-ai-coding-agents-became-a-supply-chain-attack-surface-5af)
 - [Rescana: Miasma Worm Supply Chain Attack Analysis](https://www.rescana.com/post/miasma-worm-supply-chain-attack-73-microsoft-github-repositories-compromised-via-ai-coding-tools)
+- [SafeDep: Miasma Worm Targets AI Coding Agents via GitHub Repos](https://safedep.io/miasma-worm-ai-coding-agent-config-injection/)
 - [Orca Security: AI Agent Skill Supply Chain Security](https://orca.security/resources/blog/ai-agent-skill-supply-chain-security/)
 - [StepSecurity Blog: Full Technical Writeup](https://www.stepsecurity.io/blog) (referenced in original article)
