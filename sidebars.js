@@ -45,7 +45,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Kubernetes',
-          items: ['how-to/cloud-infrastructure/kubernetes/howto-k8s-dashboard-to-headlamp-transition', 'how-to/cloud-infrastructure/kubernetes/howto-running-agents-on-kubernetes-with-agent-sandbox', 'how-to/cloud-infrastructure/kubernetes/howto-volcano-headlamp-plugin'],
+          items: ['how-to/cloud-infrastructure/kubernetes/howto-headlamp-cluster-api-plugin', 'how-to/cloud-infrastructure/kubernetes/howto-k8s-dashboard-to-headlamp-transition', 'how-to/cloud-infrastructure/kubernetes/howto-running-agents-on-kubernetes-with-agent-sandbox', 'how-to/cloud-infrastructure/kubernetes/howto-volcano-headlamp-plugin'],
         },
         {
           type: 'category',
@@ -89,11 +89,6 @@ const sidebars = {
       label: 'Explanations',
       collapsed: true,
       items: [
-        {
-          type: 'category',
-          label: 'Agenticsystems',
-          items: ['explanations/ai-machine-learning/agenticsystems/explanation-ai-cost-budget-architecture'],
-        },
         {
           type: 'category',
           label: 'Aiassisted Development',
@@ -249,6 +244,7 @@ const sidebars = {
           label: 'Vulnerabilitymanagement',
           items: ['explanations/devsecops/vulnerabilitymanagement/cisa-ai-vulnerability-directive-3-day-patch'],
         },
+        'explanations/general/explanation-anduinos-2-0-declarative-linux-distribution',
         'explanations/general/explanation-s3-vectors-rag-without-vector-db',
         {
           type: 'category',
