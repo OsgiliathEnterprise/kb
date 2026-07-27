@@ -59,6 +59,11 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Observability',
+          items: ['how-to/cloudnative/observability/howto-custom-metrics-exporter-kubernetes-prometheus'],
+        },
+        {
+          type: 'category',
           label: 'Runtime Environments',
           items: ['how-to/developer-tools-practices/runtime-environments/howto-deno-29-desktop-and-migration'],
         },
@@ -132,7 +137,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Aiengineering',
-          items: ['explanations/aiinfrastructure/aiengineering/aws-sagemaker-ml-deployment-guide', 'explanations/aiinfrastructure/aiengineering/explanation-document-ingestion-complexity', 'explanations/aiinfrastructure/aiengineering/explanation-reliable-agentic-ai-systems-prince-case-study', 'explanations/aiinfrastructure/aiengineering/medium-feature-store-bottleneck-lessons', 'explanations/aiinfrastructure/aiengineering/notebook-to-production-ai-howto', 'explanations/aiinfrastructure/aiengineering/probabilistic-ai-debugging-tutorial', 'explanations/aiinfrastructure/aiengineering/sonarsweep-ai-training-data-quality', 'explanations/aiinfrastructure/aiengineering/valkey-ai-backporting-provenance-guard'],
+          items: ['explanations/aiinfrastructure/aiengineering/aws-sagemaker-ml-deployment-guide', 'explanations/aiinfrastructure/aiengineering/explanation-document-ingestion-complexity', 'explanations/aiinfrastructure/aiengineering/explanation-java-mcp-server-embedding-architecture', 'explanations/aiinfrastructure/aiengineering/explanation-mcp-release-candidate-rewrite-stateless-protocol', 'explanations/aiinfrastructure/aiengineering/explanation-reliable-agentic-ai-systems-prince-case-study', 'explanations/aiinfrastructure/aiengineering/medium-feature-store-bottleneck-lessons', 'explanations/aiinfrastructure/aiengineering/notebook-to-production-ai-howto', 'explanations/aiinfrastructure/aiengineering/probabilistic-ai-debugging-tutorial', 'explanations/aiinfrastructure/aiengineering/sonarsweep-ai-training-data-quality', 'explanations/aiinfrastructure/aiengineering/valkey-ai-backporting-provenance-guard'],
         },
         {
           type: 'category',
@@ -279,7 +284,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Jvmperformance',
-          items: ['explanations/softwareengineering/jvmperformance/explanation-jdk26-performance-improvements', 'explanations/softwareengineering/jvmperformance/explanation-zgc-evolution-decade', 'explanations/softwareengineering/jvmperformance/zgc-weak-reference-optimization'],
+          items: ['explanations/softwareengineering/jvmperformance/explanation-jdk26-performance-improvements', 'explanations/softwareengineering/jvmperformance/explanation-jdk27-g1-default-all-environments', 'explanations/softwareengineering/jvmperformance/explanation-zgc-evolution-decade', 'explanations/softwareengineering/jvmperformance/zgc-weak-reference-optimization'],
         },
         {
           type: 'category',
