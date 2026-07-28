@@ -1,5 +1,23 @@
 [
   {
+    "title": "Build Mcp Server Fastmcp2",
+    "type": "How-To",
+    "link": "/how-to/aiinfrastructure/aiframeworks/howto-build-mcp-server-fastmcp2",
+    "time": "3 min read"
+  },
+  {
+    "title": "Jwt Oauth2 Oidc Pkce Guide",
+    "type": "How-To",
+    "link": "/how-to/softwareengineering/apidesign/howto-jwt-oauth2-oidc-pkce-guide",
+    "time": "5 min read"
+  },
+  {
+    "title": "Custom Metrics Exporter Kubernetes",
+    "type": "How-To",
+    "link": "/how-to/softwareengineering/distributedsystems/howto-custom-metrics-exporter-kubernetes",
+    "time": "5 min read"
+  },
+  {
     "title": "Custom Metrics Exporter Kubernetes Prometheus",
     "type": "How-To",
     "link": "/how-to/cloudnative/observability/howto-custom-metrics-exporter-kubernetes-prometheus",
@@ -16,23 +34,5 @@
     "type": "Explanation",
     "link": "/explanations/aiinfrastructure/aiengineering/explanation-java-mcp-server-embedding-architecture",
     "time": "4 min read"
-  },
-  {
-    "title": "Jdk27 G1 Default All Environments",
-    "type": "Explanation",
-    "link": "/explanations/softwareengineering/jvmperformance/explanation-jdk27-g1-default-all-environments",
-    "time": "3 min read"
-  },
-  {
-    "title": "Ai Cost Budgeting",
-    "type": "How-To",
-    "link": "/how-to/aiinfrastructure/aistrategy/howto-ai-cost-budgeting",
-    "time": "6 min read"
-  },
-  {
-    "title": "Anduinos 2 0 Declarative Linux Distribution",
-    "type": "Explanation",
-    "link": "/explanations/general/explanation-anduinos-2-0-declarative-linux-distribution",
-    "time": "5 min read"
   }
 ]
