@@ -39,6 +39,11 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Aiframeworks',
+          items: ['how-to/aiinfrastructure/aiframeworks/howto-build-mcp-server-fastmcp2'],
+        },
+        {
+          type: 'category',
           label: 'Aistrategy',
           items: ['how-to/aiinfrastructure/aistrategy/howto-ai-cost-budgeting'],
         },
@@ -81,6 +86,16 @@ const sidebars = {
           type: 'category',
           label: 'Appsec Privacy',
           items: ['how-to/security-privacy/appsec-privacy/howto-ai-agent-kubectl-access-patterns', 'how-to/security-privacy/appsec-privacy/howto-linux-second-severe-vulnerability'],
+        },
+        {
+          type: 'category',
+          label: 'Apidesign',
+          items: ['how-to/softwareengineering/apidesign/howto-jwt-oauth2-oidc-pkce-guide'],
+        },
+        {
+          type: 'category',
+          label: 'Distributedsystems',
+          items: ['how-to/softwareengineering/distributedsystems/howto-custom-metrics-exporter-kubernetes'],
         },
         {
           type: 'category',
