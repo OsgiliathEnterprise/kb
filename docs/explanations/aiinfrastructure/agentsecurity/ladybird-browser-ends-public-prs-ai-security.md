@@ -3,7 +3,7 @@ title: Ladybird Browser Ends Public Pull Requests Due to AI Security Concerns
 diataxis: Explanation
 domain: AI-Infrastructure
 topic: Agent-Security
-source: Developpez.com
+source: Developpez.com, Ladybird Official Blog
 source_url: https://intelligence-artificielle.developpez.com/actu/384032/
 date: 2026-06-12
 keywords:
@@ -17,6 +17,8 @@ keywords:
 ## Overview
 
 The Ladybird browser project has announced the end of public pull requests, citing concerns over the volume and quality of AI-generated code contributions. This decision reflects a growing tension in open-source development: generative AI can rapidly produce large volumes of code contributions, but these contributions carry significant security and quality risks.
+
+**Update (July 2026):** The decision was officially announced on the [Ladybird blog](https://ladybird.org/posts/changing-how-we-develop-ladybird/) in June 2026, ahead of the project's first alpha release. The team is moving to a tighter development process with a smaller set of trusted contributors.
 
 ## Background
 
@@ -47,6 +49,38 @@ Ladybird is an independent web browser engine project building a modern, standar
    - Diverts time from actual feature development
    - Creates adversarial dynamics between maintainers and contributors
    - Discourages genuine human contributors
+
+## The Decision
+
+Ladybird will no longer accept public pull requests. From now on, code changes to the Ladybird codebase will only be introduced by project maintainers. The shift was motivated by three factors:
+
+1. **Approaching alpha release**: The project needs a tighter development process as it works toward its first alpha release
+2. **Clearer security model**: A smaller set of trusted contributors reduces the attack surface
+3. **AI-driven code quality**: The flood of AI-generated PRs made it impossible to maintain code quality standards
+
+## Broader Implications for Open Source
+
+This decision raises important questions about the future of open-source contribution models in the AI era:
+
+- **Trust model shift**: Moving from "trust but verify" (open PRs) to "verify then trust" (maintainer-only contributions)
+- **AI as double-edged sword**: AI can accelerate development but also flood repositories with low-quality code
+- **Quality vs. openness trade-off**: Maintaining high code quality may require limiting contribution channels
+- **Precedent setting**: Other security-sensitive open-source projects may follow Ladybird's lead
+
+## Key Takeaways
+
+- Ladybird's decision is not anti-AI — it's pro-quality and pro-security
+- The browser engine domain has uniquely high security stakes where AI mistakes are costly
+- Open-source projects may need to evolve their contribution models as AI-generated code becomes more common
+- The alpha release milestone is a natural inflection point for tightening development processes
+
+## References
+
+- [Changing How We Develop Ladybird — Official Ladybird Blog](https://ladybird.org/posts/changing-how-we-develop-ladybird/)
+- [Ladybird Browser ends public pull requests due to AI and security concerns](https://alternativeto.net/news/2026/6/ladybird-browser-ends-public-pull-requests-due-to-ai-and-security-concerns/)
+- [Ladybird Browser is no longer accepting outside contributions thanks to AI](https://www.neowin.net/news/ladybird-browser-is-no-longer-accepting-outside-contributions-thanks-to-ai/)
+- [Developpez: Ladybird ends public PRs due to AI concerns](https://intelligence-artificielle.developpez.com/actu/384032/)
+- [Ladybird Browser GitHub](https://github.com/LadybirdBrowser)
 
 ## The Decision
 
@@ -109,8 +143,3 @@ This entry relates to:
 - [AI Code Speed vs. Security](../../DevSecOps/Supply-Chain-Security/AI-Generated-Code/ai-code-speed-vs-security.md)
 - [Miasma Worm Supply Chain Attack](../../DevSecOps/Supply-Chain-Security/AI-Agent-Supply-Chain/miasma-worm-ai-agent-supply-chain-attack.md)
 - [Maintainability Sensors for Agents](../../Software-Engineering/Code-Quality/Coding-Agent-Sensors/maintainability-sensors-for-agents.md)
-
-## References
-
-- [Developpez: Ladybird ends public PRs due to AI concerns](https://intelligence-artificielle.developpez.com/actu/384032/)
-- [Ladybird Browser GitHub](https://github.com/LadybirdBrowser)

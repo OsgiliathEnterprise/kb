@@ -1,38 +1,38 @@
 [
   {
-    "title": "Knative Headlamp Plugin",
-    "type": "Explanation",
-    "link": "/explanations/cloudnative/serverlesscomputing/explanation-knative-headlamp-plugin",
-    "time": "5 min read"
-  },
-  {
-    "title": "Headlamp Cluster Api Plugin",
+    "title": "Securing Production Debugging Kubernetes",
     "type": "How-To",
-    "link": "/how-to/cloudnative/containerorchestration/howto-headlamp-cluster-api-plugin",
-    "time": "5 min read"
-  },
-  {
-    "title": "Volcano Headlamp Plugin",
-    "type": "Explanation",
-    "link": "/explanations/cloudnative/containerorchestration/explanation-volcano-headlamp-plugin",
+    "link": "/how-to/cloudnative/cloudsecurity/howto-securing-production-debugging-kubernetes",
     "time": "3 min read"
   },
   {
-    "title": "Enterprise Agentic Platforms",
+    "title": "Orchestrators Tax Context Management",
     "type": "Explanation",
-    "link": "/explanations/aiinfrastructure/agentinfrastructure/explanation-enterprise-agentic-platforms",
-    "time": "8 min read"
-  },
-  {
-    "title": "Apple Safari Mcp Server",
-    "type": "Explanation",
-    "link": "/explanations/aiinfrastructure/agenttooling/explanation-apple-safari-mcp-server",
+    "link": "/explanations/aiinfrastructure/agentinfrastructure/explanation-orchestrators-tax-context-management",
     "time": "9 min read"
   },
   {
-    "title": "Post Quantum Tls Jdk27",
+    "title": "Ai Cryptanalysis Anthropic Mythos",
     "type": "Explanation",
-    "link": "/explanations/devsecops/cryptography/explanation-post-quantum-tls-jdk27",
-    "time": "6 min read"
+    "link": "/explanations/devsecops/cryptography/explanation-ai-cryptanalysis-anthropic-mythos",
+    "time": "11 min read"
+  },
+  {
+    "title": "Jdk28 Jlink Cacerts Plugin",
+    "type": "How-To",
+    "link": "/how-to/programming/java-spring/howto-jdk28-jlink-cacerts-plugin",
+    "time": "2 min read"
+  },
+  {
+    "title": "Kimi K3 Architecture",
+    "type": "Explanation",
+    "link": "/explanations/ai-machine-learning/llms-agents/explanation-kimi-k3-architecture",
+    "time": "7 min read"
+  },
+  {
+    "title": "Build Mcp Server Fastmcp2",
+    "type": "How-To",
+    "link": "/how-to/aiinfrastructure/aiframeworks/howto-build-mcp-server-fastmcp2",
+    "time": "3 min read"
   }
 ]

@@ -53,6 +53,10 @@ The Nitro Isolation Engine is the hypervisor layer responsible for isolating cus
 
 #### Verification Methodology
 
+The Nitro Isolation Engine is a **"separation kernel"** — a minimal OS component responsible exclusively for enforcing isolation between VMs. Unlike the broader Nitro Hypervisor (which handles device drivers and business logic), the Isolation Engine's only job is preventing unauthorized information flow between VMs. Every operation the main hypervisor performs that touches guest VM state requires explicit permission from the Isolation Engine.
+
+The implementation uses **μRust (micro-Rust)** — a restricted Rust subset designed for formal reasoning — with separation logic specifying pre- and post-conditions for total correctness across all execution paths.
+
 ```
 Verification Pipeline
 ┌─────────────────────────────────────────────────────┐
@@ -61,22 +65,30 @@ Verification Pipeline
 │     ├── Hardware-software interface contracts        │
 │     └── Security policy encoding                     │
 │                                                     │
-│  2. Implementation                                  │
-│     ├── Nitro hypervisor code                        │
+│  2. Implementation (μRust)                           │
+│     ├── Separation kernel code                       │
 │     ├── Device driver code                           │
 │     └── Memory management unit configuration         │
 │                                                     │
-│  3. Proof Construction                              │
+│  3. Proof Construction (Isabelle/HOL)                │
+│     ├── 330,000 lines of machine-checked proofs      │
 │     ├── Model checking for finite-state properties   │
 │     ├── Theorem proving for infinite-state properties│
 │     └── Abstract interpretation for resource bounds  │
 │                                                     │
 │  4. Verification                                    │
-│     ├── Proof assistant validation (Coq/Isabelle)    │
+│     ├── Proof assistant validation (Isabelle/HOL)    │
 │     ├── Automated checking of proof steps            │
 │     └── Independent audit of proof artifacts         │
 └─────────────────────────────────────────────────────┘
 ```
+
+The scale of verification is comparable to **seL4** — the landmark formally verified operating system and prior gold standard for proven isolation. Four properties are now mathematically guaranteed:
+
+1. **Confidentiality and integrity**: Guest memory is scrubbed before reuse; unauthorized information flows cannot occur
+2. **Functional correctness**: The implementation matches the specification precisely
+3. **Runtime error absence**: No crashes from failed operations
+4. **Memory safety**: Buffer overflows and pointer vulnerabilities are proven absent
 
 ## Why This Matters for Cloud Security
 

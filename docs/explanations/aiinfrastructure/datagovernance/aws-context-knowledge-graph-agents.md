@@ -3,7 +3,7 @@ title: 'AWS Context: Knowledge Graph Service for AI Agent Data Governance'
 diataxis: Explanation
 domain: AI-Infrastructure
 topic: Data-Governance
-source: TheNewStack
+source: TheNewStack, AWS Blog
 source_url: https://thenewstack.io/aws-context-knowledge-graph-agents/
 date: 2026-06-24
 keywords:
@@ -42,12 +42,24 @@ Traditional RAG (Retrieval-Augmented Generation) systems treat all data as equal
 - **Real-time updates**: The graph stays synchronized with underlying data sources
 - **Audit trail**: All agent queries to the knowledge graph are logged for compliance
 
+## How AWS Context Differs from Traditional RAG
+
+| Dimension | Traditional RAG | AWS Context (Knowledge Graph) |
+|-----------|----------------|-------------------------------|
+| Data model | Flat document chunks | Structured entity-relationship graph |
+| Retrieval | Vector similarity matching | Agentic search with reasoning over relationships |
+| Governance | Document-level access | Fine-grained node/edge-level permissions |
+| Updates | Manual re-indexing | Real-time sync with source data |
+| Context depth | Single-hop retrieval | Multi-hop relationship traversal |
+
 ## Enterprise Benefits
 
 - **Reduced hallucination**: Structured knowledge graphs ground agent responses in verified relationships
 - **Better governance**: Fine-grained access control ensures agents only see authorized data
 - **Domain expertise encoding**: Business rules and domain knowledge are baked into the graph structure
 - **Composability**: Multiple agents can share the same knowledge graph while maintaining isolation
+- **Self-improving**: The knowledge graph learns from agent usage patterns and shares insights across the organization without manual re-curation
+- **Context intelligence at scale**: Agents can access trusted data and business context across data lakes, warehouses, lakehouses, databases, and streams
 
 ## Key Takeaways
 
@@ -55,8 +67,14 @@ Traditional RAG (Retrieval-Augmented Generation) systems treat all data as equal
 - Data governance and AI agent access control are now converging
 - AWS sees knowledge graphs as critical infrastructure for enterprise AI
 - The "data lake of nuance" metaphor captures why structure matters for AI agents
+- AWS Context is announced as "coming soon" — part of broader context intelligence innovations at AWS Summit NYC 2026
 
 ## References
 
 - ["A data lake of nuance for AI agents to swim in": AWS Context gets shipshape on reasoning](https://thenewstack.io/aws-context-knowledge-graph-agents/)
+- [Context intelligence for your data and AI agents at scale (AWS Blog)](https://aws.amazon.com/blogs/machine-learning/context-intelligence-for-your-data-and-ai-agents-at-scale/)
 - [AWS Knowledge Graph services](https://aws.amazon.com/knowledge-graph/)
+
+---
+
+*Enriched 2026-07-24 with AWS Summit NYC 2026 details, agentic search capabilities, self-improving knowledge graph behavior, and comparison with traditional RAG.*

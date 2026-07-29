@@ -39,13 +39,18 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Aiframeworks',
+          items: ['how-to/aiinfrastructure/aiframeworks/howto-build-mcp-server-fastmcp2'],
+        },
+        {
+          type: 'category',
           label: 'Aistrategy',
           items: ['how-to/aiinfrastructure/aistrategy/howto-ai-cost-budgeting'],
         },
         {
           type: 'category',
           label: 'Kubernetes',
-          items: ['how-to/cloud-infrastructure/kubernetes/howto-k8s-dashboard-to-headlamp-transition', 'how-to/cloud-infrastructure/kubernetes/howto-running-agents-on-kubernetes-with-agent-sandbox'],
+          items: ['how-to/cloud-infrastructure/kubernetes/howto-headlamp-cluster-api-plugin', 'how-to/cloud-infrastructure/kubernetes/howto-k8s-dashboard-to-headlamp-transition', 'how-to/cloud-infrastructure/kubernetes/howto-running-agents-on-kubernetes-with-agent-sandbox', 'how-to/cloud-infrastructure/kubernetes/howto-volcano-headlamp-plugin'],
         },
         {
           type: 'category',
@@ -54,8 +59,23 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Cloudsecurity',
+          items: ['how-to/cloudnative/cloudsecurity/howto-securing-production-debugging-kubernetes'],
+        },
+        {
+          type: 'category',
           label: 'Containerorchestration',
           items: ['how-to/cloudnative/containerorchestration/howto-headlamp-cluster-api-plugin'],
+        },
+        {
+          type: 'category',
+          label: 'Observability',
+          items: ['how-to/cloudnative/observability/howto-custom-metrics-exporter-kubernetes-prometheus'],
+        },
+        {
+          type: 'category',
+          label: 'Runtime Environments',
+          items: ['how-to/developer-tools-practices/runtime-environments/howto-deno-29-desktop-and-migration'],
         },
         {
           type: 'category',
@@ -65,12 +85,22 @@ const sidebars = {
         {
           type: 'category',
           label: 'Java Spring',
-          items: ['how-to/programming/java-spring/howto-clean-up-test-data-spring', 'how-to/programming/java-spring/howto-emulate-left-join-fetch-projections', 'how-to/programming/java-spring/howto-jvm-crash-analysis-jcmd', 'how-to/programming/java-spring/howto-spring-ecosystem-roundup-may-2026'],
+          items: ['how-to/programming/java-spring/howto-clean-up-test-data-spring', 'how-to/programming/java-spring/howto-emulate-left-join-fetch-projections', 'how-to/programming/java-spring/howto-jdk28-jlink-cacerts-plugin', 'how-to/programming/java-spring/howto-jvm-crash-analysis-jcmd', 'how-to/programming/java-spring/howto-spring-ecosystem-roundup-may-2026'],
         },
         {
           type: 'category',
           label: 'Appsec Privacy',
           items: ['how-to/security-privacy/appsec-privacy/howto-ai-agent-kubectl-access-patterns', 'how-to/security-privacy/appsec-privacy/howto-linux-second-severe-vulnerability'],
+        },
+        {
+          type: 'category',
+          label: 'Apidesign',
+          items: ['how-to/softwareengineering/apidesign/howto-jwt-oauth2-oidc-pkce-guide'],
+        },
+        {
+          type: 'category',
+          label: 'Distributedsystems',
+          items: ['how-to/softwareengineering/distributedsystems/howto-custom-metrics-exporter-kubernetes'],
         },
         {
           type: 'category',
@@ -92,7 +122,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Llms Agents',
-          items: ['explanations/ai-machine-learning/llms-agents/explanation-agent-protocol-stack-mcp-a2a-ag-ui', 'explanations/ai-machine-learning/llms-agents/explanation-maintainability-sensors-for-coding-agents', 'explanations/ai-machine-learning/llms-agents/explanation-rag-architecture-at-scale'],
+          items: ['explanations/ai-machine-learning/llms-agents/explanation-agent-protocol-stack-mcp-a2a-ag-ui', 'explanations/ai-machine-learning/llms-agents/explanation-claude-sonnet-5-agentic-model', 'explanations/ai-machine-learning/llms-agents/explanation-kimi-k3-architecture', 'explanations/ai-machine-learning/llms-agents/explanation-maintainability-sensors-for-coding-agents', 'explanations/ai-machine-learning/llms-agents/explanation-rag-architecture-at-scale'],
         },
         {
           type: 'category',
@@ -112,7 +142,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Agentinfrastructure',
-          items: ['explanations/aiinfrastructure/agentinfrastructure/explanation-enterprise-agentic-platforms', 'explanations/aiinfrastructure/agentinfrastructure/explanation-mcp-enterprise-authorization-layer', 'explanations/aiinfrastructure/agentinfrastructure/explanation-runtime-engineering-for-agents'],
+          items: ['explanations/aiinfrastructure/agentinfrastructure/explanation-enterprise-agentic-platforms', 'explanations/aiinfrastructure/agentinfrastructure/explanation-mcp-enterprise-authorization-layer', 'explanations/aiinfrastructure/agentinfrastructure/explanation-orchestrators-tax-context-management', 'explanations/aiinfrastructure/agentinfrastructure/explanation-runtime-engineering-for-agents'],
         },
         {
           type: 'category',
@@ -127,12 +157,12 @@ const sidebars = {
         {
           type: 'category',
           label: 'Aiengineering',
-          items: ['explanations/aiinfrastructure/aiengineering/aws-sagemaker-ml-deployment-guide', 'explanations/aiinfrastructure/aiengineering/explanation-document-ingestion-complexity', 'explanations/aiinfrastructure/aiengineering/explanation-reliable-agentic-ai-systems-prince-case-study', 'explanations/aiinfrastructure/aiengineering/medium-feature-store-bottleneck-lessons', 'explanations/aiinfrastructure/aiengineering/notebook-to-production-ai-howto', 'explanations/aiinfrastructure/aiengineering/probabilistic-ai-debugging-tutorial', 'explanations/aiinfrastructure/aiengineering/sonarsweep-ai-training-data-quality', 'explanations/aiinfrastructure/aiengineering/valkey-ai-backporting-provenance-guard'],
+          items: ['explanations/aiinfrastructure/aiengineering/aws-sagemaker-ml-deployment-guide', 'explanations/aiinfrastructure/aiengineering/explanation-document-ingestion-complexity', 'explanations/aiinfrastructure/aiengineering/explanation-java-mcp-server-embedding-architecture', 'explanations/aiinfrastructure/aiengineering/explanation-mcp-release-candidate-rewrite-stateless-protocol', 'explanations/aiinfrastructure/aiengineering/explanation-reliable-agentic-ai-systems-prince-case-study', 'explanations/aiinfrastructure/aiengineering/index', 'explanations/aiinfrastructure/aiengineering/medium-feature-store-bottleneck-lessons', 'explanations/aiinfrastructure/aiengineering/notebook-to-production-ai-howto', 'explanations/aiinfrastructure/aiengineering/probabilistic-ai-debugging-tutorial', 'explanations/aiinfrastructure/aiengineering/sonarsweep-ai-training-data-quality', 'explanations/aiinfrastructure/aiengineering/valkey-ai-backporting-provenance-guard'],
         },
         {
           type: 'category',
           label: 'Aiframeworks',
-          items: ['explanations/aiinfrastructure/aiframeworks/explanation-claude-sonnet-5-agents', 'explanations/aiinfrastructure/aiframeworks/google-diffusiongemma-text-diffusion-model'],
+          items: ['explanations/aiinfrastructure/aiframeworks/google-diffusiongemma-text-diffusion-model'],
         },
         {
           type: 'category',
@@ -167,7 +197,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Containerorchestration',
-          items: ['explanations/cloudnative/containerorchestration/explanation-kubernetes-dra-device-management', 'explanations/cloudnative/containerorchestration/explanation-volcano-headlamp-plugin'],
+          items: ['explanations/cloudnative/containerorchestration/explanation-kubernetes-dra-device-management'],
         },
         {
           type: 'category',
@@ -217,7 +247,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Cryptography',
-          items: ['explanations/devsecops/cryptography/explanation-post-quantum-tls-jdk27'],
+          items: ['explanations/devsecops/cryptography/explanation-ai-cryptanalysis-anthropic-mythos', 'explanations/devsecops/cryptography/explanation-post-quantum-tls-jdk27'],
         },
         {
           type: 'category',
@@ -239,16 +269,12 @@ const sidebars = {
           label: 'Vulnerabilitymanagement',
           items: ['explanations/devsecops/vulnerabilitymanagement/cisa-ai-vulnerability-directive-3-day-patch'],
         },
+        'explanations/general/explanation-anduinos-2-0-declarative-linux-distribution',
         'explanations/general/explanation-s3-vectors-rag-without-vector-db',
         {
           type: 'category',
           label: 'Java Spring',
           items: ['explanations/programming/java-spring/explanation-jep531-lazy-constants', 'explanations/programming/java-spring/explanation-jfr-ai-monitoring', 'explanations/programming/java-spring/explanation-spring-security-ai-era'],
-        },
-        {
-          type: 'category',
-          label: 'Javascript Typescript',
-          items: ['explanations/programming/javascript-typescript/explanation-deno-2-9-desktop-native-apps'],
         },
         {
           type: 'category',
@@ -263,7 +289,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Aiassisteddevelopment',
-          items: ['explanations/softwareengineering/aiassisteddevelopment/deterministic-ai-spring-upgrades', 'explanations/softwareengineering/aiassisteddevelopment/explanation-kubernetes-ai-policy-open-source'],
+          items: ['explanations/softwareengineering/aiassisteddevelopment/deterministic-ai-spring-upgrades'],
         },
         {
           type: 'category',
@@ -278,7 +304,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Jvmperformance',
-          items: ['explanations/softwareengineering/jvmperformance/explanation-jdk26-performance-improvements', 'explanations/softwareengineering/jvmperformance/explanation-zgc-evolution-decade', 'explanations/softwareengineering/jvmperformance/zgc-weak-reference-optimization'],
+          items: ['explanations/softwareengineering/jvmperformance/explanation-jdk26-performance-improvements', 'explanations/softwareengineering/jvmperformance/explanation-jdk27-g1-default-all-environments', 'explanations/softwareengineering/jvmperformance/explanation-zgc-evolution-decade', 'explanations/softwareengineering/jvmperformance/zgc-weak-reference-optimization'],
         },
         {
           type: 'category',
