@@ -59,6 +59,11 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Cloudsecurity',
+          items: ['how-to/cloudnative/cloudsecurity/howto-securing-production-debugging-kubernetes'],
+        },
+        {
+          type: 'category',
           label: 'Containerorchestration',
           items: ['how-to/cloudnative/containerorchestration/howto-headlamp-cluster-api-plugin'],
         },
@@ -80,7 +85,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Java Spring',
-          items: ['how-to/programming/java-spring/howto-clean-up-test-data-spring', 'how-to/programming/java-spring/howto-emulate-left-join-fetch-projections', 'how-to/programming/java-spring/howto-jvm-crash-analysis-jcmd', 'how-to/programming/java-spring/howto-spring-ecosystem-roundup-may-2026'],
+          items: ['how-to/programming/java-spring/howto-clean-up-test-data-spring', 'how-to/programming/java-spring/howto-emulate-left-join-fetch-projections', 'how-to/programming/java-spring/howto-jdk28-jlink-cacerts-plugin', 'how-to/programming/java-spring/howto-jvm-crash-analysis-jcmd', 'how-to/programming/java-spring/howto-spring-ecosystem-roundup-may-2026'],
         },
         {
           type: 'category',
@@ -117,7 +122,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Llms Agents',
-          items: ['explanations/ai-machine-learning/llms-agents/explanation-agent-protocol-stack-mcp-a2a-ag-ui', 'explanations/ai-machine-learning/llms-agents/explanation-claude-sonnet-5-agentic-model', 'explanations/ai-machine-learning/llms-agents/explanation-maintainability-sensors-for-coding-agents', 'explanations/ai-machine-learning/llms-agents/explanation-rag-architecture-at-scale'],
+          items: ['explanations/ai-machine-learning/llms-agents/explanation-agent-protocol-stack-mcp-a2a-ag-ui', 'explanations/ai-machine-learning/llms-agents/explanation-claude-sonnet-5-agentic-model', 'explanations/ai-machine-learning/llms-agents/explanation-kimi-k3-architecture', 'explanations/ai-machine-learning/llms-agents/explanation-maintainability-sensors-for-coding-agents', 'explanations/ai-machine-learning/llms-agents/explanation-rag-architecture-at-scale'],
         },
         {
           type: 'category',
@@ -137,7 +142,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Agentinfrastructure',
-          items: ['explanations/aiinfrastructure/agentinfrastructure/explanation-enterprise-agentic-platforms', 'explanations/aiinfrastructure/agentinfrastructure/explanation-mcp-enterprise-authorization-layer', 'explanations/aiinfrastructure/agentinfrastructure/explanation-runtime-engineering-for-agents'],
+          items: ['explanations/aiinfrastructure/agentinfrastructure/explanation-enterprise-agentic-platforms', 'explanations/aiinfrastructure/agentinfrastructure/explanation-mcp-enterprise-authorization-layer', 'explanations/aiinfrastructure/agentinfrastructure/explanation-orchestrators-tax-context-management', 'explanations/aiinfrastructure/agentinfrastructure/explanation-runtime-engineering-for-agents'],
         },
         {
           type: 'category',
@@ -152,7 +157,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Aiengineering',
-          items: ['explanations/aiinfrastructure/aiengineering/aws-sagemaker-ml-deployment-guide', 'explanations/aiinfrastructure/aiengineering/explanation-document-ingestion-complexity', 'explanations/aiinfrastructure/aiengineering/explanation-java-mcp-server-embedding-architecture', 'explanations/aiinfrastructure/aiengineering/explanation-mcp-release-candidate-rewrite-stateless-protocol', 'explanations/aiinfrastructure/aiengineering/explanation-reliable-agentic-ai-systems-prince-case-study', 'explanations/aiinfrastructure/aiengineering/medium-feature-store-bottleneck-lessons', 'explanations/aiinfrastructure/aiengineering/notebook-to-production-ai-howto', 'explanations/aiinfrastructure/aiengineering/probabilistic-ai-debugging-tutorial', 'explanations/aiinfrastructure/aiengineering/sonarsweep-ai-training-data-quality', 'explanations/aiinfrastructure/aiengineering/valkey-ai-backporting-provenance-guard'],
+          items: ['explanations/aiinfrastructure/aiengineering/aws-sagemaker-ml-deployment-guide', 'explanations/aiinfrastructure/aiengineering/explanation-document-ingestion-complexity', 'explanations/aiinfrastructure/aiengineering/explanation-java-mcp-server-embedding-architecture', 'explanations/aiinfrastructure/aiengineering/explanation-mcp-release-candidate-rewrite-stateless-protocol', 'explanations/aiinfrastructure/aiengineering/explanation-reliable-agentic-ai-systems-prince-case-study', 'explanations/aiinfrastructure/aiengineering/index', 'explanations/aiinfrastructure/aiengineering/medium-feature-store-bottleneck-lessons', 'explanations/aiinfrastructure/aiengineering/notebook-to-production-ai-howto', 'explanations/aiinfrastructure/aiengineering/probabilistic-ai-debugging-tutorial', 'explanations/aiinfrastructure/aiengineering/sonarsweep-ai-training-data-quality', 'explanations/aiinfrastructure/aiengineering/valkey-ai-backporting-provenance-guard'],
         },
         {
           type: 'category',
@@ -242,7 +247,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Cryptography',
-          items: ['explanations/devsecops/cryptography/explanation-post-quantum-tls-jdk27'],
+          items: ['explanations/devsecops/cryptography/explanation-ai-cryptanalysis-anthropic-mythos', 'explanations/devsecops/cryptography/explanation-post-quantum-tls-jdk27'],
         },
         {
           type: 'category',

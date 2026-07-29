@@ -1,38 +1,38 @@
 [
   {
+    "title": "Securing Production Debugging Kubernetes",
+    "type": "How-To",
+    "link": "/how-to/cloudnative/cloudsecurity/howto-securing-production-debugging-kubernetes",
+    "time": "3 min read"
+  },
+  {
+    "title": "Orchestrators Tax Context Management",
+    "type": "Explanation",
+    "link": "/explanations/aiinfrastructure/agentinfrastructure/explanation-orchestrators-tax-context-management",
+    "time": "9 min read"
+  },
+  {
+    "title": "Ai Cryptanalysis Anthropic Mythos",
+    "type": "Explanation",
+    "link": "/explanations/devsecops/cryptography/explanation-ai-cryptanalysis-anthropic-mythos",
+    "time": "11 min read"
+  },
+  {
+    "title": "Jdk28 Jlink Cacerts Plugin",
+    "type": "How-To",
+    "link": "/how-to/programming/java-spring/howto-jdk28-jlink-cacerts-plugin",
+    "time": "2 min read"
+  },
+  {
+    "title": "Kimi K3 Architecture",
+    "type": "Explanation",
+    "link": "/explanations/ai-machine-learning/llms-agents/explanation-kimi-k3-architecture",
+    "time": "7 min read"
+  },
+  {
     "title": "Build Mcp Server Fastmcp2",
     "type": "How-To",
     "link": "/how-to/aiinfrastructure/aiframeworks/howto-build-mcp-server-fastmcp2",
     "time": "3 min read"
-  },
-  {
-    "title": "Jwt Oauth2 Oidc Pkce Guide",
-    "type": "How-To",
-    "link": "/how-to/softwareengineering/apidesign/howto-jwt-oauth2-oidc-pkce-guide",
-    "time": "5 min read"
-  },
-  {
-    "title": "Custom Metrics Exporter Kubernetes",
-    "type": "How-To",
-    "link": "/how-to/softwareengineering/distributedsystems/howto-custom-metrics-exporter-kubernetes",
-    "time": "5 min read"
-  },
-  {
-    "title": "Custom Metrics Exporter Kubernetes Prometheus",
-    "type": "How-To",
-    "link": "/how-to/cloudnative/observability/howto-custom-metrics-exporter-kubernetes-prometheus",
-    "time": "4 min read"
-  },
-  {
-    "title": "Mcp Release Candidate Rewrite Stateless Protocol",
-    "type": "Explanation",
-    "link": "/explanations/aiinfrastructure/aiengineering/explanation-mcp-release-candidate-rewrite-stateless-protocol",
-    "time": "5 min read"
-  },
-  {
-    "title": "Java Mcp Server Embedding Architecture",
-    "type": "Explanation",
-    "link": "/explanations/aiinfrastructure/aiengineering/explanation-java-mcp-server-embedding-architecture",
-    "time": "4 min read"
   }
 ]
