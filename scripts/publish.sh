@@ -87,7 +87,7 @@ mdx_precheck() {
   while IFS= read -r -d '' file; do
     if sed -i \
       -e 's|<\(https\?://[^>]*\)>|[\1](\1)|g' \
-      -e 's|<\([0-9]\)|&lt;\1|g' \
+      -e 's|<\([0-9]\)|\&lt;\1|g' \
       "$file" 2>/dev/null; then
       fixed=$((fixed + 1))
     fi
