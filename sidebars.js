@@ -39,6 +39,11 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Agentinfrastructure',
+          items: ['how-to/aiinfrastructure/agentinfrastructure/howto-running-ai-models-in-docker-production'],
+        },
+        {
+          type: 'category',
           label: 'Aiframeworks',
           items: ['how-to/aiinfrastructure/aiframeworks/howto-build-mcp-server-fastmcp2'],
         },
@@ -147,7 +152,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Agentsecurity',
-          items: ['explanations/aiinfrastructure/agentsecurity/ladybird-browser-ends-public-prs-ai-security', 'explanations/aiinfrastructure/agentsecurity/tailscale-aperture-ai-agent-infrastructure'],
+          items: ['explanations/aiinfrastructure/agentsecurity/explanation-ai-honeypot-prompt-injection-defense', 'explanations/aiinfrastructure/agentsecurity/ladybird-browser-ends-public-prs-ai-security', 'explanations/aiinfrastructure/agentsecurity/tailscale-aperture-ai-agent-infrastructure'],
         },
         {
           type: 'category',
@@ -187,7 +192,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Sitereliabilityengineering',
-          items: ['explanations/cloud-infrastructure/sitereliabilityengineering/explanation-google-sre-cheat-sheet'],
+          items: ['explanations/cloud-infrastructure/sitereliabilityengineering/explanation-ai-sre-graduated-autonomy-model', 'explanations/cloud-infrastructure/sitereliabilityengineering/explanation-google-sre-cheat-sheet'],
         },
         {
           type: 'category',

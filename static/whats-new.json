@@ -1,38 +1,38 @@
 [
   {
-    "title": "Securing Production Debugging Kubernetes",
-    "type": "How-To",
-    "link": "/how-to/cloudnative/cloudsecurity/howto-securing-production-debugging-kubernetes",
-    "time": "3 min read"
-  },
-  {
-    "title": "Orchestrators Tax Context Management",
+    "title": "Ai Sre Graduated Autonomy Model",
     "type": "Explanation",
-    "link": "/explanations/aiinfrastructure/agentinfrastructure/explanation-orchestrators-tax-context-management",
-    "time": "9 min read"
-  },
-  {
-    "title": "Ai Cryptanalysis Anthropic Mythos",
-    "type": "Explanation",
-    "link": "/explanations/devsecops/cryptography/explanation-ai-cryptanalysis-anthropic-mythos",
-    "time": "11 min read"
-  },
-  {
-    "title": "Jdk28 Jlink Cacerts Plugin",
-    "type": "How-To",
-    "link": "/how-to/programming/java-spring/howto-jdk28-jlink-cacerts-plugin",
-    "time": "2 min read"
-  },
-  {
-    "title": "Kimi K3 Architecture",
-    "type": "Explanation",
-    "link": "/explanations/ai-machine-learning/llms-agents/explanation-kimi-k3-architecture",
+    "link": "/explanations/cloud-infrastructure/sitereliabilityengineering/explanation-ai-sre-graduated-autonomy-model",
     "time": "7 min read"
   },
   {
-    "title": "Build Mcp Server Fastmcp2",
+    "title": "Ai Honeypot Prompt Injection Defense",
+    "type": "Explanation",
+    "link": "/explanations/aiinfrastructure/agentsecurity/explanation-ai-honeypot-prompt-injection-defense",
+    "time": "5 min read"
+  },
+  {
+    "title": "Running Ai Models In Docker Production",
     "type": "How-To",
-    "link": "/how-to/aiinfrastructure/aiframeworks/howto-build-mcp-server-fastmcp2",
+    "link": "/how-to/aiinfrastructure/agentinfrastructure/howto-running-ai-models-in-docker-production",
+    "time": "4 min read"
+  },
+  {
+    "title": "Jdk27 G1 Default All Environments",
+    "type": "Explanation",
+    "link": "/explanations/softwareengineering/jvmperformance/explanation-jdk27-g1-default-all-environments",
     "time": "3 min read"
+  },
+  {
+    "title": "Replace Deprecated Genericgenerator",
+    "type": "Tutorials",
+    "link": "/tutorials/programming/java-spring/tutorial-replace-deprecated-genericgenerator",
+    "time": "2 min read"
+  },
+  {
+    "title": "What Is Code",
+    "type": "Tutorials",
+    "link": "/tutorials/ai-machine-learning/llms-agents/tutorial-what-is-code",
+    "time": "5 min read"
   }
 ]
