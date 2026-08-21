@@ -45,7 +45,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Aiframeworks',
-          items: ['how-to/aiinfrastructure/aiframeworks/howto-build-mcp-server-fastmcp2'],
+          items: ['how-to/aiinfrastructure/aiframeworks/howto-dspy-compiled-program-demo-overhead', 'how-to/aiinfrastructure/aiframeworks/howto-measuring-mcp-stdio-pipe-client-side-failures'],
         },
         {
           type: 'category',
@@ -109,6 +109,11 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Mobilearchitecture',
+          items: ['how-to/softwareengineering/mobilearchitecture/howto-streaming-llm-tokens-react-native-no-jank'],
+        },
+        {
+          type: 'category',
           label: 'Webarchitecture',
           items: ['how-to/softwareengineering/webarchitecture/howto-accessibility-beyond-axe'],
         },
@@ -132,7 +137,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Local Ai',
-          items: ['explanations/ai-machine-learning/local-ai/explanation-gemma-4-local-multimodal-llm'],
+          items: ['explanations/ai-machine-learning/local-ai/explanation-gemma-4-local-multimodal-llm', 'explanations/ai-machine-learning/local-ai/explanation-mtp-speculative-decoding-hardware-dependent'],
         },
         {
           type: 'category',
@@ -193,6 +198,11 @@ const sidebars = {
           type: 'category',
           label: 'Sitereliabilityengineering',
           items: ['explanations/cloud-infrastructure/sitereliabilityengineering/explanation-ai-sre-graduated-autonomy-model', 'explanations/cloud-infrastructure/sitereliabilityengineering/explanation-google-sre-cheat-sheet'],
+        },
+        {
+          type: 'category',
+          label: 'Virtualization',
+          items: ['explanations/cloud-infrastructure/virtualization/explanation-crackling-firecracker-microvm-apple-silicon'],
         },
         {
           type: 'category',
@@ -279,7 +289,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Java Spring',
-          items: ['explanations/programming/java-spring/explanation-jep531-lazy-constants', 'explanations/programming/java-spring/explanation-jfr-ai-monitoring', 'explanations/programming/java-spring/explanation-spring-security-ai-era'],
+          items: ['explanations/programming/java-spring/explanation-jep531-lazy-constants', 'explanations/programming/java-spring/explanation-jfr-ai-monitoring', 'explanations/programming/java-spring/explanation-spring-ai-2-tool-calling-architecture', 'explanations/programming/java-spring/explanation-spring-security-ai-era'],
         },
         {
           type: 'category',
@@ -309,7 +319,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Jvmperformance',
-          items: ['explanations/softwareengineering/jvmperformance/explanation-jdk26-performance-improvements', 'explanations/softwareengineering/jvmperformance/explanation-jdk27-g1-default-all-environments', 'explanations/softwareengineering/jvmperformance/explanation-zgc-evolution-decade', 'explanations/softwareengineering/jvmperformance/zgc-weak-reference-optimization'],
+          items: ['explanations/softwareengineering/jvmperformance/explanation-java-vs-go-2026-benchmark-helidon-leyden', 'explanations/softwareengineering/jvmperformance/explanation-jdk26-performance-improvements', 'explanations/softwareengineering/jvmperformance/explanation-jdk27-g1-default-all-environments', 'explanations/softwareengineering/jvmperformance/explanation-zgc-evolution-decade', 'explanations/softwareengineering/jvmperformance/zgc-weak-reference-optimization'],
         },
         {
           type: 'category',
