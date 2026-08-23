@@ -12,6 +12,11 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Deeplearningfundamentals',
+          items: ['tutorials/ai-machine-learning/deeplearningfundamentals/tutorial-backpropagation-by-hand-two-layers-autograd-agrees'],
+        },
+        {
+          type: 'category',
           label: 'Llms Agents',
           items: ['tutorials/ai-machine-learning/llms-agents/tutorial-what-is-code'],
         },
@@ -69,18 +74,18 @@ const sidebars = {
         },
         {
           type: 'category',
-          label: 'Containerorchestration',
-          items: ['how-to/cloudnative/containerorchestration/howto-headlamp-cluster-api-plugin'],
-        },
-        {
-          type: 'category',
           label: 'Observability',
           items: ['how-to/cloudnative/observability/howto-custom-metrics-exporter-kubernetes-prometheus'],
         },
         {
           type: 'category',
           label: 'Runtime Environments',
-          items: ['how-to/developer-tools-practices/runtime-environments/howto-deno-29-desktop-and-migration'],
+          items: ['how-to/developer-tools-practices/runtime-environments/howto-deno-29-desktop-and-migration', 'how-to/developer-tools-practices/runtime-environments/howto-laravel-queue-autoscale-sla-littles-law'],
+        },
+        {
+          type: 'category',
+          label: 'Incidentresponse',
+          items: ['how-to/devsecops/incidentresponse/howto-stop-s3-data-exfiltration-real-time-incident-response'],
         },
         {
           type: 'category',
@@ -95,17 +100,12 @@ const sidebars = {
         {
           type: 'category',
           label: 'Appsec Privacy',
-          items: ['how-to/security-privacy/appsec-privacy/howto-ai-agent-kubectl-access-patterns', 'how-to/security-privacy/appsec-privacy/howto-linux-second-severe-vulnerability'],
+          items: ['how-to/security-privacy/appsec-privacy/howto-ai-agent-kubectl-access-patterns', 'how-to/security-privacy/appsec-privacy/howto-keep-env-secrets-out-of-ai-agent-context', 'how-to/security-privacy/appsec-privacy/howto-linux-second-severe-vulnerability'],
         },
         {
           type: 'category',
           label: 'Apidesign',
           items: ['how-to/softwareengineering/apidesign/howto-jwt-oauth2-oidc-pkce-guide'],
-        },
-        {
-          type: 'category',
-          label: 'Distributedsystems',
-          items: ['how-to/softwareengineering/distributedsystems/howto-custom-metrics-exporter-kubernetes'],
         },
         {
           type: 'category',
@@ -124,6 +124,11 @@ const sidebars = {
       label: 'Explanations',
       collapsed: true,
       items: [
+        {
+          type: 'category',
+          label: 'Agenticsystems',
+          items: ['explanations/ai-machine-learning/agenticsystems/explanation-jsonl-ledgers-git-agent-state-layer'],
+        },
         {
           type: 'category',
           label: 'Aiassisted Development',
@@ -157,17 +162,17 @@ const sidebars = {
         {
           type: 'category',
           label: 'Agentsecurity',
-          items: ['explanations/aiinfrastructure/agentsecurity/explanation-ai-honeypot-prompt-injection-defense', 'explanations/aiinfrastructure/agentsecurity/ladybird-browser-ends-public-prs-ai-security', 'explanations/aiinfrastructure/agentsecurity/tailscale-aperture-ai-agent-infrastructure'],
+          items: ['explanations/aiinfrastructure/agentsecurity/explanation-ai-honeypot-prompt-injection-defense', 'explanations/aiinfrastructure/agentsecurity/explanation-mcp-security-four-boundaries-threat-model', 'explanations/aiinfrastructure/agentsecurity/ladybird-browser-ends-public-prs-ai-security', 'explanations/aiinfrastructure/agentsecurity/tailscale-aperture-ai-agent-infrastructure'],
         },
         {
           type: 'category',
           label: 'Agenttooling',
-          items: ['explanations/aiinfrastructure/agenttooling/block-builderbot-enterprise-ai-agents', 'explanations/aiinfrastructure/agenttooling/browser-use-framework-tutorial', 'explanations/aiinfrastructure/agenttooling/explanation-apple-safari-mcp-server', 'explanations/aiinfrastructure/agenttooling/jetbrains-ide-native-search-for-agents'],
+          items: ['explanations/aiinfrastructure/agenttooling/block-builderbot-enterprise-ai-agents', 'explanations/aiinfrastructure/agenttooling/browser-use-framework-tutorial', 'explanations/aiinfrastructure/agenttooling/explanation-anthropic-browser-use-accessibility-refs', 'explanations/aiinfrastructure/agenttooling/explanation-apple-safari-mcp-server', 'explanations/aiinfrastructure/agenttooling/jetbrains-ide-native-search-for-agents'],
         },
         {
           type: 'category',
           label: 'Aiengineering',
-          items: ['explanations/aiinfrastructure/aiengineering/aws-sagemaker-ml-deployment-guide', 'explanations/aiinfrastructure/aiengineering/explanation-document-ingestion-complexity', 'explanations/aiinfrastructure/aiengineering/explanation-java-mcp-server-embedding-architecture', 'explanations/aiinfrastructure/aiengineering/explanation-mcp-release-candidate-rewrite-stateless-protocol', 'explanations/aiinfrastructure/aiengineering/explanation-reliable-agentic-ai-systems-prince-case-study', 'explanations/aiinfrastructure/aiengineering/index', 'explanations/aiinfrastructure/aiengineering/medium-feature-store-bottleneck-lessons', 'explanations/aiinfrastructure/aiengineering/notebook-to-production-ai-howto', 'explanations/aiinfrastructure/aiengineering/probabilistic-ai-debugging-tutorial', 'explanations/aiinfrastructure/aiengineering/sonarsweep-ai-training-data-quality', 'explanations/aiinfrastructure/aiengineering/valkey-ai-backporting-provenance-guard'],
+          items: ['explanations/aiinfrastructure/aiengineering/aws-sagemaker-ml-deployment-guide', 'explanations/aiinfrastructure/aiengineering/explanation-document-ingestion-complexity', 'explanations/aiinfrastructure/aiengineering/explanation-dspy-compiled-program-fewshot-token-overhead', 'explanations/aiinfrastructure/aiengineering/explanation-java-mcp-server-embedding-architecture', 'explanations/aiinfrastructure/aiengineering/explanation-mcp-pipe-proxy-tool-call-gap', 'explanations/aiinfrastructure/aiengineering/explanation-mcp-release-candidate-rewrite-stateless-protocol', 'explanations/aiinfrastructure/aiengineering/explanation-reliable-agentic-ai-systems-prince-case-study', 'explanations/aiinfrastructure/aiengineering/medium-feature-store-bottleneck-lessons', 'explanations/aiinfrastructure/aiengineering/notebook-to-production-ai-howto', 'explanations/aiinfrastructure/aiengineering/probabilistic-ai-debugging-tutorial', 'explanations/aiinfrastructure/aiengineering/sonarsweep-ai-training-data-quality', 'explanations/aiinfrastructure/aiengineering/valkey-ai-backporting-provenance-guard'],
         },
         {
           type: 'category',
@@ -197,7 +202,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Sitereliabilityengineering',
-          items: ['explanations/cloud-infrastructure/sitereliabilityengineering/explanation-ai-sre-graduated-autonomy-model', 'explanations/cloud-infrastructure/sitereliabilityengineering/explanation-google-sre-cheat-sheet'],
+          items: ['explanations/cloud-infrastructure/sitereliabilityengineering/explanation-ai-sre-graduated-autonomy-model', 'explanations/cloud-infrastructure/sitereliabilityengineering/explanation-google-sre-cheat-sheet', 'explanations/cloud-infrastructure/sitereliabilityengineering/explanation-tale-of-two-flink-autoscalers-netflix'],
         },
         {
           type: 'category',
@@ -233,6 +238,11 @@ const sidebars = {
           type: 'category',
           label: 'Data Storage Engines',
           items: ['explanations/data-databases/data-storage-engines/explanation-database-storage-next-frontier'],
+        },
+        {
+          type: 'category',
+          label: 'Geospatial',
+          items: ['explanations/data-databases/geospatial/explanation-same-zone-same-projection-427m-epsg-trap'],
         },
         {
           type: 'category',
@@ -290,6 +300,11 @@ const sidebars = {
           type: 'category',
           label: 'Java Spring',
           items: ['explanations/programming/java-spring/explanation-jep531-lazy-constants', 'explanations/programming/java-spring/explanation-jfr-ai-monitoring', 'explanations/programming/java-spring/explanation-spring-ai-2-tool-calling-architecture', 'explanations/programming/java-spring/explanation-spring-security-ai-era'],
+        },
+        {
+          type: 'category',
+          label: 'Rust',
+          items: ['explanations/programming/rust/jit-compiling-code-in-5us-copy-and-patch'],
         },
         {
           type: 'category',
@@ -357,6 +372,11 @@ const sidebars = {
           type: 'category',
           label: 'Java Spring',
           items: ['examples/programming/java-spring/example-image-classification-camel-djl'],
+        },
+        {
+          type: 'category',
+          label: 'Appsec Privacy',
+          items: ['examples/security-privacy/appsec-privacy/example-topowatch-workspace-topology-asr'],
         },
       ],
     },

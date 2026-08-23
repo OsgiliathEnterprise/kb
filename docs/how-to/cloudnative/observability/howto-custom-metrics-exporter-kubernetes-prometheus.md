@@ -3,7 +3,7 @@ title: Building a Custom Metrics Exporter for Kubernetes with Prometheus
 diataxis: How-to Guide
 domain: Cloud-Native
 topic: Observability
-source: Kubernetes.io
+source: Kubernetes Blog
 source_url: https://kubernetes.io/blog/2026/07/14/custom-metrics-exporter-kubernetes/
 date: 2026-07-27
 keywords:
@@ -16,7 +16,7 @@ keywords:
 
 ## Overview
 
-Kubernetes ships with built-in awareness of CPU and memory, but most real-world scaling decisions depend on signals outside that narrow window: queue depth, batch job duration, active WebSocket connections. A metrics exporter bridges that gap by exposing application state as text on a `/metrics` endpoint that Prometheus scrapes at regular intervals.
+Kubernetes ships with built-in awareness of CPU and memory, but most real-world scaling decisions depend on signals outside that narrow window: queue depth, batch job duration, active WebSocket connections. A metrics exporter bridges that gap — a lightweight HTTP server that exposes application state as plain text on a `/metrics` endpoint that Prometheus scrapes at regular intervals, stores as time-series data, and makes available for queries, alerts, and autoscaling rules.
 
 ## When to Use a Standalone Exporter vs. Embedded Instrumentation
 
@@ -25,17 +25,19 @@ Kubernetes ships with built-in awareness of CPU and memory, but most real-world 
 | Standalone exporter | Data source is external to your application, or you don't control the application code |
 | Embedded instrumentation | You can embed the Prometheus client library directly in your application |
 
-## Step 1: Choosing What to Measure
+## Prometheus Metric Types
 
-Prometheus data model has three main types:
-
-- **Counters**: Only ever increase. Use for totals: requests served, jobs processed, errors encountered. Never use for values that can go down.
-- **Gauges**: Current snapshot of a value that can rise and fall. Queue depth, active connections, cache size.
-- **Histograms**: Distribution of observed values. Request latency, percentile calculations (p99, p50).
+| Type | Description | Example Use Case |
+|---|---|---|
+| **Counter** | Monotonically increasing values (only ever increase) | Total requests served, errors encountered |
+| **Gauge** | Values that rise and fall (current snapshot) | Queue depth, active connections, cache size |
+| **Histogram** | Distribution of observed values | Request latency percentiles (p50, p99) |
 
 **Naming convention**: `<namespace>_<name>_<unit>` in `snake_case`. Example: `worker_jobs_processed_total`, `worker_queue_depth`, `worker_job_duration_seconds`.
 
-## Step 2: Setting Up the Go Project
+## Building the Exporter in Go
+
+### Step 1: Project Setup
 
 ```bash
 mkdir my-exporter && cd my-exporter
@@ -44,7 +46,7 @@ go get github.com/prometheus/client_golang/prometheus
 go get github.com/prometheus/client_golang/prometheus/promhttp
 ```
 
-## Step 3: Registering Metrics
+### Step 2: Register Metrics
 
 ```go
 package main
@@ -83,11 +85,11 @@ func init() {
 }
 ```
 
-`prometheus.MustRegister` panics on duplicate registration, making misconfigurations obvious at startup. Prefer `prometheus.Register` (with error handling) when embedding in a library.
+`prometheus.MustRegister` panics on duplicate registration, making misconfigurations obvious at startup. For library use, prefer `prometheus.Register` with error handling.
 
-## Step 4: Collecting Real Values
+### Step 3: Collect Real Values
 
-Use a polling goroutine that periodically reads from your data source:
+Use a polling goroutine to keep metrics current:
 
 ```go
 import (
@@ -97,10 +99,12 @@ import (
 
 func collectMetrics() {
     for {
+        // Replace with real reads from your application
         depth := float64(rand.Intn(50))
         queueDepth.Set(depth)
 
         start := time.Now()
+        // Simulate job processing
         time.Sleep(time.Duration(rand.Intn(200)) * time.Millisecond)
         jobDuration.Observe(time.Since(start).Seconds())
         jobsProcessed.WithLabelValues("success").Inc()
@@ -110,9 +114,9 @@ func collectMetrics() {
 }
 ```
 
-**Important**: The polling interval (5 seconds here) should be shorter than Prometheus's scrape interval (default 15 seconds in most cluster deployments).
+**Polling interval guidance**: Keep it shorter than Prometheus's scrape interval (default 15s in most cluster deployments) so each scrape sees fresh data.
 
-## Step 5: Exposing the Endpoint
+### Step 4: Expose the Endpoint
 
 ```go
 func main() {
@@ -136,9 +140,9 @@ go run .
 curl http://localhost:8080/metrics | grep worker_
 ```
 
-## Step 6: Building a Container Image
+## Containerizing the Exporter
 
-Multi-stage build for minimal production image:
+### Multi-Stage Dockerfile
 
 ```dockerfile
 FROM golang:1.21-alpine AS builder
@@ -154,14 +158,15 @@ EXPOSE 8080
 ENTRYPOINT ["/exporter"]
 ```
 
-`distroless/static:nonroot` contains no shell, no package manager, and runs as non-root by default.
+`distroless/static:nonroot` contains no shell, no package manager, and runs as non-root by default — satisfying most cluster security policies.
 
+Build and push:
 ```bash
 docker build -t <registry>/my-exporter:v1.0.0 .
 docker push <registry>/my-exporter:v1.0.0
 ```
 
-## Step 7: Deploying to the Cluster
+## Deploying to Kubernetes
 
 ### Deployment Manifest
 
@@ -228,7 +233,7 @@ Apply both:
 kubectl apply -f deployment.yaml -f service.yaml
 ```
 
-## Step 8: Configuring Prometheus Scraping
+## Configuring Prometheus Scraping
 
 ### Option 1: Prometheus Operator (ServiceMonitor)
 
@@ -252,7 +257,8 @@ spec:
 
 ### Option 2: Annotation-Based Discovery
 
-Add these annotations to the Pod template:
+Add annotations to the Pod template:
+
 ```yaml
 annotations:
   prometheus.io/scrape: "true"
@@ -260,54 +266,77 @@ annotations:
   prometheus.io/path: "/metrics"
 ```
 
-## Step 9: Verifying the Scrape
+**ServiceMonitor is preferred** — it is more explicit and debuggable than annotation-based discovery.
+
+## Verifying the Pipeline
 
 ```bash
+# Port-forward to Prometheus
 kubectl port-forward svc/prometheus-operated 9090 -n monitoring
-```
 
-Navigate to `http://localhost:9090/targets`. The `my-exporter` target should appear with state **UP**.
-
-If **DOWN**, debug with:
-```bash
+# Check target status
 kubectl get pods -n monitoring -l app.kubernetes.io/name=my-exporter
 kubectl describe servicemonitor my-exporter -n monitoring
+
+# Query metrics in Prometheus expression browser
+rate(worker_jobs_processed_total{status="success"}[2m])
 ```
 
-Verify data flow:
-```promql
-rate(worker_jobs_processed_total{status="success"}[2m])
+Navigate to `http://localhost:9090/targets` — the exporter should show as **UP**. If **DOWN**, the debug commands above (pod list + servicemonitor describe) usually pinpoint the issue.
+
+## Next Steps: Custom Metric Autoscaling
+
+To use custom metrics with HorizontalPodAutoscaler:
+
+1. Deploy the **Prometheus Adapter** to register custom metrics with the Kubernetes Custom Metrics API
+2. Reference custom metrics in HPA `metrics` blocks:
+
+```yaml
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+spec:
+  metrics:
+  - type: Pods
+    pods:
+      metric:
+        name: worker_queue_depth
+      target:
+        type: AverageValue
+        averageValue: "10"
 ```
 
 ## Architecture Diagram
 
 ```
-                    Metrics Exporter Architecture
-                    =============================
-
-  ┌─────────────┐     ┌─────────────┐     ┌─────────────┐
-  │ Application │     │  Exporter   │     │  Prometheus │
-  │  (data)     │────▶│  Pod        │────▶│  Server     │
-  └─────────────┘     │             │     │             │
-                      │ /metrics    │     │  Scrapes    │
-                      │ /healthz    │     │  every 15s  │
-                      └─────────────┘     └──────┬──────┘
-                                                 │
-                                                 ▼
-                                        ┌─────────────────┐
-                                        │  HPA / Alerts   │
-                                        │  (autoscaling)  │
-                                        └─────────────────┘
+┌─────────────┐     ┌──────────────┐     ┌──────────────┐     ┌─────────────┐
+│  Application │────▶│  Metrics     │────▶│  Prometheus  │────▶│  HPA /      │
+│  (data source)│     │  Exporter    │     │  (scrapes    │     │  Alerts /   │
+│              │     │  :8080       │     │  /metrics)   │     │  Dashboards │
+└─────────────┘     └──────────────┘     └──────────────┘     └─────────────┘
+                         │                      │
+                         ▼                      ▼
+                   ┌─────────────┐        ┌──────────────┐
+                   │ Kubernetes  │        │  Grafana /    │
+                   │ Deployment  │        │  Alertmanager │
+                   │ + Service   │        │              │
+                   └─────────────┘        └──────────────┘
 ```
 
-## What Comes Next
+## Key Takeaways
 
-The natural next step is surfacing these metrics to the HorizontalPodAutoscaler using the Prometheus Adapter, which registers custom metrics with the Kubernetes Custom Metrics API. Once registered, any HPA in the cluster can reference `worker_queue_depth` or `worker_jobs_processed_total` directly in its `metrics` block.
+1. **Choose the right metric type**: Counters for totals, gauges for current state, histograms for distributions
+2. **Name metrics clearly**: Follow `<namespace>_<name>_<unit>` convention
+3. **Use multi-stage builds**: Keep container images small and secure with distroless bases
+4. **Separate health checks from metrics**: Use `/healthz` for liveness probes, `/metrics` for Prometheus
+5. **ServiceMonitor is preferred**: More explicit and debuggable than annotation-based discovery
+6. **Polling interval &lt; scrape interval**: Ensure Prometheus always sees fresh data
+7. **Custom metrics enable intelligent autoscaling**: Scale on queue depth, request rates, or business metrics — not just CPU/memory
 
 ## References
 
+- [Original Kubernetes Blog Article](https://kubernetes.io/blog/2026/07/14/custom-metrics-exporter-kubernetes/)
+- [Prometheus Client Library for Go](https://github.com/prometheus/client_golang)
 - [Kubernetes HPA Walkthrough](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/)
 - [Autoscaling on Custom Metrics](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/#autoscaling-on-multiple-metrics-and-custom-metrics)
-- [Prometheus Exporters Catalog](https://prometheus.io/docs/instrumenting/exporters/)
-- [Prometheus Operator](https://github.com/prometheus-operator/prometheus-operator)
-- [Original Article](https://kubernetes.io/blog/2026/07/14/custom-metrics-exporter-kubernetes/)
+- [Prometheus Exporters and Integrations](https://prometheus.io/docs/instrumenting/exporters/)
+- [Prometheus Operator Documentation](https://github.com/prometheus-operator/prometheus-operator)

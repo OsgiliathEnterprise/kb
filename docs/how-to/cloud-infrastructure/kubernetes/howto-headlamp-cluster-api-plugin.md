@@ -5,7 +5,7 @@ domain: Cloud & Infrastructure
 topic: Kubernetes
 source: Kubernetes Blog
 source_url: https://kubernetes.io/blog/2026/06/25/headlamp-cluster-api-plugin/
-date: 2026-07-26
+date: 2026-07-22
 keywords:
 - knowledge-base
 - Kubernetes
@@ -16,13 +16,22 @@ keywords:
 
 ## Overview
 
-The Headlamp Cluster API plugin brings visual management of Cluster API (CAPI) resources directly into the Headlamp Kubernetes UI. Cluster API is a Kubernetes sub-project that provides declarative, Kubernetes-style APIs for cluster lifecycle management — provisioning, upgrading, and managing clusters using standard Kubernetes objects stored in a management cluster.
+The Headlamp Cluster API plugin brings visual clarity and simplified operations for managing Cluster API (CAPI) resources directly in the browser. It transforms complex multi-cluster lifecycle management — historically requiring raw `kubectl` commands and deep familiarity with ownership hierarchies — into an intuitive graphical interface.
 
 Before this plugin, managing CAPI resources required raw `kubectl` commands and deep familiarity with ownership hierarchies between Clusters, Machines, MachineDeployments, and control planes. The plugin provides a visual interface for all these operations.
 
 **Status:** Alpha release (as of June 2026)
 
-## What the Plugin Provides
+## What is Cluster API (CAPI)?
+
+Cluster API is a Kubernetes sub-project that brings **declarative, Kubernetes-style APIs** to cluster lifecycle management. It lets platform teams:
+
+- Provision Kubernetes clusters using standard Kubernetes objects
+- Upgrade clusters declaratively
+- Manage the full lifecycle of clusters from a management cluster
+- Track control plane and worker node health
+
+## Plugin Features
 
 | Feature | Description |
 |---------|-------------|
@@ -42,9 +51,19 @@ Before this plugin, managing CAPI resources required raw `kubectl` commands and 
 
 ### Prerequisites
 
-- Headlamp installed and running
+- Headlamp installed and running (install it first if not already)
 - Kubernetes cluster with Cluster API installed
 - (Optional) Headlamp Prometheus plugin for metrics integration
+
+To install Headlamp itself:
+
+```bash
+# macOS
+brew install headlamp
+
+# Linux (AppImage)
+# Download from https://github.com/headlamp-k8s/headlamp/releases
+```
 
 ### Steps
 
@@ -61,6 +80,8 @@ Before this plugin, managing CAPI resources required raw `kubectl` commands and 
    cd plugins/cluster-api
    # Follow the README.md for build and installation instructions
    ```
+
+3. **Connect Headlamp** to a Kubernetes cluster where CAPI is installed.
 
 See the [official README](https://github.com/headlamp-k8s/plugins/blob/main/cluster-api/README.md) for detailed installation instructions.
 
@@ -94,8 +115,9 @@ The dashboard provides a centralized health overview across your management clus
 Dedicated views for MachineDeployments, MachineSets, Machines, and MachinePools surface:
 - Replica counts
 - Ownership relationships
-- Provider IDs
-- Versions and conditions
+- Provider IDs and versions
+- Health conditions
+- A **built-in Scale action** to adjust replica counts directly from the UI
 
 ### Scaling from the UI
 
@@ -119,6 +141,28 @@ A visual topology map displays relationships between:
 - Worker nodes
 
 This provides a faster way to understand ownership hierarchies and overall cluster structure than navigating through individual resource pages.
+
+## Practical Use Cases
+
+### Diagnosing a Degraded Cluster
+
+1. Open the Cluster API dashboard in Headlamp
+2. Identify the cluster with active condition issues
+3. Click into the cluster detail view
+4. Check control plane replica status and worker machine health
+5. Use the map view to trace ownership relationships
+6. Review Prometheus metrics inline for performance correlation
+7. Follow remediation guidance provided by the dashboard
+
+### Scaling a MachineDeployment
+
+1. Navigate to the MachineDeployments list
+2. Select the target deployment
+3. Click the **Scale** action
+4. Enter the desired replica count
+5. Confirm — no terminal commands needed
+
+> **Note:** For topology-managed clusters, the plugin indicates when scaling should be performed at the Cluster level instead.
 
 ## Architecture Diagram
 
@@ -173,16 +217,23 @@ This is an Alpha release. Planned improvements include:
 - Enhanced remediation workflows
 - Deeper integration with infrastructure providers
 
-## Feedback and Contributing
+## Status and Community
 
-- **Bug reports**: [GitHub Issues](https://github.com/kubernetes-sigs/headlamp/issues)
-- **Feature requests**: [GitHub Discussions](https://github.com/kubernetes-sigs/headlamp/discussions)
-- **Contributing**: [Pull Requests](https://github.com/kubernetes-sigs/headlamp/pulls)
-- **Community**: [#headlamp on Kubernetes Slack](https://slack.k8s.io/)
+- **Release status:** Alpha
+- **Developed during:** CNCF LFX Mentorship program
+- **Repository:** [headlamp-k8s/plugins/cluster-api](https://github.com/headlamp-k8s/plugins/tree/main/cluster-api)
+
+### Getting Involved
+
+- **Bug reports:** [Open an issue](https://github.com/kubernetes-sigs/headlamp/issues)
+- **Feature requests:** [Start a discussion](https://github.com/kubernetes-sigs/headlamp/discussions)
+- **Contributing:** [PRs welcome](https://github.com/kubernetes-sigs/headlamp/pulls)
+- **Slack:** Join the `#headlamp` channel on [Kubernetes Slack](https://slack.k8s.io/)
 
 ## References
 
-- [Headlamp Project](https://headlamp.dev/)
+- [Original Article: Introducing the Cluster API plugin for Headlamp](https://kubernetes.io/blog/2026/06/25/headlamp-cluster-api-plugin/)
+- [Headlamp Cluster API Plugin Repository](https://github.com/headlamp-k8s/plugins/tree/main/cluster-api)
 - [Cluster API Documentation](https://cluster-api.sigs.k8s.io/)
-- [Headlamp Plugins Repository](https://github.com/headlamp-k8s/plugins)
-- [Original Article on Kubernetes Blog](https://kubernetes.io/blog/2026/06/25/headlamp-cluster-api-plugin/)
+- [Headlamp Prometheus Plugin](https://github.com/headlamp-k8s/plugins/tree/main/prometheus)
+- [Headlamp Main Project](https://headlamp.dev/)

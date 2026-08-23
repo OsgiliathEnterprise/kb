@@ -1,27 +1,10 @@
 ---
-title: 'Runtime Engineering for AI Agents: Sandboxing, Isolation, and Execution Governance'
+title: ''
 diataxis: Explanation
 domain: AI-Infrastructure
 topic: Agent-Infrastructure
-source: DEV.to, TheNewStack, Northflank
-source_url: https://dev.to/guyoung/boxagnts-runtime-7-sandboxed-execution-rebuilding-agent-infrastructure-4kj3
-date: 2026-06-07
-keywords:
-- knowledge-base
-- Agent-Infrastructure
-- AI-Infrastructure
-- explanations
+source: ''
 ---
-# Runtime Engineering for AI Agents: Sandboxing, Isolation, and Execution Governance
-
-## Summary
-
-The industry has been optimizing AI agent **intelligence** while neglecting **execution safety**. The "model-is-correct, therefore system-is-correct" assumption breaks down in production. This note covers the emerging discipline of **runtime engineering** — execution boundaries, capability systems, resource governance, and fault containment for AI agents.
-
-**Key insight:** "Prompt engineering is user-space; true security guarantees come from kernel-space runtime."
-
----
-
 ## The Core Problem: Untrusted Planner, Trusted Execution
 
 ### Current Architecture (Broken)

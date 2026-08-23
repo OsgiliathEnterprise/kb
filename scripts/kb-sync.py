@@ -139,32 +139,45 @@ def fix_yaml_frontmatter(content: str, meta: dict, diataxis_type: str) -> str:
 
 
 def fix_mdx_issues(content: str) -> str:
-    """Fix common MDX parsing issues."""
+    """Fix common MDX parsing issues.
+
+    Frontmatter handling: only the LEADING frontmatter block (which opens on
+    line 1 with '---' and closes on the next '---') is treated as frontmatter.
+    Any later '---' line in the body is a horizontal rule (thematic break),
+    NOT a frontmatter delimiter. Treating every '---' as a delimiter desyncs
+    the state machine and causes body lines to be skipped (so raw '<' such as
+    '<5 MiB' is never escaped and breaks MDX/JSX compilation).
+    """
     lines = content.split('\n')
     fixed_lines = []
     in_code_block = False
     in_frontmatter = False
 
-    for line in lines:
-        if line.strip().startswith('```'):
+    for idx, line in enumerate(lines):
+        stripped = line.strip()
+        if stripped.startswith('```'):
             in_code_block = not in_code_block
             fixed_lines.append(line)
             continue
         if in_code_block:
             fixed_lines.append(line)
             continue
-        if line.strip() == '---':
-            in_frontmatter = not in_frontmatter
+        if stripped == '---':
+            # Only the leading '---' (line 0) opens frontmatter; the next
+            # '---' while inside frontmatter closes it. Subsequent '---'
+            # lines are body horizontal rules and are left untouched.
+            if idx == 0:
+                in_frontmatter = True
+            elif in_frontmatter:
+                in_frontmatter = False
             fixed_lines.append(line)
             continue
         if in_frontmatter:
             fixed_lines.append(line)
             continue
-        # Skip headings — don't touch them
-        if line.lstrip().startswith('#'):
-            fixed_lines.append(line)
-            continue
-        # Escape < followed by non-alpha/non-slash (triggers JSX parsing)
+        # Escape < followed by non-alpha/non-slash (triggers JSX parsing).
+        # Applied to body lines, headings, tables, and prose alike so that
+        # constructs like '<5 MiB' or 'a<b' become '&lt;...' and are safe.
         fixed = re.sub(r'(?<!")<(?![a-zA-Z/])', '&lt;', line)
         fixed_lines.append(fixed)
 

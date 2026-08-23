@@ -1,29 +1,10 @@
 ---
-title: How to Enable Nvidia 3D Acceleration (VirGL) in a System-Wide QEMU/KVM VM on
-  Fedora
+title: ''
 diataxis: How-to Guide
 domain: Cloud & Infrastructure
 topic: Virtualization
-source: Fedora Community / QEMU Documentation
-source_url: https://wiki.gnome.org/Projects/VirtioGpu
-date: 2026-05-18
-keywords:
-- knowledge-base
-- Virtualization
-- Cloud & Infrastructure
-- how-to
+source: ''
 ---
-# How to Enable Nvidia 3D Acceleration (VirGL) in a System-Wide QEMU/KVM VM on Fedora
-
-This guide explains how to configure a system-wide QEMU/KVM virtual machine (`qemu:///system`) to use host-based Nvidia GPU 3D acceleration using VirtIO-GPU, an `egl-headless` render loop, and a high-performance local Unix socket display pipeline.
-
-## Prerequisites
-*   A Fedora 44 host machine with functional Nvidia proprietary drivers installed via RPM Fusion.
-*   A guest virtual machine configured using standard Virt-Manager tools.
-*   Administrative (`sudo`) privileges on the host.
-
----
-
 ## Procedure
 
 ### Step 1: Grant QEMU Access to Host Graphics Devices
