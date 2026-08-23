@@ -1,27 +1,10 @@
 ---
-title: 'Enterprise Agentic Platforms: The Shift from Assistant to Autonomous Orchestrator'
+title: ''
 diataxis: Explanation
 domain: AI-Infrastructure
 topic: Agent-Infrastructure
-source: TheNewStack
-source_url: https://thenewstack.io/snowflake-coco-agentic-enterprise/
-date: 2026-06-07
-keywords:
-- knowledge-base
-- Agent-Infrastructure
-- AI-Infrastructure
-- explanations
+source: ''
 ---
-# Enterprise Agentic Platforms: The Shift from Assistant to Autonomous Orchestrator
-
-## Summary
-
-The enterprise AI landscape is shifting from **"LLM as conversational assistant"** to **"AI as autonomous orchestrator"**. Snowflake Summit 26 (June 2026) marked a defining moment: AI systems are now measured by autonomy and reliability, not conversational ability. This note covers the emerging paradigm of enterprise agentic platforms and the key architectural decisions behind them.
-
-**Key thesis:** The winner in the agentic enterprise race is "whoever builds the most joyous product" — usability and developer experience trump raw model capability.
-
----
-
 ## The Agentic Enterprise Paradigm
 
 ### From Conversational to Autonomous

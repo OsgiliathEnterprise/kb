@@ -100,6 +100,33 @@ Restricts where form data can be submitted:
 Content-Security-Policy: form-action 'self' https://payments.example.com
 ```
 
+### Modern Directives (CSP Level 3)
+
+| Directive | Purpose |
+|-----------|---------|
+| `crossorigin` | `require-trusted`/`require-cors` — requires CORS (or cross-origin isolation) for cross-origin `script-src`/`style-src`/`connect-src` fetches, protecting against drive-by cross-origin script injection |
+| `require-trusted-types-for` | `script` — forces dynamic code (`innerHTML`, `document.write`, eval) to go through the Trusted Types API, blocking stored-XSS payloads that build scripts via string concatenation |
+| `trusted-types` | Declares allowed Trusted Types policies (`trusted-types 'self' my-policy`) when `require-trusted-types-for` is enabled |
+| `base-uri` | Prevents `<base>`-tag hijacking of relative URL resolution (already shown in the nginx example) |
+
+```http
+# Hardened example combining Level 3 directives
+Content-Security-Policy:
+  default-src 'self';
+  script-src 'self' 'strict-dynamic' 'nonce-{{nonce}}';
+  style-src 'self';
+  object-src 'none';
+  base-uri 'self';
+  form-action 'self';
+  frame-ancestors 'none';
+  require-trusted-types-for 'script';
+  trusted-types 'self' myPolicy;
+  crossorigin require-trusted;
+  report-to csp-endpoint
+```
+
+**CSP is defense-in-depth, not a first line of defense** (per the W3C CSP spec): input encoding, proper output escaping, and safe DOM APIs still come first — CSP limits the damage when injection succeeds.
+
 ---
 
 ## Implementation Guide
@@ -107,8 +134,11 @@ Content-Security-Policy: form-action 'self' https://payments.example.com
 ### Step 1: Start in Report-Only Mode
 
 ```http
-# Test without breaking existing functionality
-Content-Security-Policy-Report-Only: default-src 'self'; report-uri /csp-report
+# Test without breaking existing functionality.
+# Prefer report-to (specify both for cross-browser coverage — report-uri is deprecated
+# and ignored in browsers that support report-to).
+Reporting-Endpoints: endpoint="csp-endpoint", url="/csp-violation-report"
+Content-Security-Policy-Report-Only: default-src 'self'; report-to csp-endpoint; report-uri /csp-report
 ```
 
 ### Step 2: Define Your Allowlist
@@ -159,14 +189,21 @@ def index():
 // CSP violation report handler (Node.js/Express)
 app.post('/csp-violation-report', (req, res) => {
   const report = req.body;
-  console.log('CSP Violation:', {
-    blockedURI: report['csp-report'].blockedURI,
-    directive: report['csp-report'].directive,
-    documentURI: report['csp-report'].documentURI,
-  });
+  // report-to delivers a JSON array of violation objects;
+  // legacy report-uri delivers a single object under a "csp-report" key.
+  const violations = Array.isArray(report) ? report : [report['csp-report']];
+  for (const v of violations) {
+    console.log('CSP Violation:', {
+      blockedURI: v.blockedURI,
+      directive: v.effectiveDirective ?? v.violatedDirective,
+      documentURI: v.documentURI,
+    });
+  }
   res.status(204).send();
 });
 ```
+
+**Note on `report-to` vs `report-uri`:** `report-uri` is deprecated and ignored by browsers that support `report-to`. Modern policy: declare a named endpoint with the `Reporting-Endpoints` header, reference it via `report-to <endpoint_name>` inside the policy, and ship both during the transition period until `report-to` is fully supported everywhere.
 
 ---
 
@@ -197,7 +234,7 @@ Level 3: Strict (Hardened)
 1. **`'unsafe-inline'` defeats CSP for scripts**: Removes protection against XSS
 2. **`'unsafe-eval'` allows dynamic code execution**: Use only when absolutely necessary
 3. **Wildcard `*` in directives**: Too permissive, defeats the purpose
-4. **Missing `report-uri`**: No visibility into policy violations
+4. **Missing `report-to`/`report-uri`**: No visibility into policy violations (`report-uri` alone is deprecated — use `report-to` with a `Reporting-Endpoints` declaration)
 5. **Forgetting CDN resources**: Scripts/styles from CDNs will be blocked
 
 ---

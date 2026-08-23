@@ -1,29 +1,10 @@
 ---
-title: 'Intelligent JVM Monitoring: Combining JDK Flight Recorder with AI'
+title: Enable JFR (default in JDK 17+)
 diataxis: Explanation
 domain: Programming
 topic: Java & Spring
-source: Inside.Java
-source_url: https://inside.java/2026/06/02/jfr-ai-monitor/
-date: 2026-06-07
-keywords:
-- knowledge-base
-- Java & Spring
-- Programming
-- explanations
+source: ''
 ---
-# Intelligent JVM Monitoring: Combining JDK Flight Recorder with AI
-
-## Summary
-
-JDK Flight Recorder (JFR) provides a low-overhead mechanism for capturing detailed JVM diagnostics data. The emerging pattern of streaming live JFR events directly into AI systems enables **proactive monitoring and self-improving applications** — a significant evolution beyond post-mortem crash analysis and traditional dashboard-based observability.
-
-This note covers the JFR + AI monitoring paradigm presented at JavaOne 2026 by Oracle's Yagmur Eren, complementing the existing JVM crash analysis guide with live monitoring capabilities.
-
-**Key insight:** JFR bridges JVM internals with AI reasoning, creating a new observability paradigm beyond traditional dashboards and alerts.
-
----
-
 ## JFR Streaming API Overview
 
 ### What is JFR?

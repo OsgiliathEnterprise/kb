@@ -1,36 +1,10 @@
 ---
-title: 'Kubernetes v1.36: ハル (Haru) — Release Overview'
+title: Via Summary API (privileged)
 diataxis: Explanation
 domain: Cloud & Infrastructure
 topic: Kubernetes
-source: Kubernetes
-source_url: https://kubernetes.io/blog/2026/05/12/kubernetes-v1-36-psi-metrics-ga/
-date: 2026-05-17
-keywords:
-- knowledge-base
-- Kubernetes
-- Cloud & Infrastructure
-- explanations
+source: ''
 ---
-# Kubernetes v1.36: ハル (Haru) — Release Overview
-
-## Summary
-Kubernetes v1.36, themed **"Haru"** (春, spring), delivers **70 enhancements**: 18 graduated to Stable, 25 entered Beta, and 25 graduated to Alpha. Key highlights include PSI metrics reaching GA, fine-grained kubelet API authorization (GA), resource health status (Beta), server-side sharded list/watch for large clusters, DRA maturation with new drivers, volume group snapshots reaching GA, workload-aware scheduling with atomic PodGroup scheduling, Mixed Version Proxy moving to Beta, and the deprecation of Service ExternalIPs.
-
-## Release Theme
-The logo, created by avocadoneko / Natsuho Ide, draws inspiration from Hokusai's *Thirty-six Views of Mount Fuji*. The calligraphy 晴れに翔け (hare ni kake) means "soar into clear skies" — a wish for the release and the community.
-
-## Community Scale
-Contributions from **106 companies** and **491 individuals**. The release blog describes it as arriving "as the season turns and the light shifts on the mountain."
-
-## Security Focus
-v1.36 has a strong emphasis on security hardening — User Namespaces (GA), Fine-Grained Kubelet Authz (GA), Service ExternalIPs removal, and Mutating Admission Policies all tighten the default security posture. InfoQ characterizes this as "security defaults tighten as AI workload support matures."
-
-## Why This Release Matters
-v1.36 is a significant maturity release — multiple Alpha/Beta features graduate to GA/Beta, improving stability guarantees for production clusters. The scaling improvements (sharded list/watch, PSI metrics) directly address challenges in large clusters (10K+ nodes), while the DRA and workload-aware scheduling features lay groundwork for AI/ML workloads on Kubernetes.
-
----
-
 ## 🔴 GA Features
 
 ### 1. Fine-Grained Kubelet API Authorization (GA)
