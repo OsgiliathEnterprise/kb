@@ -83,7 +83,25 @@ Vibe coding is not a single monolithic practice — it exists on a **spectrum** 
 | **Structured AI-Assisted** | AI generates code, developer reviews diffs, runs tests, and refactors | Selective (diff review) | Feature development, bug fixes, refactoring |
 | **Agentic Engineering** | AI agents operate in CI/CD pipelines with human oversight, automated testing, and governance | Automated + human review | Production systems, long-lived codebases |
 
-**Adoption context (2026):** Satya Nadella reported AI writes 20–30% of Microsoft's code. Y Combinator's Winter 2025 batch found ~25% of startups shipped codebases where AI generated the majority. The JetBrains 2025 Developer Ecosystem Survey (24,000+ developers across 194 countries) found **85% regularly use AI tools** and **62% rely on at least one AI coding assistant**.
+**Adoption context (2026):** Satya Nadella reported AI writes 20–30% of Microsoft's code. Y Combinator's Winter 2025 batch found ~25% of startups shipped codebases where AI generated the majority. As of January 2026, **90% of developers regularly use at least one AI tool at work**, up from 85% mid-2025, and **63% of vibe-coding users have never been developers** (JetBrains 2025 Developer Ecosystem Survey, 24,000+ developers, 194 countries: 85% regularly use AI tools, 62% rely on at least one AI assistant). The tooling market has scaled accordingly — Lovable (Swedish AI app builder) crossed **$100M ARR in eight months** with 2.3M active users, and Cursor reached a **$29.3B valuation** at $1B annualized revenue.
+
+## The Productivity and Security Paradox (2026 research)
+
+Adoption data is only half the story. Controlled studies published in 2026 consistently find a **gap between perceived and real productivity**:
+
+- **METR controlled study** — Experienced open-source developers working on real 1M+ line codebases **predicted they would be 24% faster** with AI tools but measured **19% slower**. Even after seeing the results, they still believed they had been ~20% faster.
+- **Stanford RCT** — Developers using AI tools wrote **less secure code** than those without AI, while reporting **higher confidence** in its security. Confidence and quality are decoupling.
+- **Veracode (100+ LLMs vs OWASP Top 10 web risks)** — **45% of AI-generated code samples failed security benchmarks** overall, and the Java failure rate exceeded 70%.
+- **CodeRabbit (470 open-source PRs)** — AI-written code produced **1.7× more issues** than human-written code, with **cross-site-scripting vulnerabilities 2.74× higher**.
+- **Senior vs. junior split (Science, 2026)** — Senior developers (10+ years) report ~81% productivity gains from AI tools; junior developers show **no measurable improvement** because they lack the judgment to evaluate AI output.
+- **Gartner forecast** — 40% of new enterprise production software will use vibe-coding techniques by 2028, but un-governed vibe coding is predicted to **increase software defects by 2,500%** over the same period.
+
+**Practical mitigations** drawn from the same sources:
+
+1. **Bucket every project** — prototype, internal tool, or production system — and apply the matching workflow.
+2. **Seat a senior engineer as the "human operator"** for anything customer-facing; sign off only when the code is understood well enough to maintain.
+3. **Automate verification at the same rate as creation** — hand-written tests cannot keep up with AI-generated code.
+4. **Track two metrics separately** — time-to-first-working-version (vibe coding compresses this) and working-version-to-production-ready (it often expands this).
 
 ## When to Use Vibe Coding
 
@@ -115,3 +133,4 @@ Understanding the distinction between vibe coding and agentic programming helps 
 - [Andrej Karpathy on Vibe Coding (Feb 2025)](https://www.youtube.com/watch?v=wavfD91Rbgo) — Karpathy's original talk coining the term and demonstrating the concept.
 - [Martin Fowler bliki: Agentic Programming](https://martinfowler.com/bliki/AgenticProgramming.html) — Related bliki entry covering the agentic programming paradigm for comparison.
 - [Martin Fowler bliki: AI-Assisted Programming](https://martinfowler.com/bliki/AIAssistedProgramming.html) — Broader overview of how AI tools are changing software development practices.
+- [Forbes: The Vibe Coding Productivity Paradox (2026-06-11)](https://www.forbes.com/sites/jodiecook/2026/06/11/the-vibe-coding-productivity-paradox-no-one-wants-to-talk-about/) — 2026 adoption data (90% of developers, Jan 2026), METR/Stanford/Veracode/CodeRabbit findings, and Gartner 2028 forecasts.

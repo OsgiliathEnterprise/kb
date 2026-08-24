@@ -25,6 +25,7 @@ DSPy's pitch is that you stop hand-writing prompts and let an optimizer **compil
   def __init__(self, ..., max_bootstrapped_demos=4, max_labeled_demos=16, ...):
   ```
   That is **up to 20 demos per predictor** by default — 4 **bootstrapped** (full input→output traces, including the chain-of-thought rationale) plus up to 16 **labeled** examples. They live on the compiled program, **not** in any prompt string you wrote.
+- Cross-referenced against the [official BootstrapFewShot family docs](https://dspy.ai/diving-deeper/bootstrap-fewshot-family/): the default `max_bootstrapped_demos=4` + `max_labeled_demos=16` gives 4 bootstrapped + up to 12 raw per predictor — the raw demos act as ballast against bootstrap overfitting.
 - On **every** inference the module hands **all** of them to the adapter:
   ```python
   # dspy/predict/predict.py
@@ -184,6 +185,7 @@ The point is **not** "DSPy is expensive." The point is that the **number of demo
 
 ## References
 - [dev.to — Your compiled DSPy program re-sends up to 20 few-shot demos on every single call](https://dev.to/wartzarbee/your-compiled-dspy-program-re-sends-up-to-20-few-shot-demos-on-every-single-call-3a74) (wartzarbee, 2026-08-21)
+- [DSPy — BootstrapFewShot family (official docs)](https://dspy.ai/diving-deeper/bootstrap-fewshot-family/)
 - [DSPy — BootstrapFewShot optimizer API](https://dspy.ai/api/optimizers/BootstrapFewShot/)
 - [@wartzar-bee/tokenscope (npm)](https://www.npmjs.com/package/@wartzar-bee/tokenscope)
 - [wartzar-bee/ci-guardrail (GitHub, Apache-2.0)](https://github.com/wartzar-bee/ci-guardrail)

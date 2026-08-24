@@ -1,5 +1,29 @@
 [
   {
+    "title": "Dspy Compiled Program Demo Overhead",
+    "type": "How-To",
+    "link": "/how-to/aiinfrastructure/aiframeworks/howto-dspy-compiled-program-demo-overhead",
+    "time": "5 min read"
+  },
+  {
+    "title": "Hipaa Compliant Healthcare Document Pipeline Net Azure",
+    "type": "How-To",
+    "link": "/how-to/data-databases/data-architecture/howto-hipaa-compliant-healthcare-document-pipeline-net-azure",
+    "time": "13 min read"
+  },
+  {
+    "title": "S3 Vectors Rag Without Vector Db",
+    "type": "Explanation",
+    "link": "/explanations/general/explanation-s3-vectors-rag-without-vector-db",
+    "time": "4 min read"
+  },
+  {
+    "title": "Vibe Coding",
+    "type": "Explanation",
+    "link": "/explanations/ai-machine-learning/aiassisted-development/explanation-vibe-coding",
+    "time": "8 min read"
+  },
+  {
     "title": "Runtime Engineering For Agents",
     "type": "Explanation",
     "link": "/explanations/aiinfrastructure/agentinfrastructure/explanation-runtime-engineering-for-agents",
@@ -10,29 +34,5 @@
     "type": "Explanation",
     "link": "/explanations/aiinfrastructure/agentsecurity/explanation-mcp-security-four-boundaries-threat-model",
     "time": "7 min read"
-  },
-  {
-    "title": "Stop S3 Data Exfiltration Real Time Incident Response",
-    "type": "How-To",
-    "link": "/how-to/devsecops/incidentresponse/howto-stop-s3-data-exfiltration-real-time-incident-response",
-    "time": "5 min read"
-  },
-  {
-    "title": "Spring Ecosystem Roundup May 2026",
-    "type": "How-To",
-    "link": "/how-to/programming/java-spring/howto-spring-ecosystem-roundup-may-2026",
-    "time": "10 min read"
-  },
-  {
-    "title": "Jvm Crash Analysis Jcmd",
-    "type": "How-To",
-    "link": "/how-to/programming/java-spring/howto-jvm-crash-analysis-jcmd",
-    "time": "4 min read"
-  },
-  {
-    "title": "Image Classification Camel Djl",
-    "type": "Examples",
-    "link": "/examples/programming/java-spring/example-image-classification-camel-djl",
-    "time": "2 min read"
   }
 ]
