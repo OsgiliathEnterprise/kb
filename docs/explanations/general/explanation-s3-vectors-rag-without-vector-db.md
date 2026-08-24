@@ -135,6 +135,13 @@ def rag_query(question: str, top_k: int = 5) -> str:
 - Cost-effective at scale due to pay-per-use model
 - ~50 lines of Python for complete RAG pipeline
 
+## 2026 Updates (verified 2026-08-24)
+
+- **Up to 80% lower query (data-processed) charges** for large indexes — applied automatically, no application changes, in all supported regions (AWS News, 2026-06-16). Best practice: distribute vectors across multiple indexes for better query performance.
+- **Up to 10,000 similarity-search results per query** supported (AWS News, 2026-06-16).
+- **SQL access at billion scale** — integrate S3 Vectors with **Aurora PostgreSQL** to query billion-scale vectors using SQL (AWS News, 2026-05-07).
+- **GA since December 2025** with increased scale and performance (AWS News, 2025-12-02).
+
 ## Architecture Diagram
 
 ```
