@@ -143,20 +143,16 @@ const config = {
             title: 'Learn',
             items: [
               {
-                label: 'Tutorials',
-                href: '/tutorials/ai-machine-learning/llms-agents/tutorial-what-is-code',
-              },
-              {
                 label: 'How-to Guides',
-                href: '/how-to/ai-machine-learning/llms-agents/howto-anthropic-routines-claude',
+                href: '/how-to/securityprivacy/aiagentsecurity/howto-mcp-security-hardening',
               },
               {
                 label: 'Explanations',
-                href: '/explanations/ai-machine-learning/llms-agents/explanation-agent-protocol-stack-mcp-a2a-ag-ui',
+                href: '/explanations/securityprivacy/tlsssl/explanation-ssl-tls-three-jobs',
               },
               {
                 label: 'Examples',
-                href: '/examples/ai-machine-learning/llms-agents/example-structured-prompt-driven-development-spdd',
+                href: '/examples/programming/frontendjavascript/example-intl-segmenter-text-analysis',
               },
             ],
           },
@@ -165,19 +161,19 @@ const config = {
             items: [
               {
                 label: 'AI & Machine Learning',
-                href: '/tutorials/ai-machine-learning/llms-agents/tutorial-what-is-code',
+                href: '/explanations/aimachinelearning/agentarchitecture/explanation-agent-guardrail-stack',
               },
               {
                 label: 'Cloud & Infrastructure',
-                href: '/how-to/cloud-infrastructure/kubernetes/howto-running-agents-on-kubernetes-with-agent-sandbox',
+                href: '/explanations/cloudinfrastructure/streaming/explanation-picomq-durable-streams',
               },
               {
                 label: 'Programming',
-                href: '/how-to/programming/java-spring/howto-clean-up-test-data-spring',
+                href: '/explanations/programming/linuxkernel/explanation-isolcpus-irq-affinity',
               },
               {
                 label: 'Security & Privacy',
-                href: '/explanations/security-privacy/appsec-privacy/explanation-chromium-browser-fetch-vulnerability',
+                href: '/explanations/securityprivacy/aiagentsecurity/explanation-llm-inference-engine-exploits',
               },
             ],
           },

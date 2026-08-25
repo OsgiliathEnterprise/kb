@@ -1,38 +1,38 @@
 [
   {
-    "title": "Dspy Compiled Program Demo Overhead",
-    "type": "How-To",
-    "link": "/how-to/aiinfrastructure/aiframeworks/howto-dspy-compiled-program-demo-overhead",
-    "time": "5 min read"
-  },
-  {
-    "title": "Hipaa Compliant Healthcare Document Pipeline Net Azure",
-    "type": "How-To",
-    "link": "/how-to/data-databases/data-architecture/howto-hipaa-compliant-healthcare-document-pipeline-net-azure",
-    "time": "13 min read"
-  },
-  {
-    "title": "S3 Vectors Rag Without Vector Db",
+    "title": "Jetbrains Junie Local Agent",
     "type": "Explanation",
-    "link": "/explanations/general/explanation-s3-vectors-rag-without-vector-db",
+    "link": "/explanations/developertoolspractices/localaiagents/explanation-jetbrains-junie-local-agent",
+    "time": "3 min read"
+  },
+  {
+    "title": "Deepseek Vision Lineage",
+    "type": "Explanation",
+    "link": "/explanations/aimachinelearning/multimodal/explanation-deepseek-vision-lineage",
     "time": "4 min read"
   },
   {
-    "title": "Vibe Coding",
-    "type": "Explanation",
-    "link": "/explanations/ai-machine-learning/aiassisted-development/explanation-vibe-coding",
-    "time": "8 min read"
+    "title": "S3 Exfiltration Incident Response",
+    "type": "How-To",
+    "link": "/how-to/cloudinfrastructure/incidentresponse/howto-s3-exfiltration-incident-response",
+    "time": "2 min read"
   },
   {
-    "title": "Runtime Engineering For Agents",
-    "type": "Explanation",
-    "link": "/explanations/aiinfrastructure/agentinfrastructure/explanation-runtime-engineering-for-agents",
-    "time": "10 min read"
+    "title": "Intl Segmenter Text Analysis",
+    "type": "Examples",
+    "link": "/examples/programming/frontendjavascript/example-intl-segmenter-text-analysis",
+    "time": "4 min read"
   },
   {
-    "title": "Mcp Security Four Boundaries Threat Model",
+    "title": "Isolcpus Irq Affinity",
     "type": "Explanation",
-    "link": "/explanations/aiinfrastructure/agentsecurity/explanation-mcp-security-four-boundaries-threat-model",
-    "time": "7 min read"
+    "link": "/explanations/programming/linuxkernel/explanation-isolcpus-irq-affinity",
+    "time": "3 min read"
+  },
+  {
+    "title": "Ssl Tls Three Jobs",
+    "type": "Explanation",
+    "link": "/explanations/securityprivacy/tlsssl/explanation-ssl-tls-three-jobs",
+    "time": "3 min read"
   }
 ]
