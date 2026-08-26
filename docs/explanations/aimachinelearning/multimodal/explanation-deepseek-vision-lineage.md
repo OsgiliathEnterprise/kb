@@ -179,7 +179,14 @@ not enough — training must preserve the LM's reasoning and instruction-followi
 ## DeepSeek-VL2 — detail + efficient inference
 
 - **Dynamic tiling** for varied aspect ratios and higher resolutions (a fixed
-  resize erases the detail a document/screenshot task needs).
+  resize erases the detail a document/screenshot task needs). Precisely: for
+  an input of size (H, W) it builds candidate resolutions
+  `CR = {(m×384, n×384) | m,n ∈ N, 1 ≤ m,n, m×n ≤ 9}`, picks the one with the
+  **minimum padding area**, then splits the resized image into `m×n` local
+  **384×384 tiles plus one global tile** for context. Each tile passes
+  through a shared **SigLIP-SO400M-384** encoder, yielding up to
+  **729 embeddings of 1152 dimensions** per tile — fine detail without the
+  compute blowup of naive resolution scaling.
 - A **Mixture-of-Experts** language component (DeepSeekMoE) with
   **Multi-head Latent Attention**, which compresses the Key-Value cache into
   latent vectors for efficient inference and high throughput.
@@ -187,9 +194,12 @@ not enough — training must preserve the LM's reasoning and instruction-followi
   (2.8B), and full (4.5B activated)** — competitive or SOTA with similar or
   fewer activated parameters than dense and MoE open-source peers, per the
   paper ([arXiv:2412.10302](https://arxiv.org/abs/2412.10302)).
-- Trained on an improved vision-language dataset; reported strengths span
-  visual question answering, OCR, document/table/chart understanding, and
-  visual grounding.
+- **Three-stage training recipe**: (1) *vision-language alignment* warmup on
+  image-caption pairs (e.g. ShareGPT4V); (2) *pretraining* on a ~70%
+  vision-language / 30% text-only mix to push cross-modal reasoning; (3)
+  *supervised fine-tuning* on in-house QA and structured data (OCR, VQA,
+  charts, documents). Reported strengths span visual question answering, OCR,
+  document/table/chart understanding, and visual grounding.
 
 ## Janus / Janus-Pro — a distinct thread
 

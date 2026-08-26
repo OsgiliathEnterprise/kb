@@ -7,6 +7,11 @@ const sidebars = {
       items: [
         {
           type: 'category',
+          label: 'Agentarchitecture',
+          items: ['how-to/aimachinelearning/agentarchitecture/howto-agentic-rag-pipeline-with-real-time-web-search'],
+        },
+        {
+          type: 'category',
           label: 'Incidentresponse',
           items: ['how-to/cloudinfrastructure/incidentresponse/howto-s3-exfiltration-incident-response'],
         },
@@ -24,8 +29,18 @@ const sidebars = {
       items: [
         {
           type: 'category',
+          label: 'Llminfrastructure',
+          items: ['explanations/aillm/llminfrastructure/explanation-openai-jalapeno-chip-first-benchmarks'],
+        },
+        {
+          type: 'category',
+          label: 'Llmmodels',
+          items: ['explanations/aillm/llmmodels/explanation-ibm-granite-4-2-dense-reasoning-models'],
+        },
+        {
+          type: 'category',
           label: 'Agentarchitecture',
-          items: ['explanations/aimachinelearning/agentarchitecture/explanation-agent-guardrail-stack'],
+          items: ['explanations/aimachinelearning/agentarchitecture/explanation-agent-guardrail-stack', 'explanations/aimachinelearning/agentarchitecture/explanation-claude-unified-memory-architecture'],
         },
         {
           type: 'category',
@@ -45,12 +60,22 @@ const sidebars = {
         {
           type: 'category',
           label: 'Localaiagents',
-          items: ['explanations/developertoolspractices/localaiagents/explanation-jetbrains-junie-local-agent'],
+          items: ['explanations/developertoolspractices/localaiagents/explanation-jetbrains-junie-local-agent', 'explanations/developertoolspractices/localaiagents/explanation-perplexity-portable-computer-local-agent'],
         },
         {
           type: 'category',
           label: 'Linuxkernel',
           items: ['explanations/programming/linuxkernel/explanation-isolcpus-irq-affinity'],
+        },
+        {
+          type: 'category',
+          label: 'Python',
+          items: ['explanations/programming/python/explanation-python-str-lower-idna-unicode-cve-2026-17084'],
+        },
+        {
+          type: 'category',
+          label: 'Rust',
+          items: ['explanations/programming/rust/explanation-rust-1-98-algebraic-float-and-buffered-formatting'],
         },
         {
           type: 'category',
@@ -73,6 +98,11 @@ const sidebars = {
           type: 'category',
           label: 'Frontendjavascript',
           items: ['examples/programming/frontendjavascript/example-intl-segmenter-text-analysis'],
+        },
+        {
+          type: 'category',
+          label: 'Linux',
+          items: ['examples/programming/linux/example-self-sqlite-executable-self-httpd'],
         },
       ],
     },

@@ -260,3 +260,4 @@ tool-allowlist against the new model's calling behavior.
 - [MCP Security: Threat Model and Hardening Guide (2026)](https://dev.to/prabhu_kalyansamal_f743d/-mcp-security-threat-model-hardening-guide-2026--3enn)
 - [SGLang tool-call parser documentation](https://docs.sglang.ai/advanced_features/tool_parser.html)
 - [Safety and Security in the Model Context Protocol (Medium)](https://medium.com/@carlosm0303/safety-and-security-in-the-model-context-protocol-mcp-c6319778b150)
+- [Hardening MCP: Advanced Threat Detection and Policy Enforcement (Security Boulevard, 2026-07) — policy-as-code PEP, why WAFs fall short](https://securityboulevard.com/2026/07/hardening-model-context-protocol-advanced-threat-detection-and-policy-enforcement/)
