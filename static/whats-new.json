@@ -1,38 +1,38 @@
 [
   {
-    "title": "Jetbrains Junie Local Agent",
+    "title": "Openai Jalapeno Chip First Benchmarks",
     "type": "Explanation",
-    "link": "/explanations/developertoolspractices/localaiagents/explanation-jetbrains-junie-local-agent",
+    "link": "/explanations/aillm/llminfrastructure/explanation-openai-jalapeno-chip-first-benchmarks",
+    "time": "4 min read"
+  },
+  {
+    "title": "Ibm Granite 4 2 Dense Reasoning Models",
+    "type": "Explanation",
+    "link": "/explanations/aillm/llmmodels/explanation-ibm-granite-4-2-dense-reasoning-models",
     "time": "3 min read"
+  },
+  {
+    "title": "Perplexity Portable Computer Local Agent",
+    "type": "Explanation",
+    "link": "/explanations/developertoolspractices/localaiagents/explanation-perplexity-portable-computer-local-agent",
+    "time": "4 min read"
+  },
+  {
+    "title": "Claude Unified Memory Architecture",
+    "type": "Explanation",
+    "link": "/explanations/aimachinelearning/agentarchitecture/explanation-claude-unified-memory-architecture",
+    "time": "3 min read"
+  },
+  {
+    "title": "Agentic Rag Pipeline With Real Time Web Search",
+    "type": "How-To",
+    "link": "/how-to/aimachinelearning/agentarchitecture/howto-agentic-rag-pipeline-with-real-time-web-search",
+    "time": "6 min read"
   },
   {
     "title": "Deepseek Vision Lineage",
     "type": "Explanation",
     "link": "/explanations/aimachinelearning/multimodal/explanation-deepseek-vision-lineage",
     "time": "4 min read"
-  },
-  {
-    "title": "S3 Exfiltration Incident Response",
-    "type": "How-To",
-    "link": "/how-to/cloudinfrastructure/incidentresponse/howto-s3-exfiltration-incident-response",
-    "time": "2 min read"
-  },
-  {
-    "title": "Intl Segmenter Text Analysis",
-    "type": "Examples",
-    "link": "/examples/programming/frontendjavascript/example-intl-segmenter-text-analysis",
-    "time": "4 min read"
-  },
-  {
-    "title": "Isolcpus Irq Affinity",
-    "type": "Explanation",
-    "link": "/explanations/programming/linuxkernel/explanation-isolcpus-irq-affinity",
-    "time": "3 min read"
-  },
-  {
-    "title": "Ssl Tls Three Jobs",
-    "type": "Explanation",
-    "link": "/explanations/securityprivacy/tlsssl/explanation-ssl-tls-three-jobs",
-    "time": "3 min read"
   }
 ]
