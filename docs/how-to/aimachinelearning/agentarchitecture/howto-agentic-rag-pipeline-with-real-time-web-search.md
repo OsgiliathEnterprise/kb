@@ -293,3 +293,4 @@ when evidence freshness or multi-source reasoning is a core requirement.
 - [LangGraph: agentic RAG guide](https://docs.langchain.com/oss/python/langgraph/agentic-rag)
 - [Corrective RAG paper](https://arxiv.org/abs/2401.15884)
 - [NVIDIA Agentic RAG Blueprint](https://docs.nvidia.com/rag/latest/agentic-rag.html)
+- [IBM Developer: Building an agentic RAG pipeline](https://developer.ibm.com/articles/agentic-rag-pipeline/)

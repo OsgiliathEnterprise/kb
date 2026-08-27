@@ -2,6 +2,18 @@ const sidebars = {
   main: [
     {
       type: 'category',
+      label: 'Tutorials',
+      collapsed: true,
+      items: [
+        {
+          type: 'category',
+          label: 'Databases',
+          items: ['tutorials/programming/databases/tutorial-mvcc-postgres-style-snapshots-typescript'],
+        },
+      ],
+    },
+    {
+      type: 'category',
       label: 'How-to Guides',
       collapsed: true,
       items: [
@@ -30,7 +42,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Llminfrastructure',
-          items: ['explanations/aillm/llminfrastructure/explanation-openai-jalapeno-chip-first-benchmarks'],
+          items: ['explanations/aillm/llminfrastructure/explanation-openai-jalapeno-chip-first-benchmarks', 'explanations/aillm/llminfrastructure/explanation-qwen3-embedding-cloud-tpu-vllm'],
         },
         {
           type: 'category',
@@ -62,6 +74,7 @@ const sidebars = {
           label: 'Localaiagents',
           items: ['explanations/developertoolspractices/localaiagents/explanation-jetbrains-junie-local-agent', 'explanations/developertoolspractices/localaiagents/explanation-perplexity-portable-computer-local-agent'],
         },
+        'explanations/general/2026-08-27',
         {
           type: 'category',
           label: 'Linuxkernel',
@@ -80,7 +93,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Aiagentsecurity',
-          items: ['explanations/securityprivacy/aiagentsecurity/explanation-llm-inference-engine-exploits'],
+          items: ['explanations/securityprivacy/aiagentsecurity/explanation-llm-inference-engine-exploits', 'explanations/securityprivacy/aiagentsecurity/explanation-openai-hugging-face-agent-incident'],
         },
         {
           type: 'category',

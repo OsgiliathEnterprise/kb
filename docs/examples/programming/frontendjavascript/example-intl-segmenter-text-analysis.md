@@ -118,3 +118,4 @@ locale-dependent rather than random.
 - [Text Analysis Without a Backend (DZone)](https://dzone.com/articles/text-analysis-without-backend)
 - [Intl.Segmenter (MDN)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter)
 - [TC39 proposal-intl-segmenter](https://github.com/tc39/proposal-intl-segmenter)
+- [MDN blog: Locale-sensitive text segmentation in JavaScript with Intl.Segmenter](https://developer.mozilla.org/en-US/blog/javascript-intl-segmenter-i18n/)

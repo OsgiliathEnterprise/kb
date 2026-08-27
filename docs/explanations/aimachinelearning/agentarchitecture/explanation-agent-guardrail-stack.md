@@ -73,3 +73,4 @@ fossil record of mistakes.
 ## References
 
 - [Rate limits are not quality gates (dev.to)](https://dev.to/rulestack/rate-limits-are-not-quality-gates-the-guardrail-stack-behind-an-ai-agent-that-posts-publicly-every-2b6k)
+- [GitLab: Implementing effective guardrails for AI agents](https://about.gitlab.com/the-source/ai/implementing-effective-guardrails-for-ai-agents/)
