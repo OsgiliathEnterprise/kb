@@ -144,3 +144,4 @@ supports tool calling, with limited capability.
 - [The New Stack: IBM's new Granite 4.2 models add reasoning and stay dense](https://thenewstack.io/ibm-granite-reasoning-models/)
 - [IBM Granite 4.2 launch (Hugging Face blog)](https://huggingface.co/blog/ibm-granite/granite-4-2)
 - [IBM CodeAlchemy synthetic code pipeline](https://research.ibm.com/blog/code-alchemy-for-synthetic-code)
+- [IBM Granite official product page (model family overview)](https://www.ibm.com/granite)

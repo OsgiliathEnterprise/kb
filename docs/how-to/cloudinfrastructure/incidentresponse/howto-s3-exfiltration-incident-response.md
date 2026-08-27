@@ -90,3 +90,4 @@ data events are disabled by default and are billed per request. See
 
 - [Stopping S3 Data Exfiltration in Real Time (dev.to)](https://dev.to/nghidanh2005/-stopping-s3-data-exfiltration-in-real-time-a-step-by-step-incident-response-2jp)
 - [AWS GuardDuty S3 Protection documentation](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html)
+- [AWS News Blog: Using Amazon GuardDuty to protect your S3 buckets](https://aws.amazon.com/blogs/aws/new-using-amazon-guardduty-to-protect-your-s3-buckets/)

@@ -232,3 +232,4 @@ it stays non-UB. See the [ManuallyDrop docs](https://doc.rust-lang.org/stable/st
 - [Official Rust blog: Announcing Rust 1.98.0](https://blog.rust-lang.org/2026/08/20/Rust-1.98.0/)
 - [Algebraic operators API change proposal (libs-team#532)](https://github.com/rust-lang/libs-team/issues/532)
 - [itoa-benchmark](https://github.com/dtolnay/itoa-benchmark)
+- [itoa crate documentation (docs.rs)](https://docs.rs/itoa/latest/itoa/)

@@ -1,5 +1,11 @@
 [
   {
+    "title": "Qwen3 Embedding Cloud Tpu Vllm",
+    "type": "Explanation",
+    "link": "/explanations/aillm/llminfrastructure/explanation-qwen3-embedding-cloud-tpu-vllm",
+    "time": "5 min read"
+  },
+  {
     "title": "Openai Jalapeno Chip First Benchmarks",
     "type": "Explanation",
     "link": "/explanations/aillm/llminfrastructure/explanation-openai-jalapeno-chip-first-benchmarks",
@@ -18,21 +24,15 @@
     "time": "4 min read"
   },
   {
+    "title": "Jetbrains Junie Local Agent",
+    "type": "Explanation",
+    "link": "/explanations/developertoolspractices/localaiagents/explanation-jetbrains-junie-local-agent",
+    "time": "3 min read"
+  },
+  {
     "title": "Claude Unified Memory Architecture",
     "type": "Explanation",
     "link": "/explanations/aimachinelearning/agentarchitecture/explanation-claude-unified-memory-architecture",
     "time": "3 min read"
-  },
-  {
-    "title": "Agentic Rag Pipeline With Real Time Web Search",
-    "type": "How-To",
-    "link": "/how-to/aimachinelearning/agentarchitecture/howto-agentic-rag-pipeline-with-real-time-web-search",
-    "time": "6 min read"
-  },
-  {
-    "title": "Deepseek Vision Lineage",
-    "type": "Explanation",
-    "link": "/explanations/aimachinelearning/multimodal/explanation-deepseek-vision-lineage",
-    "time": "4 min read"
   }
 ]
