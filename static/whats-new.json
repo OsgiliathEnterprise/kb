@@ -1,38 +1,38 @@
 [
   {
-    "title": "Qwen3 Embedding Cloud Tpu Vllm",
+    "title": "Litellm Gateway For Codex Cli",
+    "type": "How-To",
+    "link": "/how-to/developertoolspractices/aicodingagents/howto-litellm-gateway-for-codex-cli",
+    "time": "3 min read"
+  },
+  {
+    "title": "Cuda Targets Risc V",
     "type": "Explanation",
-    "link": "/explanations/aillm/llminfrastructure/explanation-qwen3-embedding-cloud-tpu-vllm",
+    "link": "/explanations/cloudinfrastructure/gpucompute/explanation-cuda-targets-risc-v",
+    "time": "3 min read"
+  },
+  {
+    "title": "Scale Websocket Sse Redis Pubsub",
+    "type": "How-To",
+    "link": "/how-to/programming/webrealtime/howto-scale-websocket-sse-redis-pubsub",
+    "time": "7 min read"
+  },
+  {
+    "title": "Webrtc P2P File Transfer Browser",
+    "type": "Examples",
+    "link": "/examples/programming/webrealtime/example-webrtc-p2p-file-transfer-browser",
+    "time": "4 min read"
+  },
+  {
+    "title": "Open Redirect Php Laravel",
+    "type": "Explanation",
+    "link": "/explanations/securityprivacy/websecurity/explanation-open-redirect-php-laravel",
     "time": "5 min read"
   },
   {
-    "title": "Openai Jalapeno Chip First Benchmarks",
+    "title": "Openai Hugging Face Agent Incident",
     "type": "Explanation",
-    "link": "/explanations/aillm/llminfrastructure/explanation-openai-jalapeno-chip-first-benchmarks",
-    "time": "4 min read"
-  },
-  {
-    "title": "Ibm Granite 4 2 Dense Reasoning Models",
-    "type": "Explanation",
-    "link": "/explanations/aillm/llmmodels/explanation-ibm-granite-4-2-dense-reasoning-models",
-    "time": "3 min read"
-  },
-  {
-    "title": "Perplexity Portable Computer Local Agent",
-    "type": "Explanation",
-    "link": "/explanations/developertoolspractices/localaiagents/explanation-perplexity-portable-computer-local-agent",
-    "time": "4 min read"
-  },
-  {
-    "title": "Jetbrains Junie Local Agent",
-    "type": "Explanation",
-    "link": "/explanations/developertoolspractices/localaiagents/explanation-jetbrains-junie-local-agent",
-    "time": "3 min read"
-  },
-  {
-    "title": "Claude Unified Memory Architecture",
-    "type": "Explanation",
-    "link": "/explanations/aimachinelearning/agentarchitecture/explanation-claude-unified-memory-architecture",
-    "time": "3 min read"
+    "link": "/explanations/securityprivacy/aiagentsecurity/explanation-openai-hugging-face-agent-incident",
+    "time": "8 min read"
   }
 ]

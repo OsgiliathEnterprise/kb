@@ -169,8 +169,24 @@ Nvidia did not publish the full list (it fits "two pages"), but the shape is
 clear: a RISC-V host must be a real server platform — coherent, ACPI-aware,
 vector-capable, with P2P — before CUDA will run on it.
 
+## Ecosystem context (verified 2026-08-28)
+
+The timing of this port lines up with the RISC-V ecosystem's push into data
+centers: at the **RISC-V Summit Europe 2026** (Bologna), RISC-V International
+CEO Andrea Gallo declared "RISC-V is now", citing the official ratification of
+the **RISC-V Server Platform Specification 1.0** — based on the RVA23 profile —
+which brings industry-standard boot and runtime services (**UEFI, ACPI 6.6**) to
+RISC-V servers so system software runs consistently across server hardware. The
+same summit reported RISC-V adoption expanding beyond embedded into data
+centers, edge AI, and space applications, with Meta, Google, Nvidia, Qualcomm,
+and Alibaba all adding RISC-V technology to their portfolios. In other words:
+the ACPI/BRS gap that blocked the CUDA port is exactly what the ratified server
+platform spec now closes — which is why a server-grade RISC-V host for CUDA is
+now a realistic procurement target rather than a research project.
+
 ## References
 
 - [Hot Chips 2026: CUDA Targets RISC-V (Chips and Cheese)](https://chipsandcheese.com/p/hot-chips-2026-cuda-targets-risc)
 - [RISC-V server SoC specification](https://docs.riscv.org/reference/server-soc/_attachments/riscv-server-soc.pdf)
 - [RISC-V server platform spec v1.0](https://github.com/riscv-non-isa/riscv-server-platform/releases/tag/v1.0)
+- [RISC-V Europe Summit 2026: Beyond Embedded Electronics (EE Times)](https://www.eetimes.com/risc-v-europe-summit-2026-beyond-embedded-electronics/)
