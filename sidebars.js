@@ -29,6 +29,16 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Aicodingagents',
+          items: ['how-to/developertoolspractices/aicodingagents/howto-litellm-gateway-for-codex-cli'],
+        },
+        {
+          type: 'category',
+          label: 'Webrealtime',
+          items: ['how-to/programming/webrealtime/howto-scale-websocket-sse-redis-pubsub'],
+        },
+        {
+          type: 'category',
           label: 'Aiagentsecurity',
           items: ['how-to/securityprivacy/aiagentsecurity/howto-mcp-security-hardening'],
         },
@@ -74,7 +84,6 @@ const sidebars = {
           label: 'Localaiagents',
           items: ['explanations/developertoolspractices/localaiagents/explanation-jetbrains-junie-local-agent', 'explanations/developertoolspractices/localaiagents/explanation-perplexity-portable-computer-local-agent'],
         },
-        'explanations/general/2026-08-27',
         {
           type: 'category',
           label: 'Linuxkernel',
@@ -100,6 +109,11 @@ const sidebars = {
           label: 'Tlsssl',
           items: ['explanations/securityprivacy/tlsssl/explanation-ssl-tls-three-jobs'],
         },
+        {
+          type: 'category',
+          label: 'Websecurity',
+          items: ['explanations/securityprivacy/websecurity/explanation-open-redirect-php-laravel'],
+        },
       ],
     },
     {
@@ -116,6 +130,11 @@ const sidebars = {
           type: 'category',
           label: 'Linux',
           items: ['examples/programming/linux/example-self-sqlite-executable-self-httpd'],
+        },
+        {
+          type: 'category',
+          label: 'Webrealtime',
+          items: ['examples/programming/webrealtime/example-webrtc-p2p-file-transfer-browser'],
         },
       ],
     },
