@@ -25,12 +25,17 @@ const sidebars = {
         {
           type: 'category',
           label: 'Incidentresponse',
-          items: ['how-to/cloudinfrastructure/incidentresponse/howto-s3-exfiltration-incident-response'],
+          items: ['how-to/cloudinfrastructure/incidentresponse/howto-cicd-compromise-response-jetbrains-cadence', 'how-to/cloudinfrastructure/incidentresponse/howto-s3-exfiltration-incident-response'],
         },
         {
           type: 'category',
           label: 'Aicodingagents',
           items: ['how-to/developertoolspractices/aicodingagents/howto-litellm-gateway-for-codex-cli'],
+        },
+        {
+          type: 'category',
+          label: 'Mcp',
+          items: ['how-to/developertoolspractices/mcp/howto-map-http-api-parameters-to-mcp-tool-schemas'],
         },
         {
           type: 'category',
@@ -41,6 +46,11 @@ const sidebars = {
           type: 'category',
           label: 'Aiagentsecurity',
           items: ['how-to/securityprivacy/aiagentsecurity/howto-mcp-security-hardening'],
+        },
+        {
+          type: 'category',
+          label: 'Fuzzing',
+          items: ['how-to/securityprivacy/fuzzing/howto-build-asan-fuzz-harness-for-your-parser'],
         },
       ],
     },
@@ -62,17 +72,22 @@ const sidebars = {
         {
           type: 'category',
           label: 'Agentarchitecture',
-          items: ['explanations/aimachinelearning/agentarchitecture/explanation-agent-guardrail-stack', 'explanations/aimachinelearning/agentarchitecture/explanation-claude-unified-memory-architecture'],
+          items: ['explanations/aimachinelearning/agentarchitecture/explanation-agent-guardrail-stack', 'explanations/aimachinelearning/agentarchitecture/explanation-claude-unified-memory-architecture', 'explanations/aimachinelearning/agentarchitecture/explanation-lemmalog-datalog-memory-for-llm-agents'],
         },
         {
           type: 'category',
           label: 'Multimodal',
-          items: ['explanations/aimachinelearning/multimodal/explanation-deepseek-vision-lineage'],
+          items: ['explanations/aimachinelearning/multimodal/explanation-deepseek-vision-lineage', 'explanations/aimachinelearning/multimodal/explanation-netflix-maps-multimodal-asset-personalization'],
         },
         {
           type: 'category',
           label: 'Gpucompute',
           items: ['explanations/cloudinfrastructure/gpucompute/explanation-cuda-targets-risc-v'],
+        },
+        {
+          type: 'category',
+          label: 'Kubernetes',
+          items: ['explanations/cloudinfrastructure/kubernetes/explanation-k8s-v1-37-pod-certificates-cluster-trust-bundles'],
         },
         {
           type: 'category',
@@ -102,7 +117,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Aiagentsecurity',
-          items: ['explanations/securityprivacy/aiagentsecurity/explanation-llm-inference-engine-exploits', 'explanations/securityprivacy/aiagentsecurity/explanation-openai-hugging-face-agent-incident'],
+          items: ['explanations/securityprivacy/aiagentsecurity/explanation-llm-inference-engine-exploits', 'explanations/securityprivacy/aiagentsecurity/explanation-lm-studio-bionic-shell-judge-auto-review', 'explanations/securityprivacy/aiagentsecurity/explanation-openai-hugging-face-agent-incident'],
         },
         {
           type: 'category',

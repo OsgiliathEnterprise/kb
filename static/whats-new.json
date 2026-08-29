@@ -1,38 +1,38 @@
 [
   {
-    "title": "Litellm Gateway For Codex Cli",
-    "type": "How-To",
-    "link": "/how-to/developertoolspractices/aicodingagents/howto-litellm-gateway-for-codex-cli",
-    "time": "3 min read"
-  },
-  {
-    "title": "Cuda Targets Risc V",
+    "title": "Openai Jalapeno Chip First Benchmarks",
     "type": "Explanation",
-    "link": "/explanations/cloudinfrastructure/gpucompute/explanation-cuda-targets-risc-v",
-    "time": "3 min read"
-  },
-  {
-    "title": "Scale Websocket Sse Redis Pubsub",
-    "type": "How-To",
-    "link": "/how-to/programming/webrealtime/howto-scale-websocket-sse-redis-pubsub",
-    "time": "7 min read"
-  },
-  {
-    "title": "Webrtc P2P File Transfer Browser",
-    "type": "Examples",
-    "link": "/examples/programming/webrealtime/example-webrtc-p2p-file-transfer-browser",
+    "link": "/explanations/aillm/llminfrastructure/explanation-openai-jalapeno-chip-first-benchmarks",
     "time": "4 min read"
   },
   {
-    "title": "Open Redirect Php Laravel",
+    "title": "Map Http Api Parameters To Mcp Tool Schemas",
+    "type": "How-To",
+    "link": "/how-to/developertoolspractices/mcp/howto-map-http-api-parameters-to-mcp-tool-schemas",
+    "time": "7 min read"
+  },
+  {
+    "title": "Lemmalog Datalog Memory For Llm Agents",
     "type": "Explanation",
-    "link": "/explanations/securityprivacy/websecurity/explanation-open-redirect-php-laravel",
+    "link": "/explanations/aimachinelearning/agentarchitecture/explanation-lemmalog-datalog-memory-for-llm-agents",
+    "time": "7 min read"
+  },
+  {
+    "title": "Netflix Maps Multimodal Asset Personalization",
+    "type": "Explanation",
+    "link": "/explanations/aimachinelearning/multimodal/explanation-netflix-maps-multimodal-asset-personalization",
+    "time": "9 min read"
+  },
+  {
+    "title": "K8S V1 37 Pod Certificates Cluster Trust Bundles",
+    "type": "Explanation",
+    "link": "/explanations/cloudinfrastructure/kubernetes/explanation-k8s-v1-37-pod-certificates-cluster-trust-bundles",
     "time": "5 min read"
   },
   {
-    "title": "Openai Hugging Face Agent Incident",
-    "type": "Explanation",
-    "link": "/explanations/securityprivacy/aiagentsecurity/explanation-openai-hugging-face-agent-incident",
-    "time": "8 min read"
+    "title": "Cicd Compromise Response Jetbrains Cadence",
+    "type": "How-To",
+    "link": "/how-to/cloudinfrastructure/incidentresponse/howto-cicd-compromise-response-jetbrains-cadence",
+    "time": "5 min read"
   }
 ]
