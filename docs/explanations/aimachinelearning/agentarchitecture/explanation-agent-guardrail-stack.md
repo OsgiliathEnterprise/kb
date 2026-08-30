@@ -58,6 +58,16 @@ check compares against). The fix: **key the ledger entry on the id the platform
 hands back**, read from the platform rather than from the send call — that keeps
 all three layers agreeing.
 
+## How this maps to the OWASP Agentic Top 10 (Dec 2025)
+
+The four-layer stack above is one concrete instance of what the **OWASP Top 10 for Agentic Applications** (released December 2025 by the GenAI Security Project, with input from 100+ researchers and review by NIST/European Commission/Alan Turing Institute representatives) treats as baseline practice. The list's headline threats — *Agent Behavior Hijacking*, *Tool Misuse and Exploitation*, and *Identity and Privilege Abuse* — are exactly the failure classes a send-path guardrail stack exists to contain:
+
+- **Behavior hijacking** (prompt injection steering the agent into spammy or off-mission output) is what Layer 2's sameness detector catches after the fact, and what Layer 3's mandatory reviewer catches before it ships.
+- **Tool misuse / privilege abuse** is why the caps live in code with no model-visible branch — an injected instruction cannot raise a cap that only the send path can read.
+- The OWASP companion resources (a practical guide to securing agentic applications, and threat-model-based references for emerging agentic threats) recommend the same architecture this note describes: deterministic gates *around* the model rather than instructions *inside* it.
+
+Treat the four layers as a floor, not a ceiling: the OWASP list also covers memory poisoning, identity confusion across sessions, and supply-chain risks in agent tooling — each of which needs its own gate if your agent has that capability.
+
 ## How to build the stack
 
 Start from the **failure taxonomy**, not the feature list:
@@ -74,3 +84,4 @@ fossil record of mistakes.
 
 - [Rate limits are not quality gates (dev.to)](https://dev.to/rulestack/rate-limits-are-not-quality-gates-the-guardrail-stack-behind-an-ai-agent-that-posts-publicly-every-2b6k)
 - [GitLab: Implementing effective guardrails for AI agents](https://about.gitlab.com/the-source/ai/implementing-effective-guardrails-for-ai-agents/)
+- [OWASP GenAI Security Project — Top 10 Risks and Mitigations for Agentic AI (Dec 2025)](https://genai.owasp.org/2025-12-09/owasp-genai-security-project-releases-top-10-risks-and-mitigations-for-agentic-ai-security/)
