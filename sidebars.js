@@ -7,6 +7,16 @@ const sidebars = {
       items: [
         {
           type: 'category',
+          label: 'Multimodal',
+          items: ['tutorials/aimachinelearning/multimodal/tutorial-commit-conversation-voice-turn-context'],
+        },
+        {
+          type: 'category',
+          label: 'Aws',
+          items: ['tutorials/cloudinfrastructure/aws/tutorial-full-stack-app-on-aws-fargate-vue-express-dynamodb'],
+        },
+        {
+          type: 'category',
           label: 'Databases',
           items: ['tutorials/programming/databases/tutorial-mvcc-postgres-style-snapshots-typescript'],
         },
@@ -21,6 +31,11 @@ const sidebars = {
           type: 'category',
           label: 'Agentarchitecture',
           items: ['how-to/aimachinelearning/agentarchitecture/howto-agentic-rag-pipeline-with-real-time-web-search'],
+        },
+        {
+          type: 'category',
+          label: 'Googleworkspace',
+          items: ['how-to/cloudinfrastructure/googleworkspace/howto-gemini-managed-agents-from-apps-script'],
         },
         {
           type: 'category',
@@ -76,6 +91,11 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Multiagentsystems',
+          items: ['explanations/aimachinelearning/multiagentsystems/explanation-same-model-debate-more-self-critical-than-diverse-pairs'],
+        },
+        {
+          type: 'category',
           label: 'Multimodal',
           items: ['explanations/aimachinelearning/multimodal/explanation-deepseek-vision-lineage', 'explanations/aimachinelearning/multimodal/explanation-netflix-maps-multimodal-asset-personalization'],
         },
@@ -96,8 +116,23 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Agentdocumentation',
+          items: ['explanations/developertoolspractices/agentdocumentation/explanation-ai-docs-standard-documentation-ai-md'],
+        },
+        {
+          type: 'category',
           label: 'Localaiagents',
           items: ['explanations/developertoolspractices/localaiagents/explanation-jetbrains-junie-local-agent', 'explanations/developertoolspractices/localaiagents/explanation-perplexity-portable-computer-local-agent'],
+        },
+        {
+          type: 'category',
+          label: 'Esotericlanguages',
+          items: ['explanations/programming/esotericlanguages/explanation-pop2-stack-language-for-uxn'],
+        },
+        {
+          type: 'category',
+          label: 'Frontendjavascript',
+          items: ['explanations/programming/frontendjavascript/explanation-react-rerender-vs-expensive-work'],
         },
         {
           type: 'category',

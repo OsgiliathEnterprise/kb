@@ -54,6 +54,15 @@ It is **not** built for single-digit-millisecond appends. Durability comes from
 object storage, so an append costs one round trip there — typically tens of
 milliseconds.
 
+## Where it sits in the broker landscape
+
+PicoMQ's "durable log on object storage" design is part of a broader 2024–2026 trend of pushing Kafka-style persistence off local disks: **AutoMQ** runs its entire log tier on S3-compatible storage (Kafka-protocol compatible), and **Redpanda** offers tiered storage that moves data to object storage for long-term retention while keeping hot segments local. PicoMQ takes the same idea further in two ways:
+
+- **No broker disks at all, ever** — even the WAL lives on object storage, so nodes are stateless caches rather than log owners (Kafka/Redpanda/AutoMQ all still keep a local segment cache or active-segment buffer).
+- **Stream granularity as a first-class unit** — instead of a fixed set of topics/partitions provisioned up front, streams are created on demand per entity (session, device, job), which is the shape that per-entity event history and agent-conversation logs want.
+
+The cost trade-off is explicit: object-storage round-trip latency replaces local-disk append speed, and SQL-based coordination replaces a consensus protocol — fine for control-plane metadata at stream-creation scale, but not a substitute for partition-level replication semantics if you need Kafka-style exactly-once producer guarantees across many brokers.
+
 ## Good fits
 
 Anything modeled as many ordered, resumable streams: a stream per user session
