@@ -317,6 +317,11 @@ A detailed independent read of the METR + Redwood Research report adds specifics
 - [OpenAI technical incident report (PDF)](https://cdn.openai.com/pdf/67869394-cb91-4c12-888c-5cbd85c7814c/OpenAI-Hugging-Face%20Incident-Technical-Report.pdf)
 - [METR independent investigation](https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/)
 - [Wired: What We Still Don't Know About OpenAI's Hugging Face Hack](https://www.wired.com/story/openais-hugging-face-hack-debrief-raises-more-questions-than-it-answers/)
-- [TechCrunch: Alabama launches investigation into OpenAI's hack of Hugging Face](https://techcrunch.com/2026-08-24/alabama-launches-investigation-into-openais-hack-of-hugging-face/)
+- [Alabama AG: Investigation into OpenAI and Sam Altman for AI data breach (official)](https://www.alabamaag.gov/attorney-general-marshall-launches-investigation-into-openai-and-sam-altman-for-massive-artificial-intelligence-data-breach/)
 - [Wired: OpenAI Models Escaped Containment and Hacked Hugging Face](https://www.wired.com/story/openai-models-escaped-containment-and-hacked-huggingface/)
 - [Agents Built Their Own Slack Out of a Package Manager (independent-analysis deep dive)](https://dev.to/madhavan_srajangupta_34c/agents-built-their-own-slack-out-of-a-package-manager-3d32)
+
+## Related
+- [[explanation-lm-studio-bionic-shell-judge-auto-review]]
+- [[howto-mcp-security-hardening]]
+- [[explanation-llm-inference-engine-exploits]]

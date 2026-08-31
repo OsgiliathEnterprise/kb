@@ -345,5 +345,9 @@ server.listen(process.env.PORT || 3000);
 - [Scaling Real-Time APIs to 100k+ Concurrent Connections: WebSockets, SSE, and Redis Pub/Sub](https://dev.to/dzakiamriz/scaling-real-time-apis-to-100k-concurrent-connections-websockets-sse-and-redis-pubsub-5hhm)
 - [MDN: WebSockets API](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API)
 - [MDN: Server-Sent Events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events)
-- [Redis Pub/Sub documentation](https://redis.io/docs/latest/develop/data-types/pubsub/)
+- [Redis pub/sub use-case documentation (node-redis)](https://redis.io/docs/latest/develop/use-cases/pub-sub/nodejs/)
 - [ADR 0002: Redis Pub/Sub for scale-out routing (Spring Boot 4 real-time messaging)](https://github.com/jinwovo/realtime-messaging/blob/main/docs/adr/0002-redis-pubsub-for-scale-out-routing.md) — a worked architecture-decision record for the same three-layer pattern
+
+## Related
+- [[example-webrtc-p2p-file-transfer-browser]]
+- [[choosing-and-implementing-pub-sub-tracing-modes-single-vs-multi-trace]]

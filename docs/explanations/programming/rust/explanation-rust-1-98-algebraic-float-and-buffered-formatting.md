@@ -233,3 +233,8 @@ it stays non-UB. See the [ManuallyDrop docs](https://doc.rust-lang.org/stable/st
 - [Algebraic operators API change proposal (libs-team#532)](https://github.com/rust-lang/libs-team/issues/532)
 - [itoa-benchmark](https://github.com/dtolnay/itoa-benchmark)
 - [itoa crate documentation (docs.rs)](https://docs.rs/itoa/latest/itoa/)
+
+## Related
+- [[explanation-react-rerender-vs-expensive-work]]
+- [[How-to-Benchmark-JAX-Backends-CPU-GPU-Eager-vs-JIT]]
+- [[How-to-Speed-Up-a-JAX-Training-Loop-with-JIT-Compilation]]

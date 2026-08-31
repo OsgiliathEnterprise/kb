@@ -229,3 +229,7 @@ runtime) *runs the handshake*. Buying a cert does not harden `ssl_protocols`.
 - [Stop saying SSL: TLS only does three jobs (dev.to)](https://dev.to/sunshoutkernel/stop-saying-ssl-tls-only-does-three-jobs-and-your-ssl-cert-is-usually-not-the-outage-26dh)
 - [nginx 1.18.0 implicitly enables TLS 1.3 (nginx mailing list)](https://mailman.nginx.org/pipermail/nginx/2020-November/060180.html)
 - [OpenSSL docs: openssl-ciphers (cipher list display and selection)](https://docs.openssl.org/master/man1/openssl-ciphers/)
+
+## Related
+- [[explanation-openai-hugging-face-agent-incident]]
+- [[howto-s3-exfiltration-incident-response]]

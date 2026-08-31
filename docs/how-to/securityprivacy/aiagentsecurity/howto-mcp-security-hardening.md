@@ -262,3 +262,8 @@ tool-allowlist against the new model's calling behavior.
 - [Safety and Security in the Model Context Protocol (Medium)](https://medium.com/@carlosm0303/safety-and-security-in-the-model-context-protocol-mcp-c6319778b150)
 - [Hardening MCP: Advanced Threat Detection and Policy Enforcement (Security Boulevard, 2026-07) — policy-as-code PEP, why WAFs fall short](https://securityboulevard.com/2026/07/hardening-model-context-protocol-advanced-threat-detection-and-policy-enforcement/)
 - [Palo Alto Unit 42: New Prompt Injection Attack Vectors Through MCP Sampling](https://unit42.paloaltonetworks.com/model-context-protocol-attack-vectors/)
+
+## Related
+- [[explanation-openai-hugging-face-agent-incident]]
+- [[explanation-lm-studio-bionic-shell-judge-auto-review]]
+- [[explanation-llm-inference-engine-exploits]]

@@ -54,6 +54,16 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Datastructures',
+          items: ['how-to/programming/datastructures/howto-p99-zero-ms-autocomplete-two-tier-index'],
+        },
+        {
+          type: 'category',
+          label: 'Linux',
+          items: ['how-to/programming/linux/howto-transfer-files-over-an-ethernet-patch-cable'],
+        },
+        {
+          type: 'category',
           label: 'Webrealtime',
           items: ['how-to/programming/webrealtime/howto-scale-websocket-sse-redis-pubsub'],
         },
@@ -74,6 +84,11 @@ const sidebars = {
       label: 'Explanations',
       collapsed: true,
       items: [
+        {
+          type: 'category',
+          label: 'Diffusionlanguagemodels',
+          items: ['explanations/aillm/diffusionlanguagemodels/explanation-how-to-build-a-diffusion-language-model'],
+        },
         {
           type: 'category',
           label: 'Llminfrastructure',
@@ -161,6 +176,11 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Virtualization',
+          items: ['explanations/securityprivacy/virtualization/explanation-qubes-qsb-118-dom0-rce-copy-to-vm'],
+        },
+        {
+          type: 'category',
           label: 'Websecurity',
           items: ['explanations/securityprivacy/websecurity/explanation-open-redirect-php-laravel'],
         },
@@ -185,6 +205,11 @@ const sidebars = {
           type: 'category',
           label: 'Webrealtime',
           items: ['examples/programming/webrealtime/example-webrtc-p2p-file-transfer-browser'],
+        },
+        {
+          type: 'category',
+          label: 'Zig',
+          items: ['examples/programming/zig/example-zig-arraylist-pointer-stability-locks'],
         },
       ],
     },

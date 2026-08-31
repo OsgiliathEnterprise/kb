@@ -91,3 +91,8 @@ With a custom provider, Codex has **no UI for changing the model of an existing 
 - [LiteLLM docs: OpenAI Codex tutorial](https://docs.litellm.ai/docs/tutorials/openai_codex)
 - [Codex config file documentation (advanced)](https://www.codex-docs.com/en/docs/config-file/config-advanced)
 - [BerriAI/litellm — Python SDK & proxy server (AI gateway) for 100+ LLM APIs](https://github.com/BerriAI/litellm)
+
+## Related
+- [[howto-mcp-security-hardening]]
+- [[howto-agentic-rag-pipeline-with-real-time-web-search]]
+- [[howto-map-http-api-parameters-to-mcp-tool-schemas]]

@@ -227,3 +227,8 @@ Instead of pattern-matching raw strings, the judge parses the command into an **
 
 - [LM Studio built a judge for AI commands. Then the judge started agreeing with the defendant. (The New Stack)](https://thenewstack.io/bionic-shell-command-safety/)
 - [How Auto Review works (LM Studio blog)](https://lmstudio.ai/blog/how-auto-review-works)
+
+## Related
+- [[explanation-openai-hugging-face-agent-incident]]
+- [[howto-mcp-security-hardening]]
+- [[explanation-llm-inference-engine-exploits]]

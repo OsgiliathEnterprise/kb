@@ -308,3 +308,7 @@ Reduce events immutably (`replaceTurn` returns a new session), and guard against
 
 - [Commit the Conversation: Keep Partial Voice Turns Out of Your AI Companion's Context (DEV.to)](https://dev.to/susiewang/commit-the-conversation-keep-partial-voice-turns-out-of-your-ai-companions-context-mb)
 - [Tencent RTC Conversational AI overview](https://trtc.io/document/conversational-ai-overview?product=conversationalai)
+
+## Related
+- [[explanation-netflix-maps-multimodal-asset-personalization]]
+- [[explanation-deepseek-vision-lineage]]

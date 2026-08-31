@@ -218,3 +218,7 @@ Every embedding above (CLIP for artwork; SeqCLIP and MediaFM for previews) lives
 - [CLIP: Learning Transferable Visual Models From Natural Language Supervision](https://arxiv.org/abs/2103.00020)
 - [Netflix MediaFM — the multimodal AI foundation for media understanding](https://netflixtechblog.com/mediafm-the-multimodal-ai-foundation-for-media-understanding-at-netflix-e8c28df82e2d)
 - [Recommending for long-term member satisfaction at Netflix (reward modeling)](https://netflixtechblog.com/recommending-for-long-term-member-satisfaction-at-netflix-ac15cada49ef)
+
+## Related
+- [[explanation-deepseek-vision-lineage]]
+- [[tutorial-commit-conversation-voice-turn-context]]

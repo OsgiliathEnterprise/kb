@@ -319,3 +319,7 @@ The adapter reassembles the HTTP request: path params fill the route template, q
 
 - [Mapping API Path, Query, Header, and Body Parameters to MCP Tool Schemas (dev.to)](https://dev.to/bhavyshekhaliya/mapping-api-path-query-header-and-body-parameters-to-mcp-tool-schemas-48k5)
 - [Model Context Protocol specification](https://modelcontextprotocol.io/)
+
+## Related
+- [[howto-mcp-security-hardening]]
+- [[howto-agentic-rag-pipeline-with-real-time-web-search]]

@@ -245,3 +245,7 @@ SHA-256 checksums and slicing multi-gigabyte files on the main thread freeze Rea
 - [How I Built a Zero-Install, Multi-Gigabyte P2P File Transfer Engine in the Browser with WebRTC & File System Access API](https://dev.to/kingupe/how-i-built-a-zero-install-multi-gigabyte-p2p-file-transfer-engine-in-the-browser-with-webrtc--1doe)
 - [FluX source code (GitHub)](https://github.com/KING-UPE/FluX)
 - [PubNub: WebRTC file transfer in the browser — chunking and data-channel patterns](https://www.pubnub.com/blog/transfer-files-in-the-browser-pubnub-rtc-fileshare/)
+
+## Related
+- [[howto-scale-websocket-sse-redis-pubsub]]
+- [[example-intl-segmenter-text-analysis]]

@@ -174,3 +174,8 @@ Acceptable Use Policy.
 - [The New Stack: Anthropic gives chat and Cowork one memory](https://thenewstack.io/claude-memory-chat-cowork/)
 - [TechCrunch: Claude Cowork finally remembers what you told the app in chat](https://techcrunch.com/2026/08/25/claude-cowork-finally-remembers-what-you-told-the-app-in-chat/)
 - [Anthropic Help Center: Claude Cowork architecture overview](https://support.claude.com/en/articles/14479288-claude-cowork-architecture-overview)
+
+## Related
+- [[explanation-lemmalog-datalog-memory-for-llm-agents]]
+- [[explanation-agent-guardrail-stack]]
+- [[howto-agentic-rag-pipeline-with-real-time-web-search]]

@@ -187,3 +187,7 @@ is a different checklist. Typical datapath box:
 - [irqbalance (official source tree)](https://github.com/Irqbalance/irqbalance)
 - [Red Hat Tech Brief: Optimizing RHEL Performance by Tuning IRQ Affinity](https://access.redhat.com/articles/216733)
 - [Linux kernel docs: generic IRQ handling](https://docs.kernel.org/core-api/genericirq.html)
+
+## Related
+- [[explanation-linux-containers-namespaces-cgroups]]
+- [[explanation-bpf-vs-logs-metrics-observability]]
