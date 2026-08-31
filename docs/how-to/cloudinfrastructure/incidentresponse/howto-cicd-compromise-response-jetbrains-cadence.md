@@ -171,3 +171,7 @@ JetBrains published six IPs associated with detected exploitation: `150.109.230.
 
 - [JetBrains told everyone to patch. It didn't patch itself. (The New Stack)](https://thenewstack.io/jetbrains-told-everyone-to-patch-it-didnt-patch-itself/)
 - [CVE-2026-63077 — TeamCity On-Premises critical vulnerability disclosure](https://blog.jetbrains.com/teamcity/2026/07/cve-2026-63077/)
+
+## Related
+- [[howto-s3-exfiltration-incident-response]]
+- [[howto-use-traces-for-root-cause-analysis]]

@@ -234,3 +234,8 @@ distinction that matters for legal/procurement due diligence.
 - [DeepSeek-VL2 paper (arXiv:2412.10302)](https://arxiv.org/abs/2412.10302)
 - [DeepSeek-VL2 repository (deepseek-ai)](https://github.com/deepseek-ai/DeepSeek-VL2)
 - [Janus-Pro-7B model card (Hugging Face)](https://huggingface.co/deepseek-ai/Janus-Pro-7B)
+
+## Related
+- [[explanation-netflix-maps-multimodal-asset-personalization]]
+- [[tutorial-commit-conversation-voice-turn-context]]
+- [[explanation-agent-guardrail-stack]]

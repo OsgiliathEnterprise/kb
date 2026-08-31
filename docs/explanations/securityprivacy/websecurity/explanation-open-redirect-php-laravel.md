@@ -220,3 +220,8 @@ if (!in_array($callbackUri, $registeredCallbacks, true)) {
 
 - [Open Redirect Vulnerabilities in PHP and Laravel — When Your Own Domain Becomes the Attack](https://dev.to/kriosa/open-redirect-vulnerabilities-in-php-and-laravel-when-your-own-domain-becomes-the-attack-43cf) (article 17 of a PHP/Laravel application-security series)
 - [Snyk: How to prevent open redirect vulnerabilities in Laravel](https://snyk.io/blog/how-to-prevent-open-redirect-vulnerabilities-in-laravel/) — independent corroboration of the same mitigation hierarchy (fixed redirects > destination whitelisting > disallowing external domains), plus a worked vulnerable-app demo
+
+## Related
+- [[explanation-lm-studio-bionic-shell-judge-auto-review]]
+- [[explanation-ssl-tls-three-jobs]]
+- [[explanation-llm-inference-engine-exploits]]

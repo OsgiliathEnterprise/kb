@@ -54,3 +54,8 @@ The format was written up as an open standard under CC BY 4.0:
 - [We started writing docs for AI agents, not humans — and made it an open standard (DEV.to)](https://dev.to/kissoid/we-started-writing-docs-for-ai-agents-not-humans-and-made-it-an-open-standard-3ija)
 - [AI Docs Standard repository](https://github.com/iwasoftcom/ai-docs-standard)
 - [llms.txt specification](https://llmstxt.org/)
+
+## Related
+- [[explanation-openai-hugging-face-agent-incident]]
+- [[explanation-lm-studio-bionic-shell-judge-auto-review]]
+- [[explanation-llm-inference-engine-exploits]]

@@ -88,3 +88,7 @@ The other stack-level optimizations that made the local agent viable:
 - [Junie local launch (JetBrains blog)](https://blog.jetbrains.com/junie/2026/08/junie-local-launch/)
 - [How We Optimized the Qwen 3.6 Model for Our Junie Agent (JetBrains blog, 2026-08-24)](https://blog.jetbrains.com/junie/2026/08/qwen-for-junie/)
 - [JetBrains Junie official product page](https://www.jetbrains.com/junie/)
+
+## Related
+- [[explanation-perplexity-portable-computer-local-agent]]
+- [[explanation-openai-hugging-face-agent-incident]]

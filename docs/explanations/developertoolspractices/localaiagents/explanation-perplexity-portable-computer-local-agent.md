@@ -162,3 +162,7 @@ Key architectural choice:
 - [The New Stack: Perplexity's Computer agent can now run locally — if you can afford it](https://thenewstack.io/perplexity-portable-computer-nvidia/)
 - [Perplexity blog: Introducing Portable Computer (official launch)](https://www.perplexity.ai/hub/blog/introducing-portable-computer-for-local-first-ai)
 - [NVIDIA DGX Spark product page (hardware platform)](https://www.nvidia.com/en-us/products/workstations/dgx-spark/)
+
+## Related
+- [[explanation-jetbrains-junie-local-agent]]
+- [[explanation-openai-jalapeno-chip-first-benchmarks]]

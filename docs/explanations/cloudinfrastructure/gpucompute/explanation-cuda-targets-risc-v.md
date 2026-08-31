@@ -190,3 +190,8 @@ now a realistic procurement target rather than a research project.
 - [RISC-V server SoC specification](https://docs.riscv.org/reference/server-soc/_attachments/riscv-server-soc.pdf)
 - [RISC-V server platform spec v1.0](https://github.com/riscv-non-isa/riscv-server-platform/releases/tag/v1.0)
 - [RISC-V Europe Summit 2026: Beyond Embedded Electronics (EE Times)](https://www.eetimes.com/risc-v-europe-summit-2026-beyond-embedded-electronics/)
+
+## Related
+- [[explanation-perplexity-portable-computer-local-agent]]
+- [[How-to-Install-JAX-for-CPU-GPU-and-TPU-Targets]]
+- [[explanation-openai-jalapeno-chip-first-benchmarks]]

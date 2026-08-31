@@ -62,3 +62,7 @@ The React DevTools Profiler records per-component **update cost** — time spent
 - [Why Does Your React App Re-render So Much? (DEV.to)](https://dev.to/tanu_priya/why-does-your-react-app-re-render-so-much-45co)
 - [Automatic batching for fewer renders in React 18 — reactwg/react-18 discussion](https://github.com/reactwg/react-18/discussions/21)
 - [Optimizing Performance — React official docs (render vs. DOM mutation distinction)](https://legacy.reactjs.org/docs/optimizing-performance.html)
+
+## Related
+- [[example-intl-segmenter-text-analysis]]
+- [[explanation-rust-1-98-algebraic-float-and-buffered-formatting]]

@@ -236,3 +236,8 @@ Sharing one `environmentId` across GAS projects, local Node.js workstations (SSE
 - [managed-agents-gas repository](https://github.com/tanaikech/managed-agents-gas)
 - [ggsrun CLI](https://github.com/tanaikech/ggsrun)
 - [Gemini API agents documentation](https://ai.google.dev/gemini-api/docs/agents)
+
+## Related
+- [[explanation-agent-guardrail-stack]]
+- [[explanation-perplexity-portable-computer-local-agent]]
+- [[Why-Automation-of-Knowledge-Work-Is-Not-a-Clear-Job-Loss-Story]]

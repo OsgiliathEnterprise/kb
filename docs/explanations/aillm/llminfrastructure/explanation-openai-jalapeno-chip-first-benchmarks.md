@@ -174,3 +174,7 @@ the workload shifts between compute-heavy and memory-bound phases.
 - [OpenAI: Jalapeño first results (official blog)](https://openai.com/index/jalapeno-first-results/)
 - [Tom's Hardware: Broadcom and OpenAI unveil custom-built Jalapeño inference processor](https://www.tomshardware.com/tech-industry/artificial-intelligence/broadcom-and-openai-unveil-custom-built-jalapeno-inference-processor-openais-first-chip-is-a-massive-reticle-sized-asic-built-in-an-ultra-fast-nine-month-development-cycle)
 - [Tom's Hardware (Hot Chips 2026): OpenAI's Jalapeño AI ASIC unpacked — architecture detail and Blackwell comparison](https://www.tomshardware.com/tech-industry/artificial-intelligence/hot-chips-2026-openais-jalapeno-ai-asic-unpacked-accelerator-developed-using-ai-achieves-efficiency-and-throughput-gains-against-power-hungry-blackwell)
+
+## Related
+- [[explanation-qwen3-embedding-cloud-tpu-vllm]]
+- [[explanation-openai-hugging-face-agent-incident]]

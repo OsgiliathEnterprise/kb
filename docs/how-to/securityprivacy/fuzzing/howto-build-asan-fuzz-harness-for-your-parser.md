@@ -227,3 +227,8 @@ The uncomfortable implication: the marginal cost of finding a real, reportable b
 
 - [21 Bytes Can Crash FFmpeg: Inside the Vibecoded Fuzzer That Found What Years of Audits Missed (dev.to)](https://dev.to/jamilxt/21-bytes-can-crash-ffmpeg-inside-the-vibecoded-fuzzer-that-found-what-years-of-audits-missed-fpe)
 - [fuzzer-tool — the AI-assisted coverage-guided fuzzer](https://github.com/daedalus/fuzzer/)
+
+## Related
+- [[howto-cicd-compromise-response-jetbrains-cadence]]
+- [[howto-build-service-map-from-traces]]
+- [[howto-agentic-rag-pipeline-with-real-time-web-search]]

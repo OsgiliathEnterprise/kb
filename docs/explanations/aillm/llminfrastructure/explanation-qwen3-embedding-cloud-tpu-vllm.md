@@ -308,3 +308,7 @@ This is a specific benchmark point, not a universal TPU number.
 - [vLLM TPU backend blog](https://vllm.ai/blog/2025-10-16-vllm-tpu)
 - [Qwen3-Embedding model card (Hugging Face)](https://huggingface.co/Qwen/Qwen3-Embedding-0.6B)
 - [QwenLM/Qwen3-Embedding repository](https://github.com/QwenLM/Qwen3-Embedding)
+
+## Related
+- [[explanation-openai-jalapeno-chip-first-benchmarks]]
+- [[howto-agentic-rag-pipeline-with-real-time-web-search]]

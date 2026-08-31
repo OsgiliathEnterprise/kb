@@ -44,3 +44,8 @@ This aligns with broader literature on multi-agent debate where diversity-aware 
 - [The Same Model Debating Itself Was More Self-Critical Than Two Different Models (DEV.to)](https://dev.to/debashish_ghosal/the-same-model-debating-itself-was-more-self-critical-than-two-different-models-2569)
 - [adversarial-debate repository](https://github.com/deghosal-2026/adversarial-debate)
 - [Diversity of Thought Elicits Stronger Reasoning Capabilities in Multi-Agent Debate Frameworks (paper)](https://huggingface.co/papers/2410.12853)
+- [Breaking Mental Set to Improve Reasoning through Diverse Multi-Agent Debate (OpenReview)](https://openreview.net/forum?id=t6QHYUOQL7) — related work on persona-diversity in debate; note it finds the opposite of AdversarialDebate's field results, reinforcing that per-task measurement is required
+
+## Related
+- [[How-to-Run-a-Phantom-Deployment-of-a-New-AI-System]]
+- [[How-to-Assess-Use-Case-Specific-Bias-Risk-Before-Deploying-an-LLM]]

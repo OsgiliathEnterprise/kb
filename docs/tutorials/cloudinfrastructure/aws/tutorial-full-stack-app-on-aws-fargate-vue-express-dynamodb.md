@@ -15,7 +15,7 @@ keywords:
 ---
 # From Empty Folder to Live URL — Full-Stack App on AWS Fargate (Vue 3 + Express + DynamoDB)
 
-A beginner-oriented walkthrough that builds a movies catalog all the way to a public URL: **Vue 3** frontend, **Express** REST API storing in **DynamoDB**, two Docker containers on **ECS Fargate** behind an ALB, everything defined in code with **AWS CDK** and tested with **Playwright**. Full source: [ecs-fargate-movies-api-blueprint](https://github.com/kasukur/ecs-fargate-movies-api-blueprint).
+A beginner-oriented walkthrough that builds a movies catalog all the way to a public URL: **Vue 3** frontend, **Express** REST API storing in **DynamoDB**, two Docker containers on **ECS Fargate** behind an ALB, everything defined in code with **AWS CDK** and tested with **Playwright**. Full source: [fargate-movies-api](https://github.com/kasukur/fargate-movies-api).
 
 ## The architecture in one diagram
 
@@ -125,4 +125,7 @@ export const useMoviesStore = defineStore('movies', {
 ## References
 
 - [From Empty Folder to Live URL: A Beginner's Full-Stack App on AWS Fargate (DEV.to)](https://dev.to/aws-builders/from-empty-folder-to-live-url-a-beginners-full-stack-app-on-aws-fargate-3e6g)
-- [ecs-fargate-movies-api-blueprint repository](https://github.com/kasukur/ecs-fargate-movies-api-blueprint)
+- [fargate-movies-api repository](https://github.com/kasukur/fargate-movies-api)
+
+## Related
+- [[howto-s3-exfiltration-incident-response]]

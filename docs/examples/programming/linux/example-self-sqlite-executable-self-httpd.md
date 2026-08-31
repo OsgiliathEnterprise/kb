@@ -221,3 +221,8 @@ becomes `scp` of a single file.
 - [selfdb repository](https://github.com/fzakaria/selfdb)
 - [redbean (prior art)](https://redbean.dev/)
 - [Linux binfmt_misc documentation](https://docs.kernel.org/admin-guide/binfmt-misc.html)
+
+## Related
+- [[explanation-isolcpus-irq-affinity]]
+- [[explanation-bpf-vs-logs-metrics-observability]]
+- [[explanation-linux-containers-namespaces-cgroups]]

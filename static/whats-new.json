@@ -1,38 +1,38 @@
 [
   {
+    "title": "How To Build A Diffusion Language Model",
+    "type": "Explanation",
+    "link": "/explanations/aillm/diffusionlanguagemodels/explanation-how-to-build-a-diffusion-language-model",
+    "time": "6 min read"
+  },
+  {
+    "title": "Openai Jalapeno Chip First Benchmarks",
+    "type": "Explanation",
+    "link": "/explanations/aillm/llminfrastructure/explanation-openai-jalapeno-chip-first-benchmarks",
+    "time": "4 min read"
+  },
+  {
+    "title": "Qwen3 Embedding Cloud Tpu Vllm",
+    "type": "Explanation",
+    "link": "/explanations/aillm/llminfrastructure/explanation-qwen3-embedding-cloud-tpu-vllm",
+    "time": "5 min read"
+  },
+  {
     "title": "Ai Docs Standard Documentation Ai Md",
     "type": "Explanation",
     "link": "/explanations/developertoolspractices/agentdocumentation/explanation-ai-docs-standard-documentation-ai-md",
     "time": "2 min read"
   },
   {
-    "title": "Same Model Debate More Self Critical Than Diverse Pairs",
-    "type": "Explanation",
-    "link": "/explanations/aimachinelearning/multiagentsystems/explanation-same-model-debate-more-self-critical-than-diverse-pairs",
-    "time": "2 min read"
-  },
-  {
-    "title": "Agent Guardrail Stack",
-    "type": "Explanation",
-    "link": "/explanations/aimachinelearning/agentarchitecture/explanation-agent-guardrail-stack",
-    "time": "4 min read"
-  },
-  {
-    "title": "Commit Conversation Voice Turn Context",
-    "type": "Tutorials",
-    "link": "/tutorials/aimachinelearning/multimodal/tutorial-commit-conversation-voice-turn-context",
-    "time": "5 min read"
-  },
-  {
-    "title": "Full Stack App On Aws Fargate Vue Express Dynamodb",
-    "type": "Tutorials",
-    "link": "/tutorials/cloudinfrastructure/aws/tutorial-full-stack-app-on-aws-fargate-vue-express-dynamodb",
-    "time": "4 min read"
-  },
-  {
-    "title": "Gemini Managed Agents From Apps Script",
+    "title": "Map Http Api Parameters To Mcp Tool Schemas",
     "type": "How-To",
-    "link": "/how-to/cloudinfrastructure/googleworkspace/howto-gemini-managed-agents-from-apps-script",
-    "time": "5 min read"
+    "link": "/how-to/developertoolspractices/mcp/howto-map-http-api-parameters-to-mcp-tool-schemas",
+    "time": "7 min read"
+  },
+  {
+    "title": "Litellm Gateway For Codex Cli",
+    "type": "How-To",
+    "link": "/how-to/developertoolspractices/aicodingagents/howto-litellm-gateway-for-codex-cli",
+    "time": "3 min read"
   }
 ]
