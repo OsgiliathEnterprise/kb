@@ -87,7 +87,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Diffusionlanguagemodels',
-          items: ['explanations/aillm/diffusionlanguagemodels/explanation-how-to-build-a-diffusion-language-model'],
+          items: ['explanations/aillm/diffusionlanguagemodels/explanation-diffusiongemma-block-autoregressive-text-diffusion', 'explanations/aillm/diffusionlanguagemodels/explanation-how-to-build-a-diffusion-language-model'],
         },
         {
           type: 'category',
@@ -102,7 +102,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Agentarchitecture',
-          items: ['explanations/aimachinelearning/agentarchitecture/explanation-agent-guardrail-stack', 'explanations/aimachinelearning/agentarchitecture/explanation-claude-unified-memory-architecture', 'explanations/aimachinelearning/agentarchitecture/explanation-lemmalog-datalog-memory-for-llm-agents'],
+          items: ['explanations/aimachinelearning/agentarchitecture/explanation-agent-guardrail-stack', 'explanations/aimachinelearning/agentarchitecture/explanation-claude-unified-memory-architecture', 'explanations/aimachinelearning/agentarchitecture/explanation-lemmalog-datalog-memory-for-llm-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-prince-bayer-agentic-rag-context-harness-engineering'],
         },
         {
           type: 'category',
@@ -152,7 +152,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Linuxkernel',
-          items: ['explanations/programming/linuxkernel/explanation-isolcpus-irq-affinity'],
+          items: ['explanations/programming/linuxkernel/explanation-cve-2026-23111-nftables-use-after-free', 'explanations/programming/linuxkernel/explanation-isolcpus-irq-affinity'],
         },
         {
           type: 'category',
