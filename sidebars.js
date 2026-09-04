@@ -34,6 +34,11 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Distributedtracing',
+          items: ['how-to/cloudinfrastructure/distributedtracing/howto-store-jaeger-spans-in-clickhouse'],
+        },
+        {
+          type: 'category',
           label: 'Googleworkspace',
           items: ['how-to/cloudinfrastructure/googleworkspace/howto-gemini-managed-agents-from-apps-script'],
         },
@@ -44,8 +49,13 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Kubernetes',
+          items: ['how-to/cloudinfrastructure/kubernetes/howto-manage-cluster-api-resources-with-headlamp'],
+        },
+        {
+          type: 'category',
           label: 'Aicodingagents',
-          items: ['how-to/developertoolspractices/aicodingagents/howto-litellm-gateway-for-codex-cli'],
+          items: ['how-to/developertoolspractices/aicodingagents/howto-litellm-gateway-for-codex-cli', 'how-to/developertoolspractices/aicodingagents/howto-maintainability-sensors-for-coding-agents', 'how-to/developertoolspractices/aicodingagents/howto-spring-upgrades-with-openrewrite-and-agents'],
         },
         {
           type: 'category',
