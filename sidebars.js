@@ -50,7 +50,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Kubernetes',
-          items: ['how-to/cloudinfrastructure/kubernetes/howto-manage-cluster-api-resources-with-headlamp'],
+          items: ['how-to/cloudinfrastructure/kubernetes/howto-inspect-volcano-knative-workloads-with-headlamp-plugins', 'how-to/cloudinfrastructure/kubernetes/howto-manage-cluster-api-resources-with-headlamp'],
         },
         {
           type: 'category',
@@ -161,6 +161,11 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Java',
+          items: ['explanations/programming/java/explanation-zgc-decade-of-low-latency-gc'],
+        },
+        {
+          type: 'category',
           label: 'Linuxkernel',
           items: ['explanations/programming/linuxkernel/explanation-cve-2026-23111-nftables-use-after-free', 'explanations/programming/linuxkernel/explanation-isolcpus-irq-affinity'],
         },
@@ -205,6 +210,11 @@ const sidebars = {
           type: 'category',
           label: 'Frontendjavascript',
           items: ['examples/programming/frontendjavascript/example-intl-segmenter-text-analysis'],
+        },
+        {
+          type: 'category',
+          label: 'Java',
+          items: ['examples/programming/java/example-babylon-hat-gpu-tensor-cores-from-java'],
         },
         {
           type: 'category',
