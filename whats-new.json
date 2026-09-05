@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Inspect Volcano Knative Workloads With Headlamp Plugins",
+    "type": "How-To",
+    "link": "/how-to/cloudinfrastructure/kubernetes/howto-inspect-volcano-knative-workloads-with-headlamp-plugins",
+    "time": "8 min read"
+  },
+  {
+    "title": "Babylon Hat Gpu Tensor Cores From Java",
+    "type": "Examples",
+    "link": "/examples/programming/java/example-babylon-hat-gpu-tensor-cores-from-java",
+    "time": "10 min read"
+  },
+  {
+    "title": "Zgc Decade Of Low Latency Gc",
+    "type": "Explanation",
+    "link": "/explanations/programming/java/explanation-zgc-decade-of-low-latency-gc",
+    "time": "9 min read"
+  },
+  {
+    "title": "Spring Upgrades With Openrewrite And Agents",
+    "type": "How-To",
+    "link": "/how-to/developertoolspractices/aicodingagents/howto-spring-upgrades-with-openrewrite-and-agents",
+    "time": "6 min read"
+  },
+  {
+    "title": "Maintainability Sensors For Coding Agents",
+    "type": "How-To",
+    "link": "/how-to/developertoolspractices/aicodingagents/howto-maintainability-sensors-for-coding-agents",
+    "time": "9 min read"
+  },
+  {
+    "title": "Manage Cluster Api Resources With Headlamp",
+    "type": "How-To",
+    "link": "/how-to/cloudinfrastructure/kubernetes/howto-manage-cluster-api-resources-with-headlamp",
+    "time": "6 min read"
+  }
+]
