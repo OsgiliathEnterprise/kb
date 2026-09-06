@@ -148,25 +148,43 @@ create_ghpages() {
 }
 
 # ── Scenario 2: gh-pages exists — compare & create PR ─────────────────────────
+# Asset bundle filenames (main.<hash>.js) rotate between builds even when the
+# source is identical, so raw file hashes always differ. We fingerprint the
+# *normalized* content of every non-asset file instead: strip 8-hex asset hash
+# names from each file, hash it, and combine per-file hashes into one digest.
+norm_content() { sed -E 's/[a-f0-9]{8}\.(js|css)/HASH.\1/g'; }
+
+fingerprint_remote() {
+  local f h
+  for f in $(git ls-tree -r --name-only "$REMOTE/$TARGET_BRANCH" | grep -v '^assets/' || true); do
+    h="$(git show "$REMOTE/$TARGET_BRANCH:$f" 2>/dev/null | norm_content | git hash-object --stdin)"
+    printf '%s %s\n' "$h" "$f"
+  done | sort -k2 | git hash-object --stdin
+}
+
+fingerprint_local() {
+  local f h
+  for f in $(find build -type f ! -path 'build/assets/*' | sed 's|^build/||' || true); do
+    h="$(norm_content < "build/$f" | git hash-object --stdin)"
+    printf '%s %s\n' "$h" "$f"
+  done | sort -k2 | git hash-object --stdin
+}
+
 update_ghpages() {
   log "gh-pages exists — comparing content..."
 
   cd "$REPO_DIR"
 
-  # Get hash of current gh-pages index.html
-  local remote_hash
-  remote_hash="$(git_run ls-tree "$REMOTE/$TARGET_BRANCH" -- index.html | awk '{print $3}' || echo '')"
+  local remote_fp local_fp
+  remote_fp="$(fingerprint_remote)"
+  local_fp="$(fingerprint_local)"
 
-  # Get hash of newly built index.html
-  local local_hash
-  local_hash="$(git_run hash-object "$REPO_DIR/build/index.html" 2>/dev/null || echo 'new-build')"
-
-  if [ "$remote_hash" = "$local_hash" ]; then
-    log "Content unchanged — nothing to publish"
+  if [ "$remote_fp" = "$local_fp" ]; then
+    log "Content unchanged (normalized fingerprint $remote_fp) — nothing to publish"
     return 0
   fi
 
-  log "Content changed (remote=$remote_hash local=$local_hash) — creating PR"
+  log "Content changed (remote=$remote_fp local=$local_fp) — creating PR"
 
   # Create PR branch
   local pr_branch="${PR_PREFIX}-${DATE_STAMP}"
