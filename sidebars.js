@@ -69,6 +69,11 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Java',
+          items: ['how-to/programming/java/howto-spring-batch-mongodb-job-repository-spring-boot-4-1'],
+        },
+        {
+          type: 'category',
           label: 'Linux',
           items: ['how-to/programming/linux/howto-transfer-files-over-an-ethernet-patch-cable'],
         },
@@ -162,7 +167,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Java',
-          items: ['explanations/programming/java/explanation-zgc-decade-of-low-latency-gc'],
+          items: ['explanations/programming/java/explanation-jdk-26-performance-improvements', 'explanations/programming/java/explanation-zgc-decade-of-low-latency-gc'],
         },
         {
           type: 'category',
@@ -182,7 +187,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Aiagentsecurity',
-          items: ['explanations/securityprivacy/aiagentsecurity/explanation-llm-inference-engine-exploits', 'explanations/securityprivacy/aiagentsecurity/explanation-lm-studio-bionic-shell-judge-auto-review', 'explanations/securityprivacy/aiagentsecurity/explanation-openai-hugging-face-agent-incident'],
+          items: ['explanations/securityprivacy/aiagentsecurity/explanation-llm-inference-engine-exploits', 'explanations/securityprivacy/aiagentsecurity/explanation-lm-studio-bionic-shell-judge-auto-review', 'explanations/securityprivacy/aiagentsecurity/explanation-miasma-worm-agentic-supply-chain-attack', 'explanations/securityprivacy/aiagentsecurity/explanation-openai-hugging-face-agent-incident'],
         },
         {
           type: 'category',
