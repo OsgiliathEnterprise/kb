@@ -22,6 +22,11 @@ PR_PREFIX="publish/auto"
 TAG_PREFIX="publish"
 PR_MAX_AGE_DAYS=3
 LOG_FILE="${REPO_DIR}/.hermes/publisher.log"
+
+# Google Search Console verification meta tag (public token, already embedded
+# in the live site). Without it, every build differs from the deployed site by
+# exactly this meta tag + JS hash rotation -> false "content changed".
+export GOOGLE_SEARCH_CONSOLE_META_KEY="${GOOGLE_SEARCH_CONSOLE_META_KEY:-xxySnOb78T9sc1drISeu6ym2kIXEB9__sDKBXxSAfHA}"
 DATE_STAMP="$(date -u '+%Y%m%d-%H%M%S')"
 DATE_HUMAN="$(date -u '+%Y-%m-%d %H:%M:%S UTC')"
 
@@ -200,13 +205,17 @@ This PR was created by the daily publisher cron job."
 
   # Use gh CLI if available, otherwise curl with SSH-derived token
   if command -v gh &>/dev/null && gh auth status &>/dev/null; then
-    gh pr create \
+    local repo_slug
+    repo_slug="$(git_run remote get-url "$REMOTE" | sed 's|.*:||;s|\.git$||')"
+    # NOTE: no `2>/dev/null` — a failed PR creation must be visible in the log.
+    if ! gh pr create \
       --base "$TARGET_BRANCH" \
       --head "$head_branch" \
       --title "$pr_title" \
       --body "$pr_body" \
-      --repo "$(git_run remote get-url "$REMOTE" | sed 's|.*:||;s|\.git$||')" \
-      2>/dev/null || log "gh pr create skipped (may already exist)"
+      --repo "$repo_slug"; then
+      err "gh pr create FAILED for $head_branch (branch pushed, no PR created)"
+    fi
   else
     log "gh CLI not authenticated — PR branch pushed, manual review needed"
   fi
