@@ -1,5 +1,23 @@
 [
   {
+    "title": "Jdk 26 Performance Improvements",
+    "type": "Explanation",
+    "link": "/explanations/programming/java/explanation-jdk-26-performance-improvements",
+    "time": "5 min read"
+  },
+  {
+    "title": "Spring Batch Mongodb Job Repository Spring Boot 4 1",
+    "type": "How-To",
+    "link": "/how-to/programming/java/howto-spring-batch-mongodb-job-repository-spring-boot-4-1",
+    "time": "4 min read"
+  },
+  {
+    "title": "Miasma Worm Agentic Supply Chain Attack",
+    "type": "Explanation",
+    "link": "/explanations/securityprivacy/aiagentsecurity/explanation-miasma-worm-agentic-supply-chain-attack",
+    "time": "5 min read"
+  },
+  {
     "title": "K8S Device Management Dra",
     "type": "Explanation",
     "link": "/explanations/cloudinfrastructure/kubernetes/explanation-k8s-device-management-dra",
@@ -16,23 +34,5 @@
     "type": "Explanation",
     "link": "/explanations/programming/java/explanation-zgc-weak-reference-processing",
     "time": "12 min read"
-  },
-  {
-    "title": "Jdk 26 Performance Improvements",
-    "type": "Explanation",
-    "link": "/explanations/programming/java/explanation-jdk-26-performance-improvements",
-    "time": "5 min read"
-  },
-  {
-    "title": "Spring Batch Mongodb Job Repository Spring Boot 4 1",
-    "type": "How-To",
-    "link": "/how-to/programming/java/howto-spring-batch-mongodb-job-repository-spring-boot-4-1",
-    "time": "4 min read"
-  },
-  {
-    "title": "Python Str Lower Idna Unicode Cve 2026 17084",
-    "type": "Explanation",
-    "link": "/explanations/programming/python/explanation-python-str-lower-idna-unicode-cve-2026-17084",
-    "time": "3 min read"
   }
 ]
