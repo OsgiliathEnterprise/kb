@@ -187,6 +187,7 @@ is a different checklist. Typical datapath box:
 - [irqbalance (official source tree)](https://github.com/Irqbalance/irqbalance)
 - [Red Hat Tech Brief: Optimizing RHEL Performance by Tuning IRQ Affinity](https://access.redhat.com/articles/216733)
 - [Linux kernel docs: generic IRQ handling](https://docs.kernel.org/core-api/genericirq.html)
+- [Linux kernel docs: CPU isolation (isolcpus, nohz_full, housekeeping)](https://docs.kernel.org/admin-guide/cpu-isolation.html) — canonical reference for the scheduler/tick knobs
 
 ## Related
 - [[explanation-linux-containers-namespaces-cgroups]]

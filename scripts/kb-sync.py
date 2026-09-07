@@ -184,6 +184,109 @@ def fix_mdx_issues(content: str) -> str:
     return '\n'.join(fixed_lines)
 
 
+def rewrite_internal_links(content: str, rel_dest: Path, basename_map: dict) -> str:
+    """Rewrite internal markdown links to correct docs-relative paths.
+
+    KB source files live in a flat per-domain layout (e.g. programming/java/),
+    but sync_kb() splits them into docs/<diataxis>/<domain>/<topic>/ based on
+    the filename prefix. A bare-filename link that resolves within a single
+    flat source directory therefore breaks once files land in different
+    Diátaxis folders. This function resolves each internal link by basename
+    (basenames are unique across the site) and rewrites it to the correct
+    relative path from the file's new location.
+
+    - rel_dest: the destination file's docs-relative path (e.g.
+      'how-to/programming/java/foo.md').
+    - basename_map: {basename: docs-relative-path} for every published file.
+
+    External links (scheme:), site-absolute routes (/...), pure anchors
+    (#...), image refs (basenames not in the map), and code blocks /
+    frontmatter are left untouched. Already-correct links are left as-is so
+    the operation is idempotent.
+    """
+    if '](' not in content:
+        return content
+
+    from_file = Path(rel_dest)
+    from_dir = str(from_file.parent)  # e.g. 'how-to/programming/java' or '.'
+    known = {str(p).replace(os.sep, '/') for p in basename_map.values()}
+
+    def resolve(url: str):
+        """Return a replacement URL for `url`, or None to leave it unchanged."""
+        if not url:
+            return None
+        # External scheme (http:, https:, mailto:, ...) -> leave alone.
+        if re.match(r'^[a-zA-Z][a-zA-Z0-9+.\-]*:', url):
+            return None
+        # Site-absolute route or pure anchor -> leave alone.
+        if url.startswith('/') or url.startswith('#'):
+            return None
+        # Split off an optional anchor fragment.
+        base = url
+        anchor = ''
+        if '#' in url:
+            base, anchor = url.split('#', 1)
+            anchor = '#' + anchor
+        if not base:
+            return None
+        # Strip <...> wrapping if present.
+        if base.startswith('<') and base.endswith('>'):
+            base = base[1:-1]
+        # If it already resolves to a real docs file, it's correct -> no change.
+        cand = os.path.normpath(os.path.join(from_dir, base)).replace(os.sep, '/')
+        if cand in known:
+            return None
+        # Otherwise resolve by basename and rewrite to the correct relative path.
+        base_name = base.split('/')[-1]
+        if base_name in basename_map:
+            to_rel = basename_map[base_name]
+            rel = os.path.relpath(to_rel, start=from_dir).replace(os.sep, '/')
+            return rel + anchor
+        return None
+
+    def fix(m):
+        text, raw = m.group(1), m.group(2)
+        stripped = raw.strip()
+        if not stripped:
+            return m.group(0)
+        # First whitespace-delimited token is the URL; the rest is an optional
+        # "title" attribute (preserve it verbatim).
+        sp = stripped.find(' ')
+        url = stripped[:sp] if sp != -1 else stripped
+        title = stripped[sp:] if sp != -1 else ''
+        new_url = resolve(url)
+        if new_url is None or new_url == url:
+            return m.group(0)
+        return f"[{text}]({new_url}{title})"
+
+    lines = content.split('\n')
+    out = []
+    in_code_block = False
+    in_frontmatter = False
+    for idx, line in enumerate(lines):
+        stripped = line.strip()
+        if stripped.startswith('```'):
+            in_code_block = not in_code_block
+            out.append(line)
+            continue
+        if in_code_block:
+            out.append(line)
+            continue
+        if stripped == '---':
+            if idx == 0:
+                in_frontmatter = True
+            elif in_frontmatter:
+                in_frontmatter = False
+            out.append(line)
+            continue
+        if in_frontmatter:
+            out.append(line)
+            continue
+        out.append(re.sub(r'\[([^\]]*)\]\(([^)]+)\)', fix, line))
+
+    return '\n'.join(out)
+
+
 def extract_title_from_content(content: str) -> str:
     """Extract title from first H1 heading."""
     fm_pattern = re.compile(r'^---\s*\n(.*?)\n---\s*\n', re.DOTALL)
@@ -329,11 +432,25 @@ def sync_kb():
         rel_dest = dest_file.relative_to(DOCS_DIR)
         new_files[rel_dest] = (kb_file, meta)
 
+    # Build a basename -> docs-relative path map for internal link resolution.
+    # Basenames are unique across the published site (verified), so a link can
+    # be resolved by its target file's basename regardless of which Diátaxis
+    # folder it ends up in.
+    basename_map = {}
+    for rel_dest in new_files:
+        rel_str = str(rel_dest).replace(os.sep, '/')
+        basename_map[rel_str.split('/')[-1]] = rel_str
+
+    # Second pass: write content. Always regenerate to catch frontmatter/YAML
+    # fixes and internal-link rewrites.
+    for rel_dest, (kb_file, meta) in new_files.items():
+        dest_file = DOCS_DIR / rel_dest
+        content = kb_file.read_text(encoding='utf-8')
+        content = fix_yaml_frontmatter(content, meta, meta['diataxis'])
+        content = fix_mdx_issues(content)
+        content = rewrite_internal_links(content, rel_dest, basename_map)
+
         if dest_file.exists():
-            # Always regenerate to catch frontmatter/YAML fixes
-            content = kb_file.read_text(encoding='utf-8')
-            content = fix_yaml_frontmatter(content, meta, meta['diataxis'])
-            content = fix_mdx_issues(content)
             existing_content = dest_file.read_text(encoding='utf-8')
             if content != existing_content:
                 dest_file.parent.mkdir(parents=True, exist_ok=True)
@@ -341,9 +458,6 @@ def sync_kb():
                 updated.append(str(rel_dest))
                 print(f"  UPDATED: {rel_dest}")
         else:
-            content = kb_file.read_text(encoding='utf-8')
-            content = fix_yaml_frontmatter(content, meta, meta['diataxis'])
-            content = fix_mdx_issues(content)
             dest_file.parent.mkdir(parents=True, exist_ok=True)
             dest_file.write_text(content, encoding='utf-8')
             added.append(str(rel_dest))
