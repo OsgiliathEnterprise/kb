@@ -137,7 +137,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Kubernetes',
-          items: ['explanations/cloudinfrastructure/kubernetes/explanation-k8s-v1-37-pod-certificates-cluster-trust-bundles'],
+          items: ['explanations/cloudinfrastructure/kubernetes/explanation-k8s-device-management-dra', 'explanations/cloudinfrastructure/kubernetes/explanation-k8s-v1-37-pod-certificates-cluster-trust-bundles'],
         },
         {
           type: 'category',
@@ -167,7 +167,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Java',
-          items: ['explanations/programming/java/explanation-jdk-26-performance-improvements', 'explanations/programming/java/explanation-zgc-decade-of-low-latency-gc'],
+          items: ['explanations/programming/java/explanation-jdk-26-performance-improvements', 'explanations/programming/java/explanation-zgc-decade-of-low-latency-gc', 'explanations/programming/java/explanation-zgc-weak-reference-processing'],
         },
         {
           type: 'category',

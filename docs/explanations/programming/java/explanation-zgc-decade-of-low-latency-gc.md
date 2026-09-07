@@ -556,3 +556,4 @@ The remaining manual knob is `-Xmx`, and picking an optimal heap size is genuine
 - [ZGC: A Decade of Redefining Java Performance (Inside Java, Stefan Johansson)](https://inside.java/2026-06-30/zgc-performance-decade/) — original talk summary and article
 - [JavaOne 2026 ZGC session video](https://www.youtube.com/watch?v=Of0fvtIRwzY)
 - [ZGC - Paving the GC On-Ramp (Inside Java, Erik Österlund)](https://inside.java/2025-07-10/javaone-zgc/) — companion talk on ZGC configuration pitfalls
+- [JEP: Adaptive Heap Sizing for ZGC (OpenJDK, 8377305)](https://openjdk.org/jeps/8377305) — the formal proposal behind the automatic heap sizing roadmap item
