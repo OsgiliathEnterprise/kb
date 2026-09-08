@@ -43,6 +43,10 @@ The format was written up as an open standard under CC BY 4.0:
 - GitHub: [iwasoftcom/ai-docs-standard](https://github.com/iwasoftcom/ai-docs-standard)
 - Write-up: [iwasoft.com/blog/ai-docs-standard](https://iwasoft.com/blog/ai-docs-standard)
 
+## Adjacent standard: AGENTS.md
+
+`documentation.ai.md` is a per-product *operational* doc. The broader, now-dominant convention in the same space is **AGENTS.md** — a plain-Markdown file at the repository root that gives coding agents project-specific build/test/convention guidance (a "README for agents"). Released by OpenAI in August 2025 and adopted by 60,000+ open-source projects, AGENTS.md is now stewarded by the **Agentic AI Foundation** under the Linux Foundation (formed Dec 2025 alongside MCP and goose), with native support across Codex, Cursor, Copilot, Gemini CLI, Windsurf, Aider, and 20+ other tools. The two are complementary: AGENTS.md tells an agent how to work *inside a repo*; `documentation.ai.md` tells it how to *install and call a product* from outside. Where AGENTS.md is loose (any Markdown headings, nearest-file-wins precedence in monorepos), the ai-docs standard is deliberately stricter (fixed section order, per-release operational doc).
+
 ## Key takeaways
 
 - If you build developer tools, your users' agents are already reading your docs — write the version they actually need.
@@ -54,6 +58,8 @@ The format was written up as an open standard under CC BY 4.0:
 - [We started writing docs for AI agents, not humans — and made it an open standard (DEV.to)](https://dev.to/kissoid/we-started-writing-docs-for-ai-agents-not-humans-and-made-it-an-open-standard-3ija)
 - [AI Docs Standard repository](https://github.com/iwasoftcom/ai-docs-standard)
 - [llms.txt specification](https://llmstxt.org/)
+- [AGENTS.md — open format for guiding coding agents](https://agents.md/)
+- [Linux Foundation: Agentic AI Foundation formation (AGENTS.md, MCP, goose)](https://www.linuxfoundation.org/press/linux-foundation-announces-the-formation-of-the-agentic-ai-foundation)
 
 ## Related
 - [[explanation-openai-hugging-face-agent-incident]]
