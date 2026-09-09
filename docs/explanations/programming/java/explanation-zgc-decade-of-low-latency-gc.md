@@ -38,7 +38,9 @@ The initial goal was pause times below 10 ms; today's refined goal is **always b
 
 - **Concurrent everything**: marking, object relocation (copying), and class unloading all happen concurrently with application threads.
 - **Colored pointers / load barriers**: ZGC uses pointer tagging so that application threads can detect stale references cheaply at load time instead of requiring write barriers for every reference store — this is what keeps the collector concurrent without stalling the app.
-- **Generational collection (JDK 21+)**: a young generation lets ZGC handle much higher allocation rates, avoid allocation stalls on smaller heaps, and use less CPU than non-generational mode. This was roughly two years of focused work and is what made ZGC suitable for far more workloads — it now scales from a few hundred megabytes up to terabyte-sized heaps.
+- **Generational collection (JDK 21+)**: a young generation lets ZGC handle much higher allocation rates, avoid allocation stalls on smaller heaps, and use less CPU than non-generational mode. This was roughly two years of focused work and is what made ZGC suitable for far more workloads — it now scales from a few hundred megabytes up to the official **16 TB** heap limit (raised from 4 TB in JDK 13).
+- **Store barriers in generational mode**: alongside the load barriers of classic ZGC, generational mode also uses store barriers to keep young/old promotion consistent while application threads keep running.
+- **Adaptive behaviour**: ZGC is designed to require minimal manual configuration. At runtime it dynamically resizes generations, scales the number of GC threads, and adjusts tenuring thresholds — the main tuning knob is simply giving it a larger maximum heap (`-Xmx`).
 - **Pause semantics**: pauses are only used to synchronize phases (e.g., "we are relocating objects now"), typically in the low hundreds of microseconds even at large heap sizes.
 
 ## Performance picture (SPECjbb 2015, fixed load)
@@ -54,6 +56,8 @@ If you care about short, deterministic response times — trading platforms, rea
 ## What's next: automatic heap sizing
 
 The remaining manual knob is `-Xmx`, and picking an optimal heap size is genuinely hard (it depends on workload, memory pressure, CPU). The roadmap feature under discussion is **automatic heap sizing**: the JVM dynamically adjusts heap allocation across multiple instances based on system memory and CPU pressure, removing manual heap configuration entirely.
+
+A second open item worth tracking is **faster startup and warmup** with ZGC (JDK 25 draft, [JEP 8329758](https://openjdk.org/jeps/8329758)): pre-touching a large initial heap (`-Xms` == `-Xmx` with `-XX:+AlwaysPreTouch`) and related warmup improvements so that ZGC's low-latency guarantees hold from process start rather than only after warmup.
 
 ## Key takeaways
 
@@ -557,3 +561,5 @@ The remaining manual knob is `-Xmx`, and picking an optimal heap size is genuine
 - [JavaOne 2026 ZGC session video](https://www.youtube.com/watch?v=Of0fvtIRwzY)
 - [ZGC - Paving the GC On-Ramp (Inside Java, Erik Österlund)](https://inside.java/2025-07-10/javaone-zgc/) — companion talk on ZGC configuration pitfalls
 - [JEP: Adaptive Heap Sizing for ZGC (OpenJDK, 8377305)](https://openjdk.org/jeps/8377305) — the formal proposal behind the automatic heap sizing roadmap item
+- [JEP draft: Faster Startup and Warmup with ZGC (OpenJDK, 8329758)](https://openjdk.org/jeps/8329758)
+- [ZGC project wiki (OpenJDK)](https://wiki.openjdk.org/spaces/zgc/pages/34668579/Main) — authoritative status: supported platforms, JDK-by-JDK release notes, FAQ

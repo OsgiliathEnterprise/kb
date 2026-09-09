@@ -69,6 +69,11 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Frontendjavascript',
+          items: ['how-to/programming/frontendjavascript/howto-deno-2-9-desktop-and-node-migration'],
+        },
+        {
+          type: 'category',
           label: 'Java',
           items: ['how-to/programming/java/howto-spring-batch-mongodb-job-repository-spring-boot-4-1'],
         },
@@ -117,7 +122,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Agentarchitecture',
-          items: ['explanations/aimachinelearning/agentarchitecture/explanation-agent-guardrail-stack', 'explanations/aimachinelearning/agentarchitecture/explanation-claude-unified-memory-architecture', 'explanations/aimachinelearning/agentarchitecture/explanation-lemmalog-datalog-memory-for-llm-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-prince-bayer-agentic-rag-context-harness-engineering'],
+          items: ['explanations/aimachinelearning/agentarchitecture/explanation-agent-guardrail-stack', 'explanations/aimachinelearning/agentarchitecture/explanation-claude-unified-memory-architecture', 'explanations/aimachinelearning/agentarchitecture/explanation-lemmalog-datalog-memory-for-llm-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-prince-bayer-agentic-rag-context-harness-engineering', 'explanations/aimachinelearning/agentarchitecture/explanation-sandboxed-execution-runtime-engineering-for-ai-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-x402-http-payment-standard-for-ai-agents'],
         },
         {
           type: 'category',
@@ -148,6 +153,11 @@ const sidebars = {
           type: 'category',
           label: 'Agentdocumentation',
           items: ['explanations/developertoolspractices/agentdocumentation/explanation-ai-docs-standard-documentation-ai-md'],
+        },
+        {
+          type: 'category',
+          label: 'Aicodingagents',
+          items: ['explanations/developertoolspractices/aicodingagents/explanation-valkey-ai-agents-backporting-provenance'],
         },
         {
           type: 'category',

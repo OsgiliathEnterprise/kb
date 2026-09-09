@@ -58,6 +58,9 @@ supports tool calling, with limited capability.
 - IBM's pitch: high-throughput, cost-conscious **agentic workloads** where
   frontier models are overkill — "helping enterprises build agents that can
   reason, act, and adapt during real-life workflows".
+- The 30B leads its class across SWE-Bench variants and terminal-coding
+  benchmarks, benefiting from a second, SWE-focused SFT phase on top of the
+  agentic-RL stage.
 
 ```excalidraw
 {
@@ -144,4 +147,5 @@ supports tool calling, with limited capability.
 - [The New Stack: IBM's new Granite 4.2 models add reasoning and stay dense](https://thenewstack.io/ibm-granite-reasoning-models/)
 - [IBM Granite 4.2 launch (Hugging Face blog)](https://huggingface.co/blog/ibm-granite/granite-4-2)
 - [IBM CodeAlchemy synthetic code pipeline](https://research.ibm.com/blog/code-alchemy-for-synthetic-code)
+- [IBM Research: Introducing Granite 4.2](https://research.ibm.com/blog/introducing-granite-4-2)
 - [IBM Granite official product page (model family overview)](https://www.ibm.com/granite)

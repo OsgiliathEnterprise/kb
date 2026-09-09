@@ -162,7 +162,9 @@ the workload shifts between compute-heavy and memory-bound phases.
   products, models, chips, and memory developed in concert.
 - Deployment is expected to begin **at the end of 2026 "in very small
   volumes,"** with more significant deployment in **2027** (per Richard Ho,
-  OpenAI's head of hardware).
+  OpenAI's head of hardware). SemiAnalysis reports the production ramp will
+  proceed gradually over 2027, with most output scheduled for the end of that
+  year.
 - The design specifically targets the **prefill and communication phases**,
   which OpenAI identifies as common bottlenecks, by minimizing data movement
   and keeping the KV cache local.
@@ -174,6 +176,7 @@ the workload shifts between compute-heavy and memory-bound phases.
 - [OpenAI: Jalapeño first results (official blog)](https://openai.com/index/jalapeno-first-results/)
 - [Tom's Hardware: Broadcom and OpenAI unveil custom-built Jalapeño inference processor](https://www.tomshardware.com/tech-industry/artificial-intelligence/broadcom-and-openai-unveil-custom-built-jalapeno-inference-processor-openais-first-chip-is-a-massive-reticle-sized-asic-built-in-an-ultra-fast-nine-month-development-cycle)
 - [Tom's Hardware (Hot Chips 2026): OpenAI's Jalapeño AI ASIC unpacked — architecture detail and Blackwell comparison](https://www.tomshardware.com/tech-industry/artificial-intelligence/hot-chips-2026-openais-jalapeno-ai-asic-unpacked-accelerator-developed-using-ai-achieves-efficiency-and-throughput-gains-against-power-hungry-blackwell)
+- [SemiAnalysis: OpenAI Jalapeño — Better Than Nvidia Blackwell](https://newsletter.semianalysis.com/p/openai-jalapeno-better-than-nvidia) — independent analysis and 2027 production-ramp schedule
 
 ## Related
 - [[explanation-qwen3-embedding-cloud-tpu-vllm]]
