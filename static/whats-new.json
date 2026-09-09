@@ -1,38 +1,38 @@
 [
   {
-    "title": "Ai Docs Standard Documentation Ai Md",
+    "title": "Openai Jalapeno Chip First Benchmarks",
     "type": "Explanation",
-    "link": "/explanations/developertoolspractices/agentdocumentation/explanation-ai-docs-standard-documentation-ai-md",
-    "time": "3 min read"
-  },
-  {
-    "title": "Securing Kubernetes Ai Agent Workloads",
-    "type": "Explanation",
-    "link": "/explanations/cloudinfrastructure/kubernetes/explanation-securing-kubernetes-ai-agent-workloads",
-    "time": "6 min read"
-  },
-  {
-    "title": "Spring Ai 2 0 Composable Tool Calling Advisor Architecture",
-    "type": "Explanation",
-    "link": "/explanations/programming/java/explanation-spring-ai-2-0-composable-tool-calling-advisor-architecture",
-    "time": "8 min read"
-  },
-  {
-    "title": "Full Stack App On Aws Fargate Vue Express Dynamodb",
-    "type": "Tutorials",
-    "link": "/tutorials/cloudinfrastructure/aws/tutorial-full-stack-app-on-aws-fargate-vue-express-dynamodb",
+    "link": "/explanations/aillm/llminfrastructure/explanation-openai-jalapeno-chip-first-benchmarks",
     "time": "4 min read"
   },
   {
-    "title": "Commit Conversation Voice Turn Context",
-    "type": "Tutorials",
-    "link": "/tutorials/aimachinelearning/multimodal/tutorial-commit-conversation-voice-turn-context",
+    "title": "Ibm Granite 4 2 Dense Reasoning Models",
+    "type": "Explanation",
+    "link": "/explanations/aillm/llmmodels/explanation-ibm-granite-4-2-dense-reasoning-models",
+    "time": "3 min read"
+  },
+  {
+    "title": "Valkey Ai Agents Backporting Provenance",
+    "type": "Explanation",
+    "link": "/explanations/developertoolspractices/aicodingagents/explanation-valkey-ai-agents-backporting-provenance",
+    "time": "4 min read"
+  },
+  {
+    "title": "Sandboxed Execution Runtime Engineering For Ai Agents",
+    "type": "Explanation",
+    "link": "/explanations/aimachinelearning/agentarchitecture/explanation-sandboxed-execution-runtime-engineering-for-ai-agents",
     "time": "5 min read"
   },
   {
-    "title": "Mvcc Postgres Style Snapshots Typescript",
-    "type": "Tutorials",
-    "link": "/tutorials/programming/databases/tutorial-mvcc-postgres-style-snapshots-typescript",
+    "title": "X402 Http Payment Standard For Ai Agents",
+    "type": "Explanation",
+    "link": "/explanations/aimachinelearning/agentarchitecture/explanation-x402-http-payment-standard-for-ai-agents",
     "time": "6 min read"
+  },
+  {
+    "title": "Zgc Decade Of Low Latency Gc",
+    "type": "Explanation",
+    "link": "/explanations/programming/java/explanation-zgc-decade-of-low-latency-gc",
+    "time": "10 min read"
   }
 ]
