@@ -39,6 +39,11 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Finops',
+          items: ['how-to/cloudinfrastructure/finops/howto-cloud-budget-alerts-aws-gcp-azure'],
+        },
+        {
+          type: 'category',
           label: 'Googleworkspace',
           items: ['how-to/cloudinfrastructure/googleworkspace/howto-gemini-managed-agents-from-apps-script'],
         },
@@ -225,6 +230,11 @@ const sidebars = {
           type: 'category',
           label: 'Frontendjavascript',
           items: ['examples/programming/frontendjavascript/example-intl-segmenter-text-analysis'],
+        },
+        {
+          type: 'category',
+          label: 'Go',
+          items: ['examples/programming/go/example-go-gin-orders-api-layered'],
         },
         {
           type: 'category',
