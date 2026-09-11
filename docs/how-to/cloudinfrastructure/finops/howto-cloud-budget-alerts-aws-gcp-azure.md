@@ -164,6 +164,8 @@ The honest part — three limits to plan around:
 ## References
 
 - [How to set up cloud budget alerts on AWS, GCP, Azure (DEV.to, 2026-06-22)](https://dev.to/muskan_8abedcc7e12/how-to-set-up-cloud-budget-alerts-on-aws-gcp-azure-4ne)
+- [AWS Budgets — AWS documentation](https://docs.aws.amazon.com/budgets/latest/UserGuide/what-is-budgets.html)
+- [Azure budgets overview — Microsoft Learn](https://learn.microsoft.com/azure/cost-management-billing/budgets/cost-budgets-overview)
 - [Google Cloud Billing budgets and budget alerts (documentation)](https://docs.cloud.google.com/billing/docs/how-to/budgets)
 
 ## Related

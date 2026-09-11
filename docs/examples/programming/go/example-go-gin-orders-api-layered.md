@@ -26,6 +26,8 @@ Go's standard `net/http` is genuinely capable — you can write a production API
 
 It is the closest thing Go has to a lightweight Express or Axum — fast, minimal, and it does not try to own your entire architecture.
 
+A quick decision rule before you reach for it: if the whole service is one or two handlers with no middleware, no validation, and no path parameters, the standard library alone is genuinely enough — zero dependencies is a real property worth keeping (and Go 1.22's `ServeMux` gained method-aware, path-parameter routing, which covers more than it used to). Gin earns its keep as soon as you have a **router with path parameters and route groups**, **binding-based validation** on request bodies, or a **composable middleware chain** — which is exactly the shape most real services take.
+
 ```bash
 go mod init orders-api
 go get github.com/gin-gonic/gin
@@ -338,5 +340,6 @@ The series continues with **testing** — table-driven tests, the `httptest` pac
 ## References
 
 - [Building My First Real API in Go — with Gin (DEV.to, 2026-06-22)](https://dev.to/mihirmohapatra/building-my-first-real-api-in-go-with-gin-3kio)
+- [Is net/http All You Need, or Does Gin Offer More? (DEV.to)](https://dev.to/leapcell/is-nethttp-all-you-need-or-does-gin-offer-more-4k4c)
 - [Gin (gin-gonic/gin) — documentation and examples](https://github.com/gin-gonic/gin)
 - [Go standard library: net/http (docs)](https://pkg.go.dev/net/http)
