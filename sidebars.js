@@ -34,6 +34,11 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Aws',
+          items: ['how-to/cloudinfrastructure/aws/howto-deploy-ml-model-to-sagemaker-endpoint'],
+        },
+        {
+          type: 'category',
           label: 'Distributedtracing',
           items: ['how-to/cloudinfrastructure/distributedtracing/howto-store-jaeger-spans-in-clickhouse'],
         },
@@ -60,7 +65,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Aicodingagents',
-          items: ['how-to/developertoolspractices/aicodingagents/howto-litellm-gateway-for-codex-cli', 'how-to/developertoolspractices/aicodingagents/howto-maintainability-sensors-for-coding-agents', 'how-to/developertoolspractices/aicodingagents/howto-spring-upgrades-with-openrewrite-and-agents'],
+          items: ['how-to/developertoolspractices/aicodingagents/howto-litellm-gateway-for-codex-cli', 'how-to/developertoolspractices/aicodingagents/howto-maintainability-sensors-for-coding-agents', 'how-to/developertoolspractices/aicodingagents/howto-migrate-gemini-cli-to-antigravity-cli', 'how-to/developertoolspractices/aicodingagents/howto-spring-upgrades-with-openrewrite-and-agents'],
         },
         {
           type: 'category',
@@ -122,7 +127,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Llmmodels',
-          items: ['explanations/aillm/llmmodels/explanation-ibm-granite-4-2-dense-reasoning-models'],
+          items: ['explanations/aillm/llmmodels/explanation-glm-5-2-open-weight-models-self-hosting', 'explanations/aillm/llmmodels/explanation-ibm-granite-4-2-dense-reasoning-models'],
         },
         {
           type: 'category',
