@@ -82,6 +82,31 @@ The other stack-level optimizations that made the local agent viable:
 - **Multi-agent mode and optional LLM calls disabled** — sequential processing
   is the most efficient path on a single local inference engine.
 
+## How good is it
+
+JetBrains evaluates every candidate model on its own private test set before it
+ships in Junie. **Qwen3.6-27B (with reasoning disabled) scored on par with
+Sonnet 4.5** (10,000-token reasoning limit), while **GPT-5 at medium effort
+scored slightly higher**. The notable detail: those local-model numbers are
+what it achieves *without* reasoning, against cloud models that had it
+enabled — so the local agent is competitive even after shedding the
+reasoning overhead that would otherwise make it 2–3x more token-hungry.
+
+## Where it stands
+
+Junie Local launched on **M5-only Macs** and is explicitly a first step in a
+longer project to run the agent across a wide variety of hardware:
+
+- **The int8-prefill patch** (the ~40% prefill win) is being sent as a PR
+  upstream to **MLX-VLM**.
+- **Discrete-GPU support** — working prototypes for **DGX Spark** and
+  **RTX 5090**, with 24 GB cards in exploration; prefill behavior on
+  discrete GPUs differs substantially, so much of the remaining tuning
+  shifts to that hardware.
+- **Lowering the 64 GB memory floor** is the stated priority.
+- As a cloud-based middle ground, Junie's **default moved to Gemini 3.7
+  Flash at 40% off base pricing** (Aug 2026).
+
 ## References
 
 - [JetBrains' Junie now runs entirely offline (TheNewStack)](https://thenewstack.io/jetbrains-junie-local-agent/)
