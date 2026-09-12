@@ -187,7 +187,12 @@ const sidebars = {
         {
           type: 'category',
           label: 'Java',
-          items: ['explanations/programming/java/explanation-jdk-26-performance-improvements', 'explanations/programming/java/explanation-spring-ai-2-0-composable-tool-calling-advisor-architecture', 'explanations/programming/java/explanation-zgc-decade-of-low-latency-gc', 'explanations/programming/java/explanation-zgc-weak-reference-processing'],
+          items: ['explanations/programming/java/explanation-better-tools-immutable-data-java', 'explanations/programming/java/explanation-jdk-26-performance-improvements', 'explanations/programming/java/explanation-spring-ai-2-0-composable-tool-calling-advisor-architecture', 'explanations/programming/java/explanation-zgc-decade-of-low-latency-gc', 'explanations/programming/java/explanation-zgc-weak-reference-processing'],
+        },
+        {
+          type: 'category',
+          label: 'Linux',
+          items: ['explanations/programming/linux/explanation-anduinos-2-0-declarative-ubuntu-desktop-distro'],
         },
         {
           type: 'category',
@@ -208,6 +213,11 @@ const sidebars = {
           type: 'category',
           label: 'Aiagentsecurity',
           items: ['explanations/securityprivacy/aiagentsecurity/explanation-llm-inference-engine-exploits', 'explanations/securityprivacy/aiagentsecurity/explanation-lm-studio-bionic-shell-judge-auto-review', 'explanations/securityprivacy/aiagentsecurity/explanation-miasma-worm-agentic-supply-chain-attack', 'explanations/securityprivacy/aiagentsecurity/explanation-openai-hugging-face-agent-incident'],
+        },
+        {
+          type: 'category',
+          label: 'Bootsecurity',
+          items: ['explanations/securityprivacy/bootsecurity/explanation-secure-boot-certificate-expiration-2026'],
         },
         {
           type: 'category',
