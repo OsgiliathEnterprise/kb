@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Glm 5 2 Open Weight Models Self Hosting",
+    "type": "Explanation",
+    "link": "/explanations/aillm/llmmodels/explanation-glm-5-2-open-weight-models-self-hosting",
+    "time": "12 min read"
+  },
+  {
+    "title": "Migrate Gemini Cli To Antigravity Cli",
+    "type": "How-To",
+    "link": "/how-to/developertoolspractices/aicodingagents/howto-migrate-gemini-cli-to-antigravity-cli",
+    "time": "15 min read"
+  },
+  {
+    "title": "Deploy Ml Model To Sagemaker Endpoint",
+    "type": "How-To",
+    "link": "/how-to/cloudinfrastructure/aws/howto-deploy-ml-model-to-sagemaker-endpoint",
+    "time": "16 min read"
+  },
+  {
+    "title": "Better Tools Immutable Data Java",
+    "type": "Explanation",
+    "link": "/explanations/programming/java/explanation-better-tools-immutable-data-java",
+    "time": "13 min read"
+  },
+  {
+    "title": "Jetbrains Junie Local Agent",
+    "type": "Explanation",
+    "link": "/explanations/developertoolspractices/localaiagents/explanation-jetbrains-junie-local-agent",
+    "time": "4 min read"
+  },
+  {
+    "title": "Anduinos 2 0 Declarative Ubuntu Desktop Distro",
+    "type": "Explanation",
+    "link": "/explanations/programming/linux/explanation-anduinos-2-0-declarative-ubuntu-desktop-distro",
+    "time": "4 min read"
+  }
+]
