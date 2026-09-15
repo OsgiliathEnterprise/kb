@@ -29,6 +29,11 @@ const sidebars = {
       items: [
         {
           type: 'category',
+          label: 'Llminfrastructure',
+          items: ['how-to/aillm/llminfrastructure/howto-tiered-response-caching-for-llm-costs'],
+        },
+        {
+          type: 'category',
           label: 'Agentarchitecture',
           items: ['how-to/aimachinelearning/agentarchitecture/howto-agentic-rag-pipeline-with-real-time-web-search'],
         },
@@ -146,6 +151,11 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Aws',
+          items: ['explanations/cloudinfrastructure/aws/explanation-aws-lambda-ebpf-rust-flow-logging'],
+        },
+        {
+          type: 'category',
           label: 'Gpucompute',
           items: ['explanations/cloudinfrastructure/gpucompute/explanation-cuda-targets-risc-v'],
         },
@@ -202,7 +212,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Python',
-          items: ['explanations/programming/python/explanation-python-str-lower-idna-unicode-cve-2026-17084'],
+          items: ['explanations/programming/python/explanation-python-str-lower-idna-unicode-cve-2026-17084', 'explanations/programming/python/explanation-tempfile-gc-finalizer-antipattern'],
         },
         {
           type: 'category',
