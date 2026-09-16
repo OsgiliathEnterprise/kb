@@ -51,17 +51,28 @@ The React DevTools Profiler records per-component **update cost** — time spent
 - Distinguish "rendered but no DOM change" (cheap — usually fine) from "rendered and committed large subtrees" (expensive — optimize).
 - Only then consider `React.memo`, stable callbacks, or splitting state so fewer components see the changed value.
 
+## React Compiler: the memoization decision moves to build time
+
+React 19's **React Compiler** automates exactly the judgment this note describes: it analyzes each component and inserts the equivalent of `useMemo`/`useCallback`/`React.memo` where the data-flow analysis proves a value is stable, eliminating the need for manual memoization. This sharpens the practical guidance above in two ways:
+
+- **Manual memoization becomes opt-in, not default.** With the compiler enabled, sprinkling `useMemo`/`useCallback` by habit adds nothing — the compiler already handles it, and hand-written wrappers can even interfere with its analysis (the docs describe function-level directives for controlling compilation per-function).
+- **The "is this render expensive?" question survives, but shifts.** You no longer decide *where* to memoize; you still decide whether a component's work is worth splitting or restructuring. Profiling (DevTools Profiler) remains the diagnostic tool — now it tells you what the compiler could not fix by structure alone.
+
+Adoption is incremental: the compiler can be enabled per-file/per-component in an existing codebase, so "measure first, memoize second" becomes "enable the compiler where safe, profile what's left."
+
 ## Key takeaways
 
 - Re-rendering is how React determines what the UI should look like; it is part of normal operation.
 - The performance question is always about *work*, not *render events*.
 - Diagnose with profiling (React DevTools Profiler) before adding memoization — memoizing cheap components adds overhead without benefit.
+- With React Compiler in the build, manual `useMemo`/`useCallback`/`React.memo` are largely unnecessary; profile to find what structural changes the compiler cannot make for you.
 
 ## References
 
 - [Why Does Your React App Re-render So Much? (DEV.to)](https://dev.to/tanu_priya/why-does-your-react-app-re-render-so-much-45co)
 - [Automatic batching for fewer renders in React 18 — reactwg/react-18 discussion](https://github.com/reactwg/react-18/discussions/21)
 - [Optimizing Performance — React official docs (render vs. DOM mutation distinction)](https://legacy.reactjs.org/docs/optimizing-performance.html)
+- [React Compiler — React official docs (automatic memoization, incremental adoption, directives)](https://react.dev/learn/react-compiler)
 
 ## Related
 - [[example-intl-segmenter-text-analysis]]
