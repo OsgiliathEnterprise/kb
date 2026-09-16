@@ -1,38 +1,38 @@
 [
   {
-    "title": "Tiered Response Caching For Llm Costs",
+    "title": "Baseten Github Token In Image Build History",
+    "type": "Explanation",
+    "link": "/explanations/cloudinfrastructure/docker/explanation-baseten-github-token-in-image-build-history",
+    "time": "3 min read"
+  },
+  {
+    "title": "S3 Exfiltration Incident Response",
     "type": "How-To",
-    "link": "/how-to/aillm/llminfrastructure/howto-tiered-response-caching-for-llm-costs",
+    "link": "/how-to/cloudinfrastructure/incidentresponse/howto-s3-exfiltration-incident-response",
+    "time": "3 min read"
+  },
+  {
+    "title": "React Rerender Vs Expensive Work",
+    "type": "Explanation",
+    "link": "/explanations/programming/frontendjavascript/explanation-react-rerender-vs-expensive-work",
     "time": "4 min read"
   },
   {
-    "title": "Aws Lambda Ebpf Rust Flow Logging",
+    "title": "Apple Reference Image Verified Photography",
     "type": "Explanation",
-    "link": "/explanations/cloudinfrastructure/aws/explanation-aws-lambda-ebpf-rust-flow-logging",
-    "time": "7 min read"
+    "link": "/explanations/securityprivacy/websecurity/explanation-apple-reference-image-verified-photography",
+    "time": "14 min read"
   },
   {
-    "title": "Tempfile Gc Finalizer Antipattern",
+    "title": "Cloudflare Disallow Ai Training Mixed Use Crawlers",
     "type": "Explanation",
-    "link": "/explanations/programming/python/explanation-tempfile-gc-finalizer-antipattern",
-    "time": "4 min read"
-  },
-  {
-    "title": "Secure Boot Certificate Expiration 2026",
-    "type": "Explanation",
-    "link": "/explanations/securityprivacy/bootsecurity/explanation-secure-boot-certificate-expiration-2026",
-    "time": "7 min read"
+    "link": "/explanations/securityprivacy/websecurity/explanation-cloudflare-disallow-ai-training-mixed-use-crawlers",
+    "time": "12 min read"
   },
   {
     "title": "Full Stack App On Aws Fargate Vue Express Dynamodb",
     "type": "Tutorials",
     "link": "/tutorials/cloudinfrastructure/aws/tutorial-full-stack-app-on-aws-fargate-vue-express-dynamodb",
     "time": "4 min read"
-  },
-  {
-    "title": "Commit Conversation Voice Turn Context",
-    "type": "Tutorials",
-    "link": "/tutorials/aimachinelearning/multimodal/tutorial-commit-conversation-voice-turn-context",
-    "time": "5 min read"
   }
 ]

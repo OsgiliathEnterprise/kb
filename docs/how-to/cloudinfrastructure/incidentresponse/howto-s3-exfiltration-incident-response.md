@@ -3,14 +3,7 @@ title: 'Stopping S3 Data Exfiltration in Real Time: A Step-by-Step IR'
 diataxis: How-to Guide
 domain: cloud-infrastructure
 topic: incident-response
-source: DEV.to Tech News
-source_url: https://dev.to/nghidanh2005/-stopping-s3-data-exfiltration-in-real-time-a-step-by-step-incident-response-2jp
-date: 2026-08-25
-keywords:
-- knowledge-base
-- incident-response
-- cloud-infrastructure
-- how-to
+source: ''
 ---
 # Stopping S3 Data Exfiltration in Real Time: A Step-by-Step IR
 
@@ -68,6 +61,15 @@ aws iam get-role-policy --role-name ProdDataAccessRole --policy-name AWSRevokeOl
 
 Then confirm the bulk-download rate in CloudTrail drops, and re-check the
 GuardDuty finding.
+
+## Containment beyond the role: the bucket layer
+
+Revoking the role stops *that* credential set — but if other identities (or a second compromised instance) can still reach the bucket, add a **bucket-level** containment while you investigate. Two complementary options:
+
+- **Bucket policy deny by source.** A resource-based `Deny` on the bucket with a condition such as `StringNotEquals` on `aws:SourceVpce` (your VPC endpoint ID) blocks any request that does not arrive through the designated endpoint — so even valid credentials from outside the network are refused. This is more precise than blanket public-access-block when the legitimate access path is "through our VPC."
+- **IAM Access Analyzer.** A free analyzer scoped to S3 continuously evaluates bucket policies and flags public or cross-account exposure (including policy drift), which catches the misconfiguration class that most S3 exfiltration incidents start from. Run it as a standing control, not just during IR.
+
+Both are reversible and leave an audit trail; apply them alongside — not instead of — the role-level revocation above.
 
 ## Why this is the right first move
 

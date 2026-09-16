@@ -156,6 +156,11 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Docker',
+          items: ['explanations/cloudinfrastructure/docker/explanation-baseten-github-token-in-image-build-history'],
+        },
+        {
+          type: 'category',
           label: 'Gpucompute',
           items: ['explanations/cloudinfrastructure/gpucompute/explanation-cuda-targets-risc-v'],
         },
@@ -242,7 +247,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Websecurity',
-          items: ['explanations/securityprivacy/websecurity/explanation-open-redirect-php-laravel'],
+          items: ['explanations/securityprivacy/websecurity/explanation-apple-reference-image-verified-photography', 'explanations/securityprivacy/websecurity/explanation-cloudflare-disallow-ai-training-mixed-use-crawlers', 'explanations/securityprivacy/websecurity/explanation-open-redirect-php-laravel'],
         },
       ],
     },
