@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 -4.0 1433.0 213.0" width="1433" height="213">
+<rect x="16.0" y="-4.0" width="1433.0" height="213.0" fill="#ffffff"/>
+<rect x="40.0" y="90.0" width="245.0" height="95.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="325.0" y="90.0" width="245.0" height="95.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="610.0" y="90.0" width="245.0" height="95.0" rx="8" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="895.0" y="90.0" width="245.0" height="95.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="1180.0" y="90.0" width="245.0" height="95.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 290.0 137.5 L 320.0 137.5"/><line x1="320.0" y1="137.5" x2="310.6" y2="132.9"/><line x1="320.0" y1="137.5" x2="310.6" y2="142.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 575.0 137.5 L 605.0 137.5"/><line x1="605.0" y1="137.5" x2="595.6" y2="132.9"/><line x1="605.0" y1="137.5" x2="595.6" y2="142.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 860.0 137.5 L 890.0 137.5"/><line x1="890.0" y1="137.5" x2="880.6" y2="132.9"/><line x1="890.0" y1="137.5" x2="880.6" y2="142.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 1145.0 137.5 L 1175.0 137.5"/><line x1="1175.0" y1="137.5" x2="1165.6" y2="132.9"/><line x1="1175.0" y1="137.5" x2="1165.6" y2="142.1"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="380.0" y="32.8">Azure Container Apps: Identity-Based Deploy + KEDA Scaling + Revision Rollback</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="162.5" y="132.1">ACR (admin-enabled false)</tspan><tspan x="162.5" y="147.1">managed identity -&gt; AcrPull role</tspan><tspan x="162.5" y="162.1">scoped to one registry, no password</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="447.5" y="124.6">az containerapp create</tspan><tspan x="447.5" y="139.6">--registry-identity system</tspan><tspan x="447.5" y="154.6">--ingress external --target-port 8080</tspan><tspan x="447.5" y="169.6">min/max replicas + cpu/memory</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="732.5" y="124.6">KEDA scale rules</tspan><tspan x="732.5" y="139.6">HTTP: concurrent requests (50)</tspan><tspan x="732.5" y="154.6">queue: azure-queue queueLength=5</tspan><tspan x="732.5" y="169.6">--min-replicas 0 -&gt; idle costs nothing</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="1017.5" y="132.1">Pipelines: buildAndPush tag=$(Build.BuildId)</tspan><tspan x="1017.5" y="147.1">never latest -&gt; traceable to run</tspan><tspan x="1017.5" y="162.1">az containerapp update --image ...:$(Build.BuildId)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="1302.5" y="132.1">Revisions (Multiple mode)</tspan><tspan x="1302.5" y="147.1">rollback = traffic-weight change, no redeploy</tspan><tspan x="1302.5" y="162.1">ingress traffic set revision-weight prev=100 broken=0</tspan></text>
+</svg>

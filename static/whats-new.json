@@ -1,38 +1,38 @@
 [
   {
-    "title": "Baseten Github Token In Image Build History",
+    "title": "Timeout Attempt State Model For Paid Upstream Calls",
     "type": "Explanation",
-    "link": "/explanations/cloudinfrastructure/docker/explanation-baseten-github-token-in-image-build-history",
-    "time": "3 min read"
+    "link": "/explanations/systemdesign/durableexecutions/explanation-timeout-attempt-state-model-for-paid-upstream-calls",
+    "time": "4 min read"
   },
   {
-    "title": "S3 Exfiltration Incident Response",
+    "title": "Tool Descriptions Are The Contract",
+    "type": "Explanation",
+    "link": "/explanations/developertoolspractices/mcp/explanation-tool-descriptions-are-the-contract",
+    "time": "5 min read"
+  },
+  {
+    "title": "Jev Ultrafast Dynamic Indexed Action Space Browser Agent",
+    "type": "Explanation",
+    "link": "/explanations/aimachinelearning/agentarchitecture/explanation-jev-ultrafast-dynamic-indexed-action-space-browser-agent",
+    "time": "4 min read"
+  },
+  {
+    "title": "Configure And Migrate To Azure Database For Postgresql",
     "type": "How-To",
-    "link": "/how-to/cloudinfrastructure/incidentresponse/howto-s3-exfiltration-incident-response",
+    "link": "/how-to/cloudinfrastructure/azure/howto-configure-and-migrate-to-azure-database-for-postgresql",
+    "time": "5 min read"
+  },
+  {
+    "title": "Deploy Cloud Native Apps With Azure Container Apps",
+    "type": "How-To",
+    "link": "/how-to/cloudinfrastructure/azure/howto-deploy-cloud-native-apps-with-azure-container-apps",
+    "time": "4 min read"
+  },
+  {
+    "title": "Install Kubeflow For Ml On Eks",
+    "type": "How-To",
+    "link": "/how-to/cloudinfrastructure/kubernetes/howto-install-kubeflow-for-ml-on-eks",
     "time": "3 min read"
-  },
-  {
-    "title": "React Rerender Vs Expensive Work",
-    "type": "Explanation",
-    "link": "/explanations/programming/frontendjavascript/explanation-react-rerender-vs-expensive-work",
-    "time": "4 min read"
-  },
-  {
-    "title": "Apple Reference Image Verified Photography",
-    "type": "Explanation",
-    "link": "/explanations/securityprivacy/websecurity/explanation-apple-reference-image-verified-photography",
-    "time": "14 min read"
-  },
-  {
-    "title": "Cloudflare Disallow Ai Training Mixed Use Crawlers",
-    "type": "Explanation",
-    "link": "/explanations/securityprivacy/websecurity/explanation-cloudflare-disallow-ai-training-mixed-use-crawlers",
-    "time": "12 min read"
-  },
-  {
-    "title": "Full Stack App On Aws Fargate Vue Express Dynamodb",
-    "type": "Tutorials",
-    "link": "/tutorials/cloudinfrastructure/aws/tutorial-full-stack-app-on-aws-fargate-vue-express-dynamodb",
-    "time": "4 min read"
   }
 ]

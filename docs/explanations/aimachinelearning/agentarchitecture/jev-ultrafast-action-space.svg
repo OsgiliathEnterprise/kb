@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 -4.0 1133.0 333.0" width="1133" height="333">
+<rect x="16.0" y="-4.0" width="1133.0" height="333.0" fill="#ffffff"/>
+<rect x="40.0" y="90.0" width="230.0" height="85.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="325.0" y="90.0" width="230.0" height="85.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="610.0" y="90.0" width="230.0" height="85.0" rx="8" fill="#d0bfff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="895.0" y="90.0" width="230.0" height="85.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="40.0" y="220.0" width="560.0" height="85.0" rx="8" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="650.0" y="220.0" width="470.0" height="85.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 275.0 132.5 L 320.0 132.5"/><line x1="320.0" y1="132.5" x2="307.4" y2="126.4"/><line x1="320.0" y1="132.5" x2="307.4" y2="138.6"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 560.0 132.5 L 605.0 132.5"/><line x1="605.0" y1="132.5" x2="592.4" y2="126.4"/><line x1="605.0" y1="132.5" x2="592.4" y2="138.6"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 845.0 132.5 L 890.0 132.5"/><line x1="890.0" y1="132.5" x2="877.4" y2="126.4"/><line x1="890.0" y1="132.5" x2="877.4" y2="138.6"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="400.0" y="32.8">Jev Ultrafast: One Fused Request per Decision Cycle</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="155.0" y="127.1">Page snapshot</tspan><tspan x="155.0" y="142.1">(one browser call)</tspan><tspan x="155.0" y="157.1">visible controls + DOM node refs</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="440.0" y="119.6">Element table (indexed)</tspan><tspan x="440.0" y="134.6">[1] button Change ticket type</tspan><tspan x="440.0" y="149.6">[2] combobox Where from?</tspan><tspan x="440.0" y="164.6">[3] combobox Where to?</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="725.0" y="112.1">ONE TypeSafe request</tspan><tspan x="725.0" y="127.1">operation head</tspan><tspan x="725.0" y="142.1">click_target / type_text_target /</tspan><tspan x="725.0" y="157.1">select_target heads (speculative,</tspan><tspan x="725.0" y="172.1">only compatible elements)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="1010.0" y="127.1">Browser executes</tspan><tspan x="1010.0" y="142.1">CLICK [7]</tspan><tspan x="1010.0" y="157.1">or TYPE_TEXT [3] -&gt; small LLM writes text only then</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="320.0" y="257.1">Why fast: no screenshots in default loop (structured state),</tspan><tspan x="320.0" y="272.1">two decisions per round trip, DOM-node refs instead of generated selectors,</tspan><tspan x="320.0" y="287.1">combobox waits capped at 200ms, hidden-tab focus emulation</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="885.0" y="257.1">Safety: model output never becomes selectors/coordinates/</tspan><tspan x="885.0" y="272.1">shell commands/executable JS; text-helper output must parse</tspan><tspan x="885.0" y="287.1">as small JSON before typing; targets rechecked for occlusion</tspan></text>
+</svg>
