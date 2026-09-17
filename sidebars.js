@@ -44,6 +44,11 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Azure',
+          items: ['how-to/cloudinfrastructure/azure/howto-configure-and-migrate-to-azure-database-for-postgresql', 'how-to/cloudinfrastructure/azure/howto-deploy-cloud-native-apps-with-azure-container-apps'],
+        },
+        {
+          type: 'category',
           label: 'Distributedtracing',
           items: ['how-to/cloudinfrastructure/distributedtracing/howto-store-jaeger-spans-in-clickhouse'],
         },
@@ -65,7 +70,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Kubernetes',
-          items: ['how-to/cloudinfrastructure/kubernetes/howto-inspect-volcano-knative-workloads-with-headlamp-plugins', 'how-to/cloudinfrastructure/kubernetes/howto-manage-cluster-api-resources-with-headlamp'],
+          items: ['how-to/cloudinfrastructure/kubernetes/howto-inspect-volcano-knative-workloads-with-headlamp-plugins', 'how-to/cloudinfrastructure/kubernetes/howto-install-kubeflow-for-ml-on-eks', 'how-to/cloudinfrastructure/kubernetes/howto-manage-cluster-api-resources-with-headlamp'],
         },
         {
           type: 'category',
@@ -76,6 +81,11 @@ const sidebars = {
           type: 'category',
           label: 'Mcp',
           items: ['how-to/developertoolspractices/mcp/howto-map-http-api-parameters-to-mcp-tool-schemas'],
+        },
+        {
+          type: 'category',
+          label: 'Releasereproducibility',
+          items: ['how-to/developertoolspractices/releasereproducibility/howto-archive-github-release-to-zenodo-with-version-doi'],
         },
         {
           type: 'category',
@@ -137,7 +147,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Agentarchitecture',
-          items: ['explanations/aimachinelearning/agentarchitecture/explanation-agent-guardrail-stack', 'explanations/aimachinelearning/agentarchitecture/explanation-claude-unified-memory-architecture', 'explanations/aimachinelearning/agentarchitecture/explanation-lemmalog-datalog-memory-for-llm-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-prince-bayer-agentic-rag-context-harness-engineering', 'explanations/aimachinelearning/agentarchitecture/explanation-sandboxed-execution-runtime-engineering-for-ai-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-x402-http-payment-standard-for-ai-agents'],
+          items: ['explanations/aimachinelearning/agentarchitecture/explanation-agent-guardrail-stack', 'explanations/aimachinelearning/agentarchitecture/explanation-claude-unified-memory-architecture', 'explanations/aimachinelearning/agentarchitecture/explanation-jev-ultrafast-dynamic-indexed-action-space-browser-agent', 'explanations/aimachinelearning/agentarchitecture/explanation-lemmalog-datalog-memory-for-llm-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-prince-bayer-agentic-rag-context-harness-engineering', 'explanations/aimachinelearning/agentarchitecture/explanation-sandboxed-execution-runtime-engineering-for-ai-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-x402-http-payment-standard-for-ai-agents'],
         },
         {
           type: 'category',
@@ -191,6 +201,11 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Mcp',
+          items: ['explanations/developertoolspractices/mcp/explanation-tool-descriptions-are-the-contract'],
+        },
+        {
+          type: 'category',
           label: 'Esotericlanguages',
           items: ['explanations/programming/esotericlanguages/explanation-pop2-stack-language-for-uxn'],
         },
@@ -227,7 +242,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Aiagentsecurity',
-          items: ['explanations/securityprivacy/aiagentsecurity/explanation-llm-inference-engine-exploits', 'explanations/securityprivacy/aiagentsecurity/explanation-lm-studio-bionic-shell-judge-auto-review', 'explanations/securityprivacy/aiagentsecurity/explanation-miasma-worm-agentic-supply-chain-attack', 'explanations/securityprivacy/aiagentsecurity/explanation-openai-hugging-face-agent-incident'],
+          items: ['explanations/securityprivacy/aiagentsecurity/explanation-cloudflare-security-audit-skill-multi-phase-agent-audits', 'explanations/securityprivacy/aiagentsecurity/explanation-llm-inference-engine-exploits', 'explanations/securityprivacy/aiagentsecurity/explanation-lm-studio-bionic-shell-judge-auto-review', 'explanations/securityprivacy/aiagentsecurity/explanation-miasma-worm-agentic-supply-chain-attack', 'explanations/securityprivacy/aiagentsecurity/explanation-openai-hugging-face-agent-incident'],
         },
         {
           type: 'category',
@@ -247,7 +262,12 @@ const sidebars = {
         {
           type: 'category',
           label: 'Websecurity',
-          items: ['explanations/securityprivacy/websecurity/explanation-apple-reference-image-verified-photography', 'explanations/securityprivacy/websecurity/explanation-cloudflare-disallow-ai-training-mixed-use-crawlers', 'explanations/securityprivacy/websecurity/explanation-open-redirect-php-laravel'],
+          items: ['explanations/securityprivacy/websecurity/explanation-apple-reference-image-verified-photography', 'explanations/securityprivacy/websecurity/explanation-cloudflare-disallow-ai-training-mixed-use-crawlers', 'explanations/securityprivacy/websecurity/explanation-open-redirect-php-laravel', 'explanations/securityprivacy/websecurity/explanation-telnetd-cve-2026-32746-linemode-slc-buffer-overflow'],
+        },
+        {
+          type: 'category',
+          label: 'Durableexecutions',
+          items: ['explanations/systemdesign/durableexecutions/explanation-timeout-attempt-state-model-for-paid-upstream-calls'],
         },
       ],
     },

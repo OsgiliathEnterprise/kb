@@ -7,6 +7,7 @@ Each type contains domain/topic subdirectories with the actual content.
 
 import os
 import re
+import subprocess
 import sys
 import yaml
 import shutil
@@ -203,6 +204,10 @@ def rewrite_internal_links(content: str, rel_dest: Path, basename_map: dict) -> 
     (#...), image refs (basenames not in the map), and code blocks /
     frontmatter are left untouched. Already-correct links are left as-is so
     the operation is idempotent.
+
+    Internal .md/.mdx links whose target is NOT published (e.g. it points at a
+    private file that was filtered out of docs/) would become dead links on
+    the site, so they are neutralized to plain text instead.
     """
     if '](' not in content:
         return content
@@ -254,6 +259,19 @@ def rewrite_internal_links(content: str, rel_dest: Path, basename_map: dict) -> 
         sp = stripped.find(' ')
         url = stripped[:sp] if sp != -1 else stripped
         title = stripped[sp:] if sp != -1 else ''
+
+        # Neutralize internal .md/.mdx links whose target is NOT published.
+        # Such a link (e.g. to a private file filtered out of docs/) would be a
+        # dead link on the site, so collapse it to its plain-text label.
+        base_url = url.split('#', 1)[0].strip()
+        if (re.match(r'^[a-zA-Z][a-zA-Z0-9+.\-]*:', url) is None
+                and not url.startswith('/')
+                and not url.startswith('#')
+                and re.search(r'\.(md|mdx)$', base_url, re.IGNORECASE)):
+            target_name = base_url.split('/')[-1]
+            if target_name not in basename_map:
+                return text
+
         new_url = resolve(url)
         if new_url is None or new_url == url:
             return m.group(0)
@@ -400,6 +418,93 @@ def map_kb_to_docs_path(kb_file: Path) -> tuple:
     }
 
 
+def sync_diagrams(new_files):
+    """Convert .excalidraw diagrams referenced by published articles to static SVGs.
+
+    Docusaurus cannot render raw .excalidraw JSON, so every image reference of
+    the form ![...](foo.excalidraw) in a *published* (public) article is:
+      1. converted to foo.svg next to the referencing article, and
+      2. rewritten in the markdown to point at the SVG.
+
+    Only diagrams referenced from public files are ever published, so private
+    content never leaks diagram assets to the site. Returns the set of
+    docs-relative paths of generated SVGs (used for stale-SVG cleanup).
+    """
+    draw_map = {f.name: f for f in KB_SOURCE.rglob("*.excalidraw")}
+    converter = Path(__file__).resolve().parent / "excalidraw-to-svg.py"
+
+    generated = set()   # SVGs converted this run
+    referenced = set()  # every .svg image ref found in published articles (keep-alive)
+
+    for rel_dest, (kb_file, meta) in new_files.items():
+        dest_file = DOCS_DIR / rel_dest
+        if not dest_file.exists():
+            continue
+        content = dest_file.read_text(encoding="utf-8")
+
+        # Collect .excalidraw image refs outside fenced code blocks.
+        refs = set()
+        in_code_block = False
+        for line in content.split("\n"):
+            stripped = line.strip()
+            if stripped.startswith("```"):
+                in_code_block = not in_code_block
+                continue
+            if in_code_block:
+                continue
+            for m in re.finditer(r'!\[[^\]]*\]\(([^)\s]+\.excalidraw)', line):
+                refs.add(m.group(1))
+        # Already-converted SVG refs (from a previous run) must survive cleanup.
+        for m in re.finditer(r'!\[[^\]]*\]\(([^)\s]+\.svg)', content):
+            ref_path = dest_file.parent / m.group(1)
+            try:
+                referenced.add(str(ref_path.relative_to(DOCS_DIR)))
+            except ValueError:
+                pass  # site-absolute or external ref — not a local file
+
+        if not refs:
+            continue
+
+        changed = False
+        for ref in sorted(refs):
+            svg_ref = ref[: -len(".excalidraw")] + ".svg"
+            out_path = dest_file.parent / svg_ref
+            src = draw_map.get(Path(ref).name)
+            if src is None:
+                print(f"  DIAGRAM MISSING: {rel_dest} references {ref} but no .excalidraw found in KB")
+                content = re.sub(r'(?m)^.*\(' + re.escape(ref) + r'\).*$', '', content)
+                changed = True
+                continue
+            try:
+                subprocess.run(
+                    [sys.executable, str(converter), str(src), str(out_path)],
+                    check=True, capture_output=True, text=True,
+                )
+                generated.add(str((dest_file.parent / svg_ref).relative_to(DOCS_DIR)))
+            except Exception as e:
+                print(f"  DIAGRAM ERROR converting {Path(ref).name}: {e}")
+                content = re.sub(r'(?m)^.*\(' + re.escape(ref) + r'\).*$', '', content)
+                changed = True
+                continue
+            # Rewrite the reference to point at the generated SVG.
+            if ref in content:
+                content = content.replace(f"]({ref})", f"]({svg_ref})")
+                changed = True
+
+        if changed:
+            dest_file.write_text(content, encoding="utf-8")
+
+    # Remove stale SVGs no longer referenced by any published article.
+    keep = generated | referenced
+    for svg in DOCS_DIR.rglob("*.svg"):
+        rel = str(svg.relative_to(DOCS_DIR))
+        if rel not in keep:
+            svg.unlink()
+            print(f"  REMOVED (stale diagram): {rel}")
+
+    return generated
+
+
 def sync_kb():
     """Main sync function."""
     print("=" * 60)
@@ -462,6 +567,9 @@ def sync_kb():
             dest_file.write_text(content, encoding='utf-8')
             added.append(str(rel_dest))
             print(f"  ADDED:   {rel_dest}")
+
+    # Convert referenced .excalidraw diagrams to static SVGs (Docusaurus-safe).
+    sync_diagrams(new_files)
 
     # Remove stale files
     for old_rel in existing_files:

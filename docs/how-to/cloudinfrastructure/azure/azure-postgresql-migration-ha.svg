@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 -4.0 1208.0 343.0" width="1208" height="343">
+<rect x="16.0" y="-4.0" width="1208.0" height="343.0" fill="#ffffff"/>
+<rect x="40.0" y="90.0" width="250.0" height="85.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="335.0" y="90.0" width="250.0" height="85.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="630.0" y="90.0" width="250.0" height="85.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="40.0" y="220.0" width="250.0" height="95.0" rx="8" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="340.0" y="220.0" width="250.0" height="95.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="640.0" y="220.0" width="250.0" height="95.0" rx="8" fill="#fff3bf" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="940.0" y="220.0" width="260.0" height="95.0" rx="8" fill="#d0bfff" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 295.0 132.5 L 330.0 132.5"/><line x1="330.0" y1="132.5" x2="319.0" y2="127.1"/><line x1="330.0" y1="132.5" x2="319.0" y2="137.9"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 590.0 132.5 L 625.0 132.5"/><line x1="625.0" y1="132.5" x2="614.0" y2="127.1"/><line x1="625.0" y1="132.5" x2="614.0" y2="137.9"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="430.0" y="32.8">Azure Database for PostgreSQL: Migration and HA via WAL</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="165.0" y="127.1">WAL (write-ahead log)</tspan><tspan x="165.0" y="142.1">record of every change</tspan><tspan x="165.0" y="157.1">streamed to standby / target / backup archive</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="460.0" y="119.6">Migration options:</tspan><tspan x="460.0" y="134.6">pg_dump/pg_restore (-Fc, -j 4 parallel)</tspan><tspan x="460.0" y="149.6">Azure DMS offline</tspan><tspan x="460.0" y="164.6">logical replication -&gt; seconds cutover</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="755.0" y="119.6">Logical replication cutover</tspan><tspan x="755.0" y="134.6">wal_level=logical (restart!)</tspan><tspan x="755.0" y="149.6">CREATE PUBLICATION / CREATE SUBSCRIPTION</tspan><tspan x="755.0" y="164.6">watch pg_replication_slots lag -&gt; flip connection string</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="165.0" y="247.1">HA: zone-redundant (synchronous standby,</tspan><tspan x="165.0" y="262.1">other AZ) vs same-zone</tspan><tspan x="165.0" y="277.1">az postgres flexible-server update</tspan><tspan x="165.0" y="292.1">--zonal-resiliency Enabled --standby-zone 2</tspan><tspan x="165.0" y="307.1">forced failover test -&gt; measure real RTO</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="465.0" y="262.1">Read replicas (async - NOT HA)</tspan><tspan x="465.0" y="277.1">replica create --source-server</tspan><tspan x="465.0" y="292.1">lag: now() - pg_last_xact_replay_timestamp()</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="765.0" y="262.1">DR: geo-redundant backup ONLY at create time</tspan><tspan x="765.0" y="277.1">retention updatable (7-35 days)</tspan><tspan x="765.0" y="292.1">restore -&gt; NEW server, verify before repointing</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="1070.0" y="262.1">Slow query: EXPLAIN ANALYZE</tspan><tspan x="1070.0" y="277.1">Seq Scan 1.24M rows -&gt; missing index</tspan><tspan x="1070.0" y="292.1">CREATE INDEX CONCURRENTLY</tspan></text>
+</svg>

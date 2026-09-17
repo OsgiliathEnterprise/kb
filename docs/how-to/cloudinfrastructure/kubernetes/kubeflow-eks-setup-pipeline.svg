@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 6.0 1538.0 208.0" width="1538" height="208">
+<rect x="16.0" y="6.0" width="1538.0" height="208.0" fill="#ffffff"/>
+<rect x="40.0" y="100.0" width="250.0" height="90.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="350.0" y="100.0" width="250.0" height="90.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="660.0" y="100.0" width="250.0" height="90.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="970.0" y="100.0" width="250.0" height="90.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="1280.0" y="100.0" width="250.0" height="90.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 295.0 145.0 L 345.0 145.0"/><line x1="345.0" y1="145.0" x2="332.4" y2="138.9"/><line x1="345.0" y1="145.0" x2="332.4" y2="151.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 605.0 145.0 L 655.0 145.0"/><line x1="655.0" y1="145.0" x2="642.4" y2="138.9"/><line x1="655.0" y1="145.0" x2="642.4" y2="151.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 915.0 145.0 L 965.0 145.0"/><line x1="965.0" y1="145.0" x2="952.4" y2="138.9"/><line x1="965.0" y1="145.0" x2="952.4" y2="151.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 1225.0 145.0 L 1275.0 145.0"/><line x1="1275.0" y1="145.0" x2="1262.4" y2="138.9"/><line x1="1275.0" y1="145.0" x2="1262.4" y2="151.1"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="400.0" y="42.8">Kubeflow on EKS: Setup Pipeline</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="165.0" y="139.6">AWS CLI</tspan><tspan x="165.0" y="154.6">sudo apt-get install -y awscli</tspan><tspan x="165.0" y="169.6">aws configure</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="475.0" y="132.1">eksctl create cluster</tspan><tspan x="475.0" y="147.1">--node-type m5.xlarge (4 vCPU/16GB floor)</tspan><tspan x="475.0" y="162.1">--nodes-min 2 --nodes-max 4 --managed</tspan><tspan x="475.0" y="177.1">(creates VPC + subnets + node group)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="785.0" y="132.1">aws eks update-kubeconfig</tspan><tspan x="785.0" y="147.1">kubectl get nodes</tspan><tspan x="785.0" y="162.1">(all Ready BEFORE install,</tspan><tspan x="785.0" y="177.1">or installer fails confusingly)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="1095.0" y="124.6">git clone kubeflow/manifests</tspan><tspan x="1095.0" y="139.6">git checkout v1.9.0</tspan><tspan x="1095.0" y="154.6">while ! kustomize build example |</tspan><tspan x="1095.0" y="169.6">  kubectl apply --server-side</tspan><tspan x="1095.0" y="184.6">  --force-conflicts -f -; do sleep 20; done</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="1405.0" y="132.1">kubectl get pods -n kubeflow</tspan><tspan x="1405.0" y="147.1">port-forward svc/istio-ingressgateway</tspan><tspan x="1405.0" y="162.1">-n istio-system 8080:80</tspan><tspan x="1405.0" y="177.1">default login user@example.com / 12341234 -&gt; ROTATE</tspan></text>
+</svg>
