@@ -454,8 +454,19 @@ def sync_diagrams(new_files):
                 continue
             for m in re.finditer(r'!\[[^\]]*\]\(([^)\s]+\.excalidraw)', line):
                 refs.add(m.group(1))
-        # Already-converted SVG refs (from a previous run) must survive cleanup.
+            # Plain markdown links to .excalidraw (e.g. "See [foo.excalidraw](foo.excalidraw)")
+            # must also be converted, otherwise they become broken links on the site.
+            for m in re.finditer(r'(?<!\!)\[[^\]]*\]\(([^)\s]+\.excalidraw)', line):
+                refs.add(m.group(1))
+        # Already-converted SVG refs (from a previous run) must survive cleanup —
+        # both image embeds and plain links.
         for m in re.finditer(r'!\[[^\]]*\]\(([^)\s]+\.svg)', content):
+            ref_path = dest_file.parent / m.group(1)
+            try:
+                referenced.add(str(ref_path.relative_to(DOCS_DIR)))
+            except ValueError:
+                pass  # site-absolute or external ref — not a local file
+        for m in re.finditer(r'(?<!\!)\[[^\]]*\]\(([^)\s]+\.svg)', content):
             ref_path = dest_file.parent / m.group(1)
             try:
                 referenced.add(str(ref_path.relative_to(DOCS_DIR)))
