@@ -74,8 +74,13 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Kubernetesoperators',
+          items: ['how-to/cloudinfrastructure/kubernetesoperators/howto-building-kubernetes-operators-with-ocaml'],
+        },
+        {
+          type: 'category',
           label: 'Aicodingagents',
-          items: ['how-to/developertoolspractices/aicodingagents/howto-litellm-gateway-for-codex-cli', 'how-to/developertoolspractices/aicodingagents/howto-maintainability-sensors-for-coding-agents', 'how-to/developertoolspractices/aicodingagents/howto-migrate-gemini-cli-to-antigravity-cli', 'how-to/developertoolspractices/aicodingagents/howto-spring-upgrades-with-openrewrite-and-agents'],
+          items: ['how-to/developertoolspractices/aicodingagents/howto-litellm-gateway-for-codex-cli', 'how-to/developertoolspractices/aicodingagents/howto-maintainability-sensors-for-coding-agents', 'how-to/developertoolspractices/aicodingagents/howto-migrate-gemini-cli-to-antigravity-cli', 'how-to/developertoolspractices/aicodingagents/howto-require-a-job-receipt-for-remote-model-proposals', 'how-to/developertoolspractices/aicodingagents/howto-spring-upgrades-with-openrewrite-and-agents'],
         },
         {
           type: 'category',
@@ -147,7 +152,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Agentarchitecture',
-          items: ['explanations/aimachinelearning/agentarchitecture/explanation-agent-guardrail-stack', 'explanations/aimachinelearning/agentarchitecture/explanation-claude-unified-memory-architecture', 'explanations/aimachinelearning/agentarchitecture/explanation-jev-ultrafast-dynamic-indexed-action-space-browser-agent', 'explanations/aimachinelearning/agentarchitecture/explanation-lemmalog-datalog-memory-for-llm-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-prince-bayer-agentic-rag-context-harness-engineering', 'explanations/aimachinelearning/agentarchitecture/explanation-sandboxed-execution-runtime-engineering-for-ai-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-x402-http-payment-standard-for-ai-agents'],
+          items: ['explanations/aimachinelearning/agentarchitecture/explanation-agent-guardrail-stack', 'explanations/aimachinelearning/agentarchitecture/explanation-claude-unified-memory-architecture', 'explanations/aimachinelearning/agentarchitecture/explanation-human-in-the-loop-approval-gates', 'explanations/aimachinelearning/agentarchitecture/explanation-jev-ultrafast-dynamic-indexed-action-space-browser-agent', 'explanations/aimachinelearning/agentarchitecture/explanation-lemmalog-datalog-memory-for-llm-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-prince-bayer-agentic-rag-context-harness-engineering', 'explanations/aimachinelearning/agentarchitecture/explanation-sandboxed-execution-runtime-engineering-for-ai-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-x402-http-payment-standard-for-ai-agents'],
         },
         {
           type: 'category',
@@ -173,6 +178,11 @@ const sidebars = {
           type: 'category',
           label: 'Gpucompute',
           items: ['explanations/cloudinfrastructure/gpucompute/explanation-cuda-targets-risc-v'],
+        },
+        {
+          type: 'category',
+          label: 'Incidentresponse',
+          items: ['explanations/cloudinfrastructure/incidentresponse/explanation-telstra-ntp-timing-loop-outage'],
         },
         {
           type: 'category',
@@ -202,7 +212,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Mcp',
-          items: ['explanations/developertoolspractices/mcp/explanation-tool-descriptions-are-the-contract'],
+          items: ['explanations/developertoolspractices/mcp/explanation-mcp-vs-rest-kafka-complementary-layers', 'explanations/developertoolspractices/mcp/explanation-tool-descriptions-are-the-contract'],
         },
         {
           type: 'category',
@@ -227,7 +237,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Linuxkernel',
-          items: ['explanations/programming/linuxkernel/explanation-cve-2026-23111-nftables-use-after-free', 'explanations/programming/linuxkernel/explanation-isolcpus-irq-affinity'],
+          items: ['explanations/programming/linuxkernel/explanation-cve-2026-23111-nftables-use-after-free', 'explanations/programming/linuxkernel/explanation-isolcpus-irq-affinity', 'explanations/programming/linuxkernel/explanation-x86-tso-emulation-on-arm'],
         },
         {
           type: 'category',
@@ -262,7 +272,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Websecurity',
-          items: ['explanations/securityprivacy/websecurity/explanation-apple-reference-image-verified-photography', 'explanations/securityprivacy/websecurity/explanation-cisco-ise-cve-2026-76423-rest-api-auth-bypass', 'explanations/securityprivacy/websecurity/explanation-cloudflare-disallow-ai-training-mixed-use-crawlers', 'explanations/securityprivacy/websecurity/explanation-open-redirect-php-laravel', 'explanations/securityprivacy/websecurity/explanation-telnetd-cve-2026-32746-linemode-slc-buffer-overflow'],
+          items: ['explanations/securityprivacy/websecurity/explanation-apple-reference-image-verified-photography', 'explanations/securityprivacy/websecurity/explanation-cisco-ise-cve-2026-76423-rest-api-auth-bypass', 'explanations/securityprivacy/websecurity/explanation-cloudflare-disallow-ai-training-mixed-use-crawlers', 'explanations/securityprivacy/websecurity/explanation-libheif-heic-rce-chain-openai-sso-takeover', 'explanations/securityprivacy/websecurity/explanation-open-redirect-php-laravel', 'explanations/securityprivacy/websecurity/explanation-telnetd-cve-2026-32746-linemode-slc-buffer-overflow'],
         },
         {
           type: 'category',
