@@ -155,4 +155,6 @@ CREATE INDEX CONCURRENTLY idx_orders_customer_email ON orders(customer_email);
 ## References
 
 - [Configuring and Migrating to Azure Database for PostgreSQL (dev.to)](https://dev.to/rdgmh/configuring-and-migrating-to-azure-database-for-postgresql-446j)
+- [High Availability in Azure Database for PostgreSQL flexible server — Microsoft Learn](https://learn.microsoft.com/en-us/azure/postgresql/high-availability/concepts-high-availability) (zone-redundant vs zonal HA, automatic failover within 60–120 s with zero data loss; the standby cannot recover from logical errors replicated to it)
+- [Backup and restore in Azure Database for PostgreSQL Flexible Server — Microsoft Learn](https://learn.microsoft.com/en-us/azure/postgresql/backup-restore/concepts-backup-restore) (retention 7–35 days, geo-redundant backup with up to ~1 h RPO, PITR always provisions a *new* server)
 - Full lab repo referenced by the article: migration scripts, HA/replica Bicep, slow-query fix, identity/network hardening.
