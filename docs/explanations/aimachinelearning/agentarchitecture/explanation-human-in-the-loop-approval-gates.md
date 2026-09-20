@@ -121,3 +121,4 @@ HITL agents should not be designed as autonomous systems with an approval button
 
 ## References
 - [Designing Human-in-the-Loop Approval Gates for Enterprise AI Agents (DZone)](https://feeds.dzone.com/link/23558/17466284/human-in-the-loop-approval-enterprise-ai-agents)
+- [AWS Well-Architected — Agentic AI Lens: human approval of agent actions (risk-tiered gates, deterministic policy engines, timeouts with safe fallbacks)](https://docs.aws.amazon.com/wellarchitected/latest/agentic-ai-lens/agentsec04-bp02.html)
