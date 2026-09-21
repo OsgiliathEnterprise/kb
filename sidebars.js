@@ -100,7 +100,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Frontendjavascript',
-          items: ['how-to/programming/frontendjavascript/howto-deno-2-9-desktop-and-node-migration', 'how-to/programming/frontendjavascript/howto-eradicate-slow-ttfb-with-streaming-ssr-nextjs'],
+          items: ['how-to/programming/frontendjavascript/howto-deno-2-9-desktop-and-node-migration', 'how-to/programming/frontendjavascript/howto-eradicate-slow-ttfb-with-streaming-ssr-nextjs', 'how-to/programming/frontendjavascript/howto-react-native-environment-setup-android-flavors-ios-schemes'],
         },
         {
           type: 'category',
@@ -212,7 +212,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Mcp',
-          items: ['explanations/developertoolspractices/mcp/explanation-mcp-vs-rest-kafka-complementary-layers', 'explanations/developertoolspractices/mcp/explanation-tool-descriptions-are-the-contract'],
+          items: ['explanations/developertoolspractices/mcp/explanation-mcp-discovery-storms-sep-2549-caching', 'explanations/developertoolspractices/mcp/explanation-mcp-vs-rest-kafka-complementary-layers', 'explanations/developertoolspractices/mcp/explanation-tool-descriptions-are-the-contract'],
         },
         {
           type: 'category',
@@ -272,7 +272,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Websecurity',
-          items: ['explanations/securityprivacy/websecurity/explanation-apple-reference-image-verified-photography', 'explanations/securityprivacy/websecurity/explanation-cisco-ise-cve-2026-76423-rest-api-auth-bypass', 'explanations/securityprivacy/websecurity/explanation-cloudflare-disallow-ai-training-mixed-use-crawlers', 'explanations/securityprivacy/websecurity/explanation-libheif-heic-rce-chain-openai-sso-takeover', 'explanations/securityprivacy/websecurity/explanation-open-redirect-php-laravel', 'explanations/securityprivacy/websecurity/explanation-telnetd-cve-2026-32746-linemode-slc-buffer-overflow'],
+          items: ['explanations/securityprivacy/websecurity/explanation-apple-reference-image-verified-photography', 'explanations/securityprivacy/websecurity/explanation-cisco-ise-cve-2026-76423-rest-api-auth-bypass', 'explanations/securityprivacy/websecurity/explanation-cloudflare-disallow-ai-training-mixed-use-crawlers', 'explanations/securityprivacy/websecurity/explanation-kestra-cve-2026-49869-suffix-match-auth-bypass', 'explanations/securityprivacy/websecurity/explanation-libheif-heic-rce-chain-openai-sso-takeover', 'explanations/securityprivacy/websecurity/explanation-open-redirect-php-laravel', 'explanations/securityprivacy/websecurity/explanation-telnetd-cve-2026-32746-linemode-slc-buffer-overflow'],
         },
         {
           type: 'category',
