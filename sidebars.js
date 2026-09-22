@@ -35,7 +35,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Agentarchitecture',
-          items: ['how-to/aimachinelearning/agentarchitecture/howto-agentic-rag-pipeline-with-real-time-web-search'],
+          items: ['how-to/aimachinelearning/agentarchitecture/howto-agentic-rag-pipeline-with-real-time-web-search', 'how-to/aimachinelearning/agentarchitecture/howto-build-effectively-once-agent-workflows'],
         },
         {
           type: 'category',
@@ -84,6 +84,11 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Ciperformance',
+          items: ['how-to/developertoolspractices/ciperformance/howto-keep-ci-fast-under-agent-driven-development'],
+        },
+        {
+          type: 'category',
           label: 'Mcp',
           items: ['how-to/developertoolspractices/mcp/howto-map-http-api-parameters-to-mcp-tool-schemas'],
         },
@@ -105,7 +110,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Java',
-          items: ['how-to/programming/java/howto-spring-batch-mongodb-job-repository-spring-boot-4-1'],
+          items: ['how-to/programming/java/howto-integrate-typesafe-jev-with-spring-ai', 'how-to/programming/java/howto-spring-batch-mongodb-job-repository-spring-boot-4-1'],
         },
         {
           type: 'category',
@@ -187,7 +192,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Kubernetes',
-          items: ['explanations/cloudinfrastructure/kubernetes/explanation-k8s-device-management-dra', 'explanations/cloudinfrastructure/kubernetes/explanation-k8s-v1-37-pod-certificates-cluster-trust-bundles', 'explanations/cloudinfrastructure/kubernetes/explanation-securing-kubernetes-ai-agent-workloads'],
+          items: ['explanations/cloudinfrastructure/kubernetes/explanation-k8s-device-management-dra', 'explanations/cloudinfrastructure/kubernetes/explanation-k8s-v1-37-pod-certificates-cluster-trust-bundles', 'explanations/cloudinfrastructure/kubernetes/explanation-k8s-v1-37-pvc-last-used-time', 'explanations/cloudinfrastructure/kubernetes/explanation-securing-kubernetes-ai-agent-workloads'],
         },
         {
           type: 'category',
@@ -207,7 +212,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Localaiagents',
-          items: ['explanations/developertoolspractices/localaiagents/explanation-jetbrains-junie-local-agent', 'explanations/developertoolspractices/localaiagents/explanation-perplexity-portable-computer-local-agent'],
+          items: ['explanations/developertoolspractices/localaiagents/explanation-aws-strands-harness-local-first-agent', 'explanations/developertoolspractices/localaiagents/explanation-jetbrains-junie-local-agent', 'explanations/developertoolspractices/localaiagents/explanation-perplexity-portable-computer-local-agent'],
         },
         {
           type: 'category',
