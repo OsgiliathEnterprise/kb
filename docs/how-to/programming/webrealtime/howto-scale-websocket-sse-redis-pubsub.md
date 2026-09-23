@@ -323,6 +323,7 @@ server.listen(process.env.PORT || 3000);
 - **Redis Pub/Sub vs Redis Streams.** Pub/Sub is faster and simpler but fire-and-forget: if no subscriber is present, the message is lost. Streams add persistence + consumer groups at the cost of complexity and latency. Use Streams for critical messages.
 - **Sticky sessions vs broker.** LB sticky sessions avoid Redis entirely but cause uneven load and failover pain; a broker decouples nodes but adds a single point of failure (mitigate with Sentinel/Cluster).
 - **SSE vs WebSockets** — see table above.
+- **Raw `ws` + manual fan-out vs Socket.IO.** If you're already on Socket.IO, its built-in Redis adapter (`@socket.io/redis-adapter`) gives you the same cross-node broadcast without hand-rolling pub/sub; it also adds namespace partitioning for sharding event traffic across nodes. The trade-off is Socket.IO's protocol overhead and polling-fallback behavior — disable polling in production (`transports: ['websocket']`, set `pingInterval`/`pingTimeout`) if you only need raw WebSocket semantics.
 
 ## Security checklist
 

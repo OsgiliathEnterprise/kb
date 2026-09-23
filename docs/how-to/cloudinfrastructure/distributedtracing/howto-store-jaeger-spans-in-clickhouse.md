@@ -231,6 +231,14 @@ ClickHouse support is **alpha** as a storage backend starting with Jaeger v2.18.
 
 Full benchmark methodology, configuration, and query details are in the [benchmarking report](https://github.com/jaegertracing/jaeger/blob/main/internal/storage/v2/clickhouse/BENCHMARKING.md). Read the numbers (50k spans/sec, 8.6× compression) in that context — they come from a specific single-node environment and dataset.
 
+## Production evidence: Canva
+
+[Canva's migration of Jaeger to ClickStack](https://clickhouse.com/blog/canva-faster-search-lower-costs) (ClickHouse's managed ClickStack service) is the strongest public data point for this backend at scale: **~10× faster trace search and ~70% lower storage cost** versus their previous setup. Their optimizations worth copying:
+
+- **Primary key tuned to actual query patterns.** Jaeger queries filter by `service` + `operation` + time window, so the primary key is ordered accordingly — those filters become direct primary-key lookups instead of full scans.
+- **Bloom-filter data-skipping indices** on trace ID and attribute keys/values compensate for the restrictive `ORDER BY` key (ClickHouse can only skip blocks by its sorting key).
+- **Attribute reconstruction at query time** via functions like `mapFromArrays`, rather than storing a wide denormalized row per span.
+
 ## References
 
 - [How Jaeger hit 8.6× compression on 10 million spans with ClickHouse](https://thenewstack.io/jaeger-clickhouse-storage-backend/) (The New Stack, CNCF-sponsored post by Mahad Zaryab)

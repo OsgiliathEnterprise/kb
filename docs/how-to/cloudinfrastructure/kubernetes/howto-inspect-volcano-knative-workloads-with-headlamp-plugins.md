@@ -23,6 +23,8 @@ keywords:
 
 Both plugins add dedicated sidebar sections so you can move directly between related resources without switching tools. They complement — not replace — `kubectl`/CLI automation.
 
+**Ecosystem context.** Volcano and Knative are two of a growing set of official [Headlamp plugins](https://github.com/headlamp-k8s/plugins) (now part of Kubernetes SIG UI). The same pattern applies to other workload types: the **Karpenter plugin** adds node-provisioning metrics and observability, and the **Kubeflow plugin** surfaces AI/ML workloads. If you're evaluating Headlamp for a cluster that runs any of these, check the plugins repo's release notes — several are still beta (the Knative plugin is 0.3.0-beta).
+
 ## Install the Volcano plugin
 
 1. Install [Headlamp](https://headlamp.dev/docs/latest/installation/) (desktop app or in-cluster deployment).

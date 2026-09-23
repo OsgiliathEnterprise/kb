@@ -493,3 +493,5 @@ Device management touches scheduling, node operations, autoscaling, networking, 
 - [KEP-4381: DRA Structured Parameters](https://www.kubernetes.dev/resources/keps/4381/)
 - [WG Device Management project board](https://github.com/orgs/kubernetes/projects/95)
 - [Companion KB note: Kubernetes v1.37 Pod Certificates and Cluster Trust Bundles](explanation-k8s-v1-37-pod-certificates-cluster-trust-bundles.md)
+- [NVIDIA DRA GPU driver (community project)](https://github.com/kubernetes-sigs/dra-driver-nvidia-gpu) — the community-owned NVIDIA driver referenced above; good entry point for contributors
+- [ROCm k8s-gpu-dra-driver](https://github.com/ROCm/k8s-gpu-dra-driver) — AMD GPU DRA driver, useful as a second reference implementation alongside NVIDIA's
