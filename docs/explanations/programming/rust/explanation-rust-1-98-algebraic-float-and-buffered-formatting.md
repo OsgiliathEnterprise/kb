@@ -37,6 +37,12 @@ let s = a.algebraic_add(b).algebraic_add(c).algebraic_add(d);
 Key semantics: these methods are **non-deterministic** (the compiler may choose
 different optimizations), but they **never** introduce undefined behavior.
 
+The same operations exist at the `std::intrinsics` level as
+`fadd_algebraic`, `fsub_algebraic`, `fmul_algebraic`, and friends — useful in
+`const fn` contexts or when you want to be explicit about which algebraic rules
+the compiler may apply. The public method API is the ergonomic front door; the
+intrinsics are what the methods lower to.
+
 ## Buffered integer formatting
 
 Every primitive integer type gains `format_into(&mut NumBuffer<Self>) -> &str`,
@@ -231,6 +237,8 @@ it stays non-UB. See the [ManuallyDrop docs](https://doc.rust-lang.org/stable/st
 - [Developpez: Rust 1.98 release coverage](https://rust.developpez.com/actu/386430/La-version-1-98-de-Rust-introduit-des-methodes-algebriques-pour-les-nombres-a-virgule-flottante-le-formatage-des-entiers-avec-mise-en-memoire-tampon-et-ameliore-la-documentation-de-ManuallyDrop/)
 - [Official Rust blog: Announcing Rust 1.98.0](https://blog.rust-lang.org/2026/08/20/Rust-1.98.0/)
 - [Algebraic operators API change proposal (libs-team#532)](https://github.com/rust-lang/libs-team/issues/532)
+- [Tracking issue for algebraic floating point methods (rust-lang/rust#136469)](https://github.com/rust-lang/rust/issues/136469)
+- [`std::intrinsics` algebraic counterparts, e.g. `fmul_algebraic`](https://doc.rust-lang.org/stable/std/intrinsics/fn.fmul_algebraic.html)
 - [itoa-benchmark](https://github.com/dtolnay/itoa-benchmark)
 - [itoa crate documentation (docs.rs)](https://docs.rs/itoa/latest/itoa/)
 

@@ -216,9 +216,20 @@ Three components: your application (requests certs in its pod spec, reads keys/c
 - **Try it**: install [Tinycert](https://github.com/ahmedtd/tinycert) into a Kind cluster. It ships two signers (`tinycert-service` — DNS-SAN server certs for the pod's services; `tinycert-spiffe` — SPIFFE client certs identifying namespace + service account), a Go library (`lib/spiffefsd`) for loading SPIFFE Filesystem Delivery folders, and an mTLS client/server example.
 - **Next steps**: review the [Pod Certificates](https://kubernetes.io/docs/reference/access-authn-authz/certificate-signing-requests/#pod-certificate-requests) and [Cluster Trust Bundles](https://kubernetes.io/docs/reference/access-authn-authz/certificate-signing-requests/#cluster-trust-bundles) docs, give feedback on the [SPIFFE Filesystem Delivery draft standard](https://github.com/spiffe/spiffe/pull/376), or build your own signer on Tinycert.
 
+## API version transition (KEP-4317 graduation path)
+
+Per [KEP-4317](https://www.kubernetes.dev/resources/keps/4317/), `PodCertificateRequest` graduated alpha in 1.34, beta in 1.35–1.36 (introducing the `spec.stubPKCS10Request` field and deprecating `PKIXPublicKey`/`proofOfPossession`), and **stable in 1.37 — where it graduates to `certificates.k8s.io/v1`**. Practical consequences:
+
+- Signers must support `StubPKCS10Request` before (or at the same time as) kubelets are upgraded past 1.35, or they will fail to process requests from newer kubelets.
+- A skewed cluster with a 1.37 signer and pre-1.36 kubelets still works via API conversion (`v1beta1` → `v1`), but the dropped fields mean old-kubelet requests arrive with an empty `StubPKCS10Request`.
+- If you need to support skewed kubelets (&lt; 1.36) in a mixed cluster, keep watching `v1beta1` until all nodes are upgraded.
+
+**Alternative delivery path**: [cert-manager's `csi-driver-spiffe`](https://github.com/cert-manager/csi-driver-spiffe) already mounts SPIFFE SVIDs into pods via CSI ephemeral volumes — the pre-Pod-Certificates way to do file-based SPIFFE credential delivery, and a useful comparison point when evaluating whether to adopt the built-in mechanism.
+
 ## References
 
 - [Kubernetes v1.37: Pod Certificates and Cluster Trust Bundles (kubernetes.io)](https://kubernetes.io/blog/2026/08/28/kubernetes-v1-37-pod-certificates-and-cluster-trust-bundles/)
 - [Tinycert — toy Pod Certificate signer for experimenting](https://github.com/ahmedtd/tinycert)
 - [PodCertificateRequest API reference (certificates.k8s.io/v1beta1)](https://kubespec.dev/kubernetes/certificates.k8s.io/v1beta1/PodCertificateRequest)
 - [ClusterTrustBundle API reference](https://kubespec.dev/kubernetes/certificates.k8s.io/v1beta1/ClusterTrustBundle)
+- [KEP-4317: Pod Certificates (graduation path, version skew strategy)](https://www.kubernetes.dev/resources/keps/4317/)
