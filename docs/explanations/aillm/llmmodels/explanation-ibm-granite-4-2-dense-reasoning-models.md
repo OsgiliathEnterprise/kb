@@ -18,7 +18,8 @@ IBM launched the **Granite 4.2** family of open-weight (Apache 2.0) LLMs in
 three sizes — **3B, 8B, and 30B parameters** — as a "reasoning-focused
 release". Notably, IBM deliberately rejected the hybrid Mamba/attention trend
 its 4.0 generation experimented with and went back to **dense, decoder-only,
-all-attention Transformers**, pre-trained from scratch.
+all-attention Transformers**, built on top of the Granite 4.1 base models
+rather than pre-trained from scratch (verified against IBM's launch blog).
 
 ## Architecture and training
 
@@ -35,6 +36,41 @@ all-attention Transformers**, pre-trained from scratch.
 - Text-only — unlike Qwen 3.8 27B, Muse Glimmer 30B, and Gemma 4 31B in its
   class, which are all multimodal. IBM separately ships Granite Vision 4.1 4B
   and launched two new Granite Speech recognition models the same day.
+
+## Training structure (verified 2026-09-24)
+
+IBM's launch blog describes a redesigned multi-stage regimen on top of the
+Granite 4.0/4.1 foundation: **SFT → "foundational RL"** (all three sizes;
+verifiable rewards plus reward-model evaluation for math, science, coding,
+reasoning, tool calling) → **"agentic RL"** (8B and 30B only; software
+engineering, terminal coding, search-driven workflows) combined with **RLHF**
+alignment. Two further ingredients: an intermediate **mid-training** step
+shown to unlock more reasoning power, and a **speculative decoding** layer for
+faster serving at lower cost. IBM is also working with **Hirundo** on machine
+unlearning to suppress undesirable outputs post-training without full
+retraining.
+
+## Headline benchmarks (IBM-reported)
+
+| Benchmark | 3B | 8B | 30B |
+|---|---|---|---|
+| SWE-Bench Verified (pass@1) | — | 47.67 | 57.00 |
+| TerminalBench 2.1 (pass@1) | — | 20.56 | 29.24 |
+| τ³-bench (pass@1) | 66.34 | 68.05 | 68.05 |
+| BFCL v4 (pass@1) | 52.41 | 50.29 | 61.39 |
+| AIME25 (pass@1) | 78.33 | 86.67 | 89.17 |
+| GPQA (pass@1) | 54.80 | 64.14 | 66.41 |
+| MMLU-Pro (5-shot) | 67.84 | 74.04 | 77.60 |
+| Arena-Hard-V2 (win rate) | 34.96 | 65.19 | 67.93 |
+| IFBench (pass@1) | 74.33 | 79.33 | 77.17 |
+
+Independent reviews (e.g., eesel AI's review, verified 2026-09-24) confirm the
+pattern: the 30B beats Nvidia's Nemotron 3 Super 120B on AIME25 and leads on
+LiveCodeBench/IFBench/BFCL in IBM's own comparisons, but **Gemma 4 31B wins on
+the hardest agentic coding** (SWE-Bench Pro, TerminalBench 2.1), and the
+local-LLM community consensus is that Qwen still leads raw coding/agentic
+capability. Granite's differentiator is trust and licensing — Apache 2.0,
+signed weights, transparency — not topping every leaderboard.
 
 ## Reasoning modes
 
@@ -149,3 +185,5 @@ supports tool calling, with limited capability.
 - [IBM CodeAlchemy synthetic code pipeline](https://research.ibm.com/blog/code-alchemy-for-synthetic-code)
 - [IBM Research: Introducing Granite 4.2](https://research.ibm.com/blog/introducing-granite-4-2)
 - [IBM Granite official product page (model family overview)](https://www.ibm.com/granite)
+- [ibm-granite/granite-4.2-language-models (GitHub — model cards & usage)](https://github.com/ibm-granite/granite-4.2-language-models)
+- [eesel AI: IBM Granite 4.2 review — benchmarks, pricing, who it's for](https://www.eesel.ai/blog/granite-4-2-review)

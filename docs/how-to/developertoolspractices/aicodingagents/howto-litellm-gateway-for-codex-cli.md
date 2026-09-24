@@ -85,10 +85,29 @@ http_headers = { "CF-Access-Client-Id" = "abc", "CF-Access-Client-Secret" = "xyz
 
 With a custom provider, Codex has **no UI for changing the model of an existing session** ([openai/codex#15364](https://github.com/openai/codex/issues/15364)). A session uses whatever `model` was in `config.toml` when the session was created. To use a different LiteLLM model: update `model` in `config.toml`, then start a new session.
 
+## Troubleshooting (verified 2026-09-24)
+
+Symptoms and fixes reported by the LiteLLM docs and community threads:
+
+| Symptom | Cause / fix |
+|---|---|
+| Requests never appear in the LiteLLM Admin UI | You're still on the default provider — confirm `model_provider = "litellm"` is set at the **top level** of `config.toml` (not only inside a project block). |
+| 401 from the gateway | `LITELLM_API_KEY` isn't exported in the shell that launches Codex, or the key expired — re-export and restart. |
+| "Invalid model name passed in" / 404 NotFoundError | The `model` value doesn't match a `model_name` in your LiteLLM gateway config — use *your* alias, not the upstream provider's name. A classic variant: a LiteLLM entry with `model: openai/model` forwards the literal string `"model"` upstream (vLLM then 404s); set it to the actual served model id instead. |
+| Connection refused | Gateway unreachable at `base_url` — check host/port and that the `/v1` suffix is present. |
+| 404 on `/v1/responses` when bridging to a chat-only backend (e.g., vLLM) | Codex only speaks `wire_api = "responses"`; LiteLLM's Responses→chat bridge can be fragile against plain `/v1/chat/completions` backends. If your backend is chat-only, test the gateway directly with `curl .../v1/responses` first and check whether the model group resolves. |
+
+Two extra facts worth knowing:
+
+- **The Codex desktop app reads the same `~/.codex/config.toml`** as the CLI — configuring it once covers both surfaces (per LiteLLM's Codex CLI setup guide).
+- **Command-backed auth is an alternative to `env_key`**: a `[model_providers.litellm.auth]` block with `command = "..."` + `refresh_interval_ms` lets Codex fetch short-lived bearer tokens from an external credential helper (this is how corporate gateways like LiteLLM Relay keep no static key on the device). `auth`, `env_key`, and `experimental_bearer_token` are mutually exclusive — use exactly one.
+- **LiteLLM can also expose itself as an MCP gateway** (`<base_url>/<server_name>/mcp`) that Codex registers in the same config file via `[mcp_servers.litellm]` with `bearer_token_env_var = "LITELLM_API_KEY"` — verify with `/mcp` inside Codex.
+
 ## References
 
 - [Configure LiteLLM as a gateway for a custom model provider for Codex](https://dev.to/juliashevchenko/configure-litellm-as-a-gateway-for-a-custom-model-provider-for-codex-2e3f)
 - [LiteLLM docs: OpenAI Codex tutorial](https://docs.litellm.ai/docs/tutorials/openai_codex)
+- [LiteLLM docs: Codex CLI client setup (proxy + MCP gateway)](https://docs.litellm.ai/docs/proxy/client_setup/codex_cli)
 - [Codex config file documentation (advanced)](https://www.codex-docs.com/en/docs/config-file/config-advanced)
 - [BerriAI/litellm — Python SDK & proxy server (AI gateway) for 100+ LLM APIs](https://github.com/BerriAI/litellm)
 
