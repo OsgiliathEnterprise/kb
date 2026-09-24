@@ -160,6 +160,15 @@ JetBrains published six IPs associated with detected exploitation: `150.109.230.
 }
 ```
 
+## Post-incident developments (verified 2026-09-24)
+
+The CVE behind this incident kept escalating after JetBrains' disclosure:
+
+- **CISA KEV listing.** On August 5, 2026 CISA added CVE-2026-63077 to its Known Exploited Vulnerabilities catalog and ordered federal agencies to remediate within three days (deadline August 8) under BOD 26-04 — the shortest tier of that directive's four-variable risk model, reserved for internet-exposed, KEV-listed, automatable vulnerabilities with full technical compromise.
+- **Ransomware-gang adoption.** CISA later updated its KEV entry flagging the flaw as actively abused by ransomware gangs; it is now the fourth TeamCity CVE since October 2023 tagged both exploited-in-the-wild and used in ransomware attacks. Shadowserver tracked ~160 internet-exposed unpatched servers, down from ~700 right after patching — but "down" still means hundreds of live targets.
+- **Forensic indicators beyond the six IPs.** JetBrains' August follow-up adds two concrete hunt items: (a) `com.thoughtworks.xstream.security.ForbiddenClassException` entries in `teamcity-server.log` indicate a *blocked* exploit attempt against a patched server — useful for scoping when attempts started; (b) unauthorized build agents whose names begin with `scan` are a signature of exploitation attempts and can be safely removed. Note the agent's displayed date is not the attack time — rely on log timestamps instead.
+- **Root cause context.** Rapid7's analysis pinned the flaw to an XStream allowlist that added TeamCity protocol classes *without clearing* XStream's default type permissions (Map/Throwable hierarchy permissions), enabling a gadget chain starting from `HSQLMetadataStorage$SchemaMismatchException`. The 2026.1.3 fix inserts `NoTypePermission.NONE` first, making the allowlist deny-by-default — a good example of why "allowlist" implementations must also reset inherited defaults.
+
 ## Lessons for your own environment
 
 1. **Patch your own instances of the products you vendor.** The irony that made this incident memorable: JetBrains told everyone to patch TeamCity and left their own server exposed. If you run on-prem CI/CD, include *your* instances in the same patch SLA as customer-facing systems — and verify the patch actually landed (this failure was a process gap, not a technical one).
@@ -171,6 +180,10 @@ JetBrains published six IPs associated with detected exploitation: `150.109.230.
 
 - [JetBrains told everyone to patch. It didn't patch itself. (The New Stack)](https://thenewstack.io/jetbrains-told-everyone-to-patch-it-didnt-patch-itself/)
 - [CVE-2026-63077 — TeamCity On-Premises critical vulnerability disclosure](https://blog.jetbrains.com/teamcity/2026/07/cve-2026-63077/)
+- [CVE-2026-63077: Additional Guidance Following Reports of Active Exploitation (JetBrains, Aug 2026)](https://blog.jetbrains.com/teamcity/2026/08/cve-2026-63077-update/)
+- [CISA's TeamCity KEV Addition: A Three-Day Deadline (Cloud Security Alliance research note)](https://labs.cloudsecurityalliance.org/research/csa-research-note-teamcity-cve-2026-63077-kev-20260806-csa-s/)
+- [CISA: Ransomware gangs now exploiting critical TeamCity flaw (BleepingComputer)](https://www.bleepingcomputer.com/news/security/cisa-ransomware-gangs-now-exploiting-critical-teamcity-flaw/)
+- [Rapid7 Analysis of CVE-2026-63077, unauthenticated RCE in JetBrains TeamCity](https://www.rapid7.com/blog/post/ra-unauthenticated-rce-in-jetbrains-teamcity-cve-2026-63077/)
 
 ## Related
 - [[howto-s3-exfiltration-incident-response]]

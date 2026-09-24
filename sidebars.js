@@ -120,7 +120,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Linux',
-          items: ['how-to/programming/linux/howto-transfer-files-over-an-ethernet-patch-cable'],
+          items: ['how-to/programming/linux/howto-swap-zram-zswap-hibernate-nixos', 'how-to/programming/linux/howto-transfer-files-over-an-ethernet-patch-cable'],
         },
         {
           type: 'category',
@@ -196,6 +196,11 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Gpuvirtualization',
+          items: ['explanations/cloudinfrastructure/gpuvirtualization/explanation-virtio-nvgpu-driver-abi-forwarding'],
+        },
+        {
+          type: 'category',
           label: 'Incidentresponse',
           items: ['explanations/cloudinfrastructure/incidentresponse/explanation-telstra-ntp-timing-loop-outage'],
         },
@@ -203,6 +208,11 @@ const sidebars = {
           type: 'category',
           label: 'Kubernetes',
           items: ['explanations/cloudinfrastructure/kubernetes/explanation-k8s-device-management-dra', 'explanations/cloudinfrastructure/kubernetes/explanation-k8s-v1-37-pod-certificates-cluster-trust-bundles', 'explanations/cloudinfrastructure/kubernetes/explanation-k8s-v1-37-pvc-last-used-time', 'explanations/cloudinfrastructure/kubernetes/explanation-securing-kubernetes-ai-agent-workloads'],
+        },
+        {
+          type: 'category',
+          label: 'Networking',
+          items: ['explanations/cloudinfrastructure/networking/explanation-tailscale-multi-queue-buffer-reuse-netmap-caching'],
         },
         {
           type: 'category',
@@ -228,6 +238,11 @@ const sidebars = {
           type: 'category',
           label: 'Mcp',
           items: ['explanations/developertoolspractices/mcp/explanation-mcp-discovery-storms-sep-2549-caching', 'explanations/developertoolspractices/mcp/explanation-mcp-vs-rest-kafka-complementary-layers', 'explanations/developertoolspractices/mcp/explanation-tool-descriptions-are-the-contract'],
+        },
+        {
+          type: 'category',
+          label: 'Remotedevelopment',
+          items: ['explanations/developertoolspractices/remotedevelopment/explanation-vscode-ssh-agent-architecture'],
         },
         {
           type: 'category',
@@ -276,6 +291,11 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'P2Psecurity',
+          items: ['explanations/securityprivacy/p2psecurity/explanation-radicle-cleartext-transport-node-impersonation'],
+        },
+        {
+          type: 'category',
           label: 'Tlsssl',
           items: ['explanations/securityprivacy/tlsssl/explanation-ssl-tls-three-jobs'],
         },
@@ -288,6 +308,11 @@ const sidebars = {
           type: 'category',
           label: 'Websecurity',
           items: ['explanations/securityprivacy/websecurity/explanation-apple-reference-image-verified-photography', 'explanations/securityprivacy/websecurity/explanation-cisco-ise-cve-2026-76423-rest-api-auth-bypass', 'explanations/securityprivacy/websecurity/explanation-cloudflare-disallow-ai-training-mixed-use-crawlers', 'explanations/securityprivacy/websecurity/explanation-data-only-attacks-einstein', 'explanations/securityprivacy/websecurity/explanation-kestra-cve-2026-49869-suffix-match-auth-bypass', 'explanations/securityprivacy/websecurity/explanation-libheif-heic-rce-chain-openai-sso-takeover', 'explanations/securityprivacy/websecurity/explanation-open-redirect-php-laravel', 'explanations/securityprivacy/websecurity/explanation-telnetd-cve-2026-32746-linemode-slc-buffer-overflow'],
+        },
+        {
+          type: 'category',
+          label: 'Cdndesign',
+          items: ['explanations/systemdesign/cdndesign/explanation-cloudflare-vary-cache-rules'],
         },
         {
           type: 'category',
