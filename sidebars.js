@@ -45,7 +45,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Aws',
-          items: ['how-to/cloudinfrastructure/aws/howto-deploy-ml-model-to-sagemaker-endpoint'],
+          items: ['how-to/cloudinfrastructure/aws/howto-deploy-aws-from-github-actions-with-oidc', 'how-to/cloudinfrastructure/aws/howto-deploy-ml-model-to-sagemaker-endpoint'],
         },
         {
           type: 'category',
@@ -81,6 +81,11 @@ const sidebars = {
           type: 'category',
           label: 'Kubernetesoperators',
           items: ['how-to/cloudinfrastructure/kubernetesoperators/howto-building-kubernetes-operators-with-ocaml'],
+        },
+        {
+          type: 'category',
+          label: 'Networking',
+          items: ['how-to/cloudinfrastructure/networking/howto-monitor-email-dns-records-mx-spf-dkim-dmarc'],
         },
         {
           type: 'category',
@@ -227,7 +232,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Aicodingagents',
-          items: ['explanations/developertoolspractices/aicodingagents/explanation-valkey-ai-agents-backporting-provenance'],
+          items: ['explanations/developertoolspractices/aicodingagents/explanation-efficiency-throughput-gap-github-copilot-okta', 'explanations/developertoolspractices/aicodingagents/explanation-valkey-ai-agents-backporting-provenance'],
         },
         {
           type: 'category',
@@ -257,7 +262,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Java',
-          items: ['explanations/programming/java/explanation-better-tools-immutable-data-java', 'explanations/programming/java/explanation-jdk-26-performance-improvements', 'explanations/programming/java/explanation-netflix-ja-module-system-toolchain', 'explanations/programming/java/explanation-spring-ai-2-0-composable-tool-calling-advisor-architecture', 'explanations/programming/java/explanation-zgc-decade-of-low-latency-gc', 'explanations/programming/java/explanation-zgc-weak-reference-processing'],
+          items: ['explanations/programming/java/explanation-better-tools-immutable-data-java', 'explanations/programming/java/explanation-jdk-26-performance-improvements', 'explanations/programming/java/explanation-netflix-ja-module-system-toolchain', 'explanations/programming/java/explanation-specjbb-workload-generator-same-jvm-limitations', 'explanations/programming/java/explanation-spring-ai-2-0-composable-tool-calling-advisor-architecture', 'explanations/programming/java/explanation-zgc-decade-of-low-latency-gc', 'explanations/programming/java/explanation-zgc-weak-reference-processing'],
         },
         {
           type: 'category',
@@ -288,6 +293,11 @@ const sidebars = {
           type: 'category',
           label: 'Bootsecurity',
           items: ['explanations/securityprivacy/bootsecurity/explanation-secure-boot-certificate-expiration-2026'],
+        },
+        {
+          type: 'category',
+          label: 'Kernelexploitation',
+          items: ['explanations/securityprivacy/kernelexploitation/explanation-cve-2025-13032-avast-sandbox-double-fetch-lpe'],
         },
         {
           type: 'category',
@@ -324,6 +334,11 @@ const sidebars = {
           label: 'Durableexecutions',
           items: ['explanations/systemdesign/durableexecutions/explanation-timeout-attempt-state-model-for-paid-upstream-calls'],
         },
+        {
+          type: 'category',
+          label: 'Multitenancy',
+          items: ['explanations/systemdesign/multitenancy/explanation-multi-tenancy-isolation-models-saas'],
+        },
       ],
     },
     {
@@ -331,6 +346,11 @@ const sidebars = {
       label: 'Examples',
       collapsed: true,
       items: [
+        {
+          type: 'category',
+          label: 'Multiagentsystems',
+          items: ['examples/aimachinelearning/multiagentsystems/example-agentic-fraud-investigation-tigergraph-11-agents'],
+        },
         {
           type: 'category',
           label: 'Frontendjavascript',
