@@ -219,6 +219,35 @@ handshake that you did not configure, that is why, not a rogue client.
   private key, owned by the daemon user. Turn compression off
   (`SSL_OP_NO_COMPRESSION`) — CRIME/BREACH.
 
+### Concrete suite list (Mozilla intermediate profile)
+
+The widely-used "intermediate" configuration (TLS 1.2 + 1.3, works with nearly
+every client from the last five years):
+
+```nginx
+ssl_protocols TLSv1.2 TLSv1.3;
+ssl_ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256: \
+ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384: \
+ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305;
+ssl_prefer_server_ciphers off;
+```
+
+Notes on this list:
+
+- **TLS 1.3 suites are fixed** (`TLS_AES_128_GCM_SHA256`, `TLS_AES_256_GCM_SHA384`,
+  `TLS_CHACHA20_POLY1305_SHA256`) and cannot be disabled individually — the
+  `ssl_ciphers` line only controls the TLS 1.2 fallback.
+- **Allow-list, don't block-list**: every exclusion above corresponds to a named
+  attack (RC4 statistically breakable, 3DES → SWEET32, CBC padding oracles,
+  static RSA = no forward secrecy). A new weak suite in a future OpenSSL version
+  is never automatically permitted.
+- **`ssl_prefer_server_ciphers off`** lets the client pick between AES-GCM and
+  ChaCha20-Poly1305 based on which its hardware accelerates — with an all-AEAD
+  list there is no "bad option" to protect against, so forcing server order buys
+  nothing. Set it `on` only if you deliberately need a fixed preference.
+- **Modern profile** (TLS 1.3 only) is for internal/controlled environments where
+  every client supports 1.3; public services should use intermediate.
+
 ## Let's Encrypt vs OpenSSL
 
 Let's Encrypt *issues* the certificate; OpenSSL (or BoringSSL, or the language
@@ -229,6 +258,7 @@ runtime) *runs the handshake*. Buying a cert does not harden `ssl_protocols`.
 - [Stop saying SSL: TLS only does three jobs (dev.to)](https://dev.to/sunshoutkernel/stop-saying-ssl-tls-only-does-three-jobs-and-your-ssl-cert-is-usually-not-the-outage-26dh)
 - [nginx 1.18.0 implicitly enables TLS 1.3 (nginx mailing list)](https://mailman.nginx.org/pipermail/nginx/2020-November/060180.html)
 - [OpenSSL docs: openssl-ciphers (cipher list display and selection)](https://docs.openssl.org/master/man1/openssl-ciphers/)
+- [Mozilla Server Side TLS — intermediate/modern profiles](https://wiki.mozilla.org/Security/Server_Side_TLS)
 
 ## Related
 - [[explanation-openai-hugging-face-agent-incident]]
