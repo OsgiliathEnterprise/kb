@@ -104,6 +104,23 @@ That context is exactly what a single transaction row can't show.
 - **Human approval gate** on recommendations — the system recommends a next best action, the analyst approves/rejects.
 - **Evidence-sufficiency loop**: "check if more evidence is needed" feeds back into collection/exploration instead of forcing a decision on thin data.
 
+## Graph-native detection patterns this architecture enables
+
+The graph model above isn't just storage — it lets the agents ask questions that row-based systems can't express without expensive joins:
+
+- **Collusion**: groups of accounts transacting in coordinated patterns, often sharing IPs, devices, or referral codes. The shared-device edge (`Customer ──uses──> Device`) is exactly what surfaces this.
+- **Synthetic identities**: phone numbers or email domains reused across multiple applications/accounts — the `EmailDomain` and `Device` nodes make cross-application reuse a one-hop query instead of a global scan.
+- **Mule networks & circular flows**: layered transaction chains where funds move through intermediate accounts; graph traversal (multi-hop reasoning) detects the cycle, which per-transaction scoring never sees because each hop looks individually normal.
+- **Proximity to known risk**: "is this account one hop from a confirmed fraud ring?" — the `Customer ──related_to──> ClosedCase` edge turns historical cases into live context for new transactions.
+
+The key distinction: traditional systems score *rows* (one transaction at a time, threshold-based); graph-native detection reasons about *structure* (who is connected to whom, and what do those connections imply). Modern fraud is designed to look normal event-by-event — the signal lives in the network, not any single row.
+
+## Where this sits in the research landscape
+
+The coordinator + specialist-agent pattern over a graph substrate aligns with an active 2025–2026 research direction: **LLM-enhanced graph fraud detection** (e.g., multi-level LLM-augmented GNN pipelines at ACM MM 2025, LLM-enhanced graph anomaly detection at KDD 2025). The common shape is the same as this example system — a graph model provides relational context, and LLM agents translate that structure into narratives and decisions. A curated paper list tracking this space: [safe-graph/graph-fraud-detection-papers](https://github.com/safe-graph/graph-fraud-detection-papers) (includes an interactive dashboard and a RAG-based chatbot over ~250 papers).
+
 ## References
 
 - [DEV.to — Building an Agentic Fraud Investigation System with TigerGraph and 11 AI Agents](https://dev.to/pritha_pal_14bfa4d9871f59/building-an-agentic-fraud-investigation-system-with-tigergraph-and-11-ai-agents-29c7)
+- [TigerGraph — Fraud Detection with Graph (glossary)](https://www.tigergraph.com/glossary/fraud-detection-with-graph/)
+- [safe-graph/graph-fraud-detection-papers — curated list of graph/LLM fraud detection papers](https://github.com/safe-graph/graph-fraud-detection-papers)
