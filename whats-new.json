@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Timeout Attempt State Model For Paid Upstream Calls",
+    "type": "Explanation",
+    "link": "/explanations/systemdesign/durableexecutions/explanation-timeout-attempt-state-model-for-paid-upstream-calls",
+    "time": "4 min read"
+  },
+  {
+    "title": "Error Ownership Retry Storms",
+    "type": "Explanation",
+    "link": "/explanations/systemdesign/distributedsystemsfoundations/explanation-error-ownership-retry-storms",
+    "time": "5 min read"
+  },
+  {
+    "title": "Tool Descriptions Are The Contract",
+    "type": "Explanation",
+    "link": "/explanations/developertoolspractices/mcp/explanation-tool-descriptions-are-the-contract",
+    "time": "5 min read"
+  },
+  {
+    "title": "Jev Ultrafast Dynamic Indexed Action Space Browser Agent",
+    "type": "Explanation",
+    "link": "/explanations/aimachinelearning/agentarchitecture/explanation-jev-ultrafast-dynamic-indexed-action-space-browser-agent",
+    "time": "4 min read"
+  },
+  {
+    "title": "Configure And Migrate To Azure Database For Postgresql",
+    "type": "How-To",
+    "link": "/how-to/cloudinfrastructure/azure/howto-configure-and-migrate-to-azure-database-for-postgresql",
+    "time": "5 min read"
+  },
+  {
+    "title": "Deploy Cloud Native Apps With Azure Container Apps",
+    "type": "How-To",
+    "link": "/how-to/cloudinfrastructure/azure/howto-deploy-cloud-native-apps-with-azure-container-apps",
+    "time": "4 min read"
+  }
+]
