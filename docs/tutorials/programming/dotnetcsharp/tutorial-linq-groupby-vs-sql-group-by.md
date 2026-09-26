@@ -96,6 +96,16 @@ var grouped = products
     .ToList();
 ```
 
+### The exact EF Core translation rules (dotnet/efcore#19929)
+
+The "might NOT translate" above is now precisely defined by the EF Core team ([issue #19929](https://github.com/dotnet/efcore/issues/19929), resolved in EF Core 7.0):
+
+- **Bare `GroupBy().ToList()`** (no result selector, no composition) is *client-evaluated* since EF Core 7 — it fetches all rows and groups locally. It "works" but silently pulls the whole table into memory; treat it as a materialization, not a SQL translation.
+- **`GroupBy` followed by another queryable operator** (e.g., `.Select(g => ...)` with `g.ToList()` inside) is *never* translated to SQL — EF Core refuses rather than client-evaluate the composed form. This is why "group then expand" must be done explicitly in memory as shown above.
+- **`GroupBy` + aggregate** (`Count`, `Average`, etc.) *is* translated to real SQL `GROUP BY` — this is the only shape that produces a genuine grouped query on the server.
+
+So the decision rule sharpens: if your final projection contains per-group collections, you are in memory-land by definition; only pure aggregates stay in SQL-land.
+
 ## Grouping by multiple keys
 
 Use an anonymous type as a composite key — all properties must match for items to land in the same group:
@@ -173,3 +183,4 @@ var ordersByMonth = orders
 ## References
 
 - [DEV.to: LINQ GroupBy — The Operator Everyone Uses Wrong](https://dev.to/homolibere/linq-groupby-the-operator-everyone-uses-wrong-59d5)
+- [dotnet/efcore#19929 — Query: Support GroupBy when it is final operator (EF Core 7.0)](https://github.com/dotnet/efcore/issues/19929)
