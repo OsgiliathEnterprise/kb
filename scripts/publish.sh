@@ -59,14 +59,34 @@ preflight() {
   log "HEAD = $(git_run rev-parse --short HEAD) ($SOURCE_BRANCH)"
 }
 
+# ── Pick a python interpreter that has PyYAML (needed by visibility-gate.py) ──
+# The agent environment may put a bundled python3 first in PATH that lacks yaml;
+# fall back to /usr/bin/python3 (system package python3-pyyaml).
+pick_python() {
+  local p
+  for p in python3 /usr/bin/python3; do
+    if command -v "$p" >/dev/null 2>&1 && "$p" -c "import yaml" >/dev/null 2>&1; then
+      printf '%s' "$p"
+      return 0
+    fi
+  done
+  die "No python with PyYAML found — install python3-pyyaml (dnf) or pip install pyyaml"
+}
+
 # ── Visibility gate: reject private content in docs/ ──────────────────────────
 visibility_gate() {
   log "Running visibility gate (checking docs/ for private content)..."
   cd "$REPO_DIR"
 
-  local gate_output
-  gate_output="$(python3 "$REPO_DIR/scripts/visibility-gate.py" 2>&1)"
-  local gate_exit=$?
+  local python_bin
+  python_bin="$(pick_python)"
+  log "Using $python_bin for visibility gate"
+
+  # NOTE: `|| gate_exit=$?` is required — under set -e a failing command
+  # substitution in an assignment aborts the script BEFORE the error handler
+  # below runs (silent death, no ERROR line in the log).
+  local gate_output gate_exit=0
+  gate_output="$("$python_bin" "$REPO_DIR/scripts/visibility-gate.py" 2>&1)" || gate_exit=$?
 
   if [ $gate_exit -ne 0 ]; then
     err "VISIBILITY GATE FAILED"
