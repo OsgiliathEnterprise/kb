@@ -582,14 +582,24 @@ def sync_kb():
     # Convert referenced .excalidraw diagrams to static SVGs (Docusaurus-safe).
     sync_diagrams(new_files)
 
-    # Remove stale files
+    # Remove stale files — QUARANTINE, never silently delete.
+    # A docs/ file with no vault source may be intentional content written
+    # directly into docs/ (e.g. by an enricher that bypasses the vault).
+    # Sync #68 (2026-09-20) deleted 8 such arXiv notes as 'stale'; they were
+    # only recoverable from git history. So instead of unlinking, move them to
+    # .kb-quarantine/<date>/ where they can be inspected and either promoted
+    # into the vault (source of truth) or deleted deliberately.
+    import datetime
+    quarantine_root = Path("/home/tcharlopenclaw/code/kb/.kb-quarantine") / datetime.date.today().isoformat()
     for old_rel in existing_files:
         if old_rel not in new_files:
             old_file = DOCS_DIR / old_rel
             if old_file.exists():
-                old_file.unlink()
+                dest = quarantine_root / old_rel
+                dest.parent.mkdir(parents=True, exist_ok=True)
+                shutil.move(str(old_file), str(dest))
                 removed.append(str(old_rel))
-                print(f"  REMOVED: {old_rel}")
+                print(f"  QUARANTINED (no vault source — kept in .kb-quarantine/): {old_rel}")
 
     # Clean up empty directories
     for dirpath, dirnames, filenames in os.walk(DOCS_DIR, topdown=False):
