@@ -4,14 +4,7 @@ title: 'FairInference: Token Latency Fairness and Performance Isolation for Mult
 diataxis: Explanation
 domain: AI-LLM
 topic: LLM-Infrastructure
-source: arXiv
-source_url: https://arxiv.org/abs/2609.18112
-date: 2026-09-20
-keywords:
-- knowledge-base
-- LLM-Infrastructure
-- AI-LLM
-- explanations
+source: ''
 ---
 # FairInference: Token Latency Fairness and Performance Isolation for Multi-Tenant LLM Serving
 
@@ -42,6 +35,17 @@ FairInference's scheduler tracks per-token deadlines rather than per-request or 
 
 For anyone operating multi-tenant LLM inference (shared GPU pools, SaaS inference endpoints), this reframes fairness from "equal throughput" to "bounded per-token latency." If your SLA is about user-perceived responsiveness (inter-token and TTFT) rather than raw tokens/second, FairInference's δ-token guarantee is the right primitive. The explicit treatment of shared-KV-cache delay is a detail most serving systems gloss over but that materially affects real-world tail latencies.
 
+## Context: Where This Sits in the Serving-Fairness Landscape
+
+FairInference (Bali et al., submitted 16 Sep 2026) attacks the *inter-tenant* dimension of latency isolation. Two complementary lines of work attack the *intra-request* and *memory-management* dimensions of the same problem:
+
+- **DuetServe** (arXiv:2511.04791) isolates prefill from decode on a *single* GPU via adaptive SM-level spatial multiplexing, activating partitioning only when time-between-tokens (TBT) degradation is predicted — an attention-aware roofline model forecasts iteration latency and a partitioning optimizer picks the SM split that maximizes throughput under TBT constraints. Where FairInference bounds cross-tenant interference at token granularity, DuetServe bounds *phase* interference (compute-bound prefill vs memory-bound decode) within one tenant's requests; both target per-token latency SLOs but at different scheduling layers.
+- **OrbitFlow** (arXiv:2601.10729, VLDB 2026) targets the shared-KV-cache dimension that FairInference explicitly models: a lightweight ILP solver decides which layers' KV caches stay on GPU per request under memory capacity constraints, refining placements from runtime feedback and deferring large-footprint in-flight requests as a fallback. It reports up to +66% TPOT and +48% TBT SLO attainment with 38% lower p95 latency vs static offloading — evidence that fine-grained KV placement is where much of the remaining tail-latency headroom lives, which is exactly the regime FairInference's shared-KV-cache delay accounting must contend with.
+
+Practical takeaway: if you need *tenant-level* guarantees (multi-tenant SaaS), FairInference's δ-token bound is the primitive; if your latency pain comes from prefill/decode interference or long-context KV pressure on a single tenant, DuetServe and OrbitFlow are the more targeted fixes — and they compose with per-tenant fairness scheduling rather than replacing it.
+
 ## References
 - Paper: https://arxiv.org/abs/2609.18112
 - Semantic Scholar: https://api.semanticscholar.org/graph/v1/paper/arXiv:2609.18112
+- DuetServe (phase isolation via adaptive SM multiplexing): https://arxiv.org/abs/2511.04791
+- OrbitFlow (SLO-aware fine-grained KV cache reconfiguration, VLDB 2026): https://arxiv.org/abs/2601.10729
