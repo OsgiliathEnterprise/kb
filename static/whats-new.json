@@ -1,38 +1,38 @@
 [
   {
-    "title": "Timeout Attempt State Model For Paid Upstream Calls",
+    "title": "Cve 2025 13032 Avast Sandbox Double Fetch Lpe",
     "type": "Explanation",
-    "link": "/explanations/systemdesign/durableexecutions/explanation-timeout-attempt-state-model-for-paid-upstream-calls",
-    "time": "4 min read"
-  },
-  {
-    "title": "Error Ownership Retry Storms",
-    "type": "Explanation",
-    "link": "/explanations/systemdesign/distributedsystemsfoundations/explanation-error-ownership-retry-storms",
+    "link": "/explanations/securityprivacy/kernelexploitation/explanation-cve-2025-13032-avast-sandbox-double-fetch-lpe",
     "time": "5 min read"
   },
   {
-    "title": "Tool Descriptions Are The Contract",
+    "title": "Kestra Cve 2026 49869 Suffix Match Auth Bypass",
     "type": "Explanation",
-    "link": "/explanations/developertoolspractices/mcp/explanation-tool-descriptions-are-the-contract",
-    "time": "5 min read"
-  },
-  {
-    "title": "Jev Ultrafast Dynamic Indexed Action Space Browser Agent",
-    "type": "Explanation",
-    "link": "/explanations/aimachinelearning/agentarchitecture/explanation-jev-ultrafast-dynamic-indexed-action-space-browser-agent",
+    "link": "/explanations/securityprivacy/websecurity/explanation-kestra-cve-2026-49869-suffix-match-auth-bypass",
     "time": "4 min read"
   },
   {
-    "title": "Configure And Migrate To Azure Database For Postgresql",
-    "type": "How-To",
-    "link": "/how-to/cloudinfrastructure/azure/howto-configure-and-migrate-to-azure-database-for-postgresql",
+    "title": "Libheif Heic Rce Chain Openai Sso Takeover",
+    "type": "Explanation",
+    "link": "/explanations/securityprivacy/websecurity/explanation-libheif-heic-rce-chain-openai-sso-takeover",
+    "time": "4 min read"
+  },
+  {
+    "title": "Cisco Ise Cve 2026 76423 Rest Api Auth Bypass",
+    "type": "Explanation",
+    "link": "/explanations/securityprivacy/websecurity/explanation-cisco-ise-cve-2026-76423-rest-api-auth-bypass",
+    "time": "4 min read"
+  },
+  {
+    "title": "Telnetd Cve 2026 32746 Linemode Slc Buffer Overflow",
+    "type": "Explanation",
+    "link": "/explanations/securityprivacy/websecurity/explanation-telnetd-cve-2026-32746-linemode-slc-buffer-overflow",
     "time": "5 min read"
   },
   {
-    "title": "Deploy Cloud Native Apps With Azure Container Apps",
-    "type": "How-To",
-    "link": "/how-to/cloudinfrastructure/azure/howto-deploy-cloud-native-apps-with-azure-container-apps",
-    "time": "4 min read"
+    "title": "Cloudflare Security Audit Skill Multi Phase Agent Audits",
+    "type": "Explanation",
+    "link": "/explanations/securityprivacy/aiagentsecurity/explanation-cloudflare-security-audit-skill-multi-phase-agent-audits",
+    "time": "3 min read"
   }
 ]
