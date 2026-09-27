@@ -59,6 +59,11 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Docker',
+          items: ['how-to/cloudinfrastructure/docker/howto-run-uptime-kuma-with-podman-quadlet-on-fedora'],
+        },
+        {
+          type: 'category',
           label: 'Finops',
           items: ['how-to/cloudinfrastructure/finops/howto-cloud-budget-alerts-aws-gcp-azure'],
         },
@@ -95,12 +100,12 @@ const sidebars = {
         {
           type: 'category',
           label: 'Aicodingagents',
-          items: ['how-to/developertoolspractices/aicodingagents/howto-chronicle-cut-point-replay-regression-testing', 'how-to/developertoolspractices/aicodingagents/howto-litellm-gateway-for-codex-cli', 'how-to/developertoolspractices/aicodingagents/howto-maintainability-sensors-for-coding-agents', 'how-to/developertoolspractices/aicodingagents/howto-migrate-gemini-cli-to-antigravity-cli', 'how-to/developertoolspractices/aicodingagents/howto-neurotestgen-neuro-symbolic-test-generation', 'how-to/developertoolspractices/aicodingagents/howto-require-a-job-receipt-for-remote-model-proposals', 'how-to/developertoolspractices/aicodingagents/howto-spring-upgrades-with-openrewrite-and-agents'],
+          items: ['how-to/developertoolspractices/aicodingagents/howto-build-an-ai-workflow-inventory', 'how-to/developertoolspractices/aicodingagents/howto-chronicle-cut-point-replay-regression-testing', 'how-to/developertoolspractices/aicodingagents/howto-litellm-gateway-for-codex-cli', 'how-to/developertoolspractices/aicodingagents/howto-maintainability-sensors-for-coding-agents', 'how-to/developertoolspractices/aicodingagents/howto-migrate-gemini-cli-to-antigravity-cli', 'how-to/developertoolspractices/aicodingagents/howto-neurotestgen-neuro-symbolic-test-generation', 'how-to/developertoolspractices/aicodingagents/howto-require-a-job-receipt-for-remote-model-proposals', 'how-to/developertoolspractices/aicodingagents/howto-spring-upgrades-with-openrewrite-and-agents'],
         },
         {
           type: 'category',
           label: 'Ciperformance',
-          items: ['how-to/developertoolspractices/ciperformance/howto-keep-ci-fast-under-agent-driven-development'],
+          items: ['how-to/developertoolspractices/ciperformance/howto-keep-ci-fast-under-agent-driven-development', 'how-to/developertoolspractices/ciperformance/howto-test-scheduled-jobs-with-faketime'],
         },
         {
           type: 'category',
@@ -111,6 +116,11 @@ const sidebars = {
           type: 'category',
           label: 'Releasereproducibility',
           items: ['how-to/developertoolspractices/releasereproducibility/howto-archive-github-release-to-zenodo-with-version-doi'],
+        },
+        {
+          type: 'category',
+          label: 'Databases',
+          items: ['how-to/programming/databases/howto-catch-silent-table-loss-in-supabase-pg-restore'],
         },
         {
           type: 'category',
@@ -130,7 +140,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Linux',
-          items: ['how-to/programming/linux/howto-swap-zram-zswap-hibernate-nixos', 'how-to/programming/linux/howto-transfer-files-over-an-ethernet-patch-cable'],
+          items: ['how-to/programming/linux/howto-fstab-instead-of-autofs-for-samba-share', 'how-to/programming/linux/howto-swap-zram-zswap-hibernate-nixos', 'how-to/programming/linux/howto-transfer-files-over-an-ethernet-patch-cable'],
         },
         {
           type: 'category',
@@ -151,6 +161,11 @@ const sidebars = {
           type: 'category',
           label: 'Distributedtransactions',
           items: ['how-to/systemdesign/distributedtransactions/howto-implement-transactional-outbox-pattern'],
+        },
+        {
+          type: 'category',
+          label: 'Nonfunctionalrequirements',
+          items: ['how-to/systemdesign/nonfunctionalrequirements/howto-laravel-redis-outage-ganesha-circuit-breaker'],
         },
       ],
     },
@@ -256,6 +271,11 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Databases',
+          items: ['explanations/programming/databases/explanation-postgresql-generated-columns-vs-triggers'],
+        },
+        {
+          type: 'category',
           label: 'Esotericlanguages',
           items: ['explanations/programming/esotericlanguages/explanation-pop2-stack-language-for-uxn'],
         },
@@ -297,7 +317,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Aiagentsecurity',
-          items: ['explanations/securityprivacy/aiagentsecurity/explanation-closedquorum-llm-quorum-malware', 'explanations/securityprivacy/aiagentsecurity/explanation-cloudflare-security-audit-skill-multi-phase-agent-audits', 'explanations/securityprivacy/aiagentsecurity/explanation-evasionbench-instrumental-monitor-evasion', 'explanations/securityprivacy/aiagentsecurity/explanation-llm-agents-tamper-with-their-own-traces', 'explanations/securityprivacy/aiagentsecurity/explanation-llm-inference-engine-exploits', 'explanations/securityprivacy/aiagentsecurity/explanation-lm-studio-bionic-shell-judge-auto-review', 'explanations/securityprivacy/aiagentsecurity/explanation-local-llm-confidentiality-boundary-failures', 'explanations/securityprivacy/aiagentsecurity/explanation-miasma-worm-agentic-supply-chain-attack', 'explanations/securityprivacy/aiagentsecurity/explanation-openai-hugging-face-agent-incident'],
+          items: ['explanations/securityprivacy/aiagentsecurity/explanation-closedquorum-llm-quorum-malware', 'explanations/securityprivacy/aiagentsecurity/explanation-cloudflare-security-audit-skill-multi-phase-agent-audits', 'explanations/securityprivacy/aiagentsecurity/explanation-enterprise-ai-data-security-patterns', 'explanations/securityprivacy/aiagentsecurity/explanation-evasionbench-instrumental-monitor-evasion', 'explanations/securityprivacy/aiagentsecurity/explanation-llm-agents-tamper-with-their-own-traces', 'explanations/securityprivacy/aiagentsecurity/explanation-llm-inference-engine-exploits', 'explanations/securityprivacy/aiagentsecurity/explanation-lm-studio-bionic-shell-judge-auto-review', 'explanations/securityprivacy/aiagentsecurity/explanation-local-llm-confidentiality-boundary-failures', 'explanations/securityprivacy/aiagentsecurity/explanation-miasma-worm-agentic-supply-chain-attack', 'explanations/securityprivacy/aiagentsecurity/explanation-openai-hugging-face-agent-incident'],
         },
         {
           type: 'category',
@@ -364,7 +384,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Frontendjavascript',
-          items: ['examples/programming/frontendjavascript/example-intl-segmenter-text-analysis'],
+          items: ['examples/programming/frontendjavascript/example-browser-only-pdf-processing-with-csp-enforcement', 'examples/programming/frontendjavascript/example-intl-segmenter-text-analysis'],
         },
         {
           type: 'category',
@@ -379,7 +399,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Linux',
-          items: ['examples/programming/linux/example-self-sqlite-executable-self-httpd'],
+          items: ['examples/programming/linux/example-self-sqlite-executable-self-httpd', 'examples/programming/linux/example-shell-job-control-suspend-bg-disown'],
         },
         {
           type: 'category',

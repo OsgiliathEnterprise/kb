@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 -9.0 728.0 553.0" width="728" height="553">
+<rect x="16.0" y="-9.0" width="728.0" height="553.0" fill="#ffffff"/>
+<rect x="240.0" y="70.0" width="320.0" height="60.0" rx="8" fill="#ffec99" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="40.0" y="200.0" width="260.0" height="70.0" rx="8" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="460.0" y="200.0" width="260.0" height="70.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="40.0" y="330.0" width="260.0" height="60.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="460.0" y="330.0" width="260.0" height="60.0" rx="8" fill="#d0bfff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="460.0" y="440.0" width="260.0" height="80.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 190.0 130.0 L 120.0 200.0"/><line x1="120.0" y1="200.0" x2="133.2" y2="195.4"/><line x1="120.0" y1="200.0" x2="124.6" y2="186.8"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 540.0 130.0 L 570.0 200.0"/><line x1="570.0" y1="200.0" x2="570.7" y2="186.0"/><line x1="570.0" y1="200.0" x2="559.4" y2="190.9"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 120.0 270.0 L 120.0 330.0"/><line x1="120.0" y1="330.0" x2="126.1" y2="317.4"/><line x1="120.0" y1="330.0" x2="113.9" y2="317.4"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 240.0 270.0 L 560.0 330.0"/><line x1="560.0" y1="330.0" x2="548.8" y2="321.6"/><line x1="560.0" y1="330.0" x2="546.5" y2="333.7"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 590.0 270.0 L 590.0 440.0"/><line x1="590.0" y1="440.0" x2="596.1" y2="427.4"/><line x1="590.0" y1="440.0" x2="583.9" y2="427.4"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="60.0" y="27.8">PostgreSQL derived column: generated column or trigger?</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="250.0" y="97.6">Value derivable from same-row columns</tspan><tspan x="250.0" y="112.6">via immutable functions only?</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="11" fill="#1e1e1e" text-anchor="start"><tspan x="50.0" y="226.8">GENERATED ALWAYS AS (...)</tspan><tspan x="50.0" y="240.6">DB computes it; nobody can write it</tspan><tspan x="50.0" y="254.3">visible in table definition</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="11" fill="#1e1e1e" text-anchor="start"><tspan x="470.0" y="226.8">Trigger-maintained column</tspan><tspan x="470.0" y="240.6">needed for: other tables, now(),</tspan><tspan x="470.0" y="254.3">non-immutable functions (updated_at)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="11" fill="#1e1e1e" text-anchor="start"><tspan x="50.0" y="356.8">VIRTUAL (PG18 default): cheap compute,</tspan><tspan x="50.0" y="370.6">no storage; index via expression only</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="11" fill="#1e1e1e" text-anchor="start"><tspan x="470.0" y="356.8">STORED: expensive compute or logical</tspan><tspan x="470.0" y="370.6">replication subscriber needs the value</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="11" fill="#1e1e1e" text-anchor="start"><tspan x="185.0" y="116.8">yes</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="11" fill="#1e1e1e" text-anchor="start"><tspan x="515.0" y="116.8">no</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="11" fill="#1e1e1e" text-anchor="start"><tspan x="470.0" y="463.8">Trigger risks: bypassed by UPDATE OF gaps,</tspan><tspan x="470.0" y="477.6">switched off via session_replication_role,</tspan><tspan x="470.0" y="491.3">fails late after column rename (body not tracked)</tspan></text>
+</svg>
