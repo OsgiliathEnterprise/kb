@@ -1,16 +1,9 @@
 ---
-title: 'Actually Queryable Executables: SELF Format and the self-httpd Web Server'
+title: 'Actually Queryable Executables: SELF Format and self-httpd'
 diataxis: Example
 domain: programming
 topic: linux
-source: HackerNews
-source_url: https://fzakaria.com/2026/08/24/actually-queryable-executables
-date: 2026-08-26
-keywords:
-- knowledge-base
-- linux
-- programming
-- examples
+source: ''
 ---
 # Actually Queryable Executables: SELF Format and self-httpd
 
@@ -214,6 +207,26 @@ becomes `scp` of a single file.
 - The author credits Justine Tunney's **redbean** (webserver as a self-extracting
   Actually Portable Executable) as prior art; SELF differs by making the
   database itself the container and the handler layer.
+
+## Community discussion highlights (verified 2026-09-28, [HN thread](https://news.ycombinator.com/item?id=49442589))
+
+The Hacker News discussion surfaced three threads worth keeping:
+
+- **Security is the open problem.** SQLite has no ACL mechanism, so nothing stops
+  a compromised handler from rewriting the `segments` table (i.e. its own code).
+  The proposed fix is a custom SQLite VFS that maps executable pages into
+  `mprotect()`ed OS pages — W^X at the page level, with `mseal()` on top — so
+  self-modification crashes instead of silently succeeding. Until then, treat a
+  SELF file as *trusted code + trusted data in one blob*: any write access to the
+  file is write access to the program.
+- **Self-upgrade as migration.** Because `segments` is just another table, an app
+  can run schema migrations at startup and even replace its own code rows — a
+  SELF upgrade becomes `INSERT ... SELECT` of new segments/symbols plus
+  fork+exec, with the data migration cleaning up old code. The same trick enables
+  **fat binaries**: `SELECT text FROM executable WHERE arch = $(uname -m)`.
+- **Historical echo.** Commenters noted the resemblance to IBM i (AS/400)
+  libraries — first-class OS objects that are effectively DB tables you can query
+  with SQL from the command line — a concept taken much further in that ecosystem.
 
 ## References
 

@@ -52,6 +52,30 @@ For discrete tokens, "noise" is defined by **masking**. A masked diffusion model
   - **Nucleotide Transformer v3 (NT-v3)** — MDLM scaled to billions of params / >1T DNA tokens, multi-track input, discrete CFG + remasking for target gene-expression design (validated in wet-lab).
 - **General LLMs:** **LLaDA** scales MDLM to 8B with block diffusion at sampling time and remasking/post-training compatibility; competitive with similarly-sized AR models and shows AR-like scaling of accuracy vs. training FLOPs on GSM8K/MMLU.
 
+## Case study: DiffusionGemma (verified 2026-09-28)
+
+Google's **DiffusionGemma** (released 2026-06-10, Apache 2.0) is the most complete
+public implementation of this recipe and a useful checklist for what "production-ready"
+concretely means:
+
+- **Architecture:** encoder-decoder on top of the Gemma 4 family — a fine-tuned
+  26B (≈3.8B active) MoE backbone toggles between an *encoding* mode (prefill, builds
+  the KV cache) and a *denoising* mode (bidirectional attention over one canvas via
+  cross-attention). Multimodal: text/image/video in, text out; ~550M-param vision encoder.
+- **Uniform-state diffusion:** replaces tokens with random vocabulary noise rather than
+  masks — the UDLM variant from the list above — so any position can be revised at any
+  step.
+- **Multi-canvas block sampling:** a fixed 256-token canvas is denoised in parallel, then
+  appended to context and the next canvas starts — exactly the "block diffusion for
+  variable length" extension, chained with autoregression for long-form text.
+- **Speed claim:** up to ~4x faster than AR Gemma on dedicated GPUs; >1100 tokens/s per
+  user at low batch size (H100, FP8), since each forward pass emits 15–20 tokens instead
+  of one. Context up to 256K tokens, 262K vocab, sliding window 1024.
+- **Positioning:** explicitly experimental and aimed at speed-critical *local* workflows
+  (in-line editing, rapid iteration); Google still recommends standard AR Gemma 4 for
+  high-quality production outputs — a useful reminder that diffusion LLMs trade peak
+  quality for latency, not the other way around.
+
 ## Key insight
 
 Diffusion for language = "generative BERT" + a principled ELBO, then bolt on block diffusion (length), encoder-decoder (speed), remasking/UDLM (error correction), distillation (fewer steps), and guidance (control). The unifying theme: generate the whole sequence in parallel and *refine globally*, rather than committing to irreversible left-to-right tokens.
