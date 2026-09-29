@@ -39,6 +39,13 @@ The benchmark is deliberately *not* a new caching algorithm; it's a measurement 
 - Cache effectiveness itself is **largely insensitive to concurrency and output length** — the benefit/limitation is driven more by prefix structure and memory than by load.
 - The remaining cross-runtime differences arise **above the cache, in the scheduling layer**, not in the caching mechanism itself.
 
+### Verified numbers (H100 NVL, vLLM 0.21 vs TensorRT-LLM 1.2.1)
+
+- At an 8192-token shared prefix both runtimes cache ≈ 92% of the input and deliver a **5–6.5× TTFT reduction** over reuse-disabled; hit rates scale with prefix length (≈ 65/78/87/92% at 1024/2048/4096/8192 tokens) and are statistically identical across runtimes — the cross-runtime gap is per-request overhead, not cache behavior.
+- **Arrival pattern flips the leader**: sequential → bursty arrival at concurrency 32 flips p50 TTFT leadership from vLLM to TensorRT-LLM by ~2.4×; fixed-rate (16 QPS) flips it back to vLLM by ~9.2× on p95 TTFT. All attributable to the scheduling layer, not cache effectiveness.
+- **Under load**: at 4096-token prefix with bursty arrivals, vLLM's p50 TTFT inflates rapidly (c=8: 215 ms → c=32: 759 ms) while TensorRT-LLM's PyTorch backend scales more gradually (c=8: 142 ms → c=32: 319 ms).
+- **Cache pressure regime**: once the prefix working set exceeds KV capacity, the cache binds again for both runtimes simultaneously — at ~13.2× over-subscription hit rate drops to ~5.6% and TTFT regresses ~15.7×.
+
 ## Relevance to Our Domain
 
 This is lookup material for anyone tuning LLM serving latency on H100-class hardware: it tells you *when* prefix/KV-cache reuse is worth relying on and when it isn't. The finding that cache effectiveness is insensitive to concurrency/output length (and that runtime differences live in the scheduler) is a useful mental model — if your TTFT problems persist under prefix caching, look at scheduling rather than the cache. Reproducible traces make it directly reusable for capacity planning.
