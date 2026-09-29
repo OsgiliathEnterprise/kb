@@ -120,7 +120,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Databases',
-          items: ['how-to/programming/databases/howto-catch-silent-table-loss-in-supabase-pg-restore'],
+          items: ['how-to/programming/databases/howto-catch-silent-table-loss-in-supabase-pg-restore', 'how-to/programming/databases/howto-port-mysql-schema-to-postgresql'],
         },
         {
           type: 'category',
@@ -192,7 +192,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Agentarchitecture',
-          items: ['explanations/aimachinelearning/agentarchitecture/explanation-agent-guardrail-stack', 'explanations/aimachinelearning/agentarchitecture/explanation-claude-unified-memory-architecture', 'explanations/aimachinelearning/agentarchitecture/explanation-coding-agents-generalized-tamp', 'explanations/aimachinelearning/agentarchitecture/explanation-harness-design-coding-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-human-in-the-loop-approval-gates', 'explanations/aimachinelearning/agentarchitecture/explanation-jev-ultrafast-dynamic-indexed-action-space-browser-agent', 'explanations/aimachinelearning/agentarchitecture/explanation-lemmalog-datalog-memory-for-llm-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-microsoft-copilot-agent-identity-runtime', 'explanations/aimachinelearning/agentarchitecture/explanation-prince-bayer-agentic-rag-context-harness-engineering', 'explanations/aimachinelearning/agentarchitecture/explanation-sandboxed-execution-runtime-engineering-for-ai-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-x402-http-payment-standard-for-ai-agents'],
+          items: ['explanations/aimachinelearning/agentarchitecture/explanation-agent-guardrail-stack', 'explanations/aimachinelearning/agentarchitecture/explanation-claude-unified-memory-architecture', 'explanations/aimachinelearning/agentarchitecture/explanation-coding-agents-generalized-tamp', 'explanations/aimachinelearning/agentarchitecture/explanation-harness-design-coding-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-human-in-the-loop-approval-gates', 'explanations/aimachinelearning/agentarchitecture/explanation-jev-ultrafast-dynamic-indexed-action-space-browser-agent', 'explanations/aimachinelearning/agentarchitecture/explanation-lemmalog-datalog-memory-for-llm-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-microsoft-copilot-agent-identity-runtime', 'explanations/aimachinelearning/agentarchitecture/explanation-prince-bayer-agentic-rag-context-harness-engineering', 'explanations/aimachinelearning/agentarchitecture/explanation-progressive-disclosure-on-demand-skills', 'explanations/aimachinelearning/agentarchitecture/explanation-reconciling-agent-plans-with-completed-temporal-activities', 'explanations/aimachinelearning/agentarchitecture/explanation-sandboxed-execution-runtime-engineering-for-ai-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-x402-http-payment-standard-for-ai-agents'],
         },
         {
           type: 'category',
@@ -272,7 +272,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Databases',
-          items: ['explanations/programming/databases/explanation-postgresql-generated-columns-vs-triggers'],
+          items: ['explanations/programming/databases/explanation-postgresql-generated-columns-vs-triggers', 'explanations/programming/databases/explanation-row-number-rank-dense-rank-top-n', 'explanations/programming/databases/explanation-sql-not-in-null-trap'],
         },
         {
           type: 'category',
@@ -347,7 +347,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Websecurity',
-          items: ['explanations/securityprivacy/websecurity/explanation-apple-reference-image-verified-photography', 'explanations/securityprivacy/websecurity/explanation-cisco-ise-cve-2026-76423-rest-api-auth-bypass', 'explanations/securityprivacy/websecurity/explanation-cloudflare-disallow-ai-training-mixed-use-crawlers', 'explanations/securityprivacy/websecurity/explanation-data-only-attacks-einstein', 'explanations/securityprivacy/websecurity/explanation-kestra-cve-2026-49869-suffix-match-auth-bypass', 'explanations/securityprivacy/websecurity/explanation-libheif-heic-rce-chain-openai-sso-takeover', 'explanations/securityprivacy/websecurity/explanation-open-redirect-php-laravel', 'explanations/securityprivacy/websecurity/explanation-telnetd-cve-2026-32746-linemode-slc-buffer-overflow'],
+          items: ['explanations/securityprivacy/websecurity/explanation-apple-reference-image-verified-photography', 'explanations/securityprivacy/websecurity/explanation-cisco-ise-cve-2026-76423-rest-api-auth-bypass', 'explanations/securityprivacy/websecurity/explanation-cloudflare-disallow-ai-training-mixed-use-crawlers', 'explanations/securityprivacy/websecurity/explanation-data-only-attacks-einstein', 'explanations/securityprivacy/websecurity/explanation-feature-flags-are-not-authorization', 'explanations/securityprivacy/websecurity/explanation-kestra-cve-2026-49869-suffix-match-auth-bypass', 'explanations/securityprivacy/websecurity/explanation-libheif-heic-rce-chain-openai-sso-takeover', 'explanations/securityprivacy/websecurity/explanation-open-redirect-php-laravel', 'explanations/securityprivacy/websecurity/explanation-telnetd-cve-2026-32746-linemode-slc-buffer-overflow'],
         },
         {
           type: 'category',

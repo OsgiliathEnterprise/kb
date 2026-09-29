@@ -81,4 +81,5 @@ When the Melbourne GPS card returned from maintenance reporting year **2006**, i
 
 ## References
 - [Netnod — Telstra outage: The night a network decided the year was 2006](https://www.netnod.se/blog/telstra-outage-night-network-decided-year-was-2006) (Sven-Christian "Svenne" Ebenhag, 2026-09-17)
-- [Telstra — What we've learned from the external investigation of our July outage (TAP report)](https://www.telstra.com.au/exchange/what-weve-learned-from-the-external-investigation-of-our-july-o)
+- [Telstra — What we've learned from the external investigation of our July outage (TAP report)](https://www.telstra.com.au/exchange/what-weve-learned-from-the-external-investigation-of-our-july-outage)
+- [Technology Audit Partners — TAP Findings for Telstra Outage (full PDF)](https://www.telstra.com.au/content/dam/tcom/dynamic-media-projects/exchange/TAPFindingsforTelstraOutage.pdf)

@@ -33,11 +33,18 @@ Every new reward function (or mixture of rewards) currently triggers a full RL p
 
 Given a library of models post-trained on known rewards (the "basis policies") and a new reward function, PoEM estimates coefficients that express the target log-policy as a combination of basis log-policies. The estimation uses only forward-pass outputs (reward scores or policy logits) on a sample set — no gradient steps through an RL loop. The result is an approximate target policy obtainable by combining existing model outputs, turning "run RL for N hours" into "evaluate M small models and mix their outputs."
 
-## Results
+## Results (verified details)
 
-- Target RL policies approximated without any additional RL training across synthetic and real rewards.
-- Validated in both text and image modalities.
-- The low-rank subspace property holds even for non-linearly-related rewards, though approximation quality degrades as reward geometry moves further from the spanned subspace.
+- Target RL policies approximated without any additional RL training across synthetic and real rewards; no model parameters are updated at inference time — PoEM is purely an inference-time composition step.
+- Validated in both text and image modalities (language models via weighted log-mixture of base + basis policies; diffusion models via the analogous composition).
+- **Policy-space rank gap**: on a basis of n=20 adapters trained on Qwen3-0.6B for distinct programmatic rewards, the stacked weight updates are nearly mutually orthogonal (median pairwise cosine ≈ 0.02) and full-rank in parameter space (effective rank ≈ 19.4), yet the centered log-ratio matrix has effective rank only ≈ 6.3 — about three times smaller. The basis is doing n different things in weights but spans a low-dimensional subspace in log-likelihood space, which is what makes small calibration sets sufficient for coefficient regression.
+- **Coverage score**: before decoding, PoEM checks whether the target policy's log-ratio lies near the span of the experts' log-ratios (measured on held-out reward, without needing the target policy). Rewards with low coverage stay far from the RL outcome at every temperature tried — a cheap pre-flight check for "can this basis reach that reward?"
+- **Holdout validation**: each expert of P-GRPO, P-DPO and RM-Div is held out in turn and predicted from the others; PoEM beats both the reference model and the top single expert on combined rewards.
+- The low-rank subspace property holds even for non-linearly-related rewards (part of the shared structure is response length), though approximation quality degrades as reward geometry moves further from the spanned subspace.
+
+## Pipeline in practice
+
+Given a target reward: (1) score a small calibration set under the new reward and the basis policies, (2) fit composition weights via linear regression on reward-space or policy-space outputs, (3) check the held-out coverage score, (4) compose the basis at inference time. The whole loop replaces an RL run with forward passes over existing models.
 
 ## Relevance to Our Domain
 

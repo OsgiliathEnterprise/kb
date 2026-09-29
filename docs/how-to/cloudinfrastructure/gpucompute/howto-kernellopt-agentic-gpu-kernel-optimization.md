@@ -42,6 +42,20 @@ Geometric mean speedups over `torch.compile`:
 
 The pattern is instructive: gains concentrate where kernels are simpler and more isolated; deeply fused, complex models yield smaller wins — consistent with the structured-artifact constraint that vendor calls remain untouched.
 
+### Verified outcome breakdown
+
+Of the 250 problems: **94 optimized** (passed all four gates and beat `torch.compile`), **58 matched-optimized** (correct but within measurement noise, 0.97–1.01×), **13 synthesis failures** (LLM couldn't express a valid Triton kernel in K=4 attempts — all L1 3D/transpose convolutions with scatter-gather indexing; system returns the Inductor AOT baseline), and **85 fallbacks** rejected by the verification cascade.
+
+Fallback root causes: **72% are vendor-library dominance** (cuBLAS GEMM-dominant: 37, cuDNN Conv-dominant: 24) — there is simply no Triton sub-kernel to replace; the rest split across dispatch overhead (15), no Triton kernels at all (LSTM/GRU, 7), performance-gate rejection (15), and E2E correctness failures (2).
+
+The speedup distribution is heavy-tailed: 15 optimized kernels reach ≥5× and another 9 reach 2–5×. The top gains are **algorithmic rewrites**, not micro-optimizations — e.g., diagonal matmul O(N³)→O(N²) row-scaling (88.63×), lower-triangular skip-zero iteration (20.26×), upper-triangular solve (14.04×); the largest L2/L3 gains come from **operator fusion** (five ops into one kernel: 33.11×; fused pointwise epilogues eliminating intermediate memory round-trips: 8.30×).
+
+### Practical constraints to know before adopting
+
+- Requires NVIDIA Nsight Compute (NCU) profiling with elevated GPU performance-counter permissions.
+- Each NCU prompt consumes ~60K tokens — only backends with >100K context are practical.
+- Targets single-GPU inference only; multi-GPU/multi-node is out of scope.
+
 ## How to Apply This Pattern
 
 If you're building or operating LLM-driven kernel/model optimization:
