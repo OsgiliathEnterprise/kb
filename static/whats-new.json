@@ -6,6 +6,12 @@
     "time": "5 min read"
   },
   {
+    "title": "Cisco Ise Cve 2026 76423 Rest Api Auth Bypass",
+    "type": "Explanation",
+    "link": "/explanations/securityprivacy/websecurity/explanation-cisco-ise-cve-2026-76423-rest-api-auth-bypass",
+    "time": "4 min read"
+  },
+  {
     "title": "Kestra Cve 2026 49869 Suffix Match Auth Bypass",
     "type": "Explanation",
     "link": "/explanations/securityprivacy/websecurity/explanation-kestra-cve-2026-49869-suffix-match-auth-bypass",
@@ -15,12 +21,6 @@
     "title": "Libheif Heic Rce Chain Openai Sso Takeover",
     "type": "Explanation",
     "link": "/explanations/securityprivacy/websecurity/explanation-libheif-heic-rce-chain-openai-sso-takeover",
-    "time": "4 min read"
-  },
-  {
-    "title": "Cisco Ise Cve 2026 76423 Rest Api Auth Bypass",
-    "type": "Explanation",
-    "link": "/explanations/securityprivacy/websecurity/explanation-cisco-ise-cve-2026-76423-rest-api-auth-bypass",
     "time": "4 min read"
   },
   {
