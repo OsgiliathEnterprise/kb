@@ -25,6 +25,11 @@ const sidebars = {
           label: 'Dotnetcsharp',
           items: ['tutorials/programming/dotnetcsharp/tutorial-linq-groupby-vs-sql-group-by'],
         },
+        {
+          type: 'category',
+          label: 'Esotericlanguages',
+          items: ['tutorials/programming/esotericlanguages/tutorial-graphlang-functional-language-in-c'],
+        },
       ],
     },
     {
@@ -187,7 +192,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Llmmodels',
-          items: ['explanations/aillm/llmmodels/explanation-glm-5-2-open-weight-models-self-hosting', 'explanations/aillm/llmmodels/explanation-ibm-granite-4-2-dense-reasoning-models', 'explanations/aillm/llmmodels/explanation-poem-predicting-rl-outcomes-from-existing-policies'],
+          items: ['explanations/aillm/llmmodels/explanation-glm-5-2-open-weight-models-self-hosting', 'explanations/aillm/llmmodels/explanation-ibm-granite-4-2-dense-reasoning-models', 'explanations/aillm/llmmodels/explanation-poem-predicting-rl-outcomes-from-existing-policies', 'explanations/aillm/llmmodels/explanation-pssa-plastic-state-space-language-model-rust'],
         },
         {
           type: 'category',
@@ -297,7 +302,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Linux',
-          items: ['explanations/programming/linux/explanation-anduinos-2-0-declarative-ubuntu-desktop-distro'],
+          items: ['explanations/programming/linux/explanation-anduinos-2-0-declarative-ubuntu-desktop-distro', 'explanations/programming/linux/explanation-nsl-wsl-style-linux-machines-systemd-nspawn'],
         },
         {
           type: 'category',
@@ -312,7 +317,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Rust',
-          items: ['explanations/programming/rust/explanation-rust-1-98-algebraic-float-and-buffered-formatting'],
+          items: ['explanations/programming/rust/explanation-deser-event-driven-serialization-rust', 'explanations/programming/rust/explanation-rust-1-98-algebraic-float-and-buffered-formatting'],
         },
         {
           type: 'category',
@@ -327,7 +332,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Kernelexploitation',
-          items: ['explanations/securityprivacy/kernelexploitation/explanation-cve-2025-13032-avast-sandbox-double-fetch-lpe'],
+          items: ['explanations/securityprivacy/kernelexploitation/explanation-cve-2025-13032-avast-sandbox-double-fetch-lpe', 'explanations/securityprivacy/kernelexploitation/explanation-ps5-relapse-browser-to-kernel-exploit-chain'],
         },
         {
           type: 'category',
@@ -337,7 +342,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Tlsssl',
-          items: ['explanations/securityprivacy/tlsssl/explanation-ssl-tls-three-jobs'],
+          items: ['explanations/securityprivacy/tlsssl/explanation-cloudflare-public-ca-mtc-post-quantum', 'explanations/securityprivacy/tlsssl/explanation-ssl-tls-three-jobs'],
         },
         {
           type: 'category',
