@@ -90,7 +90,17 @@ Technical controls only go as far as the contract behind them:
 
 For workloads where the AI doesn't strictly need to see PII, run a **redaction or tokenization pass** before data reaches the prompt (and re-hydration on output if needed) — especially with third-party or shared-infrastructure LLM endpoints for summarization/classification, where the specific identity behind the data is usually irrelevant to the task.
 
+## Layer 7: Compliance mapping — which framework covers what
+
+The six layers above are vendor-neutral engineering practice; compliance frameworks give you the audit vocabulary and the risk inventory to check against them:
+
+- **NIST AI RMF + Generative AI Profile (NIST-AI-600-1, July 2024)**: cross-sectoral profile of the AI Risk Management Framework for generative AI. It enumerates 12 risks specific to or amplified by generative models — from confabulation and data privacy through CBRN knowledge and harmful content — and maps suggested actions onto the Govern / Map / Measure / Manage functions. Use it as the checklist when a regulator asks "how do you govern your GenAI systems."
+- **OWASP Top 10 for LLM Applications**: the threat-side counterpart to this note's layers. Prompt Injection (LLM01) and Sensitive Information Disclosure (LLM02) sit at the top of both the 2025 and 2026 editions — exactly the two failure modes Layers 1–3 exist to prevent. The 2026 edition (published August 2026 by the OWASP GenAI Security Project) kept all ten categories but re-ranked eight: Excessive Agency climbed from LLM06 to LLM03, Unbounded Consumption rose from LLM10 to LLM06, and System Prompt Leakage was renamed **Hidden Context Exposure** and widened to cover everything an application places in front of the model without the user seeing it. The OWASP Cheat Sheet Series has companion sheets for prompt-injection prevention and AI agent security worth wiring into your threat-model review.
+- **EU AI Act / sector rules (HIPAA, PCI DSS)**: map each data tier from Layer 1 to its regulatory category before choosing a provider tier — the Restricted tier's PHI/PCI/biometric categories are precisely where ZDR agreements and DPAs become contractual requirements rather than nice-to-haves.
+
 ## References
 
 - [Data Security Patterns for AI Integrations (DZone)](https://dzone.com/articles/enterprise-ai-data-security)
+- [NIST-AI-600-1: AI RMF Generative Artificial Intelligence Profile](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf) — 12 GenAI-specific risks mapped to Govern/Map/Measure/Manage
+- [OWASP Top 10 for LLM Applications (GenAI Security Project)](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/) + [Prompt Injection Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html)
 - Related: [How to harden MCP servers](../../../how-to/securityprivacy/aiagentsecurity/howto-mcp-security-hardening.md), [Local LLM confidentiality boundary failures](explanation-local-llm-confidentiality-boundary-failures.md)

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="126.0 -4.0 1165.6 348.0" width="1166" height="348">
+<rect x="126.0" y="-4.0" width="1165.6" height="348.0" fill="#ffffff"/>
+<rect x="150.0" y="60.0" width="720.0" height="48.0" rx="8" fill="#e7f5ff" stroke="#1971c2" stroke-width="1.5"/>
+<rect x="150.0" y="110.0" width="720.0" height="48.0" rx="8" fill="#fff9db" stroke="#fab005" stroke-width="1.5"/>
+<rect x="150.0" y="160.0" width="720.0" height="48.0" rx="8" fill="#fff3cd" stroke="#f08c00" stroke-width="1.5"/>
+<rect x="150.0" y="230.0" width="720.0" height="90.0" rx="8" fill="#fff5f5" stroke="#c92a2a" stroke-width="1.5"/>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="18" fill="#1e1e1e" text-anchor="start"><tspan x="150.0" y="34.4">OpenAI Dots: control layers and boundary escalation</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="160.0" y="84.4">Proactive research phase: read-only on connected apps (no writes, no messages, no browser/computer control)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="160.0" y="134.4">Built-in rules decide when permission is needed; Custom Rules allow / gate / block specific actions</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="160.0" y="184.4">Auto-review: second model checks out-of-sandbox commands (adapted from Codex); confirmation policy weighted more heavily than in Codex harness</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="160.0" y="255.2">Boundary problem rate (GPT-6 Astra system card):</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#c92a2a" text-anchor="start"><tspan x="160.0" y="278.4">chained tasks 5 -&gt; flagged 8.6%   |   chained tasks 10 -&gt; flagged 19.7%</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="160.0" y="300.4">no high-severity breaches or exfiltration in eval; details of flags undisclosed</tspan></text>
+</svg>
