@@ -76,6 +76,16 @@ That leaves unresolved work for an operator to handle with a documented reconcil
 
 Delivery failures (storage, asset availability) are retried against the existing task; only confirmed absence of work justifies a new submission. This mirrors the broader durable-execution principle that **definition-level failure** (the step is not idempotent / cannot be re-run safely) differs from **execution-level failure** (this run failed and can be retried).
 
+## How industry-standard idempotency mechanisms fit this model
+
+The attempt state above is what you build when the upstream API gives you *no* deduplication story. Most production APIs give you part of one — know which part:
+
+- **Stripe-style `Idempotency-Key` header**: for a bounded set of POST endpoints, sending the same key returns the *stored response from the first request* instead of creating a second resource (a charge, in Stripe's case). This is exactly the "replaying the same local request returns the existing attempt" behavior — but only if you keep the original key across retries and the provider retains it. Note the asymmetry: the header deduplicates *accepted* requests; it does not tell you whether a timed-out submission was accepted, so `status_unknown` still exists on the client side until you can query by task ID or reference.
+- **AWS SQS FIFO message deduplication**: the queue-side analogue — a 5-minute deduplication window keyed on an explicit (or content-derived) MessageDeduplicationId makes redelivered submissions collapse into one message, so at-least-once delivery plus consumer-side idempotency approximates exactly-once *processing*. The same caveat applies: the queue guarantees no duplicate *message*, not that downstream work wasn't already started.
+- **Caller-supplied reference / client token**: some providers accept a caller-chosen request reference and match retries on it (the "client tokens" pattern in API design). Confirm retention duration and matching rules for your specific API — a local request ID is not automatically an upstream idempotency key, and the window may be shorter than your reconciliation horizon.
+
+The state model stays the same regardless of which mechanism you have; what changes is how fast `status_unknown` can resolve to a known state.
+
 ## Diagram
 
 ![Attempt state model for ambiguous submissions](timeout-attempt-state-model.svg)
@@ -88,3 +98,5 @@ Delivery failures (storage, asset availability) are retried against the existing
 ## References
 
 - [Handling Timeouts in AI Image Generation Without Blind Retries (dev.to)](https://dev.to/zhengguge06/handling-timeouts-in-ai-image-generation-without-blind-retries-4dc4)
+- [Stripe API: Idempotent requests](https://docs.stripe.com/api/idempotent_requests) — `Idempotency-Key` header semantics and stored-response replay
+- [AWS SQS FIFO queues: message deduplication](https://hevodata.com/learn/sqs-fifo-queues/) — 5-minute dedup window, content-based vs explicit MessageDeduplicationId

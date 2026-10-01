@@ -1,9 +1,21 @@
 [
   {
+    "title": "Tanstack Mini Shai Hulud Npm Worm Supply Chain Attack",
+    "type": "Explanation",
+    "link": "/explanations/securityprivacy/supplychain/explanation-tanstack-mini-shai-hulud-npm-worm-supply-chain-attack",
+    "time": "6 min read"
+  },
+  {
     "title": "Cve 2025 13032 Avast Sandbox Double Fetch Lpe",
     "type": "Explanation",
     "link": "/explanations/securityprivacy/kernelexploitation/explanation-cve-2025-13032-avast-sandbox-double-fetch-lpe",
     "time": "5 min read"
+  },
+  {
+    "title": "Drupal Cve 2026 96362 Batch Version Based Scanning Limits",
+    "type": "Explanation",
+    "link": "/explanations/securityprivacy/websecurity/explanation-drupal-cve-2026-96362-batch-version-based-scanning-limits",
+    "time": "3 min read"
   },
   {
     "title": "Cisco Ise Cve 2026 76423 Rest Api Auth Bypass",
@@ -22,17 +34,5 @@
     "type": "Explanation",
     "link": "/explanations/securityprivacy/websecurity/explanation-libheif-heic-rce-chain-openai-sso-takeover",
     "time": "4 min read"
-  },
-  {
-    "title": "Telnetd Cve 2026 32746 Linemode Slc Buffer Overflow",
-    "type": "Explanation",
-    "link": "/explanations/securityprivacy/websecurity/explanation-telnetd-cve-2026-32746-linemode-slc-buffer-overflow",
-    "time": "5 min read"
-  },
-  {
-    "title": "Cloudflare Security Audit Skill Multi Phase Agent Audits",
-    "type": "Explanation",
-    "link": "/explanations/securityprivacy/aiagentsecurity/explanation-cloudflare-security-audit-skill-multi-phase-agent-audits",
-    "time": "3 min read"
   }
 ]
