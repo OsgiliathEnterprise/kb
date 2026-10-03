@@ -115,7 +115,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Mcp',
-          items: ['how-to/developertoolspractices/mcp/howto-map-http-api-parameters-to-mcp-tool-schemas'],
+          items: ['how-to/developertoolspractices/mcp/howto-map-http-api-parameters-to-mcp-tool-schemas', 'how-to/developertoolspractices/mcp/howto-soak-test-mcp-server-with-mcpload'],
         },
         {
           type: 'category',
@@ -187,7 +187,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Llminfrastructure',
-          items: ['explanations/aillm/llminfrastructure/explanation-fairinference-token-latency-fairness-llm-serving', 'explanations/aillm/llminfrastructure/explanation-openai-jalapeno-chip-first-benchmarks', 'explanations/aillm/llminfrastructure/explanation-prefixbench-h100-prefix-reuse-ttft', 'explanations/aillm/llminfrastructure/explanation-qwen3-embedding-cloud-tpu-vllm'],
+          items: ['explanations/aillm/llminfrastructure/explanation-fairinference-token-latency-fairness-llm-serving', 'explanations/aillm/llminfrastructure/explanation-fine-tuning-memory-accounting-lora-qlora', 'explanations/aillm/llminfrastructure/explanation-openai-jalapeno-chip-first-benchmarks', 'explanations/aillm/llminfrastructure/explanation-prefixbench-h100-prefix-reuse-ttft', 'explanations/aillm/llminfrastructure/explanation-qwen3-embedding-cloud-tpu-vllm'],
         },
         {
           type: 'category',
@@ -302,7 +302,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Java',
-          items: ['explanations/programming/java/explanation-better-tools-immutable-data-java', 'explanations/programming/java/explanation-jdk-26-performance-improvements', 'explanations/programming/java/explanation-netflix-ja-module-system-toolchain', 'explanations/programming/java/explanation-specjbb-workload-generator-same-jvm-limitations', 'explanations/programming/java/explanation-spring-ai-2-0-composable-tool-calling-advisor-architecture', 'explanations/programming/java/explanation-zgc-decade-of-low-latency-gc', 'explanations/programming/java/explanation-zgc-weak-reference-processing'],
+          items: ['explanations/programming/java/explanation-better-tools-immutable-data-java', 'explanations/programming/java/explanation-jdk-26-performance-improvements', 'explanations/programming/java/explanation-jep-540-simple-json-api-incubator', 'explanations/programming/java/explanation-netflix-ja-module-system-toolchain', 'explanations/programming/java/explanation-specjbb-workload-generator-same-jvm-limitations', 'explanations/programming/java/explanation-spring-ai-2-0-composable-tool-calling-advisor-architecture', 'explanations/programming/java/explanation-zgc-decade-of-low-latency-gc', 'explanations/programming/java/explanation-zgc-weak-reference-processing'],
         },
         {
           type: 'category',
@@ -362,7 +362,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Websecurity',
-          items: ['explanations/securityprivacy/websecurity/explanation-apple-reference-image-verified-photography', 'explanations/securityprivacy/websecurity/explanation-cisco-ise-cve-2026-76423-rest-api-auth-bypass', 'explanations/securityprivacy/websecurity/explanation-cloudflare-disallow-ai-training-mixed-use-crawlers', 'explanations/securityprivacy/websecurity/explanation-data-only-attacks-einstein', 'explanations/securityprivacy/websecurity/explanation-drupal-cve-2026-96362-batch-version-based-scanning-limits', 'explanations/securityprivacy/websecurity/explanation-feature-flags-are-not-authorization', 'explanations/securityprivacy/websecurity/explanation-kestra-cve-2026-49869-suffix-match-auth-bypass', 'explanations/securityprivacy/websecurity/explanation-libheif-heic-rce-chain-openai-sso-takeover', 'explanations/securityprivacy/websecurity/explanation-open-redirect-php-laravel', 'explanations/securityprivacy/websecurity/explanation-telnetd-cve-2026-32746-linemode-slc-buffer-overflow'],
+          items: ['explanations/securityprivacy/websecurity/explanation-apple-reference-image-verified-photography', 'explanations/securityprivacy/websecurity/explanation-cisco-ise-cve-2026-76423-rest-api-auth-bypass', 'explanations/securityprivacy/websecurity/explanation-cloudflare-disallow-ai-training-mixed-use-crawlers', 'explanations/securityprivacy/websecurity/explanation-data-only-attacks-einstein', 'explanations/securityprivacy/websecurity/explanation-drupal-cve-2026-96362-batch-version-based-scanning-limits', 'explanations/securityprivacy/websecurity/explanation-feature-flags-are-not-authorization', 'explanations/securityprivacy/websecurity/explanation-kestra-cve-2026-49869-suffix-match-auth-bypass', 'explanations/securityprivacy/websecurity/explanation-libheif-heic-rce-chain-openai-sso-takeover', 'explanations/securityprivacy/websecurity/explanation-open-redirect-php-laravel', 'explanations/securityprivacy/websecurity/explanation-telnetd-cve-2026-32746-linemode-slc-buffer-overflow', 'explanations/securityprivacy/websecurity/explanation-wordpress-cve-2026-87902-patch-windows'],
         },
         {
           type: 'category',
