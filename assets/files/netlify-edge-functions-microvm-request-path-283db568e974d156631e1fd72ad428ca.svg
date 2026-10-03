@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="126.0 -4.0 1233.6 779.0" width="1234" height="779">
+<rect x="126.0" y="-4.0" width="1233.6" height="779.0" fill="#ffffff"/>
+<rect x="150.0" y="60.0" width="780.0" height="48.0" rx="8" fill="none" stroke="#495057" stroke-width="1.5"/>
+<rect x="150.0" y="240.0" width="780.0" height="48.0" rx="8" fill="none" stroke="#495057" stroke-width="1.5"/>
+<rect x="150.0" y="380.0" width="780.0" height="48.0" rx="8" fill="#e7f5ff" stroke="#1971c2" stroke-width="1.5"/>
+<rect x="150.0" y="520.0" width="780.0" height="48.0" rx="8" fill="#e7f5ff" stroke="#1971c2" stroke-width="1.5"/>
+<rect x="150.0" y="660.0" width="780.0" height="48.0" rx="8" fill="none" stroke="#495057" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 540.0 108.0 L 540.0 238.0"/><line x1="540.0" y1="238.0" x2="546.1" y2="225.4"/><line x1="540.0" y1="238.0" x2="533.9" y2="225.4"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 540.0 288.0 L 540.0 378.0"/><line x1="540.0" y1="378.0" x2="546.1" y2="365.4"/><line x1="540.0" y1="378.0" x2="533.9" y2="365.4"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 540.0 428.0 L 540.0 518.0"/><line x1="540.0" y1="518.0" x2="546.1" y2="505.4"/><line x1="540.0" y1="518.0" x2="533.9" y2="505.4"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 540.0 568.0 L 540.0 658.0"/><line x1="540.0" y1="658.0" x2="546.1" y2="645.4"/><line x1="540.0" y1="658.0" x2="533.9" y2="645.4"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="18" fill="#1e1e1e" text-anchor="start"><tspan x="150.0" y="34.4">Netlify Edge Functions: request path on Firecracker MicroVMs (with Unikraft)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="160.0" y="84.4">Client</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="160.0" y="264.4">Edge node: TLS termination + route match; writes machine spec (runtime/platform/function images + CPU/mem limits); spec hash -&gt; service ID</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="160.0" y="404.4">Compute node chosen by rendezvous hashing (stickiness keeps MicroVM warm; relaxed above threshold to avoid hot spots)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="160.0" y="544.4">Firecracker MicroVM: created &lt;1 ms, starts ~2 ms p99; stripped-down Linux guest (Unikraft); function files as memory-mapped EROFS image</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="160.0" y="684.4">Snapshot after JS server listens -&gt; scale to zero when idle; restore from memory-mapped snapshot on next invocation</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1971c2" text-anchor="start"><tspan x="150.0" y="740.4">Measured: p50 warm latency ~5-6 ms (was 25-40 ms on V8 isolates), p99 47.4% faster, 99.998% availability; cold invocations ~1.2% of traffic at ~9 ms avg</tspan></text>
+</svg>
