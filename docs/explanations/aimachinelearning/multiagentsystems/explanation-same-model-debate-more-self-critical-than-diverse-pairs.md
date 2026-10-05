@@ -33,6 +33,14 @@ The homogeneous control outperformed both heterogeneous pairings — not by a ro
 
 This aligns with broader literature on multi-agent debate where diversity-aware initialization and confidence modulation matter more than raw model count — contradictory evidence exists across studies, so per-task measurement remains the safe default.
 
+## Where this sits in the broader debate literature
+
+- **Du et al. 2023 ("society of minds")** — multiple *instances of the same model* debating over rounds improves math/strategic reasoning and factuality vs single-model baselines; even when all agents start wrong, the population often converges to the correct answer. This is the strongest published support for homogeneous self-debate as a critic: diversity across instances (sampling), not across models, is what matters there.
+- **Liang et al. 2023 (MAD)** — defines *Degeneration-of-Thought*: once an LLM commits to an answer it can't generate novel thoughts via pure self-reflection; adversarial "tit-for-tat" debate between agents breaks that rigidity. Notably, their judge analysis found LLM judges prefer the side sharing their own backbone model — a same-model bias that cuts both ways for homogeneous setups (the critic shares blind spots *and* language).
+- **Zhang et al. 2024 (CMD)** — a strong single agent with good prompts matches multi-agent discussion when demonstrations are present; discussion only wins without demos, and stronger LLMs in the group lift weaker ones round by round. This tempers both camps: model heterogeneity helps mainly as *capability* asymmetry, not as diversity per se.
+
+Read together with AdversarialDebate's field data, the pattern is consistent: what drives productive debate pressure is (a) genuine disagreement potential and (b) capability asymmetry — neither of which "different vendor" guarantees. GPT+Gemini at 4% verdict rate suggests those two models simply didn't disagree productively on this corpus; GPT+GPT's 57% verdict rate shows same-model instances *can* diverge enough to pressure each other (cf. Du et al.'s finding that identical models propose diverse answers).
+
 ## Reproducibility
 
 - GitHub: [deghosal-2026/adversarial-debate](https://github.com/deghosal-2026/adversarial-debate)
@@ -45,6 +53,9 @@ This aligns with broader literature on multi-agent debate where diversity-aware 
 - [adversarial-debate repository](https://github.com/deghosal-2026/adversarial-debate)
 - [Diversity of Thought Elicits Stronger Reasoning Capabilities in Multi-Agent Debate Frameworks (paper)](https://huggingface.co/papers/2410.12853)
 - [Breaking Mental Set to Improve Reasoning through Diverse Multi-Agent Debate (OpenReview)](https://openreview.net/forum?id=t6QHYUOQL7) — related work on persona-diversity in debate; note it finds the opposite of AdversarialDebate's field results, reinforcing that per-task measurement is required
+- [Du et al. 2023: Improving Factuality and Reasoning in Language Models through Multiagent Debate](https://ar5iv.labs.arxiv.org/html/2305.14325) — same-model instance debate ("society of minds")
+- [Liang et al. 2023: Encouraging Divergent Thinking in LLMs through Multi-Agent Debate (MAD)](https://aclanthology.org/2024.emnlp-main.992.pdf) — Degeneration-of-Thought; judge same-model bias
+- [Zhang et al. 2024: Rethinking the Bounds of LLM Reasoning (CMD group discussion)](https://aclanthology.org/2024.acl-long.331.pdf) — strong single agent ≈ multi-agent discussion with demos
 
 ## Related
 - [[How-to-Run-a-Phantom-Deployment-of-a-New-AI-System]]
