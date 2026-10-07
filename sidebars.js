@@ -45,12 +45,17 @@ const sidebars = {
         {
           type: 'category',
           label: 'Agentarchitecture',
-          items: ['how-to/aimachinelearning/agentarchitecture/howto-agentic-rag-pipeline-with-real-time-web-search', 'how-to/aimachinelearning/agentarchitecture/howto-build-effectively-once-agent-workflows', 'how-to/aimachinelearning/agentarchitecture/howto-closed-world-resolution-tool-hallucination', 'how-to/aimachinelearning/agentarchitecture/howto-jev-mobile-vlm-planning-lightweight-execution', 'how-to/aimachinelearning/agentarchitecture/howto-raft-stateful-rag-troubleshooting-agents'],
+          items: ['how-to/aimachinelearning/agentarchitecture/howto-agentic-rag-pipeline-with-real-time-web-search', 'how-to/aimachinelearning/agentarchitecture/howto-build-effectively-once-agent-workflows', 'how-to/aimachinelearning/agentarchitecture/howto-closed-world-resolution-tool-hallucination', 'how-to/aimachinelearning/agentarchitecture/howto-jev-mobile-vlm-planning-lightweight-execution', 'how-to/aimachinelearning/agentarchitecture/howto-langgraph-node-failure-observability', 'how-to/aimachinelearning/agentarchitecture/howto-raft-stateful-rag-troubleshooting-agents'],
         },
         {
           type: 'category',
           label: 'Trainingoptimization',
           items: ['how-to/aimachinelearning/trainingoptimization/howto-taco-memory-efficient-llm-fine-tuning-optimizer'],
+        },
+        {
+          type: 'category',
+          label: 'Requestretrial',
+          items: ['how-to/apidesign/requestretrial/howto-singleflight-full-jitter-concurrency-caps-typescript'],
         },
         {
           type: 'category',
@@ -352,7 +357,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Aiagentsecurity',
-          items: ['explanations/securityprivacy/aiagentsecurity/explanation-closedquorum-llm-quorum-malware', 'explanations/securityprivacy/aiagentsecurity/explanation-cloudflare-security-audit-skill-multi-phase-agent-audits', 'explanations/securityprivacy/aiagentsecurity/explanation-enterprise-ai-data-security-patterns', 'explanations/securityprivacy/aiagentsecurity/explanation-evasionbench-instrumental-monitor-evasion', 'explanations/securityprivacy/aiagentsecurity/explanation-llm-agents-tamper-with-their-own-traces', 'explanations/securityprivacy/aiagentsecurity/explanation-llm-inference-engine-exploits', 'explanations/securityprivacy/aiagentsecurity/explanation-lm-studio-bionic-shell-judge-auto-review', 'explanations/securityprivacy/aiagentsecurity/explanation-local-llm-confidentiality-boundary-failures', 'explanations/securityprivacy/aiagentsecurity/explanation-miasma-worm-agentic-supply-chain-attack', 'explanations/securityprivacy/aiagentsecurity/explanation-openai-dots-boundary-problems-always-on-agents', 'explanations/securityprivacy/aiagentsecurity/explanation-openai-hugging-face-agent-incident', 'explanations/securityprivacy/aiagentsecurity/reference-kalibench-cybersecurity-tool-use-benchmark'],
+          items: ['explanations/securityprivacy/aiagentsecurity/explanation-closedquorum-llm-quorum-malware', 'explanations/securityprivacy/aiagentsecurity/explanation-cloudflare-security-audit-skill-multi-phase-agent-audits', 'explanations/securityprivacy/aiagentsecurity/explanation-enterprise-ai-data-security-patterns', 'explanations/securityprivacy/aiagentsecurity/explanation-evasionbench-instrumental-monitor-evasion', 'explanations/securityprivacy/aiagentsecurity/explanation-llm-agents-tamper-with-their-own-traces', 'explanations/securityprivacy/aiagentsecurity/explanation-llm-inference-engine-exploits', 'explanations/securityprivacy/aiagentsecurity/explanation-lm-studio-bionic-shell-judge-auto-review', 'explanations/securityprivacy/aiagentsecurity/explanation-local-llm-confidentiality-boundary-failures', 'explanations/securityprivacy/aiagentsecurity/explanation-miasma-worm-agentic-supply-chain-attack', 'explanations/securityprivacy/aiagentsecurity/explanation-openai-dots-boundary-problems-always-on-agents', 'explanations/securityprivacy/aiagentsecurity/explanation-openai-hugging-face-agent-incident', 'explanations/securityprivacy/aiagentsecurity/explanation-unbounded-llm-calls-ai-sdk-audit', 'explanations/securityprivacy/aiagentsecurity/reference-kalibench-cybersecurity-tool-use-benchmark'],
         },
         {
           type: 'category',
@@ -377,7 +382,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Tlsssl',
-          items: ['explanations/securityprivacy/tlsssl/explanation-cloudflare-public-ca-mtc-post-quantum', 'explanations/securityprivacy/tlsssl/explanation-ssl-tls-three-jobs', 'explanations/securityprivacy/tlsssl/explanation-xray-core-pinned-cert-mitm-bypass'],
+          items: ['explanations/securityprivacy/tlsssl/explanation-cctld-hijack-counterfeit-tls-certificates', 'explanations/securityprivacy/tlsssl/explanation-cloudflare-public-ca-mtc-post-quantum', 'explanations/securityprivacy/tlsssl/explanation-ssl-tls-three-jobs', 'explanations/securityprivacy/tlsssl/explanation-xray-core-pinned-cert-mitm-bypass'],
         },
         {
           type: 'category',
@@ -408,6 +413,11 @@ const sidebars = {
           type: 'category',
           label: 'Multitenancy',
           items: ['explanations/systemdesign/multitenancy/explanation-multi-tenancy-isolation-models-saas'],
+        },
+        {
+          type: 'category',
+          label: 'Scalingfoundations',
+          items: ['explanations/systemdesign/scalingfoundations/explanation-cache-stampede-thundering-herd-prevention'],
         },
       ],
     },
