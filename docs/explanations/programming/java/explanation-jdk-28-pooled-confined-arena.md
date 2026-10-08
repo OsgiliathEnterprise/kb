@@ -32,6 +32,8 @@ This pattern gives deterministic lifetime + strong thread confinement. Before JD
 
 Source and runtime analyses confirmed the pattern is dominated by tiny sizes: in one instrumented test-suite run, some confined arenas allocated **no native memory at all**, and more than 99.99% of those that did used **less than 64 bytes**. The distribution strongly favored a small, lazy pool.
 
+The full dynamic analysis behind the design (from the PR's tier1 test run) is striking: across 93 JVMs there were **788,773,092 closed confined arenas**, of which **47.66% allocated zero bytes** and **99.997% used ≤ 63 bytes**. The single largest bucket was 8–15 bytes per arena (≈50.8% of all arenas), and the 8-byte case alone accounted for ~52.9% of arenas and ~47% of total allocated bytes — which is exactly why a default pool size of 64 bytes captures nearly everything, while the rare large-allocation tail (≥ 64 KiB: 0.000061% of closures) still contributes ~46% of all bytes and keeps flowing through the regular path.
+
 ## How pooling works
 
 - Each **platform thread** lazily maintains a small cache of native-memory pools — by default **four pools of 64 bytes each** (sizes configurable to 8/16/32/64; set the power-of-two size to zero to disable pooling entirely).
@@ -178,6 +180,10 @@ On an Apple M4, pooled `alloc_confined` for 5 bytes measured ~1.05 ns/op vs ~15.
   ]
 }
 ```
+
+## Follow-up: JDK-8391909 (pool-return fast path)
+
+A follow-up RFR ([JDK-8391909](https://www.mail-archive.com/core-libs-dev@openjdk.org/msg75457.html)) improves the pool *return* path: confined arenas now remember which platform-pool array and index they acquired, so on close the pool can be returned directly to that slot instead of scanning for an empty one (the scan remains as fallback when the remembered slot is occupied).
 
 ## Who benefits
 

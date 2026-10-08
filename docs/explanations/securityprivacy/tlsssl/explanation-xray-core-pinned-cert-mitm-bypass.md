@@ -145,6 +145,13 @@ The result: pinning a CA + an empty `ServerName` = the leaf's hostname is never 
 
 The fix that finally closed it: **commit 64fada3** ("TLS client: Pinning CA must have `serverName` (or higher-priority `verifyPeerCertByName` or outbound's `address`) for `pinnedPeerCertSha256`") — i.e., require a non-empty hostname to validate against when pinning a CA.
 
+## Affected versions and the complete fix
+
+- **Affected:** Xray-core from v26.1.13 (first release containing the bypass) up through the latest version at disclosure time; CVSS 7.6 (High).
+- **Fixed in:** `1.260327.1-0.20260710210335-64fada32b5b9` and later — upgrade to this version or above.
+- The complete patch does two things: (1) it makes the gRPC `getGrpcClient`/`Dial` paths always call `tlsConfig.GetTLSConfig()` **with** `tls.WithDestination(dest)` so `ServerName` is populated from the destination address, and (2) it adds an explicit check in `RandCarrier.verifyPeerCert` that returns an error when `pinnedPeerCertSha256` is set but `r.Config.ServerName` is empty — a safeguard against proceeding under insecure conditions.
+- Related: [issue #5904](https://github.com/XTLS/Xray-core/issues/5904) documents a separate failure mode of the same option — when a server presents a **CA certificate as the leaf** (no chain), `pinnedPeerCertSha256` fails with "peer cert is invalid (against pinned CA and serverName)" even with the correct fingerprint, because Xray still enforces a full CA→leaf chain. Workarounds discussed there: roll back to Xray 25.x (which kept `allowInsecure`) or replace the server's CA-as-leaf certificate with a proper leaf.
+
 ## Key takeaways
 
 - **Pinning is not a substitute for standard verification.** A pin that sets `InsecureSkipVerify=true` and then relies on an empty `DNSName` drops the hostname check entirely.
