@@ -253,6 +253,10 @@ Now `ssh http-over-ssh` prints ready-to-share signed URLs. The complete script (
 - The hash is MD5 over `(expires, port, secret)` — fine here because it authenticates *you* to nginx, not cryptographic security against an active attacker on the wire (TLS covers that).
 - Expiration timestamps make links revocable by time; rotate `secret` to invalidate all outstanding URLs.
 - WebSocket proxying requires the `Upgrade`/`Connection` headers plus `proxy_buffering off`.
+- **Ephemeral-port entropy is low.** The kernel-chosen port carries only ~14.8 bits of entropy, which is why the signed-link layer exists at all — and why you should not rely on the port alone even after adding secure links (the hash binds the port to your secret).
+- **The pre-hardening config exposes every localhost port.** The first nginx block proxies *any* `p{port}.ssh.luffy.cx` to that local port; before the secure_link check is in place, an attacker can direct traffic to any listening port on 127.0.0.1/0.0.0.0 (a simple curl loop over ports enumerates them), bypassing firewall rules. The author's mitigation: limit the `server_name` regex to the ephemeral port range and keep the secure_link gate in front of every request.
+- **OpenSSH version detail:** since OpenSSH 9.8, the session helper is named `sshd-session`; on older versions the helper is just `sshd`, so adjust the process-tree walk accordingly. The `sudo` requirement for `ss --processes` exists because `sshd-session` drops privileges and its `/proc/PID/fd` becomes root-owned (not dumpable).
+- **Community discussion** ([HN thread](https://news.ycombinator.com/item?id=49958569)): alternatives raised include [sish](https://github.com/anderspitman/sish) (dedicated SSH tunnel server with automatic TLS and a request console), Tailscale serve, and mTLS client certificates; concerns raised about tunnel enumeration and abandoned sessions.
 
 ## References
 
