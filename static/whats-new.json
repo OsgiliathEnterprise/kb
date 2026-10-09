@@ -1,38 +1,38 @@
 [
   {
-    "title": "Tanstack Mini Shai Hulud Npm Worm Supply Chain Attack",
+    "title": "Timeout Attempt State Model For Paid Upstream Calls",
     "type": "Explanation",
-    "link": "/explanations/securityprivacy/supplychain/explanation-tanstack-mini-shai-hulud-npm-worm-supply-chain-attack",
+    "link": "/explanations/systemdesign/durableexecutions/explanation-timeout-attempt-state-model-for-paid-upstream-calls",
     "time": "6 min read"
   },
   {
-    "title": "Cve 2025 13032 Avast Sandbox Double Fetch Lpe",
+    "title": "Error Ownership Retry Storms",
     "type": "Explanation",
-    "link": "/explanations/securityprivacy/kernelexploitation/explanation-cve-2025-13032-avast-sandbox-double-fetch-lpe",
+    "link": "/explanations/systemdesign/distributedsystemsfoundations/explanation-error-ownership-retry-storms",
     "time": "5 min read"
   },
   {
-    "title": "Drupal Cve 2026 96362 Batch Version Based Scanning Limits",
-    "type": "Explanation",
-    "link": "/explanations/securityprivacy/websecurity/explanation-drupal-cve-2026-96362-batch-version-based-scanning-limits",
+    "title": "Laravel Redis Outage Ganesha Circuit Breaker",
+    "type": "How-To",
+    "link": "/how-to/systemdesign/nonfunctionalrequirements/howto-laravel-redis-outage-ganesha-circuit-breaker",
     "time": "3 min read"
   },
   {
-    "title": "Cisco Ise Cve 2026 76423 Rest Api Auth Bypass",
+    "title": "Tool Descriptions Are The Contract",
     "type": "Explanation",
-    "link": "/explanations/securityprivacy/websecurity/explanation-cisco-ise-cve-2026-76423-rest-api-auth-bypass",
+    "link": "/explanations/developertoolspractices/mcp/explanation-tool-descriptions-are-the-contract",
+    "time": "5 min read"
+  },
+  {
+    "title": "Jev Ultrafast Dynamic Indexed Action Space Browser Agent",
+    "type": "Explanation",
+    "link": "/explanations/aimachinelearning/agentarchitecture/explanation-jev-ultrafast-dynamic-indexed-action-space-browser-agent",
     "time": "4 min read"
   },
   {
-    "title": "Kestra Cve 2026 49869 Suffix Match Auth Bypass",
+    "title": "Netlify Edge Functions Firecracker Microvms",
     "type": "Explanation",
-    "link": "/explanations/securityprivacy/websecurity/explanation-kestra-cve-2026-49869-suffix-match-auth-bypass",
-    "time": "4 min read"
-  },
-  {
-    "title": "Libheif Heic Rce Chain Openai Sso Takeover",
-    "type": "Explanation",
-    "link": "/explanations/securityprivacy/websecurity/explanation-libheif-heic-rce-chain-openai-sso-takeover",
+    "link": "/explanations/cloudinfrastructure/edgecompute/explanation-netlify-edge-functions-firecracker-microvms",
     "time": "4 min read"
   }
 ]
