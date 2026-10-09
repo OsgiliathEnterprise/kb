@@ -125,7 +125,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Mcp',
-          items: ['how-to/developertoolspractices/mcp/howto-map-http-api-parameters-to-mcp-tool-schemas', 'how-to/developertoolspractices/mcp/howto-soak-test-mcp-server-with-mcpload'],
+          items: ['how-to/developertoolspractices/mcp/howto-azure-mcp-server-scoped-agent-access', 'how-to/developertoolspractices/mcp/howto-map-http-api-parameters-to-mcp-tool-schemas', 'how-to/developertoolspractices/mcp/howto-soak-test-mcp-server-with-mcpload'],
         },
         {
           type: 'category',
@@ -277,7 +277,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Streaming',
-          items: ['explanations/cloudinfrastructure/streaming/explanation-picomq-durable-streams', 'explanations/cloudinfrastructure/streaming/explanation-rocketmq-rust-v1-message-lifecycle-and-runtime-ownership'],
+          items: ['explanations/cloudinfrastructure/streaming/explanation-aria-message-bus-topic-partition-indexing', 'explanations/cloudinfrastructure/streaming/explanation-picomq-durable-streams', 'explanations/cloudinfrastructure/streaming/explanation-rocketmq-rust-v1-message-lifecycle-and-runtime-ownership'],
         },
         {
           type: 'category',
@@ -430,6 +430,11 @@ const sidebars = {
           type: 'category',
           label: 'Multiagentsystems',
           items: ['examples/aimachinelearning/multiagentsystems/example-agentic-fraud-investigation-tigergraph-11-agents'],
+        },
+        {
+          type: 'category',
+          label: 'Multimodal',
+          items: ['examples/aimachinelearning/multimodal/example-whistle-on-device-speech-to-text'],
         },
         {
           type: 'category',

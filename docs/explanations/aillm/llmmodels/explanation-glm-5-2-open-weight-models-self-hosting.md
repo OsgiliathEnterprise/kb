@@ -831,7 +831,15 @@ MoE offloading means a 1×24 GB GPU + 256 GB RAM runs the 2-bit quant. Serving d
  }
 }
 ```
-&lt;!-- GLM-5.2 open-weight dynamics -->
+## GLM-5.3: the successor that sharpens the coding claim (Aug 2026)
+
+On August 14, 2026 Z.ai released **GLM-5.3**, which shares GLM-5.2's base entirely — every gain comes from extended post-training alone. Zhipu positions it as the strongest open-weights coding model, with the largest jumps on agent-based tasks. Two details matter for the self-hosting case:
+
+- **Cybersecurity focus** — GLM-5.3 was trained on data and environments built to find software vulnerabilities; per Z.ai it "began to reason across multiple stages of exploitation, forming coherent plans for complete exploitation chains." Working with Chinese security teams it found **2,436 vulnerabilities across 269 projects**, some up to 40 years old, documented in a public registry (cvd.z.ai).
+- **Availability** — GLM-5.3 is available through the GLM Coding Plan and works with coding agents like ZCode, Claude Code, or OpenCode; weights were slated to go open source within two weeks of release once security reviews completed.
+
+For the model-swap advice above this reinforces the point: the open-weight frontier moves fast enough that a config-level swap (not a rewrite) is the only sane way to stay current — and the same self-hosting economics apply, since 5.3 inherits 5.2's architecture.
+
 ## References
 
 - [Losing Fable made the best case yet for AI models you can run yourself — The New Stack](https://thenewstack.io/losing-fable-open-weight-glm/)
@@ -839,3 +847,4 @@ MoE offloading means a 1×24 GB GPU + 256 GB RAM runs the 2-bit quant. Serving d
 - [GLM-5.2 How to Run Locally — Unsloth docs (quant sizes, memory requirements, reasoning settings)](https://unsloth.ai/docs/models/glm-5.2)
 - [zai-org/GLM-5.2 — Hugging Face weights](https://huggingface.co/zai-org/GLM-5.2)
 - [Fable 5 ban: 4 open models responded — The New Stack](https://thenewstack.io/fable-ban-open-weights/)
+- [Zhipu AI releases GLM-5.3, claims it's the strongest open-weights coding model (The Decoder, Aug 2026)](https://the-decoder.com/zhipu-ai-releases-glm-5-3-claims-its-the-strongest-open-weights-coding-model/)

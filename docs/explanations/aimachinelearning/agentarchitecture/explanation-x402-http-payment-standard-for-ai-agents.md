@@ -187,11 +187,12 @@ The entire cycle takes seconds. Coinbase runs a public facilitator that anyone c
 | Settlement | Days, via card networks | Seconds, onchain |
 | Fees | 2–3% plus fixed costs | Network gas only, no protocol fee |
 
-## Adoption (as of March 2026)
+## Adoption (as of April 2026)
 
 - **Volume:** over 119 million transactions on Base and ~35 million on Solana, with roughly **$600 million in annualized payment volume**.
-- **Governance:** Coinbase and Cloudflare launched the **x402 Foundation** in late 2025 to govern the standard as neutral infrastructure. Members include **Google, Visa, AWS, Circle, Anthropic, and Vercel**.
+- **Governance:** Coinbase and Cloudflare launched the **x402 Foundation** in late 2025 to govern the standard as neutral infrastructure. Members include **Google, Visa, AWS, Circle, Anthropic, and Vercel**; Google, Microsoft, and AWS publicly backed the foundation in April 2026.
 - **Ecosystem:** Google wired x402 into its Agent Payments Protocol, so agents built on Google's stack can settle over x402 rails. The standard is open source and chain-agnostic; support is expanding to networks like Stellar.
+- **Agentic.market (April 2026):** Coinbase launched a discovery layer for the agent economy — a marketplace where AI agents can find, compare, and use x402-enabled services ("thousands of services, zero API keys"). It has two surfaces: a web interface for humans to browse and evaluate services, and a programming layer that lets agents search, filter, and integrate new capabilities autonomously at runtime. The platform provides each agent with "skills" (code describing how to use a service) plus a wallet that can both buy and sell services; listed integrations include CoinGecko, Google Flights, and X. It addresses the discovery gap — before it, agents relied on fragmented sources and word-of-mouth to find compatible x402 endpoints.
 
 ## What x402 does NOT solve
 
@@ -213,3 +214,4 @@ x402 answers "how does an agent pay?" It deliberately leaves the harder question
 - [x402 whitepaper (x402.org)](https://www.x402.org/x402-whitepaper.pdf)
 - [Coinbase x402 documentation](https://docs.cdp.coinbase.com/x402/welcome)
 - [Cloudflare: x402 Foundation announcement](https://blog.cloudflare.com/x402/)
+- [Coinbase's x402 Launches Marketplace Platform for AI Agents (Cointelegraph, Apr 2026)](https://cointelegraph.com/news/coinbase-ai-payments-protocol-x402-launches-ai-agent-app-store)
