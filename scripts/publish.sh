@@ -293,48 +293,67 @@ check_stale_prs() {
   fi
 }
 
-# ── Force-merge a stale branch into gh-pages ──────────────────────────────────
+# ── Force-merge a stale branch into gh-pages ────────────────────────────────
+# BUGFIX (2026-10-09): the previous version ran every git command through
+# git_run, which is pinned to -C "$REPO_DIR" — so even after `cd .gh-pages-wt`
+# the merge actually executed on $SOURCE_BRANCH in the MAIN repo, leaving it
+# with an unresolved conflict state (and tagging master's tip as if gh-pages
+# had been merged). All worktree operations now use plain `git`, which honors
+# cwd. On a merge conflict we abort and leave gh-pages untouched instead of
+# committing conflict markers; the stale branch is kept for investigation and
+# the run exits non-zero so the failure is visible in the log.
 force_merge() {
   local branch="$1"
+  local wt_dir="$REPO_DIR/.gh-pages-wt"
 
   log "Force-merging $branch → $TARGET_BRANCH"
 
-  cd "$REPO_DIR"
+  # Use worktree for gh-pages (worktree management must target REPO_DIR)
+  git -C "$REPO_DIR" worktree remove "$wt_dir" --force 2>/dev/null || true
+  rm -rf "$wt_dir"
 
-  # Use worktree for gh-pages
-  git_run worktree remove "$REPO_DIR/.gh-pages-wt" --force 2>/dev/null || true
-  rm -rf "$REPO_DIR/.gh-pages-wt"
-
-  if git_run ls-remote --heads "$REMOTE" "refs/heads/$TARGET_BRANCH" | grep -q .; then
-    git_run worktree add "$REPO_DIR/.gh-pages-wt" "$REMOTE/$TARGET_BRANCH"
+  if git ls-remote --heads "$REMOTE" "refs/heads/$TARGET_BRANCH" | grep -q .; then
+    git -C "$REPO_DIR" worktree add "$wt_dir" "$REMOTE/$TARGET_BRANCH" >/dev/null
   else
-    git_run worktree add "$REPO_DIR/.gh-pages-wt" --detach --force
+    git -C "$REPO_DIR" worktree add "$wt_dir" --detach --force >/dev/null
   fi
 
-  cd "$REPO_DIR/.gh-pages-wt"
-  git_run merge "$REMOTE/$branch" --no-edit --no-ff 2>/dev/null || \
-  git_run merge "$REMOTE/$branch" --no-edit 2>/dev/null || true
+  cd "$wt_dir" || { err "Cannot enter $wt_dir"; return 1; }
 
+  if ! git merge "$REMOTE/$branch" --no-edit --no-ff; then
+    # Conflict: abort, leave gh-pages untouched, keep the branch.
+    git merge --abort 2>/dev/null || true
+    cd "$REPO_DIR"
+    git -C "$REPO_DIR" worktree remove "$wt_dir" --force 2>/dev/null || true
+    rm -rf "$wt_dir"
+    err "Merge of $branch into $TARGET_BRANCH failed (conflict) — aborted, gh-pages unchanged, branch kept for investigation"
+    return 1
+  fi
+
+  # Commit if there are changes (a no-ff merge commit is already created by
+  # git; an up-to-date merge stages nothing).
   git add -A
-  git diff --cached --quiet || \
+  if ! git diff --cached --quiet; then
     git commit -m "publish: auto-merge $branch (stale > ${PR_MAX_AGE_DAYS}d)"
+  fi
 
   git push "$REMOTE" HEAD:"refs/heads/$TARGET_BRANCH" --force
 
-  # Tag
+  # Tag the worktree's actual HEAD (not the main repo's)
   local tag_name="${TAG_PREFIX}-merged-${DATE_STAMP}"
   local sha
-  sha="$(git_run rev-parse HEAD)"
-  git_run tag -a "$tag_name" -m "Auto-merged $branch — $sha" "$sha"
-  git_run push "$REMOTE" "$tag_name"
+  sha="$(git rev-parse HEAD)"
+  git tag -a "$tag_name" -m "Auto-merged $branch — $sha" "$sha"
+  git push "$REMOTE" "$tag_name"
 
-  # Delete stale branch
-  git_run push "$REMOTE" --delete "$branch" 2>/dev/null || true
-  git_run branch -D "$branch" 2>/dev/null || true
+  # Delete stale branch (only after a successful publish)
+  git push "$REMOTE" --delete "$branch" 2>/dev/null || true
+  git -C "$REPO_DIR" branch -D "$branch" 2>/dev/null || true
 
   # Cleanup
   cd "$REPO_DIR"
-  git_run worktree remove "$REPO_DIR/.gh-pages-wt" --force 2>/dev/null || true
+  git -C "$REPO_DIR" worktree remove "$wt_dir" --force 2>/dev/null || true
+  rm -rf "$wt_dir"
 
   log "Force-merged $branch → $TARGET_BRANCH, tagged $tag_name"
 }
