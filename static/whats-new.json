@@ -1,38 +1,38 @@
 [
   {
-    "title": "Timeout Attempt State Model For Paid Upstream Calls",
+    "title": "Tanstack Mini Shai Hulud Npm Worm Supply Chain Attack",
     "type": "Explanation",
-    "link": "/explanations/systemdesign/durableexecutions/explanation-timeout-attempt-state-model-for-paid-upstream-calls",
+    "link": "/explanations/securityprivacy/supplychain/explanation-tanstack-mini-shai-hulud-npm-worm-supply-chain-attack",
     "time": "6 min read"
   },
   {
-    "title": "Error Ownership Retry Storms",
+    "title": "Cve 2025 13032 Avast Sandbox Double Fetch Lpe",
     "type": "Explanation",
-    "link": "/explanations/systemdesign/distributedsystemsfoundations/explanation-error-ownership-retry-storms",
+    "link": "/explanations/securityprivacy/kernelexploitation/explanation-cve-2025-13032-avast-sandbox-double-fetch-lpe",
     "time": "5 min read"
   },
   {
-    "title": "Laravel Redis Outage Ganesha Circuit Breaker",
-    "type": "How-To",
-    "link": "/how-to/systemdesign/nonfunctionalrequirements/howto-laravel-redis-outage-ganesha-circuit-breaker",
+    "title": "Telegram Desktop Cve 2026 107181 Ipc Injection Account Takeover",
+    "type": "Explanation",
+    "link": "/explanations/securityprivacy/websecurity/explanation-telegram-desktop-cve-2026-107181-ipc-injection-account-takeover",
+    "time": "6 min read"
+  },
+  {
+    "title": "Drupal Cve 2026 96362 Batch Version Based Scanning Limits",
+    "type": "Explanation",
+    "link": "/explanations/securityprivacy/websecurity/explanation-drupal-cve-2026-96362-batch-version-based-scanning-limits",
     "time": "3 min read"
   },
   {
-    "title": "Tool Descriptions Are The Contract",
+    "title": "Cisco Ise Cve 2026 76423 Rest Api Auth Bypass",
     "type": "Explanation",
-    "link": "/explanations/developertoolspractices/mcp/explanation-tool-descriptions-are-the-contract",
-    "time": "5 min read"
-  },
-  {
-    "title": "Jev Ultrafast Dynamic Indexed Action Space Browser Agent",
-    "type": "Explanation",
-    "link": "/explanations/aimachinelearning/agentarchitecture/explanation-jev-ultrafast-dynamic-indexed-action-space-browser-agent",
+    "link": "/explanations/securityprivacy/websecurity/explanation-cisco-ise-cve-2026-76423-rest-api-auth-bypass",
     "time": "4 min read"
   },
   {
-    "title": "Netlify Edge Functions Firecracker Microvms",
+    "title": "Kestra Cve 2026 49869 Suffix Match Auth Bypass",
     "type": "Explanation",
-    "link": "/explanations/cloudinfrastructure/edgecompute/explanation-netlify-edge-functions-firecracker-microvms",
+    "link": "/explanations/securityprivacy/websecurity/explanation-kestra-cve-2026-49869-suffix-match-auth-bypass",
     "time": "4 min read"
   }
 ]
