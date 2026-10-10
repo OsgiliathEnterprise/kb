@@ -38,6 +38,14 @@ The pipeline scales author annotation automatically, then constructs a retrieval
 - Claude Fable 5.1-based agent: **0.51 R@20**, despite possible training-time exposure to the target papers.
 - Conclusion: current models lack "expert intuition for searching broad corpora"; new training recipes are needed before scientific agents can take a half-formed idea and point to the prior research it needs.
 
+## Verified Details (added 2026-10-10)
+
+- **Scale**: 894 queries total — 207 `core_query` instances plus 687 `subfield_query` instances — over a retrieval corpus of **190,896 papers** (references resolved from the source papers plus ~181K additional arXiv papers from 2020–2024 across major CS categories). Each query also ships with hard-negative documents: related to the query but *not* credited by the authors.
+- **Topical similarity is a weak signal**: catalyst papers are no more similar to the query than related papers the authors explicitly rejected — which is why repeated agent queries through a similarity-based retriever don't help (42% vs 48%).
+- **Retriever comparison**: general-purpose dense retrievers perform best, yet place only ~39% of author-identified inspiration papers in the top 20 for CoreQ; scientific-document retrievers (SPECTER2, OpenScholar) trail by ≥16 points on CoreQ and ≥27 on SubQ at Recall@20.
+- **Data pipeline**: needs only a source paper's arXiv ID to produce author-reviewable draft data (arXiv API metadata + full-text parse → one-hop citation graph), so the benchmark can be refreshed with newly published papers as older instances leak into newer models' training data — keeping it ahead of model knowledge cutoffs.
+- **Code & project page**: [github.com/stanford-iris-lab/ScholarCatalyst](https://github.com/stanford-iris-lab/ScholarCatalyst) · [ohmyksh.github.io/project/ScholarCatalyst/](https://ohmyksh.github.io/project/ScholarCatalyst/)
+
 ## Relevance to Our Domain
 
 For anyone building research-assistant or literature-survey agents, ScholarCatalyst is both a benchmark and a cautionary tale: wrapping a retriever in an LLM agent loop does not automatically beat the retriever alone on expert-judged relevance tasks. The author-annotation pipeline is also a reusable methodology for building gold-standard retrieval datasets where "relevant" means "would have advanced this specific project," not just "topically similar."
@@ -45,4 +53,5 @@ For anyone building research-assistant or literature-survey agents, ScholarCatal
 ## References
 
 - Paper: https://arxiv.org/abs/2610.02202
+- Code: https://github.com/stanford-iris-lab/ScholarCatalyst · Project page: https://ohmyksh.github.io/project/ScholarCatalyst/
 - Semantic Scholar: https://api.semanticscholar.org/graph/v1/paper/arXiv:2610.02202

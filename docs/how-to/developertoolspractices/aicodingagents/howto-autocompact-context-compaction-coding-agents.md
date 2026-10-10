@@ -37,6 +37,15 @@ The base agent runs real coding tasks; a judge audits three things per trajector
 - On **SWE-bench Verified** and **SWE-PolyBench Verified**, AutoCompact improves pass rates over the base model by an absolute **+9.2%** and **+5.0%** respectively.
 - Gains hold across all evaluated inference budgets: with a 256K context window that never overflows, and with a 16K window whose overflow triggers fallback compaction — showing the learned policy helps even when hard limits are not binding.
 
+## Verified Details (added 2026-10-10)
+
+- **Base model**: Qwen3-Coder-30B-A3B-Instruct; judge is GPT-5.5-Codex during data collection, removed at evaluation time.
+- **SFT data**: 1,052 judge-corrected trajectories collected from rollouts on 379 SWE-rebench tasks (after filtering malformed requests, summary loops, off-track continuations). Supervision split: ~24% compaction triggers, ~53% working-state construction, ~23% post-compaction continuation.
+- **RL stage**: GRPO on SWE-Gym with binary task-success as the only reward; 8 sampled trajectories per task. RL adds a further +7.4% (SWE-bench Verified) / +2.8% (SWE-PolyBench) over AutoCompact-SFT, largest at low inference budgets ($0.10–$4.00/task).
+- **Final pass rates**: 39.6% SWE-bench Verified and 24.5% SWE-PolyBench Verified vs base 30.4/19.5. Baselines: length-triggered Fixed Compaction (16K) 28.8/18.6, CompactionRL 32.7/19.8, rubric-based SelfCompact 31.7/20.6, SWE-Compressor (offline insertion) 31.0/20.1 — AutoCompact-SFT alone already beats the offline-insertion method by ~1.2–1.6 points, supporting online judge-guided correction over post-hoc trajectory editing.
+- **Behavioral shift**: `compact()` is invoked in 44.3% of tasks after SFT and 58.5% after RL; key-state omissions fall from 3.1% → 0.2% and next-action omissions from 8.2% → 2.2%.
+- **Ablation**: running the same trained checkpoint with its `compact()` calls skipped lowers pass rates — the gains come from executing compaction, not just training.
+
 ## Relevance to Our Domain
 
 A directly reusable recipe for teams building long-horizon coding agents: (1) instrument your agent's compaction events, (2) use an LLM judge to audit decision/summary/resume quality and splice in corrections, (3) SFT on the corrected trajectories, then RL with task-success rewards. The key design choice — making "when/what/how to compact" part of the learned policy rather than a fixed threshold — is what unlocks gains even at large context budgets where overflow never occurs.

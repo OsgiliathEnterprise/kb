@@ -159,8 +159,18 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Python',
+          items: ['how-to/programming/python/howto-python-logging-instead-of-print'],
+        },
+        {
+          type: 'category',
           label: 'Webrealtime',
           items: ['how-to/programming/webrealtime/howto-scale-websocket-sse-redis-pubsub'],
+        },
+        {
+          type: 'category',
+          label: 'Webscraping',
+          items: ['how-to/programming/webscraping/howto-scrape-telegram-channel-history-before-parameter'],
         },
         {
           type: 'category',
@@ -302,7 +312,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Mcp',
-          items: ['explanations/developertoolspractices/mcp/explanation-mcp-discovery-storms-sep-2549-caching', 'explanations/developertoolspractices/mcp/explanation-mcp-vs-rest-kafka-complementary-layers', 'explanations/developertoolspractices/mcp/explanation-tool-descriptions-are-the-contract'],
+          items: ['explanations/developertoolspractices/mcp/explanation-mcp-discovery-storms-sep-2549-caching', 'explanations/developertoolspractices/mcp/explanation-mcp-protocol-era-silent-downgrade-2026-07-28', 'explanations/developertoolspractices/mcp/explanation-mcp-vs-rest-kafka-complementary-layers', 'explanations/developertoolspractices/mcp/explanation-tool-descriptions-are-the-contract'],
         },
         {
           type: 'category',
@@ -327,7 +337,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Go',
-          items: ['explanations/programming/go/explanation-go-gc-swap-stw-pause', 'explanations/programming/go/explanation-go-portable-simd-package'],
+          items: ['explanations/programming/go/explanation-go-bounding-concurrency-errgroup-leaks', 'explanations/programming/go/explanation-go-gc-swap-stw-pause', 'explanations/programming/go/explanation-go-portable-simd-package'],
         },
         {
           type: 'category',
@@ -392,7 +402,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Websecurity',
-          items: ['explanations/securityprivacy/websecurity/explanation-apple-reference-image-verified-photography', 'explanations/securityprivacy/websecurity/explanation-cisco-ise-cve-2026-76423-rest-api-auth-bypass', 'explanations/securityprivacy/websecurity/explanation-cloudflare-disallow-ai-training-mixed-use-crawlers', 'explanations/securityprivacy/websecurity/explanation-data-only-attacks-einstein', 'explanations/securityprivacy/websecurity/explanation-drupal-cve-2026-96362-batch-version-based-scanning-limits', 'explanations/securityprivacy/websecurity/explanation-feature-flags-are-not-authorization', 'explanations/securityprivacy/websecurity/explanation-kestra-cve-2026-49869-suffix-match-auth-bypass', 'explanations/securityprivacy/websecurity/explanation-libheif-heic-rce-chain-openai-sso-takeover', 'explanations/securityprivacy/websecurity/explanation-open-redirect-php-laravel', 'explanations/securityprivacy/websecurity/explanation-telnetd-cve-2026-32746-linemode-slc-buffer-overflow', 'explanations/securityprivacy/websecurity/explanation-wordpress-cve-2026-87902-patch-windows'],
+          items: ['explanations/securityprivacy/websecurity/explanation-apple-reference-image-verified-photography', 'explanations/securityprivacy/websecurity/explanation-cisco-ise-cve-2026-76423-rest-api-auth-bypass', 'explanations/securityprivacy/websecurity/explanation-cloudflare-disallow-ai-training-mixed-use-crawlers', 'explanations/securityprivacy/websecurity/explanation-data-only-attacks-einstein', 'explanations/securityprivacy/websecurity/explanation-drupal-cve-2026-96362-batch-version-based-scanning-limits', 'explanations/securityprivacy/websecurity/explanation-feature-flags-are-not-authorization', 'explanations/securityprivacy/websecurity/explanation-kestra-cve-2026-49869-suffix-match-auth-bypass', 'explanations/securityprivacy/websecurity/explanation-libheif-heic-rce-chain-openai-sso-takeover', 'explanations/securityprivacy/websecurity/explanation-open-redirect-php-laravel', 'explanations/securityprivacy/websecurity/explanation-telegram-desktop-cve-2026-107181-ipc-injection-account-takeover', 'explanations/securityprivacy/websecurity/explanation-telnetd-cve-2026-32746-linemode-slc-buffer-overflow', 'explanations/securityprivacy/websecurity/explanation-wordpress-cve-2026-87902-patch-windows'],
         },
         {
           type: 'category',
