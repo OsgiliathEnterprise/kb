@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="176.0 -4.0 1264.8 539.0" width="1265" height="539">
+<rect x="176.0" y="-4.0" width="1264.8" height="539.0" fill="#ffffff"/>
+<rect x="200.0" y="60.0" width="560.0" height="44.0" rx="8" fill="#e9ecef" stroke="#495057" stroke-width="1.5"/>
+<rect x="200.0" y="130.0" width="560.0" height="44.0" rx="8" fill="#fff3cd" stroke="#868e96" stroke-width="1.5"/>
+<rect x="200.0" y="200.0" width="560.0" height="44.0" rx="8" fill="#f8d7da" stroke="#c92a2a" stroke-width="1.5"/>
+<rect x="200.0" y="270.0" width="560.0" height="44.0" rx="8" fill="#f8d7da" stroke="#c92a2a" stroke-width="1.5"/>
+<rect x="200.0" y="340.0" width="560.0" height="44.0" rx="8" fill="#fff3cd" stroke="#868e96" stroke-width="1.5"/>
+<rect x="200.0" y="410.0" width="560.0" height="44.0" rx="8" fill="#f8d7da" stroke="#c92a2a" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 480.0 104.0 L 480.0 130.0"/><line x1="480.0" y1="130.0" x2="484.0" y2="121.8"/><line x1="480.0" y1="130.0" x2="476.0" y2="121.8"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 480.0 174.0 L 480.0 200.0"/><line x1="480.0" y1="200.0" x2="484.0" y2="191.8"/><line x1="480.0" y1="200.0" x2="476.0" y2="191.8"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 480.0 244.0 L 480.0 270.0"/><line x1="480.0" y1="270.0" x2="484.0" y2="261.8"/><line x1="480.0" y1="270.0" x2="476.0" y2="261.8"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 480.0 314.0 L 480.0 340.0"/><line x1="480.0" y1="340.0" x2="484.0" y2="331.8"/><line x1="480.0" y1="340.0" x2="476.0" y2="331.8"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 480.0 384.0 L 480.0 410.0"/><line x1="480.0" y1="410.0" x2="484.0" y2="401.8"/><line x1="480.0" y1="410.0" x2="476.0" y2="401.8"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="18" fill="#1e1e1e" text-anchor="start"><tspan x="200.0" y="34.4">Mini Shai-Hulud: TanStack npm worm attack chain (May 11-12, 2026)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="210.0" y="82.4">Fork PR #7378 runs attacker code in pull_request_target workflow</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="210.0" y="152.4">Poisoned 1.1 GB pnpm cache saved under release workflow's key (11:29)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="210.0" y="222.4">release.yml restores poisoned cache; OIDC token read from runner memory via /proc/&lt;pid&gt;/mem (19:16)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="210.0" y="292.4">84 malicious versions of 42 @tanstack/* packages published - valid SLSA provenance (19:20/19:26)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="210.0" y="362.4">Dependabot grouped bump includes 2 poisoned versions; maintainer merges (only human step, 22:12)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="210.0" y="432.4">npm ci runs hidden prepare script with NPM_TOKEN in scope -&gt; 110 @squawk/* versions republished in 95 min</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#c92a2a" text-anchor="start"><tspan x="200.0" y="500.4">npm defaults that let it spread: lifecycle scripts run on install by default; deprecated versions stay installable; unpublish refused while dependents exist</tspan></text>
+</svg>

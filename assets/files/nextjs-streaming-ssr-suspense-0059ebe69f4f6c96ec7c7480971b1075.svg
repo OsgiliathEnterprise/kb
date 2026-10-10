@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 -4.0 958.0 388.0" width="958" height="388">
+<rect x="16.0" y="-4.0" width="958.0" height="388.0" fill="#ffffff"/>
+<rect x="40.0" y="90.0" width="300.0" height="60.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="600.0" y="90.0" width="300.0" height="60.0" rx="8" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="40.0" y="200.0" width="300.0" height="60.0" rx="8" fill="#ffec99" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="600.0" y="200.0" width="300.0" height="60.0" rx="8" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="40.0" y="310.0" width="860.0" height="50.0" rx="8" fill="#d0bfff" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 345.0 120.0 L 595.0 120.0"/><line x1="595.0" y1="120.0" x2="582.4" y2="113.9"/><line x1="595.0" y1="120.0" x2="582.4" y2="126.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 345.0 230.0 L 595.0 230.0"/><line x1="595.0" y1="230.0" x2="582.4" y2="223.9"/><line x1="595.0" y1="230.0" x2="582.4" y2="236.1"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="150.0" y="32.8">Streaming SSR: static shell flushes first, Suspense boundaries stream in later</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="190.0" y="129.6">Server: renders static shell (layout + fast data)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="750.0" y="129.6">Browser: paints shell immediately (low TTFB/FCP)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="380.0" y="79.6">chunk 1: shell + skeletons (Transfer-Encoding: chunked)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="190.0" y="239.6">Slow RSC resolves (e.g. 3s aggregation query)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="750.0" y="239.6">Browser: streams finished HTML into the same open connection</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="380.0" y="189.6">chunk N: boundary HTML replaces skeleton (no full re-hydration)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="470.0" y="344.6">Independent Suspense boundaries fetch in parallel: total page time = max(queries), not sum</tspan></text>
+</svg>

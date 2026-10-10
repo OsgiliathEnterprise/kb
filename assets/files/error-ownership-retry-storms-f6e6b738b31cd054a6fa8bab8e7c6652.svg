@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 -4.0 908.0 278.0" width="908" height="278">
+<rect x="16.0" y="-4.0" width="908.0" height="278.0" fill="#ffffff"/>
+<rect x="40.0" y="90.0" width="140.0" height="60.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="210.0" y="90.0" width="140.0" height="60.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="380.0" y="90.0" width="140.0" height="60.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="560.0" y="90.0" width="140.0" height="60.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="740.0" y="90.0" width="140.0" height="60.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 185.0 120.0 L 245.0 120.0"/><line x1="245.0" y1="120.0" x2="232.4" y2="113.9"/><line x1="245.0" y1="120.0" x2="232.4" y2="126.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 355.0 120.0 L 415.0 120.0"/><line x1="415.0" y1="120.0" x2="402.4" y2="113.9"/><line x1="415.0" y1="120.0" x2="402.4" y2="126.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 525.0 120.0 L 585.0 120.0"/><line x1="585.0" y1="120.0" x2="572.4" y2="113.9"/><line x1="585.0" y1="120.0" x2="572.4" y2="126.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 705.0 120.0 L 765.0 120.0"/><line x1="765.0" y1="120.0" x2="752.4" y2="113.9"/><line x1="765.0" y1="120.0" x2="752.4" y2="126.1"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="200.0" y="32.8">Uber Error Ownership: claim/unclaim propagation across a call chain</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="110.0" y="131.2">A (root)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="280.0" y="131.2">B</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="450.0" y="131.2">C</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="630.0" y="131.2">D (error origin)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="810.0" y="131.2">E</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="380.0" y="179.6">D claims (owns) its own error -&gt; C retries D once</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="200.0" y="204.6">C unclaims when propagating to B -&gt; B does NOT retry C</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="239.6">Result: total requests capped at ~1.1x baseline instead of 2^depth amplification (retry storm contained)</tspan></text>
+</svg>
