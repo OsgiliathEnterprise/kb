@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 -9.0 1018.0 403.0" width="1018" height="403">
+<rect x="16.0" y="-9.0" width="1018.0" height="403.0" fill="#ffffff"/>
+<rect x="40.0" y="60.0" width="270.0" height="110.0" rx="8" fill="#d0bfff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="400.0" y="60.0" width="270.0" height="110.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="760.0" y="60.0" width="250.0" height="110.0" rx="8" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="400.0" y="240.0" width="270.0" height="130.0" rx="8" fill="#ffec99" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="40.0" y="240.0" width="270.0" height="130.0" rx="8" fill="#96f2d7" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 310.0 115.0 L 400.0 115.0"/><line x1="400.0" y1="115.0" x2="387.4" y2="108.9"/><line x1="400.0" y1="115.0" x2="387.4" y2="121.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 670.0 115.0 L 760.0 115.0"/><line x1="760.0" y1="115.0" x2="747.4" y2="108.9"/><line x1="760.0" y1="115.0" x2="747.4" y2="121.1"/></g>
+<g stroke="#e8590c" stroke-width="1.5" fill="none"><path d="M 885.0 170.0 L 670.0 270.0"/><line x1="670.0" y1="270.0" x2="684.0" y2="270.3"/><line x1="670.0" y1="270.0" x2="678.8" y2="259.1"/></g>
+<g stroke="#e8590c" stroke-width="1.5" fill="none"><path d="M 400.0 305.0 L 310.0 305.0"/><line x1="310.0" y1="305.0" x2="322.6" y2="311.1"/><line x1="310.0" y1="305.0" x2="322.6" y2="298.9"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="60.0" y="27.8">celld DST — control execution order, replay by seed</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="50.0" y="77.6">production code (same in prod)</tspan><tspan x="50.0" y="92.6">cell = Workers app code + SQLite</tspan><tspan x="50.0" y="107.6">storage = S3-compatible</tspan><tspan x="50.0" y="122.6">KEY: event selection is separate</tspan><tspan x="50.0" y="137.6">from event handling</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="410.0" y="77.6">simulator (seeded RNG)</tspan><tspan x="410.0" y="92.6">reorders events</tspan><tspan x="410.0" y="107.6">schedules async tasks</tspan><tspan x="410.0" y="122.6">delays/fails storage ops</tspan><tspan x="410.0" y="137.6">advances simulated clock</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="770.0" y="77.6">invariant checker</tspan><tspan x="770.0" y="92.6">state predicates after EVERY action</tspan><tspan x="770.0" y="107.6">(not just end state)</tspan><tspan x="770.0" y="122.6">observed responses + stored data</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="410.0" y="257.6">bug found: wake-entry race</tspan><tspan x="410.0" y="272.6">old alarm cleanup deletes the wake entry</tspan><tspan x="410.0" y="287.6">the new 10:05 alarm still needs</tspan><tspan x="410.0" y="302.6">alarm set in SQLite but no entry</tspan><tspan x="410.0" y="317.6">to reactivate the cell after restart</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="50.0" y="257.6">fix: one wake entry per new alarm</tspan><tspan x="50.0" y="272.6">delayed deletion only removes its own</tspan><tspan x="50.0" y="287.6">old entries removed once confirmed</tspan><tspan x="50.0" y="302.6">failing seed → replayed regression test</tspan></text>
+</svg>
