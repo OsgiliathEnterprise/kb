@@ -125,7 +125,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Mcp',
-          items: ['how-to/developertoolspractices/mcp/howto-azure-mcp-server-scoped-agent-access', 'how-to/developertoolspractices/mcp/howto-map-http-api-parameters-to-mcp-tool-schemas', 'how-to/developertoolspractices/mcp/howto-soak-test-mcp-server-with-mcpload'],
+          items: ['how-to/developertoolspractices/mcp/howto-accessibility-mcp-server-feedback-loop', 'how-to/developertoolspractices/mcp/howto-azure-mcp-server-scoped-agent-access', 'how-to/developertoolspractices/mcp/howto-map-http-api-parameters-to-mcp-tool-schemas', 'how-to/developertoolspractices/mcp/howto-soak-test-mcp-server-with-mcpload'],
         },
         {
           type: 'category',
@@ -227,7 +227,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Agentarchitecture',
-          items: ['explanations/aimachinelearning/agentarchitecture/explanation-agent-guardrail-stack', 'explanations/aimachinelearning/agentarchitecture/explanation-claude-unified-memory-architecture', 'explanations/aimachinelearning/agentarchitecture/explanation-coding-agents-generalized-tamp', 'explanations/aimachinelearning/agentarchitecture/explanation-harness-design-coding-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-human-in-the-loop-approval-gates', 'explanations/aimachinelearning/agentarchitecture/explanation-jev-ultrafast-dynamic-indexed-action-space-browser-agent', 'explanations/aimachinelearning/agentarchitecture/explanation-lemmalog-datalog-memory-for-llm-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-microsoft-copilot-agent-identity-runtime', 'explanations/aimachinelearning/agentarchitecture/explanation-prince-bayer-agentic-rag-context-harness-engineering', 'explanations/aimachinelearning/agentarchitecture/explanation-progressive-disclosure-on-demand-skills', 'explanations/aimachinelearning/agentarchitecture/explanation-reconciling-agent-plans-with-completed-temporal-activities', 'explanations/aimachinelearning/agentarchitecture/explanation-sandboxed-execution-runtime-engineering-for-ai-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-sourcelearn-source-specific-competence', 'explanations/aimachinelearning/agentarchitecture/explanation-x402-http-payment-standard-for-ai-agents', 'explanations/aimachinelearning/agentarchitecture/reference-scholarcatalyst-research-paper-retrieval-benchmark'],
+          items: ['explanations/aimachinelearning/agentarchitecture/explanation-agent-guardrail-stack', 'explanations/aimachinelearning/agentarchitecture/explanation-byte-matching-verification-harness-15-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-claude-unified-memory-architecture', 'explanations/aimachinelearning/agentarchitecture/explanation-coding-agents-generalized-tamp', 'explanations/aimachinelearning/agentarchitecture/explanation-harness-design-coding-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-human-in-the-loop-approval-gates', 'explanations/aimachinelearning/agentarchitecture/explanation-jev-ultrafast-dynamic-indexed-action-space-browser-agent', 'explanations/aimachinelearning/agentarchitecture/explanation-lemmalog-datalog-memory-for-llm-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-microsoft-copilot-agent-identity-runtime', 'explanations/aimachinelearning/agentarchitecture/explanation-prince-bayer-agentic-rag-context-harness-engineering', 'explanations/aimachinelearning/agentarchitecture/explanation-progressive-disclosure-on-demand-skills', 'explanations/aimachinelearning/agentarchitecture/explanation-reconciling-agent-plans-with-completed-temporal-activities', 'explanations/aimachinelearning/agentarchitecture/explanation-sandboxed-execution-runtime-engineering-for-ai-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-sourcelearn-source-specific-competence', 'explanations/aimachinelearning/agentarchitecture/explanation-x402-http-payment-standard-for-ai-agents', 'explanations/aimachinelearning/agentarchitecture/reference-scholarcatalyst-research-paper-retrieval-benchmark'],
         },
         {
           type: 'category',
@@ -316,13 +316,18 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Nixdeterminism',
+          items: ['explanations/developertoolspractices/nixdeterminism/explanation-nix-rewind-deterministic-debugging'],
+        },
+        {
+          type: 'category',
           label: 'Remotedevelopment',
           items: ['explanations/developertoolspractices/remotedevelopment/explanation-vscode-ssh-agent-architecture'],
         },
         {
           type: 'category',
           label: 'Databases',
-          items: ['explanations/programming/databases/explanation-postgresql-generated-columns-vs-triggers', 'explanations/programming/databases/explanation-row-number-rank-dense-rank-top-n', 'explanations/programming/databases/explanation-sql-not-in-null-trap'],
+          items: ['explanations/programming/databases/explanation-duckdb-2-0-async-io-recursive-ctes-variant', 'explanations/programming/databases/explanation-postgresql-generated-columns-vs-triggers', 'explanations/programming/databases/explanation-row-number-rank-dense-rank-top-n', 'explanations/programming/databases/explanation-sql-not-in-null-trap'],
         },
         {
           type: 'category',
@@ -332,7 +337,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Frontendjavascript',
-          items: ['explanations/programming/frontendjavascript/explanation-react-rerender-vs-expensive-work'],
+          items: ['explanations/programming/frontendjavascript/explanation-browser-apis-replacing-npm-packages', 'explanations/programming/frontendjavascript/explanation-react-rerender-vs-expensive-work'],
         },
         {
           type: 'category',
@@ -413,6 +418,11 @@ const sidebars = {
           type: 'category',
           label: 'Distributedsystemsfoundations',
           items: ['explanations/systemdesign/distributedsystemsfoundations/explanation-error-ownership-retry-storms', 'explanations/systemdesign/distributedsystemsfoundations/explanation-steelhead-dual-mode-consensus-shared-dag'],
+        },
+        {
+          type: 'category',
+          label: 'Distributedsystemstesting',
+          items: ['explanations/systemdesign/distributedsystemstesting/explanation-celld-deterministic-simulation-testing'],
         },
         {
           type: 'category',
