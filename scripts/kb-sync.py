@@ -716,7 +716,9 @@ def count_by_type():
         rel = dp.relative_to(DOCS_DIR)
         top_level = rel.parts[0] if rel.parts else ''
         if top_level in ('tutorials', 'how-to', 'explanations', 'examples'):
-            counts[top_level] = counts.get(top_level, 0) + len(filenames)
+            counts[top_level] = counts.get(top_level, 0) + sum(
+                1 for fn in filenames if fn.endswith(('.md', '.mdx'))
+            )
     return counts
 
 
