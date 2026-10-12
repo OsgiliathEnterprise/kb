@@ -115,14 +115,41 @@ except ZeroDivisionError:
 2. **Using print() and logging together.** Pick one — mixing them makes output hard to parse.
 3. **Logging sensitive data.** Log levels don't protect secrets; never log credentials, tokens, or PII at any level.
 
+## Beyond basicConfig: named loggers per module
+
+`basicConfig` is fine for scripts; for multi-module apps the standard-library [Logging Cookbook](https://docs.python.org/3/howto/logging-cookbook.html) pattern is **named loggers**: `logging.getLogger("spam_application")` returns the *same* logger object across modules in the process, so a parent logger configured in one module (with its handlers and formatters) receives messages from child loggers in others. Give each handler its own level so a file can keep DEBUG while the console only shows ERROR:
+
+```python
+import logging
+
+logger = logging.getLogger("spam_application")
+logger.setLevel(logging.DEBUG)
+
+fh = logging.FileHandler("spam.log")
+fh.setLevel(logging.DEBUG)
+
+ch = logging.StreamHandler()
+ch.setLevel(logging.ERROR)
+
+formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+fh.setFormatter(formatter)
+ch.setFormatter(formatter)
+logger.addHandler(fh)
+logger.addHandler(ch)
+```
+
+In library code, log with a module-scoped logger (`logging.getLogger(__name__)`) and let the *application* configure handlers — never call `basicConfig()` from inside a library.
+
 ## Key takeaways
 
 - `logging.basicConfig()` sets the format, level, and destination in one call.
 - Log levels let you control verbosity without changing code.
 - `logging.exception()` captures tracebacks automatically inside handlers.
 - Log to a file for anything you want to keep; log to console during development.
+- Named loggers + per-handler levels scale `logging` to multi-module apps without touching call sites.
 
 ## References
 
 - [Python Logging: How to Stop Using print() for Debugging (DEV.to)](https://dev.to/sameerqaisar17/python-logging-how-to-stop-using-print-for-debugging-54b6)
 - [Python logging module documentation](https://docs.python.org/3/library/logging.html)
+- [Logging Cookbook (official recipes: named loggers, handlers, formatters)](https://docs.python.org/3/howto/logging-cookbook.html)

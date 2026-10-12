@@ -35,7 +35,7 @@ During prefill, complete expert layers are staged into alternating buffers so de
 
 ## Results
 
-- Mean time-per-output-token (TPOT) **38.0–44.8 ms** for MoE-CORE vs **1268.9–1269.1 ms** for the evaluated vLLM Prefetch configuration on DeepSeek-V4-Flash-W4A8; on GLM-5.2-W4A8C8, **206.6–220.5 ms vs 5941.5–5941.8 ms** (under 1K/128-token output caps).
+- Mean time-per-output-token (TPOT) **38.0–44.8 ms** for MoE-CORE vs **1268.9–1269.1 ms** for the evaluated vLLM Prefetch configuration on DeepSeek-V4-Flash-W4A8; on GLM-5.2-W4A8C8, **206.6–220.5 ms vs 5941.5–5941.8 ms**. The main comparison matches output caps (1K/128 tokens) across **five workloads per model**, so the gap is not an artifact of workload choice.
 - Under an 84 GB NPU-memory cap, the best measured DeepSeek GSM8K configuration reaches **TPOT 21.5 ms** using approximate expert substitution plus multi-token prediction (MTP) at depth 2.
 
 ## Relevance to Our Domain
