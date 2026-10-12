@@ -24,7 +24,7 @@ Cybersecurity operations depend on strict command-line interfaces where a minor 
 
 ## Key Contribution
 
-- A **fine-grained NL→CLI dataset** (8,504 pairs / 1,642 tools / 23 capability dimensions / 5 security phases) built through a manuscript-grounded pipeline with deterministic canonicalization and alias-aware evaluation for precise, reproducible scoring.
+- A **fine-grained NL→CLI dataset** (8,504 pairs / 1,642 tools / 23 capability dimensions / 5 security phases) built through a manuscript-grounded pipeline with deterministic canonicalization and alias-aware evaluation for precise, reproducible scoring. After semantic deduplication the verified release splits into **3,504 training pairs and 5,000 evaluation pairs**, with all 1,642 tools represented in the evaluation set.
 - A **multi-stage verification pipeline** combining LLM-based validation, sandboxed terminal execution, and human-in-the-loop refinement to guarantee both semantic correctness and practical executability.
 - **Runtime-free verifiable rewards** derived from the fine-grained deterministic signals, usable directly for supervised fine-tuning and reinforcement learning without a live environment.
 
@@ -32,10 +32,18 @@ Cybersecurity operations depend on strict command-line interfaces where a minor 
 
 The dataset is grounded in tool documentation (manuscripts) so each query maps to a canonical command form; evaluation normalizes aliases so equivalent invocations are not penalized. Correctness is established by three layers — an LLM judge, actual sandboxed execution on Kali Linux, and human review — which together produce deterministic per-command signals. Those same signals double as reward functions for training, so the benchmark doubles as a training substrate.
 
+Models are evaluated under **three named settings** that vary how much tool information is given:
+- **Unrestricted** — only the natural-language query; the model must infer both the tool and its arguments.
+- **Restricted** — the query plus a randomly sampled list of 20 candidate tool names including the correct one (reduces the selection search space, still requires argument construction).
+- **Hinted** — candidate tools plus their official documentation, approximating schema-based function-calling benchmarks.
+
+Model outputs are parsed with Python's `shlex` (shell-style lexical analysis) to emulate Kali CLI parsing **without executing** the commands, enabling deterministic component-wise scoring. The fine-grained metrics are: **Tool Accuracy** (correct tool selected), **Optional-Argument F1** (alias-aware flag-name matching), **Positional-Argument F1** (ordered multiset matching), **Total Score** (mean of tool and argument scores), and **Exact Correct** (tool and all arguments match ground truth; aliases and reordered optional flags permitted, positional order respected).
+
 ## Results
 
-- Across three evaluation modes and 24 configurations of general-purpose and security-focused open-weight models, **no open-weight model exceeds 42% exact-command accuracy** in the unrestricted (no tool-hint) setting — evidence that accurate CLI-based security tool use is hard without explicit hints.
-- Supervised fine-tuning plus reinforcement learning with KaliBench-derived verifiable rewards significantly improves an 8B model to performance **comparable to a ~685B MoE model**.
+- Across the three modes and 24 configurations of general-purpose and security-focused open-weight models, **no open-weight model exceeds 42% exact-command accuracy** in the unrestricted setting (best: ~41.3%, a ~753B-class open model) — evidence that accurate CLI-based security tool use is hard without explicit hints.
+- Tool documentation drives the largest single gains: average exact-command accuracy climbs from ~22.3% to ~73.1% when hints/documentation are provided — argument construction, not intent understanding, is the main bottleneck.
+- Supervised fine-tuning plus reinforcement learning (SFT + GRPO) with KaliBench-derived verifiable rewards raises an 8B model's average total score from 71.7 to **79.2** — within ~1 point of a ~685B MoE model (80.2).
 
 ## Relevance to Our Domain
 
@@ -45,4 +53,5 @@ For DevSecOps teams building LLM-driven security copilots, KaliBench offers a re
 
 - Paper: https://arxiv.org/abs/2610.02206
 - Project / code: https://risys-lab.github.io/KaliBench/ · https://github.com/RISys-Lab/KaliBench
+- Verified dataset (Hugging Face): https://huggingface.co/datasets/RISys-Lab/KaliBench
 - Semantic Scholar: https://api.semanticscholar.org/graph/v1/paper/arXiv:2610.02206

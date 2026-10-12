@@ -115,7 +115,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Aicodingagents',
-          items: ['how-to/developertoolspractices/aicodingagents/howto-autocompact-context-compaction-coding-agents', 'how-to/developertoolspractices/aicodingagents/howto-build-an-ai-workflow-inventory', 'how-to/developertoolspractices/aicodingagents/howto-chronicle-cut-point-replay-regression-testing', 'how-to/developertoolspractices/aicodingagents/howto-litellm-gateway-for-codex-cli', 'how-to/developertoolspractices/aicodingagents/howto-maintainability-sensors-for-coding-agents', 'how-to/developertoolspractices/aicodingagents/howto-migrate-gemini-cli-to-antigravity-cli', 'how-to/developertoolspractices/aicodingagents/howto-neurotestgen-neuro-symbolic-test-generation', 'how-to/developertoolspractices/aicodingagents/howto-require-a-job-receipt-for-remote-model-proposals', 'how-to/developertoolspractices/aicodingagents/howto-spring-upgrades-with-openrewrite-and-agents'],
+          items: ['how-to/developertoolspractices/aicodingagents/howto-audit-claude-code-skill-context-tax-skill-tax-cli', 'how-to/developertoolspractices/aicodingagents/howto-autocompact-context-compaction-coding-agents', 'how-to/developertoolspractices/aicodingagents/howto-build-an-ai-workflow-inventory', 'how-to/developertoolspractices/aicodingagents/howto-chronicle-cut-point-replay-regression-testing', 'how-to/developertoolspractices/aicodingagents/howto-litellm-gateway-for-codex-cli', 'how-to/developertoolspractices/aicodingagents/howto-maintainability-sensors-for-coding-agents', 'how-to/developertoolspractices/aicodingagents/howto-migrate-gemini-cli-to-antigravity-cli', 'how-to/developertoolspractices/aicodingagents/howto-neurotestgen-neuro-symbolic-test-generation', 'how-to/developertoolspractices/aicodingagents/howto-require-a-job-receipt-for-remote-model-proposals', 'how-to/developertoolspractices/aicodingagents/howto-spring-upgrades-with-openrewrite-and-agents'],
         },
         {
           type: 'category',
@@ -150,7 +150,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Java',
-          items: ['how-to/programming/java/howto-integrate-typesafe-jev-with-spring-ai', 'how-to/programming/java/howto-spring-batch-mongodb-job-repository-spring-boot-4-1'],
+          items: ['how-to/programming/java/howto-idempotency-key-replay-spring-boot-checkout', 'how-to/programming/java/howto-integrate-typesafe-jev-with-spring-ai', 'how-to/programming/java/howto-spring-batch-mongodb-job-repository-spring-boot-4-1'],
         },
         {
           type: 'category',
@@ -181,6 +181,11 @@ const sidebars = {
           type: 'category',
           label: 'Fuzzing',
           items: ['how-to/securityprivacy/fuzzing/howto-build-asan-fuzz-harness-for-your-parser'],
+        },
+        {
+          type: 'category',
+          label: 'Supplychain',
+          items: ['how-to/securityprivacy/supplychain/howto-audit-transitive-github-action-dependencies-pin-deep'],
         },
         {
           type: 'category',
@@ -301,6 +306,11 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Ciperformance',
+          items: ['explanations/developertoolspractices/ciperformance/explanation-ai-changes-wait-for-independent-ci-evidence'],
+        },
+        {
+          type: 'category',
           label: 'Gitworkflow',
           items: ['explanations/developertoolspractices/gitworkflow/explanation-ast-based-merge-conflict-prediction-tree-sitter'],
         },
@@ -327,7 +337,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Databases',
-          items: ['explanations/programming/databases/explanation-duckdb-2-0-async-io-recursive-ctes-variant', 'explanations/programming/databases/explanation-postgresql-generated-columns-vs-triggers', 'explanations/programming/databases/explanation-row-number-rank-dense-rank-top-n', 'explanations/programming/databases/explanation-sql-not-in-null-trap'],
+          items: ['explanations/programming/databases/explanation-duckdb-2-0-async-io-recursive-ctes-variant', 'explanations/programming/databases/explanation-postgresql-generated-columns-vs-triggers', 'explanations/programming/databases/explanation-postgresql-local-nvme-storage-latency', 'explanations/programming/databases/explanation-row-number-rank-dense-rank-top-n', 'explanations/programming/databases/explanation-sql-not-in-null-trap'],
         },
         {
           type: 'category',
@@ -347,7 +357,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Java',
-          items: ['explanations/programming/java/explanation-better-tools-immutable-data-java', 'explanations/programming/java/explanation-jdk-26-performance-improvements', 'explanations/programming/java/explanation-jdk-28-pooled-confined-arena', 'explanations/programming/java/explanation-jep-540-simple-json-api-incubator', 'explanations/programming/java/explanation-netflix-ja-module-system-toolchain', 'explanations/programming/java/explanation-specjbb-workload-generator-same-jvm-limitations', 'explanations/programming/java/explanation-spring-ai-2-0-composable-tool-calling-advisor-architecture', 'explanations/programming/java/explanation-zgc-decade-of-low-latency-gc', 'explanations/programming/java/explanation-zgc-weak-reference-processing'],
+          items: ['explanations/programming/java/explanation-better-tools-immutable-data-java', 'explanations/programming/java/explanation-jdk-26-performance-improvements', 'explanations/programming/java/explanation-jdk-28-pooled-confined-arena', 'explanations/programming/java/explanation-jep-540-simple-json-api-incubator', 'explanations/programming/java/explanation-netflix-ja-module-system-toolchain', 'explanations/programming/java/explanation-specjbb-workload-generator-same-jvm-limitations', 'explanations/programming/java/explanation-spring-ai-2-0-composable-tool-calling-advisor-architecture', 'explanations/programming/java/explanation-structured-concurrency-project-loom', 'explanations/programming/java/explanation-zgc-decade-of-low-latency-gc', 'explanations/programming/java/explanation-zgc-weak-reference-processing'],
         },
         {
           type: 'category',
@@ -484,7 +494,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Zig',
-          items: ['examples/programming/zig/example-zig-arraylist-pointer-stability-locks'],
+          items: ['examples/programming/zig/example-type-safe-html-templating-zig-zt', 'examples/programming/zig/example-zig-arraylist-pointer-stability-locks'],
         },
       ],
     },
