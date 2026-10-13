@@ -119,6 +119,11 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Browserinternals',
+          items: ['how-to/developertoolspractices/browserinternals/howto-resumable-downloads-firefox-response-timeout'],
+        },
+        {
+          type: 'category',
           label: 'Ciperformance',
           items: ['how-to/developertoolspractices/ciperformance/howto-fastci-gpu-intensive-ci-llm-training', 'how-to/developertoolspractices/ciperformance/howto-keep-ci-fast-under-agent-driven-development', 'how-to/developertoolspractices/ciperformance/howto-test-scheduled-jobs-with-faketime'],
         },
@@ -217,12 +222,12 @@ const sidebars = {
         {
           type: 'category',
           label: 'Llminfrastructure',
-          items: ['explanations/aillm/llminfrastructure/explanation-fairinference-token-latency-fairness-llm-serving', 'explanations/aillm/llminfrastructure/explanation-fine-tuning-memory-accounting-lora-qlora', 'explanations/aillm/llminfrastructure/explanation-openai-jalapeno-chip-first-benchmarks', 'explanations/aillm/llminfrastructure/explanation-prefixbench-h100-prefix-reuse-ttft', 'explanations/aillm/llminfrastructure/explanation-qwen3-embedding-cloud-tpu-vllm'],
+          items: ['explanations/aillm/llminfrastructure/explanation-fairinference-token-latency-fairness-llm-serving', 'explanations/aillm/llminfrastructure/explanation-fine-tuning-memory-accounting-lora-qlora', 'explanations/aillm/llminfrastructure/explanation-janas-moe-ssd-streaming-llm-inference', 'explanations/aillm/llminfrastructure/explanation-openai-jalapeno-chip-first-benchmarks', 'explanations/aillm/llminfrastructure/explanation-prefixbench-h100-prefix-reuse-ttft', 'explanations/aillm/llminfrastructure/explanation-qwen3-embedding-cloud-tpu-vllm'],
         },
         {
           type: 'category',
           label: 'Llmlimits',
-          items: ['explanations/aillm/llmlimits/explanation-chatgpt-pcb-netlist-failure-modes-pin-level-hallucination'],
+          items: ['explanations/aillm/llmlimits/explanation-chatgpt-pcb-netlist-failure-modes-pin-level-hallucination', 'explanations/aillm/llmlimits/explanation-hidden-capabilities-digital-locker-backdoors'],
         },
         {
           type: 'category',
@@ -302,7 +307,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Aicodingagents',
-          items: ['explanations/developertoolspractices/aicodingagents/explanation-efficiency-throughput-gap-github-copilot-okta', 'explanations/developertoolspractices/aicodingagents/explanation-overclaimbench-quantifying-agent-overclaiming', 'explanations/developertoolspractices/aicodingagents/explanation-valkey-ai-agents-backporting-provenance'],
+          items: ['explanations/developertoolspractices/aicodingagents/explanation-codex-cli-managed-daemon-trust-concerns', 'explanations/developertoolspractices/aicodingagents/explanation-efficiency-throughput-gap-github-copilot-okta', 'explanations/developertoolspractices/aicodingagents/explanation-overclaimbench-quantifying-agent-overclaiming', 'explanations/developertoolspractices/aicodingagents/explanation-valkey-ai-agents-backporting-provenance'],
         },
         {
           type: 'category',
@@ -333,6 +338,11 @@ const sidebars = {
           type: 'category',
           label: 'Remotedevelopment',
           items: ['explanations/developertoolspractices/remotedevelopment/explanation-vscode-ssh-agent-architecture'],
+        },
+        {
+          type: 'category',
+          label: 'C',
+          items: ['explanations/programming/c/explanation-modern-web-app-in-c-cgi-sqlite'],
         },
         {
           type: 'category',
@@ -378,6 +388,11 @@ const sidebars = {
           type: 'category',
           label: 'Rust',
           items: ['explanations/programming/rust/explanation-deser-event-driven-serialization-rust', 'explanations/programming/rust/explanation-rust-1-98-algebraic-float-and-buffered-formatting'],
+        },
+        {
+          type: 'category',
+          label: 'X86Architecture',
+          items: ['explanations/programming/x86architecture/explanation-phantom-fma-instruction-vfmaddrnd'],
         },
         {
           type: 'category',
