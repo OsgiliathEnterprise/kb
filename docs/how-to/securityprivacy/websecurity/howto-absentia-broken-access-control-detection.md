@@ -16,7 +16,7 @@ keywords:
 
 ## Overview
 
-ABSENTIA is a security scaffolding that turns general-purpose LLM agents into *systematic* detectors of broken access control (BAC) vulnerabilities in the backend of web applications, run as an audit by the developers and security engineers who maintain the code. Its central insight is that authorization is a **relation** — who may act on what — not a data flow like injection. Because each application defines its own authorization relation, no rule written in advance carries to the next app; an agent must infer the relation from the code *and* have a systematic way to cover the whole application and prioritize what to inspect.
+ABSENTIA is a security scaffolding that turns general-purpose LLM agents into *systematic* detectors of broken access control (BAC) vulnerabilities in the backend of web applications, run as an audit by the developers and security engineers who maintain the code. The paper (arXiv 2610.00977, submitted 2026-10-01) is by Duarte, Oke, Melo, Gandhi, Kotalwar, Khandor, Wang, Oliveira, Rosé and Li. Its central insight is that authorization is a **relation** — who may act on what — not a data flow like injection. Because each application defines its own authorization relation, no rule written in advance carries to the next app; an agent must infer the relation from the code *and* have a systematic way to cover the whole application and prioritize what to inspect.
 
 ## Problem Statement
 
@@ -44,5 +44,6 @@ This is a concrete, reproducible procedure for security engineers who want LLM a
 
 ## References
 
-- Paper: https://arxiv.org/abs/2610.00977
+- Paper: https://arxiv.org/abs/2610.00977 (submitted 2026-10-01; [HTML version](https://arxiv.org/html/2610.00977v1))
 - Semantic Scholar: https://api.semanticscholar.org/graph/v1/paper/arXiv:2610.00977
+- OWASP Top 10 A01 — Broken Access Control (the risk class ABSENTIA targets): https://owasp.org/Top10/A01_2021-Broken_Access_Control/

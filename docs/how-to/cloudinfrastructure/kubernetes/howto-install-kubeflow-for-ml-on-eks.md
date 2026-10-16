@@ -52,12 +52,12 @@ All node-group instances must be `Ready` before continuing — Kubeflow's instal
 
 ## Step 3 — Install Kubeflow from the manifests repo
 
-Kubeflow ships as Kustomize overlays in [kubeflow/manifests](https://github.com/kubeflow/manifests). Clone and check out a release tag matching your cluster's Kubernetes version:
+Kubeflow ships as Kustomize overlays in the [kubeflow/manifests](https://github.com/kubeflow/manifests) repo (now branded the "Kubeflow AI Reference Platform"). Since the 1.11.0 era, release versioning is **calendar-based** (Year.Month.Patch) with roughly two base releases per year; as of October 2026 the current release is `26.03.1` (June 2026), CI-tested against Kubernetes 1.36. Clone and check out the release tag you want:
 
 ```bash
 git clone https://github.com/kubeflow/manifests.git
 cd manifests
-git checkout v1.9.0
+git checkout 26.03.1   # latest as of Oct 2026; older semver tags (v1.10.x, v1.11.0) are still available
 ```
 
 Components have interdependencies that `kubectl apply -k` alone can't always resolve on the first pass (a CRD from one component may not exist yet when another references it). The project's documented workaround is to **retry in a loop** until every resource is created:
@@ -92,6 +92,7 @@ Default login is `user@example.com` / `12341234` — treat it as a placeholder t
 - Single-pass `kubectl apply -k` → missing-CRD errors; use the retry loop with `--server-side --force-conflicts`.
 - Under-provisioned nodes (below ~m5.xlarge) → control-plane components starve for memory.
 - Default credentials left in place → security hole on any non-lab cluster.
+- Moving between base releases → the dashboard has **breaking changes** between versions; follow the upgrade steps documented in the release notes rather than re-applying on top of an old install. Community support is best-effort for ~6 months per release; commercial support is available from ecosystem vendors.
 
 ## Diagram
 
@@ -101,3 +102,4 @@ Default login is `user@example.com` / `12341234` — treat it as a placeholder t
 
 - [Install and set up Kubeflow for ML on EKS (dev.to)](https://dev.to/rdgmh/install-and-set-up-kubeflow-for-ml-on-eks-4cgm)
 - [kubeflow/manifests repository](https://github.com/kubeflow/manifests)
+- [Kubeflow releases — calendar-versioned community distribution (26.03.x)](https://github.com/kubeflow/community-distribution/releases)
