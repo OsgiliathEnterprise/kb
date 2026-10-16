@@ -49,6 +49,8 @@ chcon -t container_file_t -R ~/infrastructure/uptime-kuma/data
 
 Create `~/infrastructure/uptime-kuma/uptime-kuma.yaml`:
 
+> **Version note (Oct 2026):** `lscr.io/linuxserver/uptime-kuma:latest` currently tracks Uptime Kuma **2.5.x** (2.5.5, released October 2026). For a long-lived monitoring server, prefer a pinned tag (e.g. `lscr.io/linuxserver/uptime-kuma:2.5.5`) so a routine `podman pull` doesn't silently change the app under you — upgrade deliberately instead.
+
 ```yaml
 apiVersion: v1
 kind: Pod
