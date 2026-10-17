@@ -110,7 +110,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Kubernetes',
-          items: ['how-to/cloudinfrastructure/kubernetes/howto-inspect-volcano-knative-workloads-with-headlamp-plugins', 'how-to/cloudinfrastructure/kubernetes/howto-install-kubeflow-for-ml-on-eks', 'how-to/cloudinfrastructure/kubernetes/howto-manage-cluster-api-resources-with-headlamp'],
+          items: ['how-to/cloudinfrastructure/kubernetes/howto-check-cgroup-v1-before-k8s-upgrade', 'how-to/cloudinfrastructure/kubernetes/howto-inspect-volcano-knative-workloads-with-headlamp-plugins', 'how-to/cloudinfrastructure/kubernetes/howto-install-kubeflow-for-ml-on-eks', 'how-to/cloudinfrastructure/kubernetes/howto-manage-cluster-api-resources-with-headlamp'],
         },
         {
           type: 'category',
@@ -125,12 +125,12 @@ const sidebars = {
         {
           type: 'category',
           label: 'Aicodingagents',
-          items: ['how-to/developertoolspractices/aicodingagents/howto-audit-claude-code-skill-context-tax-skill-tax-cli', 'how-to/developertoolspractices/aicodingagents/howto-autocompact-context-compaction-coding-agents', 'how-to/developertoolspractices/aicodingagents/howto-build-an-ai-workflow-inventory', 'how-to/developertoolspractices/aicodingagents/howto-chronicle-cut-point-replay-regression-testing', 'how-to/developertoolspractices/aicodingagents/howto-litellm-gateway-for-codex-cli', 'how-to/developertoolspractices/aicodingagents/howto-maintainability-sensors-for-coding-agents', 'how-to/developertoolspractices/aicodingagents/howto-migrate-gemini-cli-to-antigravity-cli', 'how-to/developertoolspractices/aicodingagents/howto-neurotestgen-neuro-symbolic-test-generation', 'how-to/developertoolspractices/aicodingagents/howto-require-a-job-receipt-for-remote-model-proposals', 'how-to/developertoolspractices/aicodingagents/howto-spring-upgrades-with-openrewrite-and-agents'],
+          items: ['how-to/developertoolspractices/aicodingagents/howto-audit-claude-code-skill-context-tax-skill-tax-cli', 'how-to/developertoolspractices/aicodingagents/howto-autocompact-context-compaction-coding-agents', 'how-to/developertoolspractices/aicodingagents/howto-build-an-ai-workflow-inventory', 'how-to/developertoolspractices/aicodingagents/howto-check-ai-quota-headroom-before-dispatch', 'how-to/developertoolspractices/aicodingagents/howto-chronicle-cut-point-replay-regression-testing', 'how-to/developertoolspractices/aicodingagents/howto-litellm-gateway-for-codex-cli', 'how-to/developertoolspractices/aicodingagents/howto-maintainability-sensors-for-coding-agents', 'how-to/developertoolspractices/aicodingagents/howto-migrate-gemini-cli-to-antigravity-cli', 'how-to/developertoolspractices/aicodingagents/howto-neurotestgen-neuro-symbolic-test-generation', 'how-to/developertoolspractices/aicodingagents/howto-require-a-job-receipt-for-remote-model-proposals', 'how-to/developertoolspractices/aicodingagents/howto-spring-upgrades-with-openrewrite-and-agents'],
         },
         {
           type: 'category',
           label: 'Browserinternals',
-          items: ['how-to/developertoolspractices/browserinternals/howto-resumable-downloads-firefox-response-timeout'],
+          items: ['how-to/developertoolspractices/browserinternals/howto-generate-pdf-without-server-side-library', 'how-to/developertoolspractices/browserinternals/howto-resumable-downloads-firefox-response-timeout'],
         },
         {
           type: 'category',
@@ -146,6 +146,11 @@ const sidebars = {
           type: 'category',
           label: 'Releasereproducibility',
           items: ['how-to/developertoolspractices/releasereproducibility/howto-archive-github-release-to-zenodo-with-version-doi'],
+        },
+        {
+          type: 'category',
+          label: 'Workflowautomation',
+          items: ['how-to/developertoolspractices/workflowautomation/howto-qualify-inbound-leads-by-domain-apify-n8n'],
         },
         {
           type: 'category',
@@ -258,6 +263,11 @@ const sidebars = {
           type: 'category',
           label: 'Multimodal',
           items: ['explanations/aimachinelearning/multimodal/explanation-deepseek-vision-lineage', 'explanations/aimachinelearning/multimodal/explanation-netflix-maps-multimodal-asset-personalization'],
+        },
+        {
+          type: 'category',
+          label: 'Requestdeduplication',
+          items: ['explanations/apidesign/requestdeduplication/explanation-idempotency-keys-double-charge-trap'],
         },
         {
           type: 'category',
@@ -416,6 +426,11 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Iotfirmwaresecurity',
+          items: ['explanations/securityprivacy/iotfirmwaresecurity/explanation-eufy-homebase2-firmware-wifi-credentials-uart'],
+        },
+        {
+          type: 'category',
           label: 'Kernelexploitation',
           items: ['explanations/securityprivacy/kernelexploitation/explanation-cve-2025-13032-avast-sandbox-double-fetch-lpe', 'explanations/securityprivacy/kernelexploitation/explanation-ps5-relapse-browser-to-kernel-exploit-chain'],
         },
@@ -442,7 +457,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Websecurity',
-          items: ['explanations/securityprivacy/websecurity/explanation-apple-reference-image-verified-photography', 'explanations/securityprivacy/websecurity/explanation-cisco-ise-cve-2026-76423-rest-api-auth-bypass', 'explanations/securityprivacy/websecurity/explanation-cloudflare-disallow-ai-training-mixed-use-crawlers', 'explanations/securityprivacy/websecurity/explanation-data-only-attacks-einstein', 'explanations/securityprivacy/websecurity/explanation-drupal-cve-2026-96362-batch-version-based-scanning-limits', 'explanations/securityprivacy/websecurity/explanation-feature-flags-are-not-authorization', 'explanations/securityprivacy/websecurity/explanation-kestra-cve-2026-49869-suffix-match-auth-bypass', 'explanations/securityprivacy/websecurity/explanation-libheif-heic-rce-chain-openai-sso-takeover', 'explanations/securityprivacy/websecurity/explanation-open-redirect-php-laravel', 'explanations/securityprivacy/websecurity/explanation-passkeys-attestation-aaguid-domain-binding-phishing', 'explanations/securityprivacy/websecurity/explanation-telegram-desktop-cve-2026-107181-ipc-injection-account-takeover', 'explanations/securityprivacy/websecurity/explanation-telnetd-cve-2026-32746-linemode-slc-buffer-overflow', 'explanations/securityprivacy/websecurity/explanation-wordpress-cve-2026-87902-patch-windows'],
+          items: ['explanations/securityprivacy/websecurity/explanation-apple-reference-image-verified-photography', 'explanations/securityprivacy/websecurity/explanation-cisco-ise-cve-2026-76423-rest-api-auth-bypass', 'explanations/securityprivacy/websecurity/explanation-cloudflare-disallow-ai-training-mixed-use-crawlers', 'explanations/securityprivacy/websecurity/explanation-data-only-attacks-einstein', 'explanations/securityprivacy/websecurity/explanation-drupal-cve-2026-96362-batch-version-based-scanning-limits', 'explanations/securityprivacy/websecurity/explanation-feature-flags-are-not-authorization', 'explanations/securityprivacy/websecurity/explanation-kestra-cve-2026-49869-suffix-match-auth-bypass', 'explanations/securityprivacy/websecurity/explanation-libheif-heic-rce-chain-openai-sso-takeover', 'explanations/securityprivacy/websecurity/explanation-open-redirect-php-laravel', 'explanations/securityprivacy/websecurity/explanation-passkeys-attestation-aaguid-domain-binding-phishing', 'explanations/securityprivacy/websecurity/explanation-pitworld-private-search-moshpit-network', 'explanations/securityprivacy/websecurity/explanation-telegram-desktop-cve-2026-107181-ipc-injection-account-takeover', 'explanations/securityprivacy/websecurity/explanation-telnetd-cve-2026-32746-linemode-slc-buffer-overflow', 'explanations/securityprivacy/websecurity/explanation-wordpress-cve-2026-87902-patch-windows'],
         },
         {
           type: 'category',

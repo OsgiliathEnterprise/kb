@@ -69,8 +69,23 @@ $ echo $?
 - Token math is `round(chars / 4)` — an order-of-magnitude gauge, not a billing meter. It answers "which skill is eating my window?", not "what exactly did this cost".
 - It measures skills, `CLAUDE.md` rules, `MEMORY.md`, and MCP configs together — the full per-turn tax in one pass, unlike the official interactive `/skill-doctor`.
 
+## Official tooling overlap (verified 2026-10-17)
+
+Claude Code now ships its own context-cost audit, which overlaps with part of what `skill-tax-cli` gates:
+
+- **`/skill-doctor`** — official audit that reports which loaded skills a session never invoked and what each costs in context.
+- **`/doctor`** (bundled skill) — setup checkup whose "Extensions" pass compares unused skills, MCP servers, and plugins against their context cost. `claude doctor` in the terminal runs the read-only install diagnostics without starting a session.
+- **`/doctor prompt-audit`** (Claude Code v2.1.283+) — scans `CLAUDE.md` files, skills, and other configuration for outdated or conflicting instructions.
+- **Bundled skills** (`/doctor`, `/code-review`, `/batch`, `/debug`, `/loop`, `/claude-api`, `/run`, `/verify`, …) are prompt-based skills listed alongside built-in commands; disable them with `disableBundledSkills` or `skillOverrides` (e.g. `"doctor": "off"`).
+- **Custom commands merged into skills**: `.claude/commands/deploy.md` and `.claude/skills/deploy/SKILL.md` both create `/deploy`. Skills follow the **Agent Skills open standard** (agentskills.io), which works across multiple tools, with Claude Code extensions for invocation control, subagent execution, and dynamic context injection.
+- Skill bodies load **only when used** (progressive disclosure), so the per-turn listing budget (`skillListingBudgetFraction`) is the main always-on cost — exactly what `gate` replays.
+
+`skill-tax-cli` still adds value where the built-ins are thin: a deterministic, exit-code-driven **CI gate** on the full listing budget (`--usage` replay of real invocation counts), covering skills + `CLAUDE.md` + `MEMORY.md` + MCP configs in one pass, with `--json` for pipelines.
+
 ## References
 
 - [Your Claude Code skills are being silently demoted. I built a CLI to catch it (DEV.to)](https://dev.to/haoli/your-claude-code-skills-are-being-silently-demoted-i-built-a-cli-to-catch-it-454e)
 - [skill-tax-cli on GitHub](https://github.com/hahahahahahahahah6/skill-tax-cli)
 - [skill-tax-cli on PyPI](https://pypi.org/project/skill-tax-cli/)
+- [Extend Claude with skills — Claude Code docs (official)](https://code.claude.com/docs/en/skills)
+- [Anthropic ships /skill-doctor to audit Claude Code skills (Implicator)](https://www.implicator.ai/anthropic-claude-code-skill-doctor-context-audit/)
