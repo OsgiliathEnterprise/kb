@@ -49,7 +49,7 @@ chcon -t container_file_t -R ~/infrastructure/uptime-kuma/data
 
 Create `~/infrastructure/uptime-kuma/uptime-kuma.yaml`:
 
-> **Version note (Oct 2026):** `lscr.io/linuxserver/uptime-kuma:latest` currently tracks Uptime Kuma **2.5.x** (2.5.5, released October 2026). For a long-lived monitoring server, prefer a pinned tag (e.g. `lscr.io/linuxserver/uptime-kuma:2.5.5`) so a routine `podman pull` doesn't silently change the app under you — upgrade deliberately instead.
+> **Version note (verified 2026-10-17):** `lscr.io/linuxserver/uptime-kuma:latest` currently tracks Uptime Kuma **2.5.x** — latest is **2.5.6** (released 2026-10-09; 2.5.5 was 2026-09-16). For a long-lived monitoring server, prefer a pinned tag (e.g. `lscr.io/linuxserver/uptime-kuma:2.5.6`) so a routine `podman pull` doesn't silently change the app under you — upgrade deliberately instead.
 
 ```yaml
 apiVersion: v1
@@ -98,6 +98,8 @@ WantedBy=default.target
 
 The only required key in `[Kube]` is `Yaml=`; other keys (`PublishPort=`, `Network=`, `LogDriver=`, ...) map to `podman kube play` options. Quadlet sets the generated service's `Type` to `notify` for `.kube` files automatically.
 
+> **Podman 6.1 note (2026-08-13):** Podman 6.1 fixed **CVE-2026-19730**, a Quadlet bug that could silently leave stale content in replaced systemd units — relevant when you edit the `.kube` file and re-run `systemctl --user daemon-reload`. 6.1 also adds an `ImageVolume=` unit key and healthchecks when exporting to Kubernetes. If you're on an older Podman, re-verify the generated unit after edits.
+
 ### 6. Activate and enable lingering
 
 ```bash
@@ -125,3 +127,5 @@ curl -sI http://localhost:3001               # HTTP 200 from the container
 - [Uptime Kuma on Fedora with Podman Quadlet (DEV.to)](https://dev.to/jantolentino/uptime-kuma-on-fedora-with-podman-quadlet-92d)
 - [Podman Documentation: podman-systemd.unit (Quadlet file format)](https://docs.podman.io/en/latest/markdown/podman-systemd.unit.5.html)
 - [Podman Documentation: podman-kube.unit (.kube units)](https://docs.podman.io/en/stable/markdown/podman-kube.unit.5.html)
+- [Uptime Kuma releases (GitHub)](https://github.com/louislam/uptime-kuma/releases)
+- [Podman 6.1 fixes Quadlet stale-unit bug (CVE-2026-19730)](https://ettayeb.fr/en/devops/podman-6-1-quadlet-cve-2026-19730/)
