@@ -165,3 +165,9 @@ The fix that finally closed it: **commit 64fada3** ("TLS client: Pinning CA must
 - [Reporter's full timeline write-up — net4people/bbs issue #672](https://github.com/net4people/bbs/issues/672)
 - [Fix commit 64fada3 — require serverName for pinned CA pinning (#6472)](https://github.com/XTLS/Xray-core/commit/64fada32b5b9e6ae064a038fa0e4e2b766499bd5)
 - [CWE-297 — Improper Validation of Certificate with Host Mismatch](https://cwe.mitre.org/data/definitions/297.html)
+
+## Further Reading (added 2026-10-19 by KB Zookeeper audit)
+
+- [MITM Vulnerability in Xray-core Package: CA Certificate Pinning Issue](https://vulert.com/vuln-db/xray-core--pinning-a-ca-certificate-via-pinnedpeercertsha256-can-lead-to-the-success-of-mitm-attacks) — Discover the MITM vulnerability in Xray-core related to CA certificate pinning. Learn how to fix it and check your application's status with Vulert.
+- [Peer Verification and Certificate Pinning | XTLS/Xray-core | DeepWiki](https://deepwiki.com/XTLS/Xray-core/4.2.2-peer-verification-and-certificate-pinning) — Certificate pinning and custom peer verification in Xray-core enable secure TLS connections without exclusive reliance on system certificate authorities.
+- [Xray-core concealed a certificate verification bypass vulnerability](https://www.neuralnews.in/article/1791148201820-jlrlcwcwwf-1/xray-core-concealed-a-certificate-verification-bypass-vulnerability) — However, pinnedPeerCertSha256 contains a certificate verification bypass vulnerability. Xray-core released the first version containing this certificate…

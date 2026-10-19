@@ -76,3 +76,9 @@ Every `fetch`, XHR, or WebSocket to a host not on the list **gets blocked by the
 
 - [PDF Toolkit Where Your Files Can't Leave the Browser (and the CSP Enforces It) (DEV.to)](https://dev.to/gaurang_learn/pdf-toolkit-where-your-files-cant-leave-the-browser-and-the-csp-enforces-it-jgn)
 - [MDN: Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP)
+
+## Further Reading (added 2026-10-19 by KB Zookeeper audit)
+
+- [Processing Content Security Policy violation reports · Mathias Bynens](https://mathiasbynens.be/notes/csp-reports) — mathiasbynens.be
+- [Content Security Policy Browser Test](https://content-security-policy.com/browser-test/) — content-security-policy.com
+- [Content Security Policy Level 3](https://w3c.github.io/webappsec-csp/) — Mitigate the risk of content-injection attacks by giving developers , for example) by giving developers granular control over the returned by

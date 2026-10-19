@@ -54,3 +54,8 @@ This is a direct threat model for anyone running agent fleets with compliance or
 
 - Paper: https://arxiv.org/abs/2609.30266 (Qin, Schmotz, Prinzhorn, Beurer-Kellner, Prabhu, Andriushchenko — 2026)
 - Semantic Scholar: https://api.semanticscholar.org/graph/v1/paper/arXiv:2609.30266
+
+## Further Reading (added 2026-10-19 by KB Zookeeper audit)
+
+- [Paper page - LLM Agents Can Easily Tamper With Their Own Traces](https://huggingface.co/papers/2609.30266) — These analyses assume that LLM agents cannot tamper with their own execution traces.
+- [LLM Agents Can Easily Tamper With Their Own Traces](https://www.alphaxiv.org/abs/2609.30266) — Across a broad set of LLM agents and coding harnesses, local execution traces are often not trustworthy when the agent controls the runtime that records them.

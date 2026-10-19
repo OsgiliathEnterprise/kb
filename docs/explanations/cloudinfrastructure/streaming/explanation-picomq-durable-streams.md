@@ -63,6 +63,26 @@ PicoMQ's "durable log on object storage" design is part of a broader 2024–2026
 
 The cost trade-off is explicit: object-storage round-trip latency replaces local-disk append speed, and SQL-based coordination replaces a consensus protocol — fine for control-plane metadata at stream-creation scale, but not a substitute for partition-level replication semantics if you need Kafka-style exactly-once producer guarantees across many brokers.
 
+## Ecosystem and current state (Oct 2026)
+
+PicoMQ was open-sourced (Rust, single binary) by Toronto engineer Adesh Nalpet
+Adimurthy; the launch drew a Show HN thread (147 points, 28 comments). The
+GitHub org hosts three public repos: `picomq` (the server) and `tierdb` — a
+Java project for data tiering between Postgres and Apache Iceberg — plus a
+third repo.
+
+The "durable streams on object storage" niche now has several players, which
+validates the design bet:
+
+- **S2** (s2.dev) — reached general availability for its hosted durable
+  streams offering (and announced a seed round) — a managed PicoMQ-style
+  service.
+- **Electric** (electric-sql) — announced *Hosted Durable Streams*
+  (Jan 2026) for its sync engine.
+- **WarpStream** — Kafka-compatible log on object storage (S3 as the
+  durability layer) — the closest big-brother to PicoMQ.
+- **AutoMQ** — S3Stream shared streaming storage (already covered above).
+
 ## Good fits
 
 Anything modeled as many ordered, resumable streams: a stream per user session
@@ -74,8 +94,17 @@ real-time delivery to many concurrent readers.
 
 - [PicoMQ docs](https://picomq.com/docs)
 - [PicoMQ GitHub](https://github.com/picomq/picomq)
+- [RuntimeWire: Adesh Nalpet Adimurthy open-sources PicoMQ for durable HTTP streams (Aug 2026)](https://runtimewire.com/article/adesh-nalpet-adimurthy-picomq-durable-http-streams-object-storage)
+- [Electric: Announcing Hosted Durable Streams (Jan 2026)](https://github.com/electric-sql/electric/blob/main/website/blog/posts/2026-01-22-announcing-hosted-durable-streams.md)
+- [S2: General availability and our seed round](https://s2.dev/blog/ga)
 
 ## Related
 - [[explanation-bpf-architecture-overview]]
 - [[explanation-deepseek-vision-lineage]]
 - [[explanation-agent-guardrail-stack]]
+
+## Further Reading (added 2026-10-19 by KB Zookeeper audit)
+
+- [PicoMQ – Durable Streams over HTTP, on object storage…](https://nowfound.app/alternatives/picomq-durable-streams-over-http-on-object-storage) — PicoMQ – Durable Streams over HTTP, on object storage: PicoMQ is a Rust server for Durable Streams, built on Object Store. Cheap, URL-addressable
+- [PicoMQ - Durable streams over HTTP on object storage | Zeli](https://zeli.app/story/49421806) — "Show HN: PicoMQ – Durable Streams over HTTP, on object storage" — 147 points, 28 comments on Hacker News. PicoMQ is a durable, real-time streaming solution
+- [Show HN: PicoMQ – Durable Streams over HTTP, on object storage | Remix Hacker News](https://news.mcan.sh/item/49421806) — Hacker Remix new past ask show jobs submit 159 points by adesh_nalpet 2 months ago | 31 comments PicoMQ is a Rust server for Durable Streams 

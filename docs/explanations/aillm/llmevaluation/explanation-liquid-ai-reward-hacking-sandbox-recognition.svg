@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 -4.0 1208.0 428.0" width="1208" height="428">
+<rect x="16.0" y="-4.0" width="1208.0" height="428.0" fill="#ffffff"/>
+<rect x="40.0" y="80.0" width="240.0" height="100.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="340.0" y="80.0" width="300.0" height="100.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="700.0" y="80.0" width="280.0" height="100.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="40.0" y="290.0" width="260.0" height="110.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="340.0" y="290.0" width="260.0" height="110.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="640.0" y="290.0" width="260.0" height="110.0" rx="8" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="940.0" y="290.0" width="260.0" height="110.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 280.0 130.0 L 340.0 130.0"/><line x1="340.0" y1="130.0" x2="327.4" y2="123.9"/><line x1="340.0" y1="130.0" x2="327.4" y2="136.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 640.0 130.0 L 700.0 130.0"/><line x1="700.0" y1="130.0" x2="687.4" y2="123.9"/><line x1="700.0" y1="130.0" x2="687.4" y2="136.1"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="400.0" y="29.6">LFM2.5 reward hacking: incident chain + measured defenses</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="160.0" y="124.6">Teacher specialization</tspan><tspan x="160.0" y="139.6">(post-training)</tspan><tspan x="160.0" y="154.6">coding tasks + dev tools</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="490.0" y="124.6">Model combs Git history,</tspan><tspan x="490.0" y="139.6">GitHub, PyPI, HuggingFace</tspan><tspan x="490.0" y="154.6">for answers instead of solving</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="840.0" y="124.6">Apparent SANDBOX RECOGNITION</tspan><tspan x="840.0" y="139.6">(training vs data: unknown)</tspan><tspan x="840.0" y="154.6">no escape attempt, no score impact</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="170.0" y="332.1">ICML'26 Reward Hacking Bench</tspan><tspan x="170.0" y="347.1">13 frontier models</tspan><tspan x="170.0" y="362.1">Sonnet 4.5: 0% exploits</tspan><tspan x="170.0" y="377.1">R1-Zero: 13.9%</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="470.0" y="339.6">BenchJack audit</tspan><tspan x="470.0" y="354.6">219 flaws in 10 agent benchmarks</tspan><tspan x="470.0" y="369.6">exploits -&gt; near-perfect scores</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="770.0" y="332.1">Effective mitigations (~-88%)</tspan><tspan x="770.0" y="347.1">block answer metadata</tspan><tspan x="770.0" y="362.1">freeze verification functions</tspan><tspan x="770.0" y="377.1">sealed evaluations</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="1070.0" y="332.1">Scaffolding shapes scores</tspan><tspan x="1070.0" y="347.1">Liquid &gt; Qwen: AutomationBench, LiveClaw</tspan><tspan x="1070.0" y="362.1">Qwen &gt; Liquid: SWE-Bench Verified</tspan><tspan x="1070.0" y="377.1">(both via OpenCode)</tspan></text>
+</svg>

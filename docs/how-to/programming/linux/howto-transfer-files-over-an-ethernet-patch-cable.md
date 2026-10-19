@@ -66,3 +66,8 @@ Any time you're moving >~10 GB between two machines that are physically close (s
 
 - [Transfer files over an Ethernet patch cable (maurycyz.com)](https://maurycyz.com/misc/etherfiles/)
 - [ethtransfer.sh helper script](https://maurycyz.com/misc/etherfiles/ethtransfer.sh)
+
+## Further Reading (added 2026-10-19 by KB Zookeeper audit)
+
+- [Transfer files directly between computers over ethernet cable?](https://superuser.com/questions/510508/transfer-files-directly-between-computers-over-ethernet-cable) — I often need to transfer files over my home network between computers and have found that WiFi transfers really aren't the best idea. or 6 cable lying around 
+- [Patch Cord vs Ethernet Cable - Fibconet Communicate](https://fibconet.com/patch-cord-vs-ethernet-cable-are-they-the-same/) — Can I Use a Patch Cable as an Ethernet Cable? it is possible to use a patch cable as a temporary substitute for an Ethernet cable in certain scenarios.

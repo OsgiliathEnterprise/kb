@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-4.0 -14.0 958.0 296.0" width="958" height="296">
+<rect x="-4.0" y="-14.0" width="958.0" height="296.0" fill="#ffffff"/>
+<rect x="20.0" y="60.0" width="170.0" height="52.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="205.0" y="60.0" width="170.0" height="52.0" rx="8" fill="#c3fae8" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="390.0" y="60.0" width="170.0" height="52.0" rx="8" fill="#c3fae8" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="575.0" y="60.0" width="170.0" height="52.0" rx="8" fill="#ffec99" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="760.0" y="60.0" width="170.0" height="52.0" rx="8" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="20.0" y="140.0" width="350.0" height="48.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="390.0" y="140.0" width="480.0" height="48.0" rx="8" fill="#e9ecef" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="20.0" y="210.0" width="350.0" height="48.0" rx="8" fill="#e9ecef" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="390.0" y="210.0" width="480.0" height="48.0" rx="8" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 190.0 86.0 L 205.0 86.0"/><line x1="205.0" y1="86.0" x2="197.8" y2="82.5"/><line x1="205.0" y1="86.0" x2="197.8" y2="89.5"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 375.0 86.0 L 390.0 86.0"/><line x1="390.0" y1="86.0" x2="382.8" y2="82.5"/><line x1="390.0" y1="86.0" x2="382.8" y2="89.5"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 560.0 86.0 L 575.0 86.0"/><line x1="575.0" y1="86.0" x2="567.8" y2="82.5"/><line x1="575.0" y1="86.0" x2="567.8" y2="89.5"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 745.0 86.0 L 760.0 86.0"/><line x1="760.0" y1="86.0" x2="752.8" y2="82.5"/><line x1="760.0" y1="86.0" x2="752.8" y2="89.5"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="140.0" y="22.8">GhostCode: price your dead code from the AST (tree-sitter + NetworkX + auto-PR)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="11" fill="#1e1e1e" text-anchor="middle"><tspan x="105.0" y="94.8">Source: Python / JS / TS</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="11" fill="#1e1e1e" text-anchor="middle"><tspan x="290.0" y="94.8">1. tree-sitter AST (no regex)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="11" fill="#1e1e1e" text-anchor="middle"><tspan x="475.0" y="94.8">2. NetworkX graph</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="11" fill="#1e1e1e" text-anchor="middle"><tspan x="660.0" y="94.8">3. scorers</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="11" fill="#1e1e1e" text-anchor="middle"><tspan x="845.0" y="94.8">4. dashboard + auto-PR</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="11" fill="#1e1e1e" text-anchor="middle"><tspan x="195.0" y="172.8">ghost node = zero incoming edges (falsifiable: show one caller)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="11" fill="#1e1e1e" text-anchor="middle"><tspan x="630.0" y="172.8">dead-confidence + debt (circular imports, hotspots) + cost (dead LOC x $0.50 x cyclomatic complexity)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="11" fill="#1e1e1e" text-anchor="middle"><tspan x="195.0" y="242.8">FastAPI + Next.js dashboard (Docker/Render); PyGithub opens deletion PRs</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="11" fill="#1e1e1e" text-anchor="middle"><tspan x="630.0" y="242.8">dogfood: 35 files/2,317 LOC -&gt; 10 ghost files, 21 ghost symbols, 3 circular chains, $775.49/yr; deletion PR kept 91/91 tests green; runs in CI</tspan></text>
+</svg>

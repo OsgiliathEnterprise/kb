@@ -103,3 +103,9 @@ See [tanstack-mini-shai-hulud-attack-chain.excalidraw](tanstack-mini-shai-hulud-
 - [StepSecurity: Mini Shai-Hulud is back — a self-spreading supply-chain attack hits the npm ecosystem](https://www.stepsecurity.io/blog/mini-shai-hulud-is-back-a-self-spreading-supply-chain-attack-hits-the-npm-ecosystem)
 - [neilcochran/squawk incident report (discussion #251)](https://github.com/neilcochran/squawk/discussions/251)
 - [Hacker News discussion](https://news.ycombinator.com/item?id=48100706)
+
+## Further Reading (added 2026-10-19 by KB Zookeeper audit)
+
+- [Mini Shai-Hulud Is Back: npm Worm Hits over 160 Packages, including Mistral and Tanstack](https://www.aikido.dev/blog/mini-shai-hulud-is-back-tanstack-compromised) — Mini Shai-Hulud is back, compromising 169 npm packages across TanStack, UiPath, Squawk, and more to steal developer and CI/CD secrets, then spread through…
+- [Mini Shai-Hulud Worm Compromises TanStack, Mistral AI, Guardrails AI & More Packages](https://thehackernews.com/2026/05/mini-shai-hulud-worm-compromises.html) — TeamPCP’s Mini Shai-Hulud campaign used hijacked GitHub OIDC tokens to spread a credential-stealing worm through TanStack npm packages.
+- [TanStack npm supply-chain attack: Mini Shai-Hulud worm hit 42 packages](https://chiprook.com/s/14119-tanstack-npm-supply-chain-attack-mini-shai-hulud-worm-hit-42-packages) — On May 11, 2026, the Mini Shai-Hulud worm published 84 malicious versions of 42 @tanstack/* packages with valid SLSA provenance after reading an OIDC token…

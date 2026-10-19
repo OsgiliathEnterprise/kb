@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="6.0 -14.0 1028.0 386.0" width="1028" height="386">
+<rect x="6.0" y="-14.0" width="1028.0" height="386.0" fill="#ffffff"/>
+<rect x="30.0" y="60.0" width="180.0" height="50.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="230.0" y="60.0" width="180.0" height="50.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="430.0" y="60.0" width="180.0" height="50.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="630.0" y="60.0" width="180.0" height="50.0" rx="8" fill="#c3fae8" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="830.0" y="60.0" width="180.0" height="50.0" rx="8" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="30.0" y="140.0" width="180.0" height="48.0" rx="8" fill="#e9ecef" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="240.0" y="140.0" width="250.0" height="48.0" rx="8" fill="#ffec99" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="30.0" y="220.0" width="460.0" height="56.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="520.0" y="220.0" width="400.0" height="56.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="30.0" y="300.0" width="890.0" height="48.0" rx="8" fill="#e9ecef" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 210.0 85.0 L 230.0 85.0"/><line x1="230.0" y1="85.0" x2="222.8" y2="81.5"/><line x1="230.0" y1="85.0" x2="222.8" y2="88.5"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 410.0 85.0 L 430.0 85.0"/><line x1="430.0" y1="85.0" x2="422.8" y2="81.5"/><line x1="430.0" y1="85.0" x2="422.8" y2="88.5"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 610.0 85.0 L 630.0 85.0"/><line x1="630.0" y1="85.0" x2="622.8" y2="81.5"/><line x1="630.0" y1="85.0" x2="622.8" y2="88.5"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 810.0 85.0 L 830.0 85.0"/><line x1="830.0" y1="85.0" x2="822.8" y2="81.5"/><line x1="830.0" y1="85.0" x2="822.8" y2="88.5"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="60.0" y="22.8">panda3ds-wasm: guest ARM to browser machine code + measured bottlenecks</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="120.0" y="96.2">Guest ARM</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="320.0" y="96.2">Dynarmic IR</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="520.0" y="96.2">WASM backend</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="720.0" y="96.2">browser engine JIT</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="920.0" y="96.2">machine code</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="120.0" y="175.2">PICA graphics -&gt; WebGL2</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="365.0" y="173.6">iPhone: WKWebView, no JIT entitlement (WebKit compiles WASM)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="260.0" y="257.6">Bottleneck 1: glBufferSubData ~30-40us/call x 500+/frame -&gt; buffer orphaning (glBufferData): 15-22 -&gt; 60 fps (hidden in headless Chrome)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="720.0" y="257.6">Bottleneck 2: one WASM instance per guest block -&gt; JSCE executable-memory crash; pack 256 blocks/instance + shared helper table: 19 -&gt; 44 Hz (Safari/Mac)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="475.0" y="333.6">Open: heavy iPhone scene 16-22 Hz; removing all draw calls -&gt; 59-63 Hz; 1-frame replay (8,711 WebGL calls, 345 draws) at ~59 Hz misses cross-frame texture/render-target dependencies</tspan></text>
+</svg>

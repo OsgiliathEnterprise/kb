@@ -132,3 +132,9 @@ After the change, the observable behavior is: interrupt a long download (network
 - [How to resume interrupted download? (.part file is available) — Mozilla Support](https://support.mozilla.org/en-US/questions/1220917) — official `.part` backup procedure
 - [How can I resume an interrupted Firefox download? — Super User](https://superuser.com/questions/1103143/how-can-i-resume-an-interrupted-firefox-download) — the two-file (`.part` vs final name) mechanics
 - [Restart Interrupted Downloads — Firefox add-on](https://addons.mozilla.org/en-US/firefox/addon/restart-interrupted-downloads/) — automatic resumption alternative
+
+## Further Reading (added 2026-10-19 by KB Zookeeper audit)
+
+- [Making big downloads resumable in Firefox](https://www.headlinne.com/articles/making-big-downloads-resumable-in-firefox-hacker-news) — Setting network.http.response.timeout to 0 (or something very big) in about:config seems to make big downloads both resumable and at least a little more stable.
+- [Making Big Downloads Resumable In Firefox - QAtrial](https://qatrial.com/developer-open-source/making-big-downloads-resumable-in-firefox/) — “Setting network.http.response.timeout to 0 (or something very big) in about:config seems to make big downloads both resumable and at least a little more…
+- [Making big downloads resumable in Firefox | Remix Hacker News](https://news.mcan.sh/item/50061791) — userbinator 7 hours ago Resumable downloads in firefox generally appear to be fairly unstable though. My network.http.response.timeout is the default of 300.

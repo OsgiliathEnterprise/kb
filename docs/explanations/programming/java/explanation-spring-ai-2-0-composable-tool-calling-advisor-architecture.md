@@ -189,3 +189,9 @@ The 2.0 design is deliberately incremental: start with a single `@Tool` annotati
 - [Recursive Advisors — Spring AI Reference](https://docs.spring.io/spring-ai/reference/api/advisors-recursive.html)
 - [Advisors API — Spring AI Reference](https://docs.spring.io/spring-ai/reference/api/advisors.html)
 - [Spring-AI-Session community project](https://spring-ai-community.github.io/spring-ai-session/latest/)
+
+## Further Reading (added 2026-10-19 by KB Zookeeper audit)
+
+- [Tool Calling in Spring AI 2.0: A Composable, Agentic Architecture](https://thenote.app/post/en/tool-calling-in-spring-ai-2-0-a-composable-agentic-architecture-yri1czp9eu) — Spring AI 2.0 revamps tool calling, making it a core, composable feature within advisor chains. Agents now leverage this capability to discover information and
+- [Spring Ecosystem Update: Spring AI 2.0 GA and Composable Tool Calling, 2026-06-29 | JavaRubberDuck](https://javarubberduck.com/java/news-2026-06-29-spring/) — Read more Spring.io Composable Tool Calling in Spring AI 2.0: the Spring team published a detailed walkthrough of the new tool-calling architecture that is…
+- [Spring AI, RAG, Embeddings, Advisors and Tool Calling](https://medium.com/@shalinshikhar18/spring-ai-rag-embeddings-advisors-and-tool-calling-617b6977f674) — Spring AI, Advisors and Tool Calling Introduction Spring AI is a Spring ecosystem project that provides abstractions for integrating AI models into Java…

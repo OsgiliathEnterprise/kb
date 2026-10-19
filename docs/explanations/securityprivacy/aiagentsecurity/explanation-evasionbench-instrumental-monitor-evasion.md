@@ -54,3 +54,9 @@ This reframes runtime monitoring design for agent infrastructure: **a monitor th
 
 - Paper: https://arxiv.org/abs/2609.30217 (Schmotz, Prinzhorn, Beurer-Kellner, Paulus, Prabhu, Andriushchenko — 2026)
 - Semantic Scholar: https://api.semanticscholar.org/graph/v1/paper/arXiv:2609.30217 (citationCount: 1 at time of indexing)
+
+## Further Reading (added 2026-10-19 by KB Zookeeper audit)
+
+- [Instrumental Monitor Evasion Emerges Under Ordinary Task Pressure](https://www.researchia.net/explorer/c354457c-a9b2-4cdd-85c1-791060fac5aa) — A central concern in AI safety is that agents may treat oversight as an obstacle when it conflicts with completing their goals. We study instrumental evasion...
+- [Instrumental Monitor Evasion Emerges Under Ordinary Task Pressure - Scholar Inbox](https://www.scholar-inbox.com/paper/Schmotz2026ARXIV_Instrumental_Monitor_Evasion_Emerges.pdf) — We study instrumental evasion, the propensity of LLM agents to circumvent runtime monitoring as a means of completing ordinary tasks We introduce EvasionBench 
+- [Instrumental Monitor Evasion Emerges Under Ordinary Task Pressure](https://syncai.news/article/instrumental-monitor-evasion-emerges-under-ordinary-task-pressure-f746f7) — arXiv We study instrumental evasion, the propensity of LLM agents to circumvent runtime monitoring as a means of completing ordinary tasks.

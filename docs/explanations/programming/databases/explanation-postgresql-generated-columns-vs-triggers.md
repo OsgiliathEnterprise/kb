@@ -93,3 +93,9 @@ See [postgresql-generated-columns-vs-triggers.excalidraw](postgresql-generated-c
 - [PostgreSQL Generated Column vs Trigger: Which to Use for a Derived Column (DEV.to)](https://dev.to/tbson87/postgresql-generated-column-vs-trigger-which-to-use-for-a-derived-column-518p)
 - [PostgreSQL 18 Release Notes — virtual generated columns](https://www.postgresql.org/docs/release/18.0/)
 - [PostgreSQL Documentation: Generated Columns](https://www.postgresql.org/docs/current/ddl-generated-columns.html)
+
+## Further Reading (added 2026-10-19 by KB Zookeeper audit)
+
+- [Generated columns vs triggers in PostgreSQL: what to use | AppMaster](https://appmaster.io/blog/postgres-generated-columns-vs-triggers) — Generated columns vs triggers in PostgreSQL: choose the right approach for totals, statuses, and normalized values with clear speed and debugging tradeoffs.
+- [PostgreSQL Generated Column vs Trigger: Which to Use for a Derived Column - Schemity](https://schemity.com/blog/postgres-generated-column-vs-trigger/) — Generated column or trigger for a derived value in Postgres? What each costs on 1M rows, and how Schemity shows which columns are computed.
+- [Postgres Generated Columns: Stored vs Virtual (New in PostgreSQL 18)](https://easyspawn.com/blog/postgres-generated-columns) — How GENERATED ALWAYS AS works, the difference between STORED and the VIRTUAL columns added in PostgreSQL 18, indexing, the rules on expressions 

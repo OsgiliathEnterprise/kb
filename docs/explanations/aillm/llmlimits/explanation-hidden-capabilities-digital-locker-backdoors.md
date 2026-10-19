@@ -170,3 +170,8 @@ The models are **released to support defense research** — the authors treat th
 - [Paper detail page (DeepLearn mirror)](https://deeplearn.org/arxiv/844608/ai-models-can-provably-hide-arbitrary-capabilities)
 - [Paper discussion (The Journal Club)](https://www.thejournal.club/c/paper/1020019/)
 - [Removing the NEEDLE in the Haystack: Backdoor Removal in LLMs via Weight Orthogonalisation — arXiv:2610.00348 (complementary defense)](https://arxiv.org/abs/2610.00348) — training-free backdoor removal via sequential weight orthogonalisation once a trigger is known; lowest mean Attack Success Rate among evaluated defenses (0% on code-injection attacks) with minimal capability/safety shift
+
+## Further Reading (added 2026-10-19 by KB Zookeeper audit)
+
+- [AI Models Can Provably Hide Arbitrary Capabilities / 模型能够可证明地隐藏任意能力：数字保险箱击穿黑盒红队审计 | Alan Hou](https://alanhou.org/blog/arxiv-ai-models-can-provably-hide-arbitrary/) — This paper disproves that assumption: using cryptographic digital lockers, arbitrary neural sub-networks can be embedded within host weights 
+- [AI Models Can Provably Hide Arbitrary Capabilities - Scholar Inbox](https://www.scholar-inbox.com/paper/Draguns2026ARXIV_AI_Models_Can_Provably.pdf) — Using digital lockers, these hidden circuits remain provably hard to elicit and interpret under cryptographic assumptions, even given full access to model…

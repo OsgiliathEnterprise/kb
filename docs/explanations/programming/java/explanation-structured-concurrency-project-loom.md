@@ -74,3 +74,9 @@ Ron Pressler's companion keynote ("Java — The Year of the Runtime!") frames st
 - [Java — The Year of the Runtime! (Ron Pressler, Devoxx Belgium 2026)](https://inside.java/2026/10/11/devoxxbelgium-runtime-year-keynote/)
 - [OpenJDK JEP 533: Structured Concurrency](https://openjdk.org/jeps/533)
 - [JEP 533 Tightens Exception Handling in Java's Structured Concurrency for JDK 27 (InfoQ)](https://www.infoq.com/news/2026/05/jep-533-jdk-27/)
+
+## Further Reading (added 2026-10-19 by KB Zookeeper audit)
+
+- [Project Loom: Structured Concurrency in Java](https://rockthejvm.com/articles/structured-concurrency-in-java) — In this article, we will explore the concept of structured concurrency and how Project Loom simplifies writing concurrent code in Java
+- [Project Loom: Structured Concurrency - Java](https://foojay.io/today/project-loom-structured-concurrency-java/) — The structured concurrency feature was first introduced as an incubator in JEP-428 with the release of Java 19, and as an another preview in JEP-480 part of…
+- [Virtual Threads in Java (Project Loom): A New Era of Concurrency Post-Java 21. Java Interview](https://medium.com/@alxkm/virtual-threads-in-java-project-loom-a-new-era-of-concurrency-post-java-21-c371844d37a4) — Structured Concurrency (Preview) structured concurrency , available as a preview in Java 21. It treats a group of related tasks as a single unit of work.

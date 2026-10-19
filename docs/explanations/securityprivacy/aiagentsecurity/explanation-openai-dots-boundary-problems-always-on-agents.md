@@ -54,3 +54,9 @@ See [openai-dots-control-layers.excalidraw](openai-dots-control-layers.svg) for 
 - [GPT-6 Astra system card — maintaining boundaries across chained tasks](https://deploymentsafety.openai.com/gpt-6-astra/maintaining-boundaries-across-chained-tasks)
 - [OpenAI just launched Dots. Here's why they matter for developers (TheNewStack)](https://thenewstack.io/openai-dots-gpt6-agents/)
 - [Forecasting misaligned behavior with deployment simulation of internal Codex traffic](https://deploymentsafety.openai.com/gpt-6-astra/forecasting-misaligned-behavior-with-deployment-simulation-of-internal-codex-traffic)
+
+## Further Reading (added 2026-10-19 by KB Zookeeper audit)
+
+- [OpenAI Dots are always-on agents. Their most important launch feature is the control boundary](https://opentools.ai/news/openai-dots-always-on-agents-launch-availability-limits) — OpenAI Dots launch for Pro and Business Premium with persistent agents, 4,000+ app connections, approval rules and read-only background research.
+- [OpenAI’s Always-On Dots Agents Plug Into HubSpot and Canva](https://www.thekeyword.co/news/openai-dots-marketing) — OpenAI is putting always-on agents inside ChatGPT that can take on marketing work in the apps a team already uses. OpenAI calls them dots 
+- [OpenAI launches Dots, new 'always-on agents' you can assign tasks to](https://9to5google.com/2026/09/29/openai-dots-agent/) — Right as Meta’s Muse avatar agent has taken the AI world by storm, OpenAI is today announcing Dots as “always-on agents” you can customize to your needs.

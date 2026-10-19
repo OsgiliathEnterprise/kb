@@ -79,3 +79,8 @@ Note: during renewal of the UEFI CA 2011 certificate, Microsoft split it into tw
 - [Windows Secure Boot certificates start expiring June 24 — NotebookCheck](https://www.notebookcheck.net/Windows-Secure-Boot-certificates-start-expiring-June-24.1304838.0.html)
 - [Windows Secure Boot certificate expiration and CA updates (KB5062710) — Microsoft Support](https://support.microsoft.com/en-us/topic/windows-secure-boot-certificate-expiration-and-ca-updates-7ff40d33-95dc-4c3c-8725-a9b95457578e)
 - [Expiration of Secure Boot signing certificates in 2026 — Red Hat](https://www.redhat.com/en/blog/expiration-secure-boot-signing-certificates-2026)
+
+## Further Reading (added 2026-10-19 by KB Zookeeper audit)
+
+- [Secure Boot Linux 2026: Microsoft's Certificate Expires June 27](https://linuxlap.com/news/secure-boot-linux-2026/) — Secure Boot Linux 2026 — Microsoft's signing certificate expires June 27. Your system won't stop booting, but future updates could break it.
+- [Secure Boot Certificate Expiration 2026: Update to Windows UEFI CA 2023](https://windowsforum.com/threads/secure-boot-certificate-expiration-2026-update-to-windows-uefi-ca-2023.404140/) — Deployment options and recommended playbook​ Presence of Windows UEFI CA 2023 Check the firmware vendor and current UEFI/BIOS version.
