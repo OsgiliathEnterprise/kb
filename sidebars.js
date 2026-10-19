@@ -282,6 +282,12 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Llmevaluation',
+          link: {type: 'generated-index', title: 'Llmevaluation', slug: 'explanations/aillm/llmevaluation'},
+          items: ['explanations/aillm/llmevaluation/explanation-liquid-ai-reward-hacking-sandbox-recognition'],
+        },
+        {
+          type: 'category',
           label: 'Llminfrastructure',
           link: {type: 'generated-index', title: 'Llminfrastructure', slug: 'explanations/aillm/llminfrastructure'},
           items: ['explanations/aillm/llminfrastructure/explanation-deepseek-search-fetch-api', 'explanations/aillm/llminfrastructure/explanation-fairinference-token-latency-fairness-llm-serving', 'explanations/aillm/llminfrastructure/explanation-fine-tuning-memory-accounting-lora-qlora', 'explanations/aillm/llminfrastructure/explanation-janas-moe-ssd-streaming-llm-inference', 'explanations/aillm/llminfrastructure/explanation-llm-inference-parallelism-compute-communication-tradeoffs', 'explanations/aillm/llminfrastructure/explanation-openai-jalapeno-chip-first-benchmarks', 'explanations/aillm/llminfrastructure/explanation-prefixbench-h100-prefix-reuse-ttft', 'explanations/aillm/llminfrastructure/explanation-qwen3-embedding-cloud-tpu-vllm'],
@@ -362,7 +368,7 @@ const sidebars = {
           type: 'category',
           label: 'Kubernetes',
           link: {type: 'generated-index', title: 'Kubernetes', slug: 'explanations/cloudinfrastructure/kubernetes'},
-          items: ['explanations/cloudinfrastructure/kubernetes/explanation-k8s-device-management-dra', 'explanations/cloudinfrastructure/kubernetes/explanation-k8s-v1-37-pod-certificates-cluster-trust-bundles', 'explanations/cloudinfrastructure/kubernetes/explanation-k8s-v1-37-pvc-last-used-time', 'explanations/cloudinfrastructure/kubernetes/explanation-securing-kubernetes-ai-agent-workloads'],
+          items: ['explanations/cloudinfrastructure/kubernetes/explanation-k8s-control-plane-scale-failure-modes', 'explanations/cloudinfrastructure/kubernetes/explanation-k8s-device-management-dra', 'explanations/cloudinfrastructure/kubernetes/explanation-k8s-v1-37-pod-certificates-cluster-trust-bundles', 'explanations/cloudinfrastructure/kubernetes/explanation-k8s-v1-37-pvc-last-used-time', 'explanations/cloudinfrastructure/kubernetes/explanation-securing-kubernetes-ai-agent-workloads'],
         },
         {
           type: 'category',
@@ -476,7 +482,7 @@ const sidebars = {
           type: 'category',
           label: 'Java',
           link: {type: 'generated-index', title: 'Java', slug: 'explanations/programming/java'},
-          items: ['explanations/programming/java/explanation-better-tools-immutable-data-java', 'explanations/programming/java/explanation-jdk-26-performance-improvements', 'explanations/programming/java/explanation-jdk-28-pooled-confined-arena', 'explanations/programming/java/explanation-jep-540-simple-json-api-incubator', 'explanations/programming/java/explanation-netflix-ja-module-system-toolchain', 'explanations/programming/java/explanation-specjbb-workload-generator-same-jvm-limitations', 'explanations/programming/java/explanation-spring-ai-2-0-composable-tool-calling-advisor-architecture', 'explanations/programming/java/explanation-structured-concurrency-project-loom', 'explanations/programming/java/explanation-zgc-decade-of-low-latency-gc', 'explanations/programming/java/explanation-zgc-weak-reference-processing'],
+          items: ['explanations/programming/java/explanation-better-tools-immutable-data-java', 'explanations/programming/java/explanation-java-sealed-classes-exhaustive-pattern-matching', 'explanations/programming/java/explanation-jdk-26-performance-improvements', 'explanations/programming/java/explanation-jdk-28-pooled-confined-arena', 'explanations/programming/java/explanation-jep-540-simple-json-api-incubator', 'explanations/programming/java/explanation-netflix-ja-module-system-toolchain', 'explanations/programming/java/explanation-specjbb-workload-generator-same-jvm-limitations', 'explanations/programming/java/explanation-spring-ai-2-0-composable-tool-calling-advisor-architecture', 'explanations/programming/java/explanation-structured-concurrency-project-loom', 'explanations/programming/java/explanation-zgc-decade-of-low-latency-gc', 'explanations/programming/java/explanation-zgc-weak-reference-processing'],
         },
         {
           type: 'category',

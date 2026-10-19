@@ -246,3 +246,8 @@ it stays non-UB. See the [ManuallyDrop docs](https://doc.rust-lang.org/stable/st
 - [[explanation-react-rerender-vs-expensive-work]]
 - [[How-to-Benchmark-JAX-Backends-CPU-GPU-Eager-vs-JIT]]
 - [[How-to-Speed-Up-a-JAX-Training-Loop-with-JIT-Compilation]]
+
+## Further Reading (added 2026-10-19 by KB Zookeeper audit)
+
+- [Rust language adds algebraic floating-point methods](https://www.infoworld.com/article/4215422/rust-language-adds-algebraic-floating-point-methods.html) — Rust 1.98.0 also introduces buffered integer formatting. Rust 1.98.0 brings algebraic methods for addition 
+- [Rust 1.98 Adds Algebraic Floating-Point Methods Akin To "-ffast-math"](https://www.phoronix.com/news/Rust-1.98-Released) — Rust 1.98 released today and is headlined the debut of new algebraic floating-point methods.

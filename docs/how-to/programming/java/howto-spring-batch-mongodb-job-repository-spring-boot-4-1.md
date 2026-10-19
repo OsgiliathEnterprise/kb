@@ -133,3 +133,9 @@ The historical coupling between Spring Batch and a relational database was alway
 
 - [MongoDB-backed Spring Batch jobs and more in Spring Boot 4.1 (Spring Blog)](https://spring.io/blog/2026-06-21/spring-boot-41-and-spring-batch)
 - [Spring Batch :: Spring Boot reference documentation](https://docs.spring.io/spring-boot/4.1/reference/io/spring-batch.html)
+
+## Further Reading (added 2026-10-19 by KB Zookeeper audit)
+
+- [Building a Reactive Spring Boot Application with MongoDB, Batch Processing, and Testcontainers: A…](https://medium.com/@mbanaee61/building-a-reactive-spring-boot-application-with-mongodb-batch-processing-and-testcontainers-a-22ff13b42a86) — Building a Reactive Spring Boot Application with MongoDB, Batch Processing, A Comprehensive Guide Introduction: we’ll explore the development of a robust…
+- [How to run Spring Batch Jobs in certain order (Spring Boot)?](https://stackoverflow.com/questions/41364220/how-to-run-spring-batch-jobs-in-certain-order-spring-boot) — You can always use any ordered collection to put your jobs there and launch jobs by iterating over that collection.
+- [Spring Boot Integration With MongoDB Tutorial](https://www.mongodb.com/resources/products/compatibilities/spring-boot) — In this tutorial, we demonstrate Spring Boot integration with MongoDB, connect to Atlas cluster, and perform simple CRUD examples.

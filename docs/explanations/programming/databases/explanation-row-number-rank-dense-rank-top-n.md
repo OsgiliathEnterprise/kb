@@ -124,3 +124,9 @@ That counts how many rows beat this one — exactly what `RANK()` computes, with
 
 - [ROW_NUMBER vs RANK vs DENSE_RANK: one of them silently duplicates your Top-N (DEV.to)](https://dev.to/sharefun2023/rownumber-vs-rank-vs-denserank-one-of-them-silently-duplicates-your-top-n-i6a)
 - [SQL window functions explained](https://sqlformat.io/blog/sql-window-functions-guide)
+
+## Further Reading (added 2026-10-19 by KB Zookeeper audit)
+
+- [Window Function- Dense_Rank and Row_Number difference](https://stackoverflow.com/questions/60085429/window-function-dense-rank-and-row-number-difference) — In your query, the difference between using row_number() is that the former allows top ties, while the latter does not. So if two (or more) records have the…
+- [Differences between row_number, rank, and dense_rank in PySpark window functions](https://medium.com/@deepakda1972/differences-between-row-number-rank-and-dense-rank-in-pyspark-window-functions-8bc8041c6a52) — Differences between row_number In PySpark, row_number, rank, and dense_rank are window functions used for ranking and ordering data within a window 
+- [What is the difference among Row_Number, Rank and Dense_Rank - Microsoft Q&A](https://learn.microsoft.com/en-us/answers/questions/211223/what-is-the-difference-among-row-number-rank-and-d) — please discuss with a easy example which help me to understand when to use Rank function and when to use Dense_Rank function.

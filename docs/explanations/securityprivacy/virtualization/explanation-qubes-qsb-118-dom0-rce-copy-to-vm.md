@@ -78,3 +78,9 @@ The **VM-side** variant of `qvm-copy-to-vm` uses `execlp("/usr/bin/zenity", ...)
 
 - [QSB-118 announcement (qubes-os.org)](https://www.qubes-os.org/news/2026/08/29/qsb-118/)
 - [qsb-118-2026.txt source + PGP signatures](https://github.com/QubesOS/qubes-secpack/blob/f65082c8211a421ed15a59219d6e54e93289fafb/QSBs/qsb-118-2026.txt)
+
+## Further Reading (added 2026-10-19 by KB Zookeeper audit)
+
+- [[qubes-devel] QSB-118: Dom0 arbitrary code execution in qvm-copy-to-vm error reporting](https://www.mail-archive.com/qubes-devel@googlegroups.com/msg05988.html) — Dear Qubes Community, We have published [Qubes Security Bulletin (QSB) 118: Dom0 arbitrary code execution in qvm-copy-to-vm error reporting](
+- [Qubes OS on Mention: "QSB-118: Dom0 arbitrary code execution in qvm-copy-to-vm error…"](https://mention.earth/p/01a04e6e-a722-70cc-8f2f-d5164f6553b4) — QSB-118: Dom0 arbitrary code execution in qvm-copy-to-vm error reporting
+- [Arbitrary code execution in QubesOS via copy-to-VM error reporting backchannel](https://www.headlinne.com/articles/arbitrary-code-execution-in-qubesos-via-copy-to-vm-error-reporting-backchannel-hacker-news) — Perspective How this story is framed Read independently by five analysts We have published Qubes Security Bulletin (QSB) 118: Dom0 arbitrary code execution in…

@@ -104,3 +104,9 @@ Type mismatch on the calling side (passing `[]const u8` where `?User` is expecte
 - [Dusty HTTP framework (TODO example)](https://github.com/lalinsky/dusty/tree/main/examples/todo)
 - [Templ (Go)](https://templ.guide/)
 - [Ziex (Zig)](https://ziex.dev/)
+
+## Further Reading (added 2026-10-19 by KB Zookeeper audit)
+
+- [Zig gains a compile‑time type‑safe HTML templating library](https://bitroot.org/blog/2026-10-12-zig-gains-a-compiletime-typesafe-html-templating-l/) — Lukáš Lalinský introduced zt, a Zig library that transpiles HTML templates to Zig code at build time, giving compile‑time safety and zero‑allocation rendering.
+- [Type-safe HTML templating in Zig | Remix Hacker News](https://news.mcan.sh/item/50051573) — But one of Zig's main selling points is no hidden control flow and they want to keep it that way. christophilus 16 hours ago LLMs are decent at building LSPs…
+- [Type-safe HTML templating in Zig](https://www.headlinne.com/articles/type-safe-html-templating-in-zig-hacker-news) — AI Summary A developer shares their experience building a type-safe HTML templating library called 'zt' for the Zig programming language.

@@ -73,3 +73,9 @@ Directly relevant to GPU compute and ML-Ops coverage: this is one of the first s
 
 - Paper: https://arxiv.org/abs/2609.30059 (Poddar, Prasad, Samanta, Chakraborty, Goyal, Rathaur — 2026)
 - Semantic Scholar: https://api.semanticscholar.org/graph/v1/paper/arXiv:2609.30059
+
+## Further Reading (added 2026-10-19 by KB Zookeeper audit)
+
+- [KernelOPT: Dispatch-Aware Agentic Search for GPU Kernel Optimization](https://hgpu.org/?p=31275) — KernelOPT: Dispatch-Aware Agentic Search for GPU Kernel Optimization | Aheli Poddar, Sanskar Prasad, Arindam Samanta, Subha Chakraborty, Vishal Goyal 
+- [KernelOPT: Dispatch-Aware Agentic Search for GPU Kernel Optimization](https://syncai.news/article/kernelopt-dispatch-aware-agentic-search-for-gpu-kernel-optimization-34fb7a) — arXiv:2609.30059v1 Announce Type: cross Abstract: Deep learning inference and training performance depends critically on GPU kernel efficiency.
+- [KernelOPT: Dispatch-Aware Agentic Search for GPU Kernel Optimization](https://www.roboticscenter.ai/research/papers/kernelopt-dispatch-aware-agentic-search-for-gpu-kernel-optimization-2609) — Deep learning inference and training performance depends critically on GPU kernel efficiency. Modern compilers such as PyTorch Inductor automatically

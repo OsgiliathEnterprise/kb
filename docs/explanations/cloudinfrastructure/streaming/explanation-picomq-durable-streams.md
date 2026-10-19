@@ -102,3 +102,9 @@ real-time delivery to many concurrent readers.
 - [[explanation-bpf-architecture-overview]]
 - [[explanation-deepseek-vision-lineage]]
 - [[explanation-agent-guardrail-stack]]
+
+## Further Reading (added 2026-10-19 by KB Zookeeper audit)
+
+- [PicoMQ – Durable Streams over HTTP, on object storage…](https://nowfound.app/alternatives/picomq-durable-streams-over-http-on-object-storage) — PicoMQ – Durable Streams over HTTP, on object storage: PicoMQ is a Rust server for Durable Streams, built on Object Store. Cheap, URL-addressable
+- [PicoMQ - Durable streams over HTTP on object storage | Zeli](https://zeli.app/story/49421806) — "Show HN: PicoMQ – Durable Streams over HTTP, on object storage" — 147 points, 28 comments on Hacker News. PicoMQ is a durable, real-time streaming solution
+- [Show HN: PicoMQ – Durable Streams over HTTP, on object storage | Remix Hacker News](https://news.mcan.sh/item/49421806) — Hacker Remix new past ask show jobs submit 159 points by adesh_nalpet 2 months ago | 31 comments PicoMQ is a Rust server for Durable Streams 

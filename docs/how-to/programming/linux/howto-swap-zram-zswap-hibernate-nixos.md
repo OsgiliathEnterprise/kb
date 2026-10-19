@@ -390,3 +390,9 @@ boot.kernel.sysctl."vm.swappiness" = 100;
 - [disko luks-btrfs-subvolumes template](https://github.com/nix-community/disko/blob/master/example/luks-btrfs-subvolumes.nix)
 - [nixpkgs PR #470366 — boot.zswap option](https://github.com/NixOS/nixpkgs/pull/470366)
 - [Linux kernel docs: vm.swappiness](https://docs.kernel.org/admin-guide/sysctl/vm.html#swappiness)
+
+## Further Reading (added 2026-10-19 by KB Zookeeper audit)
+
+- [Swap, ZRAM, Zswap and Hibernate on NixOS | Devtalk](https://devtalk.com/t/swap-zram-zswap-and-hibernate-on-nixos/250037) — Swap, ZRAM, Zswap and Hibernate on NixOS If you want to use hibernate you need swap space and that complicates your choice around ZRAM and ZSWAP.
+- [Swap, ZRAM, Zswap and Hibernate on NixOS](https://forum.devtalk.com/t/swap-zram-zswap-and-hibernate-on-nixos/250037) — Swap, ZRAM, Zswap and Hibernate on NixOS If you want to use hibernate you need swap space and that complicates your choice around ZRAM and ZSWAP.
+- [Swap, ZRAM, Zswap and Hibernate on NixOS | alt Hacker News](https://althacker.news/item?id=49820136) — A bettter Hacker News reader

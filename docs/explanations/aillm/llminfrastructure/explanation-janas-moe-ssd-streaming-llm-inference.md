@@ -186,3 +186,8 @@ SSD-based expert streaming is becoming a viable alternative to GPU-only inferenc
 - [llama.cpp (ggml-org) — the compared baseline engine](https://github.com/ggml-org/llama.cpp)
 - [Janas streams MoE experts from SSD to run 80B models on a 32 GB laptop — deniz.in (independent write-up)](https://deniz.in/janas-streams-moe-experts-from-ssd-to-run-80b-models-on-a-32-gb-laptop) — hardware context (Debian 13, Core Ultra 9 185H + Arc iGPU, 32 GB DDR5, ~5.7 GB/s NVMe), per-model numbers, maturity caveats ("an experiment, not a product", O_DIRECT swap pressure, GPU driver-reset risk) and escape hatches (Ctrl-C, `--cache`, `JANAS_GPU=0`)
 - [Running MoE LLMs larger than RAM: a llama.cpp guide to expert offloading and SSD streaming — deniz.in](https://deniz.in/running-moe-llms-larger-than-ram-a-llama-cpp-guide-to-expert-offloading-and-ssd) — the baseline-side counterpart: making llama.cpp itself stream experts
+
+## Further Reading (added 2026-10-19 by KB Zookeeper audit)
+
+- [Janas: Run LLMs Larger Than RAM by Streaming Experts From SSD](https://heatpulse.cc/event/janas-run-llms-larger-than-ram-by-streaming-experts-from-ssd-544c99c9) — A project called Janas lets users run large language models that exceed available memory by reading expert weights directly from a solid-state drive on demand.
+- [Janas Tool Runs LLMs Larger Than RAM by Streaming Experts from SSD | PicX AI News](https://picx.dev/news/iApJxo) — Back to News Janas Tool Runs LLMs Larger Than RAM by Streaming Experts from SSD yesterday 214 points · a tool that enables running large language models (LLMs)…

@@ -53,3 +53,9 @@ This is the reference to point at when a team says "our coding agent passes all 
 
 - Paper: https://arxiv.org/abs/2610.14766
 - Semantic Scholar: https://api.semanticscholar.org/graph/v1/paper/arXiv:2610.14766 (citationCount: 0)
+
+## Further Reading (added 2026-10-19 by KB Zookeeper audit)
+
+- [Paper page - Last Secure Code Benchmark: Is the Code You Vibe Secure?](https://huggingface.co/papers/2610.14766) — We introduce the Last Secure Code Benchmark , a comprehensive evaluation of secure code generation by coding agents Built from 150 real vulnerabilities 
+- [Last Secure Code Benchmark: Is the Code You Vibe Secure?](https://last-secure-code-benchmark.github.io/) — Coding agents are good at making code run Last Secure Code Benchmark asks the harder question: is the code they write safe Each task hands the agent a…
+- [Last Secure Code Benchmark: Is the Code You Vibe Secure?](https://qubitsok.com/papers/2610.14766) — Last Secure Code Benchmark: Is the Code You Vibe Secure?. by Tianyi Wu, Chao Ge, Peng Chen et al.. Read summary and find related quantum jobs.

@@ -49,3 +49,9 @@ Practical takeaway: if you need *tenant-level* guarantees (multi-tenant SaaS), F
 - Semantic Scholar: https://api.semanticscholar.org/graph/v1/paper/arXiv:2609.18112
 - DuetServe (phase isolation via adaptive SM multiplexing): https://arxiv.org/abs/2511.04791
 - OrbitFlow (SLO-aware fine-grained KV cache reconfiguration, VLDB 2026): https://arxiv.org/abs/2601.10729
+
+## Further Reading (added 2026-10-19 by KB Zookeeper audit)
+
+- [Token Latency Fairness: Performance Isolation for Multi-Tenant LLM Serving](https://www.alphaxiv.org/abs/2609.18112) — FairInference reframes fairness in shared LLM serving as a per-token latency-isolation problem: each token generated for a well-behaved client should arrive no…
+- [Token Latency Fairness: Performance Isolation for Multi-Tenant LLM Serving - Scholar Inbox](https://www.scholar-inbox.com/paper/Bali2026ARXIV_Token_Latency_Fairness_Performance.pdf) — In this paper, which provides the novel δ-token fairness guarantee: providing strong latency isolation guarantees for LLM serving To achieve this 
+- [Token Latency Fairness: Performance Isolation for Multi-Tenant LLM Serving](https://www.roboticscenter.ai/research/papers/token-latency-fairness-performance-isolation-for-multi-tenant-llm-serving-2609) — In this paper, which provides the novel δ-token fairness guarantee: if a token is generated in d time units in isolation, providing strong latency isolation…

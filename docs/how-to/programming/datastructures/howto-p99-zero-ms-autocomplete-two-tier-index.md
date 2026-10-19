@@ -64,3 +64,8 @@ Both query length and domain count are bounded, so both structures are effective
 ## References
 
 - [p99 0 ms* autocomplete for 240M domain names (ruurtjan.com)](https://ruurtjan.com/articles/p99-0ms-autocomplete-for-240-million-domain-names)
+
+## Further Reading (added 2026-10-19 by KB Zookeeper audit)
+
+- [🤯 P99 0ms Autocomplete: How Tries Power 240M Domain Names Instantly, Explained!, Видео, Смотреть онлайн](https://salda.ws/video.php?id=U8loO-2F84c) — #Tries #Autocomplete #DataStructures #P99 #TechExplained #Edumation # Видео 🤯 P99 0ms Autocomplete: How Tries Power 240M Domain Names Instantly 
+- [P99 0 ms* autocomplete for 240M domain names | Hacker News](https://news.ycombinator.com/item?id=49505219) — That is not how any autocomplete works that I know of, vasco 4 hours ago What you said might be true and yet what OPs AI agent did wasn't measure latency of…

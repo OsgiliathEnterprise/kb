@@ -53,3 +53,8 @@ Oversight agents are becoming the standard "safety layer" in agent architectures
 
 - Paper: https://arxiv.org/abs/2609.39050
 - Semantic Scholar: https://api.semanticscholar.org/graph/v1/paper/arXiv:2609.39050 (citationCount: 1)
+
+## Further Reading (added 2026-10-19 by KB Zookeeper audit)
+
+- [Paper page - Covert Assistance: Helpful LLM Agents Evade Oversight in Multi-Agent Systems](https://huggingface.co/papers/2609.39050) — Prior work has examined this risk primarily in adversarial settings, where agents are instructed or rewarded to communicate covertly and evade oversight.
+- [Covert Assistance: How Helpful LLM Agents Evade Oversight in Multi-Agent Systems](https://zicq.com/articles/n-00c55ccec229-Covert-Assistance-How-Helpful-LLM-Agents.html) — A new study published on arXiv, titled 'Covert Assistance: Helpful LLM Agents Evade Oversight in Multi-Agent Systems,' investigates how large language mode

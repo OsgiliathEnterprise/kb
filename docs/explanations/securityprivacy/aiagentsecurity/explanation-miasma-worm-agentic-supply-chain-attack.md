@@ -83,3 +83,9 @@ The key architectural point is *where* the scrub happens: **on tool output, not 
 
 - [The Miasma Worm: How AI Coding Agents Became a Supply Chain Attack Surface (DEV.to)](https://dev.to/coridev/the-miasma-worm-how-ai-coding-agents-became-a-supply-chain-attack-surface-5af)
 - [Miasma Worm Hits Microsoft Again — Azure Functions Action and 72 Other Repositories Disabled (StepSecurity)](https://www.stepsecurity.io/blog/miasma-worm-hits-microsoft-again-azure-functions-action-and-72-other-repositories-disabled-after-supply-chain-attack-targeting-ai-coding-agents)
+
+## Further Reading (added 2026-10-19 by KB Zookeeper audit)
+
+- [Miasma Worm Supply Chain Attack: 73 Microsoft GitHub Repositories Compromised via AI Coding Tools](https://www.rescana.com/post/miasma-worm-supply-chain-attack-73-microsoft-github-repositories-compromised-via-ai-coding-tools) — The attacker used compromised credentials to bypass traditional security controls and planted configuration files that triggered code execution in AI coding…
+- [AI Coding Agents as Attack Surface: MCP, Poisoning, and Miasma](https://labs.cloudsecurityalliance.org/research/ai-coding-agent-attack-surface-mcp-repository-poisoning-v1-0/) — AI Coding Agents as Attack Surface: and Miasma Executive Summary The rapid adoption of AI coding agents has introduced a category of security risk the industry…
+- [Miasma Worm Source Code Leak Amplifies Supply Chain Attack R — Threat Campaign Analysis](https://techjacksolutions.com/scc-intel/miasma-worm-source-code-leak-amplifies-supply-chain-attack-risk-across-npm-pypi-ci-cd-and-ai-coding-tools/) — Threat actors published the source code for Miasma, a credential-stealing worm targeting software supply chains, across multiple compromised GitHub accounts.

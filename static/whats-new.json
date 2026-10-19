@@ -3,7 +3,7 @@
     "title": "Tanstack Mini Shai Hulud Npm Worm Supply Chain Attack",
     "type": "Explanation",
     "link": "/explanations/securityprivacy/supplychain/explanation-tanstack-mini-shai-hulud-npm-worm-supply-chain-attack",
-    "time": "6 min read"
+    "time": "7 min read"
   },
   {
     "title": "Cve 2025 13032 Avast Sandbox Double Fetch Lpe",
@@ -27,12 +27,12 @@
     "title": "Cisco Ise Cve 2026 76423 Rest Api Auth Bypass",
     "type": "Explanation",
     "link": "/explanations/securityprivacy/websecurity/explanation-cisco-ise-cve-2026-76423-rest-api-auth-bypass",
-    "time": "4 min read"
+    "time": "5 min read"
   },
   {
     "title": "Kestra Cve 2026 49869 Suffix Match Auth Bypass",
     "type": "Explanation",
     "link": "/explanations/securityprivacy/websecurity/explanation-kestra-cve-2026-49869-suffix-match-auth-bypass",
-    "time": "4 min read"
+    "time": "5 min read"
   }
 ]

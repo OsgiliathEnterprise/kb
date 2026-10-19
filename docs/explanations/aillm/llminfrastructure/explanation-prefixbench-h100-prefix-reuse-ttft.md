@@ -53,3 +53,9 @@ This is lookup material for anyone tuning LLM serving latency on H100-class hard
 ## References
 - Paper: https://arxiv.org/abs/2609.19657
 - Semantic Scholar: https://api.semanticscholar.org/graph/v1/paper/arXiv:2609.19657
+
+## Further Reading (added 2026-10-19 by KB Zookeeper audit)
+
+- [PrefixBench-H100: Characterizing Prefix Reuse and Time-to-First-Token in H100 LLM Serving](https://www.alphaxiv.org/abs/2609.19657) — PrefixBench-H100 measures prefix-cache reuse and time-to-first-token (TTFT) for vLLM 0.21.0 and TensorRT-LLM 1.2.1 on an NVIDIA H100 NVL using synthetic and…
+- [PrefixBench-H100: Characterizing Prefix Reuse and Time-to-First-Token in H100 LLM Serving](https://syncai.news/article/prefixbench-h100-characterizing-prefix-reuse-and-time-to-first-token-in-h100-llm-187bc9) — arXiv: Repeated prompt prefixes are increasingly common in LLM serving workloads, appearing in system prompts, and multi-turn conversations.
+- [PrefixBench-H100: Characterizing Prefix Reuse and Time-to-First-Token in H100 LLM Serving](https://www.roboticscenter.ai/research/papers/prefixbench-h100-characterizing-prefix-reuse-and-time-to-first-token-in-h100-llm-serving-2609) — This paper presents PrefixBench-H100, a reproducible benchmark and measurement framework for characterizing prefix reuse on a single NVIDIA H100.

@@ -403,3 +403,9 @@ for every platform you support.
 ## Related
 
 - [[example-go-gin-orders-api-layered]]
+
+## Further Reading (added 2026-10-19 by KB Zookeeper audit)
+
+- [Platform-independent SIMD in Go - The Go Programming Language](https://golang.google.cn/blog/simd-experiment) — This example also shows one of the limitations of the first experimental release of this package; it’s not supported by simd in Go 1.27, though ReduceSum will…
+- [Go 1.27 brings platform-independent SIMD to the language | Zeli](https://zeli.app/story/49843269) — "Platform-Independent SIMD in Go" — 401 points, 146 comments on Hacker News. Go 1.26 and 1.27 introduce experimental SIMD APIs, with Go 1.27 adding a portable
+- [Go 1.27 SIMD: How to Use the Experimental simd Package](https://blog.rottenwifi.com/platform-independent-simd-in-go-a-practical-guide-to-go-1-27s-experimental-simd-package/) — Learn how to enable Go 1.27’s experimental simd package, how it differs from archsimd, its ARM and WebAssembly support, and what to know about performance.
