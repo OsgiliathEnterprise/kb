@@ -46,6 +46,7 @@ added = []
 updated = []
 removed = []
 errors = []
+warnings = []
 
 
 def sanitize_filename(name: str) -> str:
@@ -185,7 +186,7 @@ def fix_mdx_issues(content: str) -> str:
     return '\n'.join(fixed_lines)
 
 
-def rewrite_internal_links(content: str, rel_dest: Path, basename_map: dict) -> str:
+def rewrite_internal_links(content: str, rel_dest: Path, basename_map: dict, known_dirs: set = None) -> str:
     """Rewrite internal markdown links to correct docs-relative paths.
 
     KB source files live in a flat per-domain layout (e.g. programming/java/),
@@ -215,6 +216,8 @@ def rewrite_internal_links(content: str, rel_dest: Path, basename_map: dict) -> 
     from_file = Path(rel_dest)
     from_dir = str(from_file.parent)  # e.g. 'how-to/programming/java' or '.'
     known = {str(p).replace(os.sep, '/') for p in basename_map.values()}
+    if known_dirs is None:
+        known_dirs = set()
 
     def resolve(url: str):
         """Return a replacement URL for `url`, or None to leave it unchanged."""
@@ -247,6 +250,28 @@ def rewrite_internal_links(content: str, rel_dest: Path, basename_map: dict) -> 
             to_rel = basename_map[base_name]
             rel = os.path.relpath(to_rel, start=from_dir).replace(os.sep, '/')
             return rel + anchor
+
+        # Directory links (trailing slash). The candidate resolved from this
+        # file's directory is either already correct (no change) or the link
+        # was written assuming a shallower layout — e.g.
+        # '../../explanations/foo/bar/' from a file that is actually three
+        # levels deep, which resolves to a double-prefixed, non-existent
+        # path. In that case re-anchor the link at the docs root: drop the
+        # leading '../' components and look the remainder up as a
+        # docs-root directory, then rewrite to the correct relative path.
+        # Only broken links are ever rewritten; already-correct links pass
+        # through unchanged, so this is idempotent.
+        if base.endswith('/') and known_dirs:
+            cand_dir = cand.rstrip('/')
+            if cand_dir in known_dirs:
+                return None
+            stripped = [p for p in base.split('/') if p not in ('..', '.', '')]
+            if stripped:
+                target_dir = '/'.join(stripped)
+                if target_dir in known_dirs:
+                    rel = os.path.relpath(target_dir, start=from_dir).replace(os.sep, '/')
+                    if rel != base.rstrip('/'):
+                        return rel + anchor
         return None
 
     def fix(m):
@@ -316,17 +341,44 @@ def extract_title_from_content(content: str) -> str:
     return ""
 
 
-def extract_yaml_metadata(content: str) -> dict:
-    """Extract metadata from YAML frontmatter."""
+def extract_yaml_metadata(content: str) -> tuple:
+    """Extract metadata from YAML frontmatter.
+
+    Returns (metadata, parse_ok). parse_ok is False when a frontmatter
+    block exists but could not be parsed as a mapping — in that case
+    visibility must be recovered from raw text (see
+    extract_raw_visibility) instead of defaulting to 'public', which would
+    publish explicitly-private content (fail-open leak).
+    """
     fm_pattern = re.compile(r'^---\s*\n(.*?)\n---\s*', re.DOTALL)
     match = fm_pattern.match(content)
     if match:
         try:
             data = yaml.safe_load(match.group(1))
-            return data if isinstance(data, dict) else {}
-        except:
-            pass
-    return {}
+            if isinstance(data, dict):
+                return data, True
+            return {}, False
+        except Exception:
+            return {}, False
+    return {}, True
+
+
+def extract_raw_visibility(content: str) -> str:
+    """Best-effort visibility recovery from raw frontmatter text.
+
+    Used when YAML parsing fails (e.g. an unquoted `enriched:` free-text
+    value containing ': ' breaks the whole mapping). Scans ONLY the
+    frontmatter block for a `visibility:` key so body prose never
+    influences the decision. Defaults to 'public' (backwards
+    compatibility) when the key is absent.
+    """
+    fm_match = re.match(r'^---\s*\n(.*?)\n---\s*', content, re.DOTALL)
+    if not fm_match:
+        return 'public'
+    m = re.search(r'^\s*visibility\s*:\s*["\']?([A-Za-z]+)', fm_match.group(1), re.MULTILINE)
+    if m:
+        return m.group(1).lower()
+    return 'public'
 
 
 def is_public_content(meta: dict) -> bool:
@@ -375,7 +427,19 @@ def map_kb_to_docs_path(kb_file: Path) -> tuple:
         errors.append(f"Cannot read {kb_file}: {e}")
         return None, {}
 
-    meta = extract_yaml_metadata(content)
+    meta, meta_ok = extract_yaml_metadata(content)
+    if not meta_ok:
+        # Frontmatter block present but unparseable (e.g. an unquoted
+        # free-text value containing ': '). Fail SAFE for visibility:
+        # recover the value from raw frontmatter text instead of
+        # defaulting to 'public', which would publish explicitly-private
+        # content.
+        raw_vis = extract_raw_visibility(content)
+        meta['visibility'] = raw_vis
+        warnings.append(
+            f"UNPARSEABLE FRONTMATTER {kb_file.relative_to(KB_SOURCE)} "
+            f"(visibility recovered from raw text: {raw_vis})"
+        )
     title = meta.get('title', '') or extract_title_from_content(content)
 
     # Detect Diátaxis type from filename
@@ -557,6 +621,18 @@ def sync_kb():
         rel_str = str(rel_dest).replace(os.sep, '/')
         basename_map[rel_str.split('/')[-1]] = rel_str
 
+    # Directory set for resolving links to folders (e.g. "See the
+    # [MCP section](../../how-to/developertoolspractices/mcp/)"). Directory
+    # links are not covered by basename_map (files only), so gather every
+    # docs directory that will exist after this sync plus any that already
+    # exist on disk.
+    known_dirs = set()
+    for rel_dest in new_files:
+        known_dirs.add(str(Path(rel_dest).parent).replace(os.sep, '/'))
+    for d in DOCS_DIR.rglob('*'):
+        if d.is_dir():
+            known_dirs.add(str(d.relative_to(DOCS_DIR)).replace(os.sep, '/'))
+
     # Second pass: write content. Always regenerate to catch frontmatter/YAML
     # fixes and internal-link rewrites.
     for rel_dest, (kb_file, meta) in new_files.items():
@@ -564,7 +640,7 @@ def sync_kb():
         content = kb_file.read_text(encoding='utf-8')
         content = fix_yaml_frontmatter(content, meta, meta['diataxis'])
         content = fix_mdx_issues(content)
-        content = rewrite_internal_links(content, rel_dest, basename_map)
+        content = rewrite_internal_links(content, rel_dest, basename_map, known_dirs)
 
         if dest_file.exists():
             existing_content = dest_file.read_text(encoding='utf-8')
@@ -653,6 +729,7 @@ def update_sidebars():
                         items.append({
                             'type': 'category',
                             'label': topic_label,
+                            'slug': f"{diataxis_type}/{domain_slug}/{topic_dir.name}",
                             'items': topic_files,
                         })
                 # Also add files directly in domain if any
@@ -665,6 +742,7 @@ def update_sidebars():
             categories.append({
                 'type': 'category',
                 'label': label,
+                'slug': diataxis_type,
                 'items': items,
             })
 
@@ -676,6 +754,10 @@ def update_sidebars():
         lines.append("      type: 'category',")
         lines.append("      label: '%s'," % cat['label'])
         lines.append("      collapsed: true,")
+        # Generated category index page so that links to a section folder
+        # (e.g. '../../explanations/foo/bar' or '/how-to/') resolve to a
+        # real landing page instead of a broken directory link.
+        lines.append("      link: {type: 'generated-index', title: '%s', slug: '%s'}," % (cat['label'], cat['slug']))
         lines.append("      items: [")
 
         for item in cat['items']:
@@ -684,6 +766,7 @@ def update_sidebars():
                 lines.append("        {")
                 lines.append("          type: 'category',")
                 lines.append("          label: '%s'," % item['label'])
+                lines.append("          link: {type: 'generated-index', title: '%s', slug: '%s'}," % (item['label'], item['slug']))
                 lines.append("          items: [%s]," % file_list)
                 lines.append("        },")
             else:
@@ -792,6 +875,11 @@ if __name__ == "__main__":
             print(f"\nErrors encountered: {len(errors)}")
             for e in errors:
                 print(f"  - {e}")
+
+        if warnings:
+            print(f"\nWarnings ({len(warnings)}):")
+            for w in warnings:
+                print(f"  - {w}")
 
         print("\nSync complete.")
         sys.exit(0 if not errors else 1)

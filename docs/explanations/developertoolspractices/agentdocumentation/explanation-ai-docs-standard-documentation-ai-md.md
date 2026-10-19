@@ -47,6 +47,10 @@ The format was written up as an open standard under CC BY 4.0:
 
 `documentation.ai.md` is a per-product *operational* doc. The broader, now-dominant convention in the same space is **AGENTS.md** — a plain-Markdown file at the repository root that gives coding agents project-specific build/test/convention guidance (a "README for agents"). Released by OpenAI in August 2025 and adopted by 60,000+ open-source projects, AGENTS.md is now stewarded by the **Agentic AI Foundation** under the Linux Foundation (formed Dec 2025 alongside MCP and goose), with native support across Codex, Cursor, Copilot, Gemini CLI, Windsurf, Aider, and 20+ other tools. The two are complementary: AGENTS.md tells an agent how to work *inside a repo*; `documentation.ai.md` tells it how to *install and call a product* from outside. Where AGENTS.md is loose (any Markdown headings, nearest-file-wins precedence in monorepos), the ai-docs standard is deliberately stricter (fixed section order, per-release operational doc).
 
+### Foundation governance details (verified Oct 2026)
+
+The AAIF is a directed fund under the Linux Foundation anchored by three founding project donations: **OpenAI** donated AGENTS.md, **Anthropic** donated the Model Context Protocol (MCP), and **Block** contributed its agent framework **goose** (Dec 2025). Platinum members are AWS, Microsoft, Bloomberg, Cloudflare, and Google; silver member Obot.ai donated the MCP Dev Summit events and its podcast. Linux Foundation executive director Jim Zemlin framed it as MCP/AGENTS.md/goose "becom[ing] essential tools for developers" within a year of their release, needing "the transparency and stability that only open governance provides." The reaction was not uniformly positive: Simon Willison (Django co-creator) said the most useful thing for such a foundation would be a community-managed spec for the OpenAI Chat Completions JSON API, and a Hacker News thread on the MCP donation produced skepticism about the protocol's long-term viability.
+
 ## Key takeaways
 
 - If you build developer tools, your users' agents are already reading your docs — write the version they actually need.
@@ -60,6 +64,8 @@ The format was written up as an open standard under CC BY 4.0:
 - [llms.txt specification](https://llmstxt.org/)
 - [AGENTS.md — open format for guiding coding agents](https://agents.md/)
 - [Linux Foundation: Agentic AI Foundation formation (AGENTS.md, MCP, goose)](https://www.linuxfoundation.org/press/linux-foundation-announces-the-formation-of-the-agentic-ai-foundation)
+- [InfoQ: OpenAI and Anthropic Donate AGENTS.md and Model Context Protocol to New Agentic AI Foundation (Dec 2025)](https://www.infoq.com/news/2025/12/agentic-ai-foundation/)
+- [Agentic AI Foundation (AAIF)](https://aaif.io/)
 
 ## Related
 - [[explanation-openai-hugging-face-agent-incident]]

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="6.0 -14.0 918.0 412.0" width="918" height="412">
+<rect x="6.0" y="-14.0" width="918.0" height="412.0" fill="#ffffff"/>
+<rect x="330.0" y="60.0" width="240.0" height="48.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="330.0" y="140.0" width="240.0" height="44.0" rx="8" fill="#e9ecef" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="30.0" y="230.0" width="270.0" height="60.0" rx="8" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="330.0" y="230.0" width="270.0" height="60.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="630.0" y="230.0" width="270.0" height="60.0" rx="8" fill="#ffec99" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="330.0" y="330.0" width="270.0" height="44.0" rx="8" fill="#e9ecef" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="630.0" y="330.0" width="270.0" height="44.0" rx="8" fill="#e9ecef" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 450.0 108.0 L 450.0 140.0"/><line x1="450.0" y1="140.0" x2="454.9" y2="129.9"/><line x1="450.0" y1="140.0" x2="445.1" y2="129.9"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 450.0 184.0 L 165.0 230.0"/><line x1="165.0" y1="230.0" x2="178.4" y2="234.1"/><line x1="165.0" y1="230.0" x2="176.4" y2="221.9"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 450.0 184.0 L 465.0 230.0"/><line x1="465.0" y1="230.0" x2="466.9" y2="216.1"/><line x1="465.0" y1="230.0" x2="455.3" y2="219.9"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 450.0 184.0 L 765.0 230.0"/><line x1="765.0" y1="230.0" x2="753.4" y2="222.1"/><line x1="765.0" y1="230.0" x2="751.7" y2="234.3"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="120.0" y="22.8">ACH return routing: asynchronous failure handling (1-5 business days)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="450.0" y="95.2">return received (R01-R85)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="450.0" y="173.2">parse code + classify by root cause</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="165.0" y="269.6">retryable: R01 (3d), R09 (2d) -&gt; schedule retry_date, re-attempt ACH</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="465.0" y="269.6">permanent: R02/R03/R04/R07/R08/R11/R13/R14/R16/R20/R23 -&gt; mark failed, alternate rail / manual review</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="765.0" y="269.6">escalate: R05/R10/R29 (disputes, revoked auth) -&gt; compliance / human</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="465.0" y="361.6">unknown code -&gt; fail safe: alternate rail + manual review</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="765.0" y="361.6">every return -&gt; audit entry (code, action, ts) for reconciliation</tspan></text>
+</svg>
