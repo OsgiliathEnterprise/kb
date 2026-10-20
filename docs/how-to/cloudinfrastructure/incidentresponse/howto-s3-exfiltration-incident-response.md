@@ -3,7 +3,14 @@ title: 'Stopping S3 Data Exfiltration in Real Time: A Step-by-Step IR'
 diataxis: How-to Guide
 domain: cloud-infrastructure
 topic: incident-response
-source: ''
+source: DEV.to Tech News
+source_url: https://dev.to/nghidanh2005/-stopping-s3-data-exfiltration-in-real-time-a-step-by-step-incident-response-2jp
+date: 2026-08-25
+keywords:
+- knowledge-base
+- incident-response
+- cloud-infrastructure
+- how-to
 ---
 # Stopping S3 Data Exfiltration in Real Time: A Step-by-Step IR
 

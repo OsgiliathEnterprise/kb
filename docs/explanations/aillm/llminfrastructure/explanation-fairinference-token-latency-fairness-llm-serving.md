@@ -4,7 +4,14 @@ title: 'FairInference: Token Latency Fairness and Performance Isolation for Mult
 diataxis: Explanation
 domain: AI-LLM
 topic: LLM-Infrastructure
-source: ''
+source: arXiv
+source_url: https://arxiv.org/abs/2609.18112
+date: 2026-09-20
+keywords:
+- knowledge-base
+- LLM-Infrastructure
+- AI-LLM
+- explanations
 ---
 # FairInference: Token Latency Fairness and Performance Isolation for Multi-Tenant LLM Serving
 
