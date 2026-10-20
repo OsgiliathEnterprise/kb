@@ -43,3 +43,4 @@ Running it on the author's own repo (35 files / 2,317 lines): 10 ghost files, 21
 ## References
 
 - [I priced my own dead code and got a $775 bill (DEV.to source article)](https://dev.to/muhammad_abdullahshah_96/i-priced-my-own-dead-code-and-got-a-75-bill-162)
+- [GhostCode repository (github.com/abdullah129026/ghostcode)](https://github.com/abdullah129026/ghostcode) — the tool source: AST-based dependency graph analysis, maintenance-cost estimation, and auto-generated safe-removal PRs.

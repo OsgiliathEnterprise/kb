@@ -1,9 +1,16 @@
 ---
-title: 'Actually Queryable Executables: SELF Format and self-httpd'
+title: 'Actually Queryable Executables: SELF Format and the self-httpd Web Server'
 diataxis: Example
 domain: programming
 topic: linux
-source: ''
+source: HackerNews
+source_url: https://fzakaria.com/2026/08/24/actually-queryable-executables
+date: 2026-08-26
+keywords:
+- knowledge-base
+- linux
+- programming
+- examples
 ---
 # Actually Queryable Executables: SELF Format and self-httpd
 
