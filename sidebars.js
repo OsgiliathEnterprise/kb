@@ -48,6 +48,12 @@ const sidebars = {
           link: {type: 'generated-index', title: 'Esotericlanguages', slug: 'tutorials/programming/esotericlanguages'},
           items: ['tutorials/programming/esotericlanguages/tutorial-graphlang-functional-language-in-c'],
         },
+        {
+          type: 'category',
+          label: 'Python',
+          link: {type: 'generated-index', title: 'Python', slug: 'tutorials/programming/python'},
+          items: ['tutorials/programming/python/tutorial-aquarium-temperature-logger-raspberry-pi-ds18b20'],
+        },
       ],
     },
     {
@@ -198,7 +204,7 @@ const sidebars = {
           type: 'category',
           label: 'Frontendjavascript',
           link: {type: 'generated-index', title: 'Frontendjavascript', slug: 'how-to/programming/frontendjavascript'},
-          items: ['how-to/programming/frontendjavascript/howto-deno-2-9-desktop-and-node-migration', 'how-to/programming/frontendjavascript/howto-eradicate-slow-ttfb-with-streaming-ssr-nextjs', 'how-to/programming/frontendjavascript/howto-react-native-environment-setup-android-flavors-ios-schemes'],
+          items: ['how-to/programming/frontendjavascript/howto-deno-2-9-desktop-and-node-migration', 'how-to/programming/frontendjavascript/howto-eradicate-slow-ttfb-with-streaming-ssr-nextjs', 'how-to/programming/frontendjavascript/howto-per-project-node-toolchains-nvmrc-corepack-docker-compose', 'how-to/programming/frontendjavascript/howto-react-native-environment-setup-android-flavors-ios-schemes'],
         },
         {
           type: 'category',
@@ -244,6 +250,12 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Ssh',
+          link: {type: 'generated-index', title: 'Ssh', slug: 'how-to/securityprivacy/ssh'},
+          items: ['how-to/securityprivacy/ssh/howto-ssh-keys-macos-touch-id-secure-enclave'],
+        },
+        {
+          type: 'category',
           label: 'Supplychain',
           link: {type: 'generated-index', title: 'Supplychain', slug: 'how-to/securityprivacy/supplychain'},
           items: ['how-to/securityprivacy/supplychain/howto-audit-transitive-github-action-dependencies-pin-deep', 'how-to/securityprivacy/supplychain/howto-taxonomy-aligned-llm-oss-threat-detection'],
@@ -252,7 +264,7 @@ const sidebars = {
           type: 'category',
           label: 'Websecurity',
           link: {type: 'generated-index', title: 'Websecurity', slug: 'how-to/securityprivacy/websecurity'},
-          items: ['how-to/securityprivacy/websecurity/howto-absentia-broken-access-control-detection'],
+          items: ['how-to/securityprivacy/websecurity/howto-absentia-broken-access-control-detection', 'how-to/securityprivacy/websecurity/howto-emergency-response-critical-php-rce-audit-patch-offline'],
         },
         {
           type: 'category',
@@ -306,9 +318,15 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Vectordatabases',
+          link: {type: 'generated-index', title: 'Vectordatabases', slug: 'explanations/aillm/vectordatabases'},
+          items: ['explanations/aillm/vectordatabases/explanation-why-rag-hallucinates-when-retrieval-succeeds'],
+        },
+        {
+          type: 'category',
           label: 'Agentarchitecture',
           link: {type: 'generated-index', title: 'Agentarchitecture', slug: 'explanations/aimachinelearning/agentarchitecture'},
-          items: ['explanations/aimachinelearning/agentarchitecture/explanation-agent-guardrail-stack', 'explanations/aimachinelearning/agentarchitecture/explanation-bounded-generation-constrained-ai-design', 'explanations/aimachinelearning/agentarchitecture/explanation-byte-matching-verification-harness-15-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-claude-unified-memory-architecture', 'explanations/aimachinelearning/agentarchitecture/explanation-coding-agents-generalized-tamp', 'explanations/aimachinelearning/agentarchitecture/explanation-harness-design-coding-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-human-in-the-loop-approval-gates', 'explanations/aimachinelearning/agentarchitecture/explanation-jev-ultrafast-dynamic-indexed-action-space-browser-agent', 'explanations/aimachinelearning/agentarchitecture/explanation-lemmalog-datalog-memory-for-llm-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-microsoft-copilot-agent-identity-runtime', 'explanations/aimachinelearning/agentarchitecture/explanation-prince-bayer-agentic-rag-context-harness-engineering', 'explanations/aimachinelearning/agentarchitecture/explanation-progressive-disclosure-on-demand-skills', 'explanations/aimachinelearning/agentarchitecture/explanation-reconciling-agent-plans-with-completed-temporal-activities', 'explanations/aimachinelearning/agentarchitecture/explanation-sandboxed-execution-runtime-engineering-for-ai-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-sourcelearn-source-specific-competence', 'explanations/aimachinelearning/agentarchitecture/explanation-x402-http-payment-standard-for-ai-agents', 'explanations/aimachinelearning/agentarchitecture/reference-scholarcatalyst-research-paper-retrieval-benchmark'],
+          items: ['explanations/aimachinelearning/agentarchitecture/explanation-agent-guardrail-stack', 'explanations/aimachinelearning/agentarchitecture/explanation-bounded-generation-constrained-ai-design', 'explanations/aimachinelearning/agentarchitecture/explanation-byte-matching-verification-harness-15-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-claude-unified-memory-architecture', 'explanations/aimachinelearning/agentarchitecture/explanation-coding-agents-generalized-tamp', 'explanations/aimachinelearning/agentarchitecture/explanation-contradiction-judge-memory-auditor-ai-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-harness-design-coding-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-human-in-the-loop-approval-gates', 'explanations/aimachinelearning/agentarchitecture/explanation-jev-ultrafast-dynamic-indexed-action-space-browser-agent', 'explanations/aimachinelearning/agentarchitecture/explanation-lemmalog-datalog-memory-for-llm-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-microsoft-copilot-agent-identity-runtime', 'explanations/aimachinelearning/agentarchitecture/explanation-prince-bayer-agentic-rag-context-harness-engineering', 'explanations/aimachinelearning/agentarchitecture/explanation-progressive-disclosure-on-demand-skills', 'explanations/aimachinelearning/agentarchitecture/explanation-reconciling-agent-plans-with-completed-temporal-activities', 'explanations/aimachinelearning/agentarchitecture/explanation-sandboxed-execution-runtime-engineering-for-ai-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-sourcelearn-source-specific-competence', 'explanations/aimachinelearning/agentarchitecture/explanation-x402-http-payment-standard-for-ai-agents', 'explanations/aimachinelearning/agentarchitecture/reference-scholarcatalyst-research-paper-retrieval-benchmark'],
         },
         {
           type: 'category',
@@ -398,7 +416,7 @@ const sidebars = {
           type: 'category',
           label: 'Aicodingagents',
           link: {type: 'generated-index', title: 'Aicodingagents', slug: 'explanations/developertoolspractices/aicodingagents'},
-          items: ['explanations/developertoolspractices/aicodingagents/explanation-codex-cli-managed-daemon-trust-concerns', 'explanations/developertoolspractices/aicodingagents/explanation-cut-agent-tool-schemas-47-percent-yaml-duplicate-key-trap', 'explanations/developertoolspractices/aicodingagents/explanation-efficiency-throughput-gap-github-copilot-okta', 'explanations/developertoolspractices/aicodingagents/explanation-overclaimbench-quantifying-agent-overclaiming', 'explanations/developertoolspractices/aicodingagents/explanation-valkey-ai-agents-backporting-provenance'],
+          items: ['explanations/developertoolspractices/aicodingagents/explanation-bash-write-targets-static-extraction', 'explanations/developertoolspractices/aicodingagents/explanation-codex-cli-managed-daemon-trust-concerns', 'explanations/developertoolspractices/aicodingagents/explanation-cut-agent-tool-schemas-47-percent-yaml-duplicate-key-trap', 'explanations/developertoolspractices/aicodingagents/explanation-efficiency-throughput-gap-github-copilot-okta', 'explanations/developertoolspractices/aicodingagents/explanation-overclaimbench-quantifying-agent-overclaiming', 'explanations/developertoolspractices/aicodingagents/explanation-valkey-ai-agents-backporting-provenance'],
         },
         {
           type: 'category',
@@ -450,6 +468,12 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Android',
+          link: {type: 'generated-index', title: 'Android', slug: 'explanations/programming/android'},
+          items: ['explanations/programming/android/explanation-offline-pdf-ocr-android-zero-internet-permission'],
+        },
+        {
+          type: 'category',
           label: 'C',
           link: {type: 'generated-index', title: 'C', slug: 'explanations/programming/c'},
           items: ['explanations/programming/c/explanation-modern-web-app-in-c-cgi-sqlite'],
@@ -476,7 +500,7 @@ const sidebars = {
           type: 'category',
           label: 'Frontendjavascript',
           link: {type: 'generated-index', title: 'Frontendjavascript', slug: 'explanations/programming/frontendjavascript'},
-          items: ['explanations/programming/frontendjavascript/explanation-browser-apis-replacing-npm-packages', 'explanations/programming/frontendjavascript/explanation-react-rerender-vs-expensive-work'],
+          items: ['explanations/programming/frontendjavascript/explanation-browser-apis-replacing-npm-packages', 'explanations/programming/frontendjavascript/explanation-oxlint-oxfmt-benchmark-on-excalidraw', 'explanations/programming/frontendjavascript/explanation-react-rerender-vs-expensive-work'],
         },
         {
           type: 'category',
@@ -488,7 +512,7 @@ const sidebars = {
           type: 'category',
           label: 'Java',
           link: {type: 'generated-index', title: 'Java', slug: 'explanations/programming/java'},
-          items: ['explanations/programming/java/explanation-better-tools-immutable-data-java', 'explanations/programming/java/explanation-java-sealed-classes-exhaustive-pattern-matching', 'explanations/programming/java/explanation-jdk-26-performance-improvements', 'explanations/programming/java/explanation-jdk-28-pooled-confined-arena', 'explanations/programming/java/explanation-jep-540-simple-json-api-incubator', 'explanations/programming/java/explanation-jep-546-zgc-adaptive-heap-sizing', 'explanations/programming/java/explanation-netflix-ja-module-system-toolchain', 'explanations/programming/java/explanation-specjbb-workload-generator-same-jvm-limitations', 'explanations/programming/java/explanation-spring-ai-2-0-composable-tool-calling-advisor-architecture', 'explanations/programming/java/explanation-structured-concurrency-project-loom', 'explanations/programming/java/explanation-zgc-decade-of-low-latency-gc', 'explanations/programming/java/explanation-zgc-weak-reference-processing'],
+          items: ['explanations/programming/java/explanation-better-tools-immutable-data-java', 'explanations/programming/java/explanation-java-sealed-classes-exhaustive-pattern-matching', 'explanations/programming/java/explanation-jdk-26-performance-improvements', 'explanations/programming/java/explanation-jdk-28-pooled-confined-arena', 'explanations/programming/java/explanation-jep-540-simple-json-api-incubator', 'explanations/programming/java/explanation-jep-543-structured-concurrency-finalized-jdk28', 'explanations/programming/java/explanation-jep-546-zgc-adaptive-heap-sizing', 'explanations/programming/java/explanation-netflix-ja-module-system-toolchain', 'explanations/programming/java/explanation-specjbb-workload-generator-same-jvm-limitations', 'explanations/programming/java/explanation-spring-ai-2-0-composable-tool-calling-advisor-architecture', 'explanations/programming/java/explanation-structured-concurrency-project-loom', 'explanations/programming/java/explanation-zgc-decade-of-low-latency-gc', 'explanations/programming/java/explanation-zgc-weak-reference-processing'],
         },
         {
           type: 'category',
