@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 -4.0 1328.0 263.0" width="1328" height="263">
+<rect x="16.0" y="-4.0" width="1328.0" height="263.0" fill="#ffffff"/>
+<rect x="40.0" y="90.0" width="140.0" height="56.0" rx="8" fill="#cfe0f0" stroke="#2b5a8c" stroke-width="1.5"/>
+<rect x="220.0" y="90.0" width="150.0" height="56.0" rx="8" fill="#ffe3e3" stroke="#c92a2a" stroke-width="1.5"/>
+<rect x="410.0" y="90.0" width="150.0" height="56.0" rx="8" fill="#ffe3e3" stroke="#c92a2a" stroke-width="1.5"/>
+<rect x="600.0" y="90.0" width="150.0" height="56.0" rx="8" fill="#ffe3e3" stroke="#c92a2a" stroke-width="1.5"/>
+<rect x="790.0" y="90.0" width="150.0" height="56.0" rx="8" fill="#ffe3e3" stroke="#c92a2a" stroke-width="1.5"/>
+<rect x="980.0" y="90.0" width="150.0" height="56.0" rx="8" fill="#ffe3e3" stroke="#c92a2a" stroke-width="1.5"/>
+<rect x="1170.0" y="90.0" width="150.0" height="56.0" rx="8" fill="#d3f9d8" stroke="#2f9e44" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 180.0 118.0 L 220.0 118.0"/><line x1="220.0" y1="118.0" x2="207.4" y2="111.9"/><line x1="220.0" y1="118.0" x2="207.4" y2="124.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 370.0 118.0 L 410.0 118.0"/><line x1="410.0" y1="118.0" x2="397.4" y2="111.9"/><line x1="410.0" y1="118.0" x2="397.4" y2="124.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 560.0 118.0 L 600.0 118.0"/><line x1="600.0" y1="118.0" x2="587.4" y2="111.9"/><line x1="600.0" y1="118.0" x2="587.4" y2="124.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 750.0 118.0 L 790.0 118.0"/><line x1="790.0" y1="118.0" x2="777.4" y2="111.9"/><line x1="790.0" y1="118.0" x2="777.4" y2="124.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 940.0 118.0 L 980.0 118.0"/><line x1="980.0" y1="118.0" x2="967.4" y2="111.9"/><line x1="980.0" y1="118.0" x2="967.4" y2="124.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 1130.0 118.0 L 1170.0 118.0"/><line x1="1170.0" y1="118.0" x2="1157.4" y2="111.9"/><line x1="1170.0" y1="118.0" x2="1157.4" y2="124.1"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="22" fill="#1e1e1e" text-anchor="start"><tspan x="220.0" y="37.6">Where RAG Hallucination Actually Happens (retrieval succeeded)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="56.0" y="115.2">query</tspan><tspan x="56.0" y="132.7">(top-k retrieved)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="228.0" y="108.4">1. noise /</tspan><tspan x="228.0" y="124.7">distractors</tspan><tspan x="228.0" y="140.9">(widen + rerank)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="418.0" y="108.4">2. lost in the</tspan><tspan x="418.0" y="124.7">middle</tspan><tspan x="418.0" y="140.9">(best at edges)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="608.0" y="108.4">3. incomplete</tspan><tspan x="608.0" y="124.7">chunk</tspan><tspan x="608.0" y="140.9">(overlap, parent doc)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="798.0" y="108.4">4. context vs</tspan><tspan x="798.0" y="124.7">memory</tspan><tspan x="798.0" y="140.9">(context-first prompt)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="988.0" y="108.4">5. synthesis</tspan><tspan x="988.0" y="124.7">error</tspan><tspan x="988.0" y="140.9">(extract-then-answer)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="1186.0" y="108.4">answer</tspan><tspan x="1186.0" y="124.7">(cite sources</tspan><tspan x="1186.0" y="140.9">[1]..[n])</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#495057" text-anchor="start"><tspan x="220.0" y="191.2">Debug order: 1 chunk completeness -&gt; 2 precision/versions -&gt; 3 position -&gt; 4 memory conflict -&gt; 5 reasoning</tspan><tspan x="220.0" y="208.7">Measure faithfulness + answer correctness + context precision (RAGAS / DeepEval), not just retrieval metrics</tspan></text>
+</svg>
