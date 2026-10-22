@@ -64,6 +64,12 @@ const sidebars = {
       items: [
         {
           type: 'category',
+          label: 'Genaiappframeworks',
+          link: {type: 'generated-index', title: 'Genaiappframeworks', slug: 'how-to/aillm/genaiappframeworks'},
+          items: ['how-to/aillm/genaiappframeworks/howto-install-langchain-from-source'],
+        },
+        {
+          type: 'category',
           label: 'Llminfrastructure',
           link: {type: 'generated-index', title: 'Llminfrastructure', slug: 'how-to/aillm/llminfrastructure'},
           items: ['how-to/aillm/llminfrastructure/howto-tiered-response-caching-for-llm-costs'],
@@ -90,7 +96,7 @@ const sidebars = {
           type: 'category',
           label: 'Aws',
           link: {type: 'generated-index', title: 'Aws', slug: 'how-to/cloudinfrastructure/aws'},
-          items: ['how-to/cloudinfrastructure/aws/howto-deploy-aws-from-github-actions-with-oidc', 'how-to/cloudinfrastructure/aws/howto-deploy-ml-model-to-sagemaker-endpoint'],
+          items: ['how-to/cloudinfrastructure/aws/howto-deploy-aws-from-github-actions-with-oidc', 'how-to/cloudinfrastructure/aws/howto-deploy-ml-model-to-sagemaker-endpoint', 'how-to/cloudinfrastructure/aws/howto-set-up-s3-storage-langchain-data'],
         },
         {
           type: 'category',
@@ -108,7 +114,7 @@ const sidebars = {
           type: 'category',
           label: 'Docker',
           link: {type: 'generated-index', title: 'Docker', slug: 'how-to/cloudinfrastructure/docker'},
-          items: ['how-to/cloudinfrastructure/docker/howto-run-uptime-kuma-with-podman-quadlet-on-fedora'],
+          items: ['how-to/cloudinfrastructure/docker/howto-manage-docker-config-resources-directly-with-cli', 'how-to/cloudinfrastructure/docker/howto-run-uptime-kuma-with-podman-quadlet-on-fedora'],
         },
         {
           type: 'category',
@@ -138,7 +144,7 @@ const sidebars = {
           type: 'category',
           label: 'Kubernetes',
           link: {type: 'generated-index', title: 'Kubernetes', slug: 'how-to/cloudinfrastructure/kubernetes'},
-          items: ['how-to/cloudinfrastructure/kubernetes/howto-check-cgroup-v1-before-k8s-upgrade', 'how-to/cloudinfrastructure/kubernetes/howto-inspect-volcano-knative-workloads-with-headlamp-plugins', 'how-to/cloudinfrastructure/kubernetes/howto-install-kubeflow-for-ml-on-eks', 'how-to/cloudinfrastructure/kubernetes/howto-manage-cluster-api-resources-with-headlamp'],
+          items: ['how-to/cloudinfrastructure/kubernetes/howto-check-cgroup-v1-before-k8s-upgrade', 'how-to/cloudinfrastructure/kubernetes/howto-download-kubernetes-release-and-binaries', 'how-to/cloudinfrastructure/kubernetes/howto-inspect-volcano-knative-workloads-with-headlamp-plugins', 'how-to/cloudinfrastructure/kubernetes/howto-install-kubeflow-for-ml-on-eks', 'how-to/cloudinfrastructure/kubernetes/howto-manage-cluster-api-resources-with-headlamp'],
         },
         {
           type: 'category',
@@ -174,7 +180,7 @@ const sidebars = {
           type: 'category',
           label: 'Mcp',
           link: {type: 'generated-index', title: 'Mcp', slug: 'how-to/developertoolspractices/mcp'},
-          items: ['how-to/developertoolspractices/mcp/howto-accessibility-mcp-server-feedback-loop', 'how-to/developertoolspractices/mcp/howto-azure-mcp-server-scoped-agent-access', 'how-to/developertoolspractices/mcp/howto-map-http-api-parameters-to-mcp-tool-schemas', 'how-to/developertoolspractices/mcp/howto-publish-mcp-server-claude-connectors-directory', 'how-to/developertoolspractices/mcp/howto-soak-test-mcp-server-with-mcpload'],
+          items: ['how-to/developertoolspractices/mcp/howto-accessibility-mcp-server-feedback-loop', 'how-to/developertoolspractices/mcp/howto-azure-mcp-server-scoped-agent-access', 'how-to/developertoolspractices/mcp/howto-coordinate-multi-agent-swarms-sqlite-task-board-mcp', 'how-to/developertoolspractices/mcp/howto-map-http-api-parameters-to-mcp-tool-schemas', 'how-to/developertoolspractices/mcp/howto-publish-mcp-server-claude-connectors-directory', 'how-to/developertoolspractices/mcp/howto-soak-test-mcp-server-with-mcpload'],
         },
         {
           type: 'category',
@@ -210,7 +216,7 @@ const sidebars = {
           type: 'category',
           label: 'Java',
           link: {type: 'generated-index', title: 'Java', slug: 'how-to/programming/java'},
-          items: ['how-to/programming/java/howto-idempotency-key-replay-spring-boot-checkout', 'how-to/programming/java/howto-integrate-typesafe-jev-with-spring-ai', 'how-to/programming/java/howto-spring-batch-mongodb-job-repository-spring-boot-4-1'],
+          items: ['how-to/programming/java/howto-assert-conditions-all-any', 'how-to/programming/java/howto-idempotency-key-replay-spring-boot-checkout', 'how-to/programming/java/howto-integrate-typesafe-jev-with-spring-ai', 'how-to/programming/java/howto-setup-reactor-dependencies', 'how-to/programming/java/howto-spring-batch-mongodb-job-repository-spring-boot-4-1', 'how-to/programming/java/howto-spring-data-rest-paging-sorting', 'how-to/programming/java/howto-spring-security-in-memory-user-store'],
         },
         {
           type: 'category',
@@ -241,6 +247,18 @@ const sidebars = {
           label: 'Aiagentsecurity',
           link: {type: 'generated-index', title: 'Aiagentsecurity', slug: 'how-to/securityprivacy/aiagentsecurity'},
           items: ['how-to/securityprivacy/aiagentsecurity/howto-mcp-security-hardening'],
+        },
+        {
+          type: 'category',
+          label: 'Datacollection',
+          link: {type: 'generated-index', title: 'Datacollection', slug: 'how-to/securityprivacy/datacollection'},
+          items: ['how-to/securityprivacy/datacollection/howto-head-peek-file-content', 'how-to/securityprivacy/datacollection/howto-windows-registry-query-export'],
+        },
+        {
+          type: 'category',
+          label: 'Dataprocessing',
+          link: {type: 'generated-index', title: 'Dataprocessing', slug: 'how-to/securityprivacy/dataprocessing'},
+          items: ['how-to/securityprivacy/dataprocessing/howto-awk-filter-lines-by-field'],
         },
         {
           type: 'category',
@@ -278,6 +296,18 @@ const sidebars = {
           link: {type: 'generated-index', title: 'Nonfunctionalrequirements', slug: 'how-to/systemdesign/nonfunctionalrequirements'},
           items: ['how-to/systemdesign/nonfunctionalrequirements/howto-laravel-redis-outage-ganesha-circuit-breaker'],
         },
+        {
+          type: 'category',
+          label: 'Payments',
+          link: {type: 'generated-index', title: 'Payments', slug: 'how-to/systemdesign/payments'},
+          items: ['how-to/systemdesign/payments/howto-handle-ach-return-codes-r01-r85'],
+        },
+        {
+          type: 'category',
+          label: 'Search',
+          link: {type: 'generated-index', title: 'Search', slug: 'how-to/systemdesign/search'},
+          items: ['how-to/systemdesign/search/howto-rag-freshness-incremental-indexing-sync-production'],
+        },
       ],
     },
     {
@@ -288,9 +318,21 @@ const sidebars = {
       items: [
         {
           type: 'category',
+          label: 'Aifundamentals',
+          link: {type: 'generated-index', title: 'Aifundamentals', slug: 'explanations/aillm/aifundamentals'},
+          items: ['explanations/aillm/aifundamentals/explanation-ml-breakthroughs-and-future-impact-areas'],
+        },
+        {
+          type: 'category',
           label: 'Diffusionlanguagemodels',
           link: {type: 'generated-index', title: 'Diffusionlanguagemodels', slug: 'explanations/aillm/diffusionlanguagemodels'},
           items: ['explanations/aillm/diffusionlanguagemodels/explanation-diffusiongemma-block-autoregressive-text-diffusion', 'explanations/aillm/diffusionlanguagemodels/explanation-how-to-build-a-diffusion-language-model'],
+        },
+        {
+          type: 'category',
+          label: 'Genaiappframeworks',
+          link: {type: 'generated-index', title: 'Genaiappframeworks', slug: 'explanations/aillm/genaiappframeworks'},
+          items: ['explanations/aillm/genaiappframeworks/explanation-applications-langchain-neural-networks'],
         },
         {
           type: 'category',
@@ -378,6 +420,12 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Grpc',
+          link: {type: 'generated-index', title: 'Grpc', slug: 'explanations/cloudinfrastructure/grpc'},
+          items: ['explanations/cloudinfrastructure/grpc/explanation-grpc-client-server-message-flow-http2', 'explanations/cloudinfrastructure/grpc/explanation-grpc-context-metadata-lifecycle'],
+        },
+        {
+          type: 'category',
           label: 'Incidentresponse',
           link: {type: 'generated-index', title: 'Incidentresponse', slug: 'explanations/cloudinfrastructure/incidentresponse'},
           items: ['explanations/cloudinfrastructure/incidentresponse/explanation-telstra-ntp-timing-loop-outage'],
@@ -452,7 +500,7 @@ const sidebars = {
           type: 'category',
           label: 'Mcp',
           link: {type: 'generated-index', title: 'Mcp', slug: 'explanations/developertoolspractices/mcp'},
-          items: ['explanations/developertoolspractices/mcp/explanation-mcp-discovery-storms-sep-2549-caching', 'explanations/developertoolspractices/mcp/explanation-mcp-protocol-era-silent-downgrade-2026-07-28', 'explanations/developertoolspractices/mcp/explanation-mcp-servers-writing-public-content', 'explanations/developertoolspractices/mcp/explanation-mcp-vs-rest-kafka-complementary-layers', 'explanations/developertoolspractices/mcp/explanation-tool-descriptions-are-the-contract'],
+          items: ['explanations/developertoolspractices/mcp/explanation-mcp-discovery-storms-sep-2549-caching', 'explanations/developertoolspractices/mcp/explanation-mcp-protocol-era-silent-downgrade-2026-07-28', 'explanations/developertoolspractices/mcp/explanation-mcp-servers-writing-public-content', 'explanations/developertoolspractices/mcp/explanation-mcp-step-up-authorization-vs-oauth-incremental', 'explanations/developertoolspractices/mcp/explanation-mcp-vs-rest-kafka-complementary-layers', 'explanations/developertoolspractices/mcp/explanation-tool-descriptions-are-the-contract'],
         },
         {
           type: 'category',
@@ -470,7 +518,7 @@ const sidebars = {
           type: 'category',
           label: 'Android',
           link: {type: 'generated-index', title: 'Android', slug: 'explanations/programming/android'},
-          items: ['explanations/programming/android/explanation-offline-pdf-ocr-android-zero-internet-permission'],
+          items: ['explanations/programming/android/explanation-android-hardware-vp9-spatial-svc-silently-dropped', 'explanations/programming/android/explanation-offline-pdf-ocr-android-zero-internet-permission'],
         },
         {
           type: 'category',
@@ -552,6 +600,12 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Attacklifecycle',
+          link: {type: 'generated-index', title: 'Attacklifecycle', slug: 'explanations/securityprivacy/attacklifecycle'},
+          items: ['explanations/securityprivacy/attacklifecycle/explanation-attack-surface-reduction-claude-ai-analysis'],
+        },
+        {
+          type: 'category',
           label: 'Bootsecurity',
           link: {type: 'generated-index', title: 'Bootsecurity', slug: 'explanations/securityprivacy/bootsecurity'},
           items: ['explanations/securityprivacy/bootsecurity/explanation-secure-boot-certificate-expiration-2026'],
@@ -578,7 +632,7 @@ const sidebars = {
           type: 'category',
           label: 'Supplychain',
           link: {type: 'generated-index', title: 'Supplychain', slug: 'explanations/securityprivacy/supplychain'},
-          items: ['explanations/securityprivacy/supplychain/explanation-quantized-llm-supply-chain-verifiability-gap', 'explanations/securityprivacy/supplychain/explanation-tanstack-mini-shai-hulud-npm-worm-supply-chain-attack'],
+          items: ['explanations/securityprivacy/supplychain/explanation-litellm-1-107-0-pypi-compromise-cook-stealer', 'explanations/securityprivacy/supplychain/explanation-quantized-llm-supply-chain-verifiability-gap', 'explanations/securityprivacy/supplychain/explanation-tanstack-mini-shai-hulud-npm-worm-supply-chain-attack'],
         },
         {
           type: 'category',

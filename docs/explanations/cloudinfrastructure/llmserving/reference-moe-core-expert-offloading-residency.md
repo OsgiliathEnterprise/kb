@@ -42,7 +42,15 @@ During prefill, complete expert layers are staged into alternating buffers so de
 
 For teams serving large MoE models on memory-constrained accelerators (NPUs, compact appliances), MoE-CORE is a concrete reference design: alternating-buffer prefill staging, nonuniform per-layer cache with routing-history-aware replacement, and cross-layer prefetching — plus an approximate-substitution escape hatch when exact execution doesn't fit. The headline result (orders-of-magnitude lower TPOT than vLLM Prefetch under the same caps) is a useful benchmark for anyone evaluating offloading strategies in LLM serving stacks.
 
+## Ecosystem and Positioning (verified 2026-10-22)
+
+- **Authors**: Ke Yang + 18 co-authors (19 total); classified cs.DC (Distributed, Parallel, and Cluster Computing).
+- **The serving-stack gap it fills**: mainstream engines load *all* MoE experts at initialization. vLLM's practical option is `cpu_offload_gb` — offload N GiB of weights to CPU and swap them on-the-fly each forward pass, which is slow and still requires every expert to be resident in GPU+CPU memory at startup; on-demand/JIT loading of only the routed experts is not supported (vLLM issue #12716, docs for `cache.cpu_offload_gb`). MoE-CORE's coordinated residency + routing-history-aware replacement is a direct answer to that gap for compact appliances.
+- **Community signal**: expert offloading is an active topic in vLLM forums (e.g., "Enable Expert Offloading", Nov 2025) and feature requests (`--moe-gpu-prefetch`, DeepSeek-R1 MoE offload RFC) — expect engine-native residency scheduling to converge toward the MoE-CORE pattern.
+
 ## References
 
 - Paper: https://arxiv.org/abs/2610.01950
+- vLLM expert-offloading status: https://github.com/vllm-project/vllm/issues/12716
+- vLLM community thread: https://discuss.vllm.ai/t/enable-expert-offloading/1884
 - Semantic Scholar: https://api.semanticscholar.org/graph/v1/paper/arXiv:2610.01950
