@@ -42,9 +42,17 @@ TACO follows Muon's operator-norm steepest-descent framing but pushes the geomet
 
 For ML-Ops teams that want full-parameter fine-tuning without multi-GPU optimizer-state overhead, TACO is a drop-in alternative to AdamW/Muon with a dramatically smaller memory footprint. The "keep only the column-max sign + a few low-precision components" design is a concrete pattern for anyone building memory-constrained fine-tuning pipelines — and it preserves first-order gradients, avoiding the accuracy cliffs that pure state-compression or zeroth-order methods can introduce when adapting AdamW-pretrained checkpoints.
 
+## Ecosystem and Positioning (verified 2026-10-22)
+
+- **Authors**: Jichao Jiang, Cristian McGee, El Houcine Bergou, HanQin Cai, Aritra Dutta. v2 submitted 6 Oct 2026; paper is 24 pages / 7 figures / 10 tables, CC-BY 4.0.
+- **Muon line of work**: Muon (arXiv:2502.16982, "Muon is Scalable for LLM Training") is the direct predecessor — matrix-valued updates with dense state. Follow-up work continues the line, e.g. MeqMuon ("Matrix-Equilibrating Muon for LLM Pretraining", arXiv:2609.35701), so the Muon geometry is an active research thread rather than a one-off. TACO's differentiation is the *ternary, one-sparse-per-column* direction, which is what collapses the persistent state.
+- **Practical implication**: TACO's design pattern (per-column argmax sign + a few low-precision gradient components) is a template for any memory-constrained full-parameter fine-tuning pipeline that must start from an AdamW-pretrained checkpoint — it avoids the accuracy cliffs that both state-compression and zeroth-order routes can hit on such checkpoints.
+- **Caveat**: the 174×/2.9× OPT-13B numbers are for the paper's 8-bit AdamW baseline; when comparing against your own setup, recompute the baseline state footprint at your own precision (fp32 AdamW would be larger).
+
 ## References
 
-- Paper: https://arxiv.org/abs/2610.02199
+- Paper: https://arxiv.org/abs/2610.02199 (v2, 2026-10-06)
 - Code: https://github.com/Jichao2357/TACO_optimizer
 - Related (Muon): https://arxiv.org/abs/2502.16982 ("Muon is Scalable for LLM Training")
+- Related (Muon line): https://arxiv.org/abs/2609.35701 (MeqMuon, matrix-equilibrating Muon for pretraining)
 - Semantic Scholar: https://api.semanticscholar.org/graph/v1/paper/arXiv:2610.02199
