@@ -46,7 +46,7 @@ The analysis is packaged as a Claude skill running **three sequential passes**, 
 
 Two auxiliary techniques round out the methodology:
 
-- **OSS-Scanner integration** — feed the scanner's dependency and known-vuln output into the agent as context, so the reachability analysis is anchored to known CVE data rather than re-deriving it.
+- **OSS-Scanner integration** — the attack-surface-reduction skill is being integrated *into* Anthropic's OSS-Scanner (the opt-in vulnerability-finding service for open source), so the methodology runs alongside the scanner's dependency and known-vuln data.
 - **Runtime logs vs configuration comparison** — diff what the logs show the software *actually did* against what the configuration claims it should do. A mismatch is either a bug or an undocumented behavior — both are findings.
 
 ## Why "reduce reachability" beats "patch vulnerabilities"
@@ -63,7 +63,30 @@ Two auxiliary techniques round out the methodology:
 - Run the **config-interaction pass before any "hardened default" release** — the 94 silently-disabling combinations pattern is exactly what a hardening PR misses.
 - Keep the **regression-test artifact** even if you skip the AI passes: a test that asserts "this route requires auth" is cheap insurance against the next refactor.
 
+## Full study numbers (verified against the original post)
+
+The post (Chris Rohlf, Anthropic Frontier Red Team, published 2026-10-20) ran across **25 projects**: 10 Public, 11 Gated, 4 Private — over 5M LOC in C, C++, Java, PHP, and Python. Claude inventoried **17,000+ configuration options**, of which **3,842 were security-relevant**, and found **493 issues in total** across the three methods.
+
+### Why the hostname deny-list fails open — the mechanism
+
+The 4-project pattern is subtler than "check fails → allow":
+
+1. An admin writes the access rule against a **hostname or wildcard pattern** instead of an IP address.
+2. Whether the server ever learns the client's hostname depends on a **separate option controlling reverse-DNS lookups — which most projects had configured off**.
+3. With lookups off, the server only has the client's IP and **compares the hostname pattern against that IP string as plain text**.
+4. A hostname pattern can never match an IP string → the deny rule **never fires** → the list fails open.
+
+Some of the affected projects document that hostname rules depend on DNS lookups being enabled; **none document that a deny-list written this way fails open**.
+
+### Gate implementation details from the skill
+
+- Every finding is confirmed by a **dynamic trace** of the program (not static presence alone).
+- For default-configuration findings, the skill designs and implements the gate, then runs the **project's own test suite plus a black-box regression suite** and requires **results identical to the baseline** — the gate must not change default behavior.
+- Reported real-world impact: fixes from this line of work have shipped in **OpenSSH 10.6** defaults (per secondary coverage of the research).
+
 ## References
 
 - [Attack Surface Reduction (Anthropic Research, original source)](https://www.anthropic.com/research/attack-surface-reduction)
+- [Anthropic set Claude on 25 open-source projects and it found 493 flaws (The Next Web)](https://thenextweb.com/news/claude-attack-surface-reduction-493-issues-openssh) — full cohort numbers, hostname-deny-list mechanism, OSS-Scanner integration
+- [Anthropic finds 94 cases where open-source projects drop security controls (Help Net Security)](https://www.helpnetsecurity.com/2026/10/22/anthropic-attack-surface-reduction-open-source/) — secondary coverage; OpenSSH 10.6 default changes
 - Related KB notes: [[MCP Step-Up Authorization vs OAuth Incremental Authorization — What Actually Changes (Measured on Cloudflare)]] (scope-level reachability at the API boundary), [[How to Coordinate Multi-Agent AI Swarms Without Cloud Deadlocks — a Distributed Task Board MCP Server (AgentMesh)]] (orchestrating the kind of multi-pass agent workloads this skill uses)

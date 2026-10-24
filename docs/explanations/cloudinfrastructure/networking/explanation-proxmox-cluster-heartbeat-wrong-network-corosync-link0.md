@@ -50,6 +50,35 @@ totem {
 
 Then re-verify with the same three-step check, and **restart the cluster stack** so the new link takes effect. The change is small precisely because the problem was never a capacity issue — it was an *addressing* issue: quorum was being voted over a path you had classified as "management" in your head but that you had made single-homed.
 
+## Current syntax: corosync 3 / KNET (and why the `link0_addr` example above is legacy)
+
+The `totem { link0_addr: ... }` pinning shown above is **corosync v2-era** syntax. Proxmox VE ships **corosync 3**, whose default interconnect is **KNET** (`pvecm status` → `Transport: knet`). In corosync 3:
+
+- Per-node ring addresses live in the **`nodelist`**, not in the totem block: each node carries `ring0_addr` (and `ring1_addr` for a second link).
+- The `totem` block only carries `interface { linknumber: N }` entries (one per ring), `link_mode`, `secauth`, `version`. There is no `bindnetaddr`, no `mcastaddr`, no `mcastport` — those are pre-knet-era options.
+
+A working 3-node dual-ring example (two independent rings, both passive, from a live Proxmox cluster):
+
+```bash
+nodelist {
+    node { name: Banner-PVE03 nodeid: 3 quorum_votes: 1 ring0_addr: 172.16.1.113 ring1_addr: 172.16.2.113 }
+    node { name: Rogers-PVE01 nodeid: 1 quorum_votes: 1 ring0_addr: 172.16.1.111 ring1_addr: 172.16.2.111 }
+    node { name: Stark-PVE02 nodeid: 2 quorum_votes: 1 ring0_addr: 172.16.1.112 ring1_addr: 172.16.2.112 }
+}
+totem {
+    cluster_name: Avengers
+    config_version: 4
+    interface { linknumber: 0 }
+    interface { linknumber: 1 }
+    ip_version: ipv4-6
+    link_mode: passive
+    secauth: on
+    version: 2
+}
+```
+
+**Operational caution:** never edit `/etc/pve/corosync.conf` in place — work on a copy, add the new `interface` block and the new `ring1_addr` entry on *every* node, bump `config_version`, then roll out. A second ring is the redundancy fix for exactly the failure mode in this note: quorum votes now have two paths, so a single-homed heartbeat is no longer a cluster-liveness SPOF.
+
 ## Why this matters for HA design
 
 - **Quorum traffic is a first-class network dependency**, not an implementation detail. Design the link it rides with the same redundancy you would give storage replication.
@@ -73,3 +102,7 @@ Then re-verify with the same three-step check, and **restart the cluster stack**
 ## References
 
 - [The cluster joined fine — its heartbeat was on the wrong network (DEV.to)](https://dev.to/captkay/the-cluster-joined-fine-its-heartbeat-was-on-the-wrong-network-45hp)
+- [Configuring Dual Corosync Networks (Proxmox Support Forum)](https://forum.proxmox.com/threads/configuring-dual-corosync-networks.104991/) — live 3-node ring0/ring1 configuration
+- [corosync.conf(5) man page (Debian)](https://manpages.debian.org/testing/corosync/corosync.conf.5.en.html) — totem/interface/linknumber reference
+- [Redundant Corosync Links in Proxmox VE: Setup and Diagnosis (Vormox)](https://vormox.com/blog/configuring-redundant-corosync-links-for-proxmox-ve-cluster-resilience) — copy-edit-bump rollout procedure
+- [Cluster networking deep dive: Corosync links, totem, and tuning (Runbook Academy)](https://runbook.academy/courses/proxmox/lessons/xi-clustering-corosync-links-tuning/) — KNET as default transport in PVE

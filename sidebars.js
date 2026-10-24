@@ -54,6 +54,12 @@ const sidebars = {
           link: {type: 'generated-index', title: 'Python', slug: 'tutorials/programming/python'},
           items: ['tutorials/programming/python/tutorial-aquarium-temperature-logger-raspberry-pi-ds18b20'],
         },
+        {
+          type: 'category',
+          label: 'Webrealtime',
+          link: {type: 'generated-index', title: 'Webrealtime', slug: 'tutorials/programming/webrealtime'},
+          items: ['tutorials/programming/webrealtime/tutorial-socketio-collaborative-whiteboard-rooms'],
+        },
       ],
     },
     {
@@ -62,12 +68,6 @@ const sidebars = {
       collapsed: true,
       link: {type: 'generated-index', title: 'How-to Guides', slug: 'how-to'},
       items: [
-        {
-          type: 'category',
-          label: 'Genaiappframeworks',
-          link: {type: 'generated-index', title: 'Genaiappframeworks', slug: 'how-to/aillm/genaiappframeworks'},
-          items: ['how-to/aillm/genaiappframeworks/howto-install-langchain-from-source'],
-        },
         {
           type: 'category',
           label: 'Llminfrastructure',
@@ -96,7 +96,7 @@ const sidebars = {
           type: 'category',
           label: 'Aws',
           link: {type: 'generated-index', title: 'Aws', slug: 'how-to/cloudinfrastructure/aws'},
-          items: ['how-to/cloudinfrastructure/aws/howto-deploy-aws-from-github-actions-with-oidc', 'how-to/cloudinfrastructure/aws/howto-deploy-ml-model-to-sagemaker-endpoint', 'how-to/cloudinfrastructure/aws/howto-set-up-s3-storage-langchain-data'],
+          items: ['how-to/cloudinfrastructure/aws/howto-deploy-aws-from-github-actions-with-oidc', 'how-to/cloudinfrastructure/aws/howto-deploy-ml-model-to-sagemaker-endpoint'],
         },
         {
           type: 'category',
@@ -114,7 +114,7 @@ const sidebars = {
           type: 'category',
           label: 'Docker',
           link: {type: 'generated-index', title: 'Docker', slug: 'how-to/cloudinfrastructure/docker'},
-          items: ['how-to/cloudinfrastructure/docker/howto-manage-docker-config-resources-directly-with-cli', 'how-to/cloudinfrastructure/docker/howto-run-uptime-kuma-with-podman-quadlet-on-fedora'],
+          items: ['how-to/cloudinfrastructure/docker/howto-run-uptime-kuma-with-podman-quadlet-on-fedora'],
         },
         {
           type: 'category',
@@ -144,7 +144,7 @@ const sidebars = {
           type: 'category',
           label: 'Kubernetes',
           link: {type: 'generated-index', title: 'Kubernetes', slug: 'how-to/cloudinfrastructure/kubernetes'},
-          items: ['how-to/cloudinfrastructure/kubernetes/howto-check-cgroup-v1-before-k8s-upgrade', 'how-to/cloudinfrastructure/kubernetes/howto-download-kubernetes-release-and-binaries', 'how-to/cloudinfrastructure/kubernetes/howto-inspect-volcano-knative-workloads-with-headlamp-plugins', 'how-to/cloudinfrastructure/kubernetes/howto-install-kubeflow-for-ml-on-eks', 'how-to/cloudinfrastructure/kubernetes/howto-manage-cluster-api-resources-with-headlamp'],
+          items: ['how-to/cloudinfrastructure/kubernetes/howto-check-cgroup-v1-before-k8s-upgrade', 'how-to/cloudinfrastructure/kubernetes/howto-inspect-volcano-knative-workloads-with-headlamp-plugins', 'how-to/cloudinfrastructure/kubernetes/howto-install-kubeflow-for-ml-on-eks', 'how-to/cloudinfrastructure/kubernetes/howto-manage-cluster-api-resources-with-headlamp'],
         },
         {
           type: 'category',
@@ -157,6 +157,12 @@ const sidebars = {
           label: 'Networking',
           link: {type: 'generated-index', title: 'Networking', slug: 'how-to/cloudinfrastructure/networking'},
           items: ['how-to/cloudinfrastructure/networking/howto-monitor-email-dns-records-mx-spf-dkim-dmarc', 'how-to/cloudinfrastructure/networking/howto-self-hosted-http-tunnels-ssh-nginx'],
+        },
+        {
+          type: 'category',
+          label: 'Streaming',
+          link: {type: 'generated-index', title: 'Streaming', slug: 'how-to/cloudinfrastructure/streaming'},
+          items: ['how-to/cloudinfrastructure/streaming/howto-stream-llm-tokens-kinesis-lambda-sse'],
         },
         {
           type: 'category',
@@ -198,7 +204,7 @@ const sidebars = {
           type: 'category',
           label: 'Databases',
           link: {type: 'generated-index', title: 'Databases', slug: 'how-to/programming/databases'},
-          items: ['how-to/programming/databases/howto-catch-silent-table-loss-in-supabase-pg-restore', 'how-to/programming/databases/howto-port-mysql-schema-to-postgresql'],
+          items: ['how-to/programming/databases/howto-catch-silent-table-loss-in-supabase-pg-restore', 'how-to/programming/databases/howto-port-mysql-schema-to-postgresql', 'how-to/programming/databases/howto-prevent-oversell-atomic-conditional-update'],
         },
         {
           type: 'category',
@@ -216,7 +222,7 @@ const sidebars = {
           type: 'category',
           label: 'Java',
           link: {type: 'generated-index', title: 'Java', slug: 'how-to/programming/java'},
-          items: ['how-to/programming/java/howto-assert-conditions-all-any', 'how-to/programming/java/howto-idempotency-key-replay-spring-boot-checkout', 'how-to/programming/java/howto-integrate-typesafe-jev-with-spring-ai', 'how-to/programming/java/howto-setup-reactor-dependencies', 'how-to/programming/java/howto-spring-batch-mongodb-job-repository-spring-boot-4-1', 'how-to/programming/java/howto-spring-data-rest-paging-sorting', 'how-to/programming/java/howto-spring-security-in-memory-user-store'],
+          items: ['how-to/programming/java/howto-idempotency-key-replay-spring-boot-checkout', 'how-to/programming/java/howto-integrate-typesafe-jev-with-spring-ai', 'how-to/programming/java/howto-spring-batch-mongodb-job-repository-spring-boot-4-1'],
         },
         {
           type: 'category',
@@ -247,18 +253,6 @@ const sidebars = {
           label: 'Aiagentsecurity',
           link: {type: 'generated-index', title: 'Aiagentsecurity', slug: 'how-to/securityprivacy/aiagentsecurity'},
           items: ['how-to/securityprivacy/aiagentsecurity/howto-mcp-security-hardening'],
-        },
-        {
-          type: 'category',
-          label: 'Datacollection',
-          link: {type: 'generated-index', title: 'Datacollection', slug: 'how-to/securityprivacy/datacollection'},
-          items: ['how-to/securityprivacy/datacollection/howto-head-peek-file-content', 'how-to/securityprivacy/datacollection/howto-windows-registry-query-export'],
-        },
-        {
-          type: 'category',
-          label: 'Dataprocessing',
-          link: {type: 'generated-index', title: 'Dataprocessing', slug: 'how-to/securityprivacy/dataprocessing'},
-          items: ['how-to/securityprivacy/dataprocessing/howto-awk-filter-lines-by-field'],
         },
         {
           type: 'category',
@@ -318,21 +312,9 @@ const sidebars = {
       items: [
         {
           type: 'category',
-          label: 'Aifundamentals',
-          link: {type: 'generated-index', title: 'Aifundamentals', slug: 'explanations/aillm/aifundamentals'},
-          items: ['explanations/aillm/aifundamentals/explanation-ml-breakthroughs-and-future-impact-areas'],
-        },
-        {
-          type: 'category',
           label: 'Diffusionlanguagemodels',
           link: {type: 'generated-index', title: 'Diffusionlanguagemodels', slug: 'explanations/aillm/diffusionlanguagemodels'},
           items: ['explanations/aillm/diffusionlanguagemodels/explanation-diffusiongemma-block-autoregressive-text-diffusion', 'explanations/aillm/diffusionlanguagemodels/explanation-how-to-build-a-diffusion-language-model'],
-        },
-        {
-          type: 'category',
-          label: 'Genaiappframeworks',
-          link: {type: 'generated-index', title: 'Genaiappframeworks', slug: 'explanations/aillm/genaiappframeworks'},
-          items: ['explanations/aillm/genaiappframeworks/explanation-applications-langchain-neural-networks'],
         },
         {
           type: 'category',
@@ -417,12 +399,6 @@ const sidebars = {
           label: 'Gpuvirtualization',
           link: {type: 'generated-index', title: 'Gpuvirtualization', slug: 'explanations/cloudinfrastructure/gpuvirtualization'},
           items: ['explanations/cloudinfrastructure/gpuvirtualization/explanation-virtio-nvgpu-driver-abi-forwarding'],
-        },
-        {
-          type: 'category',
-          label: 'Grpc',
-          link: {type: 'generated-index', title: 'Grpc', slug: 'explanations/cloudinfrastructure/grpc'},
-          items: ['explanations/cloudinfrastructure/grpc/explanation-grpc-client-server-message-flow-http2', 'explanations/cloudinfrastructure/grpc/explanation-grpc-context-metadata-lifecycle'],
         },
         {
           type: 'category',
@@ -514,6 +490,7 @@ const sidebars = {
           link: {type: 'generated-index', title: 'Remotedevelopment', slug: 'explanations/developertoolspractices/remotedevelopment'},
           items: ['explanations/developertoolspractices/remotedevelopment/explanation-vscode-ssh-agent-architecture'],
         },
+        'explanations/general/2026-10-23-daily-news-digest',
         {
           type: 'category',
           label: 'Android',
@@ -548,7 +525,7 @@ const sidebars = {
           type: 'category',
           label: 'Frontendjavascript',
           link: {type: 'generated-index', title: 'Frontendjavascript', slug: 'explanations/programming/frontendjavascript'},
-          items: ['explanations/programming/frontendjavascript/explanation-browser-apis-replacing-npm-packages', 'explanations/programming/frontendjavascript/explanation-oxlint-oxfmt-benchmark-on-excalidraw', 'explanations/programming/frontendjavascript/explanation-react-rerender-vs-expensive-work'],
+          items: ['explanations/programming/frontendjavascript/explanation-browser-apis-replacing-npm-packages', 'explanations/programming/frontendjavascript/explanation-html-in-canvas-api', 'explanations/programming/frontendjavascript/explanation-oxlint-oxfmt-benchmark-on-excalidraw', 'explanations/programming/frontendjavascript/explanation-react-rerender-vs-expensive-work'],
         },
         {
           type: 'category',
@@ -591,6 +568,12 @@ const sidebars = {
           label: 'X86Architecture',
           link: {type: 'generated-index', title: 'X86Architecture', slug: 'explanations/programming/x86architecture'},
           items: ['explanations/programming/x86architecture/explanation-phantom-fma-instruction-vfmaddrnd'],
+        },
+        {
+          type: 'category',
+          label: 'Zig',
+          link: {type: 'generated-index', title: 'Zig', slug: 'explanations/programming/zig'},
+          items: ['explanations/programming/zig/explanation-zig-traits-comptime-type-contracts'],
         },
         {
           type: 'category',
