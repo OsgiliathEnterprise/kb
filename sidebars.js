@@ -338,7 +338,7 @@ const sidebars = {
           type: 'category',
           label: 'Llmmodels',
           link: {type: 'generated-index', title: 'Llmmodels', slug: 'explanations/aillm/llmmodels'},
-          items: ['explanations/aillm/llmmodels/explanation-glm-5-2-open-weight-models-self-hosting', 'explanations/aillm/llmmodels/explanation-ibm-granite-4-2-dense-reasoning-models', 'explanations/aillm/llmmodels/explanation-poem-predicting-rl-outcomes-from-existing-policies', 'explanations/aillm/llmmodels/explanation-pssa-plastic-state-space-language-model-rust'],
+          items: ['explanations/aillm/llmmodels/explanation-glm-5-2-open-weight-models-self-hosting', 'explanations/aillm/llmmodels/explanation-ibm-granite-4-2-dense-reasoning-models', 'explanations/aillm/llmmodels/explanation-non-verifiable-rl-rubric-co-design', 'explanations/aillm/llmmodels/explanation-poem-predicting-rl-outcomes-from-existing-policies', 'explanations/aillm/llmmodels/explanation-pssa-plastic-state-space-language-model-rust'],
         },
         {
           type: 'category',
@@ -513,7 +513,7 @@ const sidebars = {
           type: 'category',
           label: 'Datastructures',
           link: {type: 'generated-index', title: 'Datastructures', slug: 'explanations/programming/datastructures'},
-          items: ['explanations/programming/datastructures/explanation-one-hash-bloom-filters'],
+          items: ['explanations/programming/datastructures/explanation-one-hash-bloom-filters', 'explanations/programming/datastructures/explanation-reservation-charts-as-intervals'],
         },
         {
           type: 'category',
@@ -556,6 +556,12 @@ const sidebars = {
           label: 'Python',
           link: {type: 'generated-index', title: 'Python', slug: 'explanations/programming/python'},
           items: ['explanations/programming/python/explanation-python-str-lower-idna-unicode-cve-2026-17084', 'explanations/programming/python/explanation-tempfile-gc-finalizer-antipattern'],
+        },
+        {
+          type: 'category',
+          label: 'Roc',
+          link: {type: 'generated-index', title: 'Roc', slug: 'explanations/programming/roc'},
+          items: ['explanations/programming/roc/explanation-roc-deflate-near-c-speed'],
         },
         {
           type: 'category',
@@ -633,7 +639,7 @@ const sidebars = {
           type: 'category',
           label: 'Websecurity',
           link: {type: 'generated-index', title: 'Websecurity', slug: 'explanations/securityprivacy/websecurity'},
-          items: ['explanations/securityprivacy/websecurity/explanation-apple-reference-image-verified-photography', 'explanations/securityprivacy/websecurity/explanation-cisco-ise-cve-2026-76423-rest-api-auth-bypass', 'explanations/securityprivacy/websecurity/explanation-cloudflare-disallow-ai-training-mixed-use-crawlers', 'explanations/securityprivacy/websecurity/explanation-data-only-attacks-einstein', 'explanations/securityprivacy/websecurity/explanation-drupal-cve-2026-96362-batch-version-based-scanning-limits', 'explanations/securityprivacy/websecurity/explanation-feature-flags-are-not-authorization', 'explanations/securityprivacy/websecurity/explanation-kestra-cve-2026-49869-suffix-match-auth-bypass', 'explanations/securityprivacy/websecurity/explanation-libheif-heic-rce-chain-openai-sso-takeover', 'explanations/securityprivacy/websecurity/explanation-open-redirect-php-laravel', 'explanations/securityprivacy/websecurity/explanation-passkeys-attestation-aaguid-domain-binding-phishing', 'explanations/securityprivacy/websecurity/explanation-pitworld-private-search-moshpit-network', 'explanations/securityprivacy/websecurity/explanation-telegram-desktop-cve-2026-107181-ipc-injection-account-takeover', 'explanations/securityprivacy/websecurity/explanation-telnetd-cve-2026-32746-linemode-slc-buffer-overflow', 'explanations/securityprivacy/websecurity/explanation-wordpress-cve-2026-87902-patch-windows'],
+          items: ['explanations/securityprivacy/websecurity/explanation-apple-reference-image-verified-photography', 'explanations/securityprivacy/websecurity/explanation-cisco-ise-cve-2026-76423-rest-api-auth-bypass', 'explanations/securityprivacy/websecurity/explanation-cloudflare-disallow-ai-training-mixed-use-crawlers', 'explanations/securityprivacy/websecurity/explanation-data-only-attacks-einstein', 'explanations/securityprivacy/websecurity/explanation-drupal-cve-2026-96362-batch-version-based-scanning-limits', 'explanations/securityprivacy/websecurity/explanation-feature-flags-are-not-authorization', 'explanations/securityprivacy/websecurity/explanation-kestra-cve-2026-49869-suffix-match-auth-bypass', 'explanations/securityprivacy/websecurity/explanation-libheif-heic-rce-chain-openai-sso-takeover', 'explanations/securityprivacy/websecurity/explanation-open-redirect-php-laravel', 'explanations/securityprivacy/websecurity/explanation-passkeys-attestation-aaguid-domain-binding-phishing', 'explanations/securityprivacy/websecurity/explanation-pitworld-private-search-moshpit-network', 'explanations/securityprivacy/websecurity/explanation-telegram-desktop-cve-2026-107181-ipc-injection-account-takeover', 'explanations/securityprivacy/websecurity/explanation-telnetd-cve-2026-32746-linemode-slc-buffer-overflow', 'explanations/securityprivacy/websecurity/explanation-weekly-security-advisories-node2shell-php2shell-pillow', 'explanations/securityprivacy/websecurity/explanation-wordpress-cve-2026-87902-patch-windows'],
         },
         {
           type: 'category',
