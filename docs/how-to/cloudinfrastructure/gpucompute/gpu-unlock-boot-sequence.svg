@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 -4.0 1008.0 628.0" width="1008" height="628">
+<rect x="16.0" y="-4.0" width="1008.0" height="628.0" fill="#ffffff"/>
+<rect x="40.0" y="80.0" width="460.0" height="70.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="40.0" y="170.0" width="460.0" height="70.0" rx="8" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="40.0" y="260.0" width="460.0" height="70.0" rx="8" fill="#f9e0a3" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="40.0" y="350.0" width="460.0" height="70.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="40.0" y="440.0" width="460.0" height="70.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="40.0" y="530.0" width="460.0" height="70.0" rx="8" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="560.0" y="80.0" width="420.0" height="110.0" rx="8" fill="#ffffff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="560.0" y="220.0" width="420.0" height="90.0" rx="8" fill="#ffffff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="560.0" y="340.0" width="420.0" height="70.0" rx="8" fill="#ffffff" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 270.0 150.0 L 270.0 170.0"/><line x1="270.0" y1="170.0" x2="273.5" y2="162.8"/><line x1="270.0" y1="170.0" x2="266.5" y2="162.8"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 270.0 240.0 L 270.0 260.0"/><line x1="270.0" y1="260.0" x2="273.5" y2="252.8"/><line x1="270.0" y1="260.0" x2="266.5" y2="252.8"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 270.0 330.0 L 270.0 350.0"/><line x1="270.0" y1="350.0" x2="273.5" y2="342.8"/><line x1="270.0" y1="350.0" x2="266.5" y2="342.8"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 270.0 420.0 L 270.0 440.0"/><line x1="270.0" y1="440.0" x2="273.5" y2="432.8"/><line x1="270.0" y1="440.0" x2="266.5" y2="432.8"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 270.0 510.0 L 270.0 530.0"/><line x1="270.0" y1="530.0" x2="273.5" y2="522.8"/><line x1="270.0" y1="530.0" x2="266.5" y2="522.8"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="18" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="34.4">gpu-unlock: FP/BF16 rate unlock on RTX 3000 series (GA10x)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="270.0" y="124.6">Kernel boot (initramfs)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="270.0" y="207.1">gpu_unlock kmod loads BEFORE nvidia binds</tspan><tspan x="270.0" y="222.1">clears firmware-left bus mastering first</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="270.0" y="289.6">Writes speed selectors: SS0 = 0x88888888</tspan><tspan x="270.0" y="304.6">(full BF16 rate) + SS1 = 0x8 (IMLA4)</tspan><tspan x="270.0" y="319.6">(V67/PLM technique, pre-driver timing)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="270.0" y="394.6">FLR (function-level reset)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="270.0" y="477.1">nvidia driver binds normally</tspan><tspan x="270.0" y="492.1">(unmodified driver, no per-release patching)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="270.0" y="567.1">FP/BF16 FMA issue rate doubled</tspan><tspan x="270.0" y="582.1">GEMM: FP16 87-&gt;118, BF16 87-&gt;157, TF32 42-&gt;82 TFLOPS (3090 Ti)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="770.0" y="114.6">Opt-in via kernel command line:</tspan><tspan x="770.0" y="129.6">  gpu_unlock.targets=all</tspan><tspan x="770.0" y="144.6">  gpu_unlock.targets=0000:21:00.0[,00:22:00.0]</tspan><tspan x="770.0" y="159.6">(all = every unbound GA102/GA103/GA104/GA106;</tspan><tspan x="770.0" y="174.6">addresses as lspci -D prints them)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="770.0" y="252.1">Suspend to RAM powers cards off and resets the selectors;</tspan><tspan x="770.0" y="267.1">module re-unlocks on resume ~1 s before nvidia resumes.</tspan><tspan x="770.0" y="282.1">Disable: gpu_unlock.resume=0.</tspan><tspan x="770.0" y="297.1">Hibernation is not covered.</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="770.0" y="369.6">Verify:</tspan><tspan x="770.0" y="384.6">  journalctl -k -b | grep gpu_unlock</tspan><tspan x="770.0" y="399.6">  lspci -nnk -s 0000:21:00.0</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="560.0" y="439.6">Manual load after nvidia bound does nothing; display card works too (screen blank until nvidia-drm takes over).</tspan></text>
+</svg>

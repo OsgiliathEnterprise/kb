@@ -81,4 +81,4 @@ Every `fetch`, XHR, or WebSocket to a host not on the list **gets blocked by the
 
 - [Processing Content Security Policy violation reports · Mathias Bynens](https://mathiasbynens.be/notes/csp-reports) — mathiasbynens.be
 - [Content Security Policy Browser Test](https://content-security-policy.com/browser-test/) — content-security-policy.com
-- [Content Security Policy Level 3](https://w3c.github.io/webappsec-csp/) — Mitigate the risk of content-injection attacks by giving developers , for example) by giving developers granular control over the returned by
+- [Content Security Policy Level 3 (W3C spec)](https://w3c.github.io/webappsec-csp/) — the current spec revision; adds directives like `trusted-types`, `wasm-unsafe-eval` and `reporting-endpoints`, giving developers granular control over which content a page can load

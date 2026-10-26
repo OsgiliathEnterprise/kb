@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 -4.0 1108.0 448.0" width="1108" height="448">
+<rect x="16.0" y="-4.0" width="1108.0" height="448.0" fill="#ffffff"/>
+<rect x="60.0" y="90.0" width="320.0" height="80.0" rx="8" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="400.0" y="90.0" width="340.0" height="80.0" rx="8" fill="#f9e0a3" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="760.0" y="90.0" width="320.0" height="80.0" rx="8" fill="#f9d3d3" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="60.0" y="220.0" width="1020.0" height="90.0" rx="8" fill="#e5dbff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="60.0" y="340.0" width="1020.0" height="80.0" rx="8" fill="#ffffff" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 40.0 140.0 L 1100.0 140.0"/><line x1="1100.0" y1="140.0" x2="1087.4" y2="133.9"/><line x1="1100.0" y1="140.0" x2="1087.4" y2="146.1"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="18" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="34.4">Baseline-aware token-spike detection (per-agent, ~30-day history)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="79.6">tokens per run, compared against this agent's own baseline (mean, sigma)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="220.0" y="117.1">normal variance</tspan><tspan x="220.0" y="132.1">&lt;= mean + 2sigma</tspan><tspan x="220.0" y="147.1">harder problem, legit retry</tspan><tspan x="220.0" y="162.1">(almost never an incident)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="570.0" y="117.1">anomaly</tspan><tspan x="570.0" y="132.1">&gt; max(mean + 2sigma, 3x mean)</tspan><tspan x="570.0" y="147.1">statistically unusual for THIS agent</tspan><tspan x="570.0" y="162.1">investigate, not necessarily emergency</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="920.0" y="124.6">runaway zone</tspan><tspan x="920.0" y="139.6">&gt; mean + 4sigma OR 10x mean</tspan><tspan x="920.0" y="154.6">likely loop/spiral -&gt; kill-switch</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="570.0" y="259.6">Sustained-anomaly detector: flag only if the current run AND the prior 2-3 runs all exceeded the baseline by 2sigma.</tspan><tspan x="570.0" y="274.6">Legit spikes are isolated (8,000 then back to ~1,200); runaway shows escalation (1,500 -&gt; 2,000 -&gt; 3,000 -&gt; 5,000 -&gt; 8,000).</tspan><tspan x="570.0" y="289.6">Kills one-off false positives, catches spirals early: catch at run 2 ~= $30 overspend, run 6 ~= $500.</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="570.0" y="382.1">Signals to track: per-execution tokens (raw), spike ratio = current/mean (&gt;3 worth attention),</tspan><tspan x="570.0" y="397.1">consecutive anomalies (&gt;=2 in a row separates one-offs from patterns), cost-per-token baseline ratio (model/context dependent).</tspan></text>
+</svg>
