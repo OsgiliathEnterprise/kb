@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 -4.0 1048.0 518.0" width="1048" height="518">
+<rect x="16.0" y="-4.0" width="1048.0" height="518.0" fill="#ffffff"/>
+<rect x="40.0" y="80.0" width="260.0" height="70.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="340.0" y="80.0" width="260.0" height="70.0" rx="8" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="640.0" y="80.0" width="320.0" height="70.0" rx="8" fill="#f9e0a3" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="640.0" y="200.0" width="320.0" height="60.0" rx="8" fill="#ffffff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="40.0" y="200.0" width="260.0" height="60.0" rx="8" fill="#ffffff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="40.0" y="300.0" width="260.0" height="70.0" rx="8" fill="#ffffff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="340.0" y="200.0" width="260.0" height="70.0" rx="8" fill="#ffffff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="340.0" y="300.0" width="260.0" height="70.0" rx="8" fill="#ffffff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="640.0" y="300.0" width="320.0" height="70.0" rx="8" fill="#ffffff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="640.0" y="400.0" width="320.0" height="50.0" rx="8" fill="#ffffff" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 800.0 150.0 L 800.0 200.0"/><line x1="800.0" y1="200.0" x2="806.1" y2="187.4"/><line x1="800.0" y1="200.0" x2="793.9" y2="187.4"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="18" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="34.4">Goose memory model: no heap allocator, no GC, no lifetime annotations</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="170.0" y="117.3">Native call stack</tspan><tspan x="170.0" y="133.5">locals, frames, temporaries</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="470.0" y="109.2">Static data</tspan><tspan x="470.0" y="125.4">globals, function values</tspan><tspan x="470.0" y="141.7">(compile-time entities)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="800.0" y="109.2">N data stacks (compiler picks N)</tspan><tspan x="800.0" y="125.4">large address-space reservation</tspan><tspan x="800.0" y="141.7">with a bump pointer - no other memory</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="800.0" y="224.6">Growth = advance the bump pointer</tspan><tspan x="800.0" y="239.6">never moves anything, no capacity check</tspan><tspan x="800.0" y="254.6">(freed: one store to the stack top on scope exit)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="170.0" y="224.6">Nested data stays inline</tspan><tspan x="170.0" y="239.6">[metadata][elements...] one block,</tspan><tspan x="170.0" y="254.6">no pointer to an element block</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="170.0" y="322.1">Stable references</tspan><tspan x="170.0" y="337.1">push() returns a reference into the</tspan><tspan x="170.0" y="352.1">growing array - valid for its lifetime</tspan><tspan x="170.0" y="367.1">(no reserve, no u32 indices)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="470.0" y="222.1">Root inference: every reference/slice</tspan><tspan x="470.0" y="237.1">has a static root variable; compiler</tspan><tspan x="470.0" y="252.1">rejects references that outlive it -</tspan><tspan x="470.0" y="267.1">zero annotations, no unsafe</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="470.0" y="322.1">Relative links T&amp;&lt;u32&gt;: 1/2/4-byte</tspan><tspan x="470.0" y="337.1">offsets, checked at load</tspan><tspan x="470.0" y="352.1">position independent: data is</tspan><tspan x="470.0" y="367.1">already its own file format</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="800.0" y="322.1">Workers share nothing</tspan><tspan x="800.0" y="337.1">thread_fn = separate program with own</tspan><tspan x="800.0" y="352.1">memory; flat values cross typed queues</tspan><tspan x="800.0" y="367.1">as memcpy - no locks, atomics or races</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="800.0" y="427.1">Compiles to one plain C file</tspan><tspan x="800.0" y="442.1">(TinyCC backend runs it in-process)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="640.0" y="479.6">benchmarks: 3.5x idiomatic C++, 1.16-1.26x hand-optimized C++, 1.12-1.19x safe Rust; 1.2-1.95x less peak memory</tspan></text>
+</svg>
