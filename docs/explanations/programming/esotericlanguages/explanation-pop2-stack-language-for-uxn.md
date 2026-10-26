@@ -134,3 +134,9 @@ POP-2 is a compact demonstration of how far you can push the "ALGOL syntax + sta
 - [POP-2 compiler source (Uxntal)](https://wiki.xxiivv.com/etc/pop2.tal.txt)
 - [pop2 repository (git.sr.ht/~rabbits/pop2)](https://git.sr.ht/~rabbits/pop2)
 - [Wikipedia — POP-2](https://en.wikipedia.org/wiki/POP-2)
+
+## Further Reading (added 2026-10-25 by KB Zookeeper audit)
+
+- [XXIIVV wiki — uxn (the VM POP-2 compiles to)](https://wiki.xxiivv.com/site/uxn.html) — Uxn reference: Uxntal language, Varvara devices, emulators (x11/sdl2/win32/html5)
+- [Uxn devlog — a virtual machine](https://wiki.xxiivv.com/site/uxn_devlog.html) — design rationale: Uxn as the portability layer ("Uxn is to Varvara what the 6502 is to the classic Nintendo")
+- [awesome-uxn (Hundred Rabbits)](https://github.com/hundredrabbits/awesome-uxn) — community index of Uxn ports, libraries, and tools

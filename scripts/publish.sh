@@ -55,6 +55,16 @@ preflight() {
   cd "$REPO_DIR"
   git_run fetch "$REMOTE"
   git_run checkout "$SOURCE_BRANCH"
+  # Verify the checkout actually happened. git_run swallows errors (|| true),
+  # and publishing from the wrong branch is worse than failing: on 2026-10-26
+  # the repo was left on a stale PR branch with a conflicting dirty tree, the
+  # checkout silently failed, and the whole cycle ran (and committed) on the
+  # old branch.
+  local current
+  current="$(git -C "$REPO_DIR" branch --show-current)"
+  if [ "$current" != "$SOURCE_BRANCH" ]; then
+    die "Not on $SOURCE_BRANCH (on '$current') — checkout likely failed (dirty/conflicting working tree?). Commit or stash pending changes, then re-run."
+  fi
   git_run pull "$REMOTE" "$SOURCE_BRANCH"
   log "HEAD = $(git_run rev-parse --short HEAD) ($SOURCE_BRANCH)"
 }
@@ -376,6 +386,18 @@ main() {
     check_stale_prs
   else
     create_ghpages
+  fi
+
+  # Hygiene: leave the repo on the source branch. update_ghpages ends on the
+  # PR branch; the next run that starts there with a conflicting dirty tree
+  # fails its preflight checkout (now fatal, see preflight above) or, before
+  # that fix, misfired the entire cycle on the stale branch (2026-10-26).
+  git -C "$REPO_DIR" checkout "$SOURCE_BRANCH" >/dev/null 2>&1 || \
+    log "WARNING: could not return to $SOURCE_BRANCH (dirty/conflicting tree?)"
+  local final_branch
+  final_branch="$(git -C "$REPO_DIR" branch --show-current)"
+  if [ "$final_branch" != "$SOURCE_BRANCH" ]; then
+    log "WARNING: repo left on '$final_branch' instead of $SOURCE_BRANCH — next run may abort in preflight until resolved"
   fi
 
   log "Publish cycle complete"
