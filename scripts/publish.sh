@@ -225,14 +225,42 @@ update_ghpages() {
     git_run push "$REMOTE" --delete "$old" 2>/dev/null || true
   done
 
-  # Create new PR branch from source, inject build output
-  git_run checkout -b "$pr_branch" "$SOURCE_BRANCH"
-  cp -r "$REPO_DIR/build/"* "$REPO_DIR/"
+  # Create new site-only PR branch from the current gh-pages tip, with the
+  # build output replacing its content.
+  # BUGFIX (2026-10-27): the previous approach (branch from $SOURCE_BRANCH,
+  # copy build/ into the repo root, `git add -A`) produced SOURCE-ONLY
+  # branches: .gitignore excludes the site files at the repo root
+  # (index.html, assets/, */**.html, search/, sitemap.xml, ...), so
+  # `git add -A` silently skipped every built file and only source fixes
+  # were committed. A branch like that, merged into gh-pages, would add the
+  # entire source tree to the site branch and never actually update the
+  # deployed site. A site-only branch based on the gh-pages tip:
+  #   - merges cleanly into gh-pages (no add/add conflicts — scenario 3),
+  #   - never pollutes the site branch with source files,
+  #   - keeps the main repo on $SOURCE_BRANCH (worktree), avoiding the
+  #     2026-10-26 "left on a stale PR branch" failure mode.
+  # The worktree checks out the gh-pages tip, which tracks no .gitignore, so
+  # plain `git add -A` stages the full build output.
+  local wt_dir="$REPO_DIR/.pr-wt"
+  git -C "$REPO_DIR" worktree remove "$wt_dir" --force 2>/dev/null || true
+  rm -rf "$wt_dir"
+  git -C "$REPO_DIR" worktree add "$wt_dir" "$REMOTE/$TARGET_BRANCH" >/dev/null || \
+    die "Could not create worktree at $REMOTE/$TARGET_BRANCH"
+  cd "$wt_dir" || { err "Cannot enter $wt_dir"; return 1; }
+
+  git rm -rf --quiet . 2>/dev/null || true
+  cp -r "$REPO_DIR/build/"* .
+  touch .nojekyll
   git add -A
   git diff --cached --quiet || \
     git commit -m "publish: KB website update ($DATE_STAMP)"
 
-  git_run push "$REMOTE" "$pr_branch"
+  git push "$REMOTE" "HEAD:refs/heads/$pr_branch"
+
+  # Cleanup
+  cd "$REPO_DIR"
+  git -C "$REPO_DIR" worktree remove "$wt_dir" --force 2>/dev/null || true
+  rm -rf "$wt_dir"
 
   # Create PR via GitHub API (using SSH key's associated account)
   create_pr "$pr_branch"
