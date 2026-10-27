@@ -32,6 +32,12 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Gitworkflow',
+          link: {type: 'generated-index', title: 'Gitworkflow', slug: 'tutorials/developertoolspractices/gitworkflow'},
+          items: ['tutorials/developertoolspractices/gitworkflow/tutorial-git-github-basics'],
+        },
+        {
+          type: 'category',
           label: 'Databases',
           link: {type: 'generated-index', title: 'Databases', slug: 'tutorials/programming/databases'},
           items: ['tutorials/programming/databases/tutorial-mvcc-postgres-style-snapshots-typescript'],
@@ -70,9 +76,15 @@ const sidebars = {
       items: [
         {
           type: 'category',
+          label: 'Llmbeyondtext',
+          link: {type: 'generated-index', title: 'Llmbeyondtext', slug: 'how-to/aillm/llmbeyondtext'},
+          items: ['how-to/aillm/llmbeyondtext/howto-ai-meeting-transcription-pipelines'],
+        },
+        {
+          type: 'category',
           label: 'Llminfrastructure',
           link: {type: 'generated-index', title: 'Llminfrastructure', slug: 'how-to/aillm/llminfrastructure'},
-          items: ['how-to/aillm/llminfrastructure/howto-tiered-response-caching-for-llm-costs'],
+          items: ['how-to/aillm/llminfrastructure/howto-run-gemma-3-1b-locally-transformers-js-onnx', 'how-to/aillm/llminfrastructure/howto-tiered-response-caching-for-llm-costs'],
         },
         {
           type: 'category',
@@ -120,7 +132,7 @@ const sidebars = {
           type: 'category',
           label: 'Finops',
           link: {type: 'generated-index', title: 'Finops', slug: 'how-to/cloudinfrastructure/finops'},
-          items: ['how-to/cloudinfrastructure/finops/howto-cloud-budget-alerts-aws-gcp-azure'],
+          items: ['how-to/cloudinfrastructure/finops/howto-bedrock-iam-cost-attribution', 'how-to/cloudinfrastructure/finops/howto-cloud-budget-alerts-aws-gcp-azure'],
         },
         {
           type: 'category',
@@ -216,7 +228,7 @@ const sidebars = {
           type: 'category',
           label: 'Frontendjavascript',
           link: {type: 'generated-index', title: 'Frontendjavascript', slug: 'how-to/programming/frontendjavascript'},
-          items: ['how-to/programming/frontendjavascript/howto-deno-2-9-desktop-and-node-migration', 'how-to/programming/frontendjavascript/howto-eradicate-slow-ttfb-with-streaming-ssr-nextjs', 'how-to/programming/frontendjavascript/howto-per-project-node-toolchains-nvmrc-corepack-docker-compose', 'how-to/programming/frontendjavascript/howto-react-native-environment-setup-android-flavors-ios-schemes'],
+          items: ['how-to/programming/frontendjavascript/howto-deno-2-9-desktop-and-node-migration', 'how-to/programming/frontendjavascript/howto-eradicate-slow-ttfb-with-streaming-ssr-nextjs', 'how-to/programming/frontendjavascript/howto-per-project-node-toolchains-nvmrc-corepack-docker-compose', 'how-to/programming/frontendjavascript/howto-react-native-environment-setup-android-flavors-ios-schemes', 'how-to/programming/frontendjavascript/howto-svg-icon-optimization'],
         },
         {
           type: 'category',
@@ -369,6 +381,12 @@ const sidebars = {
           label: 'Multimodal',
           link: {type: 'generated-index', title: 'Multimodal', slug: 'explanations/aimachinelearning/multimodal'},
           items: ['explanations/aimachinelearning/multimodal/explanation-deepseek-vision-lineage', 'explanations/aimachinelearning/multimodal/explanation-netflix-maps-multimodal-asset-personalization'],
+        },
+        {
+          type: 'category',
+          label: 'Requestbodyframing',
+          link: {type: 'generated-index', title: 'Requestbodyframing', slug: 'explanations/apidesign/requestbodyframing'},
+          items: ['explanations/apidesign/requestbodyframing/explanation-client-body-framing-content-length-vs-chunked'],
         },
         {
           type: 'category',
@@ -548,7 +566,7 @@ const sidebars = {
           type: 'category',
           label: 'Java',
           link: {type: 'generated-index', title: 'Java', slug: 'explanations/programming/java'},
-          items: ['explanations/programming/java/explanation-better-tools-immutable-data-java', 'explanations/programming/java/explanation-java-sealed-classes-exhaustive-pattern-matching', 'explanations/programming/java/explanation-jdk-26-performance-improvements', 'explanations/programming/java/explanation-jdk-28-pooled-confined-arena', 'explanations/programming/java/explanation-jep-540-simple-json-api-incubator', 'explanations/programming/java/explanation-jep-543-structured-concurrency-finalized-jdk28', 'explanations/programming/java/explanation-jep-546-zgc-adaptive-heap-sizing', 'explanations/programming/java/explanation-netflix-ja-module-system-toolchain', 'explanations/programming/java/explanation-specjbb-workload-generator-same-jvm-limitations', 'explanations/programming/java/explanation-spring-ai-2-0-composable-tool-calling-advisor-architecture', 'explanations/programming/java/explanation-structured-concurrency-project-loom', 'explanations/programming/java/explanation-zgc-decade-of-low-latency-gc', 'explanations/programming/java/explanation-zgc-weak-reference-processing'],
+          items: ['explanations/programming/java/explanation-better-tools-immutable-data-java', 'explanations/programming/java/explanation-java-sealed-classes-exhaustive-pattern-matching', 'explanations/programming/java/explanation-jdk-26-performance-improvements', 'explanations/programming/java/explanation-jdk-28-pooled-confined-arena', 'explanations/programming/java/explanation-jdk-28-value-classes-preview', 'explanations/programming/java/explanation-jep-540-simple-json-api-incubator', 'explanations/programming/java/explanation-jep-543-structured-concurrency-finalized-jdk28', 'explanations/programming/java/explanation-jep-546-zgc-adaptive-heap-sizing', 'explanations/programming/java/explanation-netflix-ja-module-system-toolchain', 'explanations/programming/java/explanation-specjbb-workload-generator-same-jvm-limitations', 'explanations/programming/java/explanation-spring-ai-2-0-composable-tool-calling-advisor-architecture', 'explanations/programming/java/explanation-structured-concurrency-project-loom', 'explanations/programming/java/explanation-zgc-decade-of-low-latency-gc', 'explanations/programming/java/explanation-zgc-weak-reference-processing'],
         },
         {
           type: 'category',
@@ -561,6 +579,12 @@ const sidebars = {
           label: 'Linuxkernel',
           link: {type: 'generated-index', title: 'Linuxkernel', slug: 'explanations/programming/linuxkernel'},
           items: ['explanations/programming/linuxkernel/explanation-cve-2026-23111-nftables-use-after-free', 'explanations/programming/linuxkernel/explanation-isolcpus-irq-affinity', 'explanations/programming/linuxkernel/explanation-x86-tso-emulation-on-arm'],
+        },
+        {
+          type: 'category',
+          label: 'Parsingcompilers',
+          link: {type: 'generated-index', title: 'Parsingcompilers', slug: 'explanations/programming/parsingcompilers'},
+          items: ['explanations/programming/parsingcompilers/explanation-pratt-parsing'],
         },
         {
           type: 'category',
@@ -638,7 +662,7 @@ const sidebars = {
           type: 'category',
           label: 'Tlsssl',
           link: {type: 'generated-index', title: 'Tlsssl', slug: 'explanations/securityprivacy/tlsssl'},
-          items: ['explanations/securityprivacy/tlsssl/explanation-cctld-hijack-counterfeit-tls-certificates', 'explanations/securityprivacy/tlsssl/explanation-cloudflare-public-ca-mtc-post-quantum', 'explanations/securityprivacy/tlsssl/explanation-go-emudhra-distrusted-intermediates-cve-2026-111943', 'explanations/securityprivacy/tlsssl/explanation-ssl-tls-three-jobs', 'explanations/securityprivacy/tlsssl/explanation-xray-core-pinned-cert-mitm-bypass'],
+          items: ['explanations/securityprivacy/tlsssl/explanation-cctld-hijack-counterfeit-tls-certificates', 'explanations/securityprivacy/tlsssl/explanation-cloudflare-public-ca-mtc-post-quantum', 'explanations/securityprivacy/tlsssl/explanation-go-emudhra-distrusted-intermediates-cve-2026-111943', 'explanations/securityprivacy/tlsssl/explanation-ssl-tls-three-jobs', 'explanations/securityprivacy/tlsssl/explanation-tls-1-3-handshake-1rtt-0rtt', 'explanations/securityprivacy/tlsssl/explanation-xray-core-pinned-cert-mitm-bypass'],
         },
         {
           type: 'category',

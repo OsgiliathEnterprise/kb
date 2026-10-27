@@ -35,11 +35,15 @@ node -p "require('zlib').constants.BROTLI_DECODER_ERROR_FORMAT_BLOCK_SWITCH || '
 # -17 = patched build, missing = not patched
 ```
 
+**Follow-ups (verified 2026-10-27):** the bug also became known as **HTTP2Shell** from October 24. Root cause is in Google's Brotli library itself (versions 1.0.3–1.2.0 affected; fixed in 1.0.10 / 1.1.1 / 1.2.1), so **Bun, Envoy, Istio, Electron and Python's Brotli packages** are affected via the same library — check them even if you "only" run Node. Public proof-of-concept code appeared within 24 hours (October 22); as of October 26 no in-the-wild attacks were reported and it was not in CISA KEV (CISA assessed it as not automatable). CVSS 4.0: 9.2.
+
 ## 2. PHP2Shell — CVE-2026-109618 + CVE-2026-109619
 
 Memory bugs in the **PHP engine itself**: a perfectly clean WordPress or Laravel app is still exposed if the PHP underneath is old. Details leaked before the patch was ready; Cloudflare saw tens of thousands of exploit attempts within 45 minutes and millions by the next day (a Mirai botnet joined in). As of the digest, zero confirmed break-ins — but reliable exploitation turned out to be only hard, not impossible.
 
 **Fixed in**: 8.5.12, 8.4.27, 8.3.36, or 8.2.35+.
+
+**Follow-ups (verified 2026-10-27):** the PHP security team rates both CVEs **CVSS v4.0 9.2**. CVE-2026-109618 ("rawkey") targets the **Zend Engine's HashTable** implementation — the exploit sends a multi-megabyte `application/x-www-form-urlencoded` POST body — which is why framework-level input validation does not help; the engine itself is the bug. E-commerce stacks (Magento, Shopware, WooCommerce) are directly exposed since they run on the same engine.
 
 ```bash
 php -v
@@ -107,3 +111,9 @@ Checklist:
 - [Pillow crafted-image vulnerabilities — ByteMuni](https://bytemuni.com/cyber-security/pillow-vulnerability-cve-2026-96639/)
 - [PHP2Shell patches for web servers — ByteMuni](https://bytemuni.com/cyber-security/php2shell-patches-for-php-web-servers/)
 - [CISA KEV: Collabora Online + Arista VeloCloud — ByteMuni](https://bytemuni.com/cyber-security/cisa-kev-collabora-online-arista-velocloud/)
+- [Node2Shell (CVE-2026-111497): Node.js Brotli RCE — Indusface](https://www.indusface.com/blog/cve-2026-111497-node2shell-nodejs-brotli-rce/)
+- [Inside Node2Shell: A Closer Look at CVE-2026-111497 — Akamai](https://www.akamai.com/blog/security-research/inside-node2shell-closer-look-cve-2026-111497)
+- [Reproducible local Brotli decoder proof for CVE-2026-111497 — GitHub](https://github.com/dimasma0305/CVE-2026-111497-POC)
+- [PHP2Shell FAQ: CVE-2026-109618 / CVE-2026-109619 — Tenable](https://www.tenable.com/blog/php2shell-cve-2026-109618-cve-2026-109619-frequently-asked-questions-about-critical-php-rem)
+- [PHP2Shell: Critical PHP RCE Vulnerabilities — Abstract](https://www.abstract.security/blog/php2shell-critical-php-rce-vulnerabilities-cve-2026-109618-and-cve-2026-109619)
+- [PHP2Shell: PHP RCE (CVE-2026-109618, CVE-2026-109619) — Sansec](https://sansec.io/research/php2shell)
