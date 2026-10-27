@@ -51,7 +51,7 @@ Now `cd ~/work/clients/acme/api` switches to whatever that project's `.nvmrc` sa
 Also declare the version in `package.json` so tools and CI can see it:
 
 ```json
-{ "engines": { "node": ">=20 <21" } }
+{ "engines": { "node": ">=20 &lt;21" } }
 ```
 
 By default npm only *warns* on `engines` mismatch. For a hard stop, add `engine-strict=true` to the project's `.npmrc` — the author uses it on older client projects where a newer Node genuinely breaks things, and leaves it off on modern ones.
