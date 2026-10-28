@@ -66,6 +66,12 @@ Measured on "PI Knowledge Work", an internal benchmark the vendor says correlate
 
 [explanation-non-verifiable-rl-rubric-co-design.excalidraw](explanation-non-verifiable-rl-rubric-co-design.svg)
 
+## Further reading
+
+- [Rubric-ARM (arXiv 2602.01511)](https://arxiv.org/abs/2602.01511) — the closest published instance of rubric co-design: jointly optimizes a rubric generator and a judge via RL from preference feedback, treating rubric generation as a latent action learned to maximize judgment accuracy. Alternating optimization is the stability mechanism (it provably reduces gradient variance vs. simultaneous updates) — the same non-stationarity problem this note's co-design faces.
+- [RUBRIC-ARROW (arXiv 2605.29156)](https://www.alphaxiv.org/abs/2605.29156) — alternating *pointwise* rubric reward modeling for non-verifiable domains, i.e., standalone rubric-based reward models instead of in-loop LLM judges — relevant to the cost table in this note, since a distilled judge is cheaper than a per-rollout LLM judge.
+- [Rubric-Based Rewards for RL (Cameron Wolfe)](https://cameronrwolfe.substack.com/p/rubric-rl) — plain-language overview of the approach family: interpretable criteria evaluated by an LLM judge and aggregated into a multi-dimensional reward.
+
 ## References
 
 - [The Judgment Layer: How AI Learned to Grade What It Can't Verify — Gabby Six (DEV.to)](https://dev.to/gabby_six/the-judgment-layer-how-ai-learned-to-grade-what-it-cant-verify-em3)

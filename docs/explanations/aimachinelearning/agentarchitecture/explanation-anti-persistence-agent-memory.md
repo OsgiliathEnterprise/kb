@@ -39,6 +39,12 @@ Across different benchmarks and backbone models, Anti-Persistence achieves **hig
 
 This is a concrete data point for the memory-architecture notes in this topic (Claude's unified memory, LemmaLog's datalog memory, contradiction-judge memory auditing): the safe thing to persist is *evidence* (trajectories, outcomes), while *conclusions* should be recomputed per task. The cost result matters operationally — persistent-abstraction pipelines pay for synthesis once and retrieval always, while Anti-Persistence pays inference only when the selector says it is worth it. Any long-running agent we run with a skill store should treat this as the default design: store what happened, re-derive what it means.
 
+## Further reading
+
+- [arXiv 2610.27406: More Memory, Worse Agents](https://arxiv.org/abs/2610.27406) — the paper itself (Wang, Panaganti, Zhou; Indiana University Bloomington). Mechanism detail worth keeping: an adaptive selector uses prior outcomes to decide whether *and how* to synthesize guidance, and the guidance is discarded after execution — indirect feedback through retained trajectories remains possible, which is why error reproduction is reduced rather than eliminated.
+- [Securing LLM-Agent Long-Term Memory Against Memory Poisoning](https://arxiv.org/abs/2606.24322) — the security-side complement: persistent agent memory is an attack surface (poisoned entries propagate exactly like the paper's errors do), which strengthens the case for discarding synthesized guidance.
+- [MemoryCD](https://arxiv.org/html/2603.25973v1) — long-context user-memory benchmark for cross-domain personalization; useful for measuring what you lose when guidance is discarded after use.
+
 ## References
 
 - Paper: https://arxiv.org/abs/2610.27406

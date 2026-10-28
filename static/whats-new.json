@@ -1,5 +1,11 @@
 [
   {
+    "title": "Tailscale Ssh Tailworm Privilege Escalation",
+    "type": "Explanation",
+    "link": "/explanations/securityprivacy/ssh/explanation-tailscale-ssh-tailworm-privilege-escalation",
+    "time": "4 min read"
+  },
+  {
     "title": "Tanstack Mini Shai Hulud Npm Worm Supply Chain Attack",
     "type": "Explanation",
     "link": "/explanations/securityprivacy/supplychain/explanation-tanstack-mini-shai-hulud-npm-worm-supply-chain-attack",
@@ -12,6 +18,12 @@
     "time": "5 min read"
   },
   {
+    "title": "Cve 2026 97631 Edk2 Pxe Icmp Buffer Overflow",
+    "type": "Explanation",
+    "link": "/explanations/securityprivacy/bootsecurity/explanation-cve-2026-97631-edk2-pxe-icmp-buffer-overflow",
+    "time": "4 min read"
+  },
+  {
     "title": "Weekly Security Advisories Node2Shell Php2Shell Pillow",
     "type": "Explanation",
     "link": "/explanations/securityprivacy/websecurity/explanation-weekly-security-advisories-node2shell-php2shell-pillow",
@@ -22,17 +34,5 @@
     "type": "Explanation",
     "link": "/explanations/securityprivacy/websecurity/explanation-telegram-desktop-cve-2026-107181-ipc-injection-account-takeover",
     "time": "6 min read"
-  },
-  {
-    "title": "Drupal Cve 2026 96362 Batch Version Based Scanning Limits",
-    "type": "Explanation",
-    "link": "/explanations/securityprivacy/websecurity/explanation-drupal-cve-2026-96362-batch-version-based-scanning-limits",
-    "time": "3 min read"
-  },
-  {
-    "title": "Cisco Ise Cve 2026 76423 Rest Api Auth Bypass",
-    "type": "Explanation",
-    "link": "/explanations/securityprivacy/websecurity/explanation-cisco-ise-cve-2026-76423-rest-api-auth-bypass",
-    "time": "5 min read"
   }
 ]

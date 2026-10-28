@@ -83,6 +83,12 @@ Interim results enable live captions and trigger automations (e.g. "let's follow
 | Dedicated apps (Otter, Fireflies, Recallix) | advanced diarization, topic extraction, action items, integrations (Slack, Notion, Zapier) | varying accuracy, privacy considerations, cost |
 | Custom (Whisper + pyannote + LLM) | maximum control, custom vocabularies, on-prem deployment | ML/DevOps expertise and ongoing maintenance required |
 
+## Further reading
+
+- [WhisperX](https://github.com/m-bain/whisperx) — the standard glue layer for production Whisper pipelines: word-level forced alignment plus pyannote diarization in one call (`assign_word_speakers`), which is the cleanest way to attach speaker labels to word timestamps instead of hand-rolling alignment.
+- [AssemblyAI: Does Whisper do speaker diarization?](https://www.assemblyai.com/blog/whisper-speaker-diarization) — where the DIY Whisper+pyannote pipeline cracks (overlap, short turns, noise) and the managed single-call alternative (transcript + speaker labels together, ~30 cpWER, $0.21/hr). Useful benchmark when deciding DIY vs. managed.
+- [Whisper large-v3 on Groq](https://console.groq.com/docs/model/whisper-large-v3) — if the local-pyannote pipeline is too slow for your meeting volume, large-v3 is available as an inference-API alternative that keeps the same model quality.
+
 ## References
 - [AI Meeting Transcription in 2025: What Actually Works (DEV.to)](https://dev.to/albert_nahas_cdc8469a6ae8/ai-meeting-transcription-in-2025-what-actually-works-3o6c)
 - [OpenAI Whisper](https://github.com/openai/whisper) · [pyannote-audio](https://github.com/pyannote/pyannote-audio)

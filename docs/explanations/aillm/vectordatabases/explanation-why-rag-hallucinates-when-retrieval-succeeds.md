@@ -100,6 +100,12 @@ Tools like RAGAS and DeepEval can score these. Run them on every change to chunk
 
 ![RAG hallucination failure modes](explanation-why-rag-hallucinates-when-retrieval-succeeds.svg)
 
+## Further reading
+
+- [Towards Data Science: Most RAG Hallucinations Are Retrieval Failures](https://towardsdatascience.com/most-rag-hallucinations-are-retrieval-failures-how-the-retrieval-brick-decides-what-the-model-can-invent/) — the "retrieval brick" argument from the Enterprise Document Intelligence series: hold the question and the model fixed, change only the retrieval, and the answer changes. Concrete measurement worth citing: on the 55-page NIST CSF v1.1, the page containing the answer ranked 55th of 55 under cosine similarity but 1st under plain keyword count — the one word that mattered was averaged away.
+- [Companion code: doc-intel/notebooks-vol1](https://github.com/doc-intel/notebooks-vol1) — the naive pipeline + keyword fix from that article, runnable on a laptop without an API key. Good testbed for reproducing failure mode 1 (dirty retrieval) locally.
+- [Red Gate: How to stop AI hallucinations in enterprise RAG](https://www.red-gate.com/simple-talk/ai/how-to-stop-ai-hallucinations-in-enterprise-rag-systems-a-complete-guide/) — the practitioner framing: naive RAG moves the failure point from the model to the retrieval pipeline (poor chunking, weak embeddings, stale documents) — a checklist that maps onto this note's five failure modes.
+
 ## References
 
 - [Why Does RAG Hallucinate When the Right Documents Exist? (DEV.to)](https://dev.to/pallavi_sharma_10c1a6f1da/why-does-rag-hallucinate-when-the-right-documents-exist-1cnn)

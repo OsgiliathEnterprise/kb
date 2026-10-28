@@ -39,6 +39,11 @@ After the pin, the demo ran end-to-end in ~90 s.
 ## What was / wasn't verified
 Verified locally: `npm install` succeeds, `npm run demo` produces a real Gemma transcript, the static viewer renders it, and the interactive picker lists all six personas. **Not** verified: running the model in a browser — the demo viewer is a transcript page and makes no such claim.
 
+## Further reading
+
+- [Transformers.js v3 release notes](https://huggingface.co/blog/transformersjs-v3) — the version line this note pins against: v3 added WebGPU (up to 100x faster than WASM), new quantization dtypes, and moved the npm package to `@huggingface/transformers` with Node (ESM + CJS), Deno, and Bun support. If you upgrade the pin, the import path and backend behavior change with it — re-verify the onnxruntime compatibility after any bump.
+- [PyImageSearch: Running Gemma in the browser with Transformers.js + WebGPU](https://pyimagesearch.com/2026/07/27/running-gemma-4-in-the-browser-with-transformers-js-and-webgpu/) — the browser-side variant of this setup; same ONNX Runtime mechanism, WebGPU backend, no Node required.
+
 ## References
 - [Seance: a terminal that channels dead programming languages (DEV.to)](https://dev.to/khizzcr7/seance-a-terminal-that-channels-dead-programming-languages-525k) — project write-up
 - [seance repo (GitHub)](https://github.com/khizzcr7/seance)

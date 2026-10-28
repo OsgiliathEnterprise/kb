@@ -90,7 +90,7 @@ const sidebars = {
           type: 'category',
           label: 'Agentarchitecture',
           link: {type: 'generated-index', title: 'Agentarchitecture', slug: 'how-to/aimachinelearning/agentarchitecture'},
-          items: ['how-to/aimachinelearning/agentarchitecture/howto-agentic-rag-pipeline-with-real-time-web-search', 'how-to/aimachinelearning/agentarchitecture/howto-build-effectively-once-agent-workflows', 'how-to/aimachinelearning/agentarchitecture/howto-closed-world-resolution-tool-hallucination', 'how-to/aimachinelearning/agentarchitecture/howto-jev-mobile-vlm-planning-lightweight-execution', 'how-to/aimachinelearning/agentarchitecture/howto-langgraph-node-failure-observability', 'how-to/aimachinelearning/agentarchitecture/howto-raft-stateful-rag-troubleshooting-agents'],
+          items: ['how-to/aimachinelearning/agentarchitecture/howto-agentic-rag-pipeline-with-real-time-web-search', 'how-to/aimachinelearning/agentarchitecture/howto-build-effectively-once-agent-workflows', 'how-to/aimachinelearning/agentarchitecture/howto-closed-world-resolution-tool-hallucination', 'how-to/aimachinelearning/agentarchitecture/howto-idempotency-keys-ai-agent-tool-execution', 'how-to/aimachinelearning/agentarchitecture/howto-jev-mobile-vlm-planning-lightweight-execution', 'how-to/aimachinelearning/agentarchitecture/howto-langgraph-node-failure-observability', 'how-to/aimachinelearning/agentarchitecture/howto-raft-stateful-rag-troubleshooting-agents'],
         },
         {
           type: 'category',
@@ -250,6 +250,12 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Rust',
+          link: {type: 'generated-index', title: 'Rust', slug: 'how-to/programming/rust'},
+          items: ['how-to/programming/rust/howto-porting-concurrent-cpp-to-rust'],
+        },
+        {
+          type: 'category',
           label: 'Webrealtime',
           link: {type: 'generated-index', title: 'Webrealtime', slug: 'how-to/programming/webrealtime'},
           items: ['how-to/programming/webrealtime/howto-scale-websocket-sse-redis-pubsub'],
@@ -399,6 +405,12 @@ const sidebars = {
           label: 'Aws',
           link: {type: 'generated-index', title: 'Aws', slug: 'explanations/cloudinfrastructure/aws'},
           items: ['explanations/cloudinfrastructure/aws/explanation-aws-lambda-ebpf-rust-flow-logging'],
+        },
+        {
+          type: 'category',
+          label: 'Cicdsecurity',
+          link: {type: 'generated-index', title: 'Cicdsecurity', slug: 'explanations/cloudinfrastructure/cicdsecurity'},
+          items: ['explanations/cloudinfrastructure/cicdsecurity/explanation-terraform-sensitive-masking-plan-review'],
         },
         {
           type: 'category',
@@ -570,6 +582,12 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Lean',
+          link: {type: 'generated-index', title: 'Lean', slug: 'explanations/programming/lean'},
+          items: ['explanations/programming/lean/explanation-cfsg-lean-formalization-axiommath'],
+        },
+        {
+          type: 'category',
           label: 'Linux',
           link: {type: 'generated-index', title: 'Linux', slug: 'explanations/programming/linux'},
           items: ['explanations/programming/linux/explanation-anduinos-2-0-declarative-ubuntu-desktop-distro', 'explanations/programming/linux/explanation-nsl-wsl-style-linux-machines-systemd-nspawn'],
@@ -632,7 +650,7 @@ const sidebars = {
           type: 'category',
           label: 'Bootsecurity',
           link: {type: 'generated-index', title: 'Bootsecurity', slug: 'explanations/securityprivacy/bootsecurity'},
-          items: ['explanations/securityprivacy/bootsecurity/explanation-secure-boot-certificate-expiration-2026'],
+          items: ['explanations/securityprivacy/bootsecurity/explanation-cve-2026-97631-edk2-pxe-icmp-buffer-overflow', 'explanations/securityprivacy/bootsecurity/explanation-secure-boot-certificate-expiration-2026'],
         },
         {
           type: 'category',
@@ -651,6 +669,12 @@ const sidebars = {
           label: 'P2Psecurity',
           link: {type: 'generated-index', title: 'P2Psecurity', slug: 'explanations/securityprivacy/p2psecurity'},
           items: ['explanations/securityprivacy/p2psecurity/explanation-radicle-cleartext-transport-node-impersonation'],
+        },
+        {
+          type: 'category',
+          label: 'Ssh',
+          link: {type: 'generated-index', title: 'Ssh', slug: 'explanations/securityprivacy/ssh'},
+          items: ['explanations/securityprivacy/ssh/explanation-tailscale-ssh-tailworm-privilege-escalation'],
         },
         {
           type: 'category',
