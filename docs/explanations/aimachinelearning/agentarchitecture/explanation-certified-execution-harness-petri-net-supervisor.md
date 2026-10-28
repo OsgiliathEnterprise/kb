@@ -40,6 +40,11 @@ This gives agent-harness designers a design space with provable structure instea
 
 Directly applicable to the harness-design notes in this topic (guardrail stack, sandboxed execution runtimes, HITL approval gates): the mark-based preconditions map cleanly onto capability tokens, approval budgets, and spend limits that agent platforms already implement informally. The "value-threshold refinement" is a concrete recipe for tuning supervisor strictness per proposer model. Related line of work: TB-CSPN (Petri-net coordination substrate for agentic AI, MDPI Future Internet 2026) and PetriFlow-style termination proofs.
 
+## Further reading
+
+- [arXiv 2610.31376: Certified Execution Harness for Agentic AI](https://arxiv.org/abs/2610.31376) — the source paper (Gu & Zhu, submitted 2026-10-22; 17 pages, 9 figures, 2 tables). Mechanism detail worth keeping: marks encode capabilities, approvals, and budgets; the maximally permissive supervisor is refined into a *least-intrusive* one characterized as a value-threshold refinement that orders two concurrent actions by at most one monitor place. The replanning closed loop — each retry after a refusal costs an inference call — is what makes the conventional supervisor arbitrarily more intrusive than a stricter safe one.
+- [SynthAI News coverage](https://syncai.news/article/certified-execution-harness-for-agentic-ai-safe-and-least-intrusive-petri-net-su-f41f89) — short digest of the paper's contribution for quick re-orientation.
+
 ## References
 
 - Paper: https://arxiv.org/abs/2610.31376

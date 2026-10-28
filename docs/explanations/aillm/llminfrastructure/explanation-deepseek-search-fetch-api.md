@@ -116,6 +116,12 @@ Rule: **408/429/5xx → wait and retry; 402 → top up; other 4xx → do not ret
 - **`authority` tiering** (0–4) lets agents/RAG pipelines filter sources without external reputation lookups.
 - **Per-successful-request pricing** removes the incentive to over-fetch: empty results cost nothing.
 
+## Further reading
+
+- [CodeGurus: DeepSeek search and fetch — $0.75 per 1000 successful requests](https://codegurus.eu/deepseek-search-and-fetch-0-75-per-1000-successful-requests/) — current pricing and endpoint confirmation: `POST https://api.deepseek.com/v1/tools/search` and `POST /v1/tools/fetch`, same bearer auth as the main API, billed per *successful* request.
+- [The New Stack: DeepSeek undercuts search API rivals](https://thenewstack.io/deepseek-web-search-api/) — pricing context: DeepSeek is temporarily waiving Search/Fetch charges for server-side tool calls made through DeepSeek Harness, Claude Code, and Codex via its API — relevant if you route agent tool calls through a harness rather than calling the endpoints directly.
+- [DeepSeek pricing page](https://deepseek.ai/pricing) — note: DeepSeek does not publish RPM/TPM rate limits anywhere in its documentation; the retry policy in this note is therefore the only client-side backstop.
+
 ## References
 
 - [DeepSeek Search & Fetch API guide (official docs)](https://api-docs.deepseek.com/guides/search/)

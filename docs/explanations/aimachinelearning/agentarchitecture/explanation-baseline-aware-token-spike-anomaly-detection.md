@@ -98,6 +98,11 @@ feature — the pattern itself is the transferable takeaway.)
 
 ![Threshold zones around a per-agent token baseline: normal variance &lt;= mean+2sigma, anomaly > max(mean+2sigma, 3x mean), runaway > mean+4sigma or 10x mean, plus the sustained-anomaly detector](token-spike-thresholds.svg)
 
+## Further reading
+
+- [Augment Code: AI Agent Loop Token Costs](https://www.augmentcode.com/guides/ai-agent-loop-token-cost-context-constraints) — the cost model behind the spike: naive loops rebill the entire history on every call, so token cost grows O(N²) (a 20-step loop can consume 10x the per-step estimate). This is why "compare against the agent's own history" is the right baseline — absolute thresholds misfire, but a *rate* baseline catches the quadratic growth early.
+- The same guide catalogs five context-constraint patterns (scope limiting, state resets, coordinator–specialist splits) reported to cut agent token costs up to ~53.7% — the natural mitigation to pair with detection.
+
 ## References
 
 - [When LLM Agent Token Spikes Hide Real Failures (DEV.to, opsveritas)](https://dev.to/opsveritas/when-llm-agent-token-spikes-hide-real-failures-kh8)
