@@ -77,6 +77,13 @@ Either way, the compile errors Rust gives you are the audit's verdict made concr
 
 
 
+## Related notes
+
+- [Event-driven (de)serialization in Rust](../../../explanations/programming/rust/explanation-deser-event-driven-serialization-rust.md) — the Rust-side data-flow patterns to port against.
+- Rust 1.98 algebraic float and buffered formatting — current std-level features available to the ported code.
+
+State-of-ecosystem note (2026-10-29): the migration advice above remains current — ThreadSanitizer-first auditing on the C++ side and Tokio as the default async runtime are still the standard recommendations in 2026 migration guidance; no breaking ecosystem changes affect the checklist.
+
 ## References
 
 - [Porting Concurrent C++ to Rust: Field Notes From a Few Migrations — DEV.to](https://dev.to/stratumstack/porting-concurrent-c-to-rust-field-notes-from-a-few-migrations-5gia)

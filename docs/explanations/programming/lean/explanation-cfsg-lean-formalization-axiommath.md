@@ -54,6 +54,12 @@ The project page offers a BibTeX block (`@misc{axiom-cfsg}`, Axiom Math, 2026) f
 
 
 
+## Status check (2026-10-29)
+
+- **34 notable deviations.** Axiom's own project page now states the formalization found **34 notable deviations** from the published record (the Unbalanced Group Theorem step is the most significant), part of a total of 2,000+ errors or omissions found across the literature. The errata list is being prepared with group theorists and is expected to be published on the project page — the note's "the bug is in the proof, not the theorem" framing is confirmed by the secondary analyses.
+- **The theorem stands; the proof was flawed.** John Cook's detailed analysis (2026-10-28) concludes that the UGT — and the CFSG that depends on it — remains **correct**, but the 1986 proof step was wrong: the claimed nonexistence result was true, but for different reasons than the proof established.
+- **New result as a side effect.** The formalization work also produced a shorter derivation, within the first-generation method, that reaches the same conclusion without Theorem 2.3 (recorded as **Remark 9.5**) — an original mathematical result produced by the agent swarm itself.
+
 ## References
 
 - [CFSG in Lean — Axiom Math project page (interactive proof map, corpus, citation)](https://cfsg.axiommath.ai/)
@@ -62,3 +68,5 @@ The project page offers a BibTeX block (`@misc{axiom-cfsg}`, Axiom Math, 2026) f
 - [CFSG Lean source code — GitHub](https://github.com/AxiomMath/CFSG)
 - [OfficeChai: Axiom formally verifies the "enormous theorem" (43.1M lines, 24-day agent swarm)](https://officechai.com/ai/axiom-enormous-theorem/)
 - [Xenospectrum: AI formalizes CFSG in 24 days, exposing a flaw in an intermediate step](https://xenospectrum.com/en/axiom-cfsg-formal-proof/)
+- [CFSG in Lean — Axiom Math research page (34 notable deviations, Remark 9.5)](https://axiommath.ai/research/cfsg-in-lean)
+- [John Cook: the Unbalanced Group Theorem error, analyzed (2026-10-28)](https://www.johndcook.com/blog/2026-10-28/ugf-error-axiom/)

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 -8.0 768.0 958.0" width="768" height="958">
+<rect x="16.0" y="-8.0" width="768.0" height="958.0" fill="#ffffff"/>
+<rect x="40.0" y="80.0" width="320.0" height="76.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="40.0" y="190.0" width="320.0" height="76.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="40.0" y="300.0" width="320.0" height="76.0" rx="8" fill="#ffec99" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="40.0" y="410.0" width="320.0" height="76.0" rx="8" fill="#ffec99" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="40.0" y="520.0" width="320.0" height="76.0" rx="8" fill="#ffec99" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="40.0" y="630.0" width="320.0" height="76.0" rx="8" fill="#ffec99" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="40.0" y="740.0" width="320.0" height="76.0" rx="8" fill="#d0bfff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="40.0" y="850.0" width="320.0" height="76.0" rx="8" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="440.0" y="80.0" width="320.0" height="76.0" rx="8" fill="#ffec99" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="440.0" y="190.0" width="320.0" height="76.0" rx="8" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="440.0" y="300.0" width="320.0" height="76.0" rx="8" fill="#ffec99" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="440.0" y="410.0" width="320.0" height="76.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="440.0" y="520.0" width="320.0" height="76.0" rx="8" fill="#d0bfff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="440.0" y="630.0" width="320.0" height="76.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 200.0 156.0 L 200.0 190.0"/><line x1="200.0" y1="190.0" x2="205.2" y2="179.3"/><line x1="200.0" y1="190.0" x2="194.8" y2="179.3"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 200.0 266.0 L 200.0 300.0"/><line x1="200.0" y1="300.0" x2="205.2" y2="289.3"/><line x1="200.0" y1="300.0" x2="194.8" y2="289.3"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 200.0 376.0 L 200.0 410.0"/><line x1="200.0" y1="410.0" x2="205.2" y2="399.3"/><line x1="200.0" y1="410.0" x2="194.8" y2="399.3"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 200.0 486.0 L 200.0 520.0"/><line x1="200.0" y1="520.0" x2="205.2" y2="509.3"/><line x1="200.0" y1="520.0" x2="194.8" y2="509.3"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 200.0 596.0 L 200.0 630.0"/><line x1="200.0" y1="630.0" x2="205.2" y2="619.3"/><line x1="200.0" y1="630.0" x2="194.8" y2="619.3"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 200.0 706.0 L 200.0 740.0"/><line x1="200.0" y1="740.0" x2="205.2" y2="729.3"/><line x1="200.0" y1="740.0" x2="194.8" y2="729.3"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 200.0 816.0 L 200.0 850.0"/><line x1="200.0" y1="850.0" x2="205.2" y2="839.3"/><line x1="200.0" y1="850.0" x2="194.8" y2="839.3"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 360.0 888.0 L 440.0 118.0"/><line x1="440.0" y1="118.0" x2="432.6" y2="129.9"/><line x1="440.0" y1="118.0" x2="444.8" y2="131.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 600.0 156.0 L 600.0 190.0"/><line x1="600.0" y1="190.0" x2="605.2" y2="179.3"/><line x1="600.0" y1="190.0" x2="594.8" y2="179.3"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 600.0 266.0 L 600.0 300.0"/><line x1="600.0" y1="300.0" x2="605.2" y2="289.3"/><line x1="600.0" y1="300.0" x2="594.8" y2="289.3"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 600.0 376.0 L 600.0 410.0"/><line x1="600.0" y1="410.0" x2="605.2" y2="399.3"/><line x1="600.0" y1="410.0" x2="594.8" y2="399.3"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 600.0 486.0 L 600.0 520.0"/><line x1="600.0" y1="520.0" x2="605.2" y2="509.3"/><line x1="600.0" y1="520.0" x2="594.8" y2="509.3"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 600.0 596.0 L 600.0 630.0"/><line x1="600.0" y1="630.0" x2="605.2" y2="619.3"/><line x1="600.0" y1="630.0" x2="594.8" y2="619.3"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="20" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="32.0">Edge logic-only full chain (Pwn2Own Berlin 2026)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="91.2">Microsoft-owned origin</tspan><tspan x="40.0" y="108.7">(login.live.com)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="201.2">EdgeCAGuidanceNavigationThrottle</tspan><tspan x="40.0" y="218.7">(Entra ID Conditional Access)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="311.2">Bug 1: sourceless Navigate()</tspan><tspan x="40.0" y="328.7">active tab becomes source -&gt; 0-click UXSS</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="421.2">Bug 2: trusted-origin bypass</tspan><tspan x="40.0" y="438.7">(no cross-window opener check)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="531.2">Bug 3: popup blocker bypass</tspan><tspan x="40.0" y="548.7">(hardcoded whitelist: about:blank#quickAuthPopup)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="641.2">Bug 4: assets.msn.com CORS misconfig</tspan><tspan x="40.0" y="658.7">steals signed-in user's email</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="751.2">Windows feature: OneAuth auto sign-in</tspan><tspan x="40.0" y="768.7">(Windows 25H2 OOBE requires MSA)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="861.2">0-click UXSS on any origin</tspan><tspan x="40.0" y="878.7">(browser-initiated -&gt; CSP ignored)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="440.0" y="91.2">Bug 5: read:// missing from</tspan><tspan x="440.0" y="108.7">not_allowing_javascript_urls_schemes</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="440.0" y="201.2">UXSS on privileged WebUI (read://)</tspan><tspan x="440.0" y="218.7">-&gt; chrome.edgeFeedbackPrivate.zipDiagnosticLogFiles</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="440.0" y="311.2">arbitrary file write</tspan><tspan x="440.0" y="328.7">(../ path traversal + null byte)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="440.0" y="421.2">overwrite protocols.json</tspan><tspan x="440.0" y="438.7">(AutoLaunchProtocolsComponent) + edge://restart</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="440.0" y="531.2">Windows feature: PATH lookup</tspan><tspan x="440.0" y="548.7">missing telnet.exe -&gt; writable lowpriv dir</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="440.0" y="641.2">RCE / full chain (&lt;100 lines of code)</tspan></text>
+</svg>

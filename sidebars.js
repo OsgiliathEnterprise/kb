@@ -84,7 +84,7 @@ const sidebars = {
           type: 'category',
           label: 'Llminfrastructure',
           link: {type: 'generated-index', title: 'Llminfrastructure', slug: 'how-to/aillm/llminfrastructure'},
-          items: ['how-to/aillm/llminfrastructure/howto-run-gemma-3-1b-locally-transformers-js-onnx', 'how-to/aillm/llminfrastructure/howto-tiered-response-caching-for-llm-costs'],
+          items: ['how-to/aillm/llminfrastructure/howto-run-gemma-3-1b-locally-transformers-js-onnx', 'how-to/aillm/llminfrastructure/howto-running-nemotron-3-5-transcribe-locally', 'how-to/aillm/llminfrastructure/howto-tiered-response-caching-for-llm-costs'],
         },
         {
           type: 'category',
@@ -228,7 +228,7 @@ const sidebars = {
           type: 'category',
           label: 'Frontendjavascript',
           link: {type: 'generated-index', title: 'Frontendjavascript', slug: 'how-to/programming/frontendjavascript'},
-          items: ['how-to/programming/frontendjavascript/howto-deno-2-9-desktop-and-node-migration', 'how-to/programming/frontendjavascript/howto-eradicate-slow-ttfb-with-streaming-ssr-nextjs', 'how-to/programming/frontendjavascript/howto-per-project-node-toolchains-nvmrc-corepack-docker-compose', 'how-to/programming/frontendjavascript/howto-react-native-environment-setup-android-flavors-ios-schemes', 'how-to/programming/frontendjavascript/howto-svg-icon-optimization'],
+          items: ['how-to/programming/frontendjavascript/howto-deno-2-9-desktop-and-node-migration', 'how-to/programming/frontendjavascript/howto-eradicate-slow-ttfb-with-streaming-ssr-nextjs', 'how-to/programming/frontendjavascript/howto-per-project-node-toolchains-nvmrc-corepack-docker-compose', 'how-to/programming/frontendjavascript/howto-react-native-environment-setup-android-flavors-ios-schemes', 'how-to/programming/frontendjavascript/howto-svg-icon-optimization', 'how-to/programming/frontendjavascript/howto-testing-llm-prompt-outputs-with-node-test'],
         },
         {
           type: 'category',
@@ -240,7 +240,7 @@ const sidebars = {
           type: 'category',
           label: 'Linux',
           link: {type: 'generated-index', title: 'Linux', slug: 'how-to/programming/linux'},
-          items: ['how-to/programming/linux/howto-fstab-instead-of-autofs-for-samba-share', 'how-to/programming/linux/howto-swap-zram-zswap-hibernate-nixos', 'how-to/programming/linux/howto-transfer-files-over-an-ethernet-patch-cable'],
+          items: ['how-to/programming/linux/howto-fstab-instead-of-autofs-for-samba-share', 'how-to/programming/linux/howto-packaging-python-gui-app-as-flatpak', 'how-to/programming/linux/howto-swap-zram-zswap-hibernate-nixos', 'how-to/programming/linux/howto-transfer-files-over-an-ethernet-patch-cable'],
         },
         {
           type: 'category',
@@ -560,7 +560,7 @@ const sidebars = {
           type: 'category',
           label: 'Frontendjavascript',
           link: {type: 'generated-index', title: 'Frontendjavascript', slug: 'explanations/programming/frontendjavascript'},
-          items: ['explanations/programming/frontendjavascript/explanation-browser-apis-replacing-npm-packages', 'explanations/programming/frontendjavascript/explanation-html-in-canvas-api', 'explanations/programming/frontendjavascript/explanation-oxlint-oxfmt-benchmark-on-excalidraw', 'explanations/programming/frontendjavascript/explanation-react-rerender-vs-expensive-work'],
+          items: ['explanations/programming/frontendjavascript/explanation-browser-apis-replacing-npm-packages', 'explanations/programming/frontendjavascript/explanation-html-in-canvas-api', 'explanations/programming/frontendjavascript/explanation-js-string-concatenation-methods', 'explanations/programming/frontendjavascript/explanation-oxlint-oxfmt-benchmark-on-excalidraw', 'explanations/programming/frontendjavascript/explanation-react-rerender-vs-expensive-work', 'explanations/programming/frontendjavascript/explanation-social-link-preview-metadata-pitfalls'],
         },
         {
           type: 'category',
@@ -666,6 +666,12 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Mobilesecurity',
+          link: {type: 'generated-index', title: 'Mobilesecurity', slug: 'explanations/securityprivacy/mobilesecurity'},
+          items: ['explanations/securityprivacy/mobilesecurity/explanation-android-wap-push-zero-click-telephony-dos'],
+        },
+        {
+          type: 'category',
           label: 'P2Psecurity',
           link: {type: 'generated-index', title: 'P2Psecurity', slug: 'explanations/securityprivacy/p2psecurity'},
           items: ['explanations/securityprivacy/p2psecurity/explanation-radicle-cleartext-transport-node-impersonation'],
@@ -698,7 +704,7 @@ const sidebars = {
           type: 'category',
           label: 'Websecurity',
           link: {type: 'generated-index', title: 'Websecurity', slug: 'explanations/securityprivacy/websecurity'},
-          items: ['explanations/securityprivacy/websecurity/explanation-apple-reference-image-verified-photography', 'explanations/securityprivacy/websecurity/explanation-cisco-ise-cve-2026-76423-rest-api-auth-bypass', 'explanations/securityprivacy/websecurity/explanation-cloudflare-disallow-ai-training-mixed-use-crawlers', 'explanations/securityprivacy/websecurity/explanation-data-only-attacks-einstein', 'explanations/securityprivacy/websecurity/explanation-drupal-cve-2026-96362-batch-version-based-scanning-limits', 'explanations/securityprivacy/websecurity/explanation-feature-flags-are-not-authorization', 'explanations/securityprivacy/websecurity/explanation-kestra-cve-2026-49869-suffix-match-auth-bypass', 'explanations/securityprivacy/websecurity/explanation-libheif-heic-rce-chain-openai-sso-takeover', 'explanations/securityprivacy/websecurity/explanation-open-redirect-php-laravel', 'explanations/securityprivacy/websecurity/explanation-passkeys-attestation-aaguid-domain-binding-phishing', 'explanations/securityprivacy/websecurity/explanation-pitworld-private-search-moshpit-network', 'explanations/securityprivacy/websecurity/explanation-telegram-desktop-cve-2026-107181-ipc-injection-account-takeover', 'explanations/securityprivacy/websecurity/explanation-telnetd-cve-2026-32746-linemode-slc-buffer-overflow', 'explanations/securityprivacy/websecurity/explanation-weekly-security-advisories-node2shell-php2shell-pillow', 'explanations/securityprivacy/websecurity/explanation-wordpress-cve-2026-87902-patch-windows'],
+          items: ['explanations/securityprivacy/websecurity/explanation-apple-reference-image-verified-photography', 'explanations/securityprivacy/websecurity/explanation-cisco-ise-cve-2026-76423-rest-api-auth-bypass', 'explanations/securityprivacy/websecurity/explanation-cloudflare-disallow-ai-training-mixed-use-crawlers', 'explanations/securityprivacy/websecurity/explanation-data-only-attacks-einstein', 'explanations/securityprivacy/websecurity/explanation-drupal-cve-2026-96362-batch-version-based-scanning-limits', 'explanations/securityprivacy/websecurity/explanation-edge-logic-only-full-chain-pwn2own-2026', 'explanations/securityprivacy/websecurity/explanation-feature-flags-are-not-authorization', 'explanations/securityprivacy/websecurity/explanation-kestra-cve-2026-49869-suffix-match-auth-bypass', 'explanations/securityprivacy/websecurity/explanation-libheif-heic-rce-chain-openai-sso-takeover', 'explanations/securityprivacy/websecurity/explanation-open-redirect-php-laravel', 'explanations/securityprivacy/websecurity/explanation-passkeys-attestation-aaguid-domain-binding-phishing', 'explanations/securityprivacy/websecurity/explanation-pitworld-private-search-moshpit-network', 'explanations/securityprivacy/websecurity/explanation-telegram-desktop-cve-2026-107181-ipc-injection-account-takeover', 'explanations/securityprivacy/websecurity/explanation-telnetd-cve-2026-32746-linemode-slc-buffer-overflow', 'explanations/securityprivacy/websecurity/explanation-weekly-security-advisories-node2shell-php2shell-pillow', 'explanations/securityprivacy/websecurity/explanation-wordpress-cve-2026-87902-patch-windows'],
         },
         {
           type: 'category',
@@ -797,6 +803,12 @@ const sidebars = {
           label: 'Zig',
           link: {type: 'generated-index', title: 'Zig', slug: 'examples/programming/zig'},
           items: ['examples/programming/zig/example-type-safe-html-templating-zig-zt', 'examples/programming/zig/example-zig-arraylist-pointer-stability-locks'],
+        },
+        {
+          type: 'category',
+          label: 'Dnssecurity',
+          link: {type: 'generated-index', title: 'Dnssecurity', slug: 'examples/securityprivacy/dnssecurity'},
+          items: ['examples/securityprivacy/dnssecurity/example-dnssec-cds-cdnskey-consistency-check-stdlib-python'],
         },
       ],
     },

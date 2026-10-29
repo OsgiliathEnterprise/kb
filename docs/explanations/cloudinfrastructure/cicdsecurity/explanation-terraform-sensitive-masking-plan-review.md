@@ -50,9 +50,20 @@ instead of a diffable environment list. Worse, the plan *did* show a diff line �
 
 
 
+## The limits of `sensitive` (2026-10-29 cross-check)
+
+Two properties worth pinning down, both confirmed against 2026 Terraform guidance:
+
+1. **Sensitivity is contagious.** Any expression that *consumes* a sensitive value produces a sensitive result — `jsonencode()`, string concatenation, interpolation, and even hashing a structure that contains it all inherit the mark. That is exactly why `env_config` above showed `(sensitive value)`: `jsonencode()` swallowed the secret and the mark propagated to the whole string.
+2. **`sensitive` is display-level protection only.** It prevents the value from appearing in terminal output and plan display. It does **not** encrypt the value in the state file or the plan file — anyone with access to `terraform.tfstate` (or the plan artifact) can recover the secret. Treat the state file and plan output as containing plaintext secrets, and put them behind the same access controls you would use for a credentials store.
+
+Practical consequence for the fix above: the `"(sensitive value)"` marker in plan JSON is a signal for *review integrity* (did masking hide a real change?), never evidence that the value was protected at rest.
+
 ## References
 
 - [One secret in our task definition hid the database change sitting next to it — DEV.to](https://dev.to/sergey_shinder_ab2d943365/one-secret-in-our-task-definition-hid-the-database-change-sitting-next-to-it-5eod)
 - [AWS: Secrets for container environment variables (ECS task-definition `secrets`)](https://docs.aws.amazon.com/AmazonECS/latest/userguide/task-definition_secrets.html)
 - [Terraform: Sensitive values (plan masking behavior)](https://developer.hashicorp.com/terraform/language/values/variables#sensitive-attributes)
 - [Terraform: jsonencode (why the whole string becomes sensitive)](https://developer.hashicorp.com/terraform/language/functions/jsonencode)
+- [Taming Sensitive Values and Outputs in Terraform (sensitivity is contagious)](https://devopsaitoolkit.com/blog/taming-sensitive-values-and-outputs-in-terraform/)
+- [How to Handle Terraform Sensitive Output Values (display-level, not encryption)](https://oneuptime.com/blog/post/2026-02-23-how-to-handle-terraform-sensitive-output-values/view)
