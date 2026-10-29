@@ -1,9 +1,21 @@
 [
   {
+    "title": "Dnssec Cds Cdnskey Consistency Check Stdlib Python",
+    "type": "Examples",
+    "link": "/examples/securityprivacy/dnssecurity/example-dnssec-cds-cdnskey-consistency-check-stdlib-python",
+    "time": "20 min read"
+  },
+  {
+    "title": "Android Wap Push Zero Click Telephony Dos",
+    "type": "Explanation",
+    "link": "/explanations/securityprivacy/mobilesecurity/explanation-android-wap-push-zero-click-telephony-dos",
+    "time": "8 min read"
+  },
+  {
     "title": "Tailscale Ssh Tailworm Privilege Escalation",
     "type": "Explanation",
     "link": "/explanations/securityprivacy/ssh/explanation-tailscale-ssh-tailworm-privilege-escalation",
-    "time": "4 min read"
+    "time": "5 min read"
   },
   {
     "title": "Tanstack Mini Shai Hulud Npm Worm Supply Chain Attack",
@@ -21,18 +33,6 @@
     "title": "Cve 2026 97631 Edk2 Pxe Icmp Buffer Overflow",
     "type": "Explanation",
     "link": "/explanations/securityprivacy/bootsecurity/explanation-cve-2026-97631-edk2-pxe-icmp-buffer-overflow",
-    "time": "4 min read"
-  },
-  {
-    "title": "Weekly Security Advisories Node2Shell Php2Shell Pillow",
-    "type": "Explanation",
-    "link": "/explanations/securityprivacy/websecurity/explanation-weekly-security-advisories-node2shell-php2shell-pillow",
     "time": "5 min read"
-  },
-  {
-    "title": "Telegram Desktop Cve 2026 107181 Ipc Injection Account Takeover",
-    "type": "Explanation",
-    "link": "/explanations/securityprivacy/websecurity/explanation-telegram-desktop-cve-2026-107181-ipc-injection-account-takeover",
-    "time": "6 min read"
   }
 ]

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 -8.0 772.0 876.0" width="772" height="876">
+<rect x="16.0" y="-8.0" width="772.0" height="876.0" fill="#ffffff"/>
+<rect x="40.0" y="80.0" width="460.0" height="64.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="40.0" y="180.0" width="460.0" height="64.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="40.0" y="280.0" width="460.0" height="64.0" rx="8" fill="#ffec99" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="40.0" y="380.0" width="460.0" height="64.0" rx="8" fill="#ffec99" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="40.0" y="480.0" width="460.0" height="64.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="40.0" y="580.0" width="460.0" height="64.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="40.0" y="680.0" width="460.0" height="64.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="40.0" y="780.0" width="460.0" height="64.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 270.0 144.0 L 270.0 180.0"/><line x1="270.0" y1="180.0" x2="275.5" y2="168.7"/><line x1="270.0" y1="180.0" x2="264.5" y2="168.7"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 270.0 244.0 L 270.0 280.0"/><line x1="270.0" y1="280.0" x2="275.5" y2="268.7"/><line x1="270.0" y1="280.0" x2="264.5" y2="268.7"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 270.0 344.0 L 270.0 380.0"/><line x1="270.0" y1="380.0" x2="275.5" y2="368.7"/><line x1="270.0" y1="380.0" x2="264.5" y2="368.7"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 270.0 444.0 L 270.0 480.0"/><line x1="270.0" y1="480.0" x2="275.5" y2="468.7"/><line x1="270.0" y1="480.0" x2="264.5" y2="468.7"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 270.0 544.0 L 270.0 580.0"/><line x1="270.0" y1="580.0" x2="275.5" y2="568.7"/><line x1="270.0" y1="580.0" x2="264.5" y2="568.7"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 270.0 644.0 L 270.0 680.0"/><line x1="270.0" y1="680.0" x2="275.5" y2="668.7"/><line x1="270.0" y1="680.0" x2="264.5" y2="668.7"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 270.0 744.0 L 270.0 780.0"/><line x1="270.0" y1="780.0" x2="275.5" y2="768.7"/><line x1="270.0" y1="780.0" x2="264.5" y2="768.7"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 512.0 612.0 L 512.0 212.0"/><line x1="512.0" y1="212.0" x2="505.9" y2="224.6"/><line x1="512.0" y1="212.0" x2="518.1" y2="224.6"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="20" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="32.0">SMS of Death - zero-click WAP Push DoS of com.android.phone</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="91.2">Remote data SMS</tspan><tspan x="40.0" y="108.7">(WAP Push, port 2948)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="191.2">WapPushOverSms.decodeWapPdu</tspan><tspan x="40.0" y="208.7">(frameworks/opt/telephony)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="291.2">unchecked long-&gt;int cast</tspan><tspan x="40.0" y="308.7">0x80000000 = -2147483648</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="391.2">NegativeArraySizeException</tspan><tspan x="40.0" y="408.7">on telephony main thread</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="491.2">com.android.phone crashes</tspan><tspan x="40.0" y="508.7">calls drop (incl. emergency)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="591.2">carrier redelivery</tspan><tspan x="40.0" y="608.7">re-triggers the crash</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="691.2">rapid delivery (~30 messages):</tspan><tspan x="40.0" y="708.7">SQLite SMS store corrupted</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="791.2">crash on every boot</tspan><tspan x="40.0" y="808.7">(persistent DoS)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="524.0" y="390.4">unacknowledged messages</tspan><tspan x="524.0" y="406.6">re-sent by carrier</tspan><tspan x="524.0" y="422.9">(up to 1 week in testing)</tspan></text>
+</svg>

@@ -67,10 +67,18 @@ Plus:
 
 
 
+## Status (as of 2026-10-29)
+
+- **v1.104.4 is out and is the fixed release** — Tailscale's "Findings and fixes" page and the changelog confirm TS-2026-014..017 are fixed in v1.104.4 (released 2026-10-28). Upgrading is the single most effective mitigation; the incident's "patch now, then audit" order holds.
+- **headscale remains unpatched** as of 2026-10-29 — the self-hosted component is the most exposed surface (it is often internet-facing). Coverage of the fix confirms headscale is still outstanding, and Ostorlab's write-up of the exploitation path recommends a hardening set for self-hosters: `MemoryMax`/`TasksMax` limits in the headscale systemd unit, restart monitoring, rate limiting on the registration endpoint, and — where at all possible — not exposing headscale to the open internet.
+- The three "no-auth" root causes (auth bypass in `handleRegister`, unauthenticated `GetMachineByTag`, and the unauthenticated `AddUser`/`UpdateUser` device-update path) are all closed by the v1.104.4 upgrade; the audit checklist in the note above remains the right second step.
+
 ## References
 
 - [Tailscale SSH: Investigation and remediation update](https://tailscale.com/ssh-investigation-update)
 - [Tailscale SSH: Findings and fixes (TS-2026-014..017, fixed in v1.104.4)](https://tailscale.com/blog/tailscale-ssh-findings-fixes)
+- [Tailscale changelog (v1.104.4, released 2026-10-28)](https://tailscale.com/changelog)
+- [Ostorlab: exploiting the Tailscale SSH flaws (headscale hardening guidance)](https://www.ostorlab.com/blog/tailscale-ssh-flaws-privilege-escalation-headscale/)
 - [The Hacker News: Unpatched Tailscale SSH Flaws Could Let a Hacked Device Reach Root on Other Servers](https://thehackernews.com/2026/10/unpatched-tailscale-ssh-flaws-could-let.html)
 - [BleepingComputer: Tailscale warns of SSH flaws allowing root privilege escalation](https://www.bleepingcomputer.com/news/security/tailscale-warns-of-serious-ssh-flaws-allowing-root-privilege-escalation/)
 - [Aviatrix Threat Research: Tailworm report (Windisch, Cyberdione Labs), SSH v1.104.2 / headscale v0.29.5](https://aviatrix.ai/threat-research-center/unpatched-tailscale-ssh-flaws-hacked-device-root-servers-2026/)
