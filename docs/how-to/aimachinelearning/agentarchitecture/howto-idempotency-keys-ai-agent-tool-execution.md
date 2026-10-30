@@ -137,7 +137,7 @@ Strategy choices: **PostgreSQL** for durable records + uniqueness constraints (l
 
 ## Diagram
 
-
+[howto-idempotency-keys-ai-agent-tool-execution.excalidraw](howto-idempotency-keys-ai-agent-tool-execution.svg)
 
 ## Further reading
 

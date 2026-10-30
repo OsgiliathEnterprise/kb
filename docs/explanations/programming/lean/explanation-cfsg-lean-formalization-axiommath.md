@@ -52,7 +52,7 @@ The project page offers a BibTeX block (`@misc{axiom-cfsg}`, Axiom Math, 2026) f
 
 ## Diagram
 
-
+[explanation-cfsg-lean-formalization-axiommath.excalidraw](explanation-cfsg-lean-formalization-axiommath.svg)
 
 ## Status check (2026-10-29)
 

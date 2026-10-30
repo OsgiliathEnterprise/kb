@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="76.0 46.0 919.4 439.0" width="919" height="439">
+<rect x="76.0" y="46.0" width="919.4" height="439.0" fill="#ffffff"/>
+<rect x="100.0" y="70.0" width="250.0" height="81.0" rx="8" fill="#e7f5ff" stroke="#1971c2" stroke-width="1.5"/>
+<rect x="400.0" y="70.0" width="250.0" height="81.0" rx="8" fill="#e3fafc" stroke="#1098ad" stroke-width="1.5"/>
+<rect x="700.0" y="70.0" width="270.0" height="100.0" rx="8" fill="#e5dbff" stroke="#6741d9" stroke-width="1.5"/>
+<rect x="700.0" y="230.0" width="270.0" height="119.0" rx="8" fill="#fff9db" stroke="#fab005" stroke-width="1.5"/>
+<rect x="400.0" y="230.0" width="250.0" height="100.0" rx="8" fill="#fff3cd" stroke="#f08c00" stroke-width="1.5"/>
+<rect x="100.0" y="230.0" width="250.0" height="119.0" rx="8" fill="#fff5f5" stroke="#c92a2a" stroke-width="1.5"/>
+<rect x="100.0" y="380.0" width="870.0" height="81.0" rx="8" fill="#ebfbee" stroke="#2f9e44" stroke-width="1.5"/>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="114.0" y="92.4">AI agent / LLM</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="114.0" y="111.4">(orchestration layer owns</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="114.0" y="130.4">the key - not the model)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="414.0" y="92.4">Tool gateway</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="414.0" y="111.4">validate args, permissions,</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="414.0" y="130.4">business rules, human approval</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="714.0" y="92.4">Idempotency coordinator</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="714.0" y="111.4">key = workflow_run_id:</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="714.0" y="130.4">tool_operation_id</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="714.0" y="149.4">fingerprint = sha256(canonical JSON)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="714.0" y="252.4">Operation store (PostgreSQL)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="714.0" y="271.4">PRIMARY KEY (tenant_id,</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="714.0" y="290.4">idempotency_key); UNIQUE</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="714.0" y="309.4">(tenant_id, operation_id)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="714.0" y="328.4">INSERT ... ON CONFLICT DO NOTHING</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="414.0" y="252.4">Execution worker</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="414.0" y="271.4">runs authorized op, propagates</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="414.0" y="290.4">same key downstream</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="414.0" y="309.4">(payments, orders, resources)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="114.0" y="252.4">Reconciliation service</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="114.0" y="271.4">resolves UNKNOWN outcomes:</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="114.0" y="290.4">query provider by ref, then</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="114.0" y="309.4">save / retry same identity /</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="114.0" y="328.4">escalate - never blind-retry</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="114.0" y="402.4">State machine: PENDING -&gt; IN_PROGRESS -&gt; SUCCEEDED | FAILED | UNKNOWN(-&gt; RECONCILING)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="114.0" y="421.4">rules: new key = new op | same key + done = return stored result | same key + active = in-progress</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="114.0" y="440.4">same key + different fingerprint = CONFLICT (reject) | unknown outcome = reconcile before retrying</tspan></text>
+</svg>

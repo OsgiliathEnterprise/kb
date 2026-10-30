@@ -26,7 +26,10 @@ def _esc(s: str) -> str:
 def convert(excalidraw_path: Path, svg_path: Path) -> bool:
     """Convert one .excalidraw file to SVG. Returns True on success."""
     data = json.loads(excalidraw_path.read_text(encoding="utf-8"))
-    elements = [e for e in data.get("elements", []) if not e.get("deleted")]
+    # Some generator artifacts leak bare property-key strings into the
+    # elements array; skip any non-dict entry instead of crashing.
+    elements = [e for e in data.get("elements", [])
+                if isinstance(e, dict) and not e.get("deleted")]
 
     rects = [e for e in elements if e.get("type") == "rectangle"]
     arrows = [e for e in elements if e.get("type") == "arrow"]

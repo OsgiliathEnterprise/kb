@@ -75,7 +75,7 @@ Either way, the compile errors Rust gives you are the audit's verdict made concr
 
 ## Diagram
 
-
+[howto-porting-concurrent-cpp-to-rust.excalidraw](howto-porting-concurrent-cpp-to-rust.svg)
 
 ## Related notes
 

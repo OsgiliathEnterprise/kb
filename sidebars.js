@@ -168,7 +168,7 @@ const sidebars = {
           type: 'category',
           label: 'Networking',
           link: {type: 'generated-index', title: 'Networking', slug: 'how-to/cloudinfrastructure/networking'},
-          items: ['how-to/cloudinfrastructure/networking/howto-monitor-email-dns-records-mx-spf-dkim-dmarc', 'how-to/cloudinfrastructure/networking/howto-self-hosted-http-tunnels-ssh-nginx'],
+          items: ['how-to/cloudinfrastructure/networking/howto-monitor-email-dns-records-mx-spf-dkim-dmarc', 'how-to/cloudinfrastructure/networking/howto-self-hosted-http-tunnels-ssh-nginx', 'how-to/cloudinfrastructure/networking/howto-update-atlassian-cloud-ip-allowlist-2027'],
         },
         {
           type: 'category',
@@ -198,7 +198,7 @@ const sidebars = {
           type: 'category',
           label: 'Mcp',
           link: {type: 'generated-index', title: 'Mcp', slug: 'how-to/developertoolspractices/mcp'},
-          items: ['how-to/developertoolspractices/mcp/howto-accessibility-mcp-server-feedback-loop', 'how-to/developertoolspractices/mcp/howto-azure-mcp-server-scoped-agent-access', 'how-to/developertoolspractices/mcp/howto-coordinate-multi-agent-swarms-sqlite-task-board-mcp', 'how-to/developertoolspractices/mcp/howto-map-http-api-parameters-to-mcp-tool-schemas', 'how-to/developertoolspractices/mcp/howto-publish-mcp-server-claude-connectors-directory', 'how-to/developertoolspractices/mcp/howto-soak-test-mcp-server-with-mcpload'],
+          items: ['how-to/developertoolspractices/mcp/howto-accessibility-mcp-server-feedback-loop', 'how-to/developertoolspractices/mcp/howto-azure-mcp-server-scoped-agent-access', 'how-to/developertoolspractices/mcp/howto-coordinate-multi-agent-swarms-sqlite-task-board-mcp', 'how-to/developertoolspractices/mcp/howto-map-http-api-parameters-to-mcp-tool-schemas', 'how-to/developertoolspractices/mcp/howto-publish-mcp-server-claude-connectors-directory', 'how-to/developertoolspractices/mcp/howto-slipmark-mcp-codex-verdict-attestation', 'how-to/developertoolspractices/mcp/howto-soak-test-mcp-server-with-mcpload'],
         },
         {
           type: 'category',
@@ -228,7 +228,7 @@ const sidebars = {
           type: 'category',
           label: 'Frontendjavascript',
           link: {type: 'generated-index', title: 'Frontendjavascript', slug: 'how-to/programming/frontendjavascript'},
-          items: ['how-to/programming/frontendjavascript/howto-deno-2-9-desktop-and-node-migration', 'how-to/programming/frontendjavascript/howto-eradicate-slow-ttfb-with-streaming-ssr-nextjs', 'how-to/programming/frontendjavascript/howto-per-project-node-toolchains-nvmrc-corepack-docker-compose', 'how-to/programming/frontendjavascript/howto-react-native-environment-setup-android-flavors-ios-schemes', 'how-to/programming/frontendjavascript/howto-svg-icon-optimization', 'how-to/programming/frontendjavascript/howto-testing-llm-prompt-outputs-with-node-test'],
+          items: ['how-to/programming/frontendjavascript/howto-cad-to-gltf-manufacturer-asset-pipeline', 'how-to/programming/frontendjavascript/howto-deno-2-9-desktop-and-node-migration', 'how-to/programming/frontendjavascript/howto-eradicate-slow-ttfb-with-streaming-ssr-nextjs', 'how-to/programming/frontendjavascript/howto-per-project-node-toolchains-nvmrc-corepack-docker-compose', 'how-to/programming/frontendjavascript/howto-react-native-environment-setup-android-flavors-ios-schemes', 'how-to/programming/frontendjavascript/howto-svg-icon-optimization', 'how-to/programming/frontendjavascript/howto-testing-llm-prompt-outputs-with-node-test'],
         },
         {
           type: 'category',
@@ -374,13 +374,13 @@ const sidebars = {
           type: 'category',
           label: 'Agentarchitecture',
           link: {type: 'generated-index', title: 'Agentarchitecture', slug: 'explanations/aimachinelearning/agentarchitecture'},
-          items: ['explanations/aimachinelearning/agentarchitecture/explanation-agent-guardrail-stack', 'explanations/aimachinelearning/agentarchitecture/explanation-anti-persistence-agent-memory', 'explanations/aimachinelearning/agentarchitecture/explanation-baseline-aware-token-spike-anomaly-detection', 'explanations/aimachinelearning/agentarchitecture/explanation-bounded-generation-constrained-ai-design', 'explanations/aimachinelearning/agentarchitecture/explanation-byte-matching-verification-harness-15-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-certified-execution-harness-petri-net-supervisor', 'explanations/aimachinelearning/agentarchitecture/explanation-claude-unified-memory-architecture', 'explanations/aimachinelearning/agentarchitecture/explanation-coding-agents-generalized-tamp', 'explanations/aimachinelearning/agentarchitecture/explanation-contradiction-judge-memory-auditor-ai-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-harness-design-coding-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-human-in-the-loop-approval-gates', 'explanations/aimachinelearning/agentarchitecture/explanation-jev-ultrafast-dynamic-indexed-action-space-browser-agent', 'explanations/aimachinelearning/agentarchitecture/explanation-lemmalog-datalog-memory-for-llm-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-microsoft-copilot-agent-identity-runtime', 'explanations/aimachinelearning/agentarchitecture/explanation-prince-bayer-agentic-rag-context-harness-engineering', 'explanations/aimachinelearning/agentarchitecture/explanation-progressive-disclosure-on-demand-skills', 'explanations/aimachinelearning/agentarchitecture/explanation-reconciling-agent-plans-with-completed-temporal-activities', 'explanations/aimachinelearning/agentarchitecture/explanation-sandboxed-execution-runtime-engineering-for-ai-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-sourcelearn-source-specific-competence', 'explanations/aimachinelearning/agentarchitecture/explanation-x402-http-payment-standard-for-ai-agents', 'explanations/aimachinelearning/agentarchitecture/reference-agent4sci-scientific-ml-testbed', 'explanations/aimachinelearning/agentarchitecture/reference-scholarcatalyst-research-paper-retrieval-benchmark'],
+          items: ['explanations/aimachinelearning/agentarchitecture/explanation-agent-guardrail-stack', 'explanations/aimachinelearning/agentarchitecture/explanation-anti-persistence-agent-memory', 'explanations/aimachinelearning/agentarchitecture/explanation-baseline-aware-token-spike-anomaly-detection', 'explanations/aimachinelearning/agentarchitecture/explanation-bounded-generation-constrained-ai-design', 'explanations/aimachinelearning/agentarchitecture/explanation-byte-matching-verification-harness-15-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-certified-execution-harness-petri-net-supervisor', 'explanations/aimachinelearning/agentarchitecture/explanation-claude-unified-memory-architecture', 'explanations/aimachinelearning/agentarchitecture/explanation-coding-agents-generalized-tamp', 'explanations/aimachinelearning/agentarchitecture/explanation-contradiction-judge-memory-auditor-ai-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-domain-specialized-models-solver-scoring-loop', 'explanations/aimachinelearning/agentarchitecture/explanation-harness-design-coding-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-human-in-the-loop-approval-gates', 'explanations/aimachinelearning/agentarchitecture/explanation-jev-ultrafast-dynamic-indexed-action-space-browser-agent', 'explanations/aimachinelearning/agentarchitecture/explanation-lemmalog-datalog-memory-for-llm-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-microsoft-copilot-agent-identity-runtime', 'explanations/aimachinelearning/agentarchitecture/explanation-prince-bayer-agentic-rag-context-harness-engineering', 'explanations/aimachinelearning/agentarchitecture/explanation-progressive-disclosure-on-demand-skills', 'explanations/aimachinelearning/agentarchitecture/explanation-reconciling-agent-plans-with-completed-temporal-activities', 'explanations/aimachinelearning/agentarchitecture/explanation-sandboxed-execution-runtime-engineering-for-ai-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-sourcelearn-source-specific-competence', 'explanations/aimachinelearning/agentarchitecture/explanation-x402-http-payment-standard-for-ai-agents', 'explanations/aimachinelearning/agentarchitecture/reference-agent4sci-scientific-ml-testbed', 'explanations/aimachinelearning/agentarchitecture/reference-scholarcatalyst-research-paper-retrieval-benchmark'],
         },
         {
           type: 'category',
           label: 'Multiagentsystems',
           link: {type: 'generated-index', title: 'Multiagentsystems', slug: 'explanations/aimachinelearning/multiagentsystems'},
-          items: ['explanations/aimachinelearning/multiagentsystems/explanation-same-model-debate-more-self-critical-than-diverse-pairs'],
+          items: ['explanations/aimachinelearning/multiagentsystems/explanation-same-model-debate-more-self-critical-than-diverse-pairs', 'explanations/aimachinelearning/multiagentsystems/explanation-single-vs-multi-agent-coordination-costs'],
         },
         {
           type: 'category',
@@ -578,7 +578,7 @@ const sidebars = {
           type: 'category',
           label: 'Java',
           link: {type: 'generated-index', title: 'Java', slug: 'explanations/programming/java'},
-          items: ['explanations/programming/java/explanation-better-tools-immutable-data-java', 'explanations/programming/java/explanation-java-sealed-classes-exhaustive-pattern-matching', 'explanations/programming/java/explanation-jdk-26-performance-improvements', 'explanations/programming/java/explanation-jdk-28-pooled-confined-arena', 'explanations/programming/java/explanation-jdk-28-value-classes-preview', 'explanations/programming/java/explanation-jep-540-simple-json-api-incubator', 'explanations/programming/java/explanation-jep-543-structured-concurrency-finalized-jdk28', 'explanations/programming/java/explanation-jep-546-zgc-adaptive-heap-sizing', 'explanations/programming/java/explanation-netflix-ja-module-system-toolchain', 'explanations/programming/java/explanation-specjbb-workload-generator-same-jvm-limitations', 'explanations/programming/java/explanation-spring-ai-2-0-composable-tool-calling-advisor-architecture', 'explanations/programming/java/explanation-structured-concurrency-project-loom', 'explanations/programming/java/explanation-zgc-decade-of-low-latency-gc', 'explanations/programming/java/explanation-zgc-weak-reference-processing'],
+          items: ['explanations/programming/java/explanation-better-tools-immutable-data-java', 'explanations/programming/java/explanation-java-sealed-classes-exhaustive-pattern-matching', 'explanations/programming/java/explanation-jdk-26-performance-improvements', 'explanations/programming/java/explanation-jdk-27-stop-the-world-gc-changes', 'explanations/programming/java/explanation-jdk-28-pooled-confined-arena', 'explanations/programming/java/explanation-jdk-28-value-classes-preview', 'explanations/programming/java/explanation-jep-540-simple-json-api-incubator', 'explanations/programming/java/explanation-jep-543-structured-concurrency-finalized-jdk28', 'explanations/programming/java/explanation-jep-546-zgc-adaptive-heap-sizing', 'explanations/programming/java/explanation-netflix-ja-module-system-toolchain', 'explanations/programming/java/explanation-specjbb-workload-generator-same-jvm-limitations', 'explanations/programming/java/explanation-spring-ai-2-0-composable-tool-calling-advisor-architecture', 'explanations/programming/java/explanation-structured-concurrency-project-loom', 'explanations/programming/java/explanation-zgc-decade-of-low-latency-gc', 'explanations/programming/java/explanation-zgc-weak-reference-processing'],
         },
         {
           type: 'category',
@@ -624,6 +624,12 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Salesforceapex',
+          link: {type: 'generated-index', title: 'Salesforceapex', slug: 'explanations/programming/salesforceapex'},
+          items: ['explanations/programming/salesforceapex/explanation-apex-raw-list-breaks-jorje-completion'],
+        },
+        {
+          type: 'category',
           label: 'X86Architecture',
           link: {type: 'generated-index', title: 'X86Architecture', slug: 'explanations/programming/x86architecture'},
           items: ['explanations/programming/x86architecture/explanation-phantom-fma-instruction-vfmaddrnd'],
@@ -651,6 +657,12 @@ const sidebars = {
           label: 'Bootsecurity',
           link: {type: 'generated-index', title: 'Bootsecurity', slug: 'explanations/securityprivacy/bootsecurity'},
           items: ['explanations/securityprivacy/bootsecurity/explanation-cve-2026-97631-edk2-pxe-icmp-buffer-overflow', 'explanations/securityprivacy/bootsecurity/explanation-secure-boot-certificate-expiration-2026'],
+        },
+        {
+          type: 'category',
+          label: 'Dnssecurity',
+          link: {type: 'generated-index', title: 'Dnssecurity', slug: 'explanations/securityprivacy/dnssecurity'},
+          items: ['explanations/securityprivacy/dnssecurity/explanation-domain-redemption-vs-pending-delete'],
         },
         {
           type: 'category',
@@ -772,7 +784,7 @@ const sidebars = {
           type: 'category',
           label: 'Frontendjavascript',
           link: {type: 'generated-index', title: 'Frontendjavascript', slug: 'examples/programming/frontendjavascript'},
-          items: ['examples/programming/frontendjavascript/example-browser-only-pdf-processing-with-csp-enforcement', 'examples/programming/frontendjavascript/example-intl-segmenter-text-analysis'],
+          items: ['examples/programming/frontendjavascript/example-browser-only-pdf-processing-with-csp-enforcement', 'examples/programming/frontendjavascript/example-hldays-business-day-api-jurisdiction-holidays', 'examples/programming/frontendjavascript/example-intl-segmenter-text-analysis'],
         },
         {
           type: 'category',

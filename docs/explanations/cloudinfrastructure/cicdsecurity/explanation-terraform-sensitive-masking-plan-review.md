@@ -48,7 +48,7 @@ instead of a diffable environment list. Worse, the plan *did* show a diff line â
 
 ## Diagram
 
-
+[explanation-terraform-sensitive-masking-plan-review.excalidraw](explanation-terraform-sensitive-masking-plan-review.svg)
 
 ## The limits of `sensitive` (2026-10-29 cross-check)
 

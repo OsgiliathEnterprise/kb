@@ -66,6 +66,7 @@ The HotSpot AOT cache previously could not be used with all collectors because G
 
 - [ZGC: A Decade of Redefining Java Performance](explanation-zgc-decade-of-low-latency-gc.md) — background on ZGC's generational design, which JEP 516 now pairs with the AOT cache.
 - [Exploiting GPU Tensor Cores from Java using Babylon and HAT](../../../examples/programming/java/example-babylon-hat-gpu-tensor-cores-from-java.md)
+- [JDK 27: Stop-The-World GC Changes — G1 Becomes the Default Everywhere](explanation-jdk-27-stop-the-world-gc-changes.md) — the follow-up release: JEP 523 makes G1 the default in all environments, and the FreeRatio heap-sizing change interacts with the automatic-sizing direction this note's JEP 522 work points at.
 
 ## References
 
