@@ -65,7 +65,7 @@ Plus:
 
 ## Diagram
 
-
+[explanation-tailscale-ssh-tailworm-privilege-escalation.excalidraw](explanation-tailscale-ssh-tailworm-privilege-escalation.svg)
 
 ## Status (as of 2026-10-29)
 
