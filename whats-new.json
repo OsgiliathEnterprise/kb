@@ -1,5 +1,23 @@
 [
   {
+    "title": "Dnssec Cds Cdnskey Consistency Check Stdlib Python",
+    "type": "Examples",
+    "link": "/examples/securityprivacy/dnssecurity/example-dnssec-cds-cdnskey-consistency-check-stdlib-python",
+    "time": "20 min read"
+  },
+  {
+    "title": "Android Wap Push Zero Click Telephony Dos",
+    "type": "Explanation",
+    "link": "/explanations/securityprivacy/mobilesecurity/explanation-android-wap-push-zero-click-telephony-dos",
+    "time": "8 min read"
+  },
+  {
+    "title": "Tailscale Ssh Tailworm Privilege Escalation",
+    "type": "Explanation",
+    "link": "/explanations/securityprivacy/ssh/explanation-tailscale-ssh-tailworm-privilege-escalation",
+    "time": "5 min read"
+  },
+  {
     "title": "Tanstack Mini Shai Hulud Npm Worm Supply Chain Attack",
     "type": "Explanation",
     "link": "/explanations/securityprivacy/supplychain/explanation-tanstack-mini-shai-hulud-npm-worm-supply-chain-attack",
@@ -12,27 +30,9 @@
     "time": "5 min read"
   },
   {
-    "title": "Telegram Desktop Cve 2026 107181 Ipc Injection Account Takeover",
+    "title": "Cve 2026 97631 Edk2 Pxe Icmp Buffer Overflow",
     "type": "Explanation",
-    "link": "/explanations/securityprivacy/websecurity/explanation-telegram-desktop-cve-2026-107181-ipc-injection-account-takeover",
-    "time": "6 min read"
-  },
-  {
-    "title": "Drupal Cve 2026 96362 Batch Version Based Scanning Limits",
-    "type": "Explanation",
-    "link": "/explanations/securityprivacy/websecurity/explanation-drupal-cve-2026-96362-batch-version-based-scanning-limits",
-    "time": "3 min read"
-  },
-  {
-    "title": "Cisco Ise Cve 2026 76423 Rest Api Auth Bypass",
-    "type": "Explanation",
-    "link": "/explanations/securityprivacy/websecurity/explanation-cisco-ise-cve-2026-76423-rest-api-auth-bypass",
-    "time": "5 min read"
-  },
-  {
-    "title": "Kestra Cve 2026 49869 Suffix Match Auth Bypass",
-    "type": "Explanation",
-    "link": "/explanations/securityprivacy/websecurity/explanation-kestra-cve-2026-49869-suffix-match-auth-bypass",
+    "link": "/explanations/securityprivacy/bootsecurity/explanation-cve-2026-97631-edk2-pxe-icmp-buffer-overflow",
     "time": "5 min read"
   }
 ]
