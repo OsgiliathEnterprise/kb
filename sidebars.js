@@ -402,6 +402,12 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Observability',
+          link: {type: 'generated-index', title: 'Observability', slug: 'explanations/cloud-infrastructure/observability'},
+          items: ['explanations/cloud-infrastructure/observability/explanation-opentelemetry-ga'],
+        },
+        {
+          type: 'category',
           label: 'Aws',
           link: {type: 'generated-index', title: 'Aws', slug: 'explanations/cloudinfrastructure/aws'},
           items: ['explanations/cloudinfrastructure/aws/explanation-aws-lambda-ebpf-rust-flow-logging'],
@@ -526,6 +532,7 @@ const sidebars = {
           link: {type: 'generated-index', title: 'Remotedevelopment', slug: 'explanations/developertoolspractices/remotedevelopment'},
           items: ['explanations/developertoolspractices/remotedevelopment/explanation-vscode-ssh-agent-architecture'],
         },
+        'explanations/general/2026-10-31',
         {
           type: 'category',
           label: 'Android',

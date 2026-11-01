@@ -1,38 +1,38 @@
 [
   {
-    "title": "Dnssec Cds Cdnskey Consistency Check Stdlib Python",
-    "type": "Examples",
-    "link": "/examples/securityprivacy/dnssecurity/example-dnssec-cds-cdnskey-consistency-check-stdlib-python",
-    "time": "20 min read"
+    "title": "Gdpr Data Minimization Pgduckdb Azure Blob Erasable Identities",
+    "type": "Tutorials",
+    "link": "/tutorials/dataengineering/dataarchitectureevolution/tutorial-gdpr-data-minimization-pgduckdb-azure-blob-erasable-identities",
+    "time": "6 min read"
   },
   {
-    "title": "Android Wap Push Zero Click Telephony Dos",
+    "title": "Ach Return Codes R01 R85",
     "type": "Explanation",
-    "link": "/explanations/securityprivacy/mobilesecurity/explanation-android-wap-push-zero-click-telephony-dos",
-    "time": "8 min read"
+    "link": "/explanations/systemdesign/payments/explanation-ach-return-codes-r01-r85",
+    "time": "10 min read"
   },
   {
-    "title": "Tailscale Ssh Tailworm Privilege Escalation",
+    "title": "Celld Deterministic Simulation Testing",
     "type": "Explanation",
-    "link": "/explanations/securityprivacy/ssh/explanation-tailscale-ssh-tailworm-privilege-escalation",
+    "link": "/explanations/systemdesign/distributedsystemstesting/explanation-celld-deterministic-simulation-testing",
     "time": "5 min read"
   },
   {
-    "title": "Tanstack Mini Shai Hulud Npm Worm Supply Chain Attack",
+    "title": "Timeout Attempt State Model For Paid Upstream Calls",
     "type": "Explanation",
-    "link": "/explanations/securityprivacy/supplychain/explanation-tanstack-mini-shai-hulud-npm-worm-supply-chain-attack",
-    "time": "7 min read"
+    "link": "/explanations/systemdesign/durableexecutions/explanation-timeout-attempt-state-model-for-paid-upstream-calls",
+    "time": "6 min read"
   },
   {
-    "title": "Cve 2025 13032 Avast Sandbox Double Fetch Lpe",
+    "title": "Error Ownership Retry Storms",
     "type": "Explanation",
-    "link": "/explanations/securityprivacy/kernelexploitation/explanation-cve-2025-13032-avast-sandbox-double-fetch-lpe",
+    "link": "/explanations/systemdesign/distributedsystemsfoundations/explanation-error-ownership-retry-storms",
     "time": "5 min read"
   },
   {
-    "title": "Cve 2026 97631 Edk2 Pxe Icmp Buffer Overflow",
-    "type": "Explanation",
-    "link": "/explanations/securityprivacy/bootsecurity/explanation-cve-2026-97631-edk2-pxe-icmp-buffer-overflow",
-    "time": "5 min read"
+    "title": "Laravel Redis Outage Ganesha Circuit Breaker",
+    "type": "How-To",
+    "link": "/how-to/systemdesign/nonfunctionalrequirements/howto-laravel-redis-outage-ganesha-circuit-breaker",
+    "time": "3 min read"
   }
 ]

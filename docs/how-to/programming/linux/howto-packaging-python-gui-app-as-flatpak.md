@@ -163,7 +163,7 @@ Generate `python3-uv-build.json` (the `uv_build` backend wheel, so `uv` can buil
 
 ```bash
 uv pip install pip
-python -m pip download "uv_build>=0.11.21,<0.12.0" --only-binary=:all: --no-deps -d /tmp/uvb
+python -m pip download "uv_build>=0.11.21,&lt;0.12.0" --only-binary=:all: --no-deps -d /tmp/uvb
 ls /tmp/uvb   # confirm a .whl is present
 
 echo "uv_build==0.11.33" > uvb.txt
