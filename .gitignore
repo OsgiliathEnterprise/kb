@@ -4,19 +4,22 @@
 # Production
 /build
 
-# Generated files
+# Generated files (build output lives at the repo ROOT only — every pattern
+# here MUST stay anchored with a leading slash, or it silently ignores same-
+# named content directories deep inside docs/, e.g. the 2026-11 CI breakage
+# where `search/` swallowed docs/how-to/systemdesign/search/*.md)
 .docusaurus
 .cache-loader
-assets/
+/assets/
 examples/**/*.html
 explanations/**/*.html
 how-to/**/*.html
 tutorials/**/*.html
-search/
-whats-new.json
-sitemap.xml
-404.html
-index.html
+/search/
+/whats-new.json
+/sitemap.xml
+/404.html
+/index.html
 
 # Misc
 .DS_Store
