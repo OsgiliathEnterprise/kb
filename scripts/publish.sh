@@ -377,12 +377,22 @@ force_merge() {
 
   git push "$REMOTE" HEAD:"refs/heads/$TARGET_BRANCH" --force
 
-  # Tag the worktree's actual HEAD (not the main repo's)
-  local tag_name="${TAG_PREFIX}-merged-${DATE_STAMP}"
+  # Tag the worktree's actual HEAD (not the main repo's).
+  # BUGFIX (2026-10-31): the tag used the run-level DATE_STAMP, so a run that
+  # force-merged two stale PRs in sequence collided on the same tag name and
+  # the second `git tag` fataled (set -e) — aborting before branch deletion,
+  # worktree cleanup and the return-to-master hygiene step. Derive the tag
+  # from the branch's own stamp (publish/auto-YYYYMMDD-HHMMSS ->
+  # publish-merged-YYYYMMDD-HHMMSS) so each merge gets a unique tag, and
+  # tolerate an existing tag (re-run) instead of dying.
+  local branch_stem="${branch#"$PR_PREFIX-"}"
+  local tag_name="${TAG_PREFIX}-merged-${branch_stem}"
   local sha
   sha="$(git rev-parse HEAD)"
-  git tag -a "$tag_name" -m "Auto-merged $branch — $sha" "$sha"
-  git push "$REMOTE" "$tag_name"
+  git tag -a "$tag_name" -m "Auto-merged $branch — $sha" "$sha" || \
+    log "WARNING: tag $tag_name already exists — skipping tag creation"
+  git push "$REMOTE" "$tag_name" 2>/dev/null || \
+    log "WARNING: could not push tag $tag_name (already exists?)"
 
   # Delete stale branch (only after a successful publish)
   git push "$REMOTE" --delete "$branch" 2>/dev/null || true
