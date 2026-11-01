@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 -4.0 1028.0 384.0" width="1028" height="384">
+<rect x="16.0" y="-4.0" width="1028.0" height="384.0" fill="#ffffff"/>
+<rect x="40.0" y="80.0" width="300.0" height="70.0" rx="8" fill="none" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="380.0" y="80.0" width="300.0" height="70.0" rx="8" fill="none" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="720.0" y="80.0" width="300.0" height="70.0" rx="8" fill="none" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="380.0" y="200.0" width="300.0" height="70.0" rx="8" fill="none" stroke="#1e1e1e" stroke-width="1.5"/>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="32.8">Linear CI rework — four levers (agents ship faster than validation)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="52.0" y="107.8">1. Infrastructure + tooling</tspan><tspan x="52.0" y="127.8">runners -34%, tsgo -73%</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="392.0" y="107.8">2. Gating jobs (critical path)</tspan><tspan x="392.0" y="127.8">median 26s -&gt; 8s</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="732.0" y="107.8">3. Setup: 4 shards/8.3min</tspan><tspan x="732.0" y="127.8">-&gt; 8 shards/7.5min</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="392.0" y="227.8">4. Test execution efficiency</tspan><tspan x="392.0" y="247.8">(new bottlenecks as they appear)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="312.8">Track wait time AND runner time separately (sharding trades one for the other).</tspan><tspan x="40.0" y="332.8">AST-only lint rules -&gt; ESLint drops TS (-68% API lint) and ports to Oxlint. Sparse blobless checkout for diff jobs.</tspan></text>
+</svg>

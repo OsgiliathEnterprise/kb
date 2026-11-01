@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="36.0 6.0 1559.0 455.0" width="1559" height="455">
+<rect x="36.0" y="6.0" width="1559.0" height="455.0" fill="#ffffff"/>
+<rect x="60.0" y="120.0" width="260.0" height="70.0" rx="8" fill="#d8f0d8" stroke="#2b7a2b" stroke-width="1.5"/>
+<rect x="400.0" y="120.0" width="260.0" height="70.0" rx="8" fill="#cfe0f0" stroke="#2b5a8c" stroke-width="1.5"/>
+<rect x="740.0" y="120.0" width="240.0" height="70.0" rx="8" fill="#f0d8f0" stroke="#7a2b7a" stroke-width="1.5"/>
+<rect x="400.0" y="260.0" width="260.0" height="70.0" rx="8" fill="#f0e0cf" stroke="#8c5a2b" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 400.0 155.0 L 400.0 260.0"/><line x1="400.0" y1="260.0" x2="406.1" y2="247.4"/><line x1="400.0" y1="260.0" x2="393.9" y2="247.4"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 740.0 155.0 L 660.0 280.0"/><line x1="660.0" y1="280.0" x2="672.0" y2="272.7"/><line x1="660.0" y1="280.0" x2="661.6" y2="266.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 400.0 295.0 L 320.0 295.0"/><line x1="320.0" y1="295.0" x2="332.6" y2="301.1"/><line x1="320.0" y1="295.0" x2="332.6" y2="288.9"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="24" fill="#1e1e1e" text-anchor="start"><tspan x="80.0" y="49.2">Bounded Generation: Reference Architecture</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="75.0" y="146.2">Deterministic parametric graph</tspan><tspan x="75.0" y="163.7">(Dynamo) - the ONLY geometry source</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="415.0" y="145.4">Typed, bounded parameter schema</tspan><tspan x="415.0" y="161.7">(semantic names, authored bounds,</tspan><tspan x="415.0" y="177.9">couplings) = the contract</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="755.0" y="146.2">AI advisory layer</tspan><tspan x="755.0" y="163.7">no path to raw geometry</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="415.0" y="285.4">Deterministic evaluator</tspan><tspan x="415.0" y="301.6">watertight / manifold, volume,</tspan><tspan x="415.0" y="317.9">reproducibility fingerprint</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="665.0" y="210.4">candidate</tspan><tspan x="665.0" y="226.7">parameters</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="300.0" y="310.4">build + check</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#8c2b2b" text-anchor="start"><tspan x="400.0" y="381.2">reconcile-before-trust: exit 0 != success - diff against the evaluator</tspan><tspan x="400.0" y="398.7">AI may propose values only; geometry always comes from the graph</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#555555" text-anchor="start"><tspan x="400.0" y="431.2">validity by construction; designs reviewable as diffs (parameter changes)</tspan></text>
+</svg>

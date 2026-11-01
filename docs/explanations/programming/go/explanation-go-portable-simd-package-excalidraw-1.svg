@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 -4.0 868.0 378.0" width="868" height="378">
+<rect x="16.0" y="-4.0" width="868.0" height="378.0" fill="#ffffff"/>
+<rect x="40.0" y="60.0" width="220.0" height="80.0" rx="0" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="340.0" y="60.0" width="220.0" height="80.0" rx="0" fill="#f9e0a3" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="640.0" y="20.0" width="220.0" height="70.0" rx="0" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="640.0" y="120.0" width="220.0" height="70.0" rx="0" fill="#f9d3d3" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="340.0" y="200.0" width="220.0" height="70.0" rx="0" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 260.0 100.0 L 340.0 100.0"/><line x1="340.0" y1="100.0" x2="327.4" y2="93.9"/><line x1="340.0" y1="100.0" x2="327.4" y2="106.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 560.0 90.0 L 640.0 60.0"/><line x1="640.0" y1="60.0" x2="626.1" y2="58.7"/><line x1="640.0" y1="60.0" x2="630.4" y2="70.2"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 560.0 120.0 L 640.0 160.0"/><line x1="640.0" y1="160.0" x2="631.5" y2="148.9"/><line x1="640.0" y1="160.0" x2="626.0" y2="159.9"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 450.0 170.0 L 450.0 200.0"/><line x1="450.0" y1="200.0" x2="454.6" y2="190.6"/><line x1="450.0" y1="200.0" x2="445.4" y2="190.6"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="150.0" y="94.2">simd package (portable)</tspan><tspan x="150.0" y="110.4">simd.Float32s, simd.Uint8s</tspan><tspan x="150.0" y="126.7">size-agnostic types</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="450.0" y="94.2">compiler AST rewrite</tspan><tspan x="450.0" y="110.4">specialized copies @simd0/128/256/512</tspan><tspan x="450.0" y="126.7">dispatch hoisted to function boundary</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="750.0" y="49.1">archsimd hardware</tspan><tspan x="750.0" y="65.4">AVX/AVX2/AVX512 (amd64)</tspan><tspan x="750.0" y="81.7">NEON (arm64), wasm SIMD</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="750.0" y="149.2">pure-Go emulation</tspan><tspan x="750.0" y="165.4">always available</tspan><tspan x="750.0" y="181.7">(GODEBUG=simd=0)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="450.0" y="229.2">GODEBUG=simd=0/128/256/512</tspan><tspan x="450.0" y="245.4">+128/+256/+512 (partial features)</tspan><tspan x="450.0" y="261.6">Raspberry Pi: NEON w/o PMULL</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="302.8">Escape hatch: v.ToArch().(archsimd.Float32x4) / simd.Float32sFromArch(...) for ops outside the portable intersection</tspan><tspan x="40.0" y="322.8">Go 1.28 plans: SVE support, ReduceSum + reductions/shuffles/mask ops, feature variants for partial hardware</tspan></text>
+</svg>

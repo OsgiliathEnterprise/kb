@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 176.0 1068.0 218.0" width="1068" height="218">
+<rect x="16.0" y="176.0" width="1068.0" height="218.0" fill="#ffffff"/>
+<rect x="40.0" y="200.0" width="200.0" height="80.0" rx="0" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="280.0" y="200.0" width="200.0" height="80.0" rx="0" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="520.0" y="200.0" width="240.0" height="80.0" rx="0" fill="#f9e0a3" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="800.0" y="200.0" width="260.0" height="80.0" rx="0" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 240.0 240.0 L 280.0 240.0"/><line x1="280.0" y1="240.0" x2="267.4" y2="233.9"/><line x1="280.0" y1="240.0" x2="267.4" y2="246.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 480.0 240.0 L 520.0 240.0"/><line x1="520.0" y1="240.0" x2="507.4" y2="233.9"/><line x1="520.0" y1="240.0" x2="507.4" y2="246.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 760.0 240.0 L 800.0 240.0"/><line x1="800.0" y1="240.0" x2="787.4" y2="233.9"/><line x1="800.0" y1="240.0" x2="787.4" y2="246.1"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="140.0" y="242.3">v1: balance=100</tspan><tspan x="140.0" y="258.5">xmin=1 xmax=null</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="380.0" y="242.3">v2: balance=50</tspan><tspan x="380.0" y="258.5">xmin=3 xmax=null (current)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="238.0" y="227.8">UPDATE appends</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="640.0" y="242.3">clog (pg_xact): txid -&gt;</tspan><tspan x="640.0" y="258.5">in_progress | committed | aborted</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="930.0" y="242.3">snapshot = { nextTxid,</tspan><tspan x="930.0" y="258.5">activeTxids } (frozen at begin())</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="520.0" y="322.8">A snapshot is NOT a copy of the data — it is two numbers and a set:</tspan><tspan x="520.0" y="342.8">where the txid counter stood at begin(), plus who was in flight then.</tspan><tspan x="520.0" y="362.8">The DATA never freezes; only the RULES FOR JUDGING STAMPS do.</tspan></text>
+</svg>

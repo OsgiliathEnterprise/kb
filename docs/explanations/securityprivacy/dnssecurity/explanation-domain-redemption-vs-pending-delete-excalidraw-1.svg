@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="6.0 -4.0 698.0 238.0" width="698" height="238">
+<rect x="6.0" y="-4.0" width="698.0" height="238.0" fill="#ffffff"/>
+<rect x="30.0" y="60.0" width="130.0" height="80.0" rx="0" fill="#e9ecef" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="190.0" y="60.0" width="150.0" height="80.0" rx="0" fill="#ffec99" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="370.0" y="60.0" width="150.0" height="80.0" rx="0" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="550.0" y="60.0" width="130.0" height="80.0" rx="0" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 160.0 100.0 L 190.0 100.0"/><line x1="190.0" y1="100.0" x2="180.6" y2="95.4"/><line x1="190.0" y1="100.0" x2="180.6" y2="104.6"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 340.0 100.0 L 370.0 100.0"/><line x1="370.0" y1="100.0" x2="360.6" y2="95.4"/><line x1="370.0" y1="100.0" x2="360.6" y2="104.6"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 520.0 100.0 L 550.0 100.0"/><line x1="550.0" y1="100.0" x2="540.6" y2="95.4"/><line x1="550.0" y1="100.0" x2="540.6" y2="104.6"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="32.8">Domain lifecycle after expiry (EPP status codes)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="95.0" y="102.1">Expired</tspan><tspan x="95.0" y="117.1">(registrar grace period)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="265.0" y="94.6">redemptionPeriod</tspan><tspan x="265.0" y="109.6">~30 days</tspan><tspan x="265.0" y="124.6">RESTORABLE (fee)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="445.0" y="94.6">pendingDelete</tspan><tspan x="445.0" y="109.6">~5 days</tspan><tspan x="445.0" y="124.6">NOT restorable</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="615.0" y="94.6">Dropped</tspan><tspan x="615.0" y="109.6">anyone can</tspan><tspan x="615.0" y="124.6">register</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="182.8">During both redemptionPeriod and pendingDelete: the name is NOT in the zone.</tspan><tspan x="40.0" y="202.8">Site/email are down, and nobody else can register it yet.</tspan></text>
+</svg>

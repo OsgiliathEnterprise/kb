@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 16.0 1023.0 268.0" width="1023" height="268">
+<rect x="16.0" y="16.0" width="1023.0" height="268.0" fill="#ffffff"/>
+<rect x="340.0" y="40.0" width="260.0" height="70.0" rx="0" fill="#c4e0f2" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="40.0" y="200.0" width="150.0" height="60.0" rx="0" fill="#d5f5e3" stroke="#2980b9" stroke-width="1.5"/>
+<rect x="205.0" y="200.0" width="150.0" height="60.0" rx="0" fill="#d5f5e3" stroke="#2980b9" stroke-width="1.5"/>
+<rect x="370.0" y="200.0" width="150.0" height="60.0" rx="0" fill="#d5f5e3" stroke="#2980b9" stroke-width="1.5"/>
+<rect x="535.0" y="200.0" width="150.0" height="60.0" rx="0" fill="#d5f5e3" stroke="#2980b9" stroke-width="1.5"/>
+<rect x="700.0" y="200.0" width="150.0" height="60.0" rx="0" fill="#d9ccff" stroke="#8e44ad" stroke-width="1.5"/>
+<rect x="865.0" y="200.0" width="150.0" height="60.0" rx="0" fill="#d9ccff" stroke="#8e44ad" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 470.0 110.0 L 470.0 200.0"/><line x1="470.0" y1="200.0" x2="476.1" y2="187.4"/><line x1="470.0" y1="200.0" x2="463.9" y2="187.4"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="470.0" y="69.2">JsonValue (sealed)</tspan><tspan x="470.0" y="85.4">Json.parse(String) → tree</tspan><tspan x="470.0" y="101.7">strict RFC 8259 only</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="115.0" y="232.3">JsonString</tspan><tspan x="115.0" y="248.5">→ String</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="280.0" y="232.3">JsonNumber</tspan><tspan x="280.0" y="248.5">→ int/long/double...</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="445.0" y="232.3">JsonBoolean</tspan><tspan x="445.0" y="248.5">→ boolean</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="610.0" y="232.3">JsonNull</tspan><tspan x="610.0" y="248.5">singleton</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="775.0" y="232.3">JsonObject</tspan><tspan x="775.0" y="248.5">members by name</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="940.0" y="232.3">JsonArray</tspan><tspan x="940.0" y="248.5">elements by index</tspan></text>
+</svg>

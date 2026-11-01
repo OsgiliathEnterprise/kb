@@ -87,24 +87,7 @@ The **dual-position trap**: the list said "Head of Sales" at an aviation company
 
 ## Diagram
 
-```excalidraw
-{
-  "type": "drawing",
-  "version": 2,
-  "source": "https://github.com/excalidraw/excalidraw",
-  "elements": [
-    {"id": "l1", "type": "rectangle", "x": 40, "y": 40, "width": 190, "height": 70, "strokeColor": "#1e1e1e", "backgroundColor": "#c4e0f2", "fillStyle": "solid", "strokeWidth": 2, "text": {"content": "Inbound form\nname/title/company/domain", "fontSize": 14, "fontFamily": 1}},
-    {"id": "l2", "type": "rectangle", "x": 310, "y": 40, "width": 200, "height": 70, "strokeColor": "#1e1e1e", "backgroundColor": "#d9ccff", "fillStyle": "solid", "strokeWidth": 2, "text": {"content": "Step 1: domain -> company\n(+ free-mail list, _matchCandidates)", "fontSize": 14, "fontFamily": 1}},
-    {"id": "l3", "type": "rectangle", "x": 580, "y": 40, "width": 190, "height": 70, "strokeColor": "#1e1e1e", "backgroundColor": "#f9e0a3", "fillStyle": "solid", "strokeWidth": 2, "text": {"content": "Step 2: decision makers\nfounder/CEO first, 2 per company", "fontSize": 14, "fontFamily": 1}},
-    {"id": "l4", "type": "rectangle", "x": 310, "y": 180, "width": 200, "height": 70, "strokeColor": "#1e1e1e", "backgroundColor": "#cdeac0", "fillStyle": "solid", "strokeWidth": 2, "text": {"content": "Step 3: title-claim check\nfunction count = 0 -> human", "fontSize": 14, "fontFamily": 1}},
-    {"id": "l5", "type": "rectangle", "x": 580, "y": 180, "width": 190, "height": 70, "strokeColor": "#1e1e1e", "backgroundColor": "#f5d0d0", "fillStyle": "solid", "strokeWidth": 2, "text": {"content": "Step 4: personal mailbox\nreverse email lookup", "fontSize": 14, "fontFamily": 1}},
-    {"id": "a1", "type": "arrow", "x": 230, "y": 75, "width": 80, "height": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "points": [[0, 0], [80, 0]]},
-    {"id": "a2", "type": "arrow", "x": 510, "y": 75, "width": 70, "height": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "points": [[0, 0], [70, 0]]},
-    {"id": "a3", "type": "arrow", "x": 410, "y": 110, "width": 0, "height": 70, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "points": [[0, 0], [0, 70]]},
-    {"id": "a4", "type": "arrow", "x": 675, "y": 110, "width": 0, "height": 70, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "points": [[0, 0], [0, 70]]}
-  ]
-}
-```
+![Diagram 1 — howto-qualify-inbound-leads-by-domain-apify-n8n](howto-qualify-inbound-leads-by-domain-apify-n8n-excalidraw-1.svg)
 
 ## References
 

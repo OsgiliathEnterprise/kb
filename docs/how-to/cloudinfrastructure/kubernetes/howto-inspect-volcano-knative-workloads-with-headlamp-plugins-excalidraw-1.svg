@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 -9.0 808.0 383.0" width="808" height="383">
+<rect x="16.0" y="-9.0" width="808.0" height="383.0" fill="#ffffff"/>
+<rect x="40.0" y="50.0" width="160.0" height="70.0" rx="8" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="40.0" y="200.0" width="160.0" height="70.0" rx="8" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="320.0" y="125.0" width="180.0" height="70.0" rx="8" fill="#ffd8a8" stroke="#e8590c" stroke-width="1.5"/>
+<rect x="620.0" y="125.0" width="180.0" height="70.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="620.0" y="280.0" width="180.0" height="70.0" rx="8" fill="#e5dbff" stroke="#1e1e1e" stroke-width="1.5" stroke-dasharray="7 5"/>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="52.0" y="73.2">Queue (parent)</tspan><tspan x="52.0" y="90.7">scheduling.volcano.sh/v1beta1</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="52.0" y="223.2">Queue (child)</tspan><tspan x="52.0" y="240.7">weight + guarantees</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#e8590c" text-anchor="start"><tspan x="332.0" y="151.2">Volcano Job</tspan><tspan x="332.0" y="168.7">batch.volcano.sh/v1alpha1</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="632.0" y="151.2">PodGroup (gang)</tspan><tspan x="632.0" y="168.7">min members + phase</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="632.0" y="306.2">Pods</tspan><tspan x="632.0" y="323.7">(owned/labeled by Job)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="20" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="31.0">Volcano resource map in Headlamp</tspan></text>
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 36.0 748.0 308.0" width="748" height="308">
+<rect x="16.0" y="36.0" width="748.0" height="308.0" fill="#ffffff"/>
+<rect x="40.0" y="60.0" width="180.0" height="70.0" rx="0" fill="#c4e0f2" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="300.0" y="60.0" width="180.0" height="70.0" rx="0" fill="#d9ccff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="560.0" y="60.0" width="180.0" height="70.0" rx="0" fill="#f9e0a3" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="300.0" y="240.0" width="180.0" height="80.0" rx="0" fill="#cdeac0" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 220.0 95.0 L 300.0 95.0"/><line x1="300.0" y1="95.0" x2="287.4" y2="88.9"/><line x1="300.0" y1="95.0" x2="287.4" y2="101.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 480.0 95.0 L 560.0 95.0"/><line x1="560.0" y1="95.0" x2="547.4" y2="88.9"/><line x1="560.0" y1="95.0" x2="547.4" y2="101.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 390.0 130.0 L 390.0 240.0"/><line x1="390.0" y1="240.0" x2="396.1" y2="227.4"/><line x1="390.0" y1="240.0" x2="383.9" y2="227.4"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 300.0 260.0 L 220.0 180.0"/><line x1="220.0" y1="180.0" x2="224.6" y2="193.2"/><line x1="220.0" y1="180.0" x2="233.2" y2="184.6"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="130.0" y="97.5">Browser UI</tspan><tspan x="130.0" y="115.0">sessionStorage key K1</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="390.0" y="97.5">Backend</tspan><tspan x="390.0" y="115.0">unique(user,key) insert</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="650.0" y="97.5">Provider</tspan><tspan x="650.0" y="115.0">key derived from K1</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="390.0" y="282.4">saved result (status, P900)</tspan><tspan x="390.0" y="299.9">returned on every retry</tspan></text>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="36.0 16.0 548.0 398.0" width="548" height="398">
+<rect x="36.0" y="16.0" width="548.0" height="398.0" fill="#ffffff"/>
+<rect x="60.0" y="40.0" width="220.0" height="60.0" rx="0" fill="#c4e0f2" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="60.0" y="180.0" width="200.0" height="60.0" rx="0" fill="#cdeac0" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="340.0" y="180.0" width="220.0" height="60.0" rx="0" fill="#f5d0d0" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="340.0" y="320.0" width="220.0" height="70.0" rx="0" fill="#f9e0a3" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="60.0" y="320.0" width="200.0" height="70.0" rx="0" fill="#d9ccff" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 140.0 100.0 L 140.0 180.0"/><line x1="140.0" y1="180.0" x2="146.1" y2="167.4"/><line x1="140.0" y1="180.0" x2="133.9" y2="167.4"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 420.0 100.0 L 420.0 180.0"/><line x1="420.0" y1="180.0" x2="426.1" y2="167.4"/><line x1="420.0" y1="180.0" x2="413.9" y2="167.4"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 450.0 240.0 L 450.0 320.0"/><line x1="450.0" y1="320.0" x2="456.1" y2="307.4"/><line x1="450.0" y1="320.0" x2="443.9" y2="307.4"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="170.0" y="72.5">stat -fc %T /sys/fs/cgroup</tspan><tspan x="170.0" y="90.0">(kubectl debug + chroot /host)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="160.0" y="221.2">cgroup2fs -&gt; safe to upgrade</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="450.0" y="221.2">tmpfs (v1) -&gt; kubelet refuses to start</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="450.0" y="357.4">Migrate node to cgroup v2</tspan><tspan x="450.0" y="374.9">(align kubelet + runtime drivers)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="160.0" y="357.4">Temporary escape hatch:</tspan><tspan x="160.0" y="374.9">failCgroupV1: false (expiring)</tspan></text>
+</svg>

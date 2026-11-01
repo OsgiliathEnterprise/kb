@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 116.0 948.0 308.0" width="948" height="308">
+<rect x="16.0" y="116.0" width="948.0" height="308.0" fill="#ffffff"/>
+<rect x="40.0" y="140.0" width="200.0" height="80.0" rx="0" fill="#d9ccff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="40.0" y="320.0" width="200.0" height="80.0" rx="0" fill="#d9ccff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="340.0" y="230.0" width="260.0" height="110.0" rx="0" fill="#c4e0f2" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="680.0" y="230.0" width="260.0" height="110.0" rx="0" fill="#f9d3d3" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 240.0 180.0 L 340.0 250.0"/><line x1="340.0" y1="250.0" x2="333.2" y2="237.8"/><line x1="340.0" y1="250.0" x2="326.2" y2="247.8"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 240.0 360.0 L 340.0 290.0"/><line x1="340.0" y1="290.0" x2="326.2" y2="292.2"/><line x1="340.0" y1="290.0" x2="333.2" y2="302.2"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 600.0 285.0 L 680.0 285.0"/><line x1="680.0" y1="285.0" x2="667.4" y2="278.9"/><line x1="680.0" y1="285.0" x2="667.4" y2="291.1"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="140.0" y="182.4">Chat</tspan><tspan x="140.0" y="199.9">(web, desktop, mobile)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="140.0" y="362.4">Cowork</tspan><tspan x="140.0" y="379.9">(hours-to-days sessions)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="470.0" y="269.9">Unified memory</tspan><tspan x="470.0" y="287.4">small topic-organized files</tspan><tspan x="470.0" y="304.9">updated live during work</tspan><tspan x="470.0" y="322.4">deletable, chat-edited only</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="810.0" y="269.9">Never stored:</tspan><tspan x="810.0" y="287.4">SSN / gov IDs, criminal history,</tspan><tspan x="810.0" y="304.9">immigration status, AUP violations</tspan><tspan x="810.0" y="322.4">Sensitive topics excluded by default</tspan></text>
+</svg>

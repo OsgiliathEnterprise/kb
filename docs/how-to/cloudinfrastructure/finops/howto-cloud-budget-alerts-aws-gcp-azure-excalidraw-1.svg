@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 6.0 928.0 458.0" width="928" height="458">
+<rect x="16.0" y="6.0" width="928.0" height="458.0" fill="#ffffff"/>
+<rect x="40.0" y="120.0" width="220.0" height="100.0" rx="0" fill="#f9e0a3" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="340.0" y="30.0" width="240.0" height="80.0" rx="0" fill="#c9e7c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="340.0" y="140.0" width="240.0" height="80.0" rx="0" fill="#f9d3d3" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="340.0" y="250.0" width="240.0" height="80.0" rx="0" fill="#f9a3a3" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="660.0" y="30.0" width="260.0" height="80.0" rx="0" fill="#c4e0f2" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="660.0" y="140.0" width="260.0" height="80.0" rx="0" fill="#c4e0f2" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="660.0" y="250.0" width="260.0" height="80.0" rx="0" fill="#c4e0f2" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="340.0" y="360.0" width="580.0" height="80.0" rx="0" fill="#d9ccff" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 260.0 150.0 L 340.0 150.0"/><line x1="340.0" y1="150.0" x2="327.4" y2="143.9"/><line x1="340.0" y1="150.0" x2="327.4" y2="156.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 260.0 170.0 L 340.0 170.0"/><line x1="340.0" y1="170.0" x2="327.4" y2="163.9"/><line x1="340.0" y1="170.0" x2="327.4" y2="176.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 260.0 190.0 L 340.0 190.0"/><line x1="340.0" y1="190.0" x2="327.4" y2="183.9"/><line x1="340.0" y1="190.0" x2="327.4" y2="196.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 580.0 70.0 L 660.0 70.0"/><line x1="660.0" y1="70.0" x2="647.4" y2="63.9"/><line x1="660.0" y1="70.0" x2="647.4" y2="76.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 580.0 180.0 L 660.0 180.0"/><line x1="660.0" y1="180.0" x2="647.4" y2="173.9"/><line x1="660.0" y1="180.0" x2="647.4" y2="186.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 580.0 290.0 L 660.0 290.0"/><line x1="660.0" y1="290.0" x2="647.4" y2="283.9"/><line x1="660.0" y1="290.0" x2="647.4" y2="296.1"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="150.0" y="163.7">Monthly spend</tspan><tspan x="150.0" y="181.2">(GPU jobs + AI</tspan><tspan x="150.0" y="198.7">make burn non-linear)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="460.0" y="72.5">Tier 1 · 50% WARN</tspan><tspan x="460.0" y="90.0">→ email / #cost-watch</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="460.0" y="182.4">Tier 2 · 80% ALERT</tspan><tspan x="460.0" y="199.9">→ on-call FinOps</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="460.0" y="292.4">Tier 3 · 100% PANIC</tspan><tspan x="460.0" y="309.9">→ PagerDuty / sev-2</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="790.0" y="72.5">AWS Budgets</tspan><tspan x="790.0" y="90.0">→ SNS → Slack / Lambda</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="790.0" y="182.4">GCP Budgets</tspan><tspan x="790.0" y="199.9">→ Pub/Sub → Cloud Fn</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="790.0" y="292.4">Azure Budgets</tspan><tspan x="790.0" y="309.9">→ Action Groups</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="630.0" y="411.2">Quarterly budget refresh  +  Forecasted alert @100%  +  cost anomaly detection</tspan></text>
+</svg>

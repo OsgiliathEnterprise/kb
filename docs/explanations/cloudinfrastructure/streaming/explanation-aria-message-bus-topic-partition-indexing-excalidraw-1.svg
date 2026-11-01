@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 36.0 908.0 278.0" width="908" height="278">
+<rect x="16.0" y="36.0" width="908.0" height="278.0" fill="#ffffff"/>
+<rect x="40.0" y="60.0" width="210.0" height="70.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="340.0" y="60.0" width="230.0" height="70.0" rx="8" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="660.0" y="60.0" width="240.0" height="70.0" rx="8" fill="#ffec99" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="340.0" y="220.0" width="230.0" height="70.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="660.0" y="220.0" width="240.0" height="70.0" rx="8" fill="#e5dbff" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 250.0 95.0 L 340.0 95.0"/><line x1="340.0" y1="95.0" x2="327.4" y2="88.9"/><line x1="340.0" y1="95.0" x2="327.4" y2="101.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 570.0 95.0 L 660.0 95.0"/><line x1="660.0" y1="95.0" x2="647.4" y2="88.9"/><line x1="660.0" y1="95.0" x2="647.4" y2="101.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 780.0 130.0 L 780.0 220.0"/><line x1="780.0" y1="220.0" x2="786.1" y2="207.4"/><line x1="780.0" y1="220.0" x2="773.9" y2="207.4"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 570.0 255.0 L 660.0 255.0"/><line x1="660.0" y1="255.0" x2="647.4" y2="248.9"/><line x1="660.0" y1="255.0" x2="647.4" y2="261.1"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="55.0" y="93.2">Stream tip ring buffer</tspan><tspan x="55.0" y="110.7">(full message stream)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="355.0" y="93.2">Topic partitions</tspan><tspan x="355.0" y="110.7">(2-segment prefix)</tspan><tspan x="355.0" y="128.2">e.g. app/codestore</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="675.0" y="93.2">Per-partition index</tspan><tspan x="675.0" y="110.7">(shared block pool,</tspan><tspan x="675.0" y="128.2">1024 entries/block)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="355.0" y="253.2">Min-heap n-way merge</tspan><tspan x="355.0" y="270.7">reconstructs ordered stream</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="675.0" y="253.2">Client receives only</tspan><tspan x="675.0" y="270.7">subscribed topics</tspan></text>
+</svg>

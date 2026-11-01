@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 126.0 868.0 288.0" width="868" height="288">
+<rect x="16.0" y="126.0" width="868.0" height="288.0" fill="#ffffff"/>
+<rect x="40.0" y="200.0" width="180.0" height="70.0" rx="0" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="260.0" y="200.0" width="180.0" height="70.0" rx="0" fill="#f9e0a3" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="480.0" y="150.0" width="170.0" height="60.0" rx="0" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="480.0" y="250.0" width="170.0" height="60.0" rx="0" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="690.0" y="200.0" width="170.0" height="70.0" rx="0" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 220.0 235.0 L 260.0 235.0"/><line x1="260.0" y1="235.0" x2="247.4" y2="228.9"/><line x1="260.0" y1="235.0" x2="247.4" y2="241.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 440.0 215.0 L 480.0 180.0"/><line x1="480.0" y1="180.0" x2="466.5" y2="183.7"/><line x1="480.0" y1="180.0" x2="474.6" y2="192.9"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 440.0 265.0 L 480.0 280.0"/><line x1="480.0" y1="280.0" x2="470.4" y2="269.8"/><line x1="480.0" y1="280.0" x2="466.1" y2="281.3"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 650.0 235.0 L 690.0 235.0"/><line x1="690.0" y1="235.0" x2="677.4" y2="228.9"/><line x1="690.0" y1="235.0" x2="677.4" y2="241.1"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="130.0" y="237.3">documents</tspan><tspan x="130.0" y="253.5">parser / chunker</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="350.0" y="229.2">embedding gateway</tspan><tspan x="350.0" y="245.4">(model version, dim,</tspan><tspan x="350.0" y="261.6">pooling, backend)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="565.0" y="182.3">vLLM TPU pool</tspan><tspan x="565.0" y="198.5">(batch indexing)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="565.0" y="282.3">GPU fallback pool</tspan><tspan x="565.0" y="298.5">(online low-latency)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="775.0" y="237.3">vector database</tspan><tspan x="775.0" y="253.5">(dual indexes for upgrades)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="260.0" y="362.8">Indexing prioritizes TOKEN THROUGHPUT; online queries prioritize LATENCY.</tspan><tspan x="260.0" y="382.8">Separate batch and online pools — a big reindex job on the same queue destroys online P99.</tspan></text>
+</svg>

@@ -27,9 +27,7 @@ From the Atlassian developer changelog (posted 16 October 2026, copied into eigh
 
 **The trap:** "egress" is from Atlassian's point of view — it is *your inbound*. Your webhook firewall needs **131.162.90.0/23**. Adding the wrong half, or typing `131.162.0.0/16` because it "looks tidier", is how teams get caught.
 
-```excalidraw
-{"type": "drawing", "version": 2, "source": "https://github.com/excalidraw/excalidraw", "elements": [{"id": "r1", "type": "rectangle", "x": 40, "y": 60, "width": 240, "height": 80, "strokeColor": "#1e1e1e", "backgroundColor": "#a5d8ff", "fillStyle": "solid", "strokeWidth": 2, "text": {"content": "Atlassian cloud\negress 131.162.90.0/23\n= YOUR inbound\n(webhooks, lifecycle)", "fontSize": 13, "fontFamily": 1}}, {"id": "r2", "type": "rectangle", "x": 380, "y": 60, "width": 240, "height": 80, "strokeColor": "#1e1e1e", "backgroundColor": "#b2f2bb", "fillStyle": "solid", "strokeWidth": 2, "text": {"content": "Your app\ningress to Atlassian:\n131.162.88.0/23", "fontSize": 13, "fontFamily": 1}}, {"id": "a1", "type": "arrow", "x": 280, "y": 90, "width": 100, "height": 0, "strokeColor": "#e8590c", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "points": [[0, 0], [100, 0]], "text": {"content": "webhooks you MUST allow", "fontSize": 12, "fontFamily": 1}}, {"id": "a2", "type": "arrow", "x": 380, "y": 125, "width": -100, "height": 0, "strokeColor": "#868e96", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "points": [[0, 0], [-100, 0]], "text": {"content": "your API calls", "fontSize": 12, "fontFamily": 1}}, {"id": "n1", "type": "text", "x": 40, "y": 175, "width": 600, "height": 60, "text": {"content": "Trap: 'egress' is Atlassian's word for YOUR inbound.\nWebhook firewalls need the 131.162.90.0/23 side.\n131.162.90.20/30 (Rovo crawler, egress) sits INSIDE the /23.", "fontSize": 13, "fontFamily": 1}, "strokeColor": "#1e1e1e", "backgroundColor": "transparent"}]}
-```
+![Diagram 1 — howto-update-atlassian-cloud-ip-allowlist-2027](howto-update-atlassian-cloud-ip-allowlist-2027-excalidraw-1.svg)
 
 ## Where the machine-readable list lives
 

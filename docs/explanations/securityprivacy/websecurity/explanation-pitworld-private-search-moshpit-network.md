@@ -61,22 +61,7 @@ The interesting security property is not "we log less" but that every layer that
 
 ## Diagram
 
-```excalidraw
-{
-  "type": "drawing",
-  "version": 2,
-  "source": "https://github.com/excalidraw/excalidraw",
-  "elements": [
-    {"id": "w1", "type": "rectangle", "x": 40, "y": 40, "width": 180, "height": 70, "strokeColor": "#1e1e1e", "backgroundColor": "#c4e0f2", "fillStyle": "solid", "strokeWidth": 2, "text": {"content": "Browser\n(no cookies, JS off ok)", "fontSize": 14, "fontFamily": 1}},
-    {"id": "w2", "type": "rectangle", "x": 320, "y": 40, "width": 200, "height": 70, "strokeColor": "#1e1e1e", "backgroundColor": "#d9ccff", "fillStyle": "solid", "strokeWidth": 2, "text": {"content": "pit.world\nno logs, Set-Cookie stripped\nHMAC-IP rate limit (hourly key)", "fontSize": 14, "fontFamily": 1}},
-    {"id": "w3", "type": "rectangle", "x": 600, "y": 40, "width": 180, "height": 70, "strokeColor": "#1e1e1e", "backgroundColor": "#f9e0a3", "fillStyle": "solid", "strokeWidth": 2, "text": {"content": "Serper\n(Google index, words only)", "fontSize": 14, "fontFamily": 1}},
-    {"id": "w4", "type": "rectangle", "x": 320, "y": 200, "width": 200, "height": 70, "strokeColor": "#1e1e1e", "backgroundColor": "#cdeac0", "fillStyle": "solid", "strokeWidth": 2, "text": {"content": "Moshpit registry\nappend-only, signs real certs\n17,609 endings", "fontSize": 14, "fontFamily": 1}},
-    {"id": "a1", "type": "arrow", "x": 220, "y": 75, "width": 100, "height": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "points": [[0, 0], [100, 0]]},
-    {"id": "a2", "type": "arrow", "x": 520, "y": 75, "width": 80, "height": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "points": [[0, 0], [80, 0]]},
-    {"id": "a3", "type": "arrow", "x": 420, "y": 110, "width": 0, "height": 90, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "points": [[0, 0], [0, 90]]}
-  ]
-}
-```
+![Diagram 1 — explanation-pitworld-private-search-moshpit-network](explanation-pitworld-private-search-moshpit-network-excalidraw-1.svg)
 
 ## References
 

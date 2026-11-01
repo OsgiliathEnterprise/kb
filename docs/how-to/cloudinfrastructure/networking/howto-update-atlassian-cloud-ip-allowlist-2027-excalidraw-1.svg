@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 36.0 648.0 223.0" width="648" height="223">
+<rect x="16.0" y="36.0" width="648.0" height="223.0" fill="#ffffff"/>
+<rect x="40.0" y="60.0" width="240.0" height="80.0" rx="0" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="380.0" y="60.0" width="240.0" height="80.0" rx="0" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#e8590c" stroke-width="1.5" fill="none"><path d="M 280.0 90.0 L 380.0 90.0"/><line x1="380.0" y1="90.0" x2="367.4" y2="83.9"/><line x1="380.0" y1="90.0" x2="367.4" y2="96.1"/></g>
+<g stroke="#868e96" stroke-width="1.5" fill="none"><path d="M 380.0 125.0 L 280.0 125.0"/><line x1="280.0" y1="125.0" x2="292.6" y2="131.1"/><line x1="280.0" y1="125.0" x2="292.6" y2="118.9"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="160.0" y="86.0">Atlassian cloud</tspan><tspan x="160.0" y="102.3">egress 131.162.90.0/23</tspan><tspan x="160.0" y="118.5">= YOUR inbound</tspan><tspan x="160.0" y="134.8">(webhooks, lifecycle)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="500.0" y="94.2">Your app</tspan><tspan x="500.0" y="110.4">ingress to Atlassian:</tspan><tspan x="500.0" y="126.7">131.162.88.0/23</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="187.8">Trap: 'egress' is Atlassian's word for YOUR inbound.</tspan><tspan x="40.0" y="207.8">Webhook firewalls need the 131.162.90.0/23 side.</tspan><tspan x="40.0" y="227.8">131.162.90.20/30 (Rovo crawler, egress) sits INSIDE the /23.</tspan></text>
+</svg>

@@ -34,25 +34,7 @@ A case study from Bayer AG + Thoughtworks on **PRINCE** (Preclinical Information
 
 ## The agentic workflow: three distinct reflection loops
 
-```excalidraw
-{
-  "type": "drawing",
-  "version": 2,
-  "source": "https://github.com/excalidraw/excalidraw",
-  "elements": [
-    {"id": "p1", "type": "rectangle", "x": 40, "y": 80, "width": 200, "height": 90, "strokeColor": "#1e1e1e", "backgroundColor": "#a5d8ff", "fillStyle": "solid", "strokeWidth": 2, "text": {"content": "Clarify Intent\nask clarifying questions,\nAI-suggested sources,\ndomain pre-filtering", "fontSize": 14, "fontFamily": 1}},
-    {"id": "p2", "type": "rectangle", "x": 300, "y": 80, "width": 200, "height": 90, "strokeColor": "#1e1e1e", "backgroundColor": "#fff3bf", "fillStyle": "solid", "strokeWidth": 2, "text": {"content": "Think & Plan\nPROCESS reflection:\nright trajectory?\ncorrect tool choice?", "fontSize": 14, "fontFamily": 1}},
-    {"id": "p3", "type": "rectangle", "x": 560, "y": 80, "width": 200, "height": 90, "strokeColor": "#1e1e1e", "backgroundColor": "#d9ccff", "fillStyle": "solid", "strokeWidth": 2, "text": {"content": "Researcher\nRAG (OpenSearch) +\nText-to-SQL (Athena),\ndomain sub-agents", "fontSize": 14, "fontFamily": 1}},
-    {"id": "p4", "type": "rectangle", "x": 300, "y": 260, "width": 200, "height": 90, "strokeColor": "#1e1e1e", "backgroundColor": "#ffe8cc", "fillStyle": "solid", "strokeWidth": 2, "text": {"content": "Reflection Agent\nDATA reflection:\nis evidence sufficient?\ngenerate follow-ups", "fontSize": 14, "fontFamily": 1}},
-    {"id": "p5", "type": "rectangle", "x": 560, "y": 260, "width": 200, "height": 90, "strokeColor": "#1e1e1e", "backgroundColor": "#b2f2bb", "fillStyle": "solid", "strokeWidth": 2, "text": {"content": "Writer Agent\nDRAFT reflection:\nsynthesize + cite,\nformatting rules,\ninternal review loop", "fontSize": 14, "fontFamily": 1}},
-    {"id": "a1", "type": "arrow", "x": 240, "y": 125, "width": 60, "height": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "points": [[0, 0], [60, 0]]},
-    {"id": "a2", "type": "arrow", "x": 500, "y": 125, "width": 60, "height": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "points": [[0, 0], [60, 0]]},
-    {"id": "a3", "type": "arrow", "x": 400, "y": 170, "width": 0, "height": 90, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "points": [[0, 0], [0, 90]]},
-    {"id": "a4", "type": "arrow", "x": 560, "y": 305, "width": -60, "height": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "points": [[0, 0], [-60, 0]]},
-    {"id": "a5", "type": "arrow", "x": 400, "y": 355, "width": -100, "height": -180, "strokeColor": "#e03131", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "points": [[0, 0], [-100, -180]]}
-  ]
-}
-```
+![Diagram 1 — explanation-prince-bayer-agentic-rag-context-harness-engineering](explanation-prince-bayer-agentic-rag-context-harness-engineering-excalidraw-1.svg)
 
 The three loops check different things and must not be conflated:
 

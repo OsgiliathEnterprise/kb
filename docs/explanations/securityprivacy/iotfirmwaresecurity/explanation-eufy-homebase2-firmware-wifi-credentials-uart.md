@@ -103,25 +103,7 @@ The recovery image is too minimal (no Wi-Fi/I2C kernel modules, no debug tooling
 
 ## Diagram
 
-```excalidraw
-{
-  "type": "drawing",
-  "version": 2,
-  "source": "https://github.com/excalidraw/excalidraw",
-  "elements": [
-    {"id": "r1", "type": "rectangle", "x": 40, "y": 40, "width": 200, "height": 70, "strokeColor": "#1e1e1e", "backgroundColor": "#c4e0f2", "fillStyle": "solid", "strokeWidth": 2, "text": {"content": "Winbond 25Q256JWEQ\n(32 MB, WSON-8)", "fontSize": 14, "fontFamily": 1}},
-    {"id": "r2", "type": "rectangle", "x": 320, "y": 40, "width": 200, "height": 70, "strokeColor": "#1e1e1e", "backgroundColor": "#d9ccff", "fillStyle": "solid", "strokeWidth": 2, "text": {"content": "binwalk / 7z blob\nXZ + uImage + JFFS2", "fontSize": 14, "fontFamily": 1}},
-    {"id": "r3", "type": "rectangle", "x": 40, "y": 180, "width": 200, "height": 70, "strokeColor": "#1e1e1e", "backgroundColor": "#f9e0a3", "fillStyle": "solid", "strokeWidth": 2, "text": {"content": "Wi-Fi credential RE\nHMAC-SHA256(I2C val, SN)", "fontSize": 14, "fontFamily": 1}},
-    {"id": "r4", "type": "rectangle", "x": 320, "y": 180, "width": 200, "height": 70, "strokeColor": "#1e1e1e", "backgroundColor": "#f5d0d0", "fillStyle": "solid", "strokeWidth": 2, "text": {"content": "UART lockdown\naskfirst + debug_log NVRAM", "fontSize": 14, "fontFamily": 1}},
-    {"id": "r5", "type": "rectangle", "x": 180, "y": 320, "width": 200, "height": 70, "strokeColor": "#1e1e1e", "backgroundColor": "#cdeac0", "fillStyle": "solid", "strokeWidth": 2, "text": {"content": "Patched recovery image\n(0xe70000, CRC-fixed) -> root shell", "fontSize": 14, "fontFamily": 1}},
-    {"id": "a1", "type": "arrow", "x": 240, "y": 75, "width": 80, "height": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "points": [[0, 0], [80, 0]]},
-    {"id": "a2", "type": "arrow", "x": 320, "y": 110, "width": 0, "height": 70, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "points": [[0, 0], [0, 70]]},
-    {"id": "a3", "type": "arrow", "x": 140, "y": 110, "width": 0, "height": 70, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "points": [[0, 0], [0, 70]]},
-    {"id": "a4", "type": "arrow", "x": 420, "y": 250, "width": 0, "height": 70, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "points": [[0, 0], [0, 70]]},
-    {"id": "a5", "type": "arrow", "x": 140, "y": 250, "width": 0, "height": 70, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "points": [[0, 0], [0, 70]]}
-  ]
-}
-```
+![Diagram 1 — explanation-eufy-homebase2-firmware-wifi-credentials-uart](explanation-eufy-homebase2-firmware-wifi-credentials-uart-excalidraw-1.svg)
 
 ## References
 

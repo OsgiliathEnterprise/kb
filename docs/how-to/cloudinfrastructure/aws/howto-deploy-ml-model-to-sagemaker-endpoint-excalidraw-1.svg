@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 6.0 1108.0 438.0" width="1108" height="438">
+<rect x="16.0" y="6.0" width="1108.0" height="438.0" fill="#ffffff"/>
+<rect x="40.0" y="90.0" width="160.0" height="120.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="220.0" y="90.0" width="160.0" height="120.0" rx="8" fill="#96f2d7" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="400.0" y="90.0" width="160.0" height="120.0" rx="8" fill="#ffec99" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="580.0" y="90.0" width="160.0" height="120.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="760.0" y="90.0" width="160.0" height="120.0" rx="8" fill="#d0bfff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="940.0" y="90.0" width="160.0" height="120.0" rx="8" fill="#c3fae8" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="40.0" y="300.0" width="1060.0" height="120.0" rx="8" fill="#e9ecef" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 200.0 150.0 L 220.0 150.0"/><line x1="220.0" y1="150.0" x2="212.8" y2="146.5"/><line x1="220.0" y1="150.0" x2="212.8" y2="153.5"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 380.0 150.0 L 400.0 150.0"/><line x1="400.0" y1="150.0" x2="392.8" y2="146.5"/><line x1="400.0" y1="150.0" x2="392.8" y2="153.5"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 560.0 150.0 L 580.0 150.0"/><line x1="580.0" y1="150.0" x2="572.8" y2="146.5"/><line x1="580.0" y1="150.0" x2="572.8" y2="153.5"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 740.0 150.0 L 760.0 150.0"/><line x1="760.0" y1="150.0" x2="752.8" y2="146.5"/><line x1="760.0" y1="150.0" x2="752.8" y2="153.5"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 920.0 150.0 L 940.0 150.0"/><line x1="940.0" y1="150.0" x2="932.8" y2="146.5"/><line x1="940.0" y1="150.0" x2="932.8" y2="153.5"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="420.0" y="42.8">SageMaker Model Deployment Pipeline</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="120.0" y="159.6">1. Save model</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="120.0" y="159.6">joblib.dump</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="120.0" y="159.6">requirements.txt</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="300.0" y="159.6">2. Upload to S3</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="300.0" y="159.6">boto3 upload_file</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="300.0" y="159.6">model.pkl</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="480.0" y="159.6">3. inference.py</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="480.0" y="159.6">model_fn</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="480.0" y="159.6">input_fn</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="660.0" y="159.6">4. Deploy SDK</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="660.0" y="159.6">SKLearnModel</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="660.0" y="159.6">ml.m5.large</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="840.0" y="159.6">5. Test</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="840.0" y="159.6">invoke_endpoint</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="840.0" y="159.6">sagemaker-runtime</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="1020.0" y="159.6">6. Clean up</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="1020.0" y="159.6">delete-endpoint</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="1020.0" y="159.6">delete-endpoint-config</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="570.0" y="370.4">IAM role: s3:GetObject/PutObject + sagemaker:CreateModel/CreateEndpoint</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="570.0" y="370.4">inference.py must define model_fn, input_fn, predict_fn, output_fn</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="570.0" y="370.4">endpoint costs ~$0.20/hr (ml.m5.large) even idle - delete when not in use</tspan></text>
+</svg>

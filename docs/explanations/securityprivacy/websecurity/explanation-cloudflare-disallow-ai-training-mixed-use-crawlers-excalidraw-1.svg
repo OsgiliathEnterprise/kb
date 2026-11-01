@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 -4.0 1058.0 348.0" width="1058" height="348">
+<rect x="16.0" y="-4.0" width="1058.0" height="348.0" fill="#ffffff"/>
+<rect x="40.0" y="70.0" width="230.0" height="50.0" rx="8" fill="none" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="300.0" y="70.0" width="230.0" height="50.0" rx="8" fill="none" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="560.0" y="70.0" width="230.0" height="50.0" rx="8" fill="none" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="40.0" y="190.0" width="230.0" height="70.0" rx="8" fill="none" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="300.0" y="190.0" width="230.0" height="70.0" rx="8" fill="none" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="560.0" y="190.0" width="230.0" height="70.0" rx="8" fill="none" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="820.0" y="190.0" width="230.0" height="70.0" rx="8" fill="none" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 375.0 120.0 L 415.0 180.0"/><line x1="415.0" y1="180.0" x2="413.1" y2="166.1"/><line x1="415.0" y1="180.0" x2="402.9" y2="172.9"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 635.0 120.0 L 595.0 180.0"/><line x1="595.0" y1="180.0" x2="607.1" y2="172.9"/><line x1="595.0" y1="180.0" x2="596.9" y2="166.1"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="32.8">Cloudflare AI Crawl Control — mixed-use crawlers (Sept 2026)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="52.0" y="97.8">Search: builds search index</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="312.0" y="97.8">Training: trains / fine-tunes models</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="572.0" y="97.8">Agent: user-directed fetches</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="50.0" y="210.8">Allow</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="50.0" y="234.8">all crawlers allowed</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="310.0" y="210.8">Disallow AI Training</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="310.0" y="234.8">robots.txt no-training pref;</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="310.0" y="250.8">Accountable mixed-use stay for search</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="570.0" y="210.8">Block on pages with ads</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="570.0" y="234.8">mixed-use blocked only where ads serve</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="830.0" y="210.8">Block</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="830.0" y="234.8">ALL crawlers incl. Applebot/Bingbot/Googlebot</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="312.8">Mixed-use crawlers (Applebot, Bingbot, Googlebot) do Search AND Training: Block now kills search too — use Disallow AI Training to keep search.</tspan></text>
+</svg>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 -4.0 978.0 178.0" width="978" height="178">
+<rect x="16.0" y="-4.0" width="978.0" height="178.0" fill="#ffffff"/>
+<rect x="40.0" y="80.0" width="150.0" height="70.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="230.0" y="80.0" width="150.0" height="70.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="420.0" y="80.0" width="150.0" height="70.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="610.0" y="80.0" width="150.0" height="70.0" rx="8" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="800.0" y="80.0" width="170.0" height="70.0" rx="8" fill="#b2f2bb" stroke="#2f9e44" stroke-width="1.5" stroke-dasharray="7 5"/>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="55.0" y="103.2">JDK 11-12</tspan><tspan x="55.0" y="120.7">experimental,</tspan><tspan x="55.0" y="138.2">concurrent class unloading</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="245.0" y="103.2">JDK 15-16</tspan><tspan x="245.0" y="120.7">production ready,</tspan><tspan x="245.0" y="138.2">concurrent stack scanning</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="435.0" y="103.2">JDK 17-21</tspan><tspan x="435.0" y="120.7">sync-only pauses,</tspan><tspan x="435.0" y="138.2">generational default (21)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="625.0" y="103.2">JDK 25-26</tspan><tspan x="625.0" y="120.7">sub-ms worst-case pauses,</tspan><tspan x="625.0" y="138.2">TB-scale heaps</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#2f9e44" text-anchor="start"><tspan x="815.0" y="103.2">Roadmap</tspan><tspan x="815.0" y="120.7">automatic heap sizing</tspan><tspan x="815.0" y="138.2">(no manual -Xmx)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="20" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="36.0">ZGC evolution: JDK 11 (2018) to JDK 26</tspan></text>
+</svg>

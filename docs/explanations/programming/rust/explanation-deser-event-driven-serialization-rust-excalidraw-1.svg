@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 36.0 768.0 328.0" width="768" height="328">
+<rect x="16.0" y="36.0" width="768.0" height="328.0" fill="#ffffff"/>
+<rect x="40.0" y="60.0" width="200.0" height="80.0" rx="0" fill="#f9d3d3" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="300.0" y="60.0" width="200.0" height="80.0" rx="0" fill="#f9d3d3" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="40.0" y="260.0" width="200.0" height="80.0" rx="0" fill="#c4e0f2" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="300.0" y="260.0" width="200.0" height="80.0" rx="0" fill="#d9ccff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="560.0" y="260.0" width="200.0" height="80.0" rx="0" fill="#d9ccff" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 240.0 300.0 L 300.0 300.0"/><line x1="300.0" y1="300.0" x2="287.4" y2="293.9"/><line x1="300.0" y1="300.0" x2="287.4" y2="306.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 500.0 300.0 L 560.0 300.0"/><line x1="560.0" y1="300.0" x2="547.4" y2="293.9"/><line x1="560.0" y1="300.0" x2="547.4" y2="306.1"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="140.0" y="102.5">Serde: type drives</tspan><tspan x="140.0" y="120.0">visitor callbacks recurse</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="400.0" y="102.5">stack grows per</tspan><tspan x="400.0" y="120.0">nesting level</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="140.0" y="302.4">Deser: format emits</tspan><tspan x="140.0" y="319.9">events into sinks</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="400.0" y="302.4">nested value -&gt;</tspan><tspan x="400.0" y="319.9">new sink to driver</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="660.0" y="302.4">driver keeps state</tspan><tspan x="660.0" y="319.9">on heap (arena)</tspan></text>
+</svg>

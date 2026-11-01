@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="36.0 36.0 988.0 348.0" width="988" height="348">
+<rect x="36.0" y="36.0" width="988.0" height="348.0" fill="#ffffff"/>
+<rect x="60.0" y="80.0" width="240.0" height="100.0" rx="0" fill="#c4e0f2" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="380.0" y="60.0" width="260.0" height="140.0" rx="0" fill="#d9ccff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="720.0" y="60.0" width="280.0" height="140.0" rx="0" fill="#f9e0a3" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="720.0" y="260.0" width="280.0" height="100.0" rx="0" fill="#c9e7c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 300.0 130.0 L 380.0 130.0"/><line x1="380.0" y1="130.0" x2="367.4" y2="123.9"/><line x1="380.0" y1="130.0" x2="367.4" y2="136.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 640.0 130.0 L 720.0 130.0"/><line x1="720.0" y1="130.0" x2="707.4" y2="123.9"/><line x1="720.0" y1="130.0" x2="707.4" y2="136.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 860.0 260.0 L 860.0 200.0"/><line x1="860.0" y1="200.0" x2="853.9" y2="212.6"/><line x1="860.0" y1="200.0" x2="866.1" y2="212.6"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="180.0" y="123.7">Seed corpus</tspan><tspan x="180.0" y="141.2">valid samples (grew to</tspan><tspan x="180.0" y="158.7">13,188 entries)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="510.0" y="115.0">Mutator</tspan><tspan x="510.0" y="132.4">147 operators / 9 categories</tspan><tspan x="510.0" y="149.9">14 schedulers (Elo arbitration)</tspan><tspan x="510.0" y="167.4">AFL-style forkserver</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="860.0" y="115.0">Target (ASAN build)</tspan><tspan x="860.0" y="132.4">thin harness: buffer -&gt; parser</tspan><tspan x="860.0" y="149.9">entry point; in-memory AVIO;</tspan><tspan x="860.0" y="167.4">watchdog + packet caps</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="860.0" y="303.7">Coverage feedback</tspan><tspan x="860.0" y="321.2">AFL-compatible edge map</tspan><tspan x="860.0" y="338.7">via small shim</tspan></text>
+</svg>

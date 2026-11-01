@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 136.0 888.0 138.0" width="888" height="138">
+<rect x="16.0" y="136.0" width="888.0" height="138.0" fill="#ffffff"/>
+<rect x="40.0" y="160.0" width="240.0" height="90.0" rx="0" fill="#d9ccff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="340.0" y="160.0" width="240.0" height="90.0" rx="0" fill="#c4e0f2" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="640.0" y="160.0" width="240.0" height="90.0" rx="0" fill="#f9e0a3" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 280.0 205.0 L 340.0 205.0"/><line x1="340.0" y1="205.0" x2="327.4" y2="198.9"/><line x1="340.0" y1="205.0" x2="327.4" y2="211.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 580.0 205.0 L 640.0 205.0"/><line x1="640.0" y1="205.0" x2="627.4" y2="198.9"/><line x1="640.0" y1="205.0" x2="627.4" y2="211.1"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="160.0" y="207.4">Granite 4.2 family</tspan><tspan x="160.0" y="224.9">3B / 8B / 30B, dense decoder-only</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="460.0" y="198.7">Training: 15T tokens, 5 phases</tspan><tspan x="460.0" y="216.2">1T synthetic code (CodeAlchemy)</tspan><tspan x="460.0" y="233.7">512K ctx (128K native)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="760.0" y="198.7">Reasoning modes:</tspan><tspan x="760.0" y="216.2">thinking / non-thinking / low-effort</tspan><tspan x="760.0" y="233.7">+ agentic RL on 8B &amp; 30B</tspan></text>
+</svg>

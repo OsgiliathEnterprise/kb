@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 36.0 668.0 118.0" width="668" height="118">
+<rect x="16.0" y="36.0" width="668.0" height="118.0" fill="#ffffff"/>
+<rect x="40.0" y="60.0" width="180.0" height="70.0" rx="0" fill="#c4e0f2" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="260.0" y="60.0" width="180.0" height="70.0" rx="0" fill="#d9ccff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="480.0" y="60.0" width="180.0" height="70.0" rx="0" fill="#f9d3d3" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 220.0 95.0 L 260.0 95.0"/><line x1="260.0" y1="95.0" x2="247.4" y2="88.9"/><line x1="260.0" y1="95.0" x2="247.4" y2="101.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 440.0 95.0 L 480.0 95.0"/><line x1="480.0" y1="95.0" x2="467.4" y2="88.9"/><line x1="480.0" y1="95.0" x2="467.4" y2="101.1"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="130.0" y="97.3">checkpoint step 0</tspan><tspan x="130.0" y="113.5">(input state)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="350.0" y="89.2">checkpoint step 1</tspan><tspan x="350.0" y="105.4">(raw = '&lt;html&gt;error page&lt;/html&gt;')</tspan><tspan x="350.0" y="121.7">next node: parse</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="570.0" y="89.2">parse raises JSONDecodeError</tspan><tspan x="570.0" y="105.4">NO finish event in stream</tspan><tspan x="570.0" y="121.7">exception escapes app.stream()</tspan></text>
+</svg>

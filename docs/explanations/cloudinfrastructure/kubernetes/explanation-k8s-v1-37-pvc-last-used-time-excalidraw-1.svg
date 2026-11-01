@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 -4.0 868.0 264.0" width="868" height="264">
+<rect x="16.0" y="-4.0" width="868.0" height="264.0" fill="#ffffff"/>
+<rect x="40.0" y="80.0" width="300.0" height="70.0" rx="8" fill="none" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="560.0" y="80.0" width="300.0" height="70.0" rx="8" fill="none" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 350.0 100.0 L 550.0 100.0"/><line x1="550.0" y1="100.0" x2="537.4" y2="93.9"/><line x1="550.0" y1="100.0" x2="537.4" y2="106.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 550.0 130.0 L 350.0 130.0"/><line x1="350.0" y1="130.0" x2="362.6" y2="136.1"/><line x1="350.0" y1="130.0" x2="362.6" y2="123.9"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="32.8">PVC Unused condition (v1.37 Beta) — managed by PVC protection controller</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="52.0" y="107.8">Unused=False</tspan><tspan x="52.0" y="127.8">reason: PodUsingPVC</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="572.0" y="107.8">Unused=True</tspan><tspan x="572.0" y="127.8">reason: NoPodsUsingPVC</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="192.8">lastTransitionTime on False-&gt;True = 'unused since' timestamp.</tspan><tspan x="40.0" y="212.8">Terminated pods (Succeeded/Failed) don't count; pending pods do. No deletion decision is made by Kubernetes.</tspan></text>
+</svg>

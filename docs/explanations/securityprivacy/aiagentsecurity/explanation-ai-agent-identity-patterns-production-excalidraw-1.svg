@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="56.0 6.0 1316.0 518.0" width="1316" height="518">
+<rect x="56.0" y="6.0" width="1316.0" height="518.0" fill="#ffffff"/>
+<rect x="120.0" y="120.0" width="520.0" height="60.0" rx="8" fill="#f0d8f0" stroke="#7a2b7a" stroke-width="1.5"/>
+<rect x="120.0" y="200.0" width="520.0" height="60.0" rx="8" fill="#e8d8f0" stroke="#5a2b7a" stroke-width="1.5"/>
+<rect x="120.0" y="280.0" width="520.0" height="60.0" rx="8" fill="#cfe0f0" stroke="#2b5a8c" stroke-width="1.5"/>
+<rect x="120.0" y="360.0" width="520.0" height="60.0" rx="8" fill="#f0e0cf" stroke="#8c5a2b" stroke-width="1.5"/>
+<rect x="120.0" y="440.0" width="520.0" height="60.0" rx="8" fill="#d8f0d8" stroke="#2b7a2b" stroke-width="1.5"/>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="24" fill="#1e1e1e" text-anchor="start"><tspan x="80.0" y="49.2">Five Identity Patterns for Production AI Agents</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="140.0" y="149.2">5. Provenance chain across every hop (act claim, signed context headers)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="140.0" y="229.2">4. Per-tool authorization boundaries (MCP schemas, per-tool scoped credentials)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="140.0" y="309.2">3. Request-scoped short-lived credentials (Vault, projected tokens, STS)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="140.0" y="389.2">2. Scoped delegated authority (OAuth token exchange RFC 8693, DPoP)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="140.0" y="469.2">1. Own workload identity (SPIFFE/SPIRE, cloud workload federation)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#8c2b2b" text-anchor="start"><tspan x="680.0" y="211.2">Failure mode:</tspan><tspan x="680.0" y="228.7">agent runs under engineer's token</tspan><tspan x="680.0" y="246.2">-&gt; audit log blames the human</tspan></text>
+</svg>

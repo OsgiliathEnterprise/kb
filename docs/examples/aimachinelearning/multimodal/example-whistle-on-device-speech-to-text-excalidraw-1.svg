@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 36.0 908.0 298.0" width="908" height="298">
+<rect x="16.0" y="36.0" width="908.0" height="298.0" fill="#ffffff"/>
+<rect x="40.0" y="60.0" width="200.0" height="80.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="340.0" y="60.0" width="220.0" height="80.0" rx="8" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="660.0" y="60.0" width="240.0" height="80.0" rx="8" fill="#ffec99" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="660.0" y="230.0" width="240.0" height="80.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 240.0 100.0 L 340.0 100.0"/><line x1="340.0" y1="100.0" x2="327.4" y2="93.9"/><line x1="340.0" y1="100.0" x2="327.4" y2="106.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 560.0 100.0 L 660.0 100.0"/><line x1="660.0" y1="100.0" x2="647.4" y2="93.9"/><line x1="660.0" y1="100.0" x2="647.4" y2="106.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 780.0 140.0 L 780.0 230.0"/><line x1="780.0" y1="230.0" x2="786.1" y2="217.4"/><line x1="780.0" y1="230.0" x2="773.9" y2="217.4"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="52.0" y="91.2">Front end</tspan><tspan x="52.0" y="108.7">80 log-mel bins (25 ms win,</tspan><tspan x="52.0" y="126.2">10 ms hop) → conv stem ×3 halving</tspan><tspan x="52.0" y="143.7">→ 375 frames @ 80 ms</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="352.0" y="91.2">Encoder (shared w/ Needle)</tspan><tspan x="352.0" y="108.7">8 Simple Attention blocks,</tspan><tspan x="352.0" y="126.2">mHC lanes + Monarch Hadamard MLP</tspan><tspan x="352.0" y="143.7">non-causal attention</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="672.0" y="91.2">Decoder (laddered)</tspan><tspan x="672.0" y="108.7">8 blocks width 512, GQA 8q:2kv,</tspan><tspan x="672.0" y="126.2">engram @ layers 3 &amp; 7</tspan><tspan x="672.0" y="143.7">+ gated cross-attention per layer</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="672.0" y="261.2">Beam search ×5</tspan><tspan x="672.0" y="278.7">length-normalised log prob,</tspan><tspan x="672.0" y="296.2">Aho-Corasick keyword biasing</tspan><tspan x="672.0" y="313.7">vocab: 8,192 pieces + 7 lang tokens</tspan></text>
+</svg>

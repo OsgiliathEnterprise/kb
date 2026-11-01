@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 16.0 828.0 318.0" width="828" height="318">
+<rect x="16.0" y="16.0" width="828.0" height="318.0" fill="#ffffff"/>
+<rect x="40.0" y="80.0" width="190.0" height="80.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="310.0" y="40.0" width="200.0" height="60.0" rx="8" fill="#ffec99" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="310.0" y="130.0" width="200.0" height="60.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="310.0" y="230.0" width="200.0" height="80.0" rx="8" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="600.0" y="100.0" width="220.0" height="140.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 230.0 100.0 L 310.0 90.0"/><line x1="310.0" y1="90.0" x2="296.8" y2="85.5"/><line x1="310.0" y1="90.0" x2="298.3" y2="97.7"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 410.0 100.0 L 410.0 230.0"/><line x1="410.0" y1="230.0" x2="416.1" y2="217.4"/><line x1="410.0" y1="230.0" x2="403.9" y2="217.4"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 510.0 270.0 L 600.0 200.0"/><line x1="600.0" y1="200.0" x2="586.3" y2="202.9"/><line x1="600.0" y1="200.0" x2="593.8" y2="212.6"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="55.0" y="106.2">Sources\n(DB, S3, Git, CRM)\nwith change streams</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="325.0" y="66.2">CDC / webhook / polling\n→ durable queue (idempotent)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="325.0" y="156.2">dead letter queue\n(checkpoints + replay)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="325.0" y="256.2">Incremental indexer\ndelta classification:\nmetadata-only / re-embed /\nre-chunk / model rollover</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="615.0" y="126.2">Vector DB + metadata store\ndoc_version, content_hash,\nembedding_model_version\ndeletion_flag (tombstones)\n→ version-aware cache</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="235.0" y="86.2">change events</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="420.0" y="211.2">applied events</tspan></text>
+</svg>

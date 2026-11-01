@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="36.0 16.0 1108.0 458.0" width="1108" height="458">
+<rect x="36.0" y="16.0" width="1108.0" height="458.0" fill="#ffffff"/>
+<rect x="60.0" y="40.0" width="240.0" height="80.0" rx="0" fill="#c4e0f2" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="60.0" y="150.0" width="240.0" height="80.0" rx="0" fill="#c4e0f2" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="60.0" y="260.0" width="240.0" height="80.0" rx="0" fill="#c4e0f2" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="60.0" y="370.0" width="240.0" height="80.0" rx="0" fill="#f5c6c6" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="420.0" y="150.0" width="300.0" height="190.0" rx="0" fill="#d9ccff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="820.0" y="150.0" width="300.0" height="190.0" rx="0" fill="#c9e7c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 300.0 80.0 L 420.0 170.0"/><line x1="420.0" y1="170.0" x2="413.6" y2="157.5"/><line x1="420.0" y1="170.0" x2="406.3" y2="167.4"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 300.0 190.0 L 420.0 190.0"/><line x1="420.0" y1="190.0" x2="407.4" y2="183.9"/><line x1="420.0" y1="190.0" x2="407.4" y2="196.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 300.0 300.0 L 420.0 210.0"/><line x1="420.0" y1="210.0" x2="406.3" y2="212.6"/><line x1="420.0" y1="210.0" x2="413.6" y2="222.5"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 720.0 245.0 L 820.0 245.0"/><line x1="820.0" y1="245.0" x2="807.4" y2="238.9"/><line x1="820.0" y1="245.0" x2="807.4" y2="251.1"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="180.0" y="82.5">path params</tspan><tspan x="180.0" y="100.0">(required resource IDs)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="180.0" y="192.4">query params</tspan><tspan x="180.0" y="209.9">(filters, options)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="180.0" y="302.4">body fields</tspan><tspan x="180.0" y="319.9">(structured data)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="180.0" y="403.7">auth headers</tspan><tspan x="180.0" y="421.2">NEVER in tool schema</tspan><tspan x="180.0" y="438.7">(runtime injects)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="570.0" y="229.9">MCP tool inputSchema</tspan><tspan x="570.0" y="247.4">one flat object:</tspan><tspan x="570.0" y="264.9">resource IDs + options + body fields</tspan><tspan x="570.0" y="282.4">(conflicts renamed by role)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="970.0" y="229.9">Adapter</tspan><tspan x="970.0" y="247.4">rebuilds HTTP request:</tspan><tspan x="970.0" y="264.9">route + query + headers + body</tspan><tspan x="970.0" y="282.4">+ credentials from auth path</tspan></text>
+</svg>

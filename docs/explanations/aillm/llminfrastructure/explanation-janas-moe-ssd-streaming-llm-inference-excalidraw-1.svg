@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 136.0 888.0 298.0" width="888" height="298">
+<rect x="16.0" y="136.0" width="888.0" height="298.0" fill="#ffffff"/>
+<rect x="40.0" y="160.0" width="240.0" height="100.0" rx="0" fill="#d9ccff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="340.0" y="160.0" width="240.0" height="100.0" rx="0" fill="#c4e0f2" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="640.0" y="160.0" width="240.0" height="100.0" rx="0" fill="#f9e0a3" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="640.0" y="320.0" width="240.0" height="90.0" rx="0" fill="#b8e6b8" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 280.0 210.0 L 340.0 210.0"/><line x1="340.0" y1="210.0" x2="327.4" y2="203.9"/><line x1="340.0" y1="210.0" x2="327.4" y2="216.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 580.0 210.0 L 640.0 210.0"/><line x1="640.0" y1="210.0" x2="627.4" y2="203.9"/><line x1="640.0" y1="210.0" x2="627.4" y2="216.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 760.0 260.0 L 760.0 320.0"/><line x1="760.0" y1="320.0" x2="766.1" y2="307.4"/><line x1="760.0" y1="320.0" x2="753.9" y2="307.4"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="160.0" y="203.7">Model file (.jns) on NVMe SSD</tspan><tspan x="160.0" y="221.2">48.4 GB weights (Qwen3-Next-80B)</tspan><tspan x="160.0" y="238.7">read at full speed via O_DIRECT</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="460.0" y="203.7">Hot-expert cache (RAM)</tspan><tspan x="460.0" y="221.2">~19 GB on the 32 GB test laptop</tspan><tspan x="460.0" y="238.7">frequently-accessed experts stay resident</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="760.0" y="194.9">Per-token expert selection</tspan><tspan x="760.0" y="212.4">stream needed experts</tspan><tspan x="760.0" y="229.9">CPU AVX2/F16C/AVX-VNNI</tspan><tspan x="760.0" y="247.4">+ integrated GPU via Vulkan</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="760.0" y="358.7">Speculative drafts (--mtp)</tspan><tspan x="760.0" y="376.2">model's own prediction block</tspan><tspan x="760.0" y="393.7">drafts 74-89% survival in English</tspan></text>
+</svg>

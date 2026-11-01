@@ -63,22 +63,7 @@ If the document is *already* HTML and the audience can click "Save as PDF", skip
 
 ## Diagram
 
-```excalidraw
-{
-  "type": "drawing",
-  "version": 2,
-  "source": "https://github.com/excalidraw/excalidraw",
-  "elements": [
-    {"id": "g1", "type": "rectangle", "x": 40, "y": 40, "width": 180, "height": 70, "strokeColor": "#1e1e1e", "backgroundColor": "#c4e0f2", "fillStyle": "solid", "strokeWidth": 2, "text": {"content": "Form (HTML)\nlocalStorage persistence", "fontSize": 14, "fontFamily": 1}},
-    {"id": "g2", "type": "rectangle", "x": 300, "y": 40, "width": 180, "height": 70, "strokeColor": "#1e1e1e", "backgroundColor": "#d9ccff", "fillStyle": "solid", "strokeWidth": 2, "text": {"content": "On-page preview\n(normal HTML invoice)", "fontSize": 14, "fontFamily": 1}},
-    {"id": "g3", "type": "rectangle", "x": 560, "y": 40, "width": 200, "height": 70, "strokeColor": "#1e1e1e", "backgroundColor": "#f9e0a3", "fillStyle": "solid", "strokeWidth": 2, "text": {"content": "window.print()\n@media print hides chrome", "fontSize": 14, "fontFamily": 1}},
-    {"id": "g4", "type": "rectangle", "x": 300, "y": 200, "width": 180, "height": 70, "strokeColor": "#1e1e1e", "backgroundColor": "#cdeac0", "fillStyle": "solid", "strokeWidth": 2, "text": {"content": "Print dialog\nuser picks 'Save as PDF'", "fontSize": 14, "fontFamily": 1}},
-    {"id": "a1", "type": "arrow", "x": 220, "y": 75, "width": 80, "height": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "points": [[0, 0], [80, 0]]},
-    {"id": "a2", "type": "arrow", "x": 480, "y": 75, "width": 80, "height": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "points": [[0, 0], [80, 0]]},
-    {"id": "a3", "type": "arrow", "x": 660, "y": 110, "width": 180, "height": 90, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "points": [[0, 0], [-180, 90]]}
-  ]
-}
-```
+![Diagram 1 — howto-generate-pdf-without-server-side-library](howto-generate-pdf-without-server-side-library-excalidraw-1.svg)
 
 ## References
 

@@ -52,44 +52,7 @@ orders-api/
 
 Each layer depends on the one below it, and none import each other in circles: `handler` owns HTTP concerns, `model` owns data shapes, `store` owns persistence, `middleware` owns cross-cutting logging.
 
-```excalidraw
-{
-  "type": "drawing",
-  "version": 2,
-  "source": "https://github.com/excalidraw/excalidraw",
-  "elements": [
-    {
-      "id": "b1", "type": "rectangle", "x": 260, "y": 20, "width": 240, "height": 70,
-      "strokeColor": "#1e1e1e", "backgroundColor": "#c4e0f2", "fillStyle": "solid", "strokeWidth": 2,
-      "text": { "content": "HTTP client\n(POST/GET /api/v1/orders)", "fontSize": 14, "fontFamily": 1 }
-    },
-    {
-      "id": "b2", "type": "rectangle", "x": 260, "y": 140, "width": 240, "height": 70,
-      "strokeColor": "#1e1e1e", "backgroundColor": "#d9ccff", "fillStyle": "solid", "strokeWidth": 2,
-      "text": { "content": "middleware.Logger()\n(timing, request log)", "fontSize": 14, "fontFamily": 1 }
-    },
-    {
-      "id": "b3", "type": "rectangle", "x": 260, "y": 260, "width": 240, "height": 70,
-      "strokeColor": "#1e1e1e", "backgroundColor": "#f9e0a3", "fillStyle": "solid", "strokeWidth": 2,
-      "text": { "content": "handler.OrderHandler\n(ShouldBindJSON, errors.Is)", "fontSize": 14, "fontFamily": 1 }
-    },
-    {
-      "id": "b4", "type": "rectangle", "x": 260, "y": 380, "width": 240, "height": 70,
-      "strokeColor": "#1e1e1e", "backgroundColor": "#c9e7c9", "fillStyle": "solid", "strokeWidth": 2,
-      "text": { "content": "store.OrderStore (iface)\n→ inMemoryStore (RWMutex)", "fontSize": 14, "fontFamily": 1 }
-    },
-    {
-      "id": "b5", "type": "rectangle", "x": 560, "y": 380, "width": 200, "height": 70,
-      "strokeColor": "#1e1e1e", "backgroundColor": "#f9d3d3", "fillStyle": "solid", "strokeWidth": 2,
-      "text": { "content": "model.Order\n(→ pgx later)", "fontSize": 14, "fontFamily": 1 }
-    },
-    { "id": "a1", "type": "arrow", "x": 380, "y": 90, "width": 0, "height": 50, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "strokeWidth": 2, "points": [[0,0],[0,50]] },
-    { "id": "a2", "type": "arrow", "x": 380, "y": 210, "width": 0, "height": 50, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "strokeWidth": 2, "points": [[0,0],[0,50]] },
-    { "id": "a3", "type": "arrow", "x": 380, "y": 330, "width": 0, "height": 50, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "strokeWidth": 2, "points": [[0,0],[0,50]] },
-    { "id": "a4", "type": "arrow", "x": 500, "y": 415, "width": 60, "height": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "strokeWidth": 2, "points": [[0,0],[60,0]] }
-  ]
-}
-```
+![Diagram 1 — example-go-gin-orders-api-layered](example-go-gin-orders-api-layered-excalidraw-1.svg)
 
 ## The model
 

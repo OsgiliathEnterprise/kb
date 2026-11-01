@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 96.0 888.0 258.0" width="888" height="258">
+<rect x="16.0" y="96.0" width="888.0" height="258.0" fill="#ffffff"/>
+<rect x="40.0" y="160.0" width="220.0" height="90.0" rx="0" fill="#d9ccff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="340.0" y="120.0" width="220.0" height="90.0" rx="0" fill="#c4e0f2" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="340.0" y="240.0" width="220.0" height="90.0" rx="0" fill="#c4e0f2" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="640.0" y="160.0" width="240.0" height="90.0" rx="0" fill="#d3f2d3" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 260.0 205.0 L 340.0 205.0"/><line x1="340.0" y1="205.0" x2="327.4" y2="198.9"/><line x1="340.0" y1="205.0" x2="327.4" y2="211.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 560.0 285.0 L 640.0 285.0"/><line x1="640.0" y1="285.0" x2="627.4" y2="278.9"/><line x1="640.0" y1="285.0" x2="627.4" y2="291.1"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="150.0" y="207.4">Agent task loop</tspan><tspan x="150.0" y="224.9">many sequential LLM calls</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="450.0" y="167.4">Prefill phase</tspan><tspan x="450.0" y="184.9">compute-bound</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="450.0" y="278.7">Decode phase</tspan><tspan x="450.0" y="296.2">memory-bandwidth-bound</tspan><tspan x="450.0" y="313.7">(KV cache kept local)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="760.0" y="207.4">Jalapeño results (InferenceX)</tspan><tspan x="760.0" y="224.9">1.5-1.9x work/W, 1.7-3.6x lower latency</tspan></text>
+</svg>

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 -4.0 788.0 288.0" width="788" height="288">
+<rect x="16.0" y="-4.0" width="788.0" height="288.0" fill="#ffffff"/>
+<rect x="40.0" y="85.0" width="150.0" height="60.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="230.0" y="85.0" width="150.0" height="60.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="420.0" y="85.0" width="150.0" height="60.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="610.0" y="85.0" width="170.0" height="60.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="40.0" y="200.0" width="165.0" height="60.0" rx="8" fill="#e9ecef" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="225.0" y="200.0" width="165.0" height="60.0" rx="8" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="410.0" y="200.0" width="165.0" height="60.0" rx="8" fill="#b2f2bb" stroke="#2f9e44" stroke-width="1.5"/>
+<rect x="595.0" y="200.0" width="185.0" height="60.0" rx="8" fill="#96f2d7" stroke="#2f9e44" stroke-width="1.5" stroke-dasharray="7 5"/>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="20" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="36.0">ZGC weak refs: baseline pipeline vs. mechanisms</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="71.2">baseline (all refs)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="50.0" y="106.2">discovery</tspan><tspan x="50.0" y="123.7">mark phase</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="240.0" y="106.2">intrusive list</tspan><tspan x="240.0" y="123.7">(cache-hostile)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="430.0" y="106.2">pending list</tspan><tspan x="430.0" y="123.7">to handler</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="620.0" y="106.2">ReferenceHandler</tspan><tspan x="620.0" y="123.7">barrier + virtual call + CAS</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#2f9e44" text-anchor="start"><tspan x="40.0" y="186.2">measured wins</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="50.0" y="221.2">sep: skip enqueue</tspan><tspan x="50.0" y="238.7">-5% phase</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="235.0" y="221.2">dyn: contiguous array</tspan><tspan x="235.0" y="238.7">-36% phase</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#2f9e44" text-anchor="start"><tspan x="420.0" y="221.2">clear_path + dyn</tspan><tspan x="420.0" y="238.7">-81% phase (~8% total)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#2f9e44" text-anchor="start"><tspan x="605.0" y="221.2">@weak field (prototype)</tspan><tspan x="605.0" y="238.7">-41% major GC, -53% heap</tspan></text>
+</svg>

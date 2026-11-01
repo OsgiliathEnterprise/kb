@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 136.0 908.0 138.0" width="908" height="138">
+<rect x="16.0" y="136.0" width="908.0" height="138.0" fill="#ffffff"/>
+<rect x="40.0" y="160.0" width="220.0" height="90.0" rx="0" fill="#d9ccff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="340.0" y="160.0" width="240.0" height="90.0" rx="0" fill="#c4e0f2" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="660.0" y="160.0" width="240.0" height="90.0" rx="0" fill="#f9e0a3" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 260.0 205.0 L 340.0 205.0"/><line x1="340.0" y1="205.0" x2="327.4" y2="198.9"/><line x1="340.0" y1="205.0" x2="327.4" y2="211.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 580.0 205.0 L 660.0 205.0"/><line x1="660.0" y1="205.0" x2="647.4" y2="198.9"/><line x1="660.0" y1="205.0" x2="647.4" y2="211.1"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="150.0" y="198.7">Local model</tspan><tspan x="150.0" y="216.2">proposes actions</tspan><tspan x="150.0" y="233.7">(RTX &gt;= 24GB VRAM / DGX Spark)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="460.0" y="198.7">Deterministic orchestrator</tspan><tspan x="460.0" y="216.2">(assembles context, enforces policy,</tspan><tspan x="460.0" y="233.7">runs approved tool calls)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="780.0" y="198.7">OS-level sandbox</tspan><tspan x="780.0" y="216.2">process + FS path + network limits</tspan><tspan x="780.0" y="233.7">fail-closed if sandbox missing</tspan></text>
+</svg>

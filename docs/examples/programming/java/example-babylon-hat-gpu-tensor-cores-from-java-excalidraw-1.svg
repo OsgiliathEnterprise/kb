@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 -9.0 828.0 503.0" width="828" height="503">
+<rect x="16.0" y="-9.0" width="828.0" height="503.0" fill="#ffffff"/>
+<rect x="40.0" y="60.0" width="180.0" height="90.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="40.0" y="220.0" width="180.0" height="90.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="40.0" y="380.0" width="180.0" height="90.0" rx="8" fill="#b2f2bb" stroke="#2f9e44" stroke-width="1.5"/>
+<rect x="320.0" y="220.0" width="200.0" height="90.0" rx="8" fill="#ffd8a8" stroke="#e8590c" stroke-width="1.5"/>
+<rect x="620.0" y="80.0" width="200.0" height="90.0" rx="8" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="620.0" y="280.0" width="200.0" height="90.0" rx="8" fill="#e5dbff" stroke="#1e1e1e" stroke-width="1.5" stroke-dasharray="7 5"/>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="55.0" y="83.2">Tensor A (FP16)</tspan><tspan x="55.0" y="100.7">loadF16(matrixA,</tspan><tspan x="55.0" y="118.2">aRow, i, lda, shape)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="55.0" y="243.2">Tensor B (FP16)</tspan><tspan x="55.0" y="260.7">loadF16(matrixB,</tspan><tspan x="55.0" y="278.2">i, bCol, ldb, shape)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="55.0" y="403.2">Accumulator (FP32)</tspan><tspan x="55.0" y="420.7">Tensor.zeros(shape,</tspan><tspan x="55.0" y="438.2">float.class)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#e8590c" text-anchor="start"><tspan x="335.0" y="251.2">Tensor.mma(A, B, acc)</tspan><tspan x="335.0" y="268.7">acc = A*B + acc</tspan><tspan x="335.0" y="286.2">(16x16 tiles)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="635.0" y="103.2">CUDA backend (A10)</tspan><tspan x="635.0" y="120.7">wmma fragments</tspan><tspan x="635.0" y="138.2">-&gt; HMMA.16816.F32 SASS</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="635.0" y="303.2">OpenCL backend (M4)</tspan><tspan x="635.0" y="320.7">tensors -&gt; explicit</tspan><tspan x="635.0" y="338.2">loop tiles (portable)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="20" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="31.0">HAT Tensor API: portable MMA across CUDA and OpenCL</tspan></text>
+</svg>

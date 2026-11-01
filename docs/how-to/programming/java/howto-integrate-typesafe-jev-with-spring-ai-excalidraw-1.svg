@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 -4.0 878.0 264.0" width="878" height="264">
+<rect x="16.0" y="-4.0" width="878.0" height="264.0" fill="#ffffff"/>
+<rect x="40.0" y="80.0" width="170.0" height="60.0" rx="8" fill="none" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="260.0" y="80.0" width="170.0" height="60.0" rx="8" fill="none" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="480.0" y="80.0" width="170.0" height="60.0" rx="8" fill="none" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="700.0" y="80.0" width="170.0" height="60.0" rx="8" fill="none" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 215.0 110.0 L 255.0 110.0"/><line x1="255.0" y1="110.0" x2="242.4" y2="103.9"/><line x1="255.0" y1="110.0" x2="242.4" y2="116.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 435.0 110.0 L 475.0 110.0"/><line x1="475.0" y1="110.0" x2="462.4" y2="103.9"/><line x1="475.0" y1="110.0" x2="462.4" y2="116.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 655.0 110.0 L 695.0 110.0"/><line x1="695.0" y1="110.0" x2="682.4" y2="103.9"/><line x1="695.0" y1="110.0" x2="682.4" y2="116.1"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="32.8">Jev inside a Spring AI pipeline — decision layer in front of the LLM</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="52.0" y="107.8">state + typed questions</tspan><tspan x="52.0" y="127.8">(noul / choice / score)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="272.0" y="107.8">Jev /v1/systemone</tspan><tspan x="272.0" y="127.8">~70-500ms, parallel</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="492.0" y="107.8">JevPromptGuardAdvisor</tspan><tspan x="492.0" y="127.8">block &gt;= 0.8 / review &gt;= 0.5</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="712.0" y="107.8">ChatClient + LLM</tspan><tspan x="712.0" y="127.8">(generates the reply)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="192.8">Jev decides (route / score / guard) with calibrated probabilities; the LLM generates.</tspan><tspan x="40.0" y="212.8">Confidence = distribution shape -&gt; escalation threshold in config. Never reuse thresholds across noul/choice/score.</tspan></text>
+</svg>

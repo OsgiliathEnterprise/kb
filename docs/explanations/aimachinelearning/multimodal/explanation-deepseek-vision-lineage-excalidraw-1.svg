@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="36.0 176.0 928.0 308.0" width="928" height="308">
+<rect x="36.0" y="176.0" width="928.0" height="308.0" fill="#ffffff"/>
+<rect x="60.0" y="200.0" width="220.0" height="90.0" rx="0" fill="#c4e0f2" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="380.0" y="200.0" width="220.0" height="90.0" rx="0" fill="#f9e0a3" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="700.0" y="200.0" width="240.0" height="90.0" rx="0" fill="#c9e7c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="200.0" y="360.0" width="600.0" height="100.0" rx="0" fill="#d9ccff" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 280.0 245.0 L 380.0 245.0"/><line x1="380.0" y1="245.0" x2="367.4" y2="238.9"/><line x1="380.0" y1="245.0" x2="367.4" y2="251.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 600.0 245.0 L 700.0 245.0"/><line x1="700.0" y1="245.0" x2="687.4" y2="238.9"/><line x1="700.0" y1="245.0" x2="687.4" y2="251.1"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="170.0" y="256.2">DeepSeek-VL</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="490.0" y="256.2">V2 (multimodal)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="820.0" y="247.4">vision-exp</tspan><tspan x="820.0" y="264.9">(deepseek-v4-flash-vision-exp)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="600.0" y="231.4">API endpoint</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="500.0" y="412.4">Image -&gt; visual tokens -&gt; fused with text tokens</tspan><tspan x="500.0" y="429.9">(image token budget / limits matter for cost &amp; context)</tspan></text>
+</svg>

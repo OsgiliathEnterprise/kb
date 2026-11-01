@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 36.0 848.0 308.0" width="848" height="308">
+<rect x="16.0" y="36.0" width="848.0" height="308.0" fill="#ffffff"/>
+<rect x="40.0" y="60.0" width="200.0" height="80.0" rx="0" fill="#f9e0a3" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="320.0" y="60.0" width="220.0" height="80.0" rx="0" fill="#d9ccff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="620.0" y="60.0" width="220.0" height="80.0" rx="0" fill="#c4e0f2" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="320.0" y="220.0" width="220.0" height="80.0" rx="0" fill="#c9e7c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="620.0" y="220.0" width="220.0" height="100.0" rx="0" fill="#f9d3d3" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 240.0 100.0 L 320.0 100.0"/><line x1="320.0" y1="100.0" x2="307.4" y2="93.9"/><line x1="320.0" y1="100.0" x2="307.4" y2="106.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 540.0 100.0 L 620.0 100.0"/><line x1="620.0" y1="100.0" x2="607.4" y2="93.9"/><line x1="620.0" y1="100.0" x2="607.4" y2="106.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 730.0 140.0 L 500.0 220.0"/><line x1="500.0" y1="220.0" x2="513.9" y2="221.7"/><line x1="500.0" y1="220.0" x2="509.9" y2="210.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 430.0 300.0 L 430.0 240.0"/><line x1="430.0" y1="240.0" x2="423.9" y2="252.6"/><line x1="430.0" y1="240.0" x2="436.1" y2="252.6"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="140.0" y="102.5">Release branch (9.1)</tspan><tspan x="140.0" y="120.0">bug/security fixes</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="430.0" y="102.5">Backporting agent</tspan><tspan x="430.0" y="120.0">apply + resolve conflicts</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="730.0" y="102.5">Older-branch CI (7.2 / 8.0 / 8.1 / 9.0)</tspan><tspan x="730.0" y="120.0">full pipeline runs</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="430.0" y="262.4">Human sign-off</tspan><tspan x="430.0" y="279.9">final merge approval</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="730.0" y="264.1">Provenance Guard</tspan><tspan x="730.0" y="280.4">background scan of incoming PRs</tspan><tspan x="730.0" y="296.6">vs unsanctioned codebases</tspan></text>
+</svg>

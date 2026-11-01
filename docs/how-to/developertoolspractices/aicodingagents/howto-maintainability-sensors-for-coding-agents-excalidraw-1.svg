@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 36.0 898.0 308.0" width="898" height="308">
+<rect x="16.0" y="36.0" width="898.0" height="308.0" fill="#ffffff"/>
+<rect x="40.0" y="60.0" width="230.0" height="100.0" rx="0" fill="#c4e0f2" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="350.0" y="60.0" width="220.0" height="100.0" rx="0" fill="#d9ccff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="650.0" y="60.0" width="240.0" height="100.0" rx="0" fill="#f9e0a3" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="650.0" y="240.0" width="240.0" height="80.0" rx="0" fill="#a3f9c4" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="350.0" y="240.0" width="220.0" height="80.0" rx="0" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="155.0" y="87.9">During coding session</tspan><tspan x="155.0" y="104.2">Type checker / ESLint (custom messages)</tspan><tspan x="155.0" y="120.4">Semgrep / dependency-cruiser</tspan><tspan x="155.0" y="136.7">tests + coverage / incremental Stryker</tspan><tspan x="155.0" y="152.9">GitLeaks pre-commit</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="460.0" y="104.2">CI pipeline</tspan><tspan x="460.0" y="120.4">same computational sensors</tspan><tspan x="460.0" y="136.7">on clean infrastructure</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="770.0" y="87.9">Repeatedly (drift)</tspan><tspan x="770.0" y="104.2">security review prompt</tspan><tspan x="770.0" y="120.4">data-handling review</tspan><tspan x="770.0" y="136.7">dependency freshness report</tspan><tspan x="770.0" y="152.9">modularity + coupling review</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="770.0" y="282.3">Production</tspan><tspan x="770.0" y="298.5">runtime feedback</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="460.0" y="274.1">Effectiveness log</tspan><tspan x="460.0" y="290.4">sensor-state history over time</tspan><tspan x="460.0" y="306.6">trends / dead rules / noisy rules</tspan></text>
+</svg>

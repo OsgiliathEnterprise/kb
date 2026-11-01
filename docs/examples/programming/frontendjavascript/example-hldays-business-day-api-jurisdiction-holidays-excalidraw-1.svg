@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 -4.0 688.0 378.0" width="688" height="378">
+<rect x="16.0" y="-4.0" width="688.0" height="378.0" fill="#ffffff"/>
+<rect x="230.0" y="60.0" width="230.0" height="70.0" rx="0" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="60.0" y="200.0" width="190.0" height="60.0" rx="0" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="330.0" y="200.0" width="190.0" height="60.0" rx="0" fill="#ffec99" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 300.0 130.0 L 150.0 200.0"/><line x1="150.0" y1="200.0" x2="164.0" y2="200.2"/><line x1="150.0" y1="200.0" x2="158.8" y2="189.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 370.0 130.0 L 520.0 200.0"/><line x1="520.0" y1="200.0" x2="511.2" y2="189.1"/><line x1="520.0" y1="200.0" x2="506.0" y2="200.2"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="32.8">Jurisdiction inheritance: holidays resolve bottom-up, union of the tree</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="345.0" y="89.2">Municipality</tspan><tspan x="345.0" y="105.4">PT-M-1312 'porto'</tspan><tspan x="345.0" y="121.7">São João (24 Jun) + inherited</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="155.0" y="232.3">Region / subdivision</tspan><tspan x="155.0" y="248.5">(GB-ENG 'England')</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="425.0" y="232.3">Country</tspan><tspan x="425.0" y="248.5">(GB 'United Kingdom')</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="312.8">isBusinessDay = weekday NOT in country's weekend list</tspan><tspan x="40.0" y="332.8">AND no holiday (own + inherited) matches the date.</tspan></text>
+</svg>

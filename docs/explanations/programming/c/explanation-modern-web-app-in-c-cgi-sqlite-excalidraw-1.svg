@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 136.0 888.0 298.0" width="888" height="298">
+<rect x="16.0" y="136.0" width="888.0" height="298.0" fill="#ffffff"/>
+<rect x="40.0" y="160.0" width="220.0" height="100.0" rx="0" fill="#c4e0f2" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="320.0" y="160.0" width="240.0" height="100.0" rx="0" fill="#d9ccff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="620.0" y="160.0" width="260.0" height="100.0" rx="0" fill="#f9e0a3" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="620.0" y="320.0" width="260.0" height="90.0" rx="0" fill="#b8e6b8" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 260.0 210.0 L 320.0 210.0"/><line x1="320.0" y1="210.0" x2="307.4" y2="203.9"/><line x1="320.0" y1="210.0" x2="307.4" y2="216.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 560.0 210.0 L 620.0 210.0"/><line x1="620.0" y1="210.0" x2="607.4" y2="203.9"/><line x1="620.0" y1="210.0" x2="607.4" y2="216.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 750.0 260.0 L 750.0 320.0"/><line x1="750.0" y1="320.0" x2="756.1" y2="307.4"/><line x1="750.0" y1="320.0" x2="743.9" y2="307.4"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="150.0" y="203.7">Client</tspan><tspan x="150.0" y="221.2">progressive enhancement</tspan><tspan x="150.0" y="238.7">no JS required</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="440.0" y="203.7">OpenBSD httpd (chroot)</tspan><tspan x="440.0" y="221.2">routes ALL traffic to CGI</tspan><tspan x="440.0" y="238.7">sandbox: pledge + unveil</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="750.0" y="186.2">One static binary (per request)</tspan><tspan x="750.0" y="203.7">assets compiled in, served from memory</tspan><tspan x="750.0" y="221.2">libcurl (Stripe/Postmark)</tspan><tspan x="750.0" y="238.7">libsodium (HMAC, hashing, ids)</tspan><tspan x="750.0" y="256.2">libcjson (single-file JSON)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="750.0" y="358.7">SQLite file (C API)</tspan><tspan x="750.0" y="376.2">no server process</tspan><tspan x="750.0" y="393.7">vendored amalgamation build</tspan></text>
+</svg>

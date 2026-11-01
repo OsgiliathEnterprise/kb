@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 16.0 878.0 368.0" width="878" height="368">
+<rect x="16.0" y="16.0" width="878.0" height="368.0" fill="#ffffff"/>
+<rect x="40.0" y="60.0" width="230.0" height="90.0" rx="0" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="340.0" y="40.0" width="230.0" height="70.0" rx="0" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="340.0" y="150.0" width="230.0" height="70.0" rx="0" fill="#f9e0a3" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="640.0" y="60.0" width="230.0" height="90.0" rx="0" fill="#f9d3d3" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="640.0" y="200.0" width="230.0" height="80.0" rx="0" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 270.0 95.0 L 340.0 80.0"/><line x1="340.0" y1="80.0" x2="326.4" y2="76.6"/><line x1="340.0" y1="80.0" x2="329.0" y2="88.6"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 270.0 130.0 L 340.0 180.0"/><line x1="340.0" y1="180.0" x2="333.3" y2="167.7"/><line x1="340.0" y1="180.0" x2="326.2" y2="177.7"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 570.0 105.0 L 640.0 105.0"/><line x1="640.0" y1="105.0" x2="627.4" y2="98.9"/><line x1="640.0" y1="105.0" x2="627.4" y2="111.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 570.0 185.0 L 640.0 245.0"/><line x1="640.0" y1="245.0" x2="634.4" y2="232.2"/><line x1="640.0" y1="245.0" x2="626.5" y2="241.5"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="155.0" y="99.2">Foundry agent blueprint</tspan><tspan x="155.0" y="115.4">(admin-approved)</tspan><tspan x="155.0" y="131.7">-&gt; Agent 365 registry</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="455.0" y="69.2">Agent identity (service principal)</tspan><tspan x="455.0" y="85.4">sponsor + audit entries</tspan><tspan x="455.0" y="101.7">RBAC roles assigned</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="455.0" y="179.2">Agent USER account (autopilot only)</tspan><tspan x="455.0" y="195.4">UPN + manager -&gt; email/calendar</tspan><tspan x="455.0" y="211.7">OneDrive/Teams/org chart</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="755.0" y="99.2">Copilot Managed Runtime</tspan><tspan x="755.0" y="115.4">AI-generated apps inside M365</tspan><tspan x="755.0" y="131.7">tenant boundary + IT governance</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="755.0" y="234.2">Agent Service OAuth chain</tspan><tspan x="755.0" y="250.4">agent-identity token -&gt; scoped</tspan><tspan x="755.0" y="266.6">token per downstream audience (MCP/A2A)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="312.8">Autonomous pattern: app permissions + admin consent (background work) | Interactive: delegated OBO flow (user present)</tspan><tspan x="40.0" y="332.8">Billing: Copilot Credits usage-based for Cowork/Code/Autopilot/frontier models; cost controls live in Agent 365 alongside access reviews</tspan></text>
+</svg>

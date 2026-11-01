@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 -9.0 818.0 363.0" width="818" height="363">
+<rect x="16.0" y="-9.0" width="818.0" height="363.0" fill="#ffffff"/>
+<rect x="40.0" y="60.0" width="210.0" height="100.0" rx="0" fill="#c4e0f2" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="320.0" y="60.0" width="210.0" height="100.0" rx="0" fill="#d9ccff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="600.0" y="60.0" width="210.0" height="100.0" rx="0" fill="#f9e0a3" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="320.0" y="240.0" width="210.0" height="90.0" rx="0" fill="#f9d3d3" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 250.0 110.0 L 320.0 110.0"/><line x1="320.0" y1="110.0" x2="307.4" y2="103.9"/><line x1="320.0" y1="110.0" x2="307.4" y2="116.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 530.0 110.0 L 600.0 110.0"/><line x1="600.0" y1="110.0" x2="587.4" y2="103.9"/><line x1="600.0" y1="110.0" x2="587.4" y2="116.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 425.0 160.0 L 425.0 240.0"/><line x1="425.0" y1="240.0" x2="431.1" y2="227.4"/><line x1="425.0" y1="240.0" x2="418.9" y2="227.4"/></g>
+<g stroke="#e03131" stroke-width="1.5" fill="none"><path d="M 320.0 285.0 L 80.0 110.0"/><line x1="80.0" y1="110.0" x2="86.6" y2="122.4"/><line x1="80.0" y1="110.0" x2="93.8" y2="112.5"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="27.8">HTML-in-Canvas: DOM stays live inside the canvas pixel grid</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="145.0" y="103.7">DOM element (live)</tspan><tspan x="145.0" y="121.2">layoutsubtree attr on &lt;canvas&gt;</tspan><tspan x="145.0" y="138.7">grid sized to devicePixelRatio</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="425.0" y="95.0">onpaint handler</tspan><tspan x="425.0" y="112.5">drawElementImage (2D)</tspan><tspan x="425.0" y="129.9">texElementImage2D (WebGL)</tspan><tspan x="425.0" y="147.4">copyElementImageToTexture (WebGPU)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="705.0" y="103.7">texture / 2D context</tspan><tspan x="705.0" y="121.2">shader renders to screen</tspan><tspan x="705.0" y="138.7">MVP -&gt; DOMMatrix -&gt; getElementTransform</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="425.0" y="278.7">element.style.transform = ...</tspan><tspan x="425.0" y="296.2">spatial sync: click/hover zones</tspan><tspan x="425.0" y="313.7">map to the drawn pixels</tspan></text>
+</svg>

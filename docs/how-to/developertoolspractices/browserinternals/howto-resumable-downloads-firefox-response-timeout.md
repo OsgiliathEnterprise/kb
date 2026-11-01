@@ -35,57 +35,7 @@ Firefox 28 and newer — i.e. every modern version since ~2014 (see the [origina
 | `network.http.connection-retry-timeout` | 250 s | How long a request may wait for a free connection |
 | `network.http.pipelining.read-timeout` | 30 s | Pipelined request read timeout |
 
-```excalidraw
-{
-  "type": "drawing",
-  "version": 2,
-  "source": "https://github.com/excalidraw/excalidraw",
-  "elements": [
-    {
-      "id": "b1",
-      "type": "rectangle",
-      "x": 40,
-      "y": 160,
-      "width": 250,
-      "height": 100,
-      "strokeColor": "#1e1e1e",
-      "backgroundColor": "#ffc9c9",
-      "fillStyle": "solid",
-      "strokeWidth": 2,
-      "text": { "content": "Default: network.http.response.timeout = 300 s\nlong transfer exceeds timeout\nhidden retries get interrupted\n.part NOT resumed on error", "fontSize": 14, "fontFamily": 1 }
-    },
-    {
-      "id": "b2",
-      "type": "rectangle",
-      "x": 360,
-      "y": 160,
-      "width": 250,
-      "height": 100,
-      "strokeColor": "#1e1e1e",
-      "backgroundColor": "#b8e6b8",
-      "fillStyle": "solid",
-      "strokeWidth": 2,
-      "text": { "content": "Fix: set timeout to 0 (or very large)\nin about:config\ndownloads resumable + more stable\n(server must support resumption)", "fontSize": 14, "fontFamily": 1 }
-    },
-    [
-      {
-        "id": "a1",
-        "type": "arrow",
-        "x": 290,
-        "y": 210,
-        "width": 70,
-        "height": 0,
-        "strokeColor": "#1e1e1e",
-        "backgroundColor": "transparent",
-        "fillStyle": "solid",
-        "strokeWidth": 2,
-        "points": [ [0, 0], [70, 0] ]
-      }
-    ]
-  ],
-  "appState": { "viewBackgroundColor": "#ffffff" }
-}
-```
+![Diagram 1 — howto-resumable-downloads-firefox-response-timeout](howto-resumable-downloads-firefox-response-timeout-excalidraw-1.svg)
 
 ## Steps
 

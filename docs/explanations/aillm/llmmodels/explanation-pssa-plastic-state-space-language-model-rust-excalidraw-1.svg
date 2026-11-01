@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 36.0 828.0 338.0" width="828" height="338">
+<rect x="16.0" y="36.0" width="828.0" height="338.0" fill="#ffffff"/>
+<rect x="40.0" y="160.0" width="180.0" height="90.0" rx="0" fill="#c4e0f2" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="300.0" y="60.0" width="220.0" height="90.0" rx="0" fill="#d9ccff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="300.0" y="260.0" width="220.0" height="90.0" rx="0" fill="#f9e0a3" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="600.0" y="160.0" width="220.0" height="90.0" rx="0" fill="#f9d3d3" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 220.0 195.0 L 300.0 155.0"/><line x1="300.0" y1="155.0" x2="286.0" y2="155.1"/><line x1="300.0" y1="155.0" x2="291.5" y2="166.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 220.0 215.0 L 300.0 255.0"/><line x1="300.0" y1="255.0" x2="291.5" y2="243.9"/><line x1="300.0" y1="255.0" x2="286.0" y2="254.9"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 520.0 195.0 L 600.0 155.0"/><line x1="600.0" y1="155.0" x2="586.0" y2="155.1"/><line x1="600.0" y1="155.0" x2="591.5" y2="166.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 520.0 305.0 L 600.0 265.0"/><line x1="600.0" y1="265.0" x2="586.0" y2="265.1"/><line x1="600.0" y1="265.0" x2="591.5" y2="276.1"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="130.0" y="207.4">token x</tspan><tspan x="130.0" y="224.9">(layer-normed)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="410.0" y="107.5">selective SSM</tspan><tspan x="410.0" y="125.0">recurrence (S4/Mamba family)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="410.0" y="307.4">hyperbolic memory read</tspan><tspan x="410.0" y="324.9">512 slots, top-4 Poincare</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="710.0" y="207.4">gate + rank-16 adapter</tspan><tspan x="710.0" y="224.9">+ SiLU MLP (residual)</tspan></text>
+</svg>

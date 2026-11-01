@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 16.0 788.0 278.0" width="788" height="278">
+<rect x="16.0" y="16.0" width="788.0" height="278.0" fill="#ffffff"/>
+<rect x="40.0" y="40.0" width="180.0" height="70.0" rx="0" fill="#c4e0f2" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="320.0" y="40.0" width="200.0" height="70.0" rx="0" fill="#d9ccff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="600.0" y="40.0" width="180.0" height="70.0" rx="0" fill="#f9e0a3" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="320.0" y="200.0" width="200.0" height="70.0" rx="0" fill="#cdeac0" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 220.0 75.0 L 320.0 75.0"/><line x1="320.0" y1="75.0" x2="307.4" y2="68.9"/><line x1="320.0" y1="75.0" x2="307.4" y2="81.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 520.0 75.0 L 600.0 75.0"/><line x1="600.0" y1="75.0" x2="587.4" y2="68.9"/><line x1="600.0" y1="75.0" x2="587.4" y2="81.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 420.0 110.0 L 420.0 200.0"/><line x1="420.0" y1="200.0" x2="426.1" y2="187.4"/><line x1="420.0" y1="200.0" x2="413.9" y2="187.4"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="130.0" y="77.5">Browser</tspan><tspan x="130.0" y="95.0">(no cookies, JS off ok)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="420.0" y="68.7">pit.world</tspan><tspan x="420.0" y="86.2">no logs, Set-Cookie stripped</tspan><tspan x="420.0" y="103.7">HMAC-IP rate limit (hourly key)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="690.0" y="77.5">Serper</tspan><tspan x="690.0" y="95.0">(Google index, words only)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="420.0" y="228.7">Moshpit registry</tspan><tspan x="420.0" y="246.2">append-only, signs real certs</tspan><tspan x="420.0" y="263.7">17,609 endings</tspan></text>
+</svg>

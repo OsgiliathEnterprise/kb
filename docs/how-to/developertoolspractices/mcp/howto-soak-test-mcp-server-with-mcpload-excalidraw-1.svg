@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 36.0 808.0 288.0" width="808" height="288">
+<rect x="16.0" y="36.0" width="808.0" height="288.0" fill="#ffffff"/>
+<rect x="40.0" y="60.0" width="200.0" height="90.0" rx="0" fill="#c4e0f2" stroke="#2980b9" stroke-width="1.5"/>
+<rect x="300.0" y="60.0" width="240.0" height="90.0" rx="0" fill="#f5b7b1" stroke="#c0392b" stroke-width="1.5"/>
+<rect x="600.0" y="60.0" width="200.0" height="90.0" rx="0" fill="#d5f5e3" stroke="#27ae60" stroke-width="1.5"/>
+<rect x="300.0" y="220.0" width="500.0" height="80.0" rx="0" fill="#f9e0a3" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 240.0 105.0 L 300.0 105.0"/><line x1="300.0" y1="105.0" x2="287.4" y2="98.9"/><line x1="300.0" y1="105.0" x2="287.4" y2="111.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 540.0 105.0 L 600.0 105.0"/><line x1="600.0" y1="105.0" x2="587.4" y2="98.9"/><line x1="600.0" y1="105.0" x2="587.4" y2="111.1"/></g>
+<g stroke="#c0392b" stroke-width="1.5" fill="none"><path d="M 450.0 150.0 L 450.0 220.0"/><line x1="450.0" y1="220.0" x2="456.1" y2="207.4"/><line x1="450.0" y1="220.0" x2="443.9" y2="207.4"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="140.0" y="99.2">Warm-up (3 min)</tspan><tspan x="140.0" y="115.4">load ramps up</tspan><tspan x="140.0" y="131.7">startup growth allowed</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="420.0" y="91.0">Steady load (30 min)</tspan><tspan x="420.0" y="107.3">RATE=2 sessions/s</tspan><tspan x="420.0" y="123.5">~3600 agent sessions</tspan><tspan x="420.0" y="139.8">memory sampled /10s</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="700.0" y="91.0">Cool-down (5 min)</tspan><tspan x="700.0" y="107.3">no load</tspan><tspan x="700.0" y="123.5">memory must return</tspan><tspan x="700.0" y="139.8">to baseline</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="550.0" y="254.2">Leak verdict: steady growth during load (slope &gt; limit,</tspan><tspan x="550.0" y="270.4">good linear fit) OR no return to baseline in cool-down.</tspan><tspan x="550.0" y="286.6">'Memory went up' alone is NOT a leak.</tspan></text>
+</svg>

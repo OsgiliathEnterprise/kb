@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 136.0 723.0 288.0" width="723" height="288">
+<rect x="16.0" y="136.0" width="723.0" height="288.0" fill="#ffffff"/>
+<rect x="40.0" y="160.0" width="190.0" height="80.0" rx="0" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="270.0" y="160.0" width="190.0" height="80.0" rx="0" fill="#fff3bf" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="500.0" y="160.0" width="190.0" height="80.0" rx="0" fill="#ffe8cc" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="500.0" y="320.0" width="190.0" height="80.0" rx="0" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="270.0" y="320.0" width="190.0" height="80.0" rx="0" fill="#d9ccff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="40.0" y="320.0" width="190.0" height="80.0" rx="0" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 230.0 200.0 L 270.0 200.0"/><line x1="270.0" y1="200.0" x2="257.4" y2="193.9"/><line x1="270.0" y1="200.0" x2="257.4" y2="206.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 460.0 200.0 L 500.0 200.0"/><line x1="500.0" y1="200.0" x2="487.4" y2="193.9"/><line x1="500.0" y1="200.0" x2="487.4" y2="206.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 595.0 240.0 L 595.0 320.0"/><line x1="595.0" y1="320.0" x2="601.1" y2="307.4"/><line x1="595.0" y1="320.0" x2="588.9" y2="307.4"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 460.0 360.0 L 310.0 360.0"/><line x1="310.0" y1="360.0" x2="322.6" y2="366.1"/><line x1="310.0" y1="360.0" x2="322.6" y2="353.9"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 230.0 360.0 L 80.0 360.0"/><line x1="80.0" y1="360.0" x2="92.6" y2="366.1"/><line x1="80.0" y1="360.0" x2="92.6" y2="353.9"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="135.0" y="202.4">Clean sequence x</tspan><tspan x="135.0" y="219.9">(all tokens visible)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="365.0" y="193.7">Forward: mask a</tspan><tspan x="365.0" y="211.2">random fraction</tspan><tspan x="365.0" y="228.7">governed by schedule alpha_t</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="595.0" y="202.4">Fully masked z_T</tspan><tspan x="595.0" y="219.9">(pure noise)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="595.0" y="362.4">Reverse: model x_theta(z_t)</tspan><tspan x="595.0" y="379.9">predicts clean tokens</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="365.0" y="353.7">Infill blanks +</tspan><tspan x="365.0" y="371.2">re-mask a subset</tspan><tspan x="365.0" y="388.7">(keep more unmasked)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="135.0" y="362.4">Converge to clean</tspan><tspan x="135.0" y="379.9">sample (any order)</tspan></text>
+
+
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="595.0" y="226.4">denoise</tspan></text>
+
+
+</svg>

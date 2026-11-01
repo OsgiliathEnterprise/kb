@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="36.0 6.0 748.0 450.0" width="748" height="450">
+<rect x="36.0" y="6.0" width="748.0" height="450.0" fill="#ffffff"/>
+<rect x="60.0" y="80.0" width="240.0" height="120.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="60.0" y="300.0" width="240.0" height="132.0" rx="8" fill="#96f2d7" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="420.0" y="80.0" width="340.0" height="150.0" rx="8" fill="#ffec99" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="420.0" y="300.0" width="340.0" height="132.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 300.0 190.0 L 420.0 190.0"/><line x1="420.0" y1="190.0" x2="407.4" y2="183.9"/><line x1="420.0" y1="190.0" x2="407.4" y2="196.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 180.0 200.0 L 180.0 300.0"/><line x1="180.0" y1="300.0" x2="186.1" y2="287.4"/><line x1="180.0" y1="300.0" x2="173.9" y2="287.4"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="240.0" y="42.8">Gemini CLI to Antigravity CLI: What Moves Where</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="180.0" y="150.4">Gemini CLI (retired)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="180.0" y="150.4">binary: gemini</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="180.0" y="150.4">TypeScript / npm</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="180.0" y="150.4">~/.gemini/skills</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="180.0" y="150.4">MCP inline in settings.json</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="180.0" y="150.4">extensions API</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="180.0" y="376.4">Antigravity CLI (agy)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="180.0" y="376.4">binary: agy (Go, closed source)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="180.0" y="376.4">OAuth browser login</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="180.0" y="376.4">~/.gemini/antigravity-cli/</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="180.0" y="376.4">mcp_config.json (remote: serverUrl)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="180.0" y="376.4">plugins API</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="590.0" y="165.4">Migration commands</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="590.0" y="165.4">agy doctor  (diagnostics)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="590.0" y="165.4">agy plugin import gemini</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="590.0" y="165.4">agy inspect  (verify load)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="590.0" y="165.4">rename MCP url -&gt; serverUrl</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="590.0" y="165.4">replace gemini -&gt; agy in CI/cron</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="590.0" y="376.4">Tested deltas (TNS, June 2026)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="590.0" y="376.4">headless: agy writes files + shell</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="590.0" y="376.4">gemini: read-only when scripted</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="590.0" y="376.4">speed: agy ~3.97s vs ~3.2s median</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="590.0" y="376.4">503s burn free quota via retries</tspan></text>
+</svg>

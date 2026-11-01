@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 6.0 1349.0 395.0" width="1349" height="395">
+<rect x="16.0" y="6.0" width="1349.0" height="395.0" fill="#ffffff"/>
+<rect x="40.0" y="140.0" width="240.0" height="100.0" rx="8" fill="#cfe0f0" stroke="#2b5a8c" stroke-width="1.5"/>
+<rect x="340.0" y="140.0" width="240.0" height="100.0" rx="8" fill="#f0e0cf" stroke="#8c5a2b" stroke-width="1.5"/>
+<rect x="640.0" y="140.0" width="260.0" height="100.0" rx="8" fill="#d8f0d8" stroke="#2b7a2b" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 280.0 170.0 L 340.0 170.0"/><line x1="340.0" y1="170.0" x2="327.4" y2="163.9"/><line x1="340.0" y1="170.0" x2="327.4" y2="176.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 580.0 170.0 L 640.0 170.0"/><line x1="640.0" y1="170.0" x2="627.4" y2="163.9"/><line x1="640.0" y1="170.0" x2="627.4" y2="176.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 640.0 220.0 L 580.0 220.0"/><line x1="580.0" y1="220.0" x2="592.6" y2="226.1"/><line x1="580.0" y1="220.0" x2="592.6" y2="213.9"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 340.0 240.0 L 280.0 240.0"/><line x1="280.0" y1="240.0" x2="292.6" y2="246.1"/><line x1="280.0" y1="240.0" x2="292.6" y2="233.9"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="24" fill="#1e1e1e" text-anchor="start"><tspan x="80.0" y="49.2">MySQL JSON Duality Views: Read/Write Flow</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="55.0" y="171.2">Relational tables</tspan><tspan x="55.0" y="188.7">orders / customers</tspan><tspan x="55.0" y="206.2">order_items / products</tspan><tspan x="55.0" y="223.7">(no JSON columns)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="355.0" y="171.2">JSON DUALITY VIEW orders_dv</tspan><tspan x="355.0" y="188.7">builds document on read</tspan><tspan x="355.0" y="206.2">WITH(INSERT, UPDATE, DELETE)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="655.0" y="171.2">Application</tspan><tspan x="655.0" y="188.7">REST API / local LLM</tspan><tspan x="655.0" y="206.2">(LangChain4j + Ollama)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="283.0" y="155.4">read</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="583.0" y="155.4">single data column</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="560.0" y="235.4">write whole doc (PUT)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="283.0" y="255.4">insert/update/delete rows</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#8c2b2b" text-anchor="start"><tspan x="300.0" y="311.2">_metadata.etag: OPTIONAL - omit it and a stale doc silently overwrites a newer one</tspan><tspan x="300.0" y="328.7">(stale write with etag -&gt; error 6494)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#8c2b2b" text-anchor="start"><tspan x="300.0" y="371.2">EXPLAIN: all documents built before filtering - check the plan before busy endpoints</tspan></text>
+</svg>

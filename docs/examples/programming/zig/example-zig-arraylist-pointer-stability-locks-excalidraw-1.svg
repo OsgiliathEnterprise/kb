@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 96.0 898.0 308.0" width="898" height="308">
+<rect x="16.0" y="96.0" width="898.0" height="308.0" fill="#ffffff"/>
+<rect x="40.0" y="160.0" width="230.0" height="80.0" rx="0" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="40.0" y="300.0" width="230.0" height="80.0" rx="0" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="360.0" y="220.0" width="200.0" height="90.0" rx="0" fill="#f9d3d3" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="640.0" y="220.0" width="250.0" height="90.0" rx="0" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 270.0 340.0 L 360.0 280.0"/><line x1="360.0" y1="280.0" x2="346.1" y2="281.9"/><line x1="360.0" y1="280.0" x2="352.9" y2="292.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 560.0 265.0 L 640.0 265.0"/><line x1="640.0" y1="265.0" x2="627.4" y2="258.9"/><line x1="640.0" y1="265.0" x2="627.4" y2="271.1"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="155.0" y="193.7">ctx.history</tspan><tspan x="155.0" y="211.2">ArrayList(u8)</tspan><tspan x="155.0" y="228.7">[items buffer]</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="155.0" y="333.7">ctx.lines</tspan><tspan x="155.0" y="351.2">ArrayList([]const u8)</tspan><tspan x="155.0" y="368.7">slices point INTO history.items</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="130.4">history grows -&gt; buffer reallocates -&gt; location changes</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="460.0" y="258.7">BUG: dangling line</tspan><tspan x="460.0" y="276.2">pointers / segfault</tspan><tspan x="460.0" y="293.7">(silent corruption)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="765.0" y="258.7">FIX: history.lockPointers()</tspan><tspan x="765.0" y="276.2">defer history.unlockPointers()</tspan><tspan x="765.0" y="293.7">-&gt; panic w/ stack trace on violation</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="270.0" y="326.4">slices escape</tspan></text>
+
+</svg>

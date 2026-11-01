@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 36.0 608.0 223.0" width="608" height="223">
+<rect x="16.0" y="36.0" width="608.0" height="223.0" fill="#ffffff"/>
+<rect x="40.0" y="60.0" width="230.0" height="90.0" rx="0" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="360.0" y="60.0" width="230.0" height="90.0" rx="0" fill="#ffec99" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 270.0 95.0 L 360.0 95.0"/><line x1="360.0" y1="95.0" x2="347.4" y2="88.9"/><line x1="360.0" y1="95.0" x2="347.4" y2="101.1"/></g>
+<g stroke="#868e96" stroke-width="1.5" fill="none"><path d="M 475.0 95.0 L 385.0 95.0"/><line x1="385.0" y1="95.0" x2="397.6" y2="101.1"/><line x1="385.0" y1="95.0" x2="397.6" y2="88.9"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="155.0" y="98.7">Active card table</tspan><tspan x="155.0" y="116.2">(updated by app threads,</tspan><tspan x="155.0" y="133.7">NO synchronization)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="475.0" y="98.7">Optimizer card table</tspan><tspan x="475.0" y="116.2">(background threads scan,</tspan><tspan x="475.0" y="133.7">initially empty)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="275.0" y="80.4">atomic swap</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#868e96" text-anchor="start"><tspan x="300.0" y="124.6">when scan would exceed</tspan><tspan x="300.0" y="139.6">pause-time target</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="185.4">Write barriers shrink from ~50 to ~12 instructions on x64.</tspan><tspan x="40.0" y="201.7">Cost: extra card table ~= 0.2% of heap (~2MB native per GB).</tspan><tspan x="40.0" y="217.9">Result: 5-15% throughput gain in reference-heavy workloads,</tspan><tspan x="40.0" y="234.2">up to ~5% when reference updates are light; slight pause reduction.</tspan></text>
+</svg>

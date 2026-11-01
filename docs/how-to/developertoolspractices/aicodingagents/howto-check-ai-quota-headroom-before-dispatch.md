@@ -86,24 +86,7 @@ When an account fits: `RECOMMEND: dispatch on 'acct-b' — it has headroom for t
 
 ## Diagram
 
-```excalidraw
-{
-  "type": "drawing",
-  "version": 2,
-  "source": "https://github.com/excalidraw/excalidraw",
-  "elements": [
-    {"id": "b1", "type": "rectangle", "x": 40, "y": 40, "width": 170, "height": 70, "strokeColor": "#1e1e1e", "backgroundColor": "#c4e0f2", "fillStyle": "solid", "strokeWidth": 2, "text": {"content": "limits.json\ndeclared USD caps per pool", "fontSize": 14, "fontFamily": 1}},
-    {"id": "b2", "type": "rectangle", "x": 40, "y": 180, "width": 170, "height": 70, "strokeColor": "#1e1e1e", "backgroundColor": "#d9ccff", "fillStyle": "solid", "strokeWidth": 2, "text": {"content": "export.csv\nobserved usage per pool", "fontSize": 14, "fontFamily": 1}},
-    {"id": "b3", "type": "rectangle", "x": 300, "y": 110, "width": 200, "height": 80, "strokeColor": "#1e1e1e", "backgroundColor": "#f9e0a3", "fillStyle": "solid", "strokeWidth": 2, "text": {"content": "headroom engine\nlimit - consumed per account", "fontSize": 14, "fontFamily": 1}},
-    {"id": "b4", "type": "rectangle", "x": 580, "y": 110, "width": 200, "height": 80, "strokeColor": "#1e1e1e", "backgroundColor": "#cdeac0", "fillStyle": "solid", "strokeWidth": 2, "text": {"content": "OK / LOW / EXHAUSTED /\nUNLIMITED per pool", "fontSize": 14, "fontFamily": 1}},
-    {"id": "b5", "type": "rectangle", "x": 300, "y": 260, "width": 200, "height": 80, "strokeColor": "#1e1e1e", "backgroundColor": "#f5d0d0", "fillStyle": "solid", "strokeWidth": 2, "text": {"content": "dispatch simulator\n--task-in/--task-out -> RECOMMEND", "fontSize": 14, "fontFamily": 1}},
-    {"id": "a1", "type": "arrow", "x": 210, "y": 75, "width": 90, "height": 35, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "points": [[0, 0], [90, 35]]},
-    {"id": "a2", "type": "arrow", "x": 210, "y": 215, "width": 90, "height": 35, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "points": [[0, 0], [90, -35]]},
-    {"id": "a3", "type": "arrow", "x": 500, "y": 150, "width": 80, "height": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "points": [[0, 0], [80, 0]]},
-    {"id": "a4", "type": "arrow", "x": 400, "y": 190, "width": 0, "height": 70, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "points": [[0, 0], [0, 70]]}
-  ]
-}
-```
+![Diagram 1 — howto-check-ai-quota-headroom-before-dispatch](howto-check-ai-quota-headroom-before-dispatch-excalidraw-1.svg)
 
 ## References
 

@@ -569,8 +569,27 @@ def sync_diagrams(new_files):
         if changed:
             dest_file.write_text(content, encoding="utf-8")
 
+    # Render inline fenced ```excalidraw blocks into static SVGs (fences that
+    # kb-sync copied verbatim from the vault would otherwise ship as raw JSON).
+    fences_script = Path(__file__).resolve().parent / "render-excalidraw-fences.py"
+    if fences_script.exists():
+        subprocess.run([sys.executable, str(fences_script), str(DOCS_DIR)],
+                       check=False)
+
     # Remove stale SVGs no longer referenced by any published article.
-    keep = generated | referenced
+    # Re-scan EVERY docs markdown (not just files synced this run) so SVGs
+    # belonging to untouched articles are never treated as stale.
+    keep = set(generated) | set(referenced)
+    for md in DOCS_DIR.rglob("*.md"):
+        txt = md.read_text(encoding="utf-8", errors="replace")
+        for m in re.finditer(r'!?\[[^\]]*\]\(([^)\s]+\.svg)\)', txt):
+            ref = m.group(1)
+            if ref.startswith(("http://", "https://", "/")):
+                continue
+            try:
+                keep.add(str((md.parent / ref).relative_to(DOCS_DIR)))
+            except ValueError:
+                pass
     for svg in DOCS_DIR.rglob("*.svg"):
         rel = str(svg.relative_to(DOCS_DIR))
         if rel not in keep:

@@ -22,22 +22,7 @@ Autoregressive LLMs emit one token per forward pass; each pass reloads the full 
 
 ## Architecture and training
 
-```excalidraw
-{
-  "type": "drawing",
-  "version": 2,
-  "source": "https://github.com/excalidraw/excalidraw",
-  "elements": [
-    {"id": "d1", "type": "rectangle", "x": 40, "y": 80, "width": 220, "height": 90, "strokeColor": "#1e1e1e", "backgroundColor": "#a5d8ff", "fillStyle": "solid", "strokeWidth": 2, "text": {"content": "Prompt + committed\ncanvas history\n(causal prefill,\nKV cache)", "fontSize": 14, "fontFamily": 1}},
-    {"id": "d2", "type": "rectangle", "x": 320, "y": 80, "width": 240, "height": 90, "strokeColor": "#1e1e1e", "backgroundColor": "#fff3bf", "fillStyle": "solid", "strokeWidth": 2, "text": {"content": "Canvas: 256 noisy\nplaceholder tokens\n(bidirectional attention,\nblock-diagonal mask)", "fontSize": 14, "fontFamily": 1}},
-    {"id": "d3", "type": "rectangle", "x": 620, "y": 80, "width": 240, "height": 90, "strokeColor": "#1e1e1e", "backgroundColor": "#ffe8cc", "fillStyle": "solid", "strokeWidth": 2, "text": {"content": "~12 denoising passes\n(<=48 max steps,\nadaptive entropy stop)", "fontSize": 14, "fontFamily": 1}},
-    {"id": "d4", "type": "rectangle", "x": 320, "y": 250, "width": 240, "height": 90, "strokeColor": "#1e1e1e", "backgroundColor": "#b2f2bb", "fillStyle": "solid", "strokeWidth": 2, "text": {"content": "Committed clean block\n-> appended to KV cache\n-> next canvas starts", "fontSize": 14, "fontFamily": 1}},
-    {"id": "a1", "type": "arrow", "x": 260, "y": 125, "width": 60, "height": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "points": [[0, 0], [60, 0]]},
-    {"id": "a2", "type": "arrow", "x": 560, "y": 125, "width": 60, "height": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "points": [[0, 0], [60, 0]]},
-    {"id": "a3", "type": "arrow", "x": 440, "y": 170, "width": 0, "height": 80, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "points": [[0, 0], [0, 80]]}
-  ]
-}
-```
+![Diagram 1 — explanation-diffusiongemma-block-autoregressive-text-diffusion](explanation-diffusiongemma-block-autoregressive-text-diffusion-excalidraw-1.svg)
 
 - **Backbone:** Gemma 4 26B A4B — a Mixture-of-Experts model with ~25.2–26B total parameters but only **3.8B active per step**, so it fits in ~18 GB of VRAM (consumer RTX class). Encoder-decoder transformer with shared weights; the AR backbone is repurposed for both causal context encoding and bidirectional denoising, inheriting long context (up to 262k), multimodal inputs (text/image/video → text), and thinking mode.
 - **Generation:** block-autoregressive multi-canvas sampling — a "canvas" of 256 tokens is initialized with placeholder noise and refined over ~12 forward passes on average (~20 tokens per pass vs the ~3–6 TPF of state-of-the-art speculative decoding/MTP). Once fully denoised, the block commits to the KV cache and the next canvas starts.

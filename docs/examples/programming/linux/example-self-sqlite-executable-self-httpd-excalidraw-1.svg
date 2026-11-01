@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 136.0 848.0 298.0" width="848" height="298">
+<rect x="16.0" y="136.0" width="848.0" height="298.0" fill="#ffffff"/>
+<rect x="40.0" y="160.0" width="200.0" height="90.0" rx="0" fill="#d9ccff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="300.0" y="160.0" width="240.0" height="90.0" rx="0" fill="#c4e0f2" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="600.0" y="160.0" width="240.0" height="90.0" rx="0" fill="#d3f2d3" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="600.0" y="320.0" width="240.0" height="90.0" rx="0" fill="#f9e0a3" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 240.0 205.0 L 300.0 205.0"/><line x1="300.0" y1="205.0" x2="287.4" y2="198.9"/><line x1="300.0" y1="205.0" x2="287.4" y2="211.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 540.0 205.0 L 600.0 205.0"/><line x1="600.0" y1="205.0" x2="587.4" y2="198.9"/><line x1="600.0" y1="205.0" x2="587.4" y2="211.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 720.0 250.0 L 720.0 320.0"/><line x1="720.0" y1="320.0" x2="726.1" y2="307.4"/><line x1="720.0" y1="320.0" x2="713.9" y2="307.4"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="140.0" y="207.4">binfmt_misc match</tspan><tspan x="140.0" y="224.9">runs self-exec</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="420.0" y="207.4">self-exec maps segments table</tspan><tspan x="420.0" y="224.9">jumps to entry point</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="720.0" y="207.4">program opens its own file</tspan><tspan x="720.0" y="224.9">sqlite3_open(argv[0])</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="720.0" y="367.4">same SQLite file holds:</tspan><tspan x="720.0" y="384.9">program + site + visits + presses</tspan></text>
+</svg>

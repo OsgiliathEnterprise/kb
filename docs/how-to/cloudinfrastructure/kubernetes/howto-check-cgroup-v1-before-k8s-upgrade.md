@@ -60,23 +60,7 @@ OSes that default to cgroup v1: **CentOS 7, RHEL 7/8, Ubuntu 18.04/20.04, Amazon
 
 ## Diagram
 
-```excalidraw
-{
-  "type": "drawing",
-  "version": 2,
-  "source": "https://github.com/excalidraw/excalidraw",
-  "elements": [
-    {"id": "s1", "type": "rectangle", "x": 60, "y": 40, "width": 220, "height": 60, "strokeColor": "#1e1e1e", "backgroundColor": "#c4e0f2", "fillStyle": "solid", "strokeWidth": 2, "text": {"content": "stat -fc %T /sys/fs/cgroup\n(kubectl debug + chroot /host)", "fontSize": 14, "fontFamily": 1}},
-    {"id": "s2", "type": "rectangle", "x": 60, "y": 180, "width": 200, "height": 60, "strokeColor": "#1e1e1e", "backgroundColor": "#cdeac0", "fillStyle": "solid", "strokeWidth": 2, "text": {"content": "cgroup2fs -> safe to upgrade", "fontSize": 14, "fontFamily": 1}},
-    {"id": "s3", "type": "rectangle", "x": 340, "y": 180, "width": 220, "height": 60, "strokeColor": "#1e1e1e", "backgroundColor": "#f5d0d0", "fillStyle": "solid", "strokeWidth": 2, "text": {"content": "tmpfs (v1) -> kubelet refuses to start", "fontSize": 14, "fontFamily": 1}},
-    {"id": "s4", "type": "rectangle", "x": 340, "y": 320, "width": 220, "height": 70, "strokeColor": "#1e1e1e", "backgroundColor": "#f9e0a3", "fillStyle": "solid", "strokeWidth": 2, "text": {"content": "Migrate node to cgroup v2\n(align kubelet + runtime drivers)", "fontSize": 14, "fontFamily": 1}},
-    {"id": "s5", "type": "rectangle", "x": 60, "y": 320, "width": 200, "height": 70, "strokeColor": "#1e1e1e", "backgroundColor": "#d9ccff", "fillStyle": "solid", "strokeWidth": 2, "text": {"content": "Temporary escape hatch:\nfailCgroupV1: false (expiring)", "fontSize": 14, "fontFamily": 1}},
-    {"id": "a1", "type": "arrow", "x": 140, "y": 100, "width": 0, "height": 80, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "points": [[0, 0], [0, 80]]},
-    {"id": "a2", "type": "arrow", "x": 420, "y": 100, "width": 0, "height": 80, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "points": [[0, 0], [0, 80]]},
-    {"id": "a3", "type": "arrow", "x": 450, "y": 240, "width": 0, "height": 80, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "points": [[0, 0], [0, 80]]}
-  ]
-}
-```
+![Diagram 1 — howto-check-cgroup-v1-before-k8s-upgrade](howto-check-cgroup-v1-before-k8s-upgrade-excalidraw-1.svg)
 
 ## References
 

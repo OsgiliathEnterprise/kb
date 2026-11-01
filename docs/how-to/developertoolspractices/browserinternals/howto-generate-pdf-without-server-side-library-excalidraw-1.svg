@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 16.0 768.0 278.0" width="768" height="278">
+<rect x="16.0" y="16.0" width="768.0" height="278.0" fill="#ffffff"/>
+<rect x="40.0" y="40.0" width="180.0" height="70.0" rx="0" fill="#c4e0f2" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="300.0" y="40.0" width="180.0" height="70.0" rx="0" fill="#d9ccff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="560.0" y="40.0" width="200.0" height="70.0" rx="0" fill="#f9e0a3" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="300.0" y="200.0" width="180.0" height="70.0" rx="0" fill="#cdeac0" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 220.0 75.0 L 300.0 75.0"/><line x1="300.0" y1="75.0" x2="287.4" y2="68.9"/><line x1="300.0" y1="75.0" x2="287.4" y2="81.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 480.0 75.0 L 560.0 75.0"/><line x1="560.0" y1="75.0" x2="547.4" y2="68.9"/><line x1="560.0" y1="75.0" x2="547.4" y2="81.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 660.0 110.0 L 480.0 200.0"/><line x1="480.0" y1="200.0" x2="494.0" y2="199.9"/><line x1="480.0" y1="200.0" x2="488.5" y2="188.9"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="130.0" y="77.5">Form (HTML)</tspan><tspan x="130.0" y="95.0">localStorage persistence</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="390.0" y="77.5">On-page preview</tspan><tspan x="390.0" y="95.0">(normal HTML invoice)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="660.0" y="77.5">window.print()</tspan><tspan x="660.0" y="95.0">@media print hides chrome</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="390.0" y="237.4">Print dialog</tspan><tspan x="390.0" y="254.9">user picks 'Save as PDF'</tspan></text>
+</svg>

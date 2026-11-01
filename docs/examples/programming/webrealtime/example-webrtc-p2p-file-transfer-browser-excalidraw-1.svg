@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="56.0 36.0 888.0 378.0" width="888" height="378">
+<rect x="56.0" y="36.0" width="888.0" height="378.0" fill="#ffffff"/>
+<rect x="400.0" y="60.0" width="280.0" height="70.0" rx="0" fill="#f9e0a3" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="80.0" y="240.0" width="220.0" height="90.0" rx="0" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="700.0" y="240.0" width="220.0" height="90.0" rx="0" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#868e96" stroke-width="1.5" fill="none"><path d="M 200.0 240.0 L 500.0 90.0"/><line x1="500.0" y1="90.0" x2="486.0" y2="90.1"/><line x1="500.0" y1="90.0" x2="491.5" y2="101.1"/></g>
+<g stroke="#868e96" stroke-width="1.5" fill="none"><path d="M 800.0 240.0 L 500.0 90.0"/><line x1="500.0" y1="90.0" x2="508.5" y2="101.1"/><line x1="500.0" y1="90.0" x2="514.0" y2="90.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 300.0 285.0 L 700.0 285.0"/><line x1="700.0" y1="285.0" x2="687.4" y2="278.9"/><line x1="700.0" y1="285.0" x2="687.4" y2="291.1"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="540.0" y="89.2">Signaling server</tspan><tspan x="540.0" y="105.4">Node.js + Socket.io</tspan><tspan x="540.0" y="121.7">(SDP offers/answers, ICE)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="190.0" y="287.3">Sender browser</tspan><tspan x="190.0" y="303.5">slices file -&gt; SCTP chunks</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="810.0" y="287.3">Receiver browser</tspan><tspan x="810.0" y="303.5">chunks -&gt; disk (FS Access API)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="320.0" y="362.8">Direct WebRTC data channel (SCTP/DTLS) over the LAN —</tspan><tspan x="320.0" y="382.8">all file bytes bypass the signaling server entirely.</tspan></text>
+</svg>

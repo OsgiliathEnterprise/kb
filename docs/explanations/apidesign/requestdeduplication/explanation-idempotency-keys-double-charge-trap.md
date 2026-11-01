@@ -98,23 +98,7 @@ async function pay(orderId) {
 
 ## Diagram
 
-```excalidraw
-{
-  "type": "drawing",
-  "version": 2,
-  "source": "https://github.com/excalidraw/excalidraw",
-  "elements": [
-    {"id": "p1", "type": "rectangle", "x": 40, "y": 60, "width": 180, "height": 70, "strokeColor": "#1e1e1e", "backgroundColor": "#c4e0f2", "fillStyle": "solid", "strokeWidth": 2, "text": {"content": "Browser UI\nsessionStorage key K1", "fontSize": 14, "fontFamily": 1}},
-    {"id": "p2", "type": "rectangle", "x": 300, "y": 60, "width": 180, "height": 70, "strokeColor": "#1e1e1e", "backgroundColor": "#d9ccff", "fillStyle": "solid", "strokeWidth": 2, "text": {"content": "Backend\nunique(user,key) insert", "fontSize": 14, "fontFamily": 1}},
-    {"id": "p3", "type": "rectangle", "x": 560, "y": 60, "width": 180, "height": 70, "strokeColor": "#1e1e1e", "backgroundColor": "#f9e0a3", "fillStyle": "solid", "strokeWidth": 2, "text": {"content": "Provider\nkey derived from K1", "fontSize": 14, "fontFamily": 1}},
-    {"id": "p4", "type": "rectangle", "x": 300, "y": 240, "width": 180, "height": 80, "strokeColor": "#1e1e1e", "backgroundColor": "#cdeac0", "fillStyle": "solid", "strokeWidth": 2, "text": {"content": "saved result (status, P900)\nreturned on every retry", "fontSize": 14, "fontFamily": 1}},
-    {"id": "a1", "type": "arrow", "x": 220, "y": 95, "width": 80, "height": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "points": [[0, 0], [80, 0]]},
-    {"id": "a2", "type": "arrow", "x": 480, "y": 95, "width": 80, "height": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "points": [[0, 0], [80, 0]]},
-    {"id": "a3", "type": "arrow", "x": 390, "y": 130, "width": 0, "height": 110, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "points": [[0, 0], [0, 110]]},
-    {"id": "a4", "type": "arrow", "x": 300, "y": 260, "width": 80, "height": 80, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "points": [[0, 0], [-80, -80]]}
-  ]
-}
-```
+![Diagram 1 — explanation-idempotency-keys-double-charge-trap](explanation-idempotency-keys-double-charge-trap-excalidraw-1.svg)
 
 ## Related KB notes
 

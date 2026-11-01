@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 36.0 668.0 368.0" width="668" height="368">
+<rect x="16.0" y="36.0" width="668.0" height="368.0" fill="#ffffff"/>
+<rect x="40.0" y="60.0" width="260.0" height="100.0" rx="0" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="400.0" y="60.0" width="260.0" height="100.0" rx="0" fill="#ffec99" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="40.0" y="230.0" width="260.0" height="80.0" rx="0" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="400.0" y="230.0" width="260.0" height="80.0" rx="0" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#e8590c" stroke-width="1.5" fill="none"><path d="M 170.0 160.0 L 170.0 230.0"/><line x1="170.0" y1="230.0" x2="176.1" y2="217.4"/><line x1="170.0" y1="230.0" x2="163.9" y2="217.4"/></g>
+<g stroke="#2f9e44" stroke-width="1.5" fill="none"><path d="M 530.0 160.0 L 530.0 230.0"/><line x1="530.0" y1="230.0" x2="536.1" y2="217.4"/><line x1="530.0" y1="230.0" x2="523.9" y2="217.4"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="170.0" y="96.0">Semantic layer (jorje rules)</tspan><tspan x="170.0" y="112.3">raw List param in @InvocableMethod</tspan><tspan x="170.0" y="128.5">-&gt; getOnlyElement throws</tspan><tspan x="170.0" y="144.8">-&gt; file left UNRESOLVED</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="530.0" y="96.0">Parser layer</tspan><tspan x="530.0" y="112.3">raw collection RETURN TYPE</tspan><tspan x="530.0" y="128.5">or param cut after '&lt;' / ','</tspan><tspan x="530.0" y="144.8">-&gt; whole method DROPPED</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="170.0" y="264.1">Scope: WHOLE FILE</tspan><tspan x="170.0" y="280.4">completion dead everywhere</tspan><tspan x="170.0" y="296.6">(server logs, then carries on)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="530.0" y="264.1">Scope: LOCAL</tspan><tspan x="530.0" y="280.4">only completion inside that</tspan><tspan x="530.0" y="296.6">method is gone</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="352.8">Both are silent: the Problems panel shows only the syntax error,</tspan><tspan x="40.0" y="372.8">never the server crash. Plain 'public static' raw List = just a syntax error, completion survives.</tspan></text>
+</svg>

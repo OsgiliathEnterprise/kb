@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="36.0 36.0 988.0 198.0" width="988" height="198">
+<rect x="36.0" y="36.0" width="988.0" height="198.0" fill="#ffffff"/>
+<rect x="60.0" y="80.0" width="240.0" height="110.0" rx="0" fill="#f5c6c6" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="380.0" y="60.0" width="260.0" height="150.0" rx="0" fill="#f9e0a3" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="720.0" y="60.0" width="280.0" height="150.0" rx="0" fill="#d9ccff" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 300.0 135.0 L 380.0 135.0"/><line x1="380.0" y1="135.0" x2="367.4" y2="128.9"/><line x1="380.0" y1="135.0" x2="367.4" y2="141.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 640.0 135.0 L 720.0 135.0"/><line x1="720.0" y1="135.0" x2="707.4" y2="128.9"/><line x1="720.0" y1="135.0" x2="707.4" y2="141.1"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="180.0" y="128.7">Unpatched TeamCity server</tspan><tspan x="180.0" y="146.2">(CVE-2026-63077)</tspan><tspan x="180.0" y="163.7">unauthenticated RCE</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="510.0" y="102.5">Exfiltrated</tspan><tspan x="510.0" y="120.0">2024 server backup (creds,</tspan><tspan x="510.0" y="137.4">configs, artifacts, logs)</tspan><tspan x="510.0" y="154.9">AWS IAM users + keys</tspan><tspan x="510.0" y="172.4">S3 bucket files</tspan><tspan x="510.0" y="189.9">synced source code + PII</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="860.0" y="93.7">Response</tspan><tspan x="860.0" y="111.2">1. treat all executions +</tspan><tspan x="860.0" y="128.7">   outputs as untrusted</tspan><tspan x="860.0" y="146.2">2. rotate every credential class</tspan><tspan x="860.0" y="163.7">3. audit logs: SCM, cloud IAM,</tspan><tspan x="860.0" y="181.2">   package registries</tspan><tspan x="860.0" y="198.7">4. screen IoCs (incomplete!)</tspan></text>
+</svg>

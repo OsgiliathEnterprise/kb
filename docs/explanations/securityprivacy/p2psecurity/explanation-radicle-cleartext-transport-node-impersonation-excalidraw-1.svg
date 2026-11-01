@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 -4.0 808.0 330.0" width="808" height="330">
+<rect x="16.0" y="-4.0" width="808.0" height="330.0" fill="#ffffff"/>
+<rect x="40.0" y="80.0" width="170.0" height="60.0" rx="8" fill="none" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="290.0" y="80.0" width="170.0" height="60.0" rx="8" fill="none" stroke="#e03131" stroke-width="1.5"/>
+<rect x="540.0" y="80.0" width="170.0" height="60.0" rx="8" fill="none" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#e03131" stroke-width="1.5" fill="none" stroke-dasharray="7 5"><path d="M 210.0 95.0 L 288.0 95.0"/><line x1="288.0" y1="95.0" x2="275.4" y2="88.9"/><line x1="288.0" y1="95.0" x2="275.4" y2="101.1"/></g>
+<g stroke="#e03131" stroke-width="1.5" fill="none" stroke-dasharray="7 5"><path d="M 460.0 95.0 L 538.0 95.0"/><line x1="538.0" y1="95.0" x2="525.4" y2="88.9"/><line x1="538.0" y1="95.0" x2="525.4" y2="101.1"/></g>
+<g stroke="#e03131" stroke-width="1.5" fill="none" stroke-dasharray="7 5"><path d="M 460.0 125.0 L 382.0 125.0"/><line x1="382.0" y1="125.0" x2="394.6" y2="131.1"/><line x1="382.0" y1="125.0" x2="394.6" y2="118.9"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="32.8">Radicle combined threat — on-path attacker + Node ID impersonation (Sept 2026)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="52.0" y="106.2">Node A</tspan><tspan x="52.0" y="123.7">(seeds private repo)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#e03131" text-anchor="start"><tspan x="302.0" y="106.2">Attacker on path</tspan><tspan x="302.0" y="123.7">(ISP / transit / relay)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="552.0" y="106.2">Node B</tspan><tspan x="552.0" y="123.7">(allow-lists A's NID)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#e03131" text-anchor="start"><tspan x="40.0" y="181.2">Step 1 (flaw 1): post-handshake traffic is CLEARTEXT — attacker reads gossip, RIDs, Git objects</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#e03131" text-anchor="start"><tspan x="40.0" y="207.2">Step 2 (flaw 2): attacker learns A's Node ID from the cleartext handshake — it is on B's allow-list</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#e03131" text-anchor="start"><tspan x="40.0" y="233.2">Step 3: attacker connects to B impersonating A's NID → fetches the private repo directly (no path position needed)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#2f9e44" text-anchor="start"><tspan x="40.0" y="269.2">Fix (Radicle 2.0): replace custom Noise transport with iroh = QUIC + TLS (rustls) — breaking wire change,</tspan><tspan x="40.0" y="286.7">network partitions into upgraded/non-upgraded clusters; storage layout stays compatible.</tspan></text>
+</svg>

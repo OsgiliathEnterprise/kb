@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="36.0 36.0 988.0 198.0" width="988" height="198">
+<rect x="36.0" y="36.0" width="988.0" height="198.0" fill="#ffffff"/>
+<rect x="60.0" y="80.0" width="240.0" height="110.0" rx="0" fill="#c4e0f2" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="380.0" y="60.0" width="280.0" height="150.0" rx="0" fill="#d9ccff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="740.0" y="80.0" width="260.0" height="110.0" rx="0" fill="#c9e7c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 300.0 135.0 L 380.0 135.0"/><line x1="380.0" y1="135.0" x2="367.4" y2="128.9"/><line x1="380.0" y1="135.0" x2="367.4" y2="141.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 660.0 135.0 L 740.0 135.0"/><line x1="740.0" y1="135.0" x2="727.4" y2="128.9"/><line x1="740.0" y1="135.0" x2="727.4" y2="141.1"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="180.0" y="120.0">LLM front-end (probabilistic)</tspan><tspan x="180.0" y="137.4">source code, debugger output,</tspan><tspan x="180.0" y="154.9">natural-language notes</tspan><tspan x="180.0" y="172.4">-&gt; structured facts</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="520.0" y="111.2">Lemmalog (Datalog engine)</tspan><tspan x="520.0" y="128.7">facts + rules -&gt; derived facts</tspan><tspan x="520.0" y="146.2">incremental evaluation</tspan><tspan x="520.0" y="163.7">retractions, provenance,</tspan><tspan x="520.0" y="181.2">temporal validity intervals</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="870.0" y="128.7">Maintained state</tspan><tspan x="870.0" y="146.2">ask 'why is X true?'</tspan><tspan x="870.0" y="163.7">(auto-invalidate stale conclusions)</tspan></text>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="56.0 -192.0 855.0 498.0" width="855" height="498">
+<rect x="56.0" y="-192.0" width="855.0" height="498.0" fill="#ffffff"/>
+<rect x="80.0" y="120.0" width="190.0" height="70.0" rx="8" fill="#dbeafe" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="360.0" y="120.0" width="210.0" height="70.0" rx="8" fill="#dcfce7" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="660.0" y="120.0" width="210.0" height="70.0" rx="8" fill="#fee2e2" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 270.0 155.0 L 360.0 155.0"/><line x1="360.0" y1="155.0" x2="347.4" y2="148.9"/><line x1="360.0" y1="155.0" x2="347.4" y2="161.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 570.0 155.0 L 660.0 155.0"/><line x1="660.0" y1="155.0" x2="647.4" y2="148.9"/><line x1="660.0" y1="155.0" x2="647.4" y2="161.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 440.0 190.0 L 440.0 240.0 L 520.0 240.0 L 480.0 225.0"/><line x1="480.0" y1="225.0" x2="489.6" y2="235.2"/><line x1="480.0" y1="225.0" x2="493.9" y2="223.7"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="20" fill="#1e1e1e" text-anchor="start"><tspan x="230.0" y="46.0">Pratt parsing — recursion replaces the operator stack</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="88.0" y="-86.8">nud (prefix)</tspan><tspan x="88.0" y="-69.3">atom or unary op</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="368.0" y="-156.8">led (infix loop)</tspan><tspan x="368.0" y="-139.3">bp(next) &gt; left_bp ?</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="668.0" y="-156.8">emit postorder</tspan><tspan x="668.0" y="-139.3">right operand, then op</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#555555" text-anchor="start"><tspan x="275.0" y="125.4">nud returns</tspan><tspan x="275.0" y="141.7">left operand</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#555555" text-anchor="start"><tspan x="575.0" y="125.4">recurse with op's</tspan><tspan x="575.0" y="141.7">binding power</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#555555" text-anchor="start"><tspan x="405.0" y="260.4">loop while next</tspan><tspan x="405.0" y="276.6">bp &gt; left_bp</tspan></text>
+</svg>

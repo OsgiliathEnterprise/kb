@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 56.0 808.0 398.0" width="808" height="398">
+<rect x="16.0" y="56.0" width="808.0" height="398.0" fill="#ffffff"/>
+<rect x="40.0" y="80.0" width="200.0" height="70.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="320.0" y="80.0" width="200.0" height="70.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="600.0" y="80.0" width="200.0" height="70.0" rx="8" fill="#ffec99" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="320.0" y="240.0" width="200.0" height="70.0" rx="8" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="40.0" y="340.0" width="760.0" height="90.0" rx="8" fill="#e9ecef" stroke="#868e96" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 240.0 115.0 L 320.0 115.0"/><line x1="320.0" y1="115.0" x2="307.4" y2="108.9"/><line x1="320.0" y1="115.0" x2="307.4" y2="121.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 520.0 115.0 L 600.0 115.0"/><line x1="600.0" y1="115.0" x2="587.4" y2="108.9"/><line x1="600.0" y1="115.0" x2="587.4" y2="121.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 700.0 150.0 L 700.0 240.0"/><line x1="700.0" y1="240.0" x2="706.1" y2="227.4"/><line x1="700.0" y1="240.0" x2="693.9" y2="227.4"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 320.0 275.0 L 240.0 275.0"/><line x1="240.0" y1="275.0" x2="252.6" y2="281.1"/><line x1="240.0" y1="275.0" x2="252.6" y2="268.9"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="55.0" y="108.2">MCP client\n(token scope: user:read,\nworkers:read)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="335.0" y="108.2">403 insufficient_scope\nWWW-Authenticate:\nscope=baseline+missing</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="615.0" y="108.2">Client unions scopes\n(current ∪ challenge)\nre-auth via code flow</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="335.0" y="268.2">Retry original call\nwith union-scoped token\n→ 200</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="245.0" y="96.2">tool call</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="55.0" y="366.2">Google incremental auth instead: app notices the gap itself (no WWW-Authenticate),\nre-authenticates with include_granted_scopes=true, the AUTHORIZATION SERVER carries\nold scopes forward. MCP 2026-07-28: client computes the union — a stateless\nserver cannot do it (issue #2349).</tspan></text>
+</svg>

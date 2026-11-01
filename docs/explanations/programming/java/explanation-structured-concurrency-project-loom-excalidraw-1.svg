@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 -4.0 548.0 218.0" width="548" height="218">
+<rect x="16.0" y="-4.0" width="548.0" height="218.0" fill="#ffffff"/>
+<rect x="40.0" y="40.0" width="230.0" height="70.0" rx="0" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="340.0" y="20.0" width="200.0" height="50.0" rx="0" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="340.0" y="80.0" width="200.0" height="50.0" rx="0" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="340.0" y="140.0" width="200.0" height="50.0" rx="0" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 270.0 75.0 L 340.0 40.0"/><line x1="340.0" y1="40.0" x2="326.0" y2="40.1"/><line x1="340.0" y1="40.0" x2="331.5" y2="51.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 270.0 75.0 L 340.0 75.0"/><line x1="340.0" y1="75.0" x2="327.4" y2="68.9"/><line x1="340.0" y1="75.0" x2="327.4" y2="81.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 270.0 75.0 L 340.0 110.0"/><line x1="340.0" y1="110.0" x2="331.5" y2="98.9"/><line x1="340.0" y1="110.0" x2="326.0" y2="109.9"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="155.0" y="77.5">Request scope</tspan><tspan x="155.0" y="95.0">(unit of work)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="440.0" y="56.2">task A (virtual thread)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="440.0" y="116.2">task B (virtual thread)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="440.0" y="176.2">task C (virtual thread)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="160.4">scope exits -&gt; cancel/join all children</tspan><tspan x="40.0" y="176.7">child fails -&gt; can fail the whole group</tspan><tspan x="40.0" y="192.9">no orphaned threads, no lost errors</tspan></text>
+</svg>

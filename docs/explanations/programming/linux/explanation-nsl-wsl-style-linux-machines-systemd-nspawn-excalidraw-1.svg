@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 -4.0 848.0 218.0" width="848" height="218">
+<rect x="16.0" y="-4.0" width="848.0" height="218.0" fill="#ffffff"/>
+<rect x="40.0" y="60.0" width="220.0" height="90.0" rx="0" fill="#c4e0f2" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="340.0" y="60.0" width="220.0" height="90.0" rx="0" fill="#d9ccff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="640.0" y="20.0" width="200.0" height="70.0" rx="0" fill="#f9e0a3" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="640.0" y="120.0" width="200.0" height="70.0" rx="0" fill="#f9d3d3" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 260.0 105.0 L 340.0 105.0"/><line x1="340.0" y1="105.0" x2="327.4" y2="98.9"/><line x1="340.0" y1="105.0" x2="327.4" y2="111.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 560.0 90.0 L 640.0 60.0"/><line x1="640.0" y1="60.0" x2="626.1" y2="58.7"/><line x1="640.0" y1="60.0" x2="630.4" y2="70.2"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 560.0 120.0 L 640.0 160.0"/><line x1="640.0" y1="160.0" x2="631.5" y2="148.9"/><line x1="640.0" y1="160.0" x2="626.0" y2="159.9"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="150.0" y="98.7">Host (atomic)</tspan><tspan x="150.0" y="116.2">files under /mnt/host</tspan><tspan x="150.0" y="133.7">ports at 127.0.0.1</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="450.0" y="107.5">Shared QEMU VM</tspan><tspan x="450.0" y="125.0">(virtiofsd file sharing)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="740.0" y="57.5">machine: debian</tspan><tspan x="740.0" y="75.0">(systemd-nspawn)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="740.0" y="157.4">--isolated</tspan><tspan x="740.0" y="174.9">own VM, no host access</tspan></text>
+</svg>

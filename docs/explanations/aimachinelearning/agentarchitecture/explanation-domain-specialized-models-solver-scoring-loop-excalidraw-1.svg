@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 -4.0 748.0 398.0" width="748" height="398">
+<rect x="16.0" y="-4.0" width="748.0" height="398.0" fill="#ffffff"/>
+<rect x="40.0" y="70.0" width="200.0" height="80.0" rx="0" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="320.0" y="70.0" width="200.0" height="80.0" rx="0" fill="#ffec99" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="320.0" y="220.0" width="200.0" height="80.0" rx="0" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 240.0 110.0 L 320.0 110.0"/><line x1="320.0" y1="110.0" x2="307.4" y2="103.9"/><line x1="320.0" y1="110.0" x2="307.4" y2="116.1"/></g>
+<g stroke="#e8590c" stroke-width="1.5" fill="none"><path d="M 420.0 150.0 L 420.0 220.0"/><line x1="420.0" y1="220.0" x2="426.1" y2="207.4"/><line x1="420.0" y1="220.0" x2="413.9" y2="207.4"/></g>
+<g stroke="#2f9e44" stroke-width="1.5" fill="none"><path d="M 320.0 250.0 L 240.0 110.0"/><line x1="240.0" y1="110.0" x2="240.9" y2="124.0"/><line x1="240.0" y1="110.0" x2="251.6" y2="117.9"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="32.8">Maestro scoring loop: the domain's OWN tools judge the agent</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="140.0" y="104.6">Agent (Super Agent</tspan><tspan x="140.0" y="119.6">in Chip/Inno/Aura/ViraStack)</tspan><tspan x="140.0" y="134.6">proposes design output</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="420.0" y="97.1">DETERMINISTIC SOLVERS</tspan><tspan x="420.0" y="112.1">+ EDA tools score output</tspan><tspan x="420.0" y="127.1">against goals, constraints,</tspan><tspan x="420.0" y="142.1">ground truth</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="420.0" y="254.6">Verdict feeds the</tspan><tspan x="420.0" y="269.6">RL REWARD</tspan><tspan x="420.0" y="284.6">(post-training loop)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="342.8">Why it matters: in chip design the domain already HAS ground truth (solvers, simulators,</tspan><tspan x="40.0" y="362.8">verification suites) - so the reward signal is OBJECTIVE, unlike open-ended domains.</tspan></text>
+</svg>

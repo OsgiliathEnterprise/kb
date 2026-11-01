@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 16.0 828.0 358.0" width="828" height="358">
+<rect x="16.0" y="16.0" width="828.0" height="358.0" fill="#ffffff"/>
+<rect x="40.0" y="40.0" width="340.0" height="60.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="40.0" y="120.0" width="340.0" height="60.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="40.0" y="200.0" width="340.0" height="70.0" rx="8" fill="#ffec99" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="40.0" y="290.0" width="340.0" height="60.0" rx="8" fill="#ffec99" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="480.0" y="120.0" width="340.0" height="70.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="480.0" y="220.0" width="340.0" height="70.0" rx="8" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 210.0 100.0 L 210.0 120.0"/><line x1="210.0" y1="120.0" x2="213.5" y2="112.8"/><line x1="210.0" y1="120.0" x2="206.5" y2="112.8"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 210.0 180.0 L 210.0 200.0"/><line x1="210.0" y1="200.0" x2="213.5" y2="192.8"/><line x1="210.0" y1="200.0" x2="206.5" y2="192.8"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 210.0 270.0 L 210.0 290.0"/><line x1="210.0" y1="290.0" x2="213.5" y2="282.8"/><line x1="210.0" y1="290.0" x2="206.5" y2="282.8"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 380.0 320.0 L 480.0 170.0"/><line x1="480.0" y1="170.0" x2="467.9" y2="177.1"/><line x1="480.0" y1="170.0" x2="478.1" y2="183.9"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 650.0 190.0 L 650.0 220.0"/><line x1="650.0" y1="220.0" x2="654.6" y2="210.6"/><line x1="650.0" y1="220.0" x2="645.4" y2="210.6"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="55.0" y="66.2">1. Internal deployment logs leaked\nGitHub CLI tokens of 3 developers</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="55.0" y="146.2">2. One token = org OWNER\nbranch protection overridden (10:08)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="55.0" y="226.2">3. Release workflow pointed at\nlookalike repo Berri-AI/litellm\nsecond dev's creds passed review</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="55.0" y="316.2">4. Official pipeline builds, signs,\npublishes 7 wheels + sdist + Docker</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="495.0" y="146.2">pip install litellm==1.107.0\n→ site-packages gets cook.pth,\ncook.py, sitecustomize.py</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="495.0" y="246.2">Stealer fires once (AES+RSA exfil\nto litellm[.]dev) + daemon checks\nGitHub domain.txt hourly → /codepy</tspan></text>
+</svg>

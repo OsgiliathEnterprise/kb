@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 16.0 778.0 258.0" width="778" height="258">
+<rect x="16.0" y="16.0" width="778.0" height="258.0" fill="#ffffff"/>
+<rect x="40.0" y="40.0" width="190.0" height="70.0" rx="0" fill="#c4e0f2" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="310.0" y="40.0" width="200.0" height="70.0" rx="0" fill="#d9ccff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="580.0" y="40.0" width="190.0" height="70.0" rx="0" fill="#f9e0a3" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="310.0" y="180.0" width="200.0" height="70.0" rx="0" fill="#cdeac0" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="580.0" y="180.0" width="190.0" height="70.0" rx="0" fill="#f5d0d0" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 230.0 75.0 L 310.0 75.0"/><line x1="310.0" y1="75.0" x2="297.4" y2="68.9"/><line x1="310.0" y1="75.0" x2="297.4" y2="81.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 510.0 75.0 L 580.0 75.0"/><line x1="580.0" y1="75.0" x2="567.4" y2="68.9"/><line x1="580.0" y1="75.0" x2="567.4" y2="81.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 410.0 110.0 L 410.0 180.0"/><line x1="410.0" y1="180.0" x2="416.1" y2="167.4"/><line x1="410.0" y1="180.0" x2="403.9" y2="167.4"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 675.0 110.0 L 675.0 180.0"/><line x1="675.0" y1="180.0" x2="681.1" y2="167.4"/><line x1="675.0" y1="180.0" x2="668.9" y2="167.4"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="135.0" y="77.5">Inbound form</tspan><tspan x="135.0" y="95.0">name/title/company/domain</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="410.0" y="77.5">Step 1: domain -&gt; company</tspan><tspan x="410.0" y="95.0">(+ free-mail list, _matchCandidates)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="675.0" y="77.5">Step 2: decision makers</tspan><tspan x="675.0" y="95.0">founder/CEO first, 2 per company</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="410.0" y="217.4">Step 3: title-claim check</tspan><tspan x="410.0" y="234.9">function count = 0 -&gt; human</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="675.0" y="217.4">Step 4: personal mailbox</tspan><tspan x="675.0" y="234.9">reverse email lookup</tspan></text>
+</svg>

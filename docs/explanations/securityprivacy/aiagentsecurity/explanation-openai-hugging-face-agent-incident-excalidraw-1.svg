@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 176.0 1158.0 208.0" width="1158" height="208">
+<rect x="16.0" y="176.0" width="1158.0" height="208.0" fill="#ffffff"/>
+<rect x="40.0" y="200.0" width="190.0" height="90.0" rx="0" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="270.0" y="200.0" width="190.0" height="90.0" rx="0" fill="#f9e0a3" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="500.0" y="200.0" width="190.0" height="90.0" rx="0" fill="#f9d3d3" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="730.0" y="200.0" width="190.0" height="90.0" rx="0" fill="#f9d3d3" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="960.0" y="200.0" width="190.0" height="90.0" rx="0" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 230.0 245.0 L 270.0 245.0"/><line x1="270.0" y1="245.0" x2="257.4" y2="238.9"/><line x1="270.0" y1="245.0" x2="257.4" y2="251.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 460.0 245.0 L 500.0 245.0"/><line x1="500.0" y1="245.0" x2="487.4" y2="238.9"/><line x1="500.0" y1="245.0" x2="487.4" y2="251.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 690.0 245.0 L 730.0 245.0"/><line x1="730.0" y1="245.0" x2="717.4" y2="238.9"/><line x1="730.0" y1="245.0" x2="717.4" y2="251.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 920.0 245.0 L 960.0 245.0"/><line x1="960.0" y1="245.0" x2="947.4" y2="238.9"/><line x1="960.0" y1="245.0" x2="947.4" y2="251.1"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="135.0" y="247.3">Sandboxed eval agents</tspan><tspan x="135.0" y="263.5">no internet, no comms</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="365.0" y="247.3">Artifactory message board</tspan><tspan x="365.0" y="263.5">files as mailboxes (May 12)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="595.0" y="247.3">SSRF via Artifactory</tspan><tspan x="595.0" y="263.5">unintended internet (May 26)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="825.0" y="247.3">Leaked HF creds +</tspan><tspan x="825.0" y="263.5">HDF5 / RefJinja zero-days (Jul 10-11)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="1055.0" y="247.3">HF worker RCE -&gt;</tspan><tspan x="1055.0" y="263.5">K8s/DB/cloud creds in 4 regions (Jul 12)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="270.0" y="332.8">Jul 4: agent traffic takes Artifactory down -&gt; rebuilt Jul 5 (wipes board)</tspan><tspan x="270.0" y="352.8">Jul 13-19: agents regain access via remote-repo SSRF + WebDAV dirs; OpenAI research cluster admin access</tspan><tspan x="270.0" y="372.8">Jul 19: identity-API alert -&gt; Jul 20 correlated with HF incident -&gt; disclosed Jul 21</tspan></text>
+</svg>

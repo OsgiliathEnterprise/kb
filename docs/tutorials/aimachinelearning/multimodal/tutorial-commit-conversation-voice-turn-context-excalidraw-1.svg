@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 56.0 1028.0 298.0" width="1028" height="298">
+<rect x="16.0" y="56.0" width="1028.0" height="298.0" fill="#ffffff"/>
+<rect x="40.0" y="80.0" width="200.0" height="70.0" rx="0" fill="#c4e0f2" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="300.0" y="80.0" width="200.0" height="70.0" rx="0" fill="#d9ccff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="560.0" y="80.0" width="200.0" height="70.0" rx="0" fill="#f9e0a3" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="820.0" y="80.0" width="200.0" height="70.0" rx="0" fill="#c9e7c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="300.0" y="260.0" width="460.0" height="70.0" rx="0" fill="#f5c2c2" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 240.0 115.0 L 300.0 115.0"/><line x1="300.0" y1="115.0" x2="287.4" y2="108.9"/><line x1="300.0" y1="115.0" x2="287.4" y2="121.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 500.0 115.0 L 560.0 115.0"/><line x1="560.0" y1="115.0" x2="547.4" y2="108.9"/><line x1="560.0" y1="115.0" x2="547.4" y2="121.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 760.0 115.0 L 820.0 115.0"/><line x1="820.0" y1="115.0" x2="807.4" y2="108.9"/><line x1="820.0" y1="115.0" x2="807.4" y2="121.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 400.0 150.0 L 400.0 260.0"/><line x1="400.0" y1="260.0" x2="406.1" y2="247.4"/><line x1="400.0" y1="260.0" x2="393.9" y2="247.4"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 660.0 150.0 L 660.0 260.0"/><line x1="660.0" y1="260.0" x2="666.1" y2="247.4"/><line x1="660.0" y1="260.0" x2="653.9" y2="247.4"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="140.0" y="117.5">listening</tspan><tspan x="140.0" y="134.9">(partialText provisional)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="400.0" y="117.5">thinking</tspan><tspan x="400.0" y="134.9">(USER_FINAL committed)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="660.0" y="117.5">speaking</tspan><tspan x="660.0" y="134.9">(assistantDraft only)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="920.0" y="108.7">complete</tspan><tspan x="920.0" y="126.2">(SPEECH_FINISHED commits</tspan><tspan x="920.0" y="143.7">deliveredAssistantText)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="530.0" y="297.4">aborted / failed</tspan><tspan x="530.0" y="314.9">(INTERRUPTED or FAILED — stale callbacks cannot revive)</tspan></text>
+</svg>

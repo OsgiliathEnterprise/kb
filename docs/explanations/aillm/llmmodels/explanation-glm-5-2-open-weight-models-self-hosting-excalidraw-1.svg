@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="36.0 6.0 692.0 716.0" width="692" height="716">
+<rect x="36.0" y="6.0" width="692.0" height="716.0" fill="#ffffff"/>
+<rect x="60.0" y="80.0" width="260.0" height="92.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="60.0" y="240.0" width="260.0" height="92.0" rx="8" fill="#96f2d7" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="60.0" y="400.0" width="260.0" height="104.0" rx="8" fill="#ffec99" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="60.0" y="570.0" width="260.0" height="128.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 190.0 172.0 L 190.0 240.0"/><line x1="190.0" y1="240.0" x2="196.1" y2="227.4"/><line x1="190.0" y1="240.0" x2="183.9" y2="227.4"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 190.0 332.0 L 190.0 400.0"/><line x1="190.0" y1="400.0" x2="196.1" y2="387.4"/><line x1="190.0" y1="400.0" x2="183.9" y2="387.4"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 190.0 504.0 L 190.0 570.0"/><line x1="190.0" y1="570.0" x2="196.1" y2="557.4"/><line x1="190.0" y1="570.0" x2="183.9" y2="557.4"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="240.0" y="42.8">From Hosted-Model Pull to Open-Weight Self-Hosting</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="190.0" y="136.4">Fable 5 / Mythos 5 pulled worldwide</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="190.0" y="136.4">June 12 (US export-control</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="190.0" y="136.4">directive, no grace period)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="190.0" y="296.4">GLM-5.2 ships same week</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="190.0" y="296.4">Z.ai: MIT-licensed open weights,</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="190.0" y="296.4">753B MoE, 1M-token context</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="190.0" y="462.4">Lesson: access is not ownership</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="190.0" y="462.4">enterprises on Fable lost their</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="190.0" y="462.4">engine in an afternoon</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="190.0" y="644.4">Self-hosting economics</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="190.0" y="644.4">~$20k local hardware (DGX Spark)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="190.0" y="644.4">pays back vs API bills in 6-7 mo</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="190.0" y="644.4">swap models via config, not rewrite</tspan></text>
+</svg>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 -4.0 918.0 368.0" width="918" height="368">
+<rect x="16.0" y="-4.0" width="918.0" height="368.0" fill="#ffffff"/>
+<rect x="40.0" y="60.0" width="230.0" height="90.0" rx="0" fill="#c4e0f2" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="350.0" y="60.0" width="250.0" height="90.0" rx="0" fill="#d9ccff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="680.0" y="20.0" width="230.0" height="70.0" rx="0" fill="#f9e0a3" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="680.0" y="120.0" width="230.0" height="70.0" rx="0" fill="#a3f9c4" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="350.0" y="260.0" width="250.0" height="80.0" rx="0" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="155.0" y="98.7">Headlamp UI</tspan><tspan x="155.0" y="116.2">Cluster API section</tspan><tspan x="155.0" y="133.7">dashboard / lists / detail pages</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="475.0" y="98.7">Management cluster</tspan><tspan x="475.0" y="116.2">Cluster / MachineDeployment /</tspan><tspan x="475.0" y="133.7">MachineSet / Machine / KubeadmControlPlane</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="795.0" y="57.5">&lt;cluster&gt;-kubeconfig Secret</tspan><tspan x="795.0" y="75.0">-&gt; Headlamp.setCluster()</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="795.0" y="157.4">Workload cluster</tspan><tspan x="795.0" y="174.9">(jump from UI via kubeconfig)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="475.0" y="293.7">Scale action (MD/MS/KCP)</tspan><tspan x="475.0" y="311.2">respects cluster.x-k8s.io/paused</tspan><tspan x="475.0" y="328.7">Prometheus metrics inline</tspan></text>
+</svg>

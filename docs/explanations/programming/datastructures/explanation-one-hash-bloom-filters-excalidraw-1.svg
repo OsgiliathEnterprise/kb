@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="36.0 6.0 1509.0 443.0" width="1509" height="443">
+<rect x="36.0" y="6.0" width="1509.0" height="443.0" fill="#ffffff"/>
+<rect x="60.0" y="140.0" width="160.0" height="60.0" rx="8" fill="#cfe0f0" stroke="#2b5a8c" stroke-width="1.5"/>
+<rect x="320.0" y="140.0" width="300.0" height="60.0" rx="8" fill="#f0e0cf" stroke="#8c5a2b" stroke-width="1.5"/>
+<rect x="70.0" y="290.0" width="110.0" height="50.0" rx="8" fill="#d8f0d8" stroke="#2b7a2b" stroke-width="1.5"/>
+<rect x="200.0" y="290.0" width="110.0" height="50.0" rx="8" fill="#d8f0d8" stroke="#2b7a2b" stroke-width="1.5"/>
+<rect x="330.0" y="290.0" width="110.0" height="50.0" rx="8" fill="#d8f0d8" stroke="#2b7a2b" stroke-width="1.5"/>
+<rect x="460.0" y="290.0" width="110.0" height="50.0" rx="8" fill="#d8f0d8" stroke="#2b7a2b" stroke-width="1.5"/>
+<rect x="590.0" y="290.0" width="110.0" height="50.0" rx="8" fill="#d8f0d8" stroke="#2b7a2b" stroke-width="1.5"/>
+<rect x="720.0" y="290.0" width="110.0" height="50.0" rx="8" fill="#d8f0d8" stroke="#2b7a2b" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 220.0 170.0 L 320.0 170.0"/><line x1="320.0" y1="170.0" x2="307.4" y2="163.9"/><line x1="320.0" y1="170.0" x2="307.4" y2="176.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 470.0 200.0 L 125.0 290.0"/><line x1="125.0" y1="290.0" x2="138.7" y2="292.8"/><line x1="125.0" y1="290.0" x2="135.6" y2="280.9"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 470.0 200.0 L 255.0 290.0"/><line x1="255.0" y1="290.0" x2="269.0" y2="290.8"/><line x1="255.0" y1="290.0" x2="264.2" y2="279.5"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 470.0 200.0 L 385.0 290.0"/><line x1="385.0" y1="290.0" x2="398.1" y2="285.1"/><line x1="385.0" y1="290.0" x2="389.2" y2="276.6"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 470.0 200.0 L 515.0 290.0"/><line x1="515.0" y1="290.0" x2="514.9" y2="276.0"/><line x1="515.0" y1="290.0" x2="503.9" y2="281.5"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 470.0 200.0 L 645.0 290.0"/><line x1="645.0" y1="290.0" x2="636.6" y2="278.8"/><line x1="645.0" y1="290.0" x2="631.0" y2="289.7"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 470.0 200.0 L 775.0 290.0"/><line x1="775.0" y1="290.0" x2="764.7" y2="280.6"/><line x1="775.0" y1="290.0" x2="761.2" y2="292.3"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="24" fill="#1e1e1e" text-anchor="start"><tspan x="80.0" y="49.2">One-Hash Bloom Filter (gloom): 1 Hash -&gt; k Positions</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="90.0" y="172.8">key</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="335.0" y="169.2">single xxh3.Hash128</tspan><tspan x="335.0" y="186.7">Hi -&gt; block (MUL, no div)</tspan><tspan x="335.0" y="204.2">Lo -&gt; h</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="230.0" y="155.4">hash once</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="85.0" y="316.2">P0 (s0)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="215.0" y="316.2">P1 (s1)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="345.0" y="316.2">P2 (s2)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="475.0" y="316.2">P3 (s3)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="605.0" y="316.2">...</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="735.0" y="316.2">Pk-1 (sk-1)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="300.0" y="251.2">position in partition p:  h % size_p   (sizes pairwise coprime)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#555555" text-anchor="start"><tspan x="280.0" y="401.2">64-byte cache-line blocks (over-allocate + unsafe align) -&gt; worst case 1 cache miss</tspan><tspan x="280.0" y="418.7">ShardedAtomicFilter spreads concurrent writes across shards</tspan></text>
+</svg>

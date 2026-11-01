@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 96.0 878.0 228.0" width="878" height="228">
+<rect x="16.0" y="96.0" width="878.0" height="228.0" fill="#ffffff"/>
+<rect x="40.0" y="160.0" width="230.0" height="100.0" rx="0" fill="#d9ccff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="330.0" y="120.0" width="240.0" height="80.0" rx="0" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="330.0" y="220.0" width="240.0" height="80.0" rx="0" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="630.0" y="160.0" width="240.0" height="100.0" rx="0" fill="#f9e0a3" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 270.0 190.0 L 330.0 190.0"/><line x1="330.0" y1="190.0" x2="317.4" y2="183.9"/><line x1="330.0" y1="190.0" x2="317.4" y2="196.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 270.0 260.0 L 330.0 260.0"/><line x1="330.0" y1="260.0" x2="317.4" y2="253.9"/><line x1="330.0" y1="260.0" x2="317.4" y2="266.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 570.0 210.0 L 630.0 210.0"/><line x1="630.0" y1="210.0" x2="617.4" y2="203.9"/><line x1="630.0" y1="210.0" x2="617.4" y2="216.1"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="155.0" y="194.9">SDM 2024 edition</tspan><tspan x="155.0" y="212.4">full vfmaddrnd231pd entry</tspan><tspan x="155.0" y="229.9">immediate byte controls</tspan><tspan x="155.0" y="247.4">rounding / DAZ / FTZ / exceptions</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="450.0" y="162.4">Check 1: GNU as rejects the mnemonic</tspan><tspan x="450.0" y="179.9">Check 2: no intrinsics (not even ICC)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="450.0" y="253.7">Check 3: opcode VEX.DDS.128.66.0F3A.W1</tspan><tspan x="450.0" y="271.2">B8 /r /ib — stray &quot;DDS&quot; notation</tspan><tspan x="450.0" y="288.7">Check 4: executes as #UD on Haswell</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="750.0" y="194.9">SDM 2026 edition</tspan><tspan x="750.0" y="212.4">entry gone entirely</tspan><tspan x="750.0" y="229.9">(only the pd/231 variant was</tspan><tspan x="750.0" y="247.4">ever documented — no ps/sd/ss/132/213)</tspan></text>
+</svg>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 36.0 1028.0 368.0" width="1028" height="368">
+<rect x="16.0" y="36.0" width="1028.0" height="368.0" fill="#ffffff"/>
+<rect x="40.0" y="80.0" width="260.0" height="120.0" rx="0" fill="#c4e0f2" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="380.0" y="60.0" width="300.0" height="140.0" rx="0" fill="#d9ccff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="760.0" y="80.0" width="260.0" height="120.0" rx="0" fill="#f9e0a3" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="380.0" y="280.0" width="300.0" height="100.0" rx="0" fill="#c9e7c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 300.0 140.0 L 380.0 120.0"/><line x1="380.0" y1="120.0" x2="366.3" y2="117.1"/><line x1="380.0" y1="120.0" x2="369.3" y2="129.0"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 680.0 140.0 L 760.0 120.0"/><line x1="760.0" y1="120.0" x2="746.3" y2="117.1"/><line x1="760.0" y1="120.0" x2="749.3" y2="129.0"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 890.0 200.0 L 740.0 300.0"/><line x1="740.0" y1="300.0" x2="753.9" y2="298.1"/><line x1="740.0" y1="300.0" x2="747.1" y2="287.9"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="170.0" y="125.0">Google Apps Script</tspan><tspan x="170.0" y="142.4">ManagedAgentSandboxClient.js</tspan><tspan x="170.0" y="159.9">ScriptApp.getOAuthToken()</tspan><tspan x="170.0" y="177.4">PropertiesService session store</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="530.0" y="106.2">Gemini v1beta Interactions /</tspan><tspan x="530.0" y="123.7">Environments API</tspan><tspan x="530.0" y="141.2">provisions persistent sandbox:</tspan><tspan x="530.0" y="158.7">4 vCPU / 16 GB RAM,</tspan><tspan x="530.0" y="176.2">Python 3.12, Node.js 22, apt/npm/pip</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="890.0" y="125.0">ggsrun CLI in sandbox</tspan><tspan x="890.0" y="142.4">ggsrun upload / download</tspan><tspan x="890.0" y="159.9">GGSRUN_AT env = fresh OAuth token</tspan><tspan x="890.0" y="177.4">streams at 2+ MB/s</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="530.0" y="314.9">Google Drive</tspan><tspan x="530.0" y="332.4">ManagedAgent_Artifacts_YYYYMMDD/</tspan><tspan x="530.0" y="349.9">direct cloud-to-cloud transfer,</tspan><tspan x="530.0" y="367.4">no Base64 through the API</tspan></text>
+</svg>

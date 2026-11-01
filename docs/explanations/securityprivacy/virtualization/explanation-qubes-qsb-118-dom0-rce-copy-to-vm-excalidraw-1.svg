@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 176.0 1198.0 218.0" width="1198" height="218">
+<rect x="16.0" y="176.0" width="1198.0" height="218.0" fill="#ffffff"/>
+<rect x="40.0" y="200.0" width="200.0" height="95.0" rx="0" fill="#f9d3d3" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="270.0" y="200.0" width="210.0" height="95.0" rx="0" fill="#ffe8cc" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="510.0" y="200.0" width="210.0" height="95.0" rx="0" fill="#fff3bf" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="750.0" y="200.0" width="210.0" height="95.0" rx="0" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="990.0" y="200.0" width="200.0" height="95.0" rx="0" fill="#f9d3d3" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 240.0 247.0 L 270.0 247.0"/><line x1="270.0" y1="247.0" x2="260.6" y2="242.4"/><line x1="270.0" y1="247.0" x2="260.6" y2="251.6"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 480.0 247.0 L 510.0 247.0"/><line x1="510.0" y1="247.0" x2="500.6" y2="242.4"/><line x1="510.0" y1="247.0" x2="500.6" y2="251.6"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 720.0 247.0 L 750.0 247.0"/><line x1="750.0" y1="247.0" x2="740.6" y2="242.4"/><line x1="750.0" y1="247.0" x2="740.6" y2="251.6"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 960.0 247.0 L 990.0 247.0"/><line x1="990.0" y1="247.0" x2="980.6" y2="242.4"/><line x1="990.0" y1="247.0" x2="980.6" y2="251.6"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="140.0" y="249.9">Malicious qube</tspan><tspan x="140.0" y="267.4">(attacker-controlled)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="375.0" y="232.4">qfile protocol</tspan><tspan x="375.0" y="249.9">transfer confirmation:</tspan><tspan x="375.0" y="267.4">checksum + error code</tspan><tspan x="375.0" y="284.9">+ last filename</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="615.0" y="232.4">dom0 wait_for_result()</tspan><tspan x="615.0" y="249.9">sanitize_remote_filename()</tspan><tspan x="615.0" y="267.4">strips only non-ASCII</tspan><tspan x="615.0" y="284.9">and double quotes</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="855.0" y="232.4">display_error() -&gt; system()</tspan><tspan x="855.0" y="249.9">kdialog/zenity shell cmd</tspan><tspan x="855.0" y="267.4">built with attacker</tspan><tspan x="855.0" y="284.9">filename</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="1090.0" y="249.9">DOM0 RCE</tspan><tspan x="1090.0" y="267.4">takeover of Qubes OS</tspan></text>
+
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="480.0" y="233.4">error path</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="720.0" y="233.4">shell metachars survive</tspan></text>
+
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="270.0" y="340.4">Fix: qubes-core-dom0-linux 4.3.22 (Qubes 4.3 dom0). VM-side variant is NOT affected (uses execlp, not system()).</tspan></text>
+</svg>

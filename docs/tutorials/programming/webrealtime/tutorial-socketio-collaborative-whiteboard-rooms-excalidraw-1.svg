@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 -9.0 758.0 343.0" width="758" height="343">
+<rect x="16.0" y="-9.0" width="758.0" height="343.0" fill="#ffffff"/>
+<rect x="40.0" y="60.0" width="190.0" height="100.0" rx="0" fill="#c4e0f2" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="290.0" y="60.0" width="210.0" height="100.0" rx="0" fill="#d9ccff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="560.0" y="60.0" width="190.0" height="100.0" rx="0" fill="#f9e0a3" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="290.0" y="220.0" width="210.0" height="90.0" rx="0" fill="#f9d3d3" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 230.0 110.0 L 290.0 110.0"/><line x1="290.0" y1="110.0" x2="277.4" y2="103.9"/><line x1="290.0" y1="110.0" x2="277.4" y2="116.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 500.0 110.0 L 560.0 110.0"/><line x1="560.0" y1="110.0" x2="547.4" y2="103.9"/><line x1="560.0" y1="110.0" x2="547.4" y2="116.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 395.0 160.0 L 395.0 220.0"/><line x1="395.0" y1="220.0" x2="401.1" y2="207.4"/><line x1="395.0" y1="220.0" x2="388.9" y2="207.4"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="27.8">Socket.IO whiteboard: event flow through rooms</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="135.0" y="95.0">Client A</tspan><tspan x="135.0" y="112.5">draws a line</tspan><tspan x="135.0" y="129.9">emit('draw', {from,to,color})</tspan><tspan x="135.0" y="147.4">+ optimistic local render</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="395.0" y="95.0">Server</tspan><tspan x="395.0" y="112.5">validate payload + authorize</tspan><tspan x="395.0" y="129.9">look up room (boardId)</tspan><tspan x="395.0" y="147.4">socket.to(room).emit(...)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="655.0" y="95.0">Client B (+ others)</tspan><tspan x="655.0" y="112.5">joined room board-123</tspan><tspan x="655.0" y="129.9">render incoming op</tspan><tspan x="655.0" y="147.4">dedup by op id</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="395.0" y="258.7">On reconnect: snapshot +</tspan><tspan x="395.0" y="276.2">replay ops; rate limits,</tspan><tspan x="395.0" y="293.7">payload caps, persistence</tspan></text>
+</svg>

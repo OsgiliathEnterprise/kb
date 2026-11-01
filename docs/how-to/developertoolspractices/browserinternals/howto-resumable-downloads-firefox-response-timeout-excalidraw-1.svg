@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 136.0 618.0 148.0" width="618" height="148">
+<rect x="16.0" y="136.0" width="618.0" height="148.0" fill="#ffffff"/>
+<rect x="40.0" y="160.0" width="250.0" height="100.0" rx="0" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="360.0" y="160.0" width="250.0" height="100.0" rx="0" fill="#b8e6b8" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 290.0 210.0 L 360.0 210.0"/><line x1="360.0" y1="210.0" x2="347.4" y2="203.9"/><line x1="360.0" y1="210.0" x2="347.4" y2="216.1"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="165.0" y="194.9">Default: network.http.response.timeout = 300 s</tspan><tspan x="165.0" y="212.4">long transfer exceeds timeout</tspan><tspan x="165.0" y="229.9">hidden retries get interrupted</tspan><tspan x="165.0" y="247.4">.part NOT resumed on error</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="485.0" y="194.9">Fix: set timeout to 0 (or very large)</tspan><tspan x="485.0" y="212.4">in about:config</tspan><tspan x="485.0" y="229.9">downloads resumable + more stable</tspan><tspan x="485.0" y="247.4">(server must support resumption)</tspan></text>
+</svg>

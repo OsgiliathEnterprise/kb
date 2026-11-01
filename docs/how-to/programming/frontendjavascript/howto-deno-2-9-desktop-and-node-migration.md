@@ -37,73 +37,7 @@ Deno 2.9 (released June 2026) is a major update to the JavaScript/TypeScript/Web
 
 ## How to migrate an existing Node.js project
 
-```excalidraw
-{
-  "type": "drawing",
-  "version": 2,
-  "source": "https://github.com/excalidraw/excalidraw",
-  "elements": [
-    {
-      "id": "d1",
-      "type": "rectangle",
-      "x": 40,
-      "y": 80,
-      "width": 220,
-      "height": 100,
-      "strokeColor": "#1e1e1e",
-      "backgroundColor": "#f9e0a3",
-      "fillStyle": "solid",
-      "strokeWidth": 2,
-      "text": { "content": "Node.js project\npackage.json + lockfile\n(npm/pnpm/Yarn/Bun)", "fontSize": 14, "fontFamily": 1 }
-    },
-    {
-      "id": "d2",
-      "type": "rectangle",
-      "x": 340,
-      "y": 80,
-      "width": 240,
-      "height": 100,
-      "strokeColor": "#1e1e1e",
-      "backgroundColor": "#c4e0f2",
-      "fillStyle": "solid",
-      "strokeWidth": 2,
-      "text": { "content": "deno install\nreads existing lockfile,\nfetches deps as-is", "fontSize": 14, "fontFamily": 1 }
-    },
-    {
-      "id": "d3",
-      "type": "rectangle",
-      "x": 660,
-      "y": 80,
-      "width": 240,
-      "height": 100,
-      "strokeColor": "#1e1e1e",
-      "backgroundColor": "#c9e7c9",
-      "fillStyle": "solid",
-      "strokeWidth": 2,
-      "text": { "content": "deno task dev\n(app already on Deno)", "fontSize": 14, "fontFamily": 1 }
-    },
-    {
-      "id": "d4",
-      "type": "rectangle",
-      "x": 340,
-      "y": 260,
-      "width": 560,
-      "height": 100,
-      "strokeColor": "#1e1e1e",
-      "backgroundColor": "#d9ccff",
-      "fillStyle": "solid",
-      "strokeWidth": 2,
-      "text": { "content": "Optional: deno desktop\ncompile web repo (Next.js / Astro / SvelteKit) into one\nnative self-contained binary per platform", "fontSize": 14, "fontFamily": 1 }
-    },
-    [
-      { "id": "d5", "type": "arrow", "x": 260, "y": 130, "width": 80, "height": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "points": [[0, 0], [80, 0]] }
-    ],
-    [
-      { "id": "d6", "type": "arrow", "x": 580, "y": 130, "width": 80, "height": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "points": [[0, 0], [80, 0]] }
-    ]
-  ]
-}
-```
+![Diagram 1 — howto-deno-2-9-desktop-and-node-migration](howto-deno-2-9-desktop-and-node-migration-excalidraw-1.svg)
 
 1. **Install dependencies** — in the existing project root, run:
    ```bash

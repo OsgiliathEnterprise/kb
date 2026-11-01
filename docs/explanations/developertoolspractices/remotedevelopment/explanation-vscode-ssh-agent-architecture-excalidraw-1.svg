@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 -4.0 828.0 324.0" width="828" height="324">
+<rect x="16.0" y="-4.0" width="828.0" height="324.0" fill="#ffffff"/>
+<rect x="40.0" y="80.0" width="260.0" height="110.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="500.0" y="80.0" width="320.0" height="110.0" rx="8" fill="#ffc9c9" stroke="#e03131" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 300.0 115.0 L 500.0 115.0"/><line x1="500.0" y1="115.0" x2="487.4" y2="108.9"/><line x1="500.0" y1="115.0" x2="487.4" y2="121.1"/></g>
+<g stroke="#e8590c" stroke-width="1.5" fill="none"><path d="M 500.0 165.0 L 300.0 165.0"/><line x1="300.0" y1="165.0" x2="312.6" y2="171.1"/><line x1="300.0" y1="165.0" x2="312.6" y2="158.9"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="32.8">VSCode remote-over-SSH: stager installs agent; WebSocket back-channel to local front-end</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="52.0" y="105.2">Your laptop</tspan><tspan x="52.0" y="122.7">VSCode front-end (UI)</tspan><tspan x="52.0" y="140.2">runs the bash snippet stager</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="512.0" y="105.2">Remote host (dev server / Fly Machine)</tspan><tspan x="512.0" y="122.7">VSCode agent + Node binary installed</tspan><tspan x="512.0" y="140.2">FS access, file edits, PTY spawn, self-persist</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="320.0" y="106.2">SSH (stager + port-forward)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#e8590c" text-anchor="start"><tspan x="320.0" y="186.2">WebSockets back to front-end</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="241.2">Contrast: Emacs Tramp lives off the land on the SSH connection (no installed agent).</tspan><tspan x="40.0" y="258.7">VSCode installs Node + agent -&gt; capability profile = remote code execution with persistence.</tspan><tspan x="40.0" y="276.2">Audit before pointing at shared/production hosts; for agentic loops prefer a disposable instance.</tspan></text>
+</svg>

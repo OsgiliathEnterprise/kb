@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 -4.0 868.0 378.0" width="868" height="378">
+<rect x="16.0" y="-4.0" width="868.0" height="378.0" fill="#ffffff"/>
+<rect x="40.0" y="70.0" width="360.0" height="240.0" rx="8" fill="none" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="460.0" y="70.0" width="380.0" height="240.0" rx="8" fill="none" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 400.0 190.0 L 460.0 190.0"/><line x1="460.0" y1="190.0" x2="447.4" y2="183.9"/><line x1="460.0" y1="190.0" x2="447.4" y2="196.1"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="32.8">Apple Reference Image — two-phase verifiable photography (iPhone 18 Pro)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="55.0" y="92.8">Phase 1: Secure digital negative (on-device)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="55.0" y="120.8">Sensor secure-boots into reference mode,</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="55.0" y="137.8">signs pixel data immediately after capture</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="55.0" y="154.8">(hardware-enforced; firmware cannot modify)</tspan></text>
+
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="55.0" y="188.8">Off-sensor metadata (zoom bounds, focal</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="55.0" y="205.8">length) signed by Secure Enclave Processor</tspan></text>
+
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="55.0" y="239.8">Dual cryptographic timestamps:</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="55.0" y="256.8">lower bound = last heartbeat token (~15 min),</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="55.0" y="273.8">upper bound = requested after capture;</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="55.0" y="290.8">both embedded + signed with sensor data</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="475.0" y="92.8">Phase 2: Development in Private Cloud Compute</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="475.0" y="120.8">Negative uploaded to PCC (verifiable,</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="475.0" y="137.8">append-only transparency log of builds)</tspan></text>
+
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="475.0" y="171.8">Neural-net confidence score checks raw</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="475.0" y="188.8">sensor characteristics; then demosaic,</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="475.0" y="205.8">tone map, compress to JPEG</tspan></text>
+
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="475.0" y="239.8">JPEG hash = photo GUID; checked against</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="475.0" y="256.8">revocation list + sensor confidence</tspan></text>
+
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="475.0" y="290.8">Signed with composite post-quantum scheme:</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="475.0" y="307.8">MLDSA87-RSA-3072-PSS-SHA512, embedded in JPEG</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="342.8">Client verifies final signature + GUID not revoked before display. Negative auto-moves to deleted photos (purged after 30 days).</tspan></text>
+</svg>

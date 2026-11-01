@@ -37,61 +37,7 @@ The same thresholds and routing work across all three clouds:
 
 The tiers create **lead time**: by the time you hit 100%, you already had two warnings to act on.
 
-```excalidraw
-{
-  "type": "drawing",
-  "version": 2,
-  "source": "https://github.com/excalidraw/excalidraw",
-  "elements": [
-    {
-      "id": "b1", "type": "rectangle", "x": 40, "y": 120, "width": 220, "height": 100,
-      "strokeColor": "#1e1e1e", "backgroundColor": "#f9e0a3", "fillStyle": "solid", "strokeWidth": 2,
-      "text": { "content": "Monthly spend\n(GPU jobs + AI\nmake burn non-linear)", "fontSize": 14, "fontFamily": 1 }
-    },
-    {
-      "id": "b2", "type": "rectangle", "x": 340, "y": 30, "width": 240, "height": 80,
-      "strokeColor": "#1e1e1e", "backgroundColor": "#c9e7c9", "fillStyle": "solid", "strokeWidth": 2,
-      "text": { "content": "Tier 1 · 50% WARN\n→ email / #cost-watch", "fontSize": 14, "fontFamily": 1 }
-    },
-    {
-      "id": "b3", "type": "rectangle", "x": 340, "y": 140, "width": 240, "height": 80,
-      "strokeColor": "#1e1e1e", "backgroundColor": "#f9d3d3", "fillStyle": "solid", "strokeWidth": 2,
-      "text": { "content": "Tier 2 · 80% ALERT\n→ on-call FinOps", "fontSize": 14, "fontFamily": 1 }
-    },
-    {
-      "id": "b4", "type": "rectangle", "x": 340, "y": 250, "width": 240, "height": 80,
-      "strokeColor": "#1e1e1e", "backgroundColor": "#f9a3a3", "fillStyle": "solid", "strokeWidth": 2,
-      "text": { "content": "Tier 3 · 100% PANIC\n→ PagerDuty / sev-2", "fontSize": 14, "fontFamily": 1 }
-    },
-    {
-      "id": "b5", "type": "rectangle", "x": 660, "y": 30, "width": 260, "height": 80,
-      "strokeColor": "#1e1e1e", "backgroundColor": "#c4e0f2", "fillStyle": "solid", "strokeWidth": 2,
-      "text": { "content": "AWS Budgets\n→ SNS → Slack / Lambda", "fontSize": 14, "fontFamily": 1 }
-    },
-    {
-      "id": "b6", "type": "rectangle", "x": 660, "y": 140, "width": 260, "height": 80,
-      "strokeColor": "#1e1e1e", "backgroundColor": "#c4e0f2", "fillStyle": "solid", "strokeWidth": 2,
-      "text": { "content": "GCP Budgets\n→ Pub/Sub → Cloud Fn", "fontSize": 14, "fontFamily": 1 }
-    },
-    {
-      "id": "b7", "type": "rectangle", "x": 660, "y": 250, "width": 260, "height": 80,
-      "strokeColor": "#1e1e1e", "backgroundColor": "#c4e0f2", "fillStyle": "solid", "strokeWidth": 2,
-      "text": { "content": "Azure Budgets\n→ Action Groups", "fontSize": 14, "fontFamily": 1 }
-    },
-    {
-      "id": "b8", "type": "rectangle", "x": 340, "y": 360, "width": 580, "height": 80,
-      "strokeColor": "#1e1e1e", "backgroundColor": "#d9ccff", "fillStyle": "solid", "strokeWidth": 2,
-      "text": { "content": "Quarterly budget refresh  +  Forecasted alert @100%  +  cost anomaly detection", "fontSize": 14, "fontFamily": 1 }
-    },
-    { "id": "a1", "type": "arrow", "x": 260, "y": 150, "width": 80, "height": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "strokeWidth": 2, "points": [[0,0],[80,0]] },
-    { "id": "a2", "type": "arrow", "x": 260, "y": 170, "width": 80, "height": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "strokeWidth": 2, "points": [[0,0],[80,0]] },
-    { "id": "a3", "type": "arrow", "x": 260, "y": 190, "width": 80, "height": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "strokeWidth": 2, "points": [[0,0],[80,0]] },
-    { "id": "a4", "type": "arrow", "x": 580, "y": 70, "width": 80, "height": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "strokeWidth": 2, "points": [[0,0],[80,0]] },
-    { "id": "a5", "type": "arrow", "x": 580, "y": 180, "width": 80, "height": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "strokeWidth": 2, "points": [[0,0],[80,0]] },
-    { "id": "a6", "type": "arrow", "x": 580, "y": 290, "width": 80, "height": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "strokeWidth": 2, "points": [[0,0],[80,0]] }
-  ]
-}
-```
+![Diagram 1 — howto-cloud-budget-alerts-aws-gcp-azure](howto-cloud-budget-alerts-aws-gcp-azure-excalidraw-1.svg)
 
 ## AWS
 

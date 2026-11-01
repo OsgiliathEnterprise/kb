@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="36.0 176.0 768.0 138.0" width="768" height="138">
+<rect x="36.0" y="176.0" width="768.0" height="138.0" fill="#ffffff"/>
+<rect x="60.0" y="200.0" width="220.0" height="90.0" rx="0" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="340.0" y="215.0" width="160.0" height="60.0" rx="0" fill="#fff3bf" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="560.0" y="200.0" width="220.0" height="90.0" rx="0" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 280.0 245.0 L 340.0 245.0"/><line x1="340.0" y1="245.0" x2="327.4" y2="238.9"/><line x1="340.0" y1="245.0" x2="327.4" y2="251.1"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="170.0" y="238.7">SENDER</tspan><tspan x="170.0" y="256.2">ip addr add fd42:dead:beef::1/48 dev eth0</tspan><tspan x="170.0" y="273.7">socat - 'TCP6-CONNECT:[...::2]:1234' &lt; file</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="420.0" y="238.7">plain Ethernet</tspan><tspan x="420.0" y="256.2">patch cable</tspan><tspan x="420.0" y="273.7">(~900 Mbit/s)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="670.0" y="238.7">RECEIVER</tspan><tspan x="670.0" y="256.2">ip addr add fd42:dead:beef::2/48 dev eth0</tspan><tspan x="670.0" y="273.7">socat - TCP6-LISTEN:1234 | dd &gt; file</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="280.0" y="231.4">point-to-point IPv6</tspan></text>
+</svg>

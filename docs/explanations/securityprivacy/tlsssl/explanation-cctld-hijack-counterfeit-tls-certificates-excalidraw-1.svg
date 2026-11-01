@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 36.0 768.0 308.0" width="768" height="308">
+<rect x="16.0" y="36.0" width="768.0" height="308.0" fill="#ffffff"/>
+<rect x="40.0" y="60.0" width="200.0" height="80.0" rx="0" fill="#f9d3d3" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="300.0" y="60.0" width="200.0" height="80.0" rx="0" fill="#f9e0a3" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="560.0" y="60.0" width="200.0" height="80.0" rx="0" fill="#d9ccff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="560.0" y="240.0" width="200.0" height="80.0" rx="0" fill="#c4e0f2" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 240.0 100.0 L 300.0 100.0"/><line x1="300.0" y1="100.0" x2="287.4" y2="93.9"/><line x1="300.0" y1="100.0" x2="287.4" y2="106.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 500.0 100.0 L 560.0 100.0"/><line x1="560.0" y1="100.0" x2="547.4" y2="93.9"/><line x1="560.0" y1="100.0" x2="547.4" y2="106.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 660.0 140.0 L 660.0 240.0"/><line x1="660.0" y1="240.0" x2="666.1" y2="227.4"/><line x1="660.0" y1="240.0" x2="653.9" y2="227.4"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="140.0" y="102.3">compromise ccTLD registries</tspan><tspan x="140.0" y="118.5">(.gh / .sl / .as)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="400.0" y="102.3">modify authoritative DNS</tspan><tspan x="400.0" y="118.5">records + nameserver delegations</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="660.0" y="102.3">pass DCV checks</tspan><tspan x="660.0" y="118.5">obtain certs from CAs</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="660.0" y="282.3">cryptographic impersonation</tspan><tspan x="660.0" y="298.5">of affected infrastructure</tspan></text>
+</svg>
