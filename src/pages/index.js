@@ -4,34 +4,68 @@ import styles from './index.module.css';
 
 const BASE_URL = '/kb/';
 
+// Shared feed of recent content, regenerated daily by the sync pipeline
+// (static/whats-new.json). Links in that file are site-root-relative
+// ("/tutorials/…") and must be prefixed with BASE_URL before use.
+// Individual articles rotate out with the daily pipeline, so the homepage
+// must never hardcode article URLs — link to the stable generated-index
+// pages (tutorials/, how-to/, explanations/, examples/) or to this feed.
+function useWhatsNew() {
+  const [items, setItems] = useState(null);
+  useEffect(() => {
+    let alive = true;
+    fetch(BASE_URL + 'whats-new.json')
+      .then((r) => (r.ok ? r.json() : Promise.reject(new Error('bad whats-new feed'))))
+      .then((data) => {
+        if (!alive) return;
+        if (!Array.isArray(data)) {
+          setItems([]);
+          return;
+        }
+        setItems(
+          data
+            .filter((it) => it && it.title && it.link)
+            .map((it) => ({ ...it, href: BASE_URL + String(it.link).replace(/^\//, '') })),
+        );
+      })
+      .catch(() => {
+        if (alive) setItems([]);
+      });
+    return () => {
+      alive = false;
+    };
+  }, []);
+  return items;
+}
+
 function DiataxisNav() {
   const types = [
     {
       title: 'Tutorials',
       description: 'Step-by-step learning paths for beginners and intermediate learners. Master new topics from the ground up.',
       icon: '📘',
-      link: BASE_URL + 'tutorials/ai-machine-learning/llms-agents/tutorial-what-is-code',
+      link: BASE_URL + 'tutorials/',
       color: '#3a7ca5',
     },
     {
       title: 'How-to Guides',
       description: 'Goal-oriented guides that solve specific problems. Get from A to B with clear, actionable steps.',
       icon: '🛠️',
-      link: BASE_URL + 'how-to/ai-machine-learning/llms-agents/howto-anthropic-routines-claude',
+      link: BASE_URL + 'how-to/',
       color: '#c9a84c',
     },
     {
       title: 'Explanations',
       description: 'Technical explanations, concepts, and factual information. Quick lookups for developers.',
       icon: '📖',
-      link: BASE_URL + 'explanations/ai-machine-learning/llms-agents/explanation-agent-protocol-stack-mcp-a2a-ag-ui',
+      link: BASE_URL + 'explanations/',
       color: '#d4572a',
     },
     {
       title: 'Examples',
       description: 'Working code, demos, and concrete implementations. See it in action before you build it yourself.',
       icon: '💡',
-      link: BASE_URL + 'examples/ai-machine-learning/llms-agents/example-structured-prompt-driven-development-spdd',
+      link: BASE_URL + 'examples/',
       color: '#5ba3c9',
     },
   ];
@@ -64,13 +98,16 @@ function DiataxisNav() {
 }
 
 function DomainExplorer() {
+  // Links point to the stable generated-index pages of the learning type
+  // where each domain publishes most of its content — never to individual
+  // rotating articles.
   const domains = [
-    { name: 'AI & Machine Learning', topics: 'LLMs, Local AI, ML Ops, Agent Dev', link: BASE_URL + 'tutorials/ai-machine-learning/llms-agents/tutorial-what-is-code' },
-    { name: 'Cloud & Infrastructure', topics: 'Kubernetes, GPU, Cloud Platforms', link: BASE_URL + 'how-to/cloud-infrastructure/kubernetes/howto-running-agents-on-kubernetes-with-agent-sandbox' },
-    { name: 'Programming', topics: 'Java, Spring, Query Optimization', link: BASE_URL + 'how-to/programming/java-spring/howto-clean-up-test-data-spring' },
-    { name: 'Developer Tools', topics: 'CI/CD, Architecture, Reliability', link: BASE_URL + 'explanations/developer-tools-practices/cicd-platforms/explanation-ci-for-coding-agents' },
-    { name: 'Data & Databases', topics: 'Data Mesh, Warehousing, Pipelines', link: BASE_URL + 'explanations/data-databases/data-architecture/explanation-monzo-data-mesh' },
-    { name: 'Security & Privacy', topics: 'AppSec, Vulnerabilities, Auth', link: BASE_URL + 'explanations/security-privacy/appsec-privacy/explanation-chromium-browser-fetch-vulnerability' },
+    { name: 'AI & Machine Learning', topics: 'LLMs, Local AI, ML Ops, Agent Dev', link: BASE_URL + 'tutorials/' },
+    { name: 'Cloud & Infrastructure', topics: 'Kubernetes, GPU, Cloud Platforms', link: BASE_URL + 'how-to/' },
+    { name: 'Programming', topics: 'Java, Spring, Query Optimization', link: BASE_URL + 'how-to/' },
+    { name: 'Developer Tools', topics: 'CI/CD, Architecture, Reliability', link: BASE_URL + 'explanations/' },
+    { name: 'Data & Databases', topics: 'Data Mesh, Warehousing, Pipelines', link: BASE_URL + 'tutorials/' },
+    { name: 'Security & Privacy', topics: 'AppSec, Vulnerabilities, Auth', link: BASE_URL + 'explanations/' },
   ];
 
   return (
@@ -95,14 +132,11 @@ function DomainExplorer() {
 }
 
 function WhatsNew() {
-  // Recent content — updated by sync script
-  const recent = [
-    { title: 'Replace Deprecated Genericgenerator', type: 'Tutorials', link: BASE_URL + 'tutorials/programming/java-spring/tutorial-replace-deprecated-genericgenerator', time: '2 min read' },
-    { title: 'What Is Code', type: 'Tutorials', link: BASE_URL + 'tutorials/ai-machine-learning/llms-agents/tutorial-what-is-code', time: '4 min read' },
-    { title: 'Mac Mini Agent Infrastructure', type: 'Tutorials', link: BASE_URL + 'tutorials/ai-machine-learning/aiassisted-development/tutorial-mac-mini-agent-infrastructure', time: '6 min read' },
-    { title: 'Spring Security in the AI Era', type: 'Explanation', link: BASE_URL + 'explanations/programming/java-spring/explanation-spring-security-ai-era', time: '3 min read' },
-    { title: 'Context Aware Authorization Ai Agents', type: 'Explanation', link: BASE_URL + 'explanations/security-privacy/appsec-privacy/explanation-context-aware-authorization-ai-agents', time: '3 min read' },
-  ];
+  // Recent content — served from static/whats-new.json, updated daily by the
+  // sync script. The section hides itself when the feed is unavailable.
+  const recent = useWhatsNew();
+
+  if (!recent || recent.length === 0) return null;
 
   return (
     <section className={styles.section}>
@@ -112,16 +146,16 @@ function WhatsNew() {
           Fresh content added to the learning hub — updated daily from our research pipeline.
         </p>
         <div className={styles.whatsNewGrid}>
-          {recent.map((item, idx) => (
+          {recent.slice(0, 5).map((item, idx) => (
             <a
               key={idx}
-              href={item.link}
+              href={item.href}
               className={styles.whatsNewCard}
               style={{ animationDelay: `${idx * 0.05}s` }}
             >
               <span className={styles.whatsNewType}>{item.type}</span>
               <h4 className={styles.whatsNewTitle}>{item.title}</h4>
-              <span className={styles.whatsNewTime}>{item.time}</span>
+              <span className={styles.whatsNewTime}>{item.time || ''}</span>
             </a>
           ))}
         </div>
@@ -131,25 +165,13 @@ function WhatsNew() {
 }
 
 function DailyPick() {
-  const [pick, setPick] = useState(null);
+  const items = useWhatsNew();
 
-  useEffect(() => {
-    // Rotate picks based on day of year
-    const articles = [
-      { title: 'What is Code? A Deep Dive', link: BASE_URL + 'tutorials/ai-machine-learning/llms-agents/tutorial-what-is-code', type: 'Tutorial' },
-      { title: 'Anthropic Routines for Claude', link: BASE_URL + 'how-to/ai-machine-learning/llms-agents/howto-anthropic-routines-claude', type: 'How-to' },
-      { title: 'Agent Protocol Stack: MCP, A2A, AG-UI', link: BASE_URL + 'explanations/ai-machine-learning/llms-agents/explanation-agent-protocol-stack-mcp-a2a-ag-ui', type: 'Explanation' },
-      { title: 'Mac Mini Agent Infrastructure', link: BASE_URL + 'tutorials/ai-machine-learning/aiassisted-development/tutorial-mac-mini-agent-infrastructure', type: 'Tutorial' },
-      { title: 'Spring Ecosystem Roundup May 2026', link: BASE_URL + 'how-to/programming/java-spring/howto-spring-ecosystem-roundup-may-2026', type: 'How-to' },
-      { title: 'Kubernetes v1.36 Release Overview', link: BASE_URL + 'explanations/cloud-infrastructure/kubernetes/explanation-kubernetes-v136-release-overview', type: 'Explanation' },
-      { title: 'Linux Second Severe Vulnerability', link: BASE_URL + 'how-to/security-privacy/appsec-privacy/howto-linux-second-severe-vulnerability', type: 'How-to' },
-      { title: 'Monzo Data Mesh Architecture', link: BASE_URL + 'explanations/data-databases/data-architecture/explanation-monzo-data-mesh', type: 'Explanation' },
-    ];
-    const dayOfYear = Math.floor((Date.now() - new Date(new Date().getFullYear(), 0, 0).getTime()) / 86400000);
-    setPick(articles[dayOfYear % articles.length]);
-  }, []);
+  if (!items || items.length === 0) return null;
 
-  if (!pick) return null;
+  // Rotate picks based on day of year
+  const dayOfYear = Math.floor((Date.now() - new Date(new Date().getFullYear(), 0, 0).getTime()) / 86400000);
+  const pick = items[dayOfYear % items.length];
 
   return (
     <section className={styles.dailyPickSection}>
@@ -161,7 +183,7 @@ function DailyPick() {
             <h3 className={styles.dailyPickTitle}>{pick.title}</h3>
             <p className={styles.dailyPickType}>{pick.type}</p>
           </div>
-          <a href={pick.link} className={styles.dailyPickLink}>
+          <a href={pick.href} className={styles.dailyPickLink}>
             Read Now →
           </a>
         </div>
@@ -209,10 +231,10 @@ export default function Home() {
               Organized by the Diátaxis framework so you always find what you need.
             </p>
             <div className={styles.heroActions}>
-              <a className="button button--primary button--lg" href={BASE_URL + 'tutorials/ai-machine-learning/llms-agents/tutorial-what-is-code'}>
+              <a className="button button--primary button--lg" href={BASE_URL + 'tutorials/'}>
                 Start Exploring
               </a>
-              <a className="button button--secondary button--lg" href={BASE_URL + 'how-to/ai-machine-learning/llms-agents/howto-anthropic-routines-claude'}>
+              <a className="button button--secondary button--lg" href={BASE_URL + 'how-to/'}>
                 Browse How-to Guides
               </a>
             </div>
