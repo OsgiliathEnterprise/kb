@@ -316,12 +316,6 @@ const sidebars = {
         },
         {
           type: 'category',
-          label: 'Payments',
-          link: {type: 'generated-index', title: 'Payments', slug: 'how-to/systemdesign/payments'},
-          items: ['how-to/systemdesign/payments/howto-handle-ach-return-codes-r01-r85'],
-        },
-        {
-          type: 'category',
           label: 'Search',
           link: {type: 'generated-index', title: 'Search', slug: 'how-to/systemdesign/search'},
           items: ['how-to/systemdesign/search/howto-rag-freshness-incremental-indexing-sync-production'],
@@ -506,7 +500,7 @@ const sidebars = {
           type: 'category',
           label: 'Gitworkflow',
           link: {type: 'generated-index', title: 'Gitworkflow', slug: 'explanations/developertoolspractices/gitworkflow'},
-          items: ['explanations/developertoolspractices/gitworkflow/explanation-ast-based-merge-conflict-prediction-tree-sitter'],
+          items: ['explanations/developertoolspractices/gitworkflow/explanation-ast-based-merge-conflict-prediction-tree-sitter', 'explanations/developertoolspractices/gitworkflow/explanation-pando-git-backend-causal-consistency'],
         },
         {
           type: 'category',
@@ -532,7 +526,6 @@ const sidebars = {
           link: {type: 'generated-index', title: 'Remotedevelopment', slug: 'explanations/developertoolspractices/remotedevelopment'},
           items: ['explanations/developertoolspractices/remotedevelopment/explanation-vscode-ssh-agent-architecture'],
         },
-        'explanations/general/2026-10-31',
         {
           type: 'category',
           label: 'Android',
@@ -651,7 +644,7 @@ const sidebars = {
           type: 'category',
           label: 'Aiagentsecurity',
           link: {type: 'generated-index', title: 'Aiagentsecurity', slug: 'explanations/securityprivacy/aiagentsecurity'},
-          items: ['explanations/securityprivacy/aiagentsecurity/explanation-abliterated-model-backdoor-credential-exfiltration', 'explanations/securityprivacy/aiagentsecurity/explanation-aegis-multilayer-llm-security-proxy', 'explanations/securityprivacy/aiagentsecurity/explanation-ai-agent-identity-patterns-production', 'explanations/securityprivacy/aiagentsecurity/explanation-closedquorum-llm-quorum-malware', 'explanations/securityprivacy/aiagentsecurity/explanation-cloudflare-security-audit-skill-multi-phase-agent-audits', 'explanations/securityprivacy/aiagentsecurity/explanation-covert-assistance-agents-evade-oversight', 'explanations/securityprivacy/aiagentsecurity/explanation-enterprise-ai-data-security-patterns', 'explanations/securityprivacy/aiagentsecurity/explanation-evasionbench-instrumental-monitor-evasion', 'explanations/securityprivacy/aiagentsecurity/explanation-llm-agents-tamper-with-their-own-traces', 'explanations/securityprivacy/aiagentsecurity/explanation-llm-inference-engine-exploits', 'explanations/securityprivacy/aiagentsecurity/explanation-lm-studio-bionic-shell-judge-auto-review', 'explanations/securityprivacy/aiagentsecurity/explanation-local-llm-confidentiality-boundary-failures', 'explanations/securityprivacy/aiagentsecurity/explanation-mcp-filesystem-capability-laundering-mcp-fsd', 'explanations/securityprivacy/aiagentsecurity/explanation-miasma-worm-agentic-supply-chain-attack', 'explanations/securityprivacy/aiagentsecurity/explanation-openai-dots-boundary-problems-always-on-agents', 'explanations/securityprivacy/aiagentsecurity/explanation-openai-hugging-face-agent-incident', 'explanations/securityprivacy/aiagentsecurity/explanation-unbounded-llm-calls-ai-sdk-audit', 'explanations/securityprivacy/aiagentsecurity/reference-infuse-indirect-prompt-injection-benchmark', 'explanations/securityprivacy/aiagentsecurity/reference-kalibench-cybersecurity-tool-use-benchmark', 'explanations/securityprivacy/aiagentsecurity/reference-last-secure-code-benchmark', 'explanations/securityprivacy/aiagentsecurity/reference-piatlas-prompt-injection-attack-taxonomy'],
+          items: ['explanations/securityprivacy/aiagentsecurity/explanation-abliterated-model-backdoor-credential-exfiltration', 'explanations/securityprivacy/aiagentsecurity/explanation-aegis-multilayer-llm-security-proxy', 'explanations/securityprivacy/aiagentsecurity/explanation-ai-agent-identity-patterns-production', 'explanations/securityprivacy/aiagentsecurity/explanation-closedquorum-llm-quorum-malware', 'explanations/securityprivacy/aiagentsecurity/explanation-cloudflare-security-audit-skill-multi-phase-agent-audits', 'explanations/securityprivacy/aiagentsecurity/explanation-covert-assistance-agents-evade-oversight', 'explanations/securityprivacy/aiagentsecurity/explanation-enterprise-ai-data-security-patterns', 'explanations/securityprivacy/aiagentsecurity/explanation-evasionbench-instrumental-monitor-evasion', 'explanations/securityprivacy/aiagentsecurity/explanation-llm-agents-tamper-with-their-own-traces', 'explanations/securityprivacy/aiagentsecurity/explanation-llm-inference-engine-exploits', 'explanations/securityprivacy/aiagentsecurity/explanation-lm-studio-bionic-shell-judge-auto-review', 'explanations/securityprivacy/aiagentsecurity/explanation-local-llm-confidentiality-boundary-failures', 'explanations/securityprivacy/aiagentsecurity/explanation-mcp-filesystem-capability-laundering-mcp-fsd', 'explanations/securityprivacy/aiagentsecurity/explanation-miasma-worm-agentic-supply-chain-attack', 'explanations/securityprivacy/aiagentsecurity/explanation-openai-dots-boundary-problems-always-on-agents', 'explanations/securityprivacy/aiagentsecurity/explanation-openai-hugging-face-agent-incident', 'explanations/securityprivacy/aiagentsecurity/explanation-rfc8693-token-exchange-agent-delegation', 'explanations/securityprivacy/aiagentsecurity/explanation-unbounded-llm-calls-ai-sdk-audit', 'explanations/securityprivacy/aiagentsecurity/reference-infuse-indirect-prompt-injection-benchmark', 'explanations/securityprivacy/aiagentsecurity/reference-kalibench-cybersecurity-tool-use-benchmark', 'explanations/securityprivacy/aiagentsecurity/reference-last-secure-code-benchmark', 'explanations/securityprivacy/aiagentsecurity/reference-piatlas-prompt-injection-attack-taxonomy'],
         },
         {
           type: 'category',
@@ -681,7 +674,7 @@ const sidebars = {
           type: 'category',
           label: 'Kernelexploitation',
           link: {type: 'generated-index', title: 'Kernelexploitation', slug: 'explanations/securityprivacy/kernelexploitation'},
-          items: ['explanations/securityprivacy/kernelexploitation/explanation-cve-2025-13032-avast-sandbox-double-fetch-lpe', 'explanations/securityprivacy/kernelexploitation/explanation-ps5-relapse-browser-to-kernel-exploit-chain'],
+          items: ['explanations/securityprivacy/kernelexploitation/explanation-cve-2025-13032-avast-sandbox-double-fetch-lpe', 'explanations/securityprivacy/kernelexploitation/explanation-cve-2026-98432-ipv4-tcp-uaf-rce', 'explanations/securityprivacy/kernelexploitation/explanation-ps5-relapse-browser-to-kernel-exploit-chain'],
         },
         {
           type: 'category',

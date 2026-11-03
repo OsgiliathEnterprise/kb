@@ -1,38 +1,38 @@
 [
   {
-    "title": "Gdpr Data Minimization Pgduckdb Azure Blob Erasable Identities",
+    "title": "Socketio Collaborative Whiteboard Rooms",
     "type": "Tutorials",
-    "link": "/tutorials/dataengineering/dataarchitectureevolution/tutorial-gdpr-data-minimization-pgduckdb-azure-blob-erasable-identities",
-    "time": "6 min read"
-  },
-  {
-    "title": "Ach Return Codes R01 R85",
-    "type": "Explanation",
-    "link": "/explanations/systemdesign/payments/explanation-ach-return-codes-r01-r85",
-    "time": "10 min read"
-  },
-  {
-    "title": "Celld Deterministic Simulation Testing",
-    "type": "Explanation",
-    "link": "/explanations/systemdesign/distributedsystemstesting/explanation-celld-deterministic-simulation-testing",
-    "time": "5 min read"
-  },
-  {
-    "title": "Timeout Attempt State Model For Paid Upstream Calls",
-    "type": "Explanation",
-    "link": "/explanations/systemdesign/durableexecutions/explanation-timeout-attempt-state-model-for-paid-upstream-calls",
-    "time": "6 min read"
-  },
-  {
-    "title": "Error Ownership Retry Storms",
-    "type": "Explanation",
-    "link": "/explanations/systemdesign/distributedsystemsfoundations/explanation-error-ownership-retry-storms",
-    "time": "5 min read"
-  },
-  {
-    "title": "Laravel Redis Outage Ganesha Circuit Breaker",
-    "type": "How-To",
-    "link": "/how-to/systemdesign/nonfunctionalrequirements/howto-laravel-redis-outage-ganesha-circuit-breaker",
+    "link": "/tutorials/programming/webrealtime/tutorial-socketio-collaborative-whiteboard-rooms",
     "time": "3 min read"
+  },
+  {
+    "title": "Mvcc Postgres Style Snapshots Typescript",
+    "type": "Tutorials",
+    "link": "/tutorials/programming/databases/tutorial-mvcc-postgres-style-snapshots-typescript",
+    "time": "4 min read"
+  },
+  {
+    "title": "Commit Conversation Voice Turn Context",
+    "type": "Tutorials",
+    "link": "/tutorials/aimachinelearning/multimodal/tutorial-commit-conversation-voice-turn-context",
+    "time": "3 min read"
+  },
+  {
+    "title": "Rag Freshness Incremental Indexing Sync Production",
+    "type": "How-To",
+    "link": "/how-to/systemdesign/search/howto-rag-freshness-incremental-indexing-sync-production",
+    "time": "6 min read"
+  },
+  {
+    "title": "Implement Transactional Outbox Pattern",
+    "type": "How-To",
+    "link": "/how-to/systemdesign/distributedtransactions/howto-implement-transactional-outbox-pattern",
+    "time": "5 min read"
+  },
+  {
+    "title": "Audit Transitive Github Action Dependencies Pin Deep",
+    "type": "How-To",
+    "link": "/how-to/securityprivacy/supplychain/howto-audit-transitive-github-action-dependencies-pin-deep",
+    "time": "2 min read"
   }
 ]

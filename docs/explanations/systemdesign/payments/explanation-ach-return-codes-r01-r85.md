@@ -184,6 +184,61 @@ def handle_ach_return(return_code, original_payout):
     return result
 ```
 
+## Retry policy, user notification, and monitoring (merged from companion guide)
+
+The companion DEV.to guide adds the operational side of the handler — persist the raw return, cap retries, and never auto-retry fraud:
+
+```python
+RETRYABLE = {"R01", "R50"}
+PERMANENT = {"R03", "R04", "R05", "R07", "R14", "R20", "R29"}
+FRAUD = {"R10"}
+MAX_RETRIES = 3
+
+def handle_ach_return(payment, return_code, reason):
+    # Always persist the code + reason — your future self (and
+    # your support team) need the raw bank message.
+    payment.ach_returns.append({"code": return_code, "reason": reason, "at": now()})
+
+    if return_code in RETRYABLE:
+        if payment.ach_retries < MAX_RETRIES:
+            payment.ach_retries += 1
+            schedule_retry(payment, business_days=3)
+            notify_user("Payment couldn't be completed (insufficient funds). "
+                        "We'll retry in ~3 business days.")
+        else:
+            mark_failed(payment, "retries_exhausted")
+            switch_collection_method(payment)
+            notify_user("We couldn't collect this payment. Please update your bank account.")
+    elif return_code in FRAUD:
+        freeze(payment)                # never auto-retry
+        alert_risk_team(payment, return_code)
+        notify_user("We paused this payment for your security. Contact support.")
+    elif return_code in PERMANENT:
+        mark_failed(payment, f"return_{return_code}")
+        prompt_account_verification(payment)
+    else:
+        # Unknown code: log, alert, treat as permanent.
+        log_unexpected_return_code(return_code)
+        mark_failed(payment, f"unknown_return_{return_code}")
+```
+
+Operational best practices:
+
+1. **Store code + reason, not just success/fail** — the NACHA reason text and the provider's raw payload are the only evidence when a user disputes a failed payment.
+2. **Cap retries (2–3) and only for the retryable class** — uncapped R01 retry loops hammer a genuinely empty account.
+3. **Notify the user at each transition** — silent failures are the #1 support-ticket driver for ACH.
+4. **Monitor code patterns** — an R01 spike means paydays shifted (change the retry schedule); an R05/R04 spike means onboarding accepts bad account numbers (add micro-deposit or Plaid verification); any R10 means check fraud filters.
+5. **Offer an alternate rail for permanent failures** — debit card, wallet, or manual payment.
+
+Pitfalls:
+
+- **Treating a return as an API error** — it's an asynchronous event days later via webhook; the payment state machine needs a `returned` state, not an exception path.
+- **Auto-retrying R10 (fraud)** — every retry is a fresh fraud attempt on the customer's account.
+- **No default branch for unknown codes** — NACHA has ~85 codes; you will meet ones you haven't coded for.
+- **Business-day math** — "retry in 3 days" from a Friday lands on Monday; use a business-day scheduler, not `+3 * 86400`.
+
+Note on webhook delivery: returns arrive via your payment provider's webhook (Plaid, Stripe Treasury, a bank API) — classify them as events, and treat the `returned` transition as idempotent (webhooks can duplicate).
+
 ## Design points that make or break the handler
 
 1. **Classify by root cause, not by code alone** — the same code can have different recovery semantics depending on context (e.g., R03 routing error vs account gone).
@@ -198,4 +253,6 @@ def handle_ach_return(return_code, original_payout):
 - [ACH Return Codes Explained: R01 to R85 (Ramp)](https://ramp.com/blog/ach-return-codes) — full code catalog, return timing, Nacha enforcement thresholds, WSUD
 - [ACH Return Codes: Complete Reference Guide (GoACH)](https://goach.com/blog/ach-return-codes/) — retry eligibility and the no-re-present rule for unauthorized returns
 - [ACH Return Codes: The Complete R01 to R85 List Explained (eco.com)](https://eco.com/support/en/articles/17190468-ach-return-codes-the-complete-r01-to-r85-list-explained) — R07/R10 Nacha-rule detail
+- [ACH Return Codes Explained: A Developer's Guide to R01–R85 and Error Handling (DEV.to, merged companion article)](https://dev.to/payout_rail/ach-return-codes-explained-a-developers-guide-to-r01-r85-and-error-handling-37l1)
+- Related KB note: [[How to Classify HTTP Errors by Retry Eligibility]] (the retryable vs permanent classification pattern, applied here to asynchronous bank returns instead of synchronous responses)
 - [ACH Return Codes R01–R33 (VeriCheck)](https://www.vericheck.com/ach-return-codes/) — 60-day return window and affidavit requirement for R07
