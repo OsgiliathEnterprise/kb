@@ -5,6 +5,7 @@ domain: Cloud & Infrastructure
 topic: Observability
 source: ''
 source_url: https://thenewstack.io/opentelemetry-hits-general-availability/
+date: 2026-05-23
 keywords:
 - knowledge-base
 - Observability
@@ -78,7 +79,6 @@ In traditional observability, humans review dashboards and set alerts. In the AI
 OpenTelemetry's standardized data model makes it possible for AI agents to interpret telemetry consistently across heterogeneous environments — a prerequisite for truly autonomous operations.
 
 ### Implications
-### Implications
 - **Unified observability for AI/ML pipelines** — the same telemetry standards apply to model serving infrastructure as they do to application services
 - **Reduced friction for AI-driven AIOps** — standardized inputs mean AI tools can be plugged in without custom adapters
 - **New responsibility for data quality** — as AI agents depend on telemetry, the accuracy and completeness of OpenTelemetry instrumentation becomes critical
@@ -143,6 +143,17 @@ For multi-step agent systems, each tool call, retrieval step, and LLM invocation
 
 The GenAI conventions are currently in **development status** (pre-stable). Teams using OTel v1.36.0 or earlier should use the `OTEL_SEMCONV_STABILITY_OPT_IN` environment variable for dual-emission during migration. Auto-instrumentation via OpenLLMetry SDK is the fastest production path for most teams.
 
+## Where Things Stand Post-Graduation (August 2026 update)
+
+The CNCF's post-graduation retrospective (Villela & Lee, Aug 31, 2026) fills in the picture since May:
+
+- **Predecessors formally archived** — OpenTracing archived January 2022, OpenCensus archived July 2023; OTel is now unambiguously the single standard they merged into (2019).
+- **Growth metrics (CNCF announcement)** — 12,000+ contributions from **2,800+ companies** (the earlier figure of "2,000+" undercounts) and hundreds of maintainers across language-specific SIGs; second-highest velocity CNCF project behind Kubernetes.
+- **Signals** — traces, logs, and metrics are all GA, and **profiling** has been added as a fourth first-class OTel signal.
+- **Ecosystem tooling maturing around the Collector** — OpAMP (agent fleet management), the OTel Operator (Kubernetes), OTel Weaver (semantic-convention linting/codegen), and the OpenTelemetry Injector for zero-code instrumentation.
+
+Practical takeaway for adopters: with GA status and all major observability vendors backing the standard, new instrumentation should default to OTel APIs/SDKs regardless of which backend you buy — the switching cost that used to justify proprietary SDKs is largely gone.
+
 ## Challenges Ahead
 
 GA is a milestone, not a finish line. The OpenTelemetry community continues to grapple with several significant challenges:
@@ -188,5 +199,7 @@ Placeholder: OpenTelemetry Architecture Overview
 ## References
 
 - [OpenTelemetry Hits General Availability — The New Stack](https://thenewstack.io/opentelemetry-hits-general-availability/)
+- [OpenTelemetry has graduated… now what? (CNCF blog, Aug 31 2026 retrospective)](https://www.cncf.io/blog/2026/08/31/opentelemetry-has-graduated-now-what-2/)
+- [CNCF Announces OpenTelemetry's Graduation (May 21 2026 announcement)](https://www.cncf.io/announcements/2026/05/21/cloud-native-computing-foundation-announces-opentelemetrys-graduation-solidifying-status-as-the-de-facto-observability-standard/)
 - [CNCF Project Graduation Criteria](https://github.com/cncf/toc/blob/main/process/graduation_criteria.md)
 - [OpenTelemetry Official Site](https://opentelemetry.io/)
