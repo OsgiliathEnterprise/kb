@@ -37,6 +37,19 @@ A 16-chapter Hinglish guide (Prabhat Upadhyay) built around understanding the **
 ## Part 4 — Practice (ch 14–16)
 - Cheat sheet, exercises with answers, and a catalog of common mistakes.
 
+## Modern command spellings (Git ≥ 2.23)
+The guide teaches the classic `git checkout`/`git reset` Swiss-army commands. Since Git 2.23, the same functionality is split into more focused commands — worth teaching beginners the explicit forms first:
+
+| Classic (overloaded) | Modern, focused command | Purpose |
+|---|---|---|
+| `git checkout <branch>` | `git switch <branch>` | change branch only |
+| `git checkout -b <branch>` | `git switch -c <branch>` | create + switch |
+| `git checkout -- <file>` | `git restore <file>` | discard working-tree changes |
+| `git reset HEAD <file>` | `git restore --staged <file>` | unstage, keep edits |
+| `git checkout <commit> -- <file>` | `git restore --source <commit> <file>` | recover one file's old version |
+
+Rationale: `git checkout` tried to do too many things at once (switching branches vs. restoring paths), which confuses even experienced developers; `git switch`/`git restore` separate "advance the branch's history" from "restore paths", in line with the UNIX philosophy. `git checkout` still works and remains in most tutorials and shell completions — recognize it, default to the new commands.
+
 ## How to practice (from the guide)
 1. Run every command alongside a **sandbox folder** (e.g. `git-masterclass`) — Git can't be learned by reading alone.
 2. Install the **Git Graph** VS Code extension — seeing the graph is the fastest way to build the mental model.

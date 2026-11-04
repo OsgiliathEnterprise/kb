@@ -177,10 +177,17 @@ def fix_mdx_issues(content: str) -> str:
         if in_frontmatter:
             fixed_lines.append(line)
             continue
+        # MDX does not support <scheme://...> angle-bracket autolinks:
+        # micromark parses '<https://x>' as a JSX opening tag and fails.
+        # Convert them to explicit [url](url) links. Skip '(<url>)' link
+        # destinations, which CommonMark/MDX handle natively.
+        fixed = re.sub(
+            r'(?<!\()<((?:https?|ftp|mailto)://[^>\s]+)>', r'[\1](\1)', line
+        )
         # Escape < followed by non-alpha/non-slash (triggers JSX parsing).
         # Applied to body lines, headings, tables, and prose alike so that
         # constructs like '<5 MiB' or 'a<b' become '&lt;...' and are safe.
-        fixed = re.sub(r'(?<!")<(?![a-zA-Z/])', '&lt;', line)
+        fixed = re.sub(r'(?<!")<(?![a-zA-Z/])', '&lt;', fixed)
         fixed_lines.append(fixed)
 
     return '\n'.join(fixed_lines)

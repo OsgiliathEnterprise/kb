@@ -1,15 +1,15 @@
 ---
 title: OpenTelemetry Graduates to CNCF General Availability
 diataxis: Explanation
-domain: Cloud & Infrastructure
-topic: Observability
+domain: cloud-infrastructure
+topic: distributed-tracing
 source: ''
 source_url: https://thenewstack.io/opentelemetry-hits-general-availability/
 date: 2026-05-23
 keywords:
 - knowledge-base
-- Observability
-- Cloud & Infrastructure
+- distributed-tracing
+- cloud-infrastructure
 - explanations
 ---
 # OpenTelemetry Graduates to CNCF General Availability
