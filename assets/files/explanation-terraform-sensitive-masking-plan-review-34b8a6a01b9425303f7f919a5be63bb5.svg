@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="76.0 46.0 1038.0 451.0" width="1038" height="451">
+<rect x="76.0" y="46.0" width="1038.0" height="451.0" fill="#ffffff"/>
+<rect x="100.0" y="70.0" width="290.0" height="119.0" rx="8" fill="#e7f5ff" stroke="#1971c2" stroke-width="1.5"/>
+<rect x="440.0" y="70.0" width="300.0" height="138.0" rx="8" fill="#fff9db" stroke="#fab005" stroke-width="1.5"/>
+<rect x="790.0" y="70.0" width="300.0" height="138.0" rx="8" fill="#fff5f5" stroke="#c92a2a" stroke-width="1.5"/>
+<rect x="790.0" y="230.0" width="300.0" height="138.0" rx="8" fill="#fff3cd" stroke="#f08c00" stroke-width="1.5"/>
+<rect x="440.0" y="230.0" width="300.0" height="138.0" rx="8" fill="#fff5f5" stroke="#c92a2a" stroke-width="1.5"/>
+<rect x="100.0" y="230.0" width="290.0" height="233.0" rx="8" fill="#ebfbee" stroke="#2f9e44" stroke-width="1.5"/>
+<rect x="100.0" y="430.0" width="990.0" height="43.0" rx="8" fill="#f8f9fa" stroke="#495057" stroke-width="1.5"/>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="114.0" y="92.4">Setup</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="114.0" y="111.4">ECS task definition built in</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="114.0" y="130.4">Terraform: container definitions</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="114.0" y="149.4">via jsonencode; one env var = API</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="114.0" y="168.4">key read from a sensitive var</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="454.0" y="92.4">The tidy-up PR</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="454.0" y="111.4">moved shared settings into locals;</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="454.0" y="130.4">order service's DATABASE_URL</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="454.0" y="149.4">copied from the reporting</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="454.0" y="168.4">worker's block a few lines down</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="454.0" y="187.4">(now points at read-only replica)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="804.0" y="92.4">Sensitivity propagation</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="804.0" y="111.4">jsonencode returns one string;</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="804.0" y="130.4">one secret inside -&gt; the WHOLE</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="804.0" y="149.4">string marked sensitive;</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="804.0" y="168.4">plan shows: container_definitions</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="804.0" y="187.4">= (sensitive value)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="804.0" y="252.4">The mask</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="804.0" y="271.4">plan line 'forces replacement'</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="804.0" y="290.4">is what every image update shows,</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="804.0" y="309.4">so reviewers approved the line</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="804.0" y="328.4">they always approve; the changed</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="804.0" y="347.4">database host was invisible</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="454.0" y="252.4">The incident</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="454.0" y="271.4">9 minutes of every write failing:</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="454.0" y="290.4">'cannot execute INSERT in a</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="454.0" y="309.4">read-only transaction';</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="454.0" y="328.4">revert + apply = where the time</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="454.0" y="347.4">went</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="114.0" y="252.4">Fixes</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="114.0" y="271.4">1. secret out of Terraform values:</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="114.0" y="290.4">task definition 'secrets' field with</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="114.0" y="309.4">Secrets Manager ARN (ARN not</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="114.0" y="328.4">sensitive -&gt; full structured diff</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="114.0" y="347.4">again)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="114.0" y="366.4">2. policy check on plan JSON: fail</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="114.0" y="385.4">pipeline if a prod attribute is</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="114.0" y="404.4">masked entirely</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="114.0" y="423.4">3. startup check: refuse ready unless</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="114.0" y="442.4">pg_is_in_recovery() = false (primary)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="114.0" y="452.4">Lesson: sensitivity marking exists to hide a value - it also hid every value next to it. A review can only approve what it is shown.</tspan></text>
+</svg>

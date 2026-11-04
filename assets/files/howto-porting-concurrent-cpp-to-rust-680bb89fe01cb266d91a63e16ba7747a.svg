@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="76.0 46.0 1128.0 478.0" width="1128" height="478">
+<rect x="76.0" y="46.0" width="1128.0" height="478.0" fill="#ffffff"/>
+<rect x="100.0" y="70.0" width="330.0" height="119.0" rx="8" fill="#e7f5ff" stroke="#1971c2" stroke-width="1.5"/>
+<rect x="490.0" y="70.0" width="320.0" height="138.0" rx="8" fill="#e3fafc" stroke="#1098ad" stroke-width="1.5"/>
+<rect x="860.0" y="70.0" width="320.0" height="176.0" rx="8" fill="#e5dbff" stroke="#6741d9" stroke-width="1.5"/>
+<rect x="490.0" y="240.0" width="320.0" height="138.0" rx="8" fill="#fff9db" stroke="#fab005" stroke-width="1.5"/>
+<rect x="860.0" y="240.0" width="320.0" height="157.0" rx="8" fill="#fff3cd" stroke="#f08c00" stroke-width="1.5"/>
+<rect x="100.0" y="240.0" width="330.0" height="157.0" rx="8" fill="#f8f9fa" stroke="#495057" stroke-width="1.5"/>
+<rect x="330.0" y="400.0" width="620.0" height="100.0" rx="8" fill="#ebfbee" stroke="#2f9e44" stroke-width="1.5"/>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="114.0" y="92.4">Step 0: concurrency audit</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="114.0" y="111.4">2-4 weeks before 'cargo new'</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="114.0" y="130.4">C++ keeps these contracts</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="114.0" y="149.4">implicit; Rust forces them</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="114.0" y="168.4">explicit at compile time</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="504.0" y="92.4">Thread inventory</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="504.0" y="111.4">grep std::thread, pthread_create,</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="504.0" y="130.4">std::async, io_context::run</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="504.0" y="149.4">joined? lifetime vs spawner?</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="504.0" y="168.4">'detached thread referencing</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="504.0" y="187.4">spawner's member' = E0277</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="874.0" y="92.4">Lock inventory</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="874.0" y="111.4">every mutex/shared_mutex/</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="874.0" y="130.4">recursive_mutex/spinlock:</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="874.0" y="149.4">what it ACTUALLY protects,</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="874.0" y="168.4">lock-order graph on whiteboard;</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="874.0" y="187.4">cycle = latent deadlock;</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="874.0" y="206.4">recursive_mutex = no std</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="874.0" y="225.4">equivalent in Rust</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="504.0" y="262.4">Condition variables</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="504.0" y="281.4">find predicate + every notify site;</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="504.0" y="300.4">wait in loop with predicate?</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="504.0" y="319.4">spurious wakeups translate fine;</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="504.0" y="338.4">the lost-wakeup bug survives</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="504.0" y="357.4">literal translation to Condvar</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="874.0" y="262.4">ASIO topology + lock-free</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="874.0" y="281.4">io_contexts, run() threads,</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="874.0" y="300.4">stranded vs unstranded handlers;</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="874.0" y="319.4">shared_from_this() = ownership</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="874.0" y="338.4">decision; list lock-free structs</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="874.0" y="357.4">+ memory orderings: half become</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="874.0" y="376.4">channels</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="114.0" y="262.4">Tooling that pays off</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="114.0" y="281.4">clang-tidy concurrency checks;</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="114.0" y="300.4">ThreadSanitizer build of the C++</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="114.0" y="319.4">against its own integration</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="114.0" y="338.4">tests: find real C++ bugs before</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="114.0" y="357.4">any Rust is written; decide per</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="114.0" y="376.4">bug: fix now or let port fix it</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="344.0" y="422.4">Strategy decision (neither is default):</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="344.0" y="441.4">incremental via FFI vs big-bang rewrite</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="344.0" y="460.4">depends mostly on whether you want to</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="344.0" y="479.4">KEEP the inherited concurrency architecture</tspan></text>
+</svg>
