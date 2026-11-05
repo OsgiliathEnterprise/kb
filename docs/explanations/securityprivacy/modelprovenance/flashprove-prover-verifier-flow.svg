@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="36.0 -9.0 718.0 543.0" width="718" height="543">
+<rect x="36.0" y="-9.0" width="718.0" height="543.0" fill="#ffffff"/>
+<rect x="60.0" y="70.0" width="300.0" height="90.0" rx="8" fill="#e7f5ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="60.0" y="220.0" width="300.0" height="70.0" rx="8" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="430.0" y="100.0" width="300.0" height="90.0" rx="8" fill="#fff3bf" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="430.0" y="250.0" width="300.0" height="110.0" rx="8" fill="#e5dbff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="60.0" y="350.0" width="300.0" height="90.0" rx="8" fill="#ffe3e3" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 210.0 160.0 L 210.0 215.0"/><line x1="210.0" y1="215.0" x2="216.1" y2="202.4"/><line x1="210.0" y1="215.0" x2="203.9" y2="202.4"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 360.0 115.0 L 425.0 115.0"/><line x1="425.0" y1="115.0" x2="412.4" y2="108.9"/><line x1="425.0" y1="115.0" x2="412.4" y2="121.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 580.0 190.0 L 580.0 245.0"/><line x1="580.0" y1="245.0" x2="586.1" y2="232.4"/><line x1="580.0" y1="245.0" x2="573.9" y2="232.4"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 360.0 395.0 L 425.0 375.0"/><line x1="425.0" y1="375.0" x2="411.2" y2="372.8"/><line x1="425.0" y1="375.0" x2="414.8" y2="384.6"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="60.0" y="27.8">FlashProve: provable inference — commit, prove, verify</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="72.0" y="93.2">Provider (prover)</tspan><tspan x="72.0" y="110.7">GPU prover, single H100:</tspan><tspan x="72.0" y="128.2">&gt;100 tok/s on Llama 4 Maverick</tspan><tspan x="72.0" y="145.7">400B MoE, 4-bit</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="72.0" y="243.2">Weight commitment</tspan><tspan x="72.0" y="260.7">commitment ID binds provider</tspan><tspan x="72.0" y="278.2">to ONE set of weights</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="442.0" y="123.2">Proof artifact</tspan><tspan x="442.0" y="140.7">~19 MB per 1,024-token request</tspan><tspan x="442.0" y="158.2">(70-95x vLLM GPU time)</tspan><tspan x="442.0" y="175.7">covers prompt+response tokens</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="442.0" y="273.2">Verifier (checker)</tspan><tspan x="442.0" y="290.7">C++ fast verifier (not formally verified)</tspan><tspan x="442.0" y="308.2">+ Lean verifier: completeness, soundness,</tspan><tspan x="442.0" y="325.7">zero-knowledge formally proven</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="72.0" y="373.2">Formal basis (Lean)</tspan><tspan x="72.0" y="390.7">C++ verifier + GPU prover tested</tspan><tspan x="72.0" y="408.2">against the formally defined protocol</tspan><tspan x="72.0" y="425.7">but NOT formally verified themselves</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#e03131" text-anchor="start"><tspan x="60.0" y="489.6">Limits today: 1,024-token context; integer-based inference + greedy decoding</tspan><tspan x="60.0" y="504.6">(prod models use float + sampling); research artifact, unmaintained, no API commitment</tspan></text>
+</svg>
