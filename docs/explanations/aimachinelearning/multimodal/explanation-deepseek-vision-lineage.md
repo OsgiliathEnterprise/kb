@@ -91,8 +91,33 @@ mapping from model behavior to a named training example. Architecture docs answe
 "how do I call it," not "where did every training example come from" — a
 distinction that matters for legal/procurement due diligence.
 
+## Model-family architecture details (verified 2026-11-06)
+
+Per Roboflow's survey of the DeepSeek vision line, the family breaks into four distinct
+open-weight threads, each with its own architecture:
+
+- **DeepSeek-VL** (arXiv:2403.05525, 7B/1.3B) — first-gen VLM for real-world documents,
+  web pages, diagrams. Uses a **hybrid vision encoder: SigLIP-L** for global semantic
+  understanding **+ SAM-B** for fine visual detail, with a vision-language adaptor
+  projecting features into the LLM input space.
+- **Janus / Janus-Pro** (arXiv:2410.13848) — unified autoregressive transformer for
+  understanding *and* generation, deliberately decoupling the two visual encoding
+  pathways through a shared language backbone.
+- **DeepSeek-VL2** (arXiv:2412.10302) — MoE-based unified multimodal reasoning:
+  detection, OCR, grounding, spatial tasks via natural-language interaction; strong
+  performance-per-dollar positioning vs. proprietary APIs (2026 multimodal benchmark
+  coverage).
+- **DeepSeek-OCR 2** — document/text-extraction specialist, the newest branch.
+
+Practical pipeline note: VL2's raw text outputs can be converted into structured
+detection objects (e.g. Roboflow Supervision `sv.Detections`), which is what makes the
+open-weight line usable inside production CV pipelines instead of just chat demos.
+
 ## References
 
+- [DeepSeek vision model family survey (Roboflow, 2026)](https://roboflow.com/blog/deepseek-vision-models)
+- [DeepSeek-VL paper (arXiv:2403.05525)](https://arxiv.org/abs/2403.05525)
+- [Janus paper (arXiv:2410.13848)](https://arxiv.org/abs/2410.13848)
 - [DeepSeek's Vision Lineage (dev.to)](https://dev.to/forestlioooooo/deepseeks-vision-lineage-from-deepseek-vl-to-vision-exp-45ki)
 - [DeepSeek-VL2 paper (arXiv:2412.10302)](https://arxiv.org/abs/2412.10302)
 - [DeepSeek-VL2 repository (deepseek-ai)](https://github.com/deepseek-ai/DeepSeek-VL2)

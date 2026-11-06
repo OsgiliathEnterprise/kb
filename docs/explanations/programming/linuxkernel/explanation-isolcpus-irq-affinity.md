@@ -68,12 +68,24 @@ a pinned thread.
 ## The irqbalance wildcard
 
 Most distros run **irqbalance** as a daemon that continuously re-binds IRQs
-across *all* online CPUs — including ones you isolated. If `/proc/interrupts`
-shows IRQ counts wandering back onto CPU0/1 minutes after you pinned them,
-check whether irqbalance is the actor (`systemctl status irqbalance`, or its
-logs). Options: disable the daemon on the machine, or use its ban list
-(`/etc/irqbalance.banlist` for per-IRQ exclusion) so it leaves your cores alone
-while keeping general balancing elsewhere.
+across online CPUs. Modern irqbalance builds automatically avoid cores
+isolated via `isolcpus=` (documented behaviour since RHEL 7.2), so the
+"my IRQs wandered back onto the isolated core" report is mostly a legacy-build
+or misconfiguration story — but when it happens, check the daemon
+(`systemctl status irqbalance`, or its logs). Options:
+
+- **Ban whole CPUs:** set `IRQBALANCE_BANNED_CPUS=<hexmask>` in
+  `/etc/sysconfig/irqbalance` (or export it), then `systemctl restart irqbalance`.
+  The value is a hex mask without `0x`; groups of eight hex digits are
+  comma-separated, e.g. `IRQBALANCE_BANNED_CPUS=00000001,0000ff00` bans CPUs
+  8–15 and 33. Setting it explicitly also *overrides* the automatic
+  isolcpus-avoidance, so match the mask to your isolation set.
+- **Ban individual IRQs:** start irqbalance with `--banirq=<irqnum>`
+  (repeatable) so specific vectors are left for manual `smp_affinity`
+  pinning; `--banscript=<script>` decides per-IRQ exclusion dynamically by
+  script exit code.
+- **Or disable it** on dedicated datapath machines
+  (`systemctl disable --now irqbalance`) and pin everything by hand.
 
 ## When this shows up next to SR-IOV
 
@@ -92,6 +104,8 @@ is a different checklist. Typical datapath box:
 - [Red Hat Tech Brief: Optimizing RHEL Performance by Tuning IRQ Affinity](https://access.redhat.com/articles/216733)
 - [Linux kernel docs: generic IRQ handling](https://docs.kernel.org/core-api/genericirq.html)
 - [Linux kernel docs: CPU isolation (isolcpus, nohz_full, housekeeping)](https://docs.kernel.org/admin-guide/cpu-isolation.html) — canonical reference for the scheduler/tick knobs
+- [irqbalance(1) man page](https://linux.die.net/man/1/irqbalance) — `--banirq`, `--banscript`, `IRQBALANCE_BANNED_CPUS` hex-mask format
+- [Red Hat: Minimizing latency by isolating interrupts and processes (RHEL RT 9)](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_for_real_time/9/html/optimizing_rhel_9_for_real_time_for_low_latency_operation/assembly_binding-interrupts-and-processes_optimizing-rhel9-for-real-time-for-low-latency-operation) — `IRQBALANCE_BANNED_CPUS` bitmask examples; automatic isolcpus avoidance since RHEL 7.2
 
 ## Related
 - [[explanation-linux-containers-namespaces-cgroups]]

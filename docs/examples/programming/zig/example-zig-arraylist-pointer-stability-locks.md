@@ -14,7 +14,7 @@ keywords:
 ---
 # Zig: Pointer Stability for ArrayLists (lockPointers / unlockPointers)
 
-Zig's `std` Hash Map containers gained **pointer stability locks** in 2024. A pull request initially opened by Leo Emar-Kar in 2025 extends the same memory-safety technique to `std.ArrayList`. The idea: when you store a pointer (or slice) that is *backed by* an ArrayList's internal buffer, you can lock it so any later reallocation that would invalidate those pointers **panics loudly instead of silently corrupting memory**.
+Zig's `std` Hash Map containers gained **pointer stability locks** in 2024. The pull request extending the same memory-safety technique to `std.ArrayList` (ziglang/zig#36239, a re-open of the 2025-era PR #22992) was **merged into master on 2026-08-27**, so `lockPointers()`/`unlockPointers()` are in `std` on the development branch following the 0.15.1 release. The idea: when you store a pointer (or slice) that is *backed by* an ArrayList's internal buffer, you can lock it so any later reallocation that would invalidate those pointers **panics loudly instead of silently corrupting memory**.
 
 ## How to use it
 
@@ -74,6 +74,7 @@ lib/std/array_list.zig:1348: ensureTotalCapacityPrecise
 - **Fail-fast over fail-silent:** a reallocation that would invalidate escaped pointers now asserts at the exact call site, with a stack trace pointing at `ensureTotalCapacityPrecise`.
 - **Allocator-dependent bugs become deterministic:** how a dangling-pointer bug manifests depends on your allocator; locking removes that ambiguity by making the invariant explicit.
 - **Opt-in and scoped:** you only pay for the check while pointers are live (`lockPointers`/`unlockPointers` bracket), so hot loops without escaping slices stay unaffected.
+- **Beyond reallocation — element moves count too:** during review, andrewrk settled the semantics: while locked, existing pointers must keep pointing at *the same element*, not just valid memory. So `@memmove`-style operations (`insert*`, `orderedRemove`, `replaceRange*`) also panic while the lock is held, because they silently re-point a stored pointer at a different element. If you only care about the index, keep using indices — locking is for element identity.
 
 ## Takeaway
 
@@ -82,3 +83,4 @@ Whenever a Zig `ArrayList`'s buffer is exposed through stored pointers/slices, w
 ## References
 
 - [Zig Devlog: Pointer Stability for ArrayLists (2026-08-27)](https://ziglang.org/devlog/2026/#2026-08-27)
+- [ziglang/zig#36239 — feat: add pointer stability to ArrayList (merged 2026-08-27)](https://codeberg.org/ziglang/zig/pulls/36239)
