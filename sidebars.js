@@ -14,6 +14,12 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Llmevaluation',
+          link: {type: 'generated-index', title: 'Llmevaluation', slug: 'tutorials/aimachinelearning/llmevaluation'},
+          items: ['tutorials/aimachinelearning/llmevaluation/tutorial-harbor-coding-agent-evaluation-oracle-nop'],
+        },
+        {
+          type: 'category',
           label: 'Multimodal',
           link: {type: 'generated-index', title: 'Multimodal', slug: 'tutorials/aimachinelearning/multimodal'},
           items: ['tutorials/aimachinelearning/multimodal/tutorial-commit-conversation-voice-turn-context'],
@@ -90,7 +96,7 @@ const sidebars = {
           type: 'category',
           label: 'Agentarchitecture',
           link: {type: 'generated-index', title: 'Agentarchitecture', slug: 'how-to/aimachinelearning/agentarchitecture'},
-          items: ['how-to/aimachinelearning/agentarchitecture/howto-agentic-rag-pipeline-with-real-time-web-search', 'how-to/aimachinelearning/agentarchitecture/howto-build-effectively-once-agent-workflows', 'how-to/aimachinelearning/agentarchitecture/howto-closed-world-resolution-tool-hallucination', 'how-to/aimachinelearning/agentarchitecture/howto-idempotency-keys-ai-agent-tool-execution', 'how-to/aimachinelearning/agentarchitecture/howto-jev-mobile-vlm-planning-lightweight-execution', 'how-to/aimachinelearning/agentarchitecture/howto-langgraph-node-failure-observability', 'how-to/aimachinelearning/agentarchitecture/howto-raft-stateful-rag-troubleshooting-agents', 'how-to/aimachinelearning/agentarchitecture/howto-step-functions-waitfortasktoken-agent-approvals'],
+          items: ['how-to/aimachinelearning/agentarchitecture/howto-agentic-rag-pipeline-with-real-time-web-search', 'how-to/aimachinelearning/agentarchitecture/howto-build-effectively-once-agent-workflows', 'how-to/aimachinelearning/agentarchitecture/howto-closed-world-resolution-tool-hallucination', 'how-to/aimachinelearning/agentarchitecture/howto-durable-genkit-flows-with-temporal', 'how-to/aimachinelearning/agentarchitecture/howto-idempotency-keys-ai-agent-tool-execution', 'how-to/aimachinelearning/agentarchitecture/howto-jev-mobile-vlm-planning-lightweight-execution', 'how-to/aimachinelearning/agentarchitecture/howto-langgraph-node-failure-observability', 'how-to/aimachinelearning/agentarchitecture/howto-raft-stateful-rag-troubleshooting-agents', 'how-to/aimachinelearning/agentarchitecture/howto-step-functions-waitfortasktoken-agent-approvals'],
         },
         {
           type: 'category',
@@ -368,7 +374,7 @@ const sidebars = {
           type: 'category',
           label: 'Agentarchitecture',
           link: {type: 'generated-index', title: 'Agentarchitecture', slug: 'explanations/aimachinelearning/agentarchitecture'},
-          items: ['explanations/aimachinelearning/agentarchitecture/explanation-agent-guardrail-stack', 'explanations/aimachinelearning/agentarchitecture/explanation-agent-substrate-stateful-runtime', 'explanations/aimachinelearning/agentarchitecture/explanation-anti-persistence-agent-memory', 'explanations/aimachinelearning/agentarchitecture/explanation-baseline-aware-token-spike-anomaly-detection', 'explanations/aimachinelearning/agentarchitecture/explanation-bounded-generation-constrained-ai-design', 'explanations/aimachinelearning/agentarchitecture/explanation-byte-matching-verification-harness-15-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-certified-execution-harness-petri-net-supervisor', 'explanations/aimachinelearning/agentarchitecture/explanation-claude-unified-memory-architecture', 'explanations/aimachinelearning/agentarchitecture/explanation-coding-agents-generalized-tamp', 'explanations/aimachinelearning/agentarchitecture/explanation-contradiction-judge-memory-auditor-ai-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-domain-specialized-models-solver-scoring-loop', 'explanations/aimachinelearning/agentarchitecture/explanation-harness-design-coding-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-human-in-the-loop-approval-gates', 'explanations/aimachinelearning/agentarchitecture/explanation-jev-ultrafast-dynamic-indexed-action-space-browser-agent', 'explanations/aimachinelearning/agentarchitecture/explanation-lemmalog-datalog-memory-for-llm-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-microsoft-copilot-agent-identity-runtime', 'explanations/aimachinelearning/agentarchitecture/explanation-prince-bayer-agentic-rag-context-harness-engineering', 'explanations/aimachinelearning/agentarchitecture/explanation-progressive-disclosure-on-demand-skills', 'explanations/aimachinelearning/agentarchitecture/explanation-reconciling-agent-plans-with-completed-temporal-activities', 'explanations/aimachinelearning/agentarchitecture/explanation-sandboxed-execution-runtime-engineering-for-ai-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-sourcelearn-source-specific-competence', 'explanations/aimachinelearning/agentarchitecture/explanation-x402-http-payment-standard-for-ai-agents', 'explanations/aimachinelearning/agentarchitecture/reference-agent4sci-scientific-ml-testbed', 'explanations/aimachinelearning/agentarchitecture/reference-scholarcatalyst-research-paper-retrieval-benchmark'],
+          items: ['explanations/aimachinelearning/agentarchitecture/explanation-agent-guardrail-stack', 'explanations/aimachinelearning/agentarchitecture/explanation-agent-substrate-stateful-runtime', 'explanations/aimachinelearning/agentarchitecture/explanation-anti-persistence-agent-memory', 'explanations/aimachinelearning/agentarchitecture/explanation-baseline-aware-token-spike-anomaly-detection', 'explanations/aimachinelearning/agentarchitecture/explanation-behavioral-telemetry-agent-fault-detection', 'explanations/aimachinelearning/agentarchitecture/explanation-bounded-generation-constrained-ai-design', 'explanations/aimachinelearning/agentarchitecture/explanation-byte-matching-verification-harness-15-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-certified-execution-harness-petri-net-supervisor', 'explanations/aimachinelearning/agentarchitecture/explanation-claude-unified-memory-architecture', 'explanations/aimachinelearning/agentarchitecture/explanation-coding-agents-generalized-tamp', 'explanations/aimachinelearning/agentarchitecture/explanation-contradiction-judge-memory-auditor-ai-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-domain-specialized-models-solver-scoring-loop', 'explanations/aimachinelearning/agentarchitecture/explanation-harness-design-coding-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-human-in-the-loop-approval-gates', 'explanations/aimachinelearning/agentarchitecture/explanation-jev-ultrafast-dynamic-indexed-action-space-browser-agent', 'explanations/aimachinelearning/agentarchitecture/explanation-lemmalog-datalog-memory-for-llm-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-microsoft-copilot-agent-identity-runtime', 'explanations/aimachinelearning/agentarchitecture/explanation-prince-bayer-agentic-rag-context-harness-engineering', 'explanations/aimachinelearning/agentarchitecture/explanation-progressive-disclosure-on-demand-skills', 'explanations/aimachinelearning/agentarchitecture/explanation-reconciling-agent-plans-with-completed-temporal-activities', 'explanations/aimachinelearning/agentarchitecture/explanation-sandboxed-execution-runtime-engineering-for-ai-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-sourcelearn-source-specific-competence', 'explanations/aimachinelearning/agentarchitecture/explanation-x402-http-payment-standard-for-ai-agents', 'explanations/aimachinelearning/agentarchitecture/reference-agent4sci-scientific-ml-testbed', 'explanations/aimachinelearning/agentarchitecture/reference-scholarcatalyst-research-paper-retrieval-benchmark'],
         },
         {
           type: 'category',
@@ -468,6 +474,12 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Platformarchitectures',
+          link: {type: 'generated-index', title: 'Platformarchitectures', slug: 'explanations/datamesh/platformarchitectures'},
+          items: ['explanations/datamesh/platformarchitectures/explanation-data-product-platform-navigator'],
+        },
+        {
+          type: 'category',
           label: 'Agentdocumentation',
           link: {type: 'generated-index', title: 'Agentdocumentation', slug: 'explanations/developertoolspractices/agentdocumentation'},
           items: ['explanations/developertoolspractices/agentdocumentation/explanation-ai-docs-standard-documentation-ai-md'],
@@ -525,6 +537,12 @@ const sidebars = {
           label: 'Remotedevelopment',
           link: {type: 'generated-index', title: 'Remotedevelopment', slug: 'explanations/developertoolspractices/remotedevelopment'},
           items: ['explanations/developertoolspractices/remotedevelopment/explanation-vscode-ssh-agent-architecture'],
+        },
+        {
+          type: 'category',
+          label: 'Authorization',
+          link: {type: 'generated-index', title: 'Authorization', slug: 'explanations/identitysecurity/authorization'},
+          items: ['explanations/identitysecurity/authorization/explanation-postgres-rls-database-enforced-authorization'],
         },
         {
           type: 'category',

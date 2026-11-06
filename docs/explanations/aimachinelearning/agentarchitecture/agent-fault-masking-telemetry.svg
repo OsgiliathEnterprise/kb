@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="36.0 -4.0 848.0 468.0" width="848" height="468">
+<rect x="36.0" y="-4.0" width="848.0" height="468.0" fill="#ffffff"/>
+<rect x="60.0" y="100.0" width="200.0" height="80.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="340.0" y="100.0" width="220.0" height="80.0" rx="8" fill="#ffd8a8" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="640.0" y="100.0" width="200.0" height="80.0" rx="8" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="340.0" y="260.0" width="220.0" height="80.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 260.0 140.0 L 340.0 140.0"/><line x1="340.0" y1="140.0" x2="327.4" y2="133.9"/><line x1="340.0" y1="140.0" x2="327.4" y2="146.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 560.0 140.0 L 640.0 140.0"/><line x1="640.0" y1="140.0" x2="627.4" y2="133.9"/><line x1="640.0" y1="140.0" x2="627.4" y2="146.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 450.0 180.0 L 450.0 260.0"/><line x1="450.0" y1="260.0" x2="456.1" y2="247.4"/><line x1="450.0" y1="260.0" x2="443.9" y2="247.4"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="24" fill="#1e1e1e" text-anchor="start"><tspan x="120.0" y="39.2">How a competent agent masks infrastructure faults</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="70.0" y="137.2">Injected fault</tspan><tspan x="70.0" y="154.7">(25% flaky API / lagging replica)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="350.0" y="137.2">Agent retry &amp;</tspan><tspan x="350.0" y="154.7">workaround logic</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="650.0" y="137.2">Task completion</tspan><tspan x="650.0" y="154.7">stays 19/19 (green)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="350.0" y="297.2">Hidden signals:</tspan><tspan x="350.0" y="314.7">tool calls +70% | retries</tspan><tspan x="350.0" y="332.2">uncertainty in prose summary</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="60.0" y="391.2">Detectors that caught faults: tool-call volume (+-7% envelope) &amp; scope drift (&gt;0.135) caught 4/7 each;</tspan><tspan x="60.0" y="408.7">task success caught only 2/7; token cost noisy (18% baseline variance) caught 1/7.</tspan></text>
+</svg>

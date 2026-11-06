@@ -98,8 +98,40 @@ This is a specific benchmark point, not a universal TPU number.
 > but **"Can the system scale and change hardware without silently changing retrieval
 > quality?"**
 
+## Engineering details from the official Google post (verified 2026-11-06)
+
+The Google Developers Blog post behind the release ("Enterprise-Grade Precision for
+Long-Context Multimodal Embedding Inference on Cloud TPU", Aug 26, 2026) names three
+concrete vLLM-on-TPU engineering problems and their fixes:
+
+- **A — Hardware-safe tensor alignment.** TPU Matrix Execution Units (MXUs) impose strict
+  divisibility constraints when sharding vocabulary matrices across the TP mesh; the fix is
+  a unified vocabulary-padding strategy guaranteeing exact alignment during All-Gather.
+- **B — Lazy-loading hardening & compile pre-warming.** Attribute promotion inside the
+  unquantization pipeline makes weight loading compatible with vLLM's TPU lazy-loader
+  (zero-failure init), and *sharding-aware pre-warming* locks JAX/XLA compilation caches
+  before inference to avoid JIT latency and multi-process compilation traps.
+- **C — Long-context StepPool.** Chunked Prefill in the pooling layer prevents HBM
+  exhaustion at 4K–15K+ token contexts; a hybrid StepPool migrates metadata to
+  `CachedRequestState` so pooling state accumulates across steps and survives
+  preemptions.
+
+Elasticity comes from GKE **Custom Compute Classes**: priority-based node autoscaling that
+falls back from fully-utilized TPU reservations to GPU spot/on-demand pools without
+interrupting traffic. Minimal serving pattern (from the official recipe):
+
+```python
+from vllm import LLM
+llm = LLM(model="Qwen/Qwen3-Embedding-8B", runner="pooling",
+          tensor_parallel_size=2, max_model_len=16384,
+          max_num_batched_tokens=512, dtype="bfloat16", trust_remote_code=True)
+results = llm.embed(["Enterprise-grade semantic retrieval on TPUs with vLLM."])
+```
+
 ## References
 
+- [Official Google Developers Blog post (Aug 26, 2026)](https://developers.googleblog.com/enterprise-grade-precision-for-long-context-multimodal-embedding-inference-on-cloud-tpu/)
+- [AI-Hypercomputer Qwen3-Embedding-8B TPU recipe](https://github.com/AI-Hypercomputer/tpu-recipes/tree/main/inference/ironwood/vLLM/Qwen3-Embedding-8B)
 - [Original article (dev.to)](https://dev.to/cheng_zhang_45ee857b979b0/qwen3-embedding-on-cloud-tpu-production-long-context-retrieval-with-vllm-2oe4)
 - [vLLM TPU backend blog](https://vllm.ai/blog/2025-10-16-vllm-tpu)
 - [Qwen3-Embedding model card (Hugging Face)](https://huggingface.co/Qwen/Qwen3-Embedding-0.6B)
