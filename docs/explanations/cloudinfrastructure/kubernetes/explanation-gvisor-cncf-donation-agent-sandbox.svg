@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="116.0 -4.0 928.0 618.0" width="928" height="618">
+<rect x="116.0" y="-4.0" width="928.0" height="618.0" fill="#ffffff"/>
+<rect x="140.0" y="90.0" width="460.0" height="120.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="140.0" y="280.0" width="460.0" height="120.0" rx="8" fill="#ffd8a8" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="140.0" y="470.0" width="460.0" height="120.0" rx="8" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="680.0" y="280.0" width="340.0" height="300.0" rx="8" fill="#e5dbff" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 370.0 215.0 L 370.0 275.0"/><line x1="370.0" y1="275.0" x2="376.1" y2="262.4"/><line x1="370.0" y1="275.0" x2="363.9" y2="262.4"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 370.0 405.0 L 370.0 465.0"/><line x1="370.0" y1="465.0" x2="376.1" y2="452.4"/><line x1="370.0" y1="465.0" x2="363.9" y2="452.4"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 620.0 340.0 L 675.0 340.0"/><line x1="675.0" y1="340.0" x2="662.4" y2="333.9"/><line x1="675.0" y1="340.0" x2="662.4" y2="346.1"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="26" fill="#1e1e1e" text-anchor="start"><tspan x="140.0" y="40.8">gVisor: a user-space kernel between untrusted containers and the host</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="18" fill="#1e1e1e" text-anchor="start"><tspan x="160.0" y="124.4">Untrusted container</tspan><tspan x="160.0" y="146.9">(AI-agent generated code)</tspan><tspan x="160.0" y="169.4">app makes syscalls</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="160.0" y="304.8">Sentry — gVisor user-space kernel (Go)</tspan><tspan x="160.0" y="324.8">intercepts + services most syscalls itself</tspan><tspan x="160.0" y="344.8">(netstack for TCP/IP, gofer for files)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="18" fill="#1e1e1e" text-anchor="start"><tspan x="160.0" y="504.4">Host Linux kernel</tspan><tspan x="160.0" y="526.9">sees only the Sentry process,</tspan><tspan x="160.0" y="549.4">not the container's syscalls</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="700.0" y="307.8">Kubernetes opt-in path</tspan><tspan x="700.0" y="327.8"> </tspan><tspan x="700.0" y="347.8">Pod: runtimeClassName: gvisor</tspan><tspan x="700.0" y="367.8">  -&gt; RuntimeClass {handler: runsc}</tspan><tspan x="700.0" y="387.8">  -&gt; containerd handler runsc</tspan><tspan x="700.0" y="407.8">  -&gt; containerd-shim-runsc-v1</tspan><tspan x="700.0" y="427.8">  -&gt; runsc (Sentry)</tspan><tspan x="700.0" y="447.8"> </tspan><tspan x="700.0" y="467.8">Same mechanism as GKE Sandbox;</tspan><tspan x="700.0" y="487.8">Minikube ships a gVisor addon</tspan></text>
+</svg>

@@ -452,7 +452,7 @@ const sidebars = {
           type: 'category',
           label: 'Kubernetes',
           link: {type: 'generated-index', title: 'Kubernetes', slug: 'explanations/cloudinfrastructure/kubernetes'},
-          items: ['explanations/cloudinfrastructure/kubernetes/explanation-ineffective-occupancy-gpu-clusters', 'explanations/cloudinfrastructure/kubernetes/explanation-k8s-control-plane-scale-failure-modes', 'explanations/cloudinfrastructure/kubernetes/explanation-k8s-device-management-dra', 'explanations/cloudinfrastructure/kubernetes/explanation-k8s-v1-37-pod-certificates-cluster-trust-bundles', 'explanations/cloudinfrastructure/kubernetes/explanation-k8s-v1-37-pvc-last-used-time', 'explanations/cloudinfrastructure/kubernetes/explanation-securing-kubernetes-ai-agent-workloads'],
+          items: ['explanations/cloudinfrastructure/kubernetes/explanation-gvisor-cncf-donation-agent-sandbox', 'explanations/cloudinfrastructure/kubernetes/explanation-ineffective-occupancy-gpu-clusters', 'explanations/cloudinfrastructure/kubernetes/explanation-k8s-control-plane-scale-failure-modes', 'explanations/cloudinfrastructure/kubernetes/explanation-k8s-device-management-dra', 'explanations/cloudinfrastructure/kubernetes/explanation-k8s-v1-37-pod-certificates-cluster-trust-bundles', 'explanations/cloudinfrastructure/kubernetes/explanation-k8s-v1-37-pvc-last-used-time', 'explanations/cloudinfrastructure/kubernetes/explanation-securing-kubernetes-ai-agent-workloads'],
         },
         {
           type: 'category',
@@ -464,7 +464,7 @@ const sidebars = {
           type: 'category',
           label: 'Networking',
           link: {type: 'generated-index', title: 'Networking', slug: 'explanations/cloudinfrastructure/networking'},
-          items: ['explanations/cloudinfrastructure/networking/explanation-proxmox-cluster-heartbeat-wrong-network-corosync-link0', 'explanations/cloudinfrastructure/networking/explanation-submarine-cable-resilience-faults-repair-fleet-choke-points', 'explanations/cloudinfrastructure/networking/explanation-tailscale-multi-queue-buffer-reuse-netmap-caching'],
+          items: ['explanations/cloudinfrastructure/networking/explanation-isis-vs-ospf-design-tradeoffs', 'explanations/cloudinfrastructure/networking/explanation-proxmox-cluster-heartbeat-wrong-network-corosync-link0', 'explanations/cloudinfrastructure/networking/explanation-submarine-cable-resilience-faults-repair-fleet-choke-points', 'explanations/cloudinfrastructure/networking/explanation-tailscale-multi-queue-buffer-reuse-netmap-caching'],
         },
         {
           type: 'category',
@@ -827,6 +827,12 @@ const sidebars = {
           label: 'Java',
           link: {type: 'generated-index', title: 'Java', slug: 'examples/programming/java'},
           items: ['examples/programming/java/example-babylon-hat-gpu-tensor-cores-from-java'],
+        },
+        {
+          type: 'category',
+          label: 'Lean',
+          link: {type: 'generated-index', title: 'Lean', slug: 'examples/programming/lean'},
+          items: ['examples/programming/lean/example-ansatz-lean-jvm-proved-functions-clojure'],
         },
         {
           type: 'category',

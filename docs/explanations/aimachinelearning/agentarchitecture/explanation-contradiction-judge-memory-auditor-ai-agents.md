@@ -81,6 +81,16 @@ Same roadmap family, different job: govern with memgovern, audit with contradict
 - **CI-friendly:** `--fail` exits 1 when any contradiction is found — memory consistency checks slot into a pipeline.
 - 15 smoke tests, all green, before release.
 
+## Landscape: why this matters now
+
+- **Append-only vector memory is the root cause.** If every mention is stored, a corrected fact competes with the original error at retrieval time — the agent sees both and has no basis to prefer one. Auditing/contradiction-detection is the missing check in pure vector stores (a.k.a. "context rot").
+- **How the major memory layers resolve conflicts (vs. this tool's audit-only stance):**
+  - **Mem0** — add/update/delete operations at write time, resolving conflicting details as facts arrive (vendor guide claims large prompt-token reductions from not accumulating stale facts).
+  - **Letta (MemGPT)** — treats the context window like an OS; the agent *self-edits* its core memory blocks explicitly.
+  - **Zep** — temporal knowledge graph that tracks state changes, superseding stale facts rather than storing them alongside.
+  - **contradiction-judge** sits *after* the write: it doesn't prevent or fix conflicts at ingest, it reports and arbitrates — complementary to any of the above, and its `--fail` CI mode fits a regression gate on the memory store itself.
+- **Benchmarks:** memory-agent evaluations now include knowledge-conflict/knowledge-update tasks — e.g. MemoryAgentBench (ICLR 2026; arXiv:2507.05257), which scores agents on incremental multi-turn interactions including resolving conflicting knowledge. Contradiction handling is becoming a first-class evaluation axis, not just hygiene.
+
 ## Roadmap
 
 Embedding-based topic alignment ("the Bay Area" vs "San Francisco"), confidence scores, and an auto-fix mode that rewrites the stale entry instead of just flagging it.
@@ -90,3 +100,5 @@ Embedding-based topic alignment ("the Bay Area" vs "San Francisco"), confidence 
 - [contradiction-judge: the memory auditor your AI agents are missing (DEV.to)](https://dev.to/haoli/contradiction-judge-the-memory-auditor-your-ai-agents-are-missing-4288)
 - [contradiction-judge on GitHub](https://github.com/hahahahahahahahah6/contradiction-judge)
 - [memgovern on GitHub](https://github.com/hahahahahahahahah6/memgovern)
+- [How AI Memory Tools Handle Contradictions and Stale Data — Mem0 guide](https://mem0.ai/guide/ai-memory-tools-contradictions-outdated-information) (vendor source; Mem0/Letta/Zep conflict-resolution behavior)
+- [MemoryAgentBench: Evaluating Memory in LLM Agents via Incremental Multi-Turn Interactions — arXiv:2507.05257](https://arxiv.org/abs/2507.05257)

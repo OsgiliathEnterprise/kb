@@ -41,6 +41,38 @@ document.querySelector("#download-pdf")
 
 The user clicks *Download PDF*, the print dialog opens, they pick **Save as PDF** — done. The browser handles font rendering, page breaks, and the file format. On phones the same path goes through the share sheet.
 
+### Print CSS quality checklist
+
+Small additions that fix most ugly-save-as-PDF outcomes (all inside `@media print` unless noted):
+
+```css
+@page { size: A4 portrait; margin: 14mm; }        /* intended format; dialog can still override */
+
+h1, h2, h3 { break-after: avoid-page; }            /* no orphaned headings at page bottom */
+figure, table, blockquote, .line-item { break-inside: avoid; }  /* keep compact blocks whole */
+p { orphans: 3; widows: 3; }                        /* no 1-line stragglers across pages */
+
+a[href^='http']::after { content: ' (' attr(href) ')'; font-size: .85em; overflow-wrap: anywhere; }
+a[href^='#']::after { content: ''; }                /* don't print anchor URLs */
+
+.color-key { -webkit-print-color-adjust: exact; print-color-adjust: exact; }  /* logos, status chips */
+img, svg { max-width: 100%; height: auto; }         /* nothing overflows the page box */
+```
+
+Notes: `break-before/after/inside` are the modern properties (`page-break-*` are legacy aliases still accepted). `break-inside: avoid` is a request, not a guarantee — a block taller than a page must split. Advanced paged-media features (`@page :first/:left/:right`, margin boxes for page numbers) have uneven browser support — test in every browser your users actually print from.
+
+## Step 3.5 — React to print events (optional)
+
+`beforeprint`/`afterprint` fire around the dialog — useful to expand collapsed sections before printing and restore afterwards:
+
+```js
+let collapsed = [];
+window.addEventListener('beforeprint', () => { collapsed = collapseAll(); expandAll(); });
+window.addEventListener('afterprint',  () => restore(collapsed));
+```
+
+DevTools → Rendering → "Emulate CSS media type: print" lets you iterate on the print stylesheet without opening the dialog each time.
+
 ## Step 4 — Persist client-side only
 
 If the tool should remember user details, save the form to `localStorage` — nothing leaves the browser.
@@ -69,3 +101,6 @@ If the document is *already* HTML and the audience can click "Save as PDF", skip
 
 - [I almost added a PDF library. A print stylesheet was enough. — DEV.to](https://dev.to/sheaf/i-almost-added-a-pdf-library-a-print-stylesheet-was-enough-5eha) (primary source)
 - [Free invoice generator demo (Sheaf)](https://sheaf.guestleaf.app/tools/invoice-generator)
+- [The complete guide to print CSS — Flavio Copes](https://flaviocopes.com/css-printing/) (fragmentation, widows/orphans, link expansion, print-color-adjust)
+- [CSS Print Styles for PDFs and Printing — DiDoesDigital](https://didoesdigital.com/blog/print-styles/) (print-media simulation in DevTools, paged-media caveats, weasyprint alternatives)
+- [Window.print() — MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/print) · [beforeprint/afterprint events — MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/beforeprint_event)
