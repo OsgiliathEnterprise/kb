@@ -14,7 +14,7 @@ keywords:
 ---
 # Pratt Parsing: Turning Shunting-Yard Into Recursion (nud/led)
 
-Pratt parsing ("top-down operator precedence") is a single-loop expression parser that replaces shunting-yard's explicit operator stack with the **call stack**. It barely appears in formal CS curricula (the Dragon Book doesn't mention it) — its most mainstream exposure is *Crafting Interpreters*, plus Pratt's original 1979 paper.
+Pratt parsing ("top-down operator precedence") is a single-loop expression parser that replaces shunting-yard's explicit operator stack with the **call stack**. It barely appears in formal CS curricula (the Dragon Book doesn't mention it) — its most mainstream exposure is *Crafting Interpreters*, plus Pratt's original 1973 paper ("Top Down Operator Precedence", POPL '73 — often misdated as 1979).
 
 ## Shunting-yard, briefly
 - Output stream + operator stack; each operator has a **binding power** (higher binds tighter).
@@ -42,6 +42,15 @@ void expr(Parser *p, int left_bp) {
 
 `get_bindpower` defines `['\0'] = 0` so the loop terminates. Adding parentheses is just `['('] = 0` plus `paren() = expr(p, bp('('))` and a matching `')'` check. Extending further means either adding a token to the `bps` table plus a branch, or (the *Crafting Interpreters* generalization) coalescing into a rule struct: binding power + prefix routine + infix routine per operator. The author's structured C example (unary `+`/`-`, postfix `!`) lives in [their snippets repo](https://git.unix.dog/yosh/snippets/src/branch/main/c/pratt).
 
+### Associativity = one integer
+
+Pratt's full scheme gives each operator **two** numbers, left and right binding power (lbp/rbp), and the choice between them encodes associativity — no extra machinery:
+
+- **Left-associative** (`+`, `*`): recurse with `lbp` equal to the operator's own bp → the loop's `left_bp &lt; bp(top)` test fails against another same-precedence operator, so it unwinds. The C example above does this implicitly (`new_left_bp = get_bindpower(cur(p))`).
+- **Right-associative** (`^`, assignment `=`): recurse with `bp - 1` → the same-precedence operator on the right gets consumed by the *inner* call, building a right-leaning tree: `2^3^4` → `2^(3^4)`.
+
+This is why exponentiation is a two-character change in Pratt but a special case in shunting-yard.
+
 ![Diagram 1 — explanation-pratt-parsing](explanation-pratt-parsing-excalidraw-1.svg)
 
 ## Why this shape
@@ -52,5 +61,7 @@ void expr(Parser *p, int left_bp) {
 ## References
 - [Pratt parsing, unix.dog (~yosh, 2026-10-25)](https://www.unix.dog/~yosh/blog/2026-10-25_pratt-parsing.html) — C implementation, shunting-yard → pratt walkthrough
 - [Crafting Interpreters: Compiling Expressions](https://craftinginterpreters.com/compiling-expressions.html) — the rule-table generalization
-- [Pratt's original paper (tdop.github.io)](https://tdop.github.io/)
+- [Pratt's original paper (tdop.github.io)](https://tdop.github.io/) — "Top Down Operator Precedence", POPL 1973
 - [Shunting-yard algorithm (Wikipedia)](https://en.wikipedia.org/wiki/Shunting_yard_algorithm)
+- [Crockford: Top Down Operator Precedence](https://www.crockford.com/javascript/tdop/tdop.html) — JS implementation; right binding power "controls how aggressively it binds to tokens on its right"
+- [Eli Bendersky: Top-Down operator precedence (Pratt) parsing](https://eli.thegreenplace.net/2010/01/02/top-down-operator-precedence-parsing) — TDOP vs. classic recursive-descent framing

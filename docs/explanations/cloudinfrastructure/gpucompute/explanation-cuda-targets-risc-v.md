@@ -64,9 +64,33 @@ the ACPI/BRS gap that blocked the CUDA port is exactly what the ratified server
 platform spec now closes — which is why a server-grade RISC-V host for CUDA is
 now a realistic procurement target rather than a research project.
 
+## SiFive partnership and NVLink Fusion (verified 2026-11-08)
+
+Two follow-on developments from the Hot Chips 2026 announcement (Aug 23–25, Stanford):
+
+- **SiFive partnership.** Nvidia is partnering with SiFive, which planned a
+  live CUDA-on-RISC-V demo at Hot Chips; the example CPU specs on Nvidia's
+  slide (high core count, server-class) correspond to that SiFive system.
+- **NVLink Fusion licensing.** Nvidia's talk covered two platforms — CUDA and
+  NVLink Fusion. Licensing NVLink to third-party chip designers means a RISC-V
+  server-vendor could, in principle, build a coherent accelerator platform on
+  Nvidia's interconnect + software stack without x86 or Arm as the host CPU.
+- **Origin of the port.** The plan was first announced as a "strategic
+  technology disclosure" at **RISC-V Summit China 2025**. Nvidia VP Frans
+  Sijstermans: "We wouldn't have considered this without RVA23" — the profile
+  gives the stable, predictable hardware target the port requires (Nvidia had
+  first looked at a RISC-V port in 2022 and found the ecosystem immature).
+  Canonical has likewise pivoted Ubuntu-for-RISC-V entirely to RVA23.
+- **Realistic outlook.** Existing RISC-V consumer hardware almost certainly
+  won't meet the requirements (ACPI adoption is the sticking point — spotty on
+  Arm even after years in the spec). The first CUDA-capable RISC-V hosts will
+  be server systems, not hobbyist SBCs.
+
 ## References
 
 - [Hot Chips 2026: CUDA Targets RISC-V (Chips and Cheese)](https://chipsandcheese.com/p/hot-chips-2026-cuda-targets-risc)
+- [NVIDIA on RVA23: "We Wouldn't Have Considered Porting CUDA to RISC-V Without It" (RISC-V International)](https://riscv.org/blog/nvidia-cuda-rva23/)
+- [NVIDIA RISC-V for NVIDIA GPUs at Hot Chips 2026 (ServeTheHome)](https://www.servethehome.com/nvidia-risc-v-for-nvidia-gpus-at-hot-chips-2026/)
 - [RISC-V server SoC specification](https://docs.riscv.org/reference/server-soc/_attachments/riscv-server-soc.pdf)
 - [RISC-V server platform spec v1.0](https://github.com/riscv-non-isa/riscv-server-platform/releases/tag/v1.0)
 - [RISC-V Europe Summit 2026: Beyond Embedded Electronics (EE Times)](https://www.eetimes.com/risc-v-europe-summit-2026-beyond-embedded-electronics/)

@@ -75,6 +75,7 @@ Sharing one `environmentId` across GAS projects, local Node.js workstations (SSE
 - **ggsrun upload**: `ggsrun upload --nc --cm OverwriteIfNewer -j` uploaded and verified a file in Drive in 12.1 s, with the OAuth token injected per-turn as `GGSRUN_AT` (never persisted across sessions).
 - **Playwright scraping**: multi-viewport screenshots (desktop 1280×800 ≈ 92.5 KB, mobile 375×812 ≈ 51.6 KB) + structured JSON (~4.1 KB), all streamed to Drive in one `ggsrun upload` command — 20.4 s total.
 - **Inbound**: large datasets stream *into* the sandbox via `ggsrun download`, so prompts carry only a short instruction ("download target dataset from Drive and analyze it") instead of Base64 payloads that would instantly hit the 200k TPM limit.
+- **Benchmark (verified 2026-11-08, upstream repo)**: for a 10 KB binary transfer to Drive, direct `ggsrun` streaming completed end-to-end in 16.20 s with 0.00 s GAS CPU time, vs 32.13 s and 1.23 s local decode for Base64-via-API — a **1.98x** speedup with zero GAS memory footprint.
 
 ## Key takeaways
 
