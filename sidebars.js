@@ -234,7 +234,7 @@ const sidebars = {
           type: 'category',
           label: 'Frontendjavascript',
           link: {type: 'generated-index', title: 'Frontendjavascript', slug: 'how-to/programming/frontendjavascript'},
-          items: ['how-to/programming/frontendjavascript/howto-cad-to-gltf-manufacturer-asset-pipeline', 'how-to/programming/frontendjavascript/howto-deno-2-9-desktop-and-node-migration', 'how-to/programming/frontendjavascript/howto-eradicate-slow-ttfb-with-streaming-ssr-nextjs', 'how-to/programming/frontendjavascript/howto-per-project-node-toolchains-nvmrc-corepack-docker-compose', 'how-to/programming/frontendjavascript/howto-react-native-environment-setup-android-flavors-ios-schemes', 'how-to/programming/frontendjavascript/howto-svg-icon-optimization', 'how-to/programming/frontendjavascript/howto-testing-llm-prompt-outputs-with-node-test'],
+          items: ['how-to/programming/frontendjavascript/howto-cad-to-gltf-manufacturer-asset-pipeline', 'how-to/programming/frontendjavascript/howto-client-side-csv-preflight-validation-indexeddb-drafts', 'how-to/programming/frontendjavascript/howto-deno-2-9-desktop-and-node-migration', 'how-to/programming/frontendjavascript/howto-eradicate-slow-ttfb-with-streaming-ssr-nextjs', 'how-to/programming/frontendjavascript/howto-per-project-node-toolchains-nvmrc-corepack-docker-compose', 'how-to/programming/frontendjavascript/howto-react-native-environment-setup-android-flavors-ios-schemes', 'how-to/programming/frontendjavascript/howto-svg-icon-optimization', 'how-to/programming/frontendjavascript/howto-testing-llm-prompt-outputs-with-node-test'],
         },
         {
           type: 'category',
@@ -283,6 +283,12 @@ const sidebars = {
           label: 'Detection',
           link: {type: 'generated-index', title: 'Detection', slug: 'how-to/securityprivacy/detection'},
           items: ['how-to/securityprivacy/detection/howto-self-evolving-static-analysis-llm-pseudo-labeling'],
+        },
+        {
+          type: 'category',
+          label: 'Emailsecurity',
+          link: {type: 'generated-index', title: 'Emailsecurity', slug: 'how-to/securityprivacy/emailsecurity'},
+          items: ['how-to/securityprivacy/emailsecurity/howto-outlook-dmarc-enforcement-fix'],
         },
         {
           type: 'category',
@@ -578,7 +584,7 @@ const sidebars = {
           type: 'category',
           label: 'Frontendjavascript',
           link: {type: 'generated-index', title: 'Frontendjavascript', slug: 'explanations/programming/frontendjavascript'},
-          items: ['explanations/programming/frontendjavascript/explanation-browser-apis-replacing-npm-packages', 'explanations/programming/frontendjavascript/explanation-html-in-canvas-api', 'explanations/programming/frontendjavascript/explanation-js-string-concatenation-methods', 'explanations/programming/frontendjavascript/explanation-oxlint-oxfmt-benchmark-on-excalidraw', 'explanations/programming/frontendjavascript/explanation-react-rerender-vs-expensive-work', 'explanations/programming/frontendjavascript/explanation-social-link-preview-metadata-pitfalls'],
+          items: ['explanations/programming/frontendjavascript/explanation-browser-apis-replacing-npm-packages', 'explanations/programming/frontendjavascript/explanation-html-in-canvas-api', 'explanations/programming/frontendjavascript/explanation-js-string-concatenation-methods', 'explanations/programming/frontendjavascript/explanation-oxlint-oxfmt-benchmark-on-excalidraw', 'explanations/programming/frontendjavascript/explanation-pdf-compression-internals', 'explanations/programming/frontendjavascript/explanation-react-rerender-vs-expensive-work', 'explanations/programming/frontendjavascript/explanation-social-link-preview-metadata-pitfalls'],
         },
         {
           type: 'category',
@@ -644,7 +650,7 @@ const sidebars = {
           type: 'category',
           label: 'Rust',
           link: {type: 'generated-index', title: 'Rust', slug: 'explanations/programming/rust'},
-          items: ['explanations/programming/rust/explanation-deser-event-driven-serialization-rust', 'explanations/programming/rust/explanation-rust-1-98-algebraic-float-and-buffered-formatting'],
+          items: ['explanations/programming/rust/explanation-deser-event-driven-serialization-rust', 'explanations/programming/rust/explanation-jit-bitmap-text-rendering-rp2350', 'explanations/programming/rust/explanation-rust-1-98-algebraic-float-and-buffered-formatting', 'explanations/programming/rust/explanation-rust-gui-state-models-incrementalization'],
         },
         {
           type: 'category',
@@ -668,7 +674,7 @@ const sidebars = {
           type: 'category',
           label: 'Aiagentsecurity',
           link: {type: 'generated-index', title: 'Aiagentsecurity', slug: 'explanations/securityprivacy/aiagentsecurity'},
-          items: ['explanations/securityprivacy/aiagentsecurity/explanation-abliterated-model-backdoor-credential-exfiltration', 'explanations/securityprivacy/aiagentsecurity/explanation-aegis-multilayer-llm-security-proxy', 'explanations/securityprivacy/aiagentsecurity/explanation-ai-agent-identity-patterns-production', 'explanations/securityprivacy/aiagentsecurity/explanation-closedquorum-llm-quorum-malware', 'explanations/securityprivacy/aiagentsecurity/explanation-cloudflare-security-audit-skill-multi-phase-agent-audits', 'explanations/securityprivacy/aiagentsecurity/explanation-covert-assistance-agents-evade-oversight', 'explanations/securityprivacy/aiagentsecurity/explanation-enterprise-ai-data-security-patterns', 'explanations/securityprivacy/aiagentsecurity/explanation-evasionbench-instrumental-monitor-evasion', 'explanations/securityprivacy/aiagentsecurity/explanation-llm-agents-tamper-with-their-own-traces', 'explanations/securityprivacy/aiagentsecurity/explanation-llm-inference-engine-exploits', 'explanations/securityprivacy/aiagentsecurity/explanation-lm-studio-bionic-shell-judge-auto-review', 'explanations/securityprivacy/aiagentsecurity/explanation-local-llm-confidentiality-boundary-failures', 'explanations/securityprivacy/aiagentsecurity/explanation-mcp-filesystem-capability-laundering-mcp-fsd', 'explanations/securityprivacy/aiagentsecurity/explanation-miasma-worm-agentic-supply-chain-attack', 'explanations/securityprivacy/aiagentsecurity/explanation-openai-dots-boundary-problems-always-on-agents', 'explanations/securityprivacy/aiagentsecurity/explanation-openai-hugging-face-agent-incident', 'explanations/securityprivacy/aiagentsecurity/explanation-rfc8693-token-exchange-agent-delegation', 'explanations/securityprivacy/aiagentsecurity/explanation-unbounded-llm-calls-ai-sdk-audit', 'explanations/securityprivacy/aiagentsecurity/reference-infuse-indirect-prompt-injection-benchmark', 'explanations/securityprivacy/aiagentsecurity/reference-kalibench-cybersecurity-tool-use-benchmark', 'explanations/securityprivacy/aiagentsecurity/reference-last-secure-code-benchmark', 'explanations/securityprivacy/aiagentsecurity/reference-piatlas-prompt-injection-attack-taxonomy'],
+          items: ['explanations/securityprivacy/aiagentsecurity/explanation-abliterated-model-backdoor-credential-exfiltration', 'explanations/securityprivacy/aiagentsecurity/explanation-aegis-multilayer-llm-security-proxy', 'explanations/securityprivacy/aiagentsecurity/explanation-ai-agent-identity-patterns-production', 'explanations/securityprivacy/aiagentsecurity/explanation-claude-code-dont-ask-again-secret-leaks', 'explanations/securityprivacy/aiagentsecurity/explanation-closedquorum-llm-quorum-malware', 'explanations/securityprivacy/aiagentsecurity/explanation-cloudflare-security-audit-skill-multi-phase-agent-audits', 'explanations/securityprivacy/aiagentsecurity/explanation-covert-assistance-agents-evade-oversight', 'explanations/securityprivacy/aiagentsecurity/explanation-enterprise-ai-data-security-patterns', 'explanations/securityprivacy/aiagentsecurity/explanation-evasionbench-instrumental-monitor-evasion', 'explanations/securityprivacy/aiagentsecurity/explanation-llm-agents-tamper-with-their-own-traces', 'explanations/securityprivacy/aiagentsecurity/explanation-llm-inference-engine-exploits', 'explanations/securityprivacy/aiagentsecurity/explanation-lm-studio-bionic-shell-judge-auto-review', 'explanations/securityprivacy/aiagentsecurity/explanation-local-llm-confidentiality-boundary-failures', 'explanations/securityprivacy/aiagentsecurity/explanation-mcp-filesystem-capability-laundering-mcp-fsd', 'explanations/securityprivacy/aiagentsecurity/explanation-miasma-worm-agentic-supply-chain-attack', 'explanations/securityprivacy/aiagentsecurity/explanation-openai-dots-boundary-problems-always-on-agents', 'explanations/securityprivacy/aiagentsecurity/explanation-openai-hugging-face-agent-incident', 'explanations/securityprivacy/aiagentsecurity/explanation-rfc8693-token-exchange-agent-delegation', 'explanations/securityprivacy/aiagentsecurity/explanation-unbounded-llm-calls-ai-sdk-audit', 'explanations/securityprivacy/aiagentsecurity/reference-infuse-indirect-prompt-injection-benchmark', 'explanations/securityprivacy/aiagentsecurity/reference-kalibench-cybersecurity-tool-use-benchmark', 'explanations/securityprivacy/aiagentsecurity/reference-last-secure-code-benchmark', 'explanations/securityprivacy/aiagentsecurity/reference-piatlas-prompt-injection-attack-taxonomy'],
         },
         {
           type: 'category',
@@ -814,7 +820,7 @@ const sidebars = {
           type: 'category',
           label: 'Frontendjavascript',
           link: {type: 'generated-index', title: 'Frontendjavascript', slug: 'examples/programming/frontendjavascript'},
-          items: ['examples/programming/frontendjavascript/example-browser-only-pdf-processing-with-csp-enforcement', 'examples/programming/frontendjavascript/example-hldays-business-day-api-jurisdiction-holidays', 'examples/programming/frontendjavascript/example-intl-segmenter-text-analysis'],
+          items: ['examples/programming/frontendjavascript/example-browser-only-pdf-processing-with-csp-enforcement', 'examples/programming/frontendjavascript/example-css-starting-style-allow-discrete-transitions', 'examples/programming/frontendjavascript/example-hldays-business-day-api-jurisdiction-holidays', 'examples/programming/frontendjavascript/example-intl-segmenter-text-analysis'],
         },
         {
           type: 'category',
@@ -857,6 +863,18 @@ const sidebars = {
           label: 'Dnssecurity',
           link: {type: 'generated-index', title: 'Dnssecurity', slug: 'examples/securityprivacy/dnssecurity'},
           items: ['examples/securityprivacy/dnssecurity/example-dnssec-cds-cdnskey-consistency-check-stdlib-python'],
+        },
+        {
+          type: 'category',
+          label: 'Iotfirmwaresecurity',
+          link: {type: 'generated-index', title: 'Iotfirmwaresecurity', slug: 'examples/securityprivacy/iotfirmwaresecurity'},
+          items: ['examples/securityprivacy/iotfirmwaresecurity/example-coldframe-refrigeration-controller-honeypot'],
+        },
+        {
+          type: 'category',
+          label: 'Websecurity',
+          link: {type: 'generated-index', title: 'Websecurity', slug: 'examples/securityprivacy/websecurity'},
+          items: ['examples/securityprivacy/websecurity/example-connected-car-forgerock-exploit-chain'],
         },
       ],
     },

@@ -36,6 +36,8 @@ Transformers.js 3.8.1 ships **onnxruntime 1.21.0** by default, which **refused t
 
 After the pin, the demo ran end-to-end in ~90 s.
 
+**Browser-side nuance (same operator, different build)**: in the browser it's the *wasm build selection*, not the npm version, that matters. The data-parallel build (`ort-wasm-simd-threaded.jsep`) shipped by Transformers.js for WebGPU has **no CPU kernel for `GatherBlockQuantized`**, so session creation fails on the first node when WebGPU is unavailable; the plain build (`ort-wasm-simd-threaded.{mjs,wasm}`) *does* have the kernel. Transformers.js 4.3.x (onnxruntime-web 1.31.0-dev) falls back to the plain build only for Safari &lt; 26 (no WebGPU) — elsewhere you must force it (e.g. `env.backends.onnx.wasm.wasmPaths` to the plain build, or `device: "wasm"`), or WebGPU becomes the only working path.
+
 ## What was / wasn't verified
 Verified locally: `npm install` succeeds, `npm run demo` produces a real Gemma transcript, the static viewer renders it, and the interactive picker lists all six personas. **Not** verified: running the model in a browser — the demo viewer is a transcript page and makes no such claim.
 
