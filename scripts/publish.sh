@@ -7,7 +7,13 @@
 # Scenarios:
 #   1) gh-pages doesn't exist -> build site, push to gh-pages, tag source
 #   2) gh-pages exists       -> compare content, create PR branch if changed
-#   3) PR open > 3 days      -> force-merge into gh-pages and publish
+#      (skipped entirely when gh-pages already carries a CI deploy of the
+#       current master HEAD — the CI - Build and Deploy workflow owns gh-pages
+#       on every master push; republishing the same source only spawns PRs
+#       that CI's next force-push turns CONFLICTING — 2026-11 pileup)
+#   3) PR open > 3 days      -> force-merge into gh-pages and publish;
+#      if it conflicts AND gh-pages is already deployed from current master
+#      HEAD, the branch is superseded: close its PR and delete it
 #
 # Uses SSH deploy key from ~/.ssh/id_ed25519_kb (github-kb host alias)
 # =============================================================================
@@ -112,23 +118,31 @@ visibility_gate() {
 }
 
 # ── MDX precheck: fix angle-bracket URLs that break MDX/JSX parser ─────────────
+# Implemented in scripts/mdx_precheck.py (code-context aware: fences and inline
+# code are left alone — the old sed fixed `<0.12.0` inside code fences too,
+# which double-escaped to `&amp;lt;` and made the publisher build differ from
+# the CI build of the same commit -> daily spurious "content changed" PRs).
+# The edits live in the master worktree only for the duration of the build; an
+# EXIT trap reverts exactly the files we touched (and only while unchanged).
+MDX_STATE=""
+MDX_PY=""
+
 mdx_precheck() {
-  log "Running MDX precheck (fixing angle-bracket URLs and <number patterns)..."
+  log "Running MDX precheck (fixing angle-bracket URLs and <number patterns outside code)..."
   cd "$REPO_DIR"
+  MDX_PY="$(pick_python)"
+  MDX_STATE="$REPO_DIR/.hermes/mdx_precheck_state.json"
+  mkdir -p "$REPO_DIR/.hermes"
+  local fixed
+  fixed="$("$MDX_PY" "$REPO_DIR/scripts/mdx_precheck.py" fix docs "$MDX_STATE")" \
+    || die "mdx_precheck.py failed"
+  log "MDX precheck complete — $fixed files changed"
+}
 
-  # Fix angle-bracket URLs: <https://...> -> [URL](https://...)
-  # Fix <number patterns: <1% -> &lt;1% (prevents JSX tag interpretation)
-  local fixed=0
-  while IFS= read -r -d '' file; do
-    if sed -i \
-      -e 's|<\(https\?://[^>]*\)>|[\1](\1)|g' \
-      -e 's|<\([0-9]\)|\&lt;\1|g' \
-      "$file" 2>/dev/null; then
-      fixed=$((fixed + 1))
-    fi
-  done < <(find docs/ -name '*.md' -print0)
-
-  log "MDX precheck complete — scanned $fixed files"
+revert_mdx_precheck() {
+  [ -n "$MDX_STATE" ] && [ -f "$MDX_STATE" ] || return 0
+  "$MDX_PY" "$REPO_DIR/scripts/mdx_precheck.py" revert "$MDX_STATE" --repo "$REPO_DIR" >/dev/null || \
+    log "WARNING: mdx_precheck revert had issues — check 'git status' in $REPO_DIR"
 }
 
 # ── Build ─────────────────────────────────────────────────────────────────────
@@ -175,6 +189,23 @@ create_ghpages() {
   git_run tag -a "$tag_name" -m "KB publish $tag_name — source $sha" "$sha"
   git_run push "$REMOTE" "$tag_name"
   log "Created gh-pages + tagged $tag_name (source: $sha)"
+}
+
+# ── Which source commit does the live gh-pages tree come from? ───────────────
+# The CI deploy workflow (peaceiris/actions-gh-pages) appends the full source
+# SHA to the gh-pages commit subject: "deploy: KB website update <40-hex>".
+# Empty output means gh-pages was not produced by CI (e.g. scenario-1 push or
+# a force-merge) — callers must fall back to the conservative path.
+ghpages_deployed_sha() {
+  git -C "$REPO_DIR" log -1 --format='%s' "$REMOTE/$TARGET_BRANCH" 2>/dev/null \
+    | grep -oE '\b[0-9a-f]{40}\b' | head -1 || true
+}
+
+site_is_current() {
+  # true when gh-pages already serves a CI deploy of the current master HEAD
+  local deployed
+  deployed="$(ghpages_deployed_sha)"
+  [ -n "$deployed" ] && [ "$deployed" = "$(git -C "$REPO_DIR" rev-parse HEAD)" ]
 }
 
 # ── Scenario 2: gh-pages exists — compare & create PR ─────────────────────────
@@ -282,7 +313,7 @@ This PR was created by the daily publisher cron job."
   # Use gh CLI if available, otherwise curl with SSH-derived token
   if command -v gh &>/dev/null && gh auth status &>/dev/null; then
     local repo_slug
-    repo_slug="$(git_run remote get-url "$REMOTE" | sed 's|.*:||;s|\.git$||')"
+    repo_slug="$(git_run remote get-url "$REMOTE" | sed -E 's#^(https?://|git@)[^/:]+[:/]##; s#\.git$##')"
     # NOTE: no `2>/dev/null` — a failed PR creation must be visible in the log.
     if ! gh pr create \
       --base "$TARGET_BRANCH" \
@@ -298,6 +329,25 @@ This PR was created by the daily publisher cron job."
 }
 
 # ── Scenario 3: Stale PR detection & force-merge ──────────────────────────────
+close_stale_pr() {
+  # Best-effort PR closure for a superseded publish branch (gh auth via the
+  # same account create_pr uses). Failure to close must not fail the run —
+  # the branch deletion is what keeps the repo clean.
+  local branch="$1"
+  command -v gh >/dev/null 2>&1 || { log "gh CLI not available — close PR for $branch manually"; return 0; }
+  gh auth status >/dev/null 2>&1 || { log "gh CLI not authenticated — close PR for $branch manually"; return 0; }
+  local slug num head_sha
+  slug="$(git_run remote get-url "$REMOTE" | sed -E 's#^(https?://|git@)[^/:]+[:/]##; s#\.git$##')"
+  head_sha="$(git -C "$REPO_DIR" rev-parse --short HEAD)"
+  num="$(gh pr list --repo "$slug" --state open --head "$branch" --json number --jq '.[0].number' 2>/dev/null || true)"
+  if [ -n "$num" ] && [ "$num" != "null" ]; then
+    if ! gh pr close "$num" --repo "$slug" \
+      --comment "Superseded: gh-pages already serves a CI 'Build and Deploy' of current master (\`$head_sha\`). This publish branch predates that deploy and adds no content missing from gh-pages; its conflict is caused by CI's force-push. Auto-closed without merge by scripts/publish.sh."; then
+      log "WARNING: could not close PR #$num for $branch — do it manually"
+    fi
+  fi
+}
+
 check_stale_prs() {
   log "Checking for stale PR branches (> ${PR_MAX_AGE_DAYS} days)..."
 
@@ -319,7 +369,11 @@ check_stale_prs() {
 
     if [ "$age_days" -ge "$PR_MAX_AGE_DAYS" ]; then
       log "STALE: $branch is ${age_days} days old — force-merging"
-      force_merge "$branch"
+      # Guarded: one unmergeable branch must not abort the whole run under
+      # set -e (the Nov-8 run died here before branch/PR hygiene).
+      if ! force_merge "$branch"; then
+        log "force_merge of $branch failed — branch kept, continuing with the rest"
+      fi
       stale_found=true
     else
       log "  $branch — ${age_days} days old (ok)"
@@ -331,79 +385,67 @@ check_stale_prs() {
   fi
 }
 
-# ── Force-merge a stale branch into gh-pages ────────────────────────────────
-# BUGFIX (2026-10-09): the previous version ran every git command through
-# git_run, which is pinned to -C "$REPO_DIR" — so even after `cd .gh-pages-wt`
-# the merge actually executed on $SOURCE_BRANCH in the MAIN repo, leaving it
-# with an unresolved conflict state (and tagging master's tip as if gh-pages
-# had been merged). All worktree operations now use plain `git`, which honors
-# cwd. On a merge conflict we abort and leave gh-pages untouched instead of
-# committing conflict markers; the stale branch is kept for investigation and
-# the run exits non-zero so the failure is visible in the log.
+# ── Force-publish a stale branch onto gh-pages ───────────────────────────────
+# HISTORY:
+#  2026-10-09: git commands must run with real cwd (worktree), not git_run.
+#  2026-10-31: tag derived from the branch stamp, tolerate pre-existing tag.
+#  2026-11-10: `git merge` replaced by commit-tree. The CI workflow deploys
+#    gh-pages with peaceiris force_orphan:true — every deploy is an ORPHAN
+#    commit, so a publish branch and the current gh-pages tip share no
+#    history: `git merge` sees unrelated histories and can never merge
+#    cleanly (it always aborts as "conflict"), which turned scenario 3 into a
+#    permanent no-op and piled up CONFLICTING PRs for days. gh-pages is a
+#    *generated* tree anyway, so the only sane merge is "the newest complete
+#    build wins": graft the branch's whole tree onto the current gh-pages tip
+#    via commit-tree (GitHub then closes the PR as MERGED automatically).
+#    If gh-pages already serves a CI deploy of current master HEAD, the
+#    branch is by definition superseded (it was built from an older master
+#    commit) — close its PR and delete it instead (2026-11-08..10 failure).
 force_merge() {
   local branch="$1"
-  local wt_dir="$REPO_DIR/.gh-pages-wt"
 
-  log "Force-merging $branch → $TARGET_BRANCH"
+  log "Force-publishing $branch → $TARGET_BRANCH"
 
-  # Use worktree for gh-pages (worktree management must target REPO_DIR)
-  git -C "$REPO_DIR" worktree remove "$wt_dir" --force 2>/dev/null || true
-  rm -rf "$wt_dir"
-
-  if git ls-remote --heads "$REMOTE" "refs/heads/$TARGET_BRANCH" | grep -q .; then
-    git -C "$REPO_DIR" worktree add "$wt_dir" "$REMOTE/$TARGET_BRANCH" >/dev/null
-  else
-    git -C "$REPO_DIR" worktree add "$wt_dir" --detach --force >/dev/null
+  # Check for supersession BEFORE touching anything.
+  if site_is_current; then
+    log "$branch superseded: gh-pages already deployed from master HEAD ($(git -C "$REPO_DIR" rev-parse --short HEAD)) — closing PR, deleting branch"
+    close_stale_pr "$branch"
+    git push "$REMOTE" --delete "$branch" 2>/dev/null || true
+    git -C "$REPO_DIR" branch -D "$branch" 2>/dev/null || true
+    return 0
   fi
 
-  cd "$wt_dir" || { err "Cannot enter $wt_dir"; return 1; }
+  # Graft the branch's complete site tree onto the current gh-pages tip.
+  local tree new_commit
+  tree="$(git -C "$REPO_DIR" rev-parse "$REMOTE/$branch^{tree}" 2>/dev/null)" || {
+    err "Cannot resolve tree of $REMOTE/$branch"
+    return 1
+  }
+  new_commit="$(git -C "$REPO_DIR" commit-tree "$tree" \
+    -p "$REMOTE/$TARGET_BRANCH" -p "$REMOTE/$branch" \
+    -m "publish: auto-merge $branch (stale > ${PR_MAX_AGE_DAYS}d)")" || {
+    err "commit-tree failed for $branch"
+    return 1
+  }
 
-  if ! git merge "$REMOTE/$branch" --no-edit --no-ff; then
-    # Conflict: abort, leave gh-pages untouched, keep the branch.
-    git merge --abort 2>/dev/null || true
-    cd "$REPO_DIR"
-    git -C "$REPO_DIR" worktree remove "$wt_dir" --force 2>/dev/null || true
-    rm -rf "$wt_dir"
-    err "Merge of $branch into $TARGET_BRANCH failed (conflict) — aborted, gh-pages unchanged, branch kept for investigation"
+  if ! git push "$REMOTE" "$new_commit:refs/heads/$TARGET_BRANCH"; then
+    err "Push of auto-merge commit to $TARGET_BRANCH failed — $branch kept for investigation"
     return 1
   fi
 
-  # Commit if there are changes (a no-ff merge commit is already created by
-  # git; an up-to-date merge stages nothing).
-  git add -A
-  if ! git diff --cached --quiet; then
-    git commit -m "publish: auto-merge $branch (stale > ${PR_MAX_AGE_DAYS}d)"
-  fi
-
-  git push "$REMOTE" HEAD:"refs/heads/$TARGET_BRANCH" --force
-
-  # Tag the worktree's actual HEAD (not the main repo's).
-  # BUGFIX (2026-10-31): the tag used the run-level DATE_STAMP, so a run that
-  # force-merged two stale PRs in sequence collided on the same tag name and
-  # the second `git tag` fataled (set -e) — aborting before branch deletion,
-  # worktree cleanup and the return-to-master hygiene step. Derive the tag
-  # from the branch's own stamp (publish/auto-YYYYMMDD-HHMMSS ->
-  # publish-merged-YYYYMMDD-HHMMSS) so each merge gets a unique tag, and
-  # tolerate an existing tag (re-run) instead of dying.
+  # Tag the published commit so the old build stays reachable.
   local branch_stem="${branch#"$PR_PREFIX-"}"
   local tag_name="${TAG_PREFIX}-merged-${branch_stem}"
-  local sha
-  sha="$(git rev-parse HEAD)"
-  git tag -a "$tag_name" -m "Auto-merged $branch — $sha" "$sha" || \
+  git -C "$REPO_DIR" tag -a "$tag_name" -m "Auto-merged $branch — $new_commit" "$new_commit" || \
     log "WARNING: tag $tag_name already exists — skipping tag creation"
-  git push "$REMOTE" "$tag_name" 2>/dev/null || \
+  git -C "$REPO_DIR" push "$REMOTE" "$tag_name" 2>/dev/null || \
     log "WARNING: could not push tag $tag_name (already exists?)"
 
   # Delete stale branch (only after a successful publish)
   git push "$REMOTE" --delete "$branch" 2>/dev/null || true
   git -C "$REPO_DIR" branch -D "$branch" 2>/dev/null || true
 
-  # Cleanup
-  cd "$REPO_DIR"
-  git -C "$REPO_DIR" worktree remove "$wt_dir" --force 2>/dev/null || true
-  rm -rf "$wt_dir"
-
-  log "Force-merged $branch → $TARGET_BRANCH, tagged $tag_name"
+  log "Force-published $branch → $TARGET_BRANCH (commit $new_commit), tagged $tag_name"
 }
 
 # ── Main ──────────────────────────────────────────────────────────────────────
@@ -413,16 +455,29 @@ main() {
   # Safety gate: abort if private content leaked into docs/
   visibility_gate
 
-  # Fix MDX-incompatible patterns before building
-  mdx_precheck
-
-  build_site
-
   # Check if gh-pages exists on remote
-  if git_run ls-remote --heads "$REMOTE" "refs/heads/$TARGET_BRANCH" | grep -q .; then
-    update_ghpages
+  if git_run ls-remote --heads "$REMOTE" "$TARGET_BRANCH" | grep -q .; then
+    # CI (CI - Build and Deploy on every master push) owns gh-pages and embeds
+    # the deployed source SHA in its commit subject. When gh-pages already
+    # serves master HEAD, a republish is pure noise: the build can never be
+    # byte-identical to CI's (bundle hash rotation), so the fingerprint check
+    # false-positives and every run spawns a PR that CI's next force-push
+    # turns CONFLICTING. Skip build + PR entirely (2026-11: 3 stuck PRs).
+    if site_is_current; then
+      log "gh-pages already deployed from master HEAD ($(git -C "$REPO_DIR" rev-parse --short HEAD)) — nothing to publish"
+    else
+      # Fix MDX-incompatible patterns before building (reverted on exit)
+      mdx_precheck
+      trap revert_mdx_precheck EXIT
+      build_site
+      update_ghpages
+    fi
     check_stale_prs
   else
+    # Fix MDX-incompatible patterns before building (reverted on exit)
+    mdx_precheck
+    trap revert_mdx_precheck EXIT
+    build_site
     create_ghpages
   fi
 
