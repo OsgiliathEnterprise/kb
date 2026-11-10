@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 -4.0 858.0 613.0" width="858" height="613">
+<rect x="16.0" y="-4.0" width="858.0" height="613.0" fill="#ffffff"/>
+<rect x="40.0" y="90.0" width="180.0" height="50.0" rx="8" fill="#f5e6d3" stroke="#8a5a2b" stroke-width="1.5"/>
+<rect x="280.0" y="90.0" width="220.0" height="50.0" rx="8" fill="#e6d3f5" stroke="#5a2b8a" stroke-width="1.5"/>
+<rect x="560.0" y="90.0" width="200.0" height="50.0" rx="8" fill="#d3f5e0" stroke="#2b8a4b" stroke-width="1.5"/>
+<rect x="280.0" y="180.0" width="220.0" height="50.0" rx="8" fill="#f5d3d3" stroke="#8a2b2b" stroke-width="1.5"/>
+<rect x="40.0" y="320.0" width="320.0" height="55.0" rx="8" fill="#cfe0f0" stroke="#2b5a8c" stroke-width="1.5"/>
+<rect x="40.0" y="390.0" width="320.0" height="55.0" rx="8" fill="#cfe0f0" stroke="#2b5a8c" stroke-width="1.5"/>
+<rect x="40.0" y="460.0" width="320.0" height="55.0" rx="8" fill="#cfe0f0" stroke="#2b5a8c" stroke-width="1.5"/>
+<rect x="40.0" y="530.0" width="320.0" height="55.0" rx="8" fill="#cfe0f0" stroke="#2b5a8c" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 220.0 115.0 L 280.0 115.0"/><line x1="280.0" y1="115.0" x2="267.4" y2="108.9"/><line x1="280.0" y1="115.0" x2="267.4" y2="121.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 500.0 115.0 L 560.0 115.0"/><line x1="560.0" y1="115.0" x2="547.4" y2="108.9"/><line x1="560.0" y1="115.0" x2="547.4" y2="121.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 390.0 140.0 L 390.0 180.0"/><line x1="390.0" y1="180.0" x2="396.1" y2="167.4"/><line x1="390.0" y1="180.0" x2="383.9" y2="167.4"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="24" fill="#1e1e1e" text-anchor="start"><tspan x="150.0" y="39.2">roc-deflate vs libdeflate: 4 levers -&gt; within 2.6-8.9%</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="55.0" y="112.8">Silesia corpus</tspan><tspan x="55.0" y="132.8">144 benchmarks</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="295.0" y="107.8">roc-deflate (Roc, pure FP)</tspan><tspan x="295.0" y="127.8">no SIMD, no unsafe</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="575.0" y="107.8">median 8.9% slower (x64)</tspan><tspan x="575.0" y="127.8">2.6% slower (M1 arm64)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="295.0" y="202.8">libdeflate (C + arch SIMD)</tspan><tspan x="295.0" y="222.8">the end boss</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="20" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="296.0">Optimization levers that closed the gap:</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="15" fill="#1e1e1e" text-anchor="start"><tspan x="55.0" y="342.0">1. Avoid unnecessary sharing</tspan><tspan x="55.0" y="360.8">-&gt; in-place mutation eligibility</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="15" fill="#1e1e1e" text-anchor="start"><tspan x="55.0" y="412.0">2. Hoist bounds checks</tspan><tspan x="55.0" y="430.8">early-return before loop</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="15" fill="#1e1e1e" text-anchor="start"><tspan x="55.0" y="482.0">3. Compile-time lookup tables</tspan><tspan x="55.0" y="500.8">+ exhaustive pattern match</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="15" fill="#1e1e1e" text-anchor="start"><tspan x="55.0" y="552.0">4. Wrapping arithmetic</tspan><tspan x="55.0" y="570.8">plus_wrap vs plus (1 CPU instr)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="18" fill="#1e1e1e" text-anchor="start"><tspan x="420.0" y="344.4">Remaining gap: arch-specific SIMD</tspan><tspan x="420.0" y="366.9">(the one thing pure FP can't touch)</tspan></text>
+</svg>
