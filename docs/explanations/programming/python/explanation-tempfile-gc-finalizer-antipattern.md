@@ -72,6 +72,13 @@ Two supporting measures:
 - [The Leak That Won't Die: How We Broke Python's tempfile — DEV.to](https://dev.to/flude_team/the-leak-that-wont-die-how-we-broke-pythons-tempfile-95o)
 - [Python docs: tempfile — Temporary files and directories](https://docs.python.org/3/library/tempfile.html)
 
+## Further Reading
+
+- [PEP 442 — Safe object finalization](https://peps.python.org/pep-0442/) — since Python 3.4, `__del__` is *safe* to define even with reference cycles, but timing remains non-deterministic: safety ≠ determinism, which is exactly the trap the Flude engine hit.
+- [bpo-19077 — More robust TemporaryDirectory cleanup](https://bugs.python.org/issue19077) — the CPython thread that hardened `TemporaryDirectory.__exit__` (Windows retry logic; later `ignore_cleanup_errors` in 3.10 and `onexc`/`onerror` cleanup callbacks in 3.12). Cleanup robustness was added *around the context manager*, not the finalizer — confirming where CPython considers the ownership boundary.
+- [cpython#85034 — TemporaryDirectory context manager can fail to remove directory](https://github.com/python/cpython/issues/85034) — even the blessed path has known failure modes; pair it with the janitor sweep.
+- [Right way to clean up a temporary folder in a Python class (Stack Overflow)](https://stackoverflow.com/questions/13379742/right-way-to-clean-up-a-temporary-folder-in-python-class) — community consensus: prefer explicit `cleanup()`/context manager; `weakref.finalize` is the acceptable finalizer substitute when you truly must register one.
+
 ## Related
 
 - [[explanation-python-str-lower-idna-unicode-cve-2026-17084]]

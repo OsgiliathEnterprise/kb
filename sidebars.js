@@ -384,6 +384,12 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Llmevaluation',
+          link: {type: 'generated-index', title: 'Llmevaluation', slug: 'explanations/aimachinelearning/llmevaluation'},
+          items: ['explanations/aimachinelearning/llmevaluation/explanation-netflix-synopsis-factuality-cascade'],
+        },
+        {
+          type: 'category',
           label: 'Multiagentsystems',
           link: {type: 'generated-index', title: 'Multiagentsystems', slug: 'explanations/aimachinelearning/multiagentsystems'},
           items: ['explanations/aimachinelearning/multiagentsystems/explanation-same-model-debate-more-self-critical-than-diverse-pairs', 'explanations/aimachinelearning/multiagentsystems/explanation-single-vs-multi-agent-coordination-costs'],
@@ -608,7 +614,7 @@ const sidebars = {
           type: 'category',
           label: 'Java',
           link: {type: 'generated-index', title: 'Java', slug: 'explanations/programming/java'},
-          items: ['explanations/programming/java/explanation-better-tools-immutable-data-java', 'explanations/programming/java/explanation-java-sealed-classes-exhaustive-pattern-matching', 'explanations/programming/java/explanation-jdk-26-performance-improvements', 'explanations/programming/java/explanation-jdk-27-stop-the-world-gc-changes', 'explanations/programming/java/explanation-jdk-28-pooled-confined-arena', 'explanations/programming/java/explanation-jdk-28-value-classes-preview', 'explanations/programming/java/explanation-jep-540-simple-json-api-incubator', 'explanations/programming/java/explanation-jep-543-structured-concurrency-finalized-jdk28', 'explanations/programming/java/explanation-jep-546-zgc-adaptive-heap-sizing', 'explanations/programming/java/explanation-netflix-ja-module-system-toolchain', 'explanations/programming/java/explanation-specjbb-workload-generator-same-jvm-limitations', 'explanations/programming/java/explanation-spring-ai-2-0-composable-tool-calling-advisor-architecture', 'explanations/programming/java/explanation-structured-concurrency-project-loom', 'explanations/programming/java/explanation-zgc-decade-of-low-latency-gc', 'explanations/programming/java/explanation-zgc-weak-reference-processing'],
+          items: ['explanations/programming/java/explanation-better-tools-immutable-data-java', 'explanations/programming/java/explanation-java-sealed-classes-exhaustive-pattern-matching', 'explanations/programming/java/explanation-jdk-26-performance-improvements', 'explanations/programming/java/explanation-jdk-27-stop-the-world-gc-changes', 'explanations/programming/java/explanation-jdk-28-pooled-confined-arena', 'explanations/programming/java/explanation-jdk-28-value-classes-preview', 'explanations/programming/java/explanation-jep-540-simple-json-api-incubator', 'explanations/programming/java/explanation-jep-543-structured-concurrency-finalized-jdk28', 'explanations/programming/java/explanation-jep-546-zgc-adaptive-heap-sizing', 'explanations/programming/java/explanation-netflix-ja-module-system-toolchain', 'explanations/programming/java/explanation-specjbb-workload-generator-same-jvm-limitations', 'explanations/programming/java/explanation-spring-ai-2-0-composable-tool-calling-advisor-architecture', 'explanations/programming/java/explanation-structured-concurrency-project-loom', 'explanations/programming/java/explanation-valhalla-ticker-value-class', 'explanations/programming/java/explanation-zgc-decade-of-low-latency-gc', 'explanations/programming/java/explanation-zgc-weak-reference-processing'],
         },
         {
           type: 'category',
@@ -638,7 +644,7 @@ const sidebars = {
           type: 'category',
           label: 'Python',
           link: {type: 'generated-index', title: 'Python', slug: 'explanations/programming/python'},
-          items: ['explanations/programming/python/explanation-python-str-lower-idna-unicode-cve-2026-17084', 'explanations/programming/python/explanation-tempfile-gc-finalizer-antipattern'],
+          items: ['explanations/programming/python/explanation-cpython-lean-formalization', 'explanations/programming/python/explanation-python-str-lower-idna-unicode-cve-2026-17084', 'explanations/programming/python/explanation-tempfile-gc-finalizer-antipattern'],
         },
         {
           type: 'category',
@@ -740,7 +746,7 @@ const sidebars = {
           type: 'category',
           label: 'Tlsssl',
           link: {type: 'generated-index', title: 'Tlsssl', slug: 'explanations/securityprivacy/tlsssl'},
-          items: ['explanations/securityprivacy/tlsssl/explanation-cctld-hijack-counterfeit-tls-certificates', 'explanations/securityprivacy/tlsssl/explanation-cloudflare-public-ca-mtc-post-quantum', 'explanations/securityprivacy/tlsssl/explanation-go-emudhra-distrusted-intermediates-cve-2026-111943', 'explanations/securityprivacy/tlsssl/explanation-ssl-tls-three-jobs', 'explanations/securityprivacy/tlsssl/explanation-tls-1-3-handshake-1rtt-0rtt', 'explanations/securityprivacy/tlsssl/explanation-xray-core-pinned-cert-mitm-bypass'],
+          items: ['explanations/securityprivacy/tlsssl/explanation-cctld-hijack-counterfeit-tls-certificates', 'explanations/securityprivacy/tlsssl/explanation-cloudflare-public-ca-mtc-post-quantum', 'explanations/securityprivacy/tlsssl/explanation-go-emudhra-distrusted-intermediates-cve-2026-111943', 'explanations/securityprivacy/tlsssl/explanation-ssl-tls-three-jobs', 'explanations/securityprivacy/tlsssl/explanation-tls-1-3-handshake-1rtt-0rtt', 'explanations/securityprivacy/tlsssl/explanation-vanity-rsa-modulus-badcert', 'explanations/securityprivacy/tlsssl/explanation-xray-core-pinned-cert-mitm-bypass'],
         },
         {
           type: 'category',

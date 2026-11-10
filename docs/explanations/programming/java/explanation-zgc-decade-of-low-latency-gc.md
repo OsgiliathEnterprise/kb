@@ -70,8 +70,19 @@ A second open item worth tracking is **faster startup and warmup** with ZGC (JDK
 
 ![Diagram 1 — explanation-zgc-decade-of-low-latency-gc](explanation-zgc-decade-of-low-latency-gc-excalidraw-1.svg)
 
+## Practical status and measured impact (enriched 2026-11-10)
+
+- **Java 25 is the first LTS release where Generational ZGC is the *only* form of ZGC** — the non-generational implementation has been removed. If you are on Java 25+ and choose ZGC, you are automatically on the generational collector (JEP 333 lineage).
+- **Measured tail-latency win, default settings, small heap.** Gunnar Morling benchmarked a Quarkus REST microservice (Postgres-backed, 1,000 req/s via Vegeta, 4 CPUs / 4 GB RAM — a typical microservice footprint, not a multi-hundred-GB heap) on JDK 25:
+  - Latencies were practically identical up to p99, but **p999/p9999 strongly favored ZGC**; the G1 outliers were confirmed via JDK Flight Recorder as GC pauses **>20 ms**, while ZGC's longest observed pause was **~50 microseconds**.
+  - Conclusion: switching to ZGC alone, with zero tuning, substantially improved tail latency. G1 can be narrowed with `-XX:MaxGCPauseMillis` tuning, but ZGC's out-of-the-box behavior is the appeal.
+- **No free lunch:** concurrency costs CPU — under high CPU load, ZGC's background GC threads can actually produce *higher* request times than G1 (throughput tax). Also remember GC is not the only source of JVM pauses: deoptimization and heap-dump creation also require safepoints (see Zac Blanco's work on JVM safepoint pauses).
+- **Adoption rule of thumb (community consensus, 2026):** latency-sensitive services (p99.9 SLAs, user-facing APIs) → try ZGC first; CPU-bound batch/throughput workloads → G1 remains competitive.
+
 ## References
 
+- [Lower Java Tail Latencies With ZGC (Gunnar Morling)](https://www.morling.dev/blog/lower-java-tail-latencies-with-zgc/) — hands-on G1-vs-ZGC benchmark on JDK 25, JFR pause measurements, benchmark source code
+- [ZGC vs G1GC in Java 26: Which GC Should You Actually Use? (Java Code Geeks)](https://www.javacodegeeks.com/2026/06/zgc-vs-g1gc-in-java-26-which-gc-should-you-actually-use.html) — current decision guidance
 - [ZGC: A Decade of Redefining Java Performance (Inside Java, Stefan Johansson)](https://inside.java/2026-06-30/zgc-performance-decade/) — original talk summary and article
 - [JavaOne 2026 ZGC session video](https://www.youtube.com/watch?v=Of0fvtIRwzY)
 - [ZGC - Paving the GC On-Ramp (Inside Java, Erik Österlund)](https://inside.java/2025-07-10/javaone-zgc/) — companion talk on ZGC configuration pitfalls

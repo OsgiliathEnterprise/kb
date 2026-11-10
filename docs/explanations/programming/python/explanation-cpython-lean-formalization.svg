@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="36.0 -14.0 808.0 438.0" width="808" height="438">
+<rect x="36.0" y="-14.0" width="808.0" height="438.0" fill="#ffffff"/>
+<rect x="60.0" y="60.0" width="170.0" height="130.0" rx="8" fill="#d4e6ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="255.0" y="60.0" width="170.0" height="130.0" rx="8" fill="#d4e6ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="450.0" y="60.0" width="170.0" height="130.0" rx="8" fill="#d4e6ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="645.0" y="60.0" width="170.0" height="130.0" rx="8" fill="#d4a5a5" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="60.0" y="290.0" width="760.0" height="110.0" rx="8" fill="#fff3bf" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 230.0 120.0 L 253.0 120.0"/><line x1="253.0" y1="120.0" x2="245.8" y2="116.5"/><line x1="253.0" y1="120.0" x2="245.8" y2="123.5"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 425.0 120.0 L 448.0 120.0"/><line x1="448.0" y1="120.0" x2="440.8" y2="116.5"/><line x1="448.0" y1="120.0" x2="440.8" y2="123.5"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 620.0 120.0 L 643.0 120.0"/><line x1="643.0" y1="120.0" x2="635.8" y2="116.5"/><line x1="643.0" y1="120.0" x2="635.8" y2="123.5"/></g>
+<g stroke="#e03131" stroke-width="1.5" fill="none"><path d="M 460.0 195.0 L 460.0 235.0 L 130.0 235.0 L 130.0 255.0"/><line x1="130.0" y1="255.0" x2="133.5" y2="247.8"/><line x1="130.0" y1="255.0" x2="126.5" y2="247.8"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="20" fill="#1e1e1e" text-anchor="start"><tspan x="90.0" y="26.0">Formalizing CPython in Lean: per-function pipeline</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="18" fill="#1e1e1e" text-anchor="start"><tspan x="70.0" y="84.4">Copy</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="70.0" y="109.6">line-by-line Lean copy of</tspan><tspan x="70.0" y="124.6">the C function, incl. C</tspan><tspan x="70.0" y="139.6">unsigned wrap-around</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="18" fill="#1e1e1e" text-anchor="start"><tspan x="265.0" y="84.4">Test</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="265.0" y="109.6">differential test vs real</tspan><tspan x="265.0" y="124.6">Python on &gt;=50,000</tspan><tspan x="265.0" y="139.6">tricky inputs</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="18" fill="#1e1e1e" text-anchor="start"><tspan x="460.0" y="84.4">Prove</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="460.0" y="109.6">state + machine-check a</tspan><tspan x="460.0" y="124.6">nontrivial theorem; Lean</tspan><tspan x="460.0" y="139.6">checker gates the build</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="18" fill="#1e1e1e" text-anchor="start"><tspan x="655.0" y="84.4">Check</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="655.0" y="109.6">independent second agent</tspan><tspan x="655.0" y="124.6">reviews; 'could a broken</tspan><tspan x="655.0" y="139.6">function pass?'</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#e03131" text-anchor="start"><tspan x="210.0" y="249.6">weak/vacuous proof -&gt; back to Copy (revise model)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="75.0" y="315.4">Project totals (CPython 3.15.2): 613,318 lines Lean / 1,539 files / 18,898 theorems / 4,071 accepted functions</tspan><tspan x="75.0" y="331.6">Coverage: grammar 100%, built-in types 35%, parser 31%, C modules 19%, interpreter core 10% -&gt; 16% overall</tspan><tspan x="75.0" y="347.9">Outcome: 418 bug reports, ~55 can crash the interpreter or corrupt memory from ordinary Python code</tspan></text>
+</svg>

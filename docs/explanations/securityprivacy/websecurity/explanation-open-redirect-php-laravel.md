@@ -207,6 +207,16 @@ if (!in_array($callbackUri, $registeredCallbacks, true)) {
 }
 ```
 
+## Laravel-specific footguns (enriched 2026-11-10)
+
+Open redirect is **CWE-601** ("URL Redirection to Untrusted Site"). Laravel ships ergonomic helpers that sit exactly where this bug likes to hide — each leaks trust in a different way:
+
+- **`redirect()->intended()`** — the helper itself is safe; the vulnerability is in how the session's `url.intended` value gets *populated*. Any route that copies `?redirect=`/`?next=` into the session (or calls `redirect()->setIntendedUrl($request->query('redirect'))`) without a same-site check lets an attacker plant an external destination that fires post-login — the most effective phishing setup, since the URL looks like your own login page right up to the bounce.
+- **`redirect()->away()`** — Laravel's docs are explicit that `away()` exists *specifically to bypass* the framework's URL safety checks. The method name is a signal, not a safeguard: it tells you the check has been turned off, not that one exists. Never feed it `$request->input('url')`.
+- **`URL::previous()` / `url()->previous()`** — built from the session `_previous.url` key or, when empty, the **`Referer` header** (trivially spoofed). `return redirect(url()->previous());` is functionally identical to trusting an unvalidated `redirect` parameter — it just arrives via session/header state, so it hides from reviews that only grep `$request->input()` call sites.
+- **The `url` validation rule does NOT stop open redirects.** `$request->validate(['redirect' => 'url'])` checks *shape* (scheme, host, syntax), not *trust*: `https://totally-legit-bank.security-alert-portal.ru` passes it without complaint. Format validation and trust validation are different controls — you still need an explicit host allow-list or same-origin comparison.
+- Normalize URLs before comparing (attackers use typos and tricky encodings), and register a redirect-guard middleware on every route where redirection is possible.
+
 ## Checklist (plain PHP)
 
 - Never pass `$_GET`/`$_POST` values directly to `header('Location: ...')`.
@@ -220,6 +230,7 @@ if (!in_array($callbackUri, $registeredCallbacks, true)) {
 
 - [Open Redirect Vulnerabilities in PHP and Laravel — When Your Own Domain Becomes the Attack](https://dev.to/kriosa/open-redirect-vulnerabilities-in-php-and-laravel-when-your-own-domain-becomes-the-attack-43cf) (article 17 of a PHP/Laravel application-security series)
 - [Snyk: How to prevent open redirect vulnerabilities in Laravel](https://snyk.io/blog/how-to-prevent-open-redirect-vulnerabilities-in-laravel/) — independent corroboration of the same mitigation hierarchy (fixed redirects > destination whitelisting > disallowing external domains), plus a worked vulnerable-app demo
+- [Safeguard.sh: Preventing open redirect vulnerabilities in Laravel](https://safeguard.sh/resources/blog/open-redirect-prevention-laravel) — CWE-601 framing; `intended()`/`away()`/`previous()` trust-leak analysis and the "`url` rule validates shape, not trust" pitfall
 
 ## Related
 - [[explanation-lm-studio-bionic-shell-judge-auto-review]]

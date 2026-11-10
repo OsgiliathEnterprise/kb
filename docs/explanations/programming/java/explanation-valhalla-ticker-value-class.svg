@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="116.0 -4.0 754.0 458.0" width="754" height="458">
+<rect x="116.0" y="-4.0" width="754.0" height="458.0" fill="#ffffff"/>
+<rect x="140.0" y="90.0" width="104.0" height="70.0" rx="8" fill="none" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="250.0" y="90.0" width="114.0" height="70.0" rx="8" fill="none" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="370.0" y="90.0" width="114.0" height="70.0" rx="8" fill="none" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="490.0" y="90.0" width="114.0" height="70.0" rx="8" fill="none" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="610.0" y="90.0" width="114.0" height="70.0" rx="8" fill="none" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="730.0" y="90.0" width="104.0" height="70.0" rx="8" fill="none" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="140.0" y="270.0" width="340.0" height="90.0" rx="8" fill="#d4a5a5" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="506.0" y="270.0" width="340.0" height="90.0" rx="8" fill="#a5d4a5" stroke="#1e1e1e" stroke-width="1.5"/>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="20" fill="#1e1e1e" text-anchor="start"><tspan x="150.0" y="36.0">Ticker value class: one int packs a 1-5 char symbol (6 bits per char)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="150.0" y="118.7">bits 31-30</tspan><tspan x="150.0" y="136.2">unused (0)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="260.0" y="118.7">bits 24-29</tspan><tspan x="260.0" y="136.2">'O' = 26</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="380.0" y="118.7">bits 18-23</tspan><tspan x="380.0" y="136.2">'R' = 29</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="500.0" y="118.7">bits 12-17</tspan><tspan x="500.0" y="136.2">'C' = 14</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="620.0" y="118.7">bits 6-11</tspan><tspan x="620.0" y="136.2">'L' = 23</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="740.0" y="118.7">bits 5-0</tspan><tspan x="740.0" y="136.2">pad = 0</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="140.0" y="191.2">&quot;ORCL&quot; -&gt; packed = 0x1A74E5C0   |   ALPHABET &quot;.0123456789A-Z&quot; -&gt; codes 1..37 (0 reserved for padding)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="140.0" y="226.2">compareTo() = Integer.compare(packed, other.packed)  -&gt;  integer order == string order (no decode needed)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="155.0" y="296.2">C2 scalarization (hot code):</tspan><tspan x="155.0" y="313.7">the int flows through locals/args/returns,</tspan><tspan x="155.0" y="331.2">no separate heap object</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="521.0" y="296.2">Flat array layout for Ticker[]:</tspan><tspan x="521.0" y="313.7">scan 0.261 vs 0.385 ns/elem</tspan><tspan x="521.0" y="331.2">(value vs identity, ~1.47x, M4 Pro)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="140.0" y="396.2">JDK 28 preview: javac --enable-preview --release 28; java --enable-preview</tspan><tspan x="140.0" y="413.7">&lt;64-bit field data = flattening candidate; &gt;=64 bits cannot flatten in nullable fields/arrays</tspan></text>
+</svg>
