@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="96.0 46.0 868.0 477.0" width="868" height="477">
+<rect x="96.0" y="46.0" width="868.0" height="477.0" fill="#ffffff"/>
+<rect x="120.0" y="70.0" width="300.0" height="100.0" rx="8" fill="#e7f5ff" stroke="#1971c2" stroke-width="1.5"/>
+<rect x="120.0" y="220.0" width="300.0" height="81.0" rx="8" fill="#e3fafc" stroke="#1098ad" stroke-width="1.5"/>
+<rect x="560.0" y="70.0" width="380.0" height="119.0" rx="8" fill="#fff5f5" stroke="#c92a2a" stroke-width="1.5"/>
+<rect x="560.0" y="250.0" width="380.0" height="81.0" rx="8" fill="#ebfbee" stroke="#2f9e44" stroke-width="1.5"/>
+<rect x="240.0" y="380.0" width="620.0" height="119.0" rx="8" fill="#fff9db" stroke="#fab005" stroke-width="1.5"/>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="134.0" y="92.4">External report: 'Tailworm'</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="134.0" y="111.4">Erica Windisch (Cyberdione Labs)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="134.0" y="130.4">targets Tailscale SSH v1.104.2</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="134.0" y="149.4">and headscale v0.29.5</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="134.0" y="242.4">Tailscale investigation</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="134.0" y="261.4">with external security specialists,</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="134.0" y="280.4">accelerated by the report</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="574.0" y="92.4">Findings (confirmed):</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="574.0" y="111.4">privilege escalation via Tailscale SSH,</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="574.0" y="130.4">beyond configured local-user perms,</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="574.0" y="149.4">including potential root</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="574.0" y="168.4">IDs: TS-2026-014 .. TS-2026-017</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="574.0" y="272.4">Fix shipped: Tailscale v1.104.4</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="574.0" y="291.4">advisory: tailscale.com/blog/</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="574.0" y="310.4">tailscale-ssh-findings-fixes</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="254.0" y="402.4">Interim mitigations:</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="254.0" y="421.4">1. set TS_SSH_DISABLE_FORWARDING=1 in tailscaled env</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="254.0" y="440.4">   (disables forwarding, keeps SSH)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="254.0" y="459.4">2. tighten SSH access policies to needed users/devices</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="254.0" y="478.4">3. update to v1.104.4 (target was 27 Oct)</tspan></text>
+</svg>
