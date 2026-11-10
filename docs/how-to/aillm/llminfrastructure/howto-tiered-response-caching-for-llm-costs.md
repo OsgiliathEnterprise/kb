@@ -121,6 +121,13 @@ Before changing behavior, run the cache in shadow mode: log what you *would* hav
 - [Why an old caching trick is your secret to lower LLM costs — The New Stack](https://thenewstack.io/llm-response-caching-costs/)
 - [Can prompt caching tame RAG costs without sacrificing accuracy? — The New Stack](https://thenewstack.io/production-rag-pipeline-fixes/)
 
+## Further Reading
+
+- [GPTCache: An Open-Source Semantic Cache for LLM Applications (ACL NLPOSS 2023)](https://aclanthology.org/2023.nlposs-1.24.pdf) — the reference open-source implementation of the Tier-2 design here: pluggable embedding backends, scalar+vector storage, and evictor policies; its eval reports latency/cost gains concentrated exactly on the boilerplate-heavy workloads described above.
+- [GPTCache docs](https://gptcache.readthedocs.io/en/latest/) — includes a benchmark of similarity-threshold selection per embedding model; matches Step 2's "validate thresholds against real queries" warning.
+- [GPT Semantic Cache: Reducing LLM Costs and Latency via Semantic caching (arXiv 2411.05276)](https://arxiv.org/abs/2411.05276) — academic treatment of the hit-vs-correct trade-off when serving approximate matches.
+- [From Exact Hits to Close Enough: Semantic Caching for LLM (arXiv 2603.03301)](https://arxiv.org/abs/2603.03301) — recent work on calibration of the acceptance threshold, i.e. making the "close enough" decision statistically rather than by hand-tuned cosine cutoff.
+
 ## Related
 
 - [[explanation-qwen3-embedding-cloud-tpu-vllm]]

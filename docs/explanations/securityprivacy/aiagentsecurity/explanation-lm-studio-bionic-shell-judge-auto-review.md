@@ -39,6 +39,15 @@ Instead of pattern-matching raw strings, the judge parses the command into an **
 - [LM Studio built a judge for AI commands. Then the judge started agreeing with the defendant. (The New Stack)](https://thenewstack.io/bionic-shell-command-safety/)
 - [How Auto Review works (LM Studio blog)](https://lmstudio.ai/blog/how-auto-review-works)
 
+## Further Reading
+
+- [LM Studio Bionic Clears 82% of Shell Commands Without AI; Reviewer Yields to Prompt Injection — TechTimes (2026-08-31)](https://www.techtimes.com/articles/325987/20260831/lm-studio-bionic-clears-82-shell-commands-without-ai-reviewer-yields-prompt-injection.htm) — independent press coverage of the launch, reiterating that the 82% figure is the team's anecdotal estimate and foregrounding the second-layer judge's suggestibility.
+- [LM Studio Bionic Adds Auto Review for Shell Command Approval — How2Shout](https://www.how2shout.com/news/lm-studio-bionic-auto-review.html) — feature-launch detail on the AST shell judge and escalation path.
+
+## Status check (2026-11-10)
+
+Re-verified ~10 weeks after publication: no public changelog entry or follow-up report was found showing a fix (or mitigation guidance) for the second-layer judge's "agreeing with the defendant" malleability issue. The AST first-layer design and the 82% figure stand as originally reported. Treat the LLM judge escalation as advisory, not a security boundary, until LM Studio publishes hardening details.
+
 ## Related
 - [[explanation-openai-hugging-face-agent-incident]]
 - [[howto-mcp-security-hardening]]

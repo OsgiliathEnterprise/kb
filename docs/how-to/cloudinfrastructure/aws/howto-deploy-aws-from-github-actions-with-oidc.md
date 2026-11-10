@@ -138,3 +138,9 @@ The rollback path is written in the repo and **run at least once deliberately** 
 ## References
 
 - [DEV.to — Déployer sur AWS avec GitHub Actions sans clés d'accès : OIDC, contrôles et un retour arrière vraiment testé](https://dev.to/jcbone16/deployer-sur-aws-avec-github-actions-sans-cles-dacces-oidc-controles-et-un-retour-arriere-3gja)
+
+## Further Reading
+
+- [aws-actions/configure-aws-credentials (GitHub)](https://github.com/aws-actions/configure-aws-credentials) — the canonical action; README covers `role-to-assume`, `role-session-name`, audience (`token:aud: sts.amazonaws.com`), and the requirement that the IAM role trust policy pins `token.actions.githubusercontent.com` by `repo:` subject claim.
+- [Use IAM roles to connect GitHub Actions to actions in AWS — AWS Security Blog](https://aws.amazon.com/blogs/security/use-iam-roles-to-connect-github-actions-to-actions-in-aws/) — AWS's own walkthrough of the provider setup and the trust-policy conditions (sub/aud claims) that prevent cross-repo role assumption.
+- [How to Set Up OIDC in GitHub Actions for AWS — freeCodeCamp](https://www.freecodecamp.org/news/how-to-set-up-openid-connect-oidc-in-github-actions-for-aws/) — step-by-step with common failure modes (`Invalid identity pool configuration`, wrong audience, missing `id-token: write` permission).

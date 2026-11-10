@@ -93,3 +93,9 @@ Costs to accept: an extra table and poller; duplicate delivery (hence mandatory 
 ## References
 
 - [DEV.to: The order was committed and nothing else ever heard about it (Sergey Shinder)](https://dev.to/sergey_shinder_ab2d943365/the-order-was-committed-and-nothing-else-ever-heard-about-it-2l3g)
+
+## Further Reading
+
+- [Transactional Outbox Pattern: Never Lose an Event Again — Ajit Singh](https://singhajit.com/transactional-outbox-pattern/) — same dual-write taxonomy from a Kafka practitioner's angle; useful catalog of why naive retry and 2PC both fail (most brokers — Kafka, RabbitMQ, SQS — have no XA support).
+- [Revisiting the Outbox Pattern — Decodable](https://www.decodable.co/blog/revisiting-the-outbox-pattern) — compares hand-rolled relays against log-based CDC (Debezium-style) relays, including the ordering and at-least-once guarantees each preserves.
+- [Outbox Pattern: When CDC Beats Polling, When Polling Beats CDC](https://dev.to/gabrielanhaia/outbox-pattern-when-cdc-beats-polling-when-polling-beats-cdc-4dj4) — practical decision table: polling relay is simpler and transaction-coupled; a CDC connector removes the poller but shifts complexity to connector operations and schema coupling.

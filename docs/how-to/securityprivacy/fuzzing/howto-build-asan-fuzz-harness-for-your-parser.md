@@ -75,7 +75,41 @@ Around that skeleton sit the details that separate a toy from a bug finder:
 
 The uncomfortable implication: the marginal cost of finding a real, reportable bug in critical infrastructure just dropped to "leave your laptop running while you sleep," and the bug classes that fall first are the unglamorous ones — rarely-touched demuxers and obscure format branches where a validation guard has been missing for years. Anything that parses attacker-controlled bytes needs a fuzzing story; "nobody will bother" is no longer an excuse, because bothering now costs pennies of compute.
 
+## Harness correctness rules and continuous fuzzing (enriched 2026-11-10)
+
+The canonical libFuzzer entry point and the three rules that decide whether a harness is trustworthy:
+
+```c
+#include <stdint.h>
+#include <stddef.h>
+#include "mylib.h"
+
+int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size) {
+    if (size < 4) return 0;          // early-return on degenerate input
+    mylib_ctx *ctx = mylib_ctx_new();
+    if (!ctx) return 0;
+    mylib_parse(data, size);
+    mylib_ctx_free(ctx);             // free everything — leaks are bugs under ASan
+    return 0;
+}
+```
+
+1. **Never call `exit()`/`abort()`** — the fuzzer must survive every input; always return 0.
+2. **Free all memory before returning** — AddressSanitizer flags leaks as bugs when leak detection is on.
+3. **One coherent code path per harness** — cramming ten parsers into one harness dilutes coverage guidance (mutations that help parser A don't help parser B). One harness per logical subsystem, targeting attacker-reachable entry points.
+
+Support practices that make the difference between hours and days of CPU:
+
+- **Seed corpus is the multiplier.** Without seeds the fuzzer starts from random bytes and may burn hours before reaching deep paths in a binary-format parser; with real-world valid inputs (one file per input, including edge-case and minimal-valid samples) it reaches deep paths within minutes. libFuzzer merges newly-discovered interesting inputs back into the corpus directory — persist that corpus and reuse it across runs.
+- **`LLVMFuzzerInitialize`** for one-time library/global init; minimum-length guards (`if (size &lt; 4) return 0;`) to avoid false positives on degenerate inputs.
+- **Build recipe:** `clang -g -fsanitize=address,fuzzer -fprofile-instr-generate -fcoverage-mapping fuzz_target.c mylib.c -o fuzz_target` (ASan + coverage instrumentation in one shot). Go ≥1.18 needs no external tooling — `go test -fuzz` with `f.Add()` seeds and a `f.Fuzz(func(t, data []byte){...})` target.
+- **Continuous fuzzing as a supply-chain control.** OSS-Fuzz has found 10,000+ vulnerabilities in open source since 2016 (libpng, FreeType, SQLite, curl), typically before any public exploit — recall that Log4Shell (2021) and CVE-2022-3602 (OpenSSL X.509 heap overflow) both lived in parsing code. Fuzzing complements SLSA provenance and SBOMs: provenance says what went in, SBOM says what is present, fuzzing says whether the code is *exploitable* under attacker-controlled input.
+- **ClusterFuzzLite pattern without dedicated infra:** short (~600 s) PR-gate fuzzing as a required status check catches the obvious class (null deref on empty input, integer overflow on max-length fields, refactor-induced UAF), plus long nightly batch fuzzing on main with `file-github-issue: true` auto-opening issues with the crash input attached. Share the corpus between both jobs. For widely-distributed parsing libraries, layer OSS-Fuzz (project.yaml + Dockerfile + build.sh) for free 24/7 fuzzing on Google's infrastructure with managed disclosure.
+
 ## References
+
+- [OSS-Fuzz and ClusterFuzzLite: Continuous Fuzzing as a Supply Chain Security Control](https://www.systemshardening.com/articles/cicd/oss-fuzz-clusterfuzzlite-integration/) — harness rules, seed corpus practice, CI gating patterns
+- [libFuzzer — LLVM docs](https://llvm.org/docs/LibFuzzer.html) and [google/fuzzing libFuzzer tutorial](https://github.com/google/fuzzing/blob/master/tutorial/libFuzzerTutorial.md)
 
 - [21 Bytes Can Crash FFmpeg: Inside the Vibecoded Fuzzer That Found What Years of Audits Missed (dev.to)](https://dev.to/jamilxt/21-bytes-can-crash-ffmpeg-inside-the-vibecoded-fuzzer-that-found-what-years-of-audits-missed-fpe)
 - [fuzzer-tool — the AI-assisted coverage-guided fuzzer](https://github.com/daedalus/fuzzer/)

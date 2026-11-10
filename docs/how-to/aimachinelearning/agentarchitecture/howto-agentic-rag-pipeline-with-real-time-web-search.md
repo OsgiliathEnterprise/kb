@@ -146,6 +146,16 @@ when evidence freshness or multi-source reasoning is a core requirement.
 - [NVIDIA Agentic RAG Blueprint](https://docs.nvidia.com/rag/latest/agentic-rag.html)
 - [IBM Developer: Building an agentic RAG pipeline](https://developer.ibm.com/articles/agentic-rag-pipeline/)
 
+## Further Reading
+
+- [Next-Generation Agentic RAG with LangGraph (2026 Edition)](https://medium.com/@vinodkrane/next-generation-agentic-rag-with-langgraph-2026-edition-d1c4c068d2b8) — current LangGraph idioms for the rewrite-retrieve loop: grader nodes, tool-calling agents with bounded iteration, and conditional edges instead of hand-rolled loops.
+- [Agentic RAG in 2026: Patterns, Code, Observability](https://futureagi.com/blog/agentic-rag-systems-2025/) — pattern catalog (router, self-RAG, corrective-RAG variants) plus the observability point this note under-emphasizes: agentic loops need per-iteration trace instrumentation to debug why retrieval was re-invoked.
+- [agentic-rag-for-dummies (GitHub, GiovanniPasq)](https://github.com/GiovanniPasq/agentic-rag-for-dummies) — compact modular reference implementation of the same architecture (retrieval-as-tool + grader + web-search fallback) worth diffing against your own pipeline.
+
+## Status check (2026-11-10)
+
+Re-verified ~10 weeks after publication: the LangGraph agentic-RAG docs path (`docs.langchain.com/oss/python/langgraph/agentic-rag`) is current and the corrective-RAG arXiv reference is unchanged; architecture guidance in this note still matches the maintained LangChain/LangGraph recommendation (retrieval as a tool the agent decides to call, with a grader gate before answering).
+
 ## Related
 - [[explanation-agent-guardrail-stack]]
 - [[explanation-claude-unified-memory-architecture]]
