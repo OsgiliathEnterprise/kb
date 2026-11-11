@@ -70,6 +70,13 @@ npm run start
 
 This is an **alpha release** — community feedback shapes what comes next. See `plugins/cluster-api/README.md` in the [headlamp-k8s/plugins](https://github.com/headlamp-k8s/plugins) repo for full installation and usage instructions.
 
+## Status update (November 2026)
+
+- The plugin shipped as `0.1.0-alpha` and a **`0.2.0-beta`** is now published on Artifact Hub — still pre-1.0, so the API surface and views can shift between releases.
+- **Pin the plugin version** alongside your Headlamp deployment rather than floating to latest — pre-1.0 breakage is expected under alpha/beta semantics.
+- Context for why this plugin matters: the old default **Kubernetes Dashboard was archived in early 2026** after its maintainers stepped down, leaving Headlamp as the de facto SIG-backed browser UI — and the CAPI plugin as the main visual layer for fleet/lifecycle management.
+- The Headlamp core project itself continues releasing (0.15.x alphas, with test-config and typings fixes).
+
 ## References
 
 - [Introducing the Cluster API plugin for Headlamp](https://kubernetes.io/blog/2026-06-25/headlamp-cluster-api-plugin/) (Kubernetes blog, Chayan Das)

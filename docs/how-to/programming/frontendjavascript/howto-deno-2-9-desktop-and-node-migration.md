@@ -52,6 +52,12 @@ Deno 2.9 (released June 2026) is a major update to the JavaScript/TypeScript/Web
 3. **Verify the edge cases** — 2.9 specifically fixes the last remaining gaps: **pnpm workspaces** and tools that **invoke Node via the shell** now work without intervention.
 4. **Optional desktop packaging** — point `deno desktop` at the web repository; it compiles code + Deno runtime + web rendering engine into one redistributable binary per platform.
 
+## Post-2.9 update (November 2026)
+
+- Latest patch line: **v2.9.8** (released 2026-10-21); the project ships a release roughly every **16 days**, so check `deno --version` before reporting issues against 2.9.0.
+- The **post-quantum crypto surface has been formalized** in the 2.9.x patch line with **ML-DSA (FIPS 204)** post-quantum signatures and **ML-KEM (FIPS 203)** key encapsulation — no longer just "based on the NIST proposals" but named against the finalized FIPS standards. Also added to the Web Crypto API: **ChaCha20-Poly1305, SHAKE, and SHA-3 HMAC**.
+- `deno compile --bundle` dependency resolution improved in the patch line (better npm dependency scoping) — relevant if you hit bundling edge cases with `deno desktop`.
+
 ## Notes and caveats
 
 - The runtime is MIT-licensed, single-executable (runtime + package manager in one binary), and event-driven like Node (non-blocking I/O with blocking variants).
@@ -64,3 +70,4 @@ Deno 2.9 (released June 2026) is a major update to the JavaScript/TypeScript/Web
 - [Deno Desktop: convert web apps into native binaries (Developpez)](https://javascript.developpez.com/actu/384396/Deno-Desktop-convertit-les-applications-web-en-binaires-natifs-en-ciblant-votre-referentiel-web-existant-tel-que-Next-js-Astro-ou-SvelteKit-pour-le-compiler-en-un-executable-natif-leger-et-autonome/)
 - [Deno 2.9 release post — Deno blog](https://deno.com/blog/v2.9)
 - [Desktop apps — Deno docs](https://docs.deno.com/runtime/desktop/)
+- [Deno releases on GitHub (latest patch line)](https://github.com/denoland/deno/releases)
