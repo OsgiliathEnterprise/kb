@@ -99,6 +99,18 @@ The adapter reassembles the HTTP request: path params fill the route template, q
 
 ![Diagram 1 — howto-map-http-api-parameters-to-mcp-tool-schemas](howto-map-http-api-parameters-to-mcp-tool-schemas-excalidraw-1.svg)
 
+## Impact of the 2026-07-28 spec on this mapping
+
+The MCP spec release **2026-07-28** (current, supersedes 2025-11-25) changes the transport, not the schema advice above — but several changes directly affect how adapters should be built:
+
+- **Stateless protocol core**: the `initialize`/`initialized` handshake and `Mcp-Session-Id` header are retired. Every request is self-describing, so an HTTP→MCP adapter can land on any instance behind a plain round-robin load balancer — no sticky sessions for your gateway.
+- **Header-based routing**: method and tool names now travel in `Mcp-Method` and `Mcp-Name` HTTP headers, so gateways can route and authorize on headers before parsing the body — a natural place to enforce which tools a client may call.
+- **Cacheable list results**: `tools/list` responses carry cache hints and deterministic ordering — tool catalogs can be cached client-side without breaking upstream prompt caches across reconnects.
+- **MRTR (Multi Round-Trip Requests)**: server→client requests (sampling, elicitation) no longer need a permanently open bidirectional stream.
+- **Authorization hardening**: RFC 9207 issuer validation, and a formal shift from Dynamic Client Registration (DCR) to Client ID Metadata Documents (CIMD). This reinforces Step 4: credentials belong to the runtime's auth path, never the schema.
+- **Extensions framework** formally locks in Tasks, MCP Apps, and Enterprise Managed Authorization (EMA) as extensions.
+- A **12-month minimum deprecation window** now applies, so schema/adapter contracts can be planned rather than patched reactively.
+
 ## Checklist before shipping a tool schema
 
 - Tool name describes the **operation**, not the route.
@@ -113,6 +125,8 @@ The adapter reassembles the HTTP request: path params fill the route template, q
 
 - [Mapping API Path, Query, Header, and Body Parameters to MCP Tool Schemas (dev.to)](https://dev.to/bhavyshekhaliya/mapping-api-path-query-header-and-body-parameters-to-mcp-tool-schemas-48k5)
 - [Model Context Protocol specification](https://modelcontextprotocol.io/)
+- [MCP 2026-07-28 specification announcement (stateless core, MRTR, extensions)](https://blog.modelcontextprotocol.io/posts/2026-07-28/)
+- [MCP 2026-07-28 changelog](https://modelcontextprotocol.io/specification/2026-07-28/changelog)
 
 ## Related
 - [[howto-mcp-security-hardening]]

@@ -104,6 +104,15 @@ Even the 81% phase reduction translates to only ~8% total collection time — th
 
 ![Diagram 1 — explanation-zgc-weak-reference-processing](explanation-zgc-weak-reference-processing-excalidraw-1.svg)
 
+## The 2026 GC landscape around this work
+
+Context for why the thesis targets *generational* ZGC specifically:
+
+- **JDK 25 (LTS)** is the first release where generational ZGC is the **only** ZGC — the non-generational implementation was removed. Any weak-reference optimisation landing now lands on the generational collector.
+- **Generational Shenandoah** went experimental in JDK 24 and production-ready in JDK 25 (no experimental flags), so low-pause collectors are now a three-way race.
+- **JDK 26's JEP 522** cut synchronization overhead between application and GC threads in **G1**, narrowing (not closing) G1's latency gap — G1 remains the throughput-favouring default, with independent 2026 benchmarks showing generational ZGC at ~1.4 ms p99.9 vs G1's ~95 ms on latency-sensitive heaps, at a throughput cost.
+- The practical read for the thesis findings: teams stuck on G1 for "weak-reference-heavy caches" (the JDK-8029205 pain point) get relief from moving to generational ZGC *plus* the pipeline fixes; the `@weak` annotation remains the bigger structural win if it ever graduates from prototype.
+
 ## References
 
 - [Simplifying Weak Reference Processing in ZGC (Inside Java, Fredrik Hammarberg)](https://inside.java/2026/06/11/thesis-simplify-weak-reference-processing-zgc/) — original article
@@ -111,4 +120,6 @@ Even the 81% phase reduction translates to only ~8% total collection time — th
 - [Source code (OpenJDK fork with all four mechanisms)](https://github.com/efreham1/SimplifyingWeakRefs)
 - [Measurement dataset (Zenodo)](https://doi.org/10.5281/zenodo.20445473)
 - [JDK-8029205: weak reference handling overhead (OpenJDK bug tracker)](https://bugs.openjdk.org/browse/JDK-8029205)
+- [Generational ZGC on JDK 25: benchmarks vs G1 (ankurm.com)](https://ankurm.com/generational-zgc-jdk-25-vs-g1/) — JDK 25 LTS context, p99.9 measurements
+- [ZGC vs G1GC in Java 26: which GC should you actually use? (JavaCodeGeeks)](https://www.javacodegeeks.com/2026/06/zgc-vs-g1gc-in-java-26-which-gc-should-you-actually-use.html) — JEP 522 G1 synchronization changes
 - [Companion KB note: ZGC: A Decade of Redefining Java Performance](explanation-zgc-decade-of-low-latency-gc.md)

@@ -65,9 +65,20 @@ Key architectural choice:
   any content leaving the device.
 - **Dictation** runs locally with the **NVIDIA Nemotron 3.5 ASR model**, so
   audio never touches the cloud.
-- **Availability**: Pro and Max subscribers, on DGX Spark (Grace Blackwell
-  GB10 — 20-core Arm CPU + GPU, 128 GB unified memory); Linux first,
-  Windows soon. RTX support is "coming soon" per the launch post.
+- **Availability**: Pro and Max subscribers (individual and enterprise
+  plans), on DGX Spark (Grace Blackwell GB10 — 20-core Arm CPU + GPU,
+  128 GB unified memory). Launched Linux-only on **August 25, 2026**;
+  **Windows shipped September 14, 2026** via the existing Perplexity
+  Windows app, with RTX GPU (≥24 GB VRAM) support from day one on both
+  platforms. NVIDIA says **DGX Station support is expected soon**.
+- **Windows launch added two capabilities** not in the Linux debut:
+  **local MCP connections** and **scheduled tasks**. Named local app
+  examples: Outlook, Gmail, GitHub.
+- **The 24 GB floor excludes most laptops and gaming towers**: top mobile
+  RTX GPUs cap around 16 GB VRAM, and mainstream desktops ship 8–12 GB —
+  practically this means RTX 3090/4090-class or RTX PRO workstation cards.
+  CEO Aravind Srinivas' "unmetered local intelligence on every Windows PC"
+  framing should be read against this hardware gate.
 
 ## Takeaways
 
@@ -84,6 +95,8 @@ Key architectural choice:
 - [The New Stack: Perplexity's Computer agent can now run locally — if you can afford it](https://thenewstack.io/perplexity-portable-computer-nvidia/)
 - [Perplexity blog: Introducing Portable Computer (official launch)](https://www.perplexity.ai/hub/blog/introducing-portable-computer-for-local-first-ai)
 - [NVIDIA DGX Spark product page (hardware platform)](https://www.nvidia.com/en-us/products/workstations/dgx-spark/)
+- [Perplexity blog: Portable Computer for Windows is here (Sept 14, 2026)](https://www.perplexity.ai/hub/blog/portable-computer-for-windows-is-here)
+- [NVIDIA blog: Perplexity Portable Computer now available on Windows, powered by RTX](https://blogs.nvidia.com/blog/local-ai-perplexity-windows-pcs/)
 
 ## Related
 - [[explanation-jetbrains-junie-local-agent]]
