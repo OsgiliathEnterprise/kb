@@ -556,6 +556,7 @@ const sidebars = {
           link: {type: 'generated-index', title: 'Remotedevelopment', slug: 'explanations/developertoolspractices/remotedevelopment'},
           items: ['explanations/developertoolspractices/remotedevelopment/explanation-vscode-ssh-agent-architecture'],
         },
+        'explanations/general/2026-11-12',
         {
           type: 'category',
           label: 'Authorization',
