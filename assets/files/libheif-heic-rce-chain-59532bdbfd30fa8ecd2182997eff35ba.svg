@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-4.0 -4.0 1078.0 413.0" width="1078" height="413">
+<rect x="-4.0" y="-4.0" width="1078.0" height="413.0" fill="#ffffff"/>
+<rect x="20.0" y="90.0" width="145.0" height="70.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="185.0" y="90.0" width="145.0" height="70.0" rx="8" fill="#ffec99" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="360.0" y="90.0" width="145.0" height="70.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="535.0" y="90.0" width="160.0" height="70.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="720.0" y="90.0" width="145.0" height="70.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="360.0" y="215.0" width="175.0" height="70.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="565.0" y="215.0" width="175.0" height="70.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="780.0" y="215.0" width="175.0" height="70.0" rx="8" fill="#ffec99" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="185.0" y="330.0" width="600.0" height="55.0" rx="8" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 168.0 125.0 L 176.0 125.0"/><line x1="176.0" y1="125.0" x2="168.8" y2="121.5"/><line x1="176.0" y1="125.0" x2="168.8" y2="128.5"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 333.0 125.0 L 341.0 125.0"/><line x1="341.0" y1="125.0" x2="333.8" y2="121.5"/><line x1="341.0" y1="125.0" x2="333.8" y2="128.5"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 508.0 125.0 L 516.0 125.0"/><line x1="516.0" y1="125.0" x2="508.8" y2="121.5"/><line x1="516.0" y1="125.0" x2="508.8" y2="128.5"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 698.0 125.0 L 706.0 125.0"/><line x1="706.0" y1="125.0" x2="698.8" y2="121.5"/><line x1="706.0" y1="125.0" x2="698.8" y2="128.5"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 792.0 160.0 L 792.0 215.0"/><line x1="792.0" y1="215.0" x2="798.1" y2="202.4"/><line x1="792.0" y1="215.0" x2="785.9" y2="202.4"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 538.0 250.0 L 562.0 250.0"/><line x1="562.0" y1="250.0" x2="554.5" y2="246.3"/><line x1="562.0" y1="250.0" x2="554.5" y2="253.7"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 743.0 250.0 L 777.0 250.0"/><line x1="777.0" y1="250.0" x2="766.3" y2="244.8"/><line x1="777.0" y1="250.0" x2="766.3" y2="255.2"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="150.0" y="32.8">libheif HEIC RCE + OpenAI SSO: forum upload -&gt; account takeover -&gt; internal repo PR</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="92.5" y="127.1">Attacker</tspan><tspan x="92.5" y="142.1">uploads HEIC</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="257.5" y="127.1">FastImage check</tspan><tspan x="257.5" y="142.1">(no HEIF support)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="432.5" y="127.1">ImageMagick magick</tspan><tspan x="432.5" y="142.1">conversion path</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="615.0" y="127.1">libheif parser</tspan><tspan x="615.0" y="142.1">heap overflow (OOB R/W)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="792.5" y="127.1">RCE on Discourse</tspan><tspan x="792.5" y="142.1">(community.openai.com)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="447.5" y="252.1">OpenAI SSO identity flaw</tspan><tspan x="447.5" y="267.1">(sign-in trust)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="652.5" y="252.1">ChatGPT/Codex account</tspan><tspan x="652.5" y="267.1">takeover (employees)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="867.5" y="252.1">GitHub integration -&gt;</tspan><tspan x="867.5" y="267.1">internal monorepo PR</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="485.0" y="359.6">Fix: patch libheif (DSA-6417-1 / upstream v1.23.4+), rebuild self-hosted Discourse,</tspan><tspan x="485.0" y="374.6">sandbox image processing, audit SSO trust boundaries</tspan></text>
+</svg>
