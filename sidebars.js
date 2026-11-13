@@ -62,6 +62,12 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Java',
+          link: {type: 'generated-index', title: 'Java', slug: 'tutorials/programming/java'},
+          items: ['tutorials/programming/java/tutorial-g1-garbage-collector-design-and-usage'],
+        },
+        {
+          type: 'category',
           label: 'Python',
           link: {type: 'generated-index', title: 'Python', slug: 'tutorials/programming/python'},
           items: ['tutorials/programming/python/tutorial-aquarium-temperature-logger-raspberry-pi-ds18b20'],
@@ -331,6 +337,12 @@ const sidebars = {
           label: 'Distributedtransactions',
           link: {type: 'generated-index', title: 'Distributedtransactions', slug: 'how-to/systemdesign/distributedtransactions'},
           items: ['how-to/systemdesign/distributedtransactions/howto-implement-transactional-outbox-pattern'],
+        },
+        {
+          type: 'category',
+          label: 'Integrationcontracts',
+          link: {type: 'generated-index', title: 'Integrationcontracts', slug: 'how-to/systemdesign/integrationcontracts'},
+          items: ['how-to/systemdesign/integrationcontracts/howto-defend-webhooks-against-replay-attacks'],
         },
         {
           type: 'category',
@@ -798,6 +810,12 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Vulnerabilitymanagement',
+          link: {type: 'generated-index', title: 'Vulnerabilitymanagement', slug: 'explanations/securityprivacy/vulnerabilitymanagement'},
+          items: ['explanations/securityprivacy/vulnerabilitymanagement/explanation-machine-speed-vulnerability-discovery'],
+        },
+        {
+          type: 'category',
           label: 'Websecurity',
           link: {type: 'generated-index', title: 'Websecurity', slug: 'explanations/securityprivacy/websecurity'},
           items: ['explanations/securityprivacy/websecurity/explanation-apple-reference-image-verified-photography', 'explanations/securityprivacy/websecurity/explanation-cisco-ise-cve-2026-76423-rest-api-auth-bypass', 'explanations/securityprivacy/websecurity/explanation-cloudflare-disallow-ai-training-mixed-use-crawlers', 'explanations/securityprivacy/websecurity/explanation-data-only-attacks-einstein', 'explanations/securityprivacy/websecurity/explanation-drupal-cve-2026-96362-batch-version-based-scanning-limits', 'explanations/securityprivacy/websecurity/explanation-edge-logic-only-full-chain-pwn2own-2026', 'explanations/securityprivacy/websecurity/explanation-feature-flags-are-not-authorization', 'explanations/securityprivacy/websecurity/explanation-kestra-cve-2026-49869-suffix-match-auth-bypass', 'explanations/securityprivacy/websecurity/explanation-libheif-heic-rce-chain-openai-sso-takeover', 'explanations/securityprivacy/websecurity/explanation-open-redirect-php-laravel', 'explanations/securityprivacy/websecurity/explanation-passkeys-attestation-aaguid-domain-binding-phishing', 'explanations/securityprivacy/websecurity/explanation-pitworld-private-search-moshpit-network', 'explanations/securityprivacy/websecurity/explanation-telegram-desktop-cve-2026-107181-ipc-injection-account-takeover', 'explanations/securityprivacy/websecurity/explanation-telnetd-cve-2026-32746-linemode-slc-buffer-overflow', 'explanations/securityprivacy/websecurity/explanation-weekly-security-advisories-node2shell-php2shell-pillow', 'explanations/securityprivacy/websecurity/explanation-wordpress-cve-2026-87902-patch-windows'],
@@ -874,7 +892,7 @@ const sidebars = {
           type: 'category',
           label: 'Frontendjavascript',
           link: {type: 'generated-index', title: 'Frontendjavascript', slug: 'examples/programming/frontendjavascript'},
-          items: ['examples/programming/frontendjavascript/example-browser-only-pdf-processing-with-csp-enforcement', 'examples/programming/frontendjavascript/example-css-starting-style-allow-discrete-transitions', 'examples/programming/frontendjavascript/example-hldays-business-day-api-jurisdiction-holidays', 'examples/programming/frontendjavascript/example-intl-segmenter-text-analysis'],
+          items: ['examples/programming/frontendjavascript/example-browser-only-pdf-processing-with-csp-enforcement', 'examples/programming/frontendjavascript/example-clock-based-countdown-timer', 'examples/programming/frontendjavascript/example-css-starting-style-allow-discrete-transitions', 'examples/programming/frontendjavascript/example-hldays-business-day-api-jurisdiction-holidays', 'examples/programming/frontendjavascript/example-intl-segmenter-text-analysis'],
         },
         {
           type: 'category',

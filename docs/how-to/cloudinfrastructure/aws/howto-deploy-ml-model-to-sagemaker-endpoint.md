@@ -162,6 +162,10 @@ The same model and container can run in real-time and serverless modes, so you c
 
 If your model's utilization is low (check `CPUUtilization`/memory in CloudWatch), right-size the instance down before you add instances — a smaller instance plus autoscaling beats a big instance running at 5%.
 
+## SDK version note (verified 2026-11-13)
+
+The code above uses the **V2-style SDK API** (`SKLearnModel`, `get_execution_role`, `deploy(initial_instance_count=...)`), which still installs and works via the `sagemaker` meta-package. As of **v3.x** (latest v3.29.0, Nov 2026), the SageMaker Python SDK has been rearchitected into modular packages (`sagemaker-core`, `sagemaker-train`, `sagemaker-serve`, `sagemaker-mlops`) and V3 replaces the legacy `Estimator`/`Model`/`Predictor` interfaces with unified classes such as `ModelTrainer` and `ModelBuilder`. For new projects, start on V3 (`pip install sagemaker` then the `sagemaker.serve` / `sagemaker.train` APIs); the four-function `inference.py` contract (`model_fn`/`input_fn`/`predict_fn`/`output_fn`) and the cost/cleanup advice in this note are unchanged. Note also that `py_version="py3"` in the V2 snippet is a legacy alias — pin a supported Python (e.g. `py310`+) or use the V3 API which selects the framework image for you.
+
 ## Diagram
 ![Diagram 1 — howto-deploy-ml-model-to-sagemaker-endpoint](howto-deploy-ml-model-to-sagemaker-endpoint-excalidraw-1.svg)
 &lt;!-- SageMaker deployment pipeline -->
@@ -171,3 +175,5 @@ If your model's utilization is low (check `CPUUtilization`/memory in CloudWatch)
 - [Inference cost optimization best practices — AWS SageMaker docs](https://docs.aws.amazon.com/sagemaker/latest/dg/inference-cost-optimization.html)
 - [Automatic scaling of SageMaker models — AWS docs](https://docs.aws.amazon.com/sagemaker/latest/dg/endpoint-auto-scaling.html)
 - [How to set up cloud budget alerts on AWS/GCP/Azure — DEV.to](https://dev.to/muskan_8abedcc7e12/how-to-set-up-cloud-budget-alerts-on-aws-gcp-azure-4ne) (companion cost-control note)
+- [SageMaker Python SDK V3 documentation](https://sagemaker.readthedocs.io/en/stable/)
+- [sagemaker-python-sdk releases (V3 line, latest v3.29.0)](https://github.com/aws/sagemaker-python-sdk/releases)

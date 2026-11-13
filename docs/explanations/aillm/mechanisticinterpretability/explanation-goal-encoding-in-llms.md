@@ -21,6 +21,14 @@ This paper from the Bau group (Cornell, with collaborators) investigates a quest
 ## Problem Statement
 Agency requires a goal representation that (1) precedes and guides action, and (2) is flexible enough to be realized through many different execution paths. Transformers have no explicit goal register, and a non-recurrent architecture cannot carry an internal state forward for more tokens than it has layers left. Yet LLM agents visibly pursue multi-step goals. Understanding this apparent contradiction matters for agent design: if goal pursuit is fragile or context-dependent, agent failures ("going off-plan") may be architectural rather than prompt-level.
 
+## What Counts as a "Goal" (added 2026-11-13)
+The paper grounds its definition in Bratman's (1987) planning theory: a goal is a *functional state* with three attributes, and the paper tests each separately with causal interventions —
+1. **Pre-commitment** — an intermediate state a resource-bounded agent commits to *before* acting (the state must precede the action it guides).
+2. **Plasticity** — the same goal can be realized through different means depending on the environment (tested via activation transplants across programming languages).
+3. **Persistence** — the encoding is sustained across and guides the course of execution (this is where NRGS enters: persistence comes from re-reading the prompt, not hidden state).
+
+This tri-part definition is reusable even without the mechanistic results: when auditing an agent harness, ask which of the three attributes your "plan file" or system-prompt goal actually provides, and which you are silently relying on hidden state to supply.
+
 ## Key Contribution
 - **Localization**: an encoding of the *next sub-goal* lives in the outputs of a sparse set of attention heads; the same heads can decode the model's future actions in natural language (e.g., "I'm checking if a word is a palindrome").
 - **Causality and plasticity**: interventions verify the encoding is causal for the next action, and it is environment-plastic — transplanting the encoding into a different environment (e.g., another programming language) triggers the same operation with a different token sequence.
@@ -39,5 +47,6 @@ For anyone operating LLM agents in production, this work gives a mechanistic exp
 
 ## References
 - Paper: https://arxiv.org/abs/2611.17297
+- Paper (HTML, full text incl. Bratman framing): https://arxiv.org/html/2611.17297
 - Project page, code and data: https://goals.baulab.info/
 - Semantic Scholar: https://api.semanticscholar.org/graph/v1/paper/arXiv:2611.17297
