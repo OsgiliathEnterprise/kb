@@ -78,9 +78,20 @@ the workload shifts between compute-heavy and memory-bound phases.
   which OpenAI identifies as common bottlenecks, by minimizing data movement
   and keeping the KV cache local.
 
+## Commercial & supply-chain context (added 2026-11-13, KB Zookeeper enrichment)
+
+- Jalapeño anchors a **10-gigawatt strategic collaboration** between OpenAI and Broadcom, with deployment starting late 2026 and ramping to completion by **end of 2029**.
+- **Microsoft is expected to purchase roughly 40% of initial Jalapeño production** for its data centers; gigawatt-scale deployments with Microsoft and other partners are targeted to begin in 2026.
+- The full-stack build is a three-party effort: **OpenAI-designed accelerators + Broadcom silicon implementation, networking, and connectivity + Celestica board/rack/system expertise**.
+- Early vendor-side claims put Jalapeño at **~50% better cost efficiency than standard GPUs** for LLM inference workloads — consistent in direction with the InferenceX work-per-watt numbers above, but a separate marketing-level figure.
+- Market reaction at the June 24, 2026 unveiling was muted (Nvidia ≈ −1%, Broadcom flat), suggesting investors priced it as incremental rather than disruptive at announcement time.
+
 ## References
 
 - [The New Stack: OpenAI's Jalapeño chip tackles a problem AI agents make worse](https://thenewstack.io/openai-jalapeno-inference-chip/)
+- [OpenAI + Broadcom official unveiling (June 24, 2026)](https://openai.com/index/openai-broadcom-jalapeno-inference-chip/)
+- [Broadcom investor release: LLM-Optimized Intelligence Processor (10 GW collaboration, Celestica partnership)](https://investors.broadcom.com/news-releases/news-release-details/openai-and-broadcom-unveil-llm-optimized-intelligence-processor)
+- [MLQ.ai: Jalapeño targeting late-2026 deployment — 10 GW collaboration, Microsoft ~40% of initial production](https://mlq.ai/news/openai-and-broadcom-unveil-jalapeno-a-custom-inference-chip-targeting-late-2026-deployment/)
 - [TechCrunch: OpenAI's Jalapeño chip is built for fast inference at scale, benchmarks show](https://techcrunch.com/2026/08/25/openais-jalapeno-chip-is-built-for-fast-inference-at-scale-benchmarks-show/)
 - [OpenAI: Jalapeño first results (official blog)](https://openai.com/index/jalapeno-first-results/)
 - [Tom's Hardware: Broadcom and OpenAI unveil custom-built Jalapeño inference processor](https://www.tomshardware.com/tech-industry/artificial-intelligence/broadcom-and-openai-unveil-custom-built-jalapeno-inference-processor-openais-first-chip-is-a-massive-reticle-sized-asic-built-in-an-ultra-fast-nine-month-development-cycle)

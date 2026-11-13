@@ -119,6 +119,7 @@ locale-dependent rather than random.
 - [Intl.Segmenter (MDN)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter)
 - [TC39 proposal-intl-segmenter](https://github.com/tc39/proposal-intl-segmenter)
 - [MDN blog: Locale-sensitive text segmentation in JavaScript with Intl.Segmenter](https://developer.mozilla.org/en-US/blog/javascript-intl-segmenter-i18n/)
+- [web.dev: The Intl.Segmenter object is now part of Baseline (Newly available 2024-04-16)](https://web.dev/blog/intl-segmenter)
 
 ## Related
 - [[explanation-react-rerender-vs-expensive-work]]

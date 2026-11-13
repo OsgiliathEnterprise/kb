@@ -64,9 +64,20 @@ Also runs on DGX Spark and in Hugging Face Transformers / Unsloth — no cloud, 
 
 **NVIDIA-optimized variant:** `nvidia/diffusiongemma-26B-A4B-it-NVFP4` (on Hugging Face since 10 June 2026) is the same model quantized with NVIDIA Model Optimizer for vLLM on Blackwell and Hopper hardware — ~1,100+ tokens/s at low batch sizes on an H100 in FP8. The model card also documents capabilities the launch coverage underplays: native function calling, structured JSON output, configurable thinking mode, and multilingual inference across 35+ languages; image inputs use a configurable visual token budget (70–1,120 tokens per image) and video up to 60 s at 1 fps.
 
+## Ecosystem status (added 2026-11-13, KB Zookeeper enrichment)
+
+- **vLLM:** DiffusionGemma is the **first diffusion LLM (dLLM) natively supported in vLLM**; the integration was supported by Red Hat and was where the headline throughput numbers were measured. An official vLLM deployment recipe exists.
+- **llama.cpp / Ollama gap:** GGUF support is still an open draft PR in llama.cpp (#24423) and **Ollama native support is blocked** (issue #16664, "unknown model architecture") because Ollama tracks mainline llama.cpp; an Apple Silicon attempt via Ollama's MLX runner is tracked in #16722. Until these merge, working local options are vLLM, HF Transformers, or **Unsloth's 4-bit GGUF build** (`unsloth/diffusiongemma-26B-A4B-it-GGUF`); community Modelfile "bridge" workarounds exist for Ollama.
+- **Quantized footprint:** ~18 GB VRAM with GGUF quantization — comfortable on an RTX 4090/5090 class card.
+- **Fine-tuning paths:** Unsloth (fine-tuning officially supported), NVIDIA NeMo, and Google's **Hackable Diffusion** — a modular JAX toolbox released alongside the model for research and custom samplers.
+- **Positioning per Unsloth docs:** 140+ languages, suited to long-context doc analysis, OCR/document parsing, code generation, tool use, and low-latency small-batch serving.
+
 ## References
 
 - [Google blog: DiffusionGemma — 4x faster text generation](https://blog.google/innovation-and-ai/technology/developers-tools/diffusion-gemma-faster-text-generation/)
+- [vLLM blog: DiffusionGemma — first dLLM natively supported in vLLM](https://vllm.ai/blog/2026-06-10-diffusion-gemma)
+- [Unsloth docs: DiffusionGemma — how to run locally / fine-tune](https://unsloth.ai/docs/models/diffusiongemma)
+- [Ollama issue #16664: GGUF diffusion-gemma support blocked on llama.cpp](https://github.com/ollama/ollama/issues/16664)
 - [DiffusionGemma Technical Report (arXiv 2608.00146)](https://arxiv.org/abs/2608.00146)
 - [Google AI for Developers: DiffusionGemma model overview](https://ai.google.dev/gemma/docs/diffusiongemma)
 - [DiffusionGemma developer guide (vLLM integration)](https://developers.googleblog.com/en/diffusiongemma-the-developer-guide/)

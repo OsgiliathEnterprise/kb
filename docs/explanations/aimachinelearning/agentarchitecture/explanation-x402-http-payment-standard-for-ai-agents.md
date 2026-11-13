@@ -35,7 +35,7 @@ The whole cycle is four HTTP messages plus one onchain settlement:
 3. **Signed payment** — the agent's wallet signs a stablecoin transfer authorization for the quoted amount and retries the request with the payment proof attached in an `X-PAYMENT` header.
 4. **Verify and serve** — a **facilitator** (a service that verifies and settles the payment onchain, so the API server never runs blockchain infrastructure itself) confirms the transfer, and the server returns the data with a normal `200`.
 
-The entire cycle takes seconds. Coinbase runs a public facilitator that anyone can use, and Cloudflare offers x402 support in its agent tooling.
+The entire cycle takes seconds. Coinbase runs a public facilitator that anyone can use, and Cloudflare offers x402 support in its agent tooling. **Production adoption update (Nov 2026)**: the Brave Search API now accepts x402 per-request — see [x402 and the Brave Search API](../../apidesign/agentpayments/explanation-x402-agentic-payments-brave-search-api.md) in this KB.
 
 ![Diagram 1 — explanation-x402-http-payment-standard-for-ai-agents](explanation-x402-http-payment-standard-for-ai-agents-excalidraw-1.svg)
 

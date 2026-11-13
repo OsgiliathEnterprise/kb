@@ -10,7 +10,7 @@ const sidebars = {
           type: 'category',
           label: 'Llmevaluation',
           link: {type: 'generated-index', title: 'Llmevaluation', slug: 'tutorials/aillm/llmevaluation'},
-          items: ['tutorials/aillm/llmevaluation/tutorial-measure-llm-guardrails-shieldstral-quarkus-langchain4j'],
+          items: ['tutorials/aillm/llmevaluation/tutorial-measure-llm-guardrails-shieldstral-quarkus-langchain4j', 'tutorials/aillm/llmevaluation/tutorial-recalibrate-typed-decision-model-confidence'],
         },
         {
           type: 'category',
@@ -124,6 +124,12 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Distributedsystems',
+          link: {type: 'generated-index', title: 'Distributedsystems', slug: 'how-to/cloudinfrastructure/distributedsystems'},
+          items: ['how-to/cloudinfrastructure/distributedsystems/howto-ss-hsdp-runtime-update-decoupling'],
+        },
+        {
+          type: 'category',
           label: 'Distributedtracing',
           link: {type: 'generated-index', title: 'Distributedtracing', slug: 'how-to/cloudinfrastructure/distributedtracing'},
           items: ['how-to/cloudinfrastructure/distributedtracing/howto-fix-context-propagation-grpc-rest', 'how-to/cloudinfrastructure/distributedtracing/howto-store-jaeger-spans-in-clickhouse'],
@@ -150,7 +156,7 @@ const sidebars = {
           type: 'category',
           label: 'Gpucompute',
           link: {type: 'generated-index', title: 'Gpucompute', slug: 'how-to/cloudinfrastructure/gpucompute'},
-          items: ['how-to/cloudinfrastructure/gpucompute/howto-gpu-unlock-fp16-bf16-rate-rtx-3000', 'how-to/cloudinfrastructure/gpucompute/howto-kernellopt-agentic-gpu-kernel-optimization'],
+          items: ['how-to/cloudinfrastructure/gpucompute/howto-gpu-unlock-fp16-bf16-rate-rtx-3000', 'how-to/cloudinfrastructure/gpucompute/howto-kernellopt-agentic-gpu-kernel-optimization', 'how-to/cloudinfrastructure/gpucompute/howto-megaops-tile-level-kernel-overlapping'],
         },
         {
           type: 'category',
@@ -162,7 +168,7 @@ const sidebars = {
           type: 'category',
           label: 'Kubernetes',
           link: {type: 'generated-index', title: 'Kubernetes', slug: 'how-to/cloudinfrastructure/kubernetes'},
-          items: ['how-to/cloudinfrastructure/kubernetes/howto-check-cgroup-v1-before-k8s-upgrade', 'how-to/cloudinfrastructure/kubernetes/howto-inspect-volcano-knative-workloads-with-headlamp-plugins', 'how-to/cloudinfrastructure/kubernetes/howto-install-kubeflow-for-ml-on-eks', 'how-to/cloudinfrastructure/kubernetes/howto-manage-cluster-api-resources-with-headlamp'],
+          items: ['how-to/cloudinfrastructure/kubernetes/howto-argocd-git-to-live-sync-verification', 'how-to/cloudinfrastructure/kubernetes/howto-check-cgroup-v1-before-k8s-upgrade', 'how-to/cloudinfrastructure/kubernetes/howto-inspect-volcano-knative-workloads-with-headlamp-plugins', 'how-to/cloudinfrastructure/kubernetes/howto-install-kubeflow-for-ml-on-eks', 'how-to/cloudinfrastructure/kubernetes/howto-manage-cluster-api-resources-with-headlamp'],
         },
         {
           type: 'category',
@@ -276,7 +282,7 @@ const sidebars = {
           type: 'category',
           label: 'Aiagentsecurity',
           link: {type: 'generated-index', title: 'Aiagentsecurity', slug: 'how-to/securityprivacy/aiagentsecurity'},
-          items: ['how-to/securityprivacy/aiagentsecurity/howto-mcp-security-hardening'],
+          items: ['how-to/securityprivacy/aiagentsecurity/howto-caplite-prompt-injection-defense-slm-agents', 'how-to/securityprivacy/aiagentsecurity/howto-mcp-security-hardening'],
         },
         {
           type: 'category',
@@ -374,7 +380,13 @@ const sidebars = {
           type: 'category',
           label: 'Llmmodels',
           link: {type: 'generated-index', title: 'Llmmodels', slug: 'explanations/aillm/llmmodels'},
-          items: ['explanations/aillm/llmmodels/explanation-glm-5-2-open-weight-models-self-hosting', 'explanations/aillm/llmmodels/explanation-ibm-granite-4-2-dense-reasoning-models', 'explanations/aillm/llmmodels/explanation-non-verifiable-rl-rubric-co-design', 'explanations/aillm/llmmodels/explanation-poem-predicting-rl-outcomes-from-existing-policies', 'explanations/aillm/llmmodels/explanation-pssa-plastic-state-space-language-model-rust'],
+          items: ['explanations/aillm/llmmodels/explanation-glm-5-2-open-weight-models-self-hosting', 'explanations/aillm/llmmodels/explanation-ibm-granite-4-2-dense-reasoning-models', 'explanations/aillm/llmmodels/explanation-non-verifiable-rl-rubric-co-design', 'explanations/aillm/llmmodels/explanation-poem-predicting-rl-outcomes-from-existing-policies', 'explanations/aillm/llmmodels/explanation-pssa-plastic-state-space-language-model-rust', 'explanations/aillm/llmmodels/reference-archspace-architecture-research-platform'],
+        },
+        {
+          type: 'category',
+          label: 'Mechanisticinterpretability',
+          link: {type: 'generated-index', title: 'Mechanisticinterpretability', slug: 'explanations/aillm/mechanisticinterpretability'},
+          items: ['explanations/aillm/mechanisticinterpretability/explanation-goal-encoding-in-llms'],
         },
         {
           type: 'category',
@@ -386,7 +398,7 @@ const sidebars = {
           type: 'category',
           label: 'Agentarchitecture',
           link: {type: 'generated-index', title: 'Agentarchitecture', slug: 'explanations/aimachinelearning/agentarchitecture'},
-          items: ['explanations/aimachinelearning/agentarchitecture/explanation-agent-guardrail-stack', 'explanations/aimachinelearning/agentarchitecture/explanation-agent-substrate-stateful-runtime', 'explanations/aimachinelearning/agentarchitecture/explanation-anti-persistence-agent-memory', 'explanations/aimachinelearning/agentarchitecture/explanation-baseline-aware-token-spike-anomaly-detection', 'explanations/aimachinelearning/agentarchitecture/explanation-behavioral-telemetry-agent-fault-detection', 'explanations/aimachinelearning/agentarchitecture/explanation-bounded-generation-constrained-ai-design', 'explanations/aimachinelearning/agentarchitecture/explanation-byte-matching-verification-harness-15-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-certified-execution-harness-petri-net-supervisor', 'explanations/aimachinelearning/agentarchitecture/explanation-claude-unified-memory-architecture', 'explanations/aimachinelearning/agentarchitecture/explanation-coding-agents-generalized-tamp', 'explanations/aimachinelearning/agentarchitecture/explanation-contradiction-judge-memory-auditor-ai-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-domain-specialized-models-solver-scoring-loop', 'explanations/aimachinelearning/agentarchitecture/explanation-harness-design-coding-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-human-in-the-loop-approval-gates', 'explanations/aimachinelearning/agentarchitecture/explanation-jev-ultrafast-dynamic-indexed-action-space-browser-agent', 'explanations/aimachinelearning/agentarchitecture/explanation-lemmalog-datalog-memory-for-llm-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-long-horizon-agents-durable-execution', 'explanations/aimachinelearning/agentarchitecture/explanation-microsoft-copilot-agent-identity-runtime', 'explanations/aimachinelearning/agentarchitecture/explanation-prince-bayer-agentic-rag-context-harness-engineering', 'explanations/aimachinelearning/agentarchitecture/explanation-progressive-disclosure-on-demand-skills', 'explanations/aimachinelearning/agentarchitecture/explanation-reconciling-agent-plans-with-completed-temporal-activities', 'explanations/aimachinelearning/agentarchitecture/explanation-sandboxed-execution-runtime-engineering-for-ai-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-sourcelearn-source-specific-competence', 'explanations/aimachinelearning/agentarchitecture/explanation-x402-http-payment-standard-for-ai-agents', 'explanations/aimachinelearning/agentarchitecture/reference-agent4sci-scientific-ml-testbed', 'explanations/aimachinelearning/agentarchitecture/reference-scholarcatalyst-research-paper-retrieval-benchmark'],
+          items: ['explanations/aimachinelearning/agentarchitecture/explanation-actor-judge-teacher-decision-models', 'explanations/aimachinelearning/agentarchitecture/explanation-agent-guardrail-stack', 'explanations/aimachinelearning/agentarchitecture/explanation-agent-substrate-stateful-runtime', 'explanations/aimachinelearning/agentarchitecture/explanation-anti-persistence-agent-memory', 'explanations/aimachinelearning/agentarchitecture/explanation-baseline-aware-token-spike-anomaly-detection', 'explanations/aimachinelearning/agentarchitecture/explanation-behavioral-telemetry-agent-fault-detection', 'explanations/aimachinelearning/agentarchitecture/explanation-bounded-generation-constrained-ai-design', 'explanations/aimachinelearning/agentarchitecture/explanation-byte-matching-verification-harness-15-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-certified-execution-harness-petri-net-supervisor', 'explanations/aimachinelearning/agentarchitecture/explanation-claude-unified-memory-architecture', 'explanations/aimachinelearning/agentarchitecture/explanation-coding-agents-generalized-tamp', 'explanations/aimachinelearning/agentarchitecture/explanation-contradiction-judge-memory-auditor-ai-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-coremem-cost-internalizing-repo-memory', 'explanations/aimachinelearning/agentarchitecture/explanation-domain-specialized-models-solver-scoring-loop', 'explanations/aimachinelearning/agentarchitecture/explanation-harness-design-coding-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-human-in-the-loop-approval-gates', 'explanations/aimachinelearning/agentarchitecture/explanation-jev-ultrafast-dynamic-indexed-action-space-browser-agent', 'explanations/aimachinelearning/agentarchitecture/explanation-lemmalog-datalog-memory-for-llm-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-long-horizon-agents-durable-execution', 'explanations/aimachinelearning/agentarchitecture/explanation-microsoft-copilot-agent-identity-runtime', 'explanations/aimachinelearning/agentarchitecture/explanation-prince-bayer-agentic-rag-context-harness-engineering', 'explanations/aimachinelearning/agentarchitecture/explanation-progressive-disclosure-on-demand-skills', 'explanations/aimachinelearning/agentarchitecture/explanation-reconciling-agent-plans-with-completed-temporal-activities', 'explanations/aimachinelearning/agentarchitecture/explanation-sandboxed-execution-runtime-engineering-for-ai-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-sourcelearn-source-specific-competence', 'explanations/aimachinelearning/agentarchitecture/explanation-x402-http-payment-standard-for-ai-agents', 'explanations/aimachinelearning/agentarchitecture/reference-agent4sci-scientific-ml-testbed', 'explanations/aimachinelearning/agentarchitecture/reference-agentssl-programselectbench', 'explanations/aimachinelearning/agentarchitecture/reference-scholarcatalyst-research-paper-retrieval-benchmark'],
         },
         {
           type: 'category',
@@ -405,6 +417,12 @@ const sidebars = {
           label: 'Multimodal',
           link: {type: 'generated-index', title: 'Multimodal', slug: 'explanations/aimachinelearning/multimodal'},
           items: ['explanations/aimachinelearning/multimodal/explanation-deepseek-vision-lineage', 'explanations/aimachinelearning/multimodal/explanation-netflix-maps-multimodal-asset-personalization'],
+        },
+        {
+          type: 'category',
+          label: 'Agentpayments',
+          link: {type: 'generated-index', title: 'Agentpayments', slug: 'explanations/apidesign/agentpayments'},
+          items: ['explanations/apidesign/agentpayments/explanation-x402-agentic-payments-brave-search-api'],
         },
         {
           type: 'category',
@@ -452,7 +470,7 @@ const sidebars = {
           type: 'category',
           label: 'Gpucompute',
           link: {type: 'generated-index', title: 'Gpucompute', slug: 'explanations/cloudinfrastructure/gpucompute'},
-          items: ['explanations/cloudinfrastructure/gpucompute/explanation-cuda-targets-risc-v'],
+          items: ['explanations/cloudinfrastructure/gpucompute/explanation-cuda-targets-risc-v', 'explanations/cloudinfrastructure/gpucompute/explanation-pacer-gpu-power-excursions-edpp'],
         },
         {
           type: 'category',
@@ -476,7 +494,7 @@ const sidebars = {
           type: 'category',
           label: 'Llmserving',
           link: {type: 'generated-index', title: 'Llmserving', slug: 'explanations/cloudinfrastructure/llmserving'},
-          items: ['explanations/cloudinfrastructure/llmserving/reference-kvcompass-prefix-cache-discovery', 'explanations/cloudinfrastructure/llmserving/reference-moe-core-expert-offloading-residency'],
+          items: ['explanations/cloudinfrastructure/llmserving/explanation-broadcast-dont-replicate-moe-serving', 'explanations/cloudinfrastructure/llmserving/reference-kvcompass-prefix-cache-discovery', 'explanations/cloudinfrastructure/llmserving/reference-moe-core-expert-offloading-residency'],
         },
         {
           type: 'category',
@@ -513,6 +531,12 @@ const sidebars = {
           label: 'Browserinternals',
           link: {type: 'generated-index', title: 'Browserinternals', slug: 'explanations/developertoolspractices/browserinternals'},
           items: ['explanations/developertoolspractices/browserinternals/explanation-wasm-3ds-emulator-browser-webgl-bottlenecks'],
+        },
+        {
+          type: 'category',
+          label: 'Cicdpatterns',
+          link: {type: 'generated-index', title: 'Cicdpatterns', slug: 'explanations/developertoolspractices/cicdpatterns'},
+          items: ['explanations/developertoolspractices/cicdpatterns/reference-cicd-workflow-design-patterns'],
         },
         {
           type: 'category',
@@ -556,7 +580,6 @@ const sidebars = {
           link: {type: 'generated-index', title: 'Remotedevelopment', slug: 'explanations/developertoolspractices/remotedevelopment'},
           items: ['explanations/developertoolspractices/remotedevelopment/explanation-vscode-ssh-agent-architecture'],
         },
-        'explanations/general/2026-11-12',
         {
           type: 'category',
           label: 'Authorization',
@@ -663,7 +686,7 @@ const sidebars = {
           type: 'category',
           label: 'Rust',
           link: {type: 'generated-index', title: 'Rust', slug: 'explanations/programming/rust'},
-          items: ['explanations/programming/rust/explanation-deser-event-driven-serialization-rust', 'explanations/programming/rust/explanation-jit-bitmap-text-rendering-rp2350', 'explanations/programming/rust/explanation-rust-1-98-algebraic-float-and-buffered-formatting', 'explanations/programming/rust/explanation-rust-gui-state-models-incrementalization'],
+          items: ['explanations/programming/rust/explanation-deser-event-driven-serialization-rust', 'explanations/programming/rust/explanation-jit-bitmap-text-rendering-rp2350', 'explanations/programming/rust/explanation-rust-1-100-never-type-allocator-dropguard', 'explanations/programming/rust/explanation-rust-1-98-algebraic-float-and-buffered-formatting', 'explanations/programming/rust/explanation-rust-gui-state-models-incrementalization'],
         },
         {
           type: 'category',
@@ -703,6 +726,18 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Databasesecurity',
+          link: {type: 'generated-index', title: 'Databasesecurity', slug: 'explanations/securityprivacy/databasesecurity'},
+          items: ['explanations/securityprivacy/databasesecurity/explanation-postgres-type-confusion-rce-cve-2026-6460'],
+        },
+        {
+          type: 'category',
+          label: 'Detection',
+          link: {type: 'generated-index', title: 'Detection', slug: 'explanations/securityprivacy/detection'},
+          items: ['explanations/securityprivacy/detection/explanation-codeql-taint-robustness-natural-rewrites', 'explanations/securityprivacy/detection/reference-small-decision-model-vuln-campaign'],
+        },
+        {
+          type: 'category',
           label: 'Dnssecurity',
           link: {type: 'generated-index', title: 'Dnssecurity', slug: 'explanations/securityprivacy/dnssecurity'},
           items: ['explanations/securityprivacy/dnssecurity/explanation-domain-redemption-vs-pending-delete'],
@@ -729,7 +764,7 @@ const sidebars = {
           type: 'category',
           label: 'Modelprovenance',
           link: {type: 'generated-index', title: 'Modelprovenance', slug: 'explanations/securityprivacy/modelprovenance'},
-          items: ['explanations/securityprivacy/modelprovenance/explanation-flashprove-provable-inference'],
+          items: ['explanations/securityprivacy/modelprovenance/explanation-flashprove-provable-inference', 'explanations/securityprivacy/modelprovenance/explanation-verifiable-ai-proof-costs-hardware'],
         },
         {
           type: 'category',
@@ -766,6 +801,12 @@ const sidebars = {
           label: 'Websecurity',
           link: {type: 'generated-index', title: 'Websecurity', slug: 'explanations/securityprivacy/websecurity'},
           items: ['explanations/securityprivacy/websecurity/explanation-apple-reference-image-verified-photography', 'explanations/securityprivacy/websecurity/explanation-cisco-ise-cve-2026-76423-rest-api-auth-bypass', 'explanations/securityprivacy/websecurity/explanation-cloudflare-disallow-ai-training-mixed-use-crawlers', 'explanations/securityprivacy/websecurity/explanation-data-only-attacks-einstein', 'explanations/securityprivacy/websecurity/explanation-drupal-cve-2026-96362-batch-version-based-scanning-limits', 'explanations/securityprivacy/websecurity/explanation-edge-logic-only-full-chain-pwn2own-2026', 'explanations/securityprivacy/websecurity/explanation-feature-flags-are-not-authorization', 'explanations/securityprivacy/websecurity/explanation-kestra-cve-2026-49869-suffix-match-auth-bypass', 'explanations/securityprivacy/websecurity/explanation-libheif-heic-rce-chain-openai-sso-takeover', 'explanations/securityprivacy/websecurity/explanation-open-redirect-php-laravel', 'explanations/securityprivacy/websecurity/explanation-passkeys-attestation-aaguid-domain-binding-phishing', 'explanations/securityprivacy/websecurity/explanation-pitworld-private-search-moshpit-network', 'explanations/securityprivacy/websecurity/explanation-telegram-desktop-cve-2026-107181-ipc-injection-account-takeover', 'explanations/securityprivacy/websecurity/explanation-telnetd-cve-2026-32746-linemode-slc-buffer-overflow', 'explanations/securityprivacy/websecurity/explanation-weekly-security-advisories-node2shell-php2shell-pillow', 'explanations/securityprivacy/websecurity/explanation-wordpress-cve-2026-87902-patch-windows'],
+        },
+        {
+          type: 'category',
+          label: 'Aiassisteddevelopment',
+          link: {type: 'generated-index', title: 'Aiassisteddevelopment', slug: 'explanations/softwaredevelopment/aiassisteddevelopment'},
+          items: ['explanations/softwaredevelopment/aiassisteddevelopment/explanation-llm-agents-database-debugging-access-gap'],
         },
         {
           type: 'category',

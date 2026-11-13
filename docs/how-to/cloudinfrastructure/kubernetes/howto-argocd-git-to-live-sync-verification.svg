@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 -8.0 948.0 732.0" width="948" height="732">
+<rect x="16.0" y="-8.0" width="948.0" height="732.0" fill="#ffffff"/>
+<rect x="60.0" y="70.0" width="480.0" height="70.0" rx="8" fill="none" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="60.0" y="182.0" width="480.0" height="70.0" rx="8" fill="none" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="60.0" y="294.0" width="480.0" height="70.0" rx="8" fill="none" stroke="#1971c2" stroke-width="1.5"/>
+<rect x="60.0" y="406.0" width="480.0" height="70.0" rx="8" fill="none" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="60.0" y="518.0" width="480.0" height="70.0" rx="8" fill="none" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="60.0" y="630.0" width="480.0" height="70.0" rx="8" fill="none" stroke="#2f9e44" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 300.0 140.0 L 300.0 182.0"/><line x1="300.0" y1="182.0" x2="306.1" y2="169.4"/><line x1="300.0" y1="182.0" x2="293.9" y2="169.4"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 300.0 252.0 L 300.0 294.0"/><line x1="300.0" y1="294.0" x2="306.1" y2="281.4"/><line x1="300.0" y1="294.0" x2="293.9" y2="281.4"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 300.0 364.0 L 300.0 406.0"/><line x1="300.0" y1="406.0" x2="306.1" y2="393.4"/><line x1="300.0" y1="406.0" x2="293.9" y2="393.4"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 300.0 476.0 L 300.0 518.0"/><line x1="300.0" y1="518.0" x2="306.1" y2="505.4"/><line x1="300.0" y1="518.0" x2="293.9" y2="505.4"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 300.0 588.0 L 300.0 630.0"/><line x1="300.0" y1="630.0" x2="306.1" y2="617.4"/><line x1="300.0" y1="630.0" x2="293.9" y2="617.4"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="18" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="30.4">Argo CD: from Git to live — CI, Git, and sync are three separate responsibilities</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="70.0" y="96.2">CI: test + build container image</tspan><tspan x="70.0" y="113.7">+ push to registry  (does NOT deploy)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="70.0" y="208.2">Git: manifest updated</tspan><tspan x="70.0" y="225.7">image: demo-app:v1  -&gt;  demo-app:v2</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="70.0" y="320.2">Argo CD compares desired (Git) vs live</tspan><tspan x="70.0" y="337.7">state  -&gt;  OutOfSync (comparison result only)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="70.0" y="432.2">Review: argocd app get / app diff demo-app</tspan><tspan x="70.0" y="449.7">(diff exit code 1 = differences found)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="70.0" y="544.2">Apply: argocd app sync demo-app</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="70.0" y="656.2">Synced != Healthy: verify revision applied,</tspan><tspan x="70.0" y="673.7">rollout ready, user path, logs &amp; monitoring</tspan></text>
+</svg>

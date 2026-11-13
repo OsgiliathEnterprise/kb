@@ -18,7 +18,7 @@ keywords:
 
 The standard advice is: pin every GitHub Actions `uses:` to a **full commit SHA** so a compromised tag can't rug-pull your CI. That protects *your* workflow file — but not what those pinned actions themselves depend on.
 
-The **tj-actions incident (CVE-2025-30066)** is the textbook case: the compromise reached victims *through* reviewdog, which referenced the compromised action. Pinning reviewdog itself wasn't enough — the hole was one level deeper, inside **the dependency of a pinned dependency**.
+The **tj-actions incident (CVE-2025-30066)** is the textbook case: `tj-actions/changed-files` (used by **23,000+ repositories**) was compromised in March 2025 with a payload that leaked CI/CD secrets into workflow logs — attackers had retroactively moved its version tags to point at a malicious commit. The initial vector was itself one level deeper: a compromise of **`reviewdog/action-setup@v1` (CVE-2025-30154)** around the same time, which the tj-actions workflow depended on. Pinning `changed-files` itself wasn't enough — the hole was inside **the dependency of a pinned dependency** (see the CISA alert, updated 2025-03-19).
 
 > "You pinned your Actions, but the Actions you pinned didn't pin their dependencies."
 
@@ -60,4 +60,7 @@ Static linters like **zizmor** analyze *your* `uses:` lines. `pin-deep` checks o
 - [pin-deep on GitHub](https://github.com/hahahahahahahahah6/pin-deep)
 - [pin-deep on PyPI](https://pypi.org/project/pin-deep/)
 - [GitHub: pinning actions to commit SHAs](https://github.com/orgs/community/discussions/25756)
+- [CISA alert: supply-chain compromise of tj-actions/changed-files (CVE-2025-30066) and reviewdog/action-setup (CVE-2025-30154), updated 2025-03-19](https://www.cisa.gov/news-events/alerts/2025-03-18/supply-chain-compromise-third-party-tj-actionschanged-files-cve-2025-30066-and-reviewdogaction)
+- [GHSA-mrrh-fwg8-r2c3 — tj-actions/changed-files through 45.0.7](https://github.com/advisories/ghsa-mrrh-fwg8-r2c3)
+- [Wiz: tj-actions/changed-files supply chain attack](https://www.wiz.io/blog/github-action-tj-actions-changed-files-supply-chain-attack-cve-2025-30066)
 - [Mini Shai-Hulud — the TanStack npm worm (related KB note)](../../../explanations/securityprivacy/supplychain/explanation-tanstack-mini-shai-hulud-npm-worm-supply-chain-attack.md)
