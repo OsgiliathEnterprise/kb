@@ -68,6 +68,27 @@ The four-layer stack above is one concrete instance of what the **OWASP Top 10 f
 
 Treat the four layers as a floor, not a ceiling: the OWASP list also covers memory poisoning, identity confusion across sessions, and supply-chain risks in agent tooling — each of which needs its own gate if your agent has that capability.
 
+### Update (2026-11-13): the finalized list and its ASI codes
+
+The December 2025 release is now the finalized **OWASP Top 10 for Agentic Applications 2026** (peer-reviewed by 100+ experts), with canonical IDs — useful for tagging guardrail gaps in your own stack:
+
+| ID | Risk | Which layer of the stack above contains it |
+|----|------|--------------------------------------------|
+| ASI01 | Agent Goal Hijack | L2 sameness detector + L3 reviewer |
+| ASI02 | Tool Misuse and Exploitation | L1 code-enforced caps, no model-visible branch |
+| ASI03 | Identity and Privilege Abuse | L1 caps keyed to ledger identity, not client state |
+| ASI04 | Agentic Supply Chain Vulnerabilities | *not covered — needs its own gate* |
+| ASI05 | Unexpected Code Execution (RCE) | *not covered — needs sandboxing* |
+| ASI06 | Memory and Context Poisoning | L4 shared ledger (single source of truth) |
+| ASI07 | Insecure Inter-Agent Communication | *not covered — needs authN between agents* |
+| ASI08 | Cascading Failures | L1 global cap across all outbound types |
+| ASI09 | Human–Agent Trust Exploitation | L3 mandatory independent reviewer |
+| ASI10 | Rogue Agents | L1+L2+L4 together (refusal is structural) |
+
+Two design principles the finalized list foregrounds (per HUMAN Security's defender analysis): **least agency** — grant the narrowest set of actions the business problem justifies (a price-comparison agent needs no login/edit permissions); and **strong observability** — track agent behavior as *sequences*, not isolated requests, since a hijacked agent's individual requests each look legitimate. Both are restatements of this note's core rule: gates in the send path and ledger, never in the prompt.
+
+New companion resources since the original enrichment: **Securing Agentic Applications V2** (Nov 10, 2026), **GenAI Data Security Best Practices v2 – Part 1** (Nov 3, 2026), and **LLM Exploit Generation Guide 2.0** (Oct 27, 2026) — the last one documents attacker-side automation of these same classes.
+
 ## How to build the stack
 
 Start from the **failure taxonomy**, not the feature list:
@@ -85,6 +106,9 @@ fossil record of mistakes.
 - [Rate limits are not quality gates (dev.to)](https://dev.to/rulestack/rate-limits-are-not-quality-gates-the-guardrail-stack-behind-an-ai-agent-that-posts-publicly-every-2b6k)
 - [GitLab: Implementing effective guardrails for AI agents](https://about.gitlab.com/the-source/ai/implementing-effective-guardrails-for-ai-agents/)
 - [OWASP GenAI Security Project — Top 10 Risks and Mitigations for Agentic AI (Dec 2025)](https://genai.owasp.org/2025-12-09/owasp-genai-security-project-releases-top-10-risks-and-mitigations-for-agentic-ai-security/)
+- [OWASP Top 10 for Agentic Applications for 2026 (finalized resource + PDF)](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/)
+- [HUMAN Security — OWASP Top 10 Agentic Applications explained for defenders (ASI01–ASI10)](https://www.humansecurity.com/learn/blog/owasp-top-10-agentic-applications/)
+- [OWASP Securing Agentic Applications V2 (Nov 2026)](https://genai.owasp.org/resource/securing-agentic-applications-v2/)
 
 ## Related
 - [[howto-agentic-rag-pipeline-with-real-time-web-search]]

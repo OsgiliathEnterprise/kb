@@ -106,9 +106,15 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Mlreproducibility',
+          link: {type: 'generated-index', title: 'Mlreproducibility', slug: 'how-to/aimachinelearning/mlreproducibility'},
+          items: ['how-to/aimachinelearning/mlreproducibility/howto-fedbrew-paper-faithful-federated-learning'],
+        },
+        {
+          type: 'category',
           label: 'Trainingoptimization',
           link: {type: 'generated-index', title: 'Trainingoptimization', slug: 'how-to/aimachinelearning/trainingoptimization'},
-          items: ['how-to/aimachinelearning/trainingoptimization/howto-taco-memory-efficient-llm-fine-tuning-optimizer'],
+          items: ['how-to/aimachinelearning/trainingoptimization/howto-negative-only-policy-optimization-one-sided-rewards', 'how-to/aimachinelearning/trainingoptimization/howto-taco-memory-efficient-llm-fine-tuning-optimizer'],
         },
         {
           type: 'category',
@@ -198,7 +204,7 @@ const sidebars = {
           type: 'category',
           label: 'Aicodingagents',
           link: {type: 'generated-index', title: 'Aicodingagents', slug: 'how-to/developertoolspractices/aicodingagents'},
-          items: ['how-to/developertoolspractices/aicodingagents/howto-audit-claude-code-skill-context-tax-skill-tax-cli', 'how-to/developertoolspractices/aicodingagents/howto-autocompact-context-compaction-coding-agents', 'how-to/developertoolspractices/aicodingagents/howto-build-an-ai-workflow-inventory', 'how-to/developertoolspractices/aicodingagents/howto-check-ai-quota-headroom-before-dispatch', 'how-to/developertoolspractices/aicodingagents/howto-chronicle-cut-point-replay-regression-testing', 'how-to/developertoolspractices/aicodingagents/howto-litellm-gateway-for-codex-cli', 'how-to/developertoolspractices/aicodingagents/howto-maintainability-sensors-for-coding-agents', 'how-to/developertoolspractices/aicodingagents/howto-migrate-gemini-cli-to-antigravity-cli', 'how-to/developertoolspractices/aicodingagents/howto-neurotestgen-neuro-symbolic-test-generation', 'how-to/developertoolspractices/aicodingagents/howto-predict-coding-agent-performance-base-models', 'how-to/developertoolspractices/aicodingagents/howto-require-a-job-receipt-for-remote-model-proposals', 'how-to/developertoolspractices/aicodingagents/howto-spring-upgrades-with-openrewrite-and-agents', 'how-to/developertoolspractices/aicodingagents/howto-verify-claude-code-relay-serves-claude'],
+          items: ['how-to/developertoolspractices/aicodingagents/howto-audit-claude-code-skill-context-tax-skill-tax-cli', 'how-to/developertoolspractices/aicodingagents/howto-autocompact-context-compaction-coding-agents', 'how-to/developertoolspractices/aicodingagents/howto-build-an-ai-workflow-inventory', 'how-to/developertoolspractices/aicodingagents/howto-check-ai-quota-headroom-before-dispatch', 'how-to/developertoolspractices/aicodingagents/howto-chronicle-cut-point-replay-regression-testing', 'how-to/developertoolspractices/aicodingagents/howto-litellm-gateway-for-codex-cli', 'how-to/developertoolspractices/aicodingagents/howto-maintainability-sensors-for-coding-agents', 'how-to/developertoolspractices/aicodingagents/howto-metal-sandbox-gpu-coding-agents-apple-silicon', 'how-to/developertoolspractices/aicodingagents/howto-migrate-gemini-cli-to-antigravity-cli', 'how-to/developertoolspractices/aicodingagents/howto-neurotestgen-neuro-symbolic-test-generation', 'how-to/developertoolspractices/aicodingagents/howto-predict-coding-agent-performance-base-models', 'how-to/developertoolspractices/aicodingagents/howto-require-a-job-receipt-for-remote-model-proposals', 'how-to/developertoolspractices/aicodingagents/howto-spring-upgrades-with-openrewrite-and-agents', 'how-to/developertoolspractices/aicodingagents/howto-verify-claude-code-relay-serves-claude'],
         },
         {
           type: 'category',
@@ -368,7 +374,7 @@ const sidebars = {
           type: 'category',
           label: 'Diffusionlanguagemodels',
           link: {type: 'generated-index', title: 'Diffusionlanguagemodels', slug: 'explanations/aillm/diffusionlanguagemodels'},
-          items: ['explanations/aillm/diffusionlanguagemodels/explanation-diffusiongemma-block-autoregressive-text-diffusion', 'explanations/aillm/diffusionlanguagemodels/explanation-how-to-build-a-diffusion-language-model'],
+          items: ['explanations/aillm/diffusionlanguagemodels/explanation-diffusiongemma-block-autoregressive-text-diffusion', 'explanations/aillm/diffusionlanguagemodels/explanation-divr-regeneration-diffusion-lms', 'explanations/aillm/diffusionlanguagemodels/explanation-how-to-build-a-diffusion-language-model'],
         },
         {
           type: 'category',
@@ -392,7 +398,7 @@ const sidebars = {
           type: 'category',
           label: 'Llmmodels',
           link: {type: 'generated-index', title: 'Llmmodels', slug: 'explanations/aillm/llmmodels'},
-          items: ['explanations/aillm/llmmodels/explanation-glm-5-2-open-weight-models-self-hosting', 'explanations/aillm/llmmodels/explanation-ibm-granite-4-2-dense-reasoning-models', 'explanations/aillm/llmmodels/explanation-non-verifiable-rl-rubric-co-design', 'explanations/aillm/llmmodels/explanation-poem-predicting-rl-outcomes-from-existing-policies', 'explanations/aillm/llmmodels/explanation-pssa-plastic-state-space-language-model-rust', 'explanations/aillm/llmmodels/reference-archspace-architecture-research-platform'],
+          items: ['explanations/aillm/llmmodels/explanation-cram-classical-energies-reasoning', 'explanations/aillm/llmmodels/explanation-glm-5-2-open-weight-models-self-hosting', 'explanations/aillm/llmmodels/explanation-ibm-granite-4-2-dense-reasoning-models', 'explanations/aillm/llmmodels/explanation-non-verifiable-rl-rubric-co-design', 'explanations/aillm/llmmodels/explanation-poem-predicting-rl-outcomes-from-existing-policies', 'explanations/aillm/llmmodels/explanation-pssa-plastic-state-space-language-model-rust', 'explanations/aillm/llmmodels/reference-archspace-architecture-research-platform'],
         },
         {
           type: 'category',
@@ -428,7 +434,7 @@ const sidebars = {
           type: 'category',
           label: 'Multimodal',
           link: {type: 'generated-index', title: 'Multimodal', slug: 'explanations/aimachinelearning/multimodal'},
-          items: ['explanations/aimachinelearning/multimodal/explanation-deepseek-vision-lineage', 'explanations/aimachinelearning/multimodal/explanation-netflix-maps-multimodal-asset-personalization'],
+          items: ['explanations/aimachinelearning/multimodal/explanation-deepseek-vision-lineage', 'explanations/aimachinelearning/multimodal/explanation-netflix-maps-multimodal-asset-personalization', 'explanations/aimachinelearning/multimodal/explanation-unbundling-multimodal-vision-encoding'],
         },
         {
           type: 'category',
@@ -482,7 +488,7 @@ const sidebars = {
           type: 'category',
           label: 'Gpucompute',
           link: {type: 'generated-index', title: 'Gpucompute', slug: 'explanations/cloudinfrastructure/gpucompute'},
-          items: ['explanations/cloudinfrastructure/gpucompute/explanation-cuda-targets-risc-v', 'explanations/cloudinfrastructure/gpucompute/explanation-pacer-gpu-power-excursions-edpp'],
+          items: ['explanations/cloudinfrastructure/gpucompute/explanation-cuda-targets-risc-v', 'explanations/cloudinfrastructure/gpucompute/explanation-pacer-gpu-power-excursions-edpp', 'explanations/cloudinfrastructure/gpucompute/reference-locojax-host-local-rl-tpus'],
         },
         {
           type: 'category',
@@ -836,7 +842,7 @@ const sidebars = {
           type: 'category',
           label: 'Distributedsystemsfoundations',
           link: {type: 'generated-index', title: 'Distributedsystemsfoundations', slug: 'explanations/systemdesign/distributedsystemsfoundations'},
-          items: ['explanations/systemdesign/distributedsystemsfoundations/explanation-error-ownership-retry-storms', 'explanations/systemdesign/distributedsystemsfoundations/explanation-steelhead-dual-mode-consensus-shared-dag'],
+          items: ['explanations/systemdesign/distributedsystemsfoundations/explanation-error-ownership-retry-storms', 'explanations/systemdesign/distributedsystemsfoundations/explanation-omakase-conflict-graph-execution-congestion-control', 'explanations/systemdesign/distributedsystemsfoundations/explanation-steelhead-dual-mode-consensus-shared-dag'],
         },
         {
           type: 'category',
