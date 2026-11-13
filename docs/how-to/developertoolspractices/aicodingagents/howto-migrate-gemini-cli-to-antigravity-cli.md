@@ -58,7 +58,7 @@ The migration tooling does **not** touch your scripts. Find and replace every di
 - Shell aliases in dotfiles
 - Docker entrypoints, Makefile targets
 
-**Known gap:** ACP (agent client protocol) stdio mode has no drop-in replacement (tracked in the antigravity-cli repo, issue #31). Use the HTTP transport or wait for the feature.
+**Known gap (resolved — see update below):** ACP (agent client protocol) stdio mode had no drop-in replacement (tracked in the antigravity-cli repo, issue #31). The `agy acp` subcommand now ships this — details in the update section.
 
 ## Verified behavioral differences (shutdown-day test)
 
@@ -78,6 +78,25 @@ Headless automation is the decisive delta: in scripted mode, Gemini CLI could re
 
 **Caveats from the test:** the comparison was shutdown-day behavior against a tool actively being switched off, on a free-then-barely-paid account under server load; skills, subagents, MCP servers, and hooks were not migration-tested; and whether `agy` offers any non-browser login path for true CI use remains an open question to confirm before trusting it in production automation.
 
+## Update (2026-11-13): CI auth and ACP gaps — both resolved
+
+The two open questions above are now answered by the official Antigravity CLI docs.
+
+**Non-browser auth exists.** Two paths work headless:
+
+1. **Gemini API-key mode** — point `modelProvider` at `gemini` in `~/.gemini/antigravity-cli/settings.json` and supply your own Gemini API key (create one in Google AI Studio). Model requests go directly to the Gemini API and **no account session is ever established** — the CI-friendly equivalent of the old `gemini` env-var auth.
+2. **Cached OAuth credentials** — headless mode (`agy -p`, "print mode") reuses cached credentials: authenticate once in an interactive `agy` session and scripted runs inherit the login. In a terminal-less environment (CI), an unauthenticated run fails fast with an `authentication required` error instead of hanging. On Linux servers/containers without D-Bus, the CLI falls back cleanly when no Secret Service keyring is available.
+
+**ACP stdio mode shipped.** `agy acp` starts an Agent Client Protocol server (JSON-RPC over stdin/stdout) for ACP-capable editors — Zed, JetBrains IDEs, Android Studio, Xcode. Register `agy` with argument `acp` as a custom agent (e.g. Zed `settings.json` → `agent_servers` → `{"command": "agy", "args": ["acp"]}`). Sign in once interactively or via `agy acp --login`; cached credentials are reused. (GitHub issue #31, open since 2026-05-20, tracked the original gap.)
+
+**Headless/CI integration details** worth knowing for step 5 rewrites:
+
+- Response goes to `stdout`, diagnostics/auth prompts to `stderr` — safe to capture the answer directly (`answer=$(agy -p "...")`).
+- `--output-format text|json|stream-json`: `json` returns one envelope with `status`, `response`, `conversation_id`, `duration_seconds`, `num_turns`, and `usage` token counts; `stream-json` emits NDJSON `init` / `step_update` / `result` events for live progress and per-step tool visibility.
+- `--json-schema '<schema|file|primitive>'` enforces structured output; read the parsed object from `structured_output`.
+- `--print-timeout 10m` bounds the run; terminal `status` values are `SUCCESS`, `ERROR`, `CANCELED`, `INTERRUPTED`, `INVALID`, `WAITING`, `RUNNING`, with exit code 1 on error — fail CI jobs by checking `.status != "SUCCESS"` with `jq`.
+- Conversation resume: `--continue`/`-c` or `--conversation <id>`; `--sandbox` enables terminal sandbox restrictions; `--model`/`--effort`/`--agent` override per run.
+
 ## Diagram
 ![Diagram 1 — howto-migrate-gemini-cli-to-antigravity-cli](howto-migrate-gemini-cli-to-antigravity-cli-excalidraw-1.svg)
 &lt;!-- Gemini CLI to Antigravity CLI migration -->
@@ -88,3 +107,7 @@ Headless automation is the decisive delta: in scripted mode, Gemini CLI could re
 - [Introducing Google Antigravity CLI — Google Antigravity Blog](https://antigravity.google/blog/introducing-google-antigravity-cli)
 - [Gemini CLI to Antigravity CLI migration discussion — GitHub](https://github.com/google-gemini/gemini-cli/discussions/27274)
 - [Migrating from Gemini CLI — Google Antigravity docs (official migration guide)](https://antigravity.google/docs/cli/gcli-migration/)
+- [Headless mode — Antigravity CLI docs](https://antigravity.google/docs/cli/headless/)
+- [Agent Client Protocol (ACP) — Antigravity CLI docs](https://antigravity.google/docs/cli/acp/)
+- [Authenticate (API-key mode) — Google Antigravity docs](https://antigravity.google/docs/install/)
+- [antigravity-cli issue #31 — ACP stdio JSON-RPC mode feature request](https://github.com/google-antigravity/antigravity-cli/issues/31)
