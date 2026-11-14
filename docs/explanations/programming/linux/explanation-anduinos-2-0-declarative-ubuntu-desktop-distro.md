@@ -79,7 +79,32 @@ Developers and daily users who want **Ubuntu LTS hardware compatibility** with a
 - 28 languages in one ISO, with native-quality CJK/Arabic/Thai input
 - 100% native APT ecosystem — no custom update manager, just `apt`
 
+## Release line since 2.0 (as of Nov 2026)
+
+The declarative rewrite ships fast-point releases on the 2.0 line, with a major bump in draft:
+
+| Release | Date | Highlights |
+| --- | --- | --- |
+| 2.0.1 | Aug 2026 | First feature update after the rewrite; adds **ARM64 image** |
+| 2.0.2 | Aug 2026 | Installation, Btrfs recovery, hardware management, first-boot setup |
+| 2.0.3 | Sep 2026 | Installation flexibility, redesigned advanced boot options, system management |
+| 2.0.4 | Oct 2026 | More reliable installation/recovery, clearer boot menus |
+| 2.0.5 | Oct 2026 | Installation, desktop customization, everyday reliability |
+| 2.0.6 (draft) | Oct 2026 | **Independent recovery environment** + recovery preparation in Driver Center |
+| 2.1.0 (draft) | Oct 31 2026 | Base moves to **Ubuntu 26.10 "Stonking" + GNOME 51** |
+
+**2.1.0 is a media upgrade, not an `apt upgrade`**: a normal APT update on 2.0 does *not* migrate to 2.1, and changing APT suites or running `do-release-upgrade` is explicitly unsupported — in-place migration requires a separately supported procedure and freshly built 2.1.0 media.
+
+What 2.1.0 brings (draft notes):
+
+- **New base stack**: Linux 7.3, GNOME Shell/GDM 51, systemd 261, APT 3.3, OpenSSL 4, D-Bus Broker; Fluent login theme adapted to GNOME 51 (third-party GNOME 50 extensions may need updates).
+- **Independent recovery environment**: separate kernel + boot-menu entry; restores supported Btrfs system snapshots **without a Live USB or network**, preserving personal files; graphical browser identifies the "Last successful boot" checkpoint and offers "Snapshot Current State" before rollback. Driver Center can carve a 256 MiB recovery partition from an eligible GPT swap partition (≥512 MiB). Caveat: the recovery initramfs is **not yet Secure-Boot-authenticated** — keep trusted install media available. Ext4 roots and encrypted layouts are not supported.
+- **Impression** replaces Startup Disk Creator as the preinstalled USB image writer; Desktop Icons NG moves to the GTK 4 edition (DING 103) on new installs; Bash command suggestions (history-aware, suggestion-only, never auto-executes).
+
 ## References
+
+- [AnduinOS Release Notes index (2.0.x / 2.1.0)](https://docs.anduinos.com/Documents/Index?category=Release-Notes)
+- [AnduinOS 2.1.0 release notes (draft, Ubuntu 26.10 + GNOME 51)](https://docs.anduinos.com/Release-Notes/2.1.0.html)
 
 - [AnduinOS 2.0 available with a rethought build system and declarative architecture — Developpez (FR)](https://linux.developpez.com/actu/384663/La-distribution-Linux-gratuite-et-open-source-AnduinOS-2-0-est-disponible-avec-son-systeme-de-compilation-entierement-repense-sa-nouvelle-architecture-declarative-et-des-protections-de-la-vie-privee-ameliore/)
 - [Official AnduinOS 2.0 announcement](https://news.anduinos.com/post/2026/6/28/anduinos-2)

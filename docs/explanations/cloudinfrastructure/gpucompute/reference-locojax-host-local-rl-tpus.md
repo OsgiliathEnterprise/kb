@@ -40,9 +40,14 @@ Implication: single-controller coordination costs amortize for large models but 
 ## Technical Approach
 LoCoJAX keeps JAX's synchronous global training but removes the single controller from per-step hot paths by executing rollout and reward loops locally per host — trading controller-level global scheduling for host autonomy, which is exactly the regime where Pathways' coordination tax is worst.
 
+## Ecosystem Context (Nov 2026)
+Google made **Cloud Pathways GA on GKE on 2026-11-09** (>130M Cloud TPU chip-hours processed pre-GA), cementing the single-controller model for multi-slice pre-training, disaggregated inference, and multi-program RL loops. The default multi-controller JAX alternative runs a separate Python interpreter per TPU host in lockstep, which makes heterogeneous MPMD workflows and cross-slice resource management brittle. LoCoJAX's finding refines this picture: the single-controller win is regime-dependent — it holds for large SPMD programs but is a **poor fit for small-model RL**, where scheduler defaults built for large programs tax the per-step hot path. Notably, Pathways' per-step excess over LoCoJAX on GSM8K **stays constant at ~4.1–5.6 s from 8 to 64 chips** — the orchestration tax does not shrink with fleet size, so buying more chips does not fix it.
+
 ## Relevance to Our Domain
 Direct lookup table for sizing RL fine-tuning clusters on accelerators, and an argument that self-hosted RL infra for small models should avoid centralized coordination layers. Complements our GPU scheduling notes (KVFlow, PACER) from the training side.
 
 ## References
 - Paper: https://arxiv.org/abs/2611.16301
+- Cloud Pathways GA announcement (GKE, 2026-11-09): https://cloud.google.com/blog/topics/ai-infrastructure/cloud-pathways-a-distributed-ml-runtime-is-ga
+- Pathways single-controller explainer: https://developers.googleblog.com/en/what-is-pathways-single-controller-training-for-large-models/
 - Related: explanation-pacer-gpu-power-excursions-edpp, explanation-ai21-jamba-asr-kv-cache-as-replay-buffer (small-model RL regime)

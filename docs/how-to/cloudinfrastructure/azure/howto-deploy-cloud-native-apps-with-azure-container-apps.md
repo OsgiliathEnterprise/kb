@@ -164,6 +164,17 @@ az containerapp revision copy \
 
 Container Apps bills per **vCPU-second and GiB-second actually consumed**, not per provisioned instance-hour — a workload that scales to zero (like the queue worker above) costs nothing while idle. Meaningfully different from an always-on VM or AKS node pool that keeps running whether or not it's doing work.
 
+## Platform 2026 updates (Build'26)
+
+The core workflow above is stable; the platform around it moved in June 2026:
+
+- **ACA Sandboxes (Public Preview)** — a new first-class resource alongside Apps, Jobs, Functions, and Dynamic Sessions: hardware-isolated **microVM** boundaries per sandbox, standard OCI images, **sub-second startup**, consumption pricing with scale-to-zero, and **suspend/resume with snapshots** (memory, disk state, preloaded libraries preserved — no cold-start reload). Aimed at agents running untrusted/AI-generated code and preserving working state across task boundaries; it's the infrastructure behind GitHub Copilot's Cloud Sandbox.
+- **ACA Express (Public Preview)** — instant provisioning: the "fastest path from an agent decided to deploy something to it's live."
+- **Dapr v1.16.4 staged platform upgrade** — modernized actor scheduling, improved reminder scalability, updated TLS/security internals. The Dapr Configuration API is now stable/supported on ACA.
+- **Confidential Compute on ACA is GA**; environments can now be brought into Microsoft Defender for Cloud; managed OpenTelemetry gained a dedicated Azure Monitor diagnostic setting category (no extra charge).
+
+Practical implication for the howto above: the managed-identity + KEDA + revisions pattern remains the recommended baseline for long-lived services; for ephemeral/untrusted-execution workloads (agent tools, CI runners, code execution), prefer the Sandboxes resource instead of a scale-to-zero app.
+
 ## Diagram
 
 ![Azure Container Apps deployment pipeline](azure-container-apps-deployment.svg)
@@ -172,3 +183,5 @@ Container Apps bills per **vCPU-second and GiB-second actually consumed**, not p
 
 - [Deploying Cloud-Native Apps with Azure Container Apps (dev.to)](https://dev.to/rdgmh/deploying-cloud-native-apps-with-azure-container-apps-1bm9)
 - [Full lab repo: azure-container-apps-cicd-lab](https://github.com/raphgm/azure-container-apps-cicd-lab)
+- [What's new in Azure Container Apps at Build'26 (Microsoft, Jun 2026)](https://techcommunity.microsoft.com/blog/appsonazureblog/whats-new-in-azure-container-apps-at-build26/4524184)
+- [ACA Sandboxes](https://aka.ms/aca/sandboxes) · [ACA Express](https://aka.ms/aca/express/launch)

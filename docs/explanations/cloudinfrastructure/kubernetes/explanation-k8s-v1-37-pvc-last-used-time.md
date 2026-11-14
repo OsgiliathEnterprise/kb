@@ -73,6 +73,11 @@ Kubernetes deliberately makes **no deletion decision** — cleanup policy is lef
 - **SLO target**: 9% of condition transitions should reflect within 60 s of the triggering pod event; on very large clusters, update delay can make `lastTransitionTime` slightly inaccurate (shorter than reality, never longer).
 - **Design choice**: a dedicated status field (`UnusedSince *metav1.Time`) was considered and rejected in favor of a condition — conditions are Kubernetes-idiomatic, reuse existing PVC condition infrastructure, and give tooling standardized fields.
 
+## Status tracking (Nov 2026) & one API-shape gotcha
+
+- KEP-5541 is still **open at stage/beta** — no GA milestone is committed yet (assignee Roman Bednar, sig-storage). The alpha code PR ([k/k #137862](https://github.com/kubernetes/kubernetes/pull/137862)) carried the v1.35 milestone; beta promotion is [k/k #139620](https://github.com/kubernetes/kubernetes/pull/139620) for v1.37. The official docs page confirms: *Beta since v1.37, enabled by default*.
+- **Gotcha — it's a condition, not a field**: despite the gate name `PersistentVolumeClaimUnusedSinceTime`, there is **no `status.unusedSince` scalar**. All data lives in `status.conditions[type=Unused]`. Code or policies written against `status.unusedSince` silently match nothing — gate names stick early and describe intent, not final API shape.
+
 ## Lifecycle & references
 
 Alpha v1.36 → Beta (enabled by default) v1.37 → GA planned for a future release depending on feedback/adoption.
@@ -87,6 +92,8 @@ Alpha v1.36 → Beta (enabled by default) v1.37 → GA planned for a future rele
 
 ## References
 
+- **KEP-5541 tracking issue**: https://github.com/kubernetes/enhancements/issues/5541
+- [Kubernetes docs: Persistent Volumes — Unused condition](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)
 - [Kubernetes Blog: v1.37 PVC last-used tracking (Beta)](https://kubernetes.io/blog/2026-09-21/kubernetes-v1-37-pvc-last-used-time/)
 - [KEP-5541: Report Last Used Time On a PVC](https://www.kubernetes.dev/resources/keps/5541/)
 - [PR #139620: Promote PersistentVolumeClaimUnusedSinceTime to Beta](https://github.com/kubernetes/kubernetes/pull/139620)

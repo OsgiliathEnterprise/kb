@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="36.0 -4.0 868.0 378.0" width="868" height="378">
+<rect x="36.0" y="-4.0" width="868.0" height="378.0" fill="#ffffff"/>
+<rect x="60.0" y="90.0" width="210.0" height="80.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="60.0" y="200.0" width="210.0" height="80.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="340.0" y="145.0" width="220.0" height="90.0" rx="8" fill="#ffd8a8" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="630.0" y="145.0" width="180.0" height="45.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="630.0" y="215.0" width="180.0" height="45.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 275.0 130.0 L 335.0 165.0"/><line x1="335.0" y1="165.0" x2="327.2" y2="153.4"/><line x1="335.0" y1="165.0" x2="321.0" y2="164.0"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 275.0 240.0 L 335.0 205.0"/><line x1="335.0" y1="205.0" x2="321.0" y2="206.0"/><line x1="335.0" y1="205.0" x2="327.2" y2="216.6"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 565.0 167.0 L 625.0 167.0"/><line x1="625.0" y1="167.0" x2="612.4" y2="160.9"/><line x1="625.0" y1="167.0" x2="612.4" y2="173.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 720.0 193.0 L 720.0 213.0"/><line x1="720.0" y1="213.0" x2="723.5" y2="205.8"/><line x1="720.0" y1="213.0" x2="716.5" y2="205.8"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="120.0" y="32.8">CVE-2026-119618: race in mod_http2 assign_headers() -&gt; heap corruption -&gt; RCE (fixed in httpd 2.4.71)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="75.0" y="122.4">HTTP/2 stream A</tspan><tspan x="75.0" y="138.7">thread -&gt; assign_headers()</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="75.0" y="232.4">HTTP/2 stream B</tspan><tspan x="75.0" y="248.7">thread -&gt; assign_headers()</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="355.0" y="175.4">Shared header memory</tspan><tspan x="355.0" y="191.7">NO LOCK -&gt; concurrent</tspan><tspan x="355.0" y="207.9">read/write (CWE-362)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="645.0" y="168.4">Heap corruption</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="645.0" y="238.4">Remote code execution</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1971c2" text-anchor="start"><tspan x="60.0" y="320.4">Mitigation: upgrade to 2.4.71 (2026-11-11). No vendor workaround - if you cannot patch,</tspan><tspan x="60.0" y="336.6">fall back to Protocols http/1.1 on HTTP/2-enabled servers and watch for worker crashes.</tspan></text>
+</svg>

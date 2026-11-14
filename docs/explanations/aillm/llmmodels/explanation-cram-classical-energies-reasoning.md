@@ -39,6 +39,12 @@ CRAM parameterizes an energy over the puzzle state; inference is gradient descen
 ## Relevance to Our Domain
 Two takeaways for our reasoning-model coverage: energy-based descent is a credible, cheap alternative for structured/constraint reasoning tasks (agent planning subroutines, combinatorial checks), and our evaluation notes should treat Sudoku/Maze-style benchmarks for looped architectures as near-saturated sanity checks, not scalability evidence.
 
+## Extensions & reception
+- Hardware angle (Neurohive coverage): a CRAM-based ML accelerator is projected to reach up to **~2,500× energy savings** vs conventional methods — the energy-descent formulation maps well to dedicated silicon because inference is local, iterative, and needs no deep unrolled graph in memory.
+- Paper submitted 2026-11-12 (Hoover, Blayney & Whittington — the Whittington group behind much of the looped/latent-reasoning line, making the benchmark critique self-targeted and notable).
+- Caveat for replication: results are on synthetic constraint puzzles (Sudoku-Extreme, Maze-Unique) with per-puzzle trainable energies; transfer to open-ended language reasoning is untested — do not cite as "energy models beat LLMs at reasoning".
+
 ## References
 - Paper: https://arxiv.org/abs/2611.17309
+- Neurohive coverage (accelerator energy-savings projection): https://neurohive.io/en/state-of-the-art/cram-cutting-ai-energy-consumption-by-1-000-times/
 - Related: explanation-latent-thought-regularization-non-marp, explanation-geometric-phase-locks-implicit-recurrence (looped-model literature), explanation-llm-reasoning-early-error-lock-in
