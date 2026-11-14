@@ -53,7 +53,32 @@ The Valkey setup is a useful template for any project maintaining multiple long-
 3. **Keep a human gate at merge time**, and treat the agent's output as a validated draft.
 4. **Add a provenance layer** for code-integrity scanning that runs continuously, not per-release.
 
+## Context: the Valkey 9.1 release these agents served
+
+The agent workflow debuted around the **Valkey 9.1 release cycle (shipped 19
+May 2026)**. Beyond the AI maintainer agents, 9.1 is relevant because the same
+release cycle the agents were built for also delivered:
+
+- **Up to 10% lower per-key memory usage** on common workloads, no tuning
+  required — a direct cloud-cost lever for platform teams.
+- **Valkey Search 1.2** (separately governed module): full-text search,
+  numeric filtering, tag lookup, and vector similarity in one query path —
+  pitched at retiring a separate search/vector stack. Maintainer Madelyn
+  Olson (AWS Principal Engineer): "The world has mostly moved past
+  purpose-built vector databases… you put it in the tools you're already
+  familiar with" (cf. pgvector, OpenSearch).
+- Core-engine hardening for multi-tenant deployments: **database-level ACLs,
+  automated TLS certificate reloading, and a cluster-wide `CLUSTERSCAN`**
+  command, plus an admin console for visual cluster inspection.
+- Olson's framing of the agent strategy: AI handles the **well-bounded**
+  parts of the maintainer workflow (backports, provenance scans, crash-
+  triggering fuzz-style scans) while **explicitly not substituting for
+  community judgment** on direction.
+
 ## References
 
 - [Backporting bug fixes is dead, Project Valkey now sends in the bots (The New Stack — Adrian Bridgwater)](https://thenewstack.io/valkey-ai-backporting-agents/)
 - [Valkey 9.1 release notes (valkey.io)](https://valkey.io/blog/valkey-9-1-delivers-improvements-in-security-performance-and-more/)
+- [Valkey 9.1 trims memory 10% and pulls search into the core (The New Stack)](https://thenewstack.io/valkey-91-cuts-memory/)
+- [Valkey 9.1 ships with hybrid search, AI maintainer agents and a leaner engine (diginomica)](https://diginomica.com/valkey-91-ships-hybrid-search-ai-maintainer-agents-engine)
+- [valkey-ci-agent — backport validation and CI follow-up (GitHub)](https://github.com/valkey-io/valkey-ci-agent/pull/93)

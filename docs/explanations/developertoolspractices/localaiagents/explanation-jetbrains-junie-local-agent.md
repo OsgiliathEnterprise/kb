@@ -107,11 +107,43 @@ longer project to run the agent across a wide variety of hardware:
 - As a cloud-based middle ground, Junie's **default moved to Gemini 3.7
   Flash at 40% off base pricing** (Aug 2026).
 
+## Update (Sep–Oct 2026): the hardware floor came down
+
+The launch promises were kept quickly — the M5/64 GB exclusivity did not last:
+
+- **Sept 2026 — "Making Local AI Smarter and Faster":** experimental Windows
+  support for NVIDIA RTX cards with **24 GB VRAM**, plus a new merged model,
+  **Qwen3.8-3.6-27B-blend**, which retains much of Qwen3.8's coding ability
+  while keeping Qwen3.6's shorter reasoning — more solves than Qwen3.6 with
+  ~71% fewer output tokens than Qwen3.8. Users can pick either model via
+  `/model`.
+- **Oct 16, 2026 — NVIDIA RTX Spark day-one support and Windows stable.**
+  Junie Local runs natively on RTX Spark PCs (Blackwell RTX GPU + Grace CPU,
+  Windows 11 on Arm) and on x64 Windows 11 with **Ampere-or-newer 24 GB RTX
+  cards (RTX 3090, 4090, 32 GB 5090)**. Key details:
+  - Up to **55 tokens/s generation** on RTX Spark (initial baseline).
+  - Uses **Blackwell Tensor Cores for FP8** computation plus speculative
+    decoding (draft tokens verified together).
+  - **Context window auto-sized** to the memory available to the GPU.
+  - Requirements: NVIDIA driver 581+, ~20 GB free disk. Windows install:
+    `iex (irm 'https://junie.jetbrains.com/install.ps1')` with
+    `JUNIE_LOCAL_MODEL=1`; macOS: `curl -fsSL https://junie.jetbrains.com/install.sh | bash -s -- --local-model`.
+- **Oct 28, 2026 — ~70% faster on Mac M5:** with **Splash and DFlash2**
+  speculative-decoding work, Junie Local hits **~70 tokens/s on M5 Max**,
+  cuts memory use, and **adds support for M4 Macs with 64 GB RAM** —
+  dropping the M5-only requirement.
+- **Junie Eco Mode** (Oct 2026): about half the model cost with similar
+  resolve rates in internal benchmarks.
+- Junie Local is **free**: no registration, subscription, credits, or card.
+
 ## References
 
 - [JetBrains' Junie now runs entirely offline (TheNewStack)](https://thenewstack.io/jetbrains-junie-local-agent/)
 - [Junie local launch (JetBrains blog)](https://blog.jetbrains.com/junie/2026/08/junie-local-launch/)
 - [How We Optimized the Qwen 3.6 Model for Our Junie Agent (JetBrains blog, 2026-08-24)](https://blog.jetbrains.com/junie/2026/08/qwen-for-junie/)
+- [Making Local AI Smarter and Faster (JetBrains blog, 2026-09-18)](https://blog.jetbrains.com/junie/2026/09/smarter-local-al/)
+- [Junie Local on NVIDIA RTX Spark (JetBrains blog, 2026-10-16)](https://blog.jetbrains.com/junie/2026/10/junie-local-rtx-spark/)
+- [Junie Local became 70% faster on Mac M5 (JetBrains blog, 2026-10-28)](https://blog.jetbrains.com/junie/2026/10/junie-local-splash-dflash2/)
 - [JetBrains Junie official product page](https://www.jetbrains.com/junie/)
 
 ## Related
