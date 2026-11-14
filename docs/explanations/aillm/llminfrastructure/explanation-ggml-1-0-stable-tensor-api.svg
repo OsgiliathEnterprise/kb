@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="36.0 6.0 1588.0 553.0" width="1588" height="553">
+<rect x="36.0" y="6.0" width="1588.0" height="553.0" fill="#ffffff"/>
+<rect x="240.0" y="90.0" width="560.0" height="70.0" rx="8" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="240.0" y="200.0" width="560.0" height="80.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="240.0" y="320.0" width="560.0" height="70.0" rx="8" fill="#d0bfff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="60.0" y="440.0" width="175.0" height="95.0" rx="8" fill="#fff3bf" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="255.0" y="440.0" width="175.0" height="95.0" rx="8" fill="#fff3bf" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="450.0" y="440.0" width="175.0" height="95.0" rx="8" fill="#fff3bf" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="645.0" y="440.0" width="175.0" height="95.0" rx="8" fill="#fff3bf" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="840.0" y="440.0" width="175.0" height="95.0" rx="8" fill="#fff3bf" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="1035.0" y="440.0" width="175.0" height="95.0" rx="8" fill="#fff3bf" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="1230.0" y="440.0" width="175.0" height="95.0" rx="8" fill="#fff3bf" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="1425.0" y="440.0" width="175.0" height="95.0" rx="8" fill="#fff3bf" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 520.0 165.0 L 520.0 195.0"/><line x1="520.0" y1="195.0" x2="524.6" y2="185.6"/><line x1="520.0" y1="195.0" x2="515.4" y2="185.6"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 520.0 285.0 L 520.0 315.0"/><line x1="520.0" y1="315.0" x2="524.6" y2="305.6"/><line x1="520.0" y1="315.0" x2="515.4" y2="305.6"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 147.0 395.0 L 147.0 435.0"/><line x1="147.0" y1="435.0" x2="153.1" y2="422.4"/><line x1="147.0" y1="435.0" x2="140.9" y2="422.4"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 342.0 395.0 L 342.0 435.0"/><line x1="342.0" y1="435.0" x2="348.1" y2="422.4"/><line x1="342.0" y1="435.0" x2="335.9" y2="422.4"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 537.0 395.0 L 537.0 435.0"/><line x1="537.0" y1="435.0" x2="543.1" y2="422.4"/><line x1="537.0" y1="435.0" x2="530.9" y2="422.4"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 732.0 395.0 L 732.0 435.0"/><line x1="732.0" y1="435.0" x2="738.1" y2="422.4"/><line x1="732.0" y1="435.0" x2="725.9" y2="422.4"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 927.0 395.0 L 927.0 435.0"/><line x1="927.0" y1="435.0" x2="933.1" y2="422.4"/><line x1="927.0" y1="435.0" x2="920.9" y2="422.4"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 1122.0 395.0 L 1122.0 435.0"/><line x1="1122.0" y1="435.0" x2="1128.1" y2="422.4"/><line x1="1122.0" y1="435.0" x2="1115.9" y2="422.4"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 1317.0 395.0 L 1317.0 435.0"/><line x1="1317.0" y1="435.0" x2="1323.1" y2="422.4"/><line x1="1317.0" y1="435.0" x2="1310.9" y2="422.4"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 1512.0 395.0 L 1512.0 435.0"/><line x1="1512.0" y1="435.0" x2="1518.1" y2="422.4"/><line x1="1512.0" y1="435.0" x2="1505.9" y2="422.4"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="24" fill="#1e1e1e" text-anchor="start"><tspan x="60.0" y="49.2">ggml v1.0.0 — stable API surface over a growing backend fleet</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="260.0" y="117.8">Downstream: llama.cpp v1.0.0 · Ollama · LM Studio · bindings (semver ^1.0)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="260.0" y="222.8">PUBLIC ggml API (stabilized @1.0)</tspan><tspan x="260.0" y="242.8">pruned deprecated · DIAG_MASK_* ops removed · YaRN truncate config</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="260.0" y="344.8">GRAPH SCHEDULER — skips uploading unread inputs · prefetches split outputs only</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="70.0" y="462.4">CUDA/HIP</tspan><tspan x="70.0" y="478.6">MMQ few-row</tspan><tspan x="70.0" y="494.9">OCP FP8 · NVFP4</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="265.0" y="462.4">Metal</tspan><tspan x="265.0" y="478.6">fused MoE</tspan><tspan x="265.0" y="494.9">1 cmd buffer</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="460.0" y="462.4">Vulkan</tspan><tspan x="460.0" y="478.6">Intel FA prefill</tspan><tspan x="460.0" y="494.9">coopmat</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="655.0" y="462.4">SYCL</tspan><tspan x="655.0" y="478.6">device-side</tspan><tspan x="655.0" y="494.9">MoE sched</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="850.0" y="462.4">OpenCL</tspan><tspan x="850.0" y="478.6">Adreno FA</tspan><tspan x="850.0" y="494.9">multi-col GEMV</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="1045.0" y="462.4">WebGPU</tspan><tspan x="1045.0" y="478.6">new kernels</tspan><tspan x="1045.0" y="494.9">YaRN truncate</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="1240.0" y="462.4">Hexagon</tspan><tspan x="1240.0" y="478.6">Q5_0/Q5_1</tspan><tspan x="1240.0" y="494.9">conv2d/3d</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="1435.0" y="462.4">RPC v9</tspan><tspan x="1435.0" y="478.6">rejects old</tspan><tspan x="1435.0" y="494.9">peers, fast fail</tspan></text>
+</svg>

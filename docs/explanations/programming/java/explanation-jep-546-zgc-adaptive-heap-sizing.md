@@ -113,7 +113,8 @@ soft-maximum behavior, done automatically.
 - [JEP 546: Adaptive Heap Sizing for ZGC](https://openjdk.org/jeps/546) (targeted for JDK 28)
 - [JEP 545: Faster Startup and Warmup with ZGC](https://openjdk.org/jeps/545) — the companion startup/warmup work
 - [JEP 377: The Z Garbage Collector](https://openjdk.org/jeps/377)
-- [The Java Magazine: JEP 546 targeted at JDK 28](https://inside.java/2026/10/19/jep546-target-jdk28/)
+- [The Java Magazine: JEP 546 targeted at JDK 28](https://inside.java/2026-10-19/jep546-target-jdk28/)
+- [Inside Java Newscast #117 (2026-11-14) — adaptive heap sizing segment](https://inside.java/newscast/117/)
 - [ZGC soft max heap size background](https://malloc.se/blog/zgc-softmaxheapsize)
 
 ## Diagram

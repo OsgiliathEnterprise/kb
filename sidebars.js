@@ -386,7 +386,7 @@ const sidebars = {
           type: 'category',
           label: 'Llminfrastructure',
           link: {type: 'generated-index', title: 'Llminfrastructure', slug: 'explanations/aillm/llminfrastructure'},
-          items: ['explanations/aillm/llminfrastructure/explanation-cerebras-wafer-pipeline-trillion-parameter-models', 'explanations/aillm/llminfrastructure/explanation-claude-message-threads-beta', 'explanations/aillm/llminfrastructure/explanation-deepseek-search-fetch-api', 'explanations/aillm/llminfrastructure/explanation-fairinference-token-latency-fairness-llm-serving', 'explanations/aillm/llminfrastructure/explanation-fine-tuning-memory-accounting-lora-qlora', 'explanations/aillm/llminfrastructure/explanation-janas-moe-ssd-streaming-llm-inference', 'explanations/aillm/llminfrastructure/explanation-llm-inference-parallelism-compute-communication-tradeoffs', 'explanations/aillm/llminfrastructure/explanation-openai-jalapeno-chip-first-benchmarks', 'explanations/aillm/llminfrastructure/explanation-prefixbench-h100-prefix-reuse-ttft', 'explanations/aillm/llminfrastructure/explanation-qwen3-embedding-cloud-tpu-vllm', 'explanations/aillm/llminfrastructure/explanation-tpu-sync-kv-cache-transfer'],
+          items: ['explanations/aillm/llminfrastructure/explanation-cerebras-wafer-pipeline-trillion-parameter-models', 'explanations/aillm/llminfrastructure/explanation-claude-message-threads-beta', 'explanations/aillm/llminfrastructure/explanation-deepseek-search-fetch-api', 'explanations/aillm/llminfrastructure/explanation-fairinference-token-latency-fairness-llm-serving', 'explanations/aillm/llminfrastructure/explanation-fine-tuning-memory-accounting-lora-qlora', 'explanations/aillm/llminfrastructure/explanation-ggml-1-0-stable-tensor-api', 'explanations/aillm/llminfrastructure/explanation-janas-moe-ssd-streaming-llm-inference', 'explanations/aillm/llminfrastructure/explanation-llm-inference-parallelism-compute-communication-tradeoffs', 'explanations/aillm/llminfrastructure/explanation-openai-jalapeno-chip-first-benchmarks', 'explanations/aillm/llminfrastructure/explanation-prefixbench-h100-prefix-reuse-ttft', 'explanations/aillm/llminfrastructure/explanation-qwen3-embedding-cloud-tpu-vllm', 'explanations/aillm/llminfrastructure/explanation-tpu-sync-kv-cache-transfer'],
         },
         {
           type: 'category',
@@ -668,7 +668,7 @@ const sidebars = {
           type: 'category',
           label: 'Java',
           link: {type: 'generated-index', title: 'Java', slug: 'explanations/programming/java'},
-          items: ['explanations/programming/java/explanation-better-tools-immutable-data-java', 'explanations/programming/java/explanation-java-sealed-classes-exhaustive-pattern-matching', 'explanations/programming/java/explanation-jdk-26-performance-improvements', 'explanations/programming/java/explanation-jdk-27-stop-the-world-gc-changes', 'explanations/programming/java/explanation-jdk-28-pooled-confined-arena', 'explanations/programming/java/explanation-jdk-28-value-classes-preview', 'explanations/programming/java/explanation-jep-540-simple-json-api-incubator', 'explanations/programming/java/explanation-jep-543-structured-concurrency-finalized-jdk28', 'explanations/programming/java/explanation-jep-546-zgc-adaptive-heap-sizing', 'explanations/programming/java/explanation-netflix-ja-module-system-toolchain', 'explanations/programming/java/explanation-specjbb-workload-generator-same-jvm-limitations', 'explanations/programming/java/explanation-spring-ai-2-0-composable-tool-calling-advisor-architecture', 'explanations/programming/java/explanation-structured-concurrency-project-loom', 'explanations/programming/java/explanation-valhalla-ticker-value-class', 'explanations/programming/java/explanation-zgc-decade-of-low-latency-gc', 'explanations/programming/java/explanation-zgc-weak-reference-processing'],
+          items: ['explanations/programming/java/explanation-better-tools-immutable-data-java', 'explanations/programming/java/explanation-java-sealed-classes-exhaustive-pattern-matching', 'explanations/programming/java/explanation-jdk-26-performance-improvements', 'explanations/programming/java/explanation-jdk-27-stop-the-world-gc-changes', 'explanations/programming/java/explanation-jdk-28-pooled-confined-arena', 'explanations/programming/java/explanation-jdk-28-value-classes-preview', 'explanations/programming/java/explanation-jep-540-simple-json-api-incubator', 'explanations/programming/java/explanation-jep-543-structured-concurrency-finalized-jdk28', 'explanations/programming/java/explanation-jep-546-zgc-adaptive-heap-sizing', 'explanations/programming/java/explanation-netflix-ja-module-system-toolchain', 'explanations/programming/java/explanation-specjbb-workload-generator-same-jvm-limitations', 'explanations/programming/java/explanation-spring-ai-2-0-composable-tool-calling-advisor-architecture', 'explanations/programming/java/explanation-structured-concurrency-project-loom', 'explanations/programming/java/explanation-valhalla-ticker-value-class', 'explanations/programming/java/explanation-value-class-numeric-conversions-primitive-patterns-jdk28', 'explanations/programming/java/explanation-zgc-decade-of-low-latency-gc', 'explanations/programming/java/explanation-zgc-weak-reference-processing'],
         },
         {
           type: 'category',
@@ -959,6 +959,12 @@ const sidebars = {
           label: 'Websecurity',
           link: {type: 'generated-index', title: 'Websecurity', slug: 'examples/securityprivacy/websecurity'},
           items: ['examples/securityprivacy/websecurity/example-connected-car-forgerock-exploit-chain'],
+        },
+        {
+          type: 'category',
+          label: 'Integrationcontracts',
+          link: {type: 'generated-index', title: 'Integrationcontracts', slug: 'examples/systemdesign/integrationcontracts'},
+          items: ['examples/systemdesign/integrationcontracts/example-webhook-raw-body-verification-8-frameworks'],
         },
       ],
     },
