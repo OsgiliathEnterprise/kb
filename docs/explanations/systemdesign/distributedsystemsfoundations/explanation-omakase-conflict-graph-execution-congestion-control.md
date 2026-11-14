@@ -37,6 +37,13 @@ Neither exploits inter-block parallelism, so most validator cores stay idle.
 ## Relevance to Our Domain
 The conflict-graph-merge + bounded-speculation pattern is a general recipe for any optimistic execution pipeline (parallel DB replay, ETL backfills, agent tool-batch scheduling): integrate dependency graphs across scheduling windows, gate merges with a cheap gain predictor, and admit work in dependency order. The "bound in-flight optimistic work" framing is directly transferable to backpressure design in distributed systems.
 
+## Broader Context (enriched 2026-11-14)
+- **Baseline lineage.** Optimistic block execution descends from Block-STM (Gu et al., arXiv:2203.06871), an in-memory software-transactional-memory engine for smart contracts: transactions execute optimistically, conflicts are detected on versioned reads/writes, and contended transactions abort and retry with bumped priority. PEVM (RISE chain) is the EVM analogue. Omakase's search results confirm both Block-STM-based engines degrade fastest with more workers under contention — exactly the cascading-abort regime the congestion-control framing targets.
+- **Proposer- vs validator-side parallelism.** Prior work splits into optimistic STM at the *proposer* (with a DAG-based parallel execution at validators) versus validator-side engines. Recent schedulers (AFT 2025, arXiv:2503.03203) build on Block-STM's scheduler for MoveVM and PEVM for EVM, and *default to optimistic execution when conflict specifications are absent* — Omakase's inter-block graph integration fills precisely this gap by predicting the conflict spec across blocks instead of executing blind.
+- **Paper facts.** Submitted 12 Nov 2026 by Kang, Neiheiser, Sonnino, Kokoris-Kogias, Sadoghi; 15 pages, 7 figures, 8 tables, 6 algorithms; categories cs.DB + cs.DC (a databases × distributed-systems crossover).
+
 ## References
 - Paper: https://arxiv.org/abs/2611.17184
+- Block-STM: https://arxiv.org/abs/2203.06871 (foundational optimistic execution engine)
+- Parallel-execution scheduling survey/algorithm: https://arxiv.org/abs/2503.03203 and https://drops.dagstuhl.de/storage/00lipics/lipics-vol354-aft2025/LIPIcs.AFT.2025.29/LIPIcs.AFT.2025.29.pdf
 - Related: explanation-steelhead-dual-mode-consensus-shared-dag (multi-DAG consensus), explanation-llm-inference-parallelism-compute-communication-tradeoffs

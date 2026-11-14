@@ -38,6 +38,14 @@ Self-supervised verifier: roll out the generator's own decodes, label partial se
 ## Relevance to Our Domain
 Adds concrete evidence to our diffusion-LM coverage that test-time compute for dLLMs needs a learned *controller*, not just more sampling — an analogue of verifier-guided decoding in AR models, with the block-regeneration twist unique to diffusion. Useful for designing cost-aware inference pipelines (compare against our best-of-n / self-consistency cost notes).
 
+## Broader Context (enriched 2026-11-14)
+- **Remasking strategy landscape.** Standard dLLM decoding uses *instantaneous* signals to choose which tokens to commit vs. remask: LLaDA uses confidence-driven remasking (high-confidence tokens unmasked first), Dream-style implementations use entropy-based remasking, and fast-inference frameworks add confidence-thresholding/parallel decoding. DiVR's diagnosis — that token-level confidence is blind to errors — undermines this whole family's signal, and its fix (a learned verifier over hidden states) is complementary rather than competing.
+- **Complementary axis: where to branch.** SAFE (Zuo et al., arXiv:2611.10486, Nov 2026) tackles the *other* half of dLLM test-time compute: a two-stage scheme solves easy questions with a fast base sampler, then applies frequency-aware remasking (tracking how often each token's prediction changes across denoising steps, committing fast-changing tokens first) so samples diverge at genuinely undecided positions. On GSM8K hard subsets, low-confidence remasking collapses samples onto the model's preferred path (2.4 distinct answers, 78.8% dominant share, 17.7% coverage@16) vs. SAFE's 10.2 distinct / 31.2% / 45.2%. Gains: up to +3.73% (LLaDA) and +7.33% (Dream) on MATH-500; recovers 3.75–18.75% of questions unsolved even at 100 samples.
+- **Design takeaway.** DiVR = *when/which* controller (verifier over trajectories); SAFE = *where to branch* controller (decoding strategy). Diversity alone is insufficient — branching must occur at positions where the model is still undecided — so a production dLLM test-time pipeline plausibly needs both.
+- Related approaches: LATTS (latent-space test-time scaling for dLLMs, OpenReview Q524K1mgCc), Prism (hierarchical search + self-verification, arXiv:2602.01842).
+
 ## References
 - Paper: https://arxiv.org/abs/2611.17320
+- SAFE / frequency-aware remasking: https://arxiv.org/abs/2611.10486
+- Prism: https://arxiv.org/abs/2602.01842
 - Related: explanation-diffusion-language-models-overview (topic home), explanation-cram-classical-energies-reasoning (Sudoku-as-benchmark caution)
