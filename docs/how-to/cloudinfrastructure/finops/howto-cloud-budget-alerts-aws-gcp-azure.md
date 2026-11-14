@@ -101,6 +101,19 @@ The honest part — three limits to plan around:
 - **They lag 1–2 days.** Even Forecasted alerts use yesterday's data. For real-time, you need a tool that reads the billing stream directly.
 - **They do not act.** An alert tells you; it does not stop a runaway resource. Wire the top tier to automation — AWS SNS → Lambda, Azure Action Groups → Runbooks, or GCP Pub/Sub → Cloud Functions — so the highest threshold self-corrects (e.g. stop tagged non-prod resources).
 
+## Sizing anomaly-detection thresholds (AWS Cost Anomaly Detection)
+
+AWS Cost Anomaly Detection is ML-based — it learns your spend curve and flags deviations no fixed budget threshold would catch (all new Cost Explorer users on Payer/Regular accounts get a default configuration automatically). The mistake is a single org-wide threshold; instead use **role-specific alert subscriptions and cost monitors**, one per audience:
+
+| Audience | Monitor granularity | Threshold pattern | Frequency |
+|----------|--------------------|-------------------|-----------|
+| Application teams | Per application account | Relative deviation (e.g. 20%) sized from projections + growth buffer | Individual alerts |
+| Project teams (e.g. ML workloads) | Per service scope | Absolute (e.g. $1,000/mo on analytics spend) | Individual alerts |
+| FinOps team | Org-wide, dual-layered | Absolute ($1,000) **plus** relative (30%) for detection; $10,000 for critical | Daily summary + individual |
+| Leadership | Whole-org trend | High absolute (e.g. $10,000) — filters operational noise | Weekly summary |
+
+Operating rules that keep this from becoming alert fatigue: **start conservative** (lower thresholds), **refine gradually** from actual usage patterns, and customize per organizational role. Anomaly detection also supports **enhanced root-cause analysis** (per the AWS Cloud Financial Management blog) which surfaces the drivers behind a flagged anomaly — triage starts there, not in Cost Explorer.
+
 ## Operating cadence
 
 - **Scope per project** for engineering teams, **per account / billing group** for finance reporting — the two views answer different questions.
@@ -113,6 +126,8 @@ The honest part — three limits to plan around:
 - [AWS Budgets — AWS documentation](https://docs.aws.amazon.com/budgets/latest/UserGuide/what-is-budgets.html)
 - [Azure budgets overview — Microsoft Learn](https://learn.microsoft.com/azure/cost-management-billing/budgets/cost-budgets-overview)
 - [Google Cloud Billing budgets and budget alerts (documentation)](https://docs.cloud.google.com/billing/docs/how-to/budgets)
+- [Determining the Right Threshold for Alerts in AWS Cost Anomaly Detection — AWS re:Post](https://repost.aws/articles/ARgdkpw_DvQC68z3GOS9XNsw/determining-the-right-threshold-for-alerts-in-aws-cost-anomaly-detection)
+- [AWS Cost Anomaly Detection — product page](https://aws.amazon.com/aws-cost-management/aws-cost-anomaly-detection/)
 
 ## Related
 

@@ -24,7 +24,7 @@ The insight: this is not a language-model problem, it is a **database/program-an
 The system splits into two parts:
 
 - **The LLM handles the fuzzy part** — understanding natural language, source code, and debugger output, then converting it into structured facts (`freed(object_a)`, `reused_as(object_a, write_target)`).
-- **Lemmalog handles the deterministic part** — a Datalog engine that takes facts + rules → derived facts, maintains them incrementally, and tracks how each fact was derived.
+- **Lemmalog handles the deterministic part** — a Datalog engine that takes facts + rules → derived facts, maintains them incrementally, and tracks how each fact was derived. The engine supports **stratified rules** and **provenance-tracked facts**, and ships an **MCP server** so any agent harness can use Lemmalog as a *shared brain* across sessions and tools (added post-launch; see References).
 
 Conceptually it is "a slightly strange compiler": the LLM is the probabilistic front-end (source code / debugger output / notes → structured facts), Lemmalog is the IR and analysis engine (facts → deductive rules → maintained state), and another LLM invocation can turn that state back into natural language or the next experiment. The parser is probabilistic; everything after it does not have to be.
 
@@ -65,6 +65,8 @@ The resulting architecture is less "vector memory OR symbolic memory" and more a
 - [I accidentally turned LLM memory into program analysis (pwning.systems)](https://pwning.systems/posts/llm-memory-program-analysis/)
 - [Lemmalog source code](https://github.com/JordyZomer/lemmalog)
 - [MemEval — standardized LLM memory evaluation harness](https://github.com/ProsusAI/MemEval)
+- [Lemmalog repo — Datalog engine with stratified rules, provenance, incremental derivation, and MCP server](https://github.com/JordyZomer/lemmalog)
+- [Jordy Zomer built a Datalog engine so AI agents can forget correctly (RuntimeWire)](https://runtimewire.com/article/jordy-zomer-lemmalog-datalog-memory-llm-agents)
 
 ## Related
 - [[explanation-claude-unified-memory-architecture]]
