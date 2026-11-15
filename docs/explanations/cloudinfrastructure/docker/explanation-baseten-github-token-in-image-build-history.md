@@ -39,6 +39,16 @@ The critical subtlety: **cleaning a credential file from an image does not remov
 - July 14, 16:34 — Baseten security confirmed critical severity, rotated the token, requested secure deletion of pulled images.
 - July 17 — remaining lower-severity findings closed out.
 
+## Registry-side hardening checklist (Harbor-specific)
+
+The incident's precondition was a *public Harbor project*. Defense in depth at the registry layer:
+
+- **Change the default admin password at deploy time.** Harbor ships with a documented default administrator password (`Harbor12345`, set via `harbor_admin_password` in `harbor.yml`); the install docs expect you to change it before exposing the registry — and exposed Harbors with the default still appear in scanning results. This is a tracked vulnerability, not just a hygiene tip: **CVE-2026-4404** covers hardcoded default credentials in GoHarbor ≤ 2.15.0 granting web-UI access ([NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-4404), [GitLab advisory](https://advisories.gitlab.com/pkg/golang/github.com/goharbor/harbor/CVE-2026-4404/)). Automate it in the Helm values / compose bring-up, don't rely on manual steps.
+- **No public projects by default.** Make every project private; anonymous `service/token` minting and blob pulls (steps 2–3 of the exposure chain) simply fail against private projects. Audit with the API: list all projects and flag `public` visibility.
+- **Rate-limit and alert on anonymous pulls**, since unauthenticated manifest/blob traffic to a registry is anomalous by definition once public projects are gone.
+- **Scan registry contents, not just source.** Run secret scanners (TruffleHog/gitleaks) over pushed image layers *and* config blobs in CI, so `history[].created_by` leaks are caught before publication.
+- **Sign and verify images** (cosign/Notary or Docker Content Trust) so a tampered or leaked registry cannot silently serve attacker-built images to CI.
+
 ## Why this matters for AI-era threat modeling
 
 The same recon → anonymous-pull → history-inspection path is exactly what an autonomous attacker agent can execute unattended; a live admin token discoverable in ~25 minutes of black-box scanning means the defense must be continuous self-scanning, not periodic audits. See also [How a Malicious LLM Could Take Over Its Inference Host](../../securityprivacy/aiagentsecurity/explanation-llm-inference-engine-exploits.md) for the complementary agent-side threat model.
@@ -48,3 +58,5 @@ The same recon → anonymous-pull → history-inspection path is exactly what an
 - [Strix: We wanted to use Baseten for inference. We ended up with admin access to Baseten GitHub repos](https://www.strix.ai/blog/baseten-harbor-github-pat-takeover)
 - [TruffleHog (secret scanning, open source)](https://github.com/trufflesecurity/trufflehog)
 - [BuildKit secret mounts (`--secret`)](https://docs.docker.com/build/concepts/secrets/)
+- [Harbor docs: Configure the Harbor YML File (default `harbor_admin_password`)](https://goharbor.io/docs/2.0.0/install-config/configure-yml-file/)
+- [Harbor docs: Run the Installer Script (project/registry bring-up)](https://goharbor.io/docs/1.10/install-config/run-installer-script/)

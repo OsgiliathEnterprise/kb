@@ -26,7 +26,7 @@ Identify which IAM role is on the instance (instance ID comes from the
 GuardDuty finding):
 
 ```bash
-aws ec2 describe-i-instance-profile ... \
+aws ec2 describe-instances --instance-ids i-0123456789abcdef0 \
   --query "Reservations[0].Instances[0].IamInstanceProfile.Arn"
 # -> arn:aws:iam::123456789012:instance-profile/ProdDataAccessRole
 
@@ -95,11 +95,42 @@ event logging must be enabled on the affected bucket — a common gap, since
 data events are disabled by default and are billed per request. See
 [AWS GuardDuty S3 Protection docs](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
 
+## Prevention: cut off the credential theft at the source (IMDSv2)
+
+The scenario starts with the attacker pulling temporary credentials from the
+instance metadata service (IMDS, `169.254.169.254`). **IMDSv1** is a plain
+GET — no session, no header — which makes it a perfect SSRF target: any
+server-side request forgery in a web app on the instance can fetch the role's
+`ASIA*` keys and token with a single request. **IMDSv2** is session-oriented:
+a token must first be obtained via a `PUT` to `/latest/api/token` and then
+sent in the `X-aws-ec2-metadata-token` header on every subsequent request —
+and SSRF primitives almost never let the attacker set custom headers or issue
+PUTs, so the theft path closes.
+
+```bash
+# Require IMDSv2 on an instance
+aws ec2 modify-instance-metadata-options \
+  --instance-id i-0123456789abcdef0 \
+  --http-tokens required --http-endpoint enabled
+
+# Or fleet-wide: set HttpTokens=required in the Launch Template's
+# MetadataOptions, plus an SCP (see below) to block instances that allow v1
+```
+
+In practice, set `HttpTokens: required` in every Launch Template / EC2
+Launch Template metadata option, and add an SCP that denies
+`ec2:RunInstances` when `ec2:MetadataHttpTokens` is `optional`. The AWS CLI
+SDKs (`boto3`, AWS CLI v2, recent SDK versions) use IMDSv2 transparently, so
+enforcement is usually zero-code. See
+[Datadog Security Labs: Misconfiguration Spotlight — Securing the EC2 Instance Metadata Service](https://securitylabs.datadoghq.com/articles/misconfiguration-spotlight-imds/).
+
 ## References
 
 - [Stopping S3 Data Exfiltration in Real Time (dev.to)](https://dev.to/nghidanh2005/-stopping-s3-data-exfiltration-in-real-time-a-step-by-step-incident-response-2jp)
 - [AWS GuardDuty S3 Protection documentation](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html)
 - [AWS News Blog: Using Amazon GuardDuty to protect your S3 buckets](https://aws.amazon.com/blogs/aws/new-using-amazon-guardduty-to-protect-your-s3-buckets/)
+- [Datadog Security Labs: Misconfiguration Spotlight — Securing the EC2 Instance Metadata Service (IMDSv1 vs IMDSv2, SSRF)](https://securitylabs.datadoghq.com/articles/misconfiguration-spotlight-imds/)
+- [AWS User Guide: Configure and access the Instance Metadata Service (IMDSv2)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-service.html)
 
 ## Related
 - [[howto-cicd-compromise-response-jetbrains-cadence]]
