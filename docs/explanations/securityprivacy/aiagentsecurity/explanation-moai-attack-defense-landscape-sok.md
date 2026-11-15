@@ -15,7 +15,7 @@ keywords:
 # SoK — The Attack and Defense Landscape of Mobile On-device AI (MoAI) Systems
 
 ## Overview
-Mobile on-device AI (MoAI) systems integrate locally deployed models with conventional mobile software — delivering privacy-preserving, low-latency, offline-capable intelligence, but relocating the model from a protected cloud boundary into the device's storage and app ecosystem. This SoK is the first comprehensive systematization of knowledge (Sok) of MoAI security: its security pillars, the attack landscape, the defense landscape, and the unresolved gaps.
+Mobile on-device AI (MoAI) systems integrate locally deployed models with conventional mobile software — delivering privacy-preserving, low-latency, offline-capable intelligence, but relocating the model from a protected cloud boundary into the device's storage and app ecosystem. This SoK (*SoK: Attack and Defense Landscape of Mobile On-device AI Systems*, Huang, Zheng, Yuan & Lam, arXiv:2607.00362, submitted 2026-07-01, cs.CR/cs.AI/cs.LG) is the first comprehensive systematization of knowledge of MoAI security: its security pillars, the attack landscape, the defense landscape, and the unresolved gaps.
 
 ## Problem Statement
 Cloud LLM security literature assumes the model lives behind a service boundary. On-device, the model weights, caches and pipelines become *local files* in a hostile multi-app environment — extractable, patchable, swappable. Attack and defense results were scattered across mobile security, ML security and LLM security silos with no unifying frame.

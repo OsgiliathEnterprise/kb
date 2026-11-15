@@ -15,7 +15,7 @@ keywords:
 # Multimodal-SEA — Benchmark Specification for Agent Social-Engineering Attacks
 
 ## Overview
-Multimodal-SEA (He, Zhang, Han & Fung, 2026) is an interactive benchmark for evaluating the **intrinsic security of personal AI agents** under social engineering attacks backed by forged multimodal content (images, documents, app screenshots). It moves beyond text-dialogue jailbreak evaluations by grounding attack outcomes in verifiable tool-execution logs inside simulated applications.
+Multimodal-SEA — *Benchmarking AI Agent Security under Multimodal Social Engineering Attacks* (He, Zhang, Han & Fung, arXiv:2611.08281, submitted 2026-11-05, cs.CL) — is an interactive benchmark for evaluating the **intrinsic security of personal AI agents** under social engineering attacks backed by forged multimodal content (images, documents, app screenshots). It moves beyond text-dialogue jailbreak evaluations by grounding attack outcomes in verifiable tool-execution logs inside simulated applications.
 
 ## Benchmark Composition
 
