@@ -190,6 +190,12 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Llmserving',
+          link: {type: 'generated-index', title: 'Llmserving', slug: 'how-to/cloudinfrastructure/llmserving'},
+          items: ['how-to/cloudinfrastructure/llmserving/how-to-fast-serverless-llm-cold-starts-cairn'],
+        },
+        {
+          type: 'category',
           label: 'Networking',
           link: {type: 'generated-index', title: 'Networking', slug: 'how-to/cloudinfrastructure/networking'},
           items: ['how-to/cloudinfrastructure/networking/howto-monitor-email-dns-records-mx-spf-dkim-dmarc', 'how-to/cloudinfrastructure/networking/howto-self-hosted-http-tunnels-ssh-nginx', 'how-to/cloudinfrastructure/networking/howto-update-atlassian-cloud-ip-allowlist-2027'],
@@ -204,7 +210,7 @@ const sidebars = {
           type: 'category',
           label: 'Aicodingagents',
           link: {type: 'generated-index', title: 'Aicodingagents', slug: 'how-to/developertoolspractices/aicodingagents'},
-          items: ['how-to/developertoolspractices/aicodingagents/howto-audit-claude-code-skill-context-tax-skill-tax-cli', 'how-to/developertoolspractices/aicodingagents/howto-autocompact-context-compaction-coding-agents', 'how-to/developertoolspractices/aicodingagents/howto-build-an-ai-workflow-inventory', 'how-to/developertoolspractices/aicodingagents/howto-check-ai-quota-headroom-before-dispatch', 'how-to/developertoolspractices/aicodingagents/howto-chronicle-cut-point-replay-regression-testing', 'how-to/developertoolspractices/aicodingagents/howto-litellm-gateway-for-codex-cli', 'how-to/developertoolspractices/aicodingagents/howto-maintainability-sensors-for-coding-agents', 'how-to/developertoolspractices/aicodingagents/howto-metal-sandbox-gpu-coding-agents-apple-silicon', 'how-to/developertoolspractices/aicodingagents/howto-migrate-gemini-cli-to-antigravity-cli', 'how-to/developertoolspractices/aicodingagents/howto-neurotestgen-neuro-symbolic-test-generation', 'how-to/developertoolspractices/aicodingagents/howto-predict-coding-agent-performance-base-models', 'how-to/developertoolspractices/aicodingagents/howto-require-a-job-receipt-for-remote-model-proposals', 'how-to/developertoolspractices/aicodingagents/howto-spring-upgrades-with-openrewrite-and-agents', 'how-to/developertoolspractices/aicodingagents/howto-verify-claude-code-relay-serves-claude'],
+          items: ['how-to/developertoolspractices/aicodingagents/how-to-gate-llm-code-repairs-after-api-migrations', 'how-to/developertoolspractices/aicodingagents/howto-audit-claude-code-skill-context-tax-skill-tax-cli', 'how-to/developertoolspractices/aicodingagents/howto-autocompact-context-compaction-coding-agents', 'how-to/developertoolspractices/aicodingagents/howto-build-an-ai-workflow-inventory', 'how-to/developertoolspractices/aicodingagents/howto-check-ai-quota-headroom-before-dispatch', 'how-to/developertoolspractices/aicodingagents/howto-chronicle-cut-point-replay-regression-testing', 'how-to/developertoolspractices/aicodingagents/howto-litellm-gateway-for-codex-cli', 'how-to/developertoolspractices/aicodingagents/howto-maintainability-sensors-for-coding-agents', 'how-to/developertoolspractices/aicodingagents/howto-metal-sandbox-gpu-coding-agents-apple-silicon', 'how-to/developertoolspractices/aicodingagents/howto-migrate-gemini-cli-to-antigravity-cli', 'how-to/developertoolspractices/aicodingagents/howto-neurotestgen-neuro-symbolic-test-generation', 'how-to/developertoolspractices/aicodingagents/howto-predict-coding-agent-performance-base-models', 'how-to/developertoolspractices/aicodingagents/howto-require-a-job-receipt-for-remote-model-proposals', 'how-to/developertoolspractices/aicodingagents/howto-satisfix-mitigate-specification-satisficing', 'how-to/developertoolspractices/aicodingagents/howto-spring-upgrades-with-openrewrite-and-agents', 'how-to/developertoolspractices/aicodingagents/howto-verify-claude-code-relay-serves-claude'],
         },
         {
           type: 'category',
@@ -386,7 +392,7 @@ const sidebars = {
           type: 'category',
           label: 'Llminfrastructure',
           link: {type: 'generated-index', title: 'Llminfrastructure', slug: 'explanations/aillm/llminfrastructure'},
-          items: ['explanations/aillm/llminfrastructure/explanation-cerebras-wafer-pipeline-trillion-parameter-models', 'explanations/aillm/llminfrastructure/explanation-claude-message-threads-beta', 'explanations/aillm/llminfrastructure/explanation-deepseek-search-fetch-api', 'explanations/aillm/llminfrastructure/explanation-fairinference-token-latency-fairness-llm-serving', 'explanations/aillm/llminfrastructure/explanation-fine-tuning-memory-accounting-lora-qlora', 'explanations/aillm/llminfrastructure/explanation-ggml-1-0-stable-tensor-api', 'explanations/aillm/llminfrastructure/explanation-janas-moe-ssd-streaming-llm-inference', 'explanations/aillm/llminfrastructure/explanation-llm-inference-parallelism-compute-communication-tradeoffs', 'explanations/aillm/llminfrastructure/explanation-openai-jalapeno-chip-first-benchmarks', 'explanations/aillm/llminfrastructure/explanation-prefixbench-h100-prefix-reuse-ttft', 'explanations/aillm/llminfrastructure/explanation-qwen3-embedding-cloud-tpu-vllm', 'explanations/aillm/llminfrastructure/explanation-tpu-sync-kv-cache-transfer'],
+          items: ['explanations/aillm/llminfrastructure/explanation-cerebras-wafer-pipeline-trillion-parameter-models', 'explanations/aillm/llminfrastructure/explanation-claude-message-threads-beta', 'explanations/aillm/llminfrastructure/explanation-deepseek-search-fetch-api', 'explanations/aillm/llminfrastructure/explanation-fairinference-token-latency-fairness-llm-serving', 'explanations/aillm/llminfrastructure/explanation-fine-tuning-memory-accounting-lora-qlora', 'explanations/aillm/llminfrastructure/explanation-ggml-1-0-stable-tensor-api', 'explanations/aillm/llminfrastructure/explanation-janas-moe-ssd-streaming-llm-inference', 'explanations/aillm/llminfrastructure/explanation-llm-inference-parallelism-compute-communication-tradeoffs', 'explanations/aillm/llminfrastructure/explanation-openai-jalapeno-chip-first-benchmarks', 'explanations/aillm/llminfrastructure/explanation-prefixbench-h100-prefix-reuse-ttft', 'explanations/aillm/llminfrastructure/explanation-qwen3-embedding-cloud-tpu-vllm', 'explanations/aillm/llminfrastructure/explanation-tpu-sync-kv-cache-transfer', 'explanations/aillm/llminfrastructure/reference-prefixbench-h100-prefix-reuse-ttft'],
         },
         {
           type: 'category',
@@ -404,7 +410,7 @@ const sidebars = {
           type: 'category',
           label: 'Mechanisticinterpretability',
           link: {type: 'generated-index', title: 'Mechanisticinterpretability', slug: 'explanations/aillm/mechanisticinterpretability'},
-          items: ['explanations/aillm/mechanisticinterpretability/explanation-goal-encoding-in-llms'],
+          items: ['explanations/aillm/mechanisticinterpretability/explanation-goal-encoding-in-llms', 'explanations/aillm/mechanisticinterpretability/explanation-mechanistic-interpretability-ai-safety-survey'],
         },
         {
           type: 'category',
@@ -434,13 +440,19 @@ const sidebars = {
           type: 'category',
           label: 'Multiagentsystems',
           link: {type: 'generated-index', title: 'Multiagentsystems', slug: 'explanations/aimachinelearning/multiagentsystems'},
-          items: ['explanations/aimachinelearning/multiagentsystems/explanation-same-model-debate-more-self-critical-than-diverse-pairs', 'explanations/aimachinelearning/multiagentsystems/explanation-single-vs-multi-agent-coordination-costs'],
+          items: ['explanations/aimachinelearning/multiagentsystems/explanation-same-model-debate-more-self-critical-than-diverse-pairs', 'explanations/aimachinelearning/multiagentsystems/explanation-signed-requirement-manifests-agent-handoffs', 'explanations/aimachinelearning/multiagentsystems/explanation-single-vs-multi-agent-coordination-costs'],
         },
         {
           type: 'category',
           label: 'Multimodal',
           link: {type: 'generated-index', title: 'Multimodal', slug: 'explanations/aimachinelearning/multimodal'},
           items: ['explanations/aimachinelearning/multimodal/explanation-deepseek-vision-lineage', 'explanations/aimachinelearning/multimodal/explanation-netflix-maps-multimodal-asset-personalization', 'explanations/aimachinelearning/multimodal/explanation-unbundling-multimodal-vision-encoding'],
+        },
+        {
+          type: 'category',
+          label: 'Rag',
+          link: {type: 'generated-index', title: 'Rag', slug: 'explanations/aimachinelearning/rag'},
+          items: ['explanations/aimachinelearning/rag/explanation-cited-but-unused-attribution-gaps-rag'],
         },
         {
           type: 'category',
@@ -494,7 +506,7 @@ const sidebars = {
           type: 'category',
           label: 'Gpucompute',
           link: {type: 'generated-index', title: 'Gpucompute', slug: 'explanations/cloudinfrastructure/gpucompute'},
-          items: ['explanations/cloudinfrastructure/gpucompute/explanation-cuda-targets-risc-v', 'explanations/cloudinfrastructure/gpucompute/explanation-pacer-gpu-power-excursions-edpp', 'explanations/cloudinfrastructure/gpucompute/reference-locojax-host-local-rl-tpus'],
+          items: ['explanations/cloudinfrastructure/gpucompute/explanation-cuda-targets-risc-v', 'explanations/cloudinfrastructure/gpucompute/explanation-pacer-gpu-power-excursions-edpp', 'explanations/cloudinfrastructure/gpucompute/reference-cuda-locality-domains-blackwell-b300', 'explanations/cloudinfrastructure/gpucompute/reference-gcmoe-sm120-fp8fp4-moe-decode', 'explanations/cloudinfrastructure/gpucompute/reference-locojax-host-local-rl-tpus'],
         },
         {
           type: 'category',
@@ -518,7 +530,7 @@ const sidebars = {
           type: 'category',
           label: 'Llmserving',
           link: {type: 'generated-index', title: 'Llmserving', slug: 'explanations/cloudinfrastructure/llmserving'},
-          items: ['explanations/cloudinfrastructure/llmserving/explanation-broadcast-dont-replicate-moe-serving', 'explanations/cloudinfrastructure/llmserving/explanation-tritify-deterministic-integer-inference', 'explanations/cloudinfrastructure/llmserving/reference-kvcompass-prefix-cache-discovery', 'explanations/cloudinfrastructure/llmserving/reference-moe-core-expert-offloading-residency'],
+          items: ['explanations/cloudinfrastructure/llmserving/explanation-batch-makespan-llm-agent-workloads', 'explanations/cloudinfrastructure/llmserving/explanation-broadcast-dont-replicate-moe-serving', 'explanations/cloudinfrastructure/llmserving/explanation-llm-api-relay-integrity-measurement', 'explanations/cloudinfrastructure/llmserving/explanation-tritify-deterministic-integer-inference', 'explanations/cloudinfrastructure/llmserving/reference-kvcompass-prefix-cache-discovery', 'explanations/cloudinfrastructure/llmserving/reference-moe-core-expert-offloading-residency'],
         },
         {
           type: 'category',
@@ -548,7 +560,7 @@ const sidebars = {
           type: 'category',
           label: 'Aicodingagents',
           link: {type: 'generated-index', title: 'Aicodingagents', slug: 'explanations/developertoolspractices/aicodingagents'},
-          items: ['explanations/developertoolspractices/aicodingagents/explanation-ai-slop-pull-requests-oss-study', 'explanations/developertoolspractices/aicodingagents/explanation-bash-write-targets-static-extraction', 'explanations/developertoolspractices/aicodingagents/explanation-codex-cli-managed-daemon-trust-concerns', 'explanations/developertoolspractices/aicodingagents/explanation-cut-agent-tool-schemas-47-percent-yaml-duplicate-key-trap', 'explanations/developertoolspractices/aicodingagents/explanation-efficiency-throughput-gap-github-copilot-okta', 'explanations/developertoolspractices/aicodingagents/explanation-overclaimbench-quantifying-agent-overclaiming', 'explanations/developertoolspractices/aicodingagents/explanation-valkey-ai-agents-backporting-provenance', 'explanations/developertoolspractices/aicodingagents/reference-swe-bench-pro-v2-coding-benchmark'],
+          items: ['explanations/developertoolspractices/aicodingagents/explanation-ai-slop-pull-requests-oss-study', 'explanations/developertoolspractices/aicodingagents/explanation-bash-write-targets-static-extraction', 'explanations/developertoolspractices/aicodingagents/explanation-codex-cli-managed-daemon-trust-concerns', 'explanations/developertoolspractices/aicodingagents/explanation-coding-agent-failure-prediction-confounds', 'explanations/developertoolspractices/aicodingagents/explanation-cut-agent-tool-schemas-47-percent-yaml-duplicate-key-trap', 'explanations/developertoolspractices/aicodingagents/explanation-efficiency-throughput-gap-github-copilot-okta', 'explanations/developertoolspractices/aicodingagents/explanation-overclaimbench-quantifying-agent-overclaiming', 'explanations/developertoolspractices/aicodingagents/explanation-rasoi-visual-diffs-structural-agent-changes', 'explanations/developertoolspractices/aicodingagents/explanation-valkey-ai-agents-backporting-provenance', 'explanations/developertoolspractices/aicodingagents/reference-overclaimbench-quantifying-agent-overclaiming', 'explanations/developertoolspractices/aicodingagents/reference-swe-bench-pro-v2-coding-benchmark'],
         },
         {
           type: 'category',
@@ -734,7 +746,7 @@ const sidebars = {
           type: 'category',
           label: 'Aiagentsecurity',
           link: {type: 'generated-index', title: 'Aiagentsecurity', slug: 'explanations/securityprivacy/aiagentsecurity'},
-          items: ['explanations/securityprivacy/aiagentsecurity/explanation-abliterated-model-backdoor-credential-exfiltration', 'explanations/securityprivacy/aiagentsecurity/explanation-aegis-multilayer-llm-security-proxy', 'explanations/securityprivacy/aiagentsecurity/explanation-ai-agent-identity-patterns-production', 'explanations/securityprivacy/aiagentsecurity/explanation-claude-code-dont-ask-again-secret-leaks', 'explanations/securityprivacy/aiagentsecurity/explanation-closedquorum-llm-quorum-malware', 'explanations/securityprivacy/aiagentsecurity/explanation-cloudflare-security-audit-skill-multi-phase-agent-audits', 'explanations/securityprivacy/aiagentsecurity/explanation-covert-assistance-agents-evade-oversight', 'explanations/securityprivacy/aiagentsecurity/explanation-enterprise-ai-data-security-patterns', 'explanations/securityprivacy/aiagentsecurity/explanation-evasionbench-instrumental-monitor-evasion', 'explanations/securityprivacy/aiagentsecurity/explanation-intent-aware-protection-ai-agents', 'explanations/securityprivacy/aiagentsecurity/explanation-llm-agents-tamper-with-their-own-traces', 'explanations/securityprivacy/aiagentsecurity/explanation-llm-inference-engine-exploits', 'explanations/securityprivacy/aiagentsecurity/explanation-lm-studio-bionic-shell-judge-auto-review', 'explanations/securityprivacy/aiagentsecurity/explanation-local-llm-confidentiality-boundary-failures', 'explanations/securityprivacy/aiagentsecurity/explanation-mcp-filesystem-capability-laundering-mcp-fsd', 'explanations/securityprivacy/aiagentsecurity/explanation-miasma-worm-agentic-supply-chain-attack', 'explanations/securityprivacy/aiagentsecurity/explanation-openai-dots-boundary-problems-always-on-agents', 'explanations/securityprivacy/aiagentsecurity/explanation-openai-hugging-face-agent-incident', 'explanations/securityprivacy/aiagentsecurity/explanation-policysniff-shared-gpu-policy-side-channel', 'explanations/securityprivacy/aiagentsecurity/explanation-rfc8693-token-exchange-agent-delegation', 'explanations/securityprivacy/aiagentsecurity/explanation-unbounded-llm-calls-ai-sdk-audit', 'explanations/securityprivacy/aiagentsecurity/reference-infuse-indirect-prompt-injection-benchmark', 'explanations/securityprivacy/aiagentsecurity/reference-kalibench-cybersecurity-tool-use-benchmark', 'explanations/securityprivacy/aiagentsecurity/reference-last-secure-code-benchmark', 'explanations/securityprivacy/aiagentsecurity/reference-piatlas-prompt-injection-attack-taxonomy'],
+          items: ['explanations/securityprivacy/aiagentsecurity/explanation-abliterated-model-backdoor-credential-exfiltration', 'explanations/securityprivacy/aiagentsecurity/explanation-aegis-multilayer-llm-security-proxy', 'explanations/securityprivacy/aiagentsecurity/explanation-ai-agent-identity-patterns-production', 'explanations/securityprivacy/aiagentsecurity/explanation-claude-code-dont-ask-again-secret-leaks', 'explanations/securityprivacy/aiagentsecurity/explanation-closedquorum-llm-quorum-malware', 'explanations/securityprivacy/aiagentsecurity/explanation-cloudflare-security-audit-skill-multi-phase-agent-audits', 'explanations/securityprivacy/aiagentsecurity/explanation-covert-assistance-agents-evade-oversight', 'explanations/securityprivacy/aiagentsecurity/explanation-enterprise-ai-data-security-patterns', 'explanations/securityprivacy/aiagentsecurity/explanation-evasionbench-instrumental-monitor-evasion', 'explanations/securityprivacy/aiagentsecurity/explanation-intent-aware-protection-ai-agents', 'explanations/securityprivacy/aiagentsecurity/explanation-llm-agents-tamper-with-their-own-traces', 'explanations/securityprivacy/aiagentsecurity/explanation-llm-inference-engine-exploits', 'explanations/securityprivacy/aiagentsecurity/explanation-lm-studio-bionic-shell-judge-auto-review', 'explanations/securityprivacy/aiagentsecurity/explanation-local-llm-confidentiality-boundary-failures', 'explanations/securityprivacy/aiagentsecurity/explanation-mcp-filesystem-capability-laundering-mcp-fsd', 'explanations/securityprivacy/aiagentsecurity/explanation-miasma-worm-agentic-supply-chain-attack', 'explanations/securityprivacy/aiagentsecurity/explanation-openai-dots-boundary-problems-always-on-agents', 'explanations/securityprivacy/aiagentsecurity/explanation-openai-hugging-face-agent-incident', 'explanations/securityprivacy/aiagentsecurity/explanation-policysniff-shared-gpu-policy-side-channel', 'explanations/securityprivacy/aiagentsecurity/explanation-rfc8693-token-exchange-agent-delegation', 'explanations/securityprivacy/aiagentsecurity/explanation-unbounded-llm-calls-ai-sdk-audit', 'explanations/securityprivacy/aiagentsecurity/reference-infuse-indirect-prompt-injection-benchmark', 'explanations/securityprivacy/aiagentsecurity/reference-kalibench-cybersecurity-tool-use-benchmark', 'explanations/securityprivacy/aiagentsecurity/reference-last-secure-code-benchmark', 'explanations/securityprivacy/aiagentsecurity/reference-multimodal-sea-agent-social-engineering-benchmark', 'explanations/securityprivacy/aiagentsecurity/reference-piatlas-prompt-injection-attack-taxonomy'],
         },
         {
           type: 'category',
@@ -777,6 +789,12 @@ const sidebars = {
           label: 'Kernelexploitation',
           link: {type: 'generated-index', title: 'Kernelexploitation', slug: 'explanations/securityprivacy/kernelexploitation'},
           items: ['explanations/securityprivacy/kernelexploitation/explanation-cve-2025-13032-avast-sandbox-double-fetch-lpe', 'explanations/securityprivacy/kernelexploitation/explanation-cve-2026-98432-ipv4-tcp-uaf-rce', 'explanations/securityprivacy/kernelexploitation/explanation-ps5-relapse-browser-to-kernel-exploit-chain'],
+        },
+        {
+          type: 'category',
+          label: 'Llmprivacy',
+          link: {type: 'generated-index', title: 'Llmprivacy', slug: 'explanations/securityprivacy/llmprivacy'},
+          items: ['explanations/securityprivacy/llmprivacy/explanation-synthesis-smuggling-steganographic-privacy-leaks'],
         },
         {
           type: 'category',
@@ -824,7 +842,7 @@ const sidebars = {
           type: 'category',
           label: 'Vulnerabilitymanagement',
           link: {type: 'generated-index', title: 'Vulnerabilitymanagement', slug: 'explanations/securityprivacy/vulnerabilitymanagement'},
-          items: ['explanations/securityprivacy/vulnerabilitymanagement/explanation-machine-speed-vulnerability-discovery'],
+          items: ['explanations/securityprivacy/vulnerabilitymanagement/explanation-machine-speed-vulnerability-discovery', 'explanations/securityprivacy/vulnerabilitymanagement/reference-crossploit-cross-version-poc-migration-benchmark'],
         },
         {
           type: 'category',
