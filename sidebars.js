@@ -306,7 +306,7 @@ const sidebars = {
           type: 'category',
           label: 'Aiagentsecurity',
           link: {type: 'generated-index', title: 'Aiagentsecurity', slug: 'how-to/securityprivacy/aiagentsecurity'},
-          items: ['how-to/securityprivacy/aiagentsecurity/howto-caplite-prompt-injection-defense-slm-agents', 'how-to/securityprivacy/aiagentsecurity/howto-mcp-security-hardening'],
+          items: ['how-to/securityprivacy/aiagentsecurity/howto-caplite-prompt-injection-defense-slm-agents', 'how-to/securityprivacy/aiagentsecurity/howto-mcp-security-hardening', 'how-to/securityprivacy/aiagentsecurity/howto-mobileprobe-mobile-agent-red-teaming'],
         },
         {
           type: 'category',
@@ -352,6 +352,12 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Aiassisteddevelopment',
+          link: {type: 'generated-index', title: 'Aiassisteddevelopment', slug: 'how-to/softwaredevelopment/aiassisteddevelopment'},
+          items: ['how-to/softwaredevelopment/aiassisteddevelopment/howto-llm-assisted-dafny-verification-workflow'],
+        },
+        {
+          type: 'category',
           label: 'Distributedtransactions',
           link: {type: 'generated-index', title: 'Distributedtransactions', slug: 'how-to/systemdesign/distributedtransactions'},
           items: ['how-to/systemdesign/distributedtransactions/howto-implement-transactional-outbox-pattern'],
@@ -390,6 +396,12 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Llmethics',
+          link: {type: 'generated-index', title: 'Llmethics', slug: 'explanations/aillm/llmethics'},
+          items: ['explanations/aillm/llmethics/reference-codebook-multibit-llm-watermarking'],
+        },
+        {
+          type: 'category',
           label: 'Llmevaluation',
           link: {type: 'generated-index', title: 'Llmevaluation', slug: 'explanations/aillm/llmevaluation'},
           items: ['explanations/aillm/llmevaluation/explanation-liquid-ai-reward-hacking-sandbox-recognition'],
@@ -398,7 +410,7 @@ const sidebars = {
           type: 'category',
           label: 'Llminfrastructure',
           link: {type: 'generated-index', title: 'Llminfrastructure', slug: 'explanations/aillm/llminfrastructure'},
-          items: ['explanations/aillm/llminfrastructure/explanation-cerebras-wafer-pipeline-trillion-parameter-models', 'explanations/aillm/llminfrastructure/explanation-claude-message-threads-beta', 'explanations/aillm/llminfrastructure/explanation-deepseek-search-fetch-api', 'explanations/aillm/llminfrastructure/explanation-fairinference-token-latency-fairness-llm-serving', 'explanations/aillm/llminfrastructure/explanation-fine-tuning-memory-accounting-lora-qlora', 'explanations/aillm/llminfrastructure/explanation-ggml-1-0-stable-tensor-api', 'explanations/aillm/llminfrastructure/explanation-janas-moe-ssd-streaming-llm-inference', 'explanations/aillm/llminfrastructure/explanation-llm-inference-parallelism-compute-communication-tradeoffs', 'explanations/aillm/llminfrastructure/explanation-openai-jalapeno-chip-first-benchmarks', 'explanations/aillm/llminfrastructure/explanation-prefixbench-h100-prefix-reuse-ttft', 'explanations/aillm/llminfrastructure/explanation-qwen3-embedding-cloud-tpu-vllm', 'explanations/aillm/llminfrastructure/explanation-tpu-sync-kv-cache-transfer'],
+          items: ['explanations/aillm/llminfrastructure/explanation-cerebras-wafer-pipeline-trillion-parameter-models', 'explanations/aillm/llminfrastructure/explanation-claude-message-threads-beta', 'explanations/aillm/llminfrastructure/explanation-deepseek-search-fetch-api', 'explanations/aillm/llminfrastructure/explanation-fairinference-token-latency-fairness-llm-serving', 'explanations/aillm/llminfrastructure/explanation-fine-tuning-memory-accounting-lora-qlora', 'explanations/aillm/llminfrastructure/explanation-ggml-1-0-stable-tensor-api', 'explanations/aillm/llminfrastructure/explanation-janas-moe-ssd-streaming-llm-inference', 'explanations/aillm/llminfrastructure/explanation-llm-inference-parallelism-compute-communication-tradeoffs', 'explanations/aillm/llminfrastructure/explanation-openai-jalapeno-chip-first-benchmarks', 'explanations/aillm/llminfrastructure/explanation-prefixbench-h100-prefix-reuse-ttft', 'explanations/aillm/llminfrastructure/explanation-qwen3-embedding-cloud-tpu-vllm', 'explanations/aillm/llminfrastructure/explanation-tpu-sync-kv-cache-transfer', 'explanations/aillm/llminfrastructure/reference-snoopie-multi-gpu-communication-profiler'],
         },
         {
           type: 'category',
@@ -428,13 +440,13 @@ const sidebars = {
           type: 'category',
           label: 'Agentarchitecture',
           link: {type: 'generated-index', title: 'Agentarchitecture', slug: 'explanations/aimachinelearning/agentarchitecture'},
-          items: ['explanations/aimachinelearning/agentarchitecture/explanation-actor-judge-teacher-decision-models', 'explanations/aimachinelearning/agentarchitecture/explanation-agent-guardrail-stack', 'explanations/aimachinelearning/agentarchitecture/explanation-agent-substrate-stateful-runtime', 'explanations/aimachinelearning/agentarchitecture/explanation-anti-persistence-agent-memory', 'explanations/aimachinelearning/agentarchitecture/explanation-baseline-aware-token-spike-anomaly-detection', 'explanations/aimachinelearning/agentarchitecture/explanation-behavioral-telemetry-agent-fault-detection', 'explanations/aimachinelearning/agentarchitecture/explanation-bounded-generation-constrained-ai-design', 'explanations/aimachinelearning/agentarchitecture/explanation-byte-matching-verification-harness-15-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-certified-execution-harness-petri-net-supervisor', 'explanations/aimachinelearning/agentarchitecture/explanation-claude-unified-memory-architecture', 'explanations/aimachinelearning/agentarchitecture/explanation-coding-agents-generalized-tamp', 'explanations/aimachinelearning/agentarchitecture/explanation-contradiction-judge-memory-auditor-ai-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-coremem-cost-internalizing-repo-memory', 'explanations/aimachinelearning/agentarchitecture/explanation-domain-specialized-models-solver-scoring-loop', 'explanations/aimachinelearning/agentarchitecture/explanation-evox-agent-harness-runtime-policy', 'explanations/aimachinelearning/agentarchitecture/explanation-harness-design-coding-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-human-in-the-loop-approval-gates', 'explanations/aimachinelearning/agentarchitecture/explanation-jev-ultrafast-dynamic-indexed-action-space-browser-agent', 'explanations/aimachinelearning/agentarchitecture/explanation-lemmalog-datalog-memory-for-llm-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-long-horizon-agents-durable-execution', 'explanations/aimachinelearning/agentarchitecture/explanation-mape-self-rewriting-agent-memory', 'explanations/aimachinelearning/agentarchitecture/explanation-microsoft-copilot-agent-identity-runtime', 'explanations/aimachinelearning/agentarchitecture/explanation-mnemosyne-agentic-transaction-processing', 'explanations/aimachinelearning/agentarchitecture/explanation-prince-bayer-agentic-rag-context-harness-engineering', 'explanations/aimachinelearning/agentarchitecture/explanation-progressive-disclosure-on-demand-skills', 'explanations/aimachinelearning/agentarchitecture/explanation-reconciling-agent-plans-with-completed-temporal-activities', 'explanations/aimachinelearning/agentarchitecture/explanation-sandboxed-execution-runtime-engineering-for-ai-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-sourcelearn-source-specific-competence', 'explanations/aimachinelearning/agentarchitecture/explanation-x402-http-payment-standard-for-ai-agents', 'explanations/aimachinelearning/agentarchitecture/reference-agent4sci-scientific-ml-testbed', 'explanations/aimachinelearning/agentarchitecture/reference-agentssl-programselectbench', 'explanations/aimachinelearning/agentarchitecture/reference-scholarcatalyst-research-paper-retrieval-benchmark'],
+          items: ['explanations/aimachinelearning/agentarchitecture/explanation-actor-judge-teacher-decision-models', 'explanations/aimachinelearning/agentarchitecture/explanation-agent-guardrail-stack', 'explanations/aimachinelearning/agentarchitecture/explanation-agent-substrate-stateful-runtime', 'explanations/aimachinelearning/agentarchitecture/explanation-anti-persistence-agent-memory', 'explanations/aimachinelearning/agentarchitecture/explanation-ballad-bandit-llm-routing-heuristic-discovery', 'explanations/aimachinelearning/agentarchitecture/explanation-baseline-aware-token-spike-anomaly-detection', 'explanations/aimachinelearning/agentarchitecture/explanation-behavioral-telemetry-agent-fault-detection', 'explanations/aimachinelearning/agentarchitecture/explanation-bounded-generation-constrained-ai-design', 'explanations/aimachinelearning/agentarchitecture/explanation-byte-matching-verification-harness-15-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-certified-execution-harness-petri-net-supervisor', 'explanations/aimachinelearning/agentarchitecture/explanation-claude-unified-memory-architecture', 'explanations/aimachinelearning/agentarchitecture/explanation-coding-agents-generalized-tamp', 'explanations/aimachinelearning/agentarchitecture/explanation-contradiction-judge-memory-auditor-ai-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-coremem-cost-internalizing-repo-memory', 'explanations/aimachinelearning/agentarchitecture/explanation-domain-specialized-models-solver-scoring-loop', 'explanations/aimachinelearning/agentarchitecture/explanation-evox-agent-harness-runtime-policy', 'explanations/aimachinelearning/agentarchitecture/explanation-harness-design-coding-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-human-in-the-loop-approval-gates', 'explanations/aimachinelearning/agentarchitecture/explanation-jev-ultrafast-dynamic-indexed-action-space-browser-agent', 'explanations/aimachinelearning/agentarchitecture/explanation-lemmalog-datalog-memory-for-llm-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-long-horizon-agents-durable-execution', 'explanations/aimachinelearning/agentarchitecture/explanation-mape-self-rewriting-agent-memory', 'explanations/aimachinelearning/agentarchitecture/explanation-microsoft-copilot-agent-identity-runtime', 'explanations/aimachinelearning/agentarchitecture/explanation-mnemosyne-agentic-transaction-processing', 'explanations/aimachinelearning/agentarchitecture/explanation-prince-bayer-agentic-rag-context-harness-engineering', 'explanations/aimachinelearning/agentarchitecture/explanation-progressive-disclosure-on-demand-skills', 'explanations/aimachinelearning/agentarchitecture/explanation-reconciling-agent-plans-with-completed-temporal-activities', 'explanations/aimachinelearning/agentarchitecture/explanation-sandboxed-execution-runtime-engineering-for-ai-agents', 'explanations/aimachinelearning/agentarchitecture/explanation-sourcelearn-source-specific-competence', 'explanations/aimachinelearning/agentarchitecture/explanation-x402-http-payment-standard-for-ai-agents', 'explanations/aimachinelearning/agentarchitecture/reference-agent4sci-scientific-ml-testbed', 'explanations/aimachinelearning/agentarchitecture/reference-agentssl-programselectbench', 'explanations/aimachinelearning/agentarchitecture/reference-scholarcatalyst-research-paper-retrieval-benchmark'],
         },
         {
           type: 'category',
           label: 'Agenttraining',
           link: {type: 'generated-index', title: 'Agenttraining', slug: 'explanations/aimachinelearning/agenttraining'},
-          items: ['explanations/aimachinelearning/agenttraining/explanation-experience-handoff-rl-recursive-self-improvement'],
+          items: ['explanations/aimachinelearning/agenttraining/explanation-bait-probing-reward-agentic-rl-defense', 'explanations/aimachinelearning/agenttraining/explanation-experience-handoff-rl-recursive-self-improvement'],
         },
         {
           type: 'category',
@@ -446,13 +458,13 @@ const sidebars = {
           type: 'category',
           label: 'Llmevaluation',
           link: {type: 'generated-index', title: 'Llmevaluation', slug: 'explanations/aimachinelearning/llmevaluation'},
-          items: ['explanations/aimachinelearning/llmevaluation/explanation-netflix-synopsis-factuality-cascade'],
+          items: ['explanations/aimachinelearning/llmevaluation/explanation-netflix-synopsis-factuality-cascade', 'explanations/aimachinelearning/llmevaluation/reference-livegeo-geographic-agent-benchmark'],
         },
         {
           type: 'category',
           label: 'Multiagentsystems',
           link: {type: 'generated-index', title: 'Multiagentsystems', slug: 'explanations/aimachinelearning/multiagentsystems'},
-          items: ['explanations/aimachinelearning/multiagentsystems/explanation-memory-architecture-language-emergence-llm-agents', 'explanations/aimachinelearning/multiagentsystems/explanation-same-model-debate-more-self-critical-than-diverse-pairs', 'explanations/aimachinelearning/multiagentsystems/explanation-signed-requirement-manifests-agent-handoffs', 'explanations/aimachinelearning/multiagentsystems/explanation-single-vs-multi-agent-coordination-costs'],
+          items: ['explanations/aimachinelearning/multiagentsystems/explanation-cortex-fl-agent-mediated-federated-learning', 'explanations/aimachinelearning/multiagentsystems/explanation-memory-architecture-language-emergence-llm-agents', 'explanations/aimachinelearning/multiagentsystems/explanation-same-model-debate-more-self-critical-than-diverse-pairs', 'explanations/aimachinelearning/multiagentsystems/explanation-signed-requirement-manifests-agent-handoffs', 'explanations/aimachinelearning/multiagentsystems/explanation-single-vs-multi-agent-coordination-costs'],
         },
         {
           type: 'category',
