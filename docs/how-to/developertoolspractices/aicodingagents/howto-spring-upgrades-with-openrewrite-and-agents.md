@@ -77,6 +77,12 @@ The Tanzu Spring team's principle: **if the solution for an incompatibility is d
 4. Encode every deterministic incompatibility as an OpenRewrite recipe; reserve agent judgment for genuinely context-dependent breaks.
 5. Wire CI/CD to push automatic upgrade PRs (`--push --from-yml`, `GIT_TOKEN_FOR_PRS`), so CVE-driven upgrades land fast without a 1–2 day manual cycle.
 
+## Status update (Nov 2026): Boot 4.0 upgrade recipes are GA
+
+- **Commercial Boot 4.0.x recipes** ship in App Advisor (docs updated June 2026; current CLI line is 1.7). Targeted recipe catalog includes e.g. `com.vmware.tanzu.spring.recipes.common.generated.boot40.Upgrade_4_0_AllManagedDependencies` (moves all Boot-4.0-managed dependencies in one pass) and granular starters recipes like `com.vmware.tanzu.spring.recipes.boot40.spring-boot-starter-zipkin-test` (Zipkin tracing deps → the new Boot 4.0 starter).
+- **Community OpenRewrite recipes** for Boot 4.0 live under `docs.openrewrite.org/recipes/java/spring/boot4/` (`Migrate to Spring Boot 4.0` modifies build files, imports and config) — a free path when you don't need the Tanzu commercial recipe set.
+- Practical rule unchanged: prefer the full-plan recipe (`Upgrade_4_0_AllManagedDependencies`) via `advisor upgrade-plan` so coordinated Spring project versions move together; drop to granular recipes only when you must pin a component.
+
 ## References
 
 - [Transform your AI coding agent into a deterministic Java Spring expert](https://thenewstack.io/deterministic-ai-spring-upgrades/) (The New Stack, Raquel Pau / Broadcom)
@@ -84,3 +90,5 @@ The Tanzu Spring team's principle: **if the solution for an incompatibility is d
 - [Upgrade Spring applications (App Advisor CLI workflow)](https://techdocs.broadcom.com/us/en/vmware-tanzu/spring/application-advisor/1-6/app-advisor/upgrade-spring-app.html)
 - [Running commercial recipes with OpenRewrite tools](https://techdocs.broadcom.com/us/en/vmware-tanzu/spring/application-advisor/1-6/app-advisor/recipes.html)
 - [How to upgrade Spring Boot from 2.7 to 4.0 (guide)](https://techdocs.broadcom.com/us/en/vmware-tanzu/spring/application-advisor/1-5/app-advisor/how-to-guides-upgrade-boot.html)
+- [Commercial recipes for upgrading to Spring Boot 4.0.x (App Advisor docs)](https://techdocs.broadcom.com/us/en/vmware-tanzu/spring/application-advisor/1-5/app-advisor/recipes-boot40.html)
+- [OpenRewrite Spring Boot 4.0 recipes (community)](https://docs.openrewrite.org/recipes/java/spring/boot4/)

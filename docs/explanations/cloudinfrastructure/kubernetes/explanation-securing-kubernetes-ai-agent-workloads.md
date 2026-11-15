@@ -69,6 +69,18 @@ The four-plane model is echoed across the ecosystem:
 
 The unifying insight: a new inference/agent stack brings new security challenges and new controls, and the work of hardening the platform for agents "pays dividends" for traditional workloads too — a single cluster can host multi-tenant apps where *all* follow strong security practices because the platform enforces them.
 
+## Sandboxing stack update (Nov 2026): Agent Substrate + kagent
+
+NVIDIA open-sourced **Agent Substrate** (10 Nov 2026, now a CNCF Sandbox project, [github.com/agent-substrate/substrate](https://github.com/agent-substrate/substrate)) — a runtime purpose-built for the ephemeral-agent resource problem this note's threat model creates. It addresses the "shutting down one pod doesn't help" and cost problems simultaneously:
+
+- **Session multiplexing, not one-pod-per-agent:** many agent sessions run over a small pool of warm Kubernetes **Workers** (Pods). Idle **Actors** (agent sessions, managed by the `ateapi` control plane) are **checkpointed with full memory + filesystem state** and restored onto any free worker. An Actor only runs while a session is live — resource use stays proportional to actual conversational load.
+- **Two-layer isolation** matching this note's sandboxing plane: **gVisor** for software-level isolation (user-space "Sentry" kernel intercepts syscalls instead of passing them to the host kernel) plus **microVMs** for hardware-level isolation (guest OS on physical cores via virtualization extensions).
+- **Declarative onboarding via kagent v1.0** ([kagent.dev/v1alpha3](https://kagent.dev) CRDs): a **`Harness`** CRD defines the Actor (known harness like Codex/Claude Code, or bring-your-own via LangGraph/ADK) with `workerPoolRef`, a `snapshotPolicy` location (e.g. a `gs://` bucket), and an `AgentTemplate` label selector; **`AgentTemplate`** is the reusable "golden image" (model config, description, system prompt). Default Helm install creates one WorkerPool with two Workers (`substrateWorkerPool.create=true`).
+- **Target workloads:** coding assistants alternating LLM calls ↔ repo operations, RL post-training with bursty CPU-heavy environments, and short-lived GPU sandboxes for compilation/benchmarking. Upstream K8s contributions include router **request parking**, per-container limits for microVM sandboxes, and a vendor-neutral **GPU pause/restore via Dynamic Resource Allocation (DRA)**.
+- **Stack position:** pairs with **NVIDIA Dynamo** (inference routing by session identity, KV-cache location, tool-call boundaries; exposes TTFT/GPU-saturation signals back so Substrate decides whether to keep an actor resident or suspend it) and **KAI Scheduler** (co-locates Substrate workers with GPU trainers/inference servers).
+
+Key takeaway addition: *"plain container ≠ sandbox"* — isolation comes from **where routing goes and what boundary the workload sits in** (gVisor/microVM + policy at the AI gateway), not from the container label. Snapshot/checkpoint capability is now a first-class sandbox requirement so agents resume exactly where they left off.
+
 ## Key takeaways
 
 1. **Agents change the threat model**: ephemeral, bursty, untrusted — standard NetworkPolicy and signature-based runtime detection are insufficient.
@@ -88,3 +100,6 @@ The unifying insight: a new inference/agent stack brings new security challenges
 - [Tigera Lynx — AI agent security for Kubernetes](https://www.tigera.io/tigera-products/lynx/)
 - [ARMO — AI agent security framework on GKE](https://www.armosec.io/blog/implement-ai-agent-security-framework-gke/)
 - [Mitos — secure AI sandboxes on Kubernetes](https://mitos.run/blog/ai-sandboxes-on-kubernetes)
+- [NVIDIA: Agent Substrate — Advancing Kubernetes for Agents at Scale](https://developer.nvidia.com/blog/agent-substrate-advancing-kubernetes-for-agents-at-scale/) (10 Nov 2026; gVisor+microVM sandboxing, session checkpointing, CNCF Sandbox)
+- [Sandboxing AI Agents on Kubernetes with kagent and Agent Substrate](https://tobias-weiss.org/content/devops/isolation-security-scale-sandboxing-kubernetes-agents/) (Nov 2026 walkthrough; Harness/AgentTemplate CRDs)
+- [GKE Sandbox (gVisor) — GKE security docs](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/sandbox-pods)

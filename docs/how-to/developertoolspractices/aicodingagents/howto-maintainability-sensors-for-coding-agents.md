@@ -117,8 +117,24 @@ Source code for the sensors CLI: [github.com/birgitta410/sensors-cli](https://gi
 
 ![Diagram 1 — howto-maintainability-sensors-for-coding-agents](howto-maintainability-sensors-for-coding-agents-excalidraw-1.svg)
 
+## Follow-up: are harnesses worth the cost? (October 2026 experiment)
+
+Naresh Jain's experiment on martinfowler.com (13 Oct 2026) quantified when sensors/harnesses actually pay off, using Böckeler's guides-and-sensors framing. An API service was built by coding agents with and without a behavioral harness (architectural contracts + deterministic test feedback), evaluated against 178 automated acceptance tests:
+
+- **Frontier model (GPT-6 Sol, low reasoning effort):** 10/10 accepted runs *both* with and without the harness — but the harness cost ~10.5× the tokens (11.3M vs 1.1M), ~3× the time, and ~7× the money (~$2.68 vs ~$0.41 per run). No observable quality gain.
+- **Cost-optimized model (GPT-6 Luna):** only **3/10** runs succeeded unharnessed, but **10/10** with the harness — matching frontier reliability at ~33% lower cost per run ($0.273 vs $0.406).
+- Exploratory runs with Claude Sonnet 4.6, Claude Opus 4.6, and Gemini 3.8 Flash (low effort) also completed the task unassisted on the first try.
+
+Practical implications for choosing sensors:
+
+1. The value of a harness is **model-tier dependent**: near zero on frontier models for well-specified tasks, decisive on cheaper models. Treat it as a reliability lever you buy instead of paying for a bigger model.
+2. Sensors act as **"executable attention"** — they keep weaker models on the architectural rails that frontier models hold implicitly.
+3. Run the economics per your own task mix before standardizing a harness: measure accepted-run rate *and* cost per accepted run (not raw token spend), and keep guides and sensors in sync so feedback doesn't contradict the guides.
+4. Caveat: single task (API service build), low reasoning effort, one harness design — don't generalize to exploratory or architecture-heavy work.
+
 ## References
 
+- [Are Harnesses Worth the Cost?](https://martinfowler.com/articles/are-harnesses-worth-the-cost.html) — Naresh Jain, martinfowler.com (13 Oct 2026; harness ROI experiment, frontier vs cost-optimized model)
 - [Maintainability sensors for coding agents](https://martinfowler.com/articles/sensors-for-coding-agents.html) — Birgitta Böckeler, martinfowler.com (27 May 2026; test-suite section published same day)
 - [Harness engineering for coding agent users](https://martinfowler.com/articles/harness-engineering.html) (companion article: guides + sensors mental model)
 - [sensors-cli source code](https://github.com/birgitta410/sensors-cli)
