@@ -87,6 +87,26 @@ backend reimplementation consumes the same public surface.
 - [[explanation-janas-moe-ssd-streaming-llm-inference]] — another take on the MoE-expert-caching theme
 - [[explanation-what-ollama-is-and-standardization-gap]] — the packaging layer above ggml/llama.cpp
 
+## Official semver rules and distribution channels (enriched 2026-11-15)
+
+The accompanying ggml-org announcement ("llama.cpp v1.0.0: A stronger foundation for the local AI
+ecosystem", published 2026-11-13) formalizes the versioning contract for all ggml-org projects:
+
+| Change type | Bump |
+|---|---|
+| **MAJOR** | Breaking change to the public C API in `./include` |
+| **MINOR** | Backward-compatible feature, backend updates, model support, or API addition |
+| **PATCH** | Bug fix with no API change |
+
+Two libraries release in lockstep under this scheme: `libllama` (public headers in
+`llama.cpp/include/`) and `libggml` (public headers in `ggml/include/`). The release was tagged
+`v1.0.0` at commit `417a024` on 2026-11-13.
+
+The v1 line also comes with an official packaging story — pre-release artifacts (Linux/macOS/Windows/
+Android/iOS), Docker, Debian, Homebrew, conda-forge, MacPorts, and Winget — with packaging requests
+tracked in ggml discussion #1579. Practical consequence: distro/packager pipelines that previously
+built from pinned commits can move to tracked upstream releases.
+
 ## References
 
 - [ggml release v1.0.0 (GitHub)](https://github.com/ggml-org/ggml/releases/tag/v1.0.0)

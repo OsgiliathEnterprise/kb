@@ -150,7 +150,7 @@ const sidebars = {
           type: 'category',
           label: 'Docker',
           link: {type: 'generated-index', title: 'Docker', slug: 'how-to/cloudinfrastructure/docker'},
-          items: ['how-to/cloudinfrastructure/docker/howto-run-uptime-kuma-with-podman-quadlet-on-fedora'],
+          items: ['how-to/cloudinfrastructure/docker/howto-diagnose-oci-runtime-exec-failed', 'how-to/cloudinfrastructure/docker/howto-run-uptime-kuma-with-podman-quadlet-on-fedora'],
         },
         {
           type: 'category',
@@ -220,9 +220,15 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Cicdpatterns',
+          link: {type: 'generated-index', title: 'Cicdpatterns', slug: 'how-to/developertoolspractices/cicdpatterns'},
+          items: ['how-to/developertoolspractices/cicdpatterns/howto-fix-err-pnpm-outdated-lockfile-in-ci'],
+        },
+        {
+          type: 'category',
           label: 'Ciperformance',
           link: {type: 'generated-index', title: 'Ciperformance', slug: 'how-to/developertoolspractices/ciperformance'},
-          items: ['how-to/developertoolspractices/ciperformance/howto-fastci-gpu-intensive-ci-llm-training', 'how-to/developertoolspractices/ciperformance/howto-keep-ci-fast-under-agent-driven-development', 'how-to/developertoolspractices/ciperformance/howto-test-scheduled-jobs-with-faketime'],
+          items: ['how-to/developertoolspractices/ciperformance/howto-decide-github-actions-test-sharding-count', 'how-to/developertoolspractices/ciperformance/howto-fastci-gpu-intensive-ci-llm-training', 'how-to/developertoolspractices/ciperformance/howto-keep-ci-fast-under-agent-driven-development', 'how-to/developertoolspractices/ciperformance/howto-test-scheduled-jobs-with-faketime'],
         },
         {
           type: 'category',
@@ -546,6 +552,12 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Dataarchitectureevolution',
+          link: {type: 'generated-index', title: 'Dataarchitectureevolution', slug: 'explanations/dataengineering/dataarchitectureevolution'},
+          items: ['explanations/dataengineering/dataarchitectureevolution/explanation-ducklake-sql-catalog-lakehouse'],
+        },
+        {
+          type: 'category',
           label: 'Platformarchitectures',
           link: {type: 'generated-index', title: 'Platformarchitectures', slug: 'explanations/datamesh/platformarchitectures'},
           items: ['explanations/datamesh/platformarchitectures/explanation-data-product-platform-navigator'],
@@ -560,7 +572,7 @@ const sidebars = {
           type: 'category',
           label: 'Aicodingagents',
           link: {type: 'generated-index', title: 'Aicodingagents', slug: 'explanations/developertoolspractices/aicodingagents'},
-          items: ['explanations/developertoolspractices/aicodingagents/explanation-ai-slop-pull-requests-oss-study', 'explanations/developertoolspractices/aicodingagents/explanation-bash-write-targets-static-extraction', 'explanations/developertoolspractices/aicodingagents/explanation-codex-cli-managed-daemon-trust-concerns', 'explanations/developertoolspractices/aicodingagents/explanation-coding-agent-failure-prediction-confounds', 'explanations/developertoolspractices/aicodingagents/explanation-cut-agent-tool-schemas-47-percent-yaml-duplicate-key-trap', 'explanations/developertoolspractices/aicodingagents/explanation-efficiency-throughput-gap-github-copilot-okta', 'explanations/developertoolspractices/aicodingagents/explanation-overclaimbench-quantifying-agent-overclaiming', 'explanations/developertoolspractices/aicodingagents/explanation-rasoi-visual-diffs-structural-agent-changes', 'explanations/developertoolspractices/aicodingagents/explanation-valkey-ai-agents-backporting-provenance', 'explanations/developertoolspractices/aicodingagents/reference-overclaimbench-quantifying-agent-overclaiming', 'explanations/developertoolspractices/aicodingagents/reference-swe-bench-pro-v2-coding-benchmark'],
+          items: ['explanations/developertoolspractices/aicodingagents/explanation-ai-slop-pull-requests-oss-study', 'explanations/developertoolspractices/aicodingagents/explanation-bash-write-targets-static-extraction', 'explanations/developertoolspractices/aicodingagents/explanation-codex-cli-managed-daemon-trust-concerns', 'explanations/developertoolspractices/aicodingagents/explanation-coding-agent-failure-prediction-confounds', 'explanations/developertoolspractices/aicodingagents/explanation-cut-agent-tool-schemas-47-percent-yaml-duplicate-key-trap', 'explanations/developertoolspractices/aicodingagents/explanation-efficiency-throughput-gap-github-copilot-okta', 'explanations/developertoolspractices/aicodingagents/explanation-overclaimbench-quantifying-agent-overclaiming', 'explanations/developertoolspractices/aicodingagents/explanation-rasoi-visual-diffs-structural-agent-changes', 'explanations/developertoolspractices/aicodingagents/explanation-valkey-ai-agents-backporting-provenance', 'explanations/developertoolspractices/aicodingagents/reference-swe-bench-pro-v2-coding-benchmark'],
         },
         {
           type: 'category',
@@ -621,6 +633,12 @@ const sidebars = {
           label: 'Authorization',
           link: {type: 'generated-index', title: 'Authorization', slug: 'explanations/identitysecurity/authorization'},
           items: ['explanations/identitysecurity/authorization/explanation-postgres-rls-database-enforced-authorization'],
+        },
+        {
+          type: 'category',
+          label: '20261115',
+          link: {type: 'generated-index', title: '20261115', slug: 'explanations/kbquarantine/20261115'},
+          items: ['explanations/kbquarantine/20261115/reference-overclaimbench-quantifying-agent-overclaiming'],
         },
         {
           type: 'category',

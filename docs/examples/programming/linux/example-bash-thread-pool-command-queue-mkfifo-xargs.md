@@ -198,6 +198,20 @@ $ queue_wait
 
 Related in KB: `howto-cleanup-background-jobs-trap-kill-job.md`, `example-shell-job-control-suspend-bg-disown.md`, `howto-exec-no-command-redirect-stdio-bash.md`.
 
+## Further reading (enriched 2026-11-15)
+
+- **When to reach for GNU Parallel instead**: the official `parallel_alternatives` comparison
+  documents exactly where `xargs -P` falls short of this pattern's needs — no output grouping per
+  job (O1), no "finish running jobs but stop starting new ones after first failure" (E5), no
+  load-sensitive or dynamically-adjustable job counts (E6/E7). The FIFO + `xargs -P` pool above is
+  the zero-dependency answer when GNU Parallel (and its Perl dependency chain) is off the table;
+  if Parallel is available, `parallel -j N --ungroup` covers most of the same ground.
+- **The `255` special case is deliberate**: `xargs(1)` exits with status 255 when a child is killed
+  by a signal — per POSIX it must exit >126 in that case, and 255 is also the sentinel `xargs` uses
+  to *stop* iterating. Multiple Stack Overflow threads (e.g. "ignore error code 255 and continue")
+  confirm there is no flag to change this; the `|| true` per-task wrapper is the standard mitigation
+  and is already built into `submit`'s `sh -c` wrapping above.
+
 ## References
 
 - [Concurrent Shell Command Queues — Christian Emmer (original, 2026-11-06)](https://emmer.dev/blog/concurrent-shell-command-queues/)

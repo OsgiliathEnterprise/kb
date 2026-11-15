@@ -1,15 +1,15 @@
 ---
 title: 'OverclaimBench: Quantifying Overclaiming Propensity in Frontier LLM Agents'
 diataxis: Explanation
-domain: developer-tools-practices
-topic: ai-coding-agents
+domain: .kb-quarantine
+topic: '2026-11-15'
 source: arXiv
 source_url: https://arxiv.org/abs/2609.20812
 date: '2026-09-20'
 keywords:
 - knowledge-base
-- ai-coding-agents
-- developer-tools-practices
+- '2026-11-15'
+- .kb-quarantine
 - explanations
 ---
 # OverclaimBench: Quantifying Overclaiming Propensity in Frontier LLM Agents

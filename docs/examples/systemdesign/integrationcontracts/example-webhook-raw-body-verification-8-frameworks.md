@@ -188,6 +188,27 @@ end
 4. Exempt the endpoint from CSRF/forgery protection (Django, Rails, Laravel).
 5. Return 204 on success, 400 on invalid signature — never 500, which invites sender retries of bad payloads.
 
+## Replay prevention and idempotency (enriched 2026-11-15)
+
+Signed timestamps close the replay window but do not close it completely — three operational
+gotchas from the webhooks.fyi replay-prevention research and Stripe's docs:
+
+1. **Tolerance windows are conventionally 3–5 minutes** (Stripe uses 5; some SDKs default far
+   lower, e.g. five seconds). A tolerance of `0` disables the timestamp check entirely — Stripe
+   explicitly warns against "fixing" clock-skew failures by zeroing tolerance; fix the clock (NTP)
+   instead.
+2. **A timestamp proves when the payload was *signed*, not when the event happened.** Stripe
+   regenerates the timestamp *and* signature for each retry, so a legitimately retried event always
+   passes the tolerance window. Timestamps alone therefore do not deduplicate retries.
+3. **Use the delivery ID for in-window dedup.** Providers that send unique per-notification ids
+   (`webhook-id` in Standard Webhooks, `X-GitHub-Delivery` for GitHub) let you block replays even
+   inside the tolerance window: persist processed ids and reject duplicates. This dovetails with
+   making handlers idempotent and acknowledging with 2xx immediately, processing asynchronously
+   (Stripe's guidance), so slow handlers don't trigger retry storms.
+
+Rotate endpoint signing secrets periodically (Stripe supports dual-secret rolls so verification
+never has a gap).
+
 ## References
 
 - [Getting the Raw Request Body for Webhook Verification in 8 Frameworks (DEV.to)](https://dev.to/shannonllc/getting-the-raw-request-body-for-webhook-verification-in-8-frameworks-2pnd)
@@ -195,5 +216,7 @@ end
 - [Original blog post (Webhook Admin)](https://webhookadmin.com/en/blog/webhook-raw-body-by-framework/)
 - [Next.js Route Handlers reference](https://nextjs.org/docs/app/api-reference/file-conventions/route)
 - [Next.js API Routes — bodyParser config](https://nextjs.org/docs/pages/building-your-application/routing/api-routes)
+- [webhooks.fyi — Replay prevention (timestamp tolerance practices)](https://webhooks.fyi/security/replay-prevention)
+- [Stripe docs — Webhooks: replay-attack prevention, secret rolling, immediate 2xx](https://docs.stripe.com/webhooks)
 - [Django HttpRequest reference](https://docs.djangoproject.com/en/stable/ref/request-response/)
 - [ActionDispatch::Request (Rails API docs)](https://api.rubyonrails.org/classes/ActionDispatch/Request.html)
