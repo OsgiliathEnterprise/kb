@@ -636,12 +636,6 @@ const sidebars = {
         },
         {
           type: 'category',
-          label: '20261115',
-          link: {type: 'generated-index', title: '20261115', slug: 'explanations/kbquarantine/20261115'},
-          items: ['explanations/kbquarantine/20261115/reference-overclaimbench-quantifying-agent-overclaiming'],
-        },
-        {
-          type: 'category',
           label: 'Android',
           link: {type: 'generated-index', title: 'Android', slug: 'explanations/programming/android'},
           items: ['explanations/programming/android/explanation-android-hardware-vp9-spatial-svc-silently-dropped', 'explanations/programming/android/explanation-offline-pdf-ocr-android-zero-internet-permission'],
