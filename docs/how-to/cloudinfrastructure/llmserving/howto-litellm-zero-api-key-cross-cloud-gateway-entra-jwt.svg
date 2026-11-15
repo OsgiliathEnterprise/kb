@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 -4.0 1048.0 418.0" width="1048" height="418">
+<rect x="16.0" y="-4.0" width="1048.0" height="418.0" fill="#ffffff"/>
+<rect x="40.0" y="90.0" width="180.0" height="70.0" rx="8" fill="#d0bfff" stroke="#7048e8" stroke-width="1.5"/>
+<rect x="300.0" y="90.0" width="210.0" height="70.0" rx="8" fill="#b2f2bb" stroke="#1971c2" stroke-width="1.5"/>
+<rect x="300.0" y="200.0" width="210.0" height="70.0" rx="8" fill="#b2f2bb" stroke="#1971c2" stroke-width="1.5"/>
+<rect x="300.0" y="310.0" width="210.0" height="60.0" rx="8" fill="#ffe8cc" stroke="#1971c2" stroke-width="1.5"/>
+<rect x="620.0" y="90.0" width="190.0" height="70.0" rx="8" fill="#a5d8ff" stroke="#1971c2" stroke-width="1.5"/>
+<rect x="620.0" y="200.0" width="190.0" height="70.0" rx="8" fill="#a5d8ff" stroke="#1971c2" stroke-width="1.5"/>
+<rect x="620.0" y="300.0" width="420.0" height="90.0" rx="8" fill="#fff3bf" stroke="#1971c2" stroke-width="1.5"/>
+<g stroke="#1971c2" stroke-width="1.5" fill="none"><path d="M 220.0 125.0 L 300.0 125.0"/><line x1="300.0" y1="125.0" x2="287.4" y2="118.9"/><line x1="300.0" y1="125.0" x2="287.4" y2="131.1"/></g>
+<g stroke="#1971c2" stroke-width="1.5" fill="none"><path d="M 220.0 135.0 L 300.0 220.0"/><line x1="300.0" y1="220.0" x2="295.8" y2="206.6"/><line x1="300.0" y1="220.0" x2="286.9" y2="215.0"/></g>
+<g stroke="#1971c2" stroke-width="1.5" fill="none"><path d="M 510.0 125.0 L 620.0 125.0"/><line x1="620.0" y1="125.0" x2="607.4" y2="118.9"/><line x1="620.0" y1="125.0" x2="607.4" y2="131.1"/></g>
+<g stroke="#1971c2" stroke-width="1.5" fill="none"><path d="M 510.0 115.0 L 620.0 230.0"/><line x1="620.0" y1="230.0" x2="615.7" y2="216.7"/><line x1="620.0" y1="230.0" x2="606.9" y2="225.1"/></g>
+<g stroke="#e67700" stroke-width="1.5" fill="none"><path d="M 405.0 160.0 L 405.0 310.0"/><line x1="405.0" y1="310.0" x2="411.1" y2="297.4"/><line x1="405.0" y1="310.0" x2="398.9" y2="297.4"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="19" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="35.2">Zero-API-key model gateway: Entra Agent ID JWT -&gt; LiteLLM custom_auth -&gt; both clouds</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="50.0" y="109.6">Agent (GCP or Azure)</tspan><tspan x="50.0" y="124.6">Entra Agent ID -&gt;</tspan><tspan x="50.0" y="139.6">bearer JWT (aud=</tspan><tspan x="50.0" y="154.6">a2a-llm-gateway,</tspan><tspan x="50.0" y="169.6">role LLM.Invoke)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="310.0" y="110.4">LiteLLM on Cloud Run</tspan><tspan x="310.0" y="126.7">+ Redis sidecar</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="310.0" y="220.4">LiteLLM on Azure</tspan><tspan x="310.0" y="236.7">Container Apps</tspan><tspan x="310.0" y="252.9">+ Redis sidecar</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="310.0" y="329.6">Shared Postgres (Cloud SQL)</tspan><tspan x="310.0" y="344.6">teams/agents, allowed models, usage</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="630.0" y="110.4">Azure OpenAI</tspan><tspan x="630.0" y="126.7">(gpt-4.1-mini)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="630.0" y="220.4">Vertex AI</tspan><tspan x="630.0" y="236.7">(gemini-3.1-flash-lite)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#495057" text-anchor="start"><tspan x="850.0" y="149.6">NO api_key lines:</tspan><tspan x="850.0" y="164.6">GCP via Cloud Run</tspan><tspan x="850.0" y="179.6">workload identity,</tspan><tspan x="850.0" y="194.6">Azure via managed</tspan><tspan x="850.0" y="209.6">identity. Either gateway</tspan><tspan x="850.0" y="224.6">calls EITHER model family;</tspan><tspan x="850.0" y="239.6">killing one cloud's</tspan><tspan x="850.0" y="254.6">gateway fails over.</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#495057" text-anchor="start"><tspan x="630.0" y="319.6">custom_auth hook replaces virtual-key lookup:</tspan><tspan x="630.0" y="334.6">verify RS256 JWT vs JWKS (iss, aud, exp) -&gt; require</tspan><tspan x="630.0" y="349.6">role LLM.Invoke -&gt; team = claims['azp'] (agent ID)</tspan><tspan x="630.0" y="364.6">-&gt; enforce per-agent model allow-list from inventory</tspan></text>
+</svg>

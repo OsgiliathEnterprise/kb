@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="36.0 -4.0 937.2 414.2" width="937" height="414">
+<rect x="36.0" y="-4.0" width="937.2" height="414.2" fill="#ffffff"/>
+<rect x="60.0" y="80.0" width="150.0" height="60.0" rx="8" fill="#d0bfff" stroke="#1971c2" stroke-width="1.5"/>
+<rect x="260.0" y="80.0" width="170.0" height="60.0" rx="8" fill="#b2f2bb" stroke="#1971c2" stroke-width="1.5"/>
+<rect x="480.0" y="80.0" width="200.0" height="60.0" rx="8" fill="#ffe8cc" stroke="#1971c2" stroke-width="1.5"/>
+<rect x="730.0" y="80.0" width="150.0" height="60.0" rx="8" fill="#ffdec4" stroke="#1971c2" stroke-width="1.5"/>
+<rect x="60.0" y="220.0" width="250.0" height="110.0" rx="8" fill="#a5d8ff" stroke="#1971c2" stroke-width="1.5"/>
+<rect x="340.0" y="220.0" width="250.0" height="110.0" rx="8" fill="#96f2d7" stroke="#1971c2" stroke-width="1.5"/>
+<rect x="620.0" y="220.0" width="250.0" height="110.0" rx="8" fill="#ffd8a8" stroke="#1971c2" stroke-width="1.5"/>
+<g stroke="#1971c2" stroke-width="1.5" fill="none"><path d="M 210.0 110.0 L 260.0 110.0"/><line x1="260.0" y1="110.0" x2="247.4" y2="103.9"/><line x1="260.0" y1="110.0" x2="247.4" y2="116.1"/></g>
+<g stroke="#1971c2" stroke-width="1.5" fill="none"><path d="M 430.0 110.0 L 480.0 110.0"/><line x1="480.0" y1="110.0" x2="467.4" y2="103.9"/><line x1="480.0" y1="110.0" x2="467.4" y2="116.1"/></g>
+<g stroke="#1971c2" stroke-width="1.5" fill="none"><path d="M 680.0 110.0 L 730.0 110.0"/><line x1="730.0" y1="110.0" x2="717.4" y2="103.9"/><line x1="730.0" y1="110.0" x2="717.4" y2="116.1"/></g>
+<g stroke="#1971c2" stroke-width="1.5" fill="none"><path d="M 185.0 140.0 L 185.0 220.0"/><line x1="185.0" y1="220.0" x2="191.1" y2="207.4"/><line x1="185.0" y1="220.0" x2="178.9" y2="207.4"/></g>
+<g stroke="#1971c2" stroke-width="1.5" fill="none"><path d="M 465.0 140.0 L 465.0 220.0"/><line x1="465.0" y1="220.0" x2="471.1" y2="207.4"/><line x1="465.0" y1="220.0" x2="458.9" y2="207.4"/></g>
+<g stroke="#1971c2" stroke-width="1.5" fill="none"><path d="M 580.0 140.0 L 620.0 220.0"/><line x1="620.0" y1="220.0" x2="619.9" y2="206.0"/><line x1="620.0" y1="220.0" x2="608.9" y2="211.5"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="20" fill="#1e1e1e" text-anchor="start"><tspan x="60.0" y="36.0">Where does position information enter an LLM? Three injection points</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="75.0" y="106.2">Token IDs</tspan><tspan x="75.0" y="123.7">(tokenizer)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="275.0" y="106.2">Token embedding</tspan><tspan x="275.0" y="123.7">layer</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="495.0" y="106.2">Transformer blocks</tspan><tspan x="495.0" y="123.7">(attention + FFN)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="745.0" y="106.2">Next-token</tspan><tspan x="745.0" y="123.7">logits</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="70.0" y="241.2">GPT-2: learned ABSOLUTE</tspan><tspan x="70.0" y="258.7">P_m added to embedding</tspan><tspan x="70.0" y="276.2">(before block 1)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#495057" text-anchor="start"><tspan x="70.0" y="304.6">P: max_seq_len x d table,</tspan><tspan x="70.0" y="319.6">learned per position</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="350.0" y="241.2">RoPE: ROTATE Q,K inside</tspan><tspan x="350.0" y="258.7">attention by m*theta_i</tspan><tspan x="350.0" y="276.2">(V bypasses rotation)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#495057" text-anchor="start"><tspan x="350.0" y="304.6">theta_i = b^(-2i/d); score</tspan><tspan x="350.0" y="319.6">depends only on offset m-n</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="630.0" y="241.2">Learned RELATIVE bias:</tspan><tspan x="630.0" y="258.7">add bias(hidden, m-n) to</tspan><tspan x="630.0" y="276.2">scores before softmax</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#495057" text-anchor="start"><tspan x="630.0" y="304.6">T5 (2019), Inkling (2026)</tspan><tspan x="630.0" y="319.6">sliding-window + global</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#868e96" text-anchor="start"><tspan x="60.0" y="380.4">NoPE: no explicit position at all - the causal mask alone leaks prefix length (SmolLM3 skips RoPE every 4th layer)</tspan></text>
+</svg>

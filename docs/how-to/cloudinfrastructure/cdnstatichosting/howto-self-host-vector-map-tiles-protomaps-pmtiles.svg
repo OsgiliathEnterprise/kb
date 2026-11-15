@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="36.0 -4.0 1058.0 408.0" width="1058" height="408">
+<rect x="36.0" y="-4.0" width="1058.0" height="408.0" fill="#ffffff"/>
+<rect x="60.0" y="100.0" width="200.0" height="80.0" rx="8" fill="#a5d8ff" stroke="#1971c2" stroke-width="1.5"/>
+<rect x="330.0" y="100.0" width="200.0" height="80.0" rx="8" fill="#b2f2bb" stroke="#1971c2" stroke-width="1.5"/>
+<rect x="600.0" y="100.0" width="200.0" height="80.0" rx="8" fill="#ffe8cc" stroke="#1971c2" stroke-width="1.5"/>
+<rect x="870.0" y="100.0" width="200.0" height="80.0" rx="8" fill="#d0bfff" stroke="#1971c2" stroke-width="1.5"/>
+<rect x="60.0" y="250.0" width="530.0" height="130.0" rx="8" fill="#fff3bf" stroke="#1971c2" stroke-width="1.5"/>
+<rect x="620.0" y="250.0" width="450.0" height="130.0" rx="8" fill="#e5dbff" stroke="#1971c2" stroke-width="1.5"/>
+<g stroke="#1971c2" stroke-width="1.5" fill="none"><path d="M 260.0 140.0 L 330.0 140.0"/><line x1="330.0" y1="140.0" x2="317.4" y2="133.9"/><line x1="330.0" y1="140.0" x2="317.4" y2="146.1"/></g>
+<g stroke="#1971c2" stroke-width="1.5" fill="none"><path d="M 530.0 140.0 L 600.0 140.0"/><line x1="600.0" y1="140.0" x2="587.4" y2="133.9"/><line x1="600.0" y1="140.0" x2="587.4" y2="146.1"/></g>
+<g stroke="#1971c2" stroke-width="1.5" fill="none"><path d="M 800.0 140.0 L 870.0 140.0"/><line x1="870.0" y1="140.0" x2="857.4" y2="133.9"/><line x1="870.0" y1="140.0" x2="857.4" y2="146.1"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="20" fill="#1e1e1e" text-anchor="start"><tspan x="60.0" y="36.0">Self-hosted vector map: one .pmtiles file served by CDN Range requests</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="70.0" y="125.4">PMTiles file</tspan><tspan x="70.0" y="141.7">(single file, world or</tspan><tspan x="70.0" y="157.9">bbox extract)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="340.0" y="125.4">Edge storage</tspan><tspan x="340.0" y="141.7">(Bunny.net S3-</tspan><tspan x="340.0" y="157.9">compatible zone)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="610.0" y="125.4">CDN pull zone</tspan><tspan x="610.0" y="141.7">(caches Range</tspan><tspan x="610.0" y="157.9">requests)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="880.0" y="125.4">Browser</tspan><tspan x="880.0" y="141.7">MapLibre GL +</tspan><tspan x="880.0" y="157.9">pmtiles:// Protocol</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="11" fill="#495057" text-anchor="start"><tspan x="240.0" y="88.8">rclone copyurl</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="11" fill="#495057" text-anchor="start"><tspan x="530.0" y="88.8">origin</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="11" fill="#495057" text-anchor="start"><tspan x="795.0" y="88.8">HTTP Range</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="70.0" y="271.2">Guardrails on the pull zone:</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#495057" text-anchor="start"><tspan x="70.0" y="297.6">- Allowed referrers (CORS) = your domains only</tspan><tspan x="70.0" y="312.6">- 'Optimize for large object delivery' ON (Range caching)</tspan><tspan x="70.0" y="327.6">- Download speed limit: 10 kB/s after 10 MB/request</tspan><tspan x="70.0" y="342.6">- Optional req/s limit + monthly bandwidth cap</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="630.0" y="271.2">Cost vs Mapbox ($5 per 1k loads):</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#495057" text-anchor="start"><tspan x="630.0" y="297.6">139 GB world map, 5x replication = ~$5/month storage</tspan><tspan x="630.0" y="312.6">Europe map load + zoom = ~5 MB = $0.00005</tspan><tspan x="630.0" y="327.6">~100x cheaper at $0.05/1k map loads</tspan></text>
+</svg>

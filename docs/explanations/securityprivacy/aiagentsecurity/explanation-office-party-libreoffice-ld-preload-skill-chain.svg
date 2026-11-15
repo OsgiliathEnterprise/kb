@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 -4.0 1158.8 378.0" width="1159" height="378">
+<rect x="16.0" y="-4.0" width="1158.8" height="378.0" fill="#ffffff"/>
+<rect x="40.0" y="80.0" width="210.0" height="80.0" rx="8" fill="#ffd8a8" stroke="#e8590c" stroke-width="1.5"/>
+<rect x="320.0" y="80.0" width="230.0" height="80.0" rx="8" fill="#ffe3e3" stroke="#c92a2a" stroke-width="1.5"/>
+<rect x="620.0" y="80.0" width="220.0" height="80.0" rx="8" fill="#ffc9c9" stroke="#c92a2a" stroke-width="1.5"/>
+<rect x="910.0" y="80.0" width="200.0" height="80.0" rx="8" fill="#fff3bf" stroke="#e67700" stroke-width="1.5"/>
+<rect x="40.0" y="220.0" width="610.0" height="130.0" rx="8" fill="#e7f5ff" stroke="#1971c2" stroke-width="1.5"/>
+<rect x="680.0" y="220.0" width="430.0" height="130.0" rx="8" fill="#d3f9d8" stroke="#1971c2" stroke-width="1.5"/>
+<g stroke="#1971c2" stroke-width="1.5" fill="none"><path d="M 250.0 120.0 L 320.0 120.0"/><line x1="320.0" y1="120.0" x2="307.4" y2="113.9"/><line x1="320.0" y1="120.0" x2="307.4" y2="126.1"/></g>
+<g stroke="#1971c2" stroke-width="1.5" fill="none"><path d="M 550.0 120.0 L 620.0 120.0"/><line x1="620.0" y1="120.0" x2="607.4" y2="113.9"/><line x1="620.0" y1="120.0" x2="607.4" y2="126.1"/></g>
+<g stroke="#1971c2" stroke-width="1.5" fill="none"><path d="M 840.0 120.0 L 910.0 120.0"/><line x1="910.0" y1="120.0" x2="897.4" y2="113.9"/><line x1="910.0" y1="120.0" x2="897.4" y2="126.1"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="20" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="36.0">Office Party: skill-composition RCE via predictable LD_PRELOAD shim</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="50.0" y="100.4">Attacker / malicious skill</tspan><tspan x="50.0" y="116.7">writes lo_socket_shim.so</tspan><tspan x="50.0" y="132.9">to shared /tmp path</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="330.0" y="100.4">Official DOCX/PPTX/XLSX skill</tspan><tspan x="330.0" y="116.7">soffice.py: Unix sockets blocked</tspan><tspan x="330.0" y="132.9">-&gt; LD_PRELOAD fallback</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="630.0" y="100.4">LibreOffice starts,</tspan><tspan x="630.0" y="116.7">dynamic linker loads</tspan><tspan x="630.0" y="132.9">attacker .so as CODE</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="920.0" y="100.4">Arbitrary code runs</tspan><tspan x="920.0" y="116.7">as the agent user</tspan><tspan x="920.0" y="132.9">(inside 'trusted' sandbox)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="50.0" y="241.2">Why each-skill review misses it:</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#495057" text-anchor="start"><tspan x="50.0" y="267.6">- writer skill never touches soffice; loader skill never writes</tspan><tspan x="50.0" y="282.6">- trigger = an ordinary 'convert this document' request</tspan><tspan x="50.0" y="297.6">- chain only needs WRITE access to the shared temp dir</tspan><tspan x="50.0" y="312.6">- macOS unaffected (fallback does not use LD_PRELOAD there)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="690.0" y="241.2">Defender checks:</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#495057" text-anchor="start"><tspan x="690.0" y="267.6">- which envs block Unix-domain sockets? (selects fallback)</tspan><tspan x="690.0" y="282.6">- who can write the shared temp dir? persists across tasks?</tspan><tspan x="690.0" y="297.6">- alert: lo_socket_shim.so creation + LD_PRELOAD in soffice exec</tspan><tspan x="690.0" y="312.6">- live inventory of ALL skills incl. official ones</tspan></text>
+</svg>

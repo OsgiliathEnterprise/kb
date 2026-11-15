@@ -136,6 +136,12 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Cdnstatichosting',
+          link: {type: 'generated-index', title: 'Cdnstatichosting', slug: 'how-to/cloudinfrastructure/cdnstatichosting'},
+          items: ['how-to/cloudinfrastructure/cdnstatichosting/howto-self-host-vector-map-tiles-protomaps-pmtiles'],
+        },
+        {
+          type: 'category',
           label: 'Distributedsystems',
           link: {type: 'generated-index', title: 'Distributedsystems', slug: 'how-to/cloudinfrastructure/distributedsystems'},
           items: ['how-to/cloudinfrastructure/distributedsystems/howto-ss-hsdp-runtime-update-decoupling'],
@@ -192,7 +198,7 @@ const sidebars = {
           type: 'category',
           label: 'Llmserving',
           link: {type: 'generated-index', title: 'Llmserving', slug: 'how-to/cloudinfrastructure/llmserving'},
-          items: ['how-to/cloudinfrastructure/llmserving/how-to-fast-serverless-llm-cold-starts-cairn'],
+          items: ['how-to/cloudinfrastructure/llmserving/how-to-fast-serverless-llm-cold-starts-cairn', 'how-to/cloudinfrastructure/llmserving/howto-litellm-zero-api-key-cross-cloud-gateway-entra-jwt'],
         },
         {
           type: 'category',
@@ -450,6 +456,12 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Dlarchitectures',
+          link: {type: 'generated-index', title: 'Dlarchitectures', slug: 'explanations/aimachinelearning/dlarchitectures'},
+          items: ['explanations/aimachinelearning/dlarchitectures/explanation-positional-embeddings-rope-nope-modern-llms'],
+        },
+        {
+          type: 'category',
           label: 'Interpretability',
           link: {type: 'generated-index', title: 'Interpretability', slug: 'explanations/aimachinelearning/interpretability'},
           items: ['explanations/aimachinelearning/interpretability/explanation-manifestation-unit-protocol-interpretability-schema'],
@@ -672,6 +684,12 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Cpp',
+          link: {type: 'generated-index', title: 'Cpp', slug: 'explanations/programming/cpp'},
+          items: ['explanations/programming/cpp/explanation-clice-modern-cpp-language-server-architecture'],
+        },
+        {
+          type: 'category',
           label: 'Databases',
           link: {type: 'generated-index', title: 'Databases', slug: 'explanations/programming/databases'},
           items: ['explanations/programming/databases/explanation-duckdb-2-0-async-io-recursive-ctes-variant', 'explanations/programming/databases/explanation-keyset-pagination-offset-drift', 'explanations/programming/databases/explanation-mysql-json-duality-views', 'explanations/programming/databases/explanation-postgresql-generated-columns-vs-triggers', 'explanations/programming/databases/explanation-postgresql-local-nvme-storage-latency', 'explanations/programming/databases/explanation-row-number-rank-dense-rank-top-n', 'explanations/programming/databases/explanation-sql-not-in-null-trap'],
@@ -782,7 +800,7 @@ const sidebars = {
           type: 'category',
           label: 'Aiagentsecurity',
           link: {type: 'generated-index', title: 'Aiagentsecurity', slug: 'explanations/securityprivacy/aiagentsecurity'},
-          items: ['explanations/securityprivacy/aiagentsecurity/explanation-abliterated-model-backdoor-credential-exfiltration', 'explanations/securityprivacy/aiagentsecurity/explanation-aegis-multilayer-llm-security-proxy', 'explanations/securityprivacy/aiagentsecurity/explanation-ai-agent-identity-patterns-production', 'explanations/securityprivacy/aiagentsecurity/explanation-claude-code-dont-ask-again-secret-leaks', 'explanations/securityprivacy/aiagentsecurity/explanation-closedquorum-llm-quorum-malware', 'explanations/securityprivacy/aiagentsecurity/explanation-cloudflare-security-audit-skill-multi-phase-agent-audits', 'explanations/securityprivacy/aiagentsecurity/explanation-covert-assistance-agents-evade-oversight', 'explanations/securityprivacy/aiagentsecurity/explanation-enterprise-ai-data-security-patterns', 'explanations/securityprivacy/aiagentsecurity/explanation-evasionbench-instrumental-monitor-evasion', 'explanations/securityprivacy/aiagentsecurity/explanation-intent-aware-protection-ai-agents', 'explanations/securityprivacy/aiagentsecurity/explanation-kidnaprag-blackbox-agentic-rag-hijack', 'explanations/securityprivacy/aiagentsecurity/explanation-llm-agents-tamper-with-their-own-traces', 'explanations/securityprivacy/aiagentsecurity/explanation-llm-inference-engine-exploits', 'explanations/securityprivacy/aiagentsecurity/explanation-lm-studio-bionic-shell-judge-auto-review', 'explanations/securityprivacy/aiagentsecurity/explanation-local-llm-confidentiality-boundary-failures', 'explanations/securityprivacy/aiagentsecurity/explanation-mcp-filesystem-capability-laundering-mcp-fsd', 'explanations/securityprivacy/aiagentsecurity/explanation-miasma-worm-agentic-supply-chain-attack', 'explanations/securityprivacy/aiagentsecurity/explanation-moai-attack-defense-landscape-sok', 'explanations/securityprivacy/aiagentsecurity/explanation-mobile-agent-perception-attack-surfaces', 'explanations/securityprivacy/aiagentsecurity/explanation-openai-dots-boundary-problems-always-on-agents', 'explanations/securityprivacy/aiagentsecurity/explanation-openai-hugging-face-agent-incident', 'explanations/securityprivacy/aiagentsecurity/explanation-policysniff-shared-gpu-policy-side-channel', 'explanations/securityprivacy/aiagentsecurity/explanation-rfc8693-token-exchange-agent-delegation', 'explanations/securityprivacy/aiagentsecurity/explanation-unbounded-llm-calls-ai-sdk-audit', 'explanations/securityprivacy/aiagentsecurity/reference-infuse-indirect-prompt-injection-benchmark', 'explanations/securityprivacy/aiagentsecurity/reference-kalibench-cybersecurity-tool-use-benchmark', 'explanations/securityprivacy/aiagentsecurity/reference-last-secure-code-benchmark', 'explanations/securityprivacy/aiagentsecurity/reference-multimodal-sea-agent-social-engineering-benchmark', 'explanations/securityprivacy/aiagentsecurity/reference-piatlas-prompt-injection-attack-taxonomy'],
+          items: ['explanations/securityprivacy/aiagentsecurity/explanation-abliterated-model-backdoor-credential-exfiltration', 'explanations/securityprivacy/aiagentsecurity/explanation-aegis-multilayer-llm-security-proxy', 'explanations/securityprivacy/aiagentsecurity/explanation-ai-agent-identity-patterns-production', 'explanations/securityprivacy/aiagentsecurity/explanation-claude-code-dont-ask-again-secret-leaks', 'explanations/securityprivacy/aiagentsecurity/explanation-closedquorum-llm-quorum-malware', 'explanations/securityprivacy/aiagentsecurity/explanation-cloudflare-security-audit-skill-multi-phase-agent-audits', 'explanations/securityprivacy/aiagentsecurity/explanation-covert-assistance-agents-evade-oversight', 'explanations/securityprivacy/aiagentsecurity/explanation-enterprise-ai-data-security-patterns', 'explanations/securityprivacy/aiagentsecurity/explanation-evasionbench-instrumental-monitor-evasion', 'explanations/securityprivacy/aiagentsecurity/explanation-intent-aware-protection-ai-agents', 'explanations/securityprivacy/aiagentsecurity/explanation-kidnaprag-blackbox-agentic-rag-hijack', 'explanations/securityprivacy/aiagentsecurity/explanation-llm-agents-tamper-with-their-own-traces', 'explanations/securityprivacy/aiagentsecurity/explanation-llm-inference-engine-exploits', 'explanations/securityprivacy/aiagentsecurity/explanation-lm-studio-bionic-shell-judge-auto-review', 'explanations/securityprivacy/aiagentsecurity/explanation-local-llm-confidentiality-boundary-failures', 'explanations/securityprivacy/aiagentsecurity/explanation-mcp-filesystem-capability-laundering-mcp-fsd', 'explanations/securityprivacy/aiagentsecurity/explanation-miasma-worm-agentic-supply-chain-attack', 'explanations/securityprivacy/aiagentsecurity/explanation-moai-attack-defense-landscape-sok', 'explanations/securityprivacy/aiagentsecurity/explanation-mobile-agent-perception-attack-surfaces', 'explanations/securityprivacy/aiagentsecurity/explanation-office-party-libreoffice-ld-preload-skill-chain', 'explanations/securityprivacy/aiagentsecurity/explanation-openai-dots-boundary-problems-always-on-agents', 'explanations/securityprivacy/aiagentsecurity/explanation-openai-hugging-face-agent-incident', 'explanations/securityprivacy/aiagentsecurity/explanation-policysniff-shared-gpu-policy-side-channel', 'explanations/securityprivacy/aiagentsecurity/explanation-rfc8693-token-exchange-agent-delegation', 'explanations/securityprivacy/aiagentsecurity/explanation-unbounded-llm-calls-ai-sdk-audit', 'explanations/securityprivacy/aiagentsecurity/reference-infuse-indirect-prompt-injection-benchmark', 'explanations/securityprivacy/aiagentsecurity/reference-kalibench-cybersecurity-tool-use-benchmark', 'explanations/securityprivacy/aiagentsecurity/reference-last-secure-code-benchmark', 'explanations/securityprivacy/aiagentsecurity/reference-multimodal-sea-agent-social-engineering-benchmark', 'explanations/securityprivacy/aiagentsecurity/reference-piatlas-prompt-injection-attack-taxonomy'],
         },
         {
           type: 'category',
@@ -912,6 +930,12 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Distributedworkflows',
+          link: {type: 'generated-index', title: 'Distributedworkflows', slug: 'explanations/systemdesign/distributedworkflows'},
+          items: ['explanations/systemdesign/distributedworkflows/explanation-cron-fanout-queue-unit-of-recovery-email-retries'],
+        },
+        {
+          type: 'category',
           label: 'Durableexecutions',
           link: {type: 'generated-index', title: 'Durableexecutions', slug: 'explanations/systemdesign/durableexecutions'},
           items: ['explanations/systemdesign/durableexecutions/explanation-timeout-attempt-state-model-for-paid-upstream-calls'],
@@ -953,6 +977,12 @@ const sidebars = {
           label: 'Multimodal',
           link: {type: 'generated-index', title: 'Multimodal', slug: 'examples/aimachinelearning/multimodal'},
           items: ['examples/aimachinelearning/multimodal/example-whistle-on-device-speech-to-text'],
+        },
+        {
+          type: 'category',
+          label: 'Esotericlanguages',
+          link: {type: 'generated-index', title: 'Esotericlanguages', slug: 'examples/programming/esotericlanguages'},
+          items: ['examples/programming/esotericlanguages/example-lucynes-nes-emulator-in-odin'],
         },
         {
           type: 'category',
