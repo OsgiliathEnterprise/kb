@@ -1,5 +1,5 @@
 ---
-title: Superfluid — Fine-Grained Multi-LLM Serving on Shared GPUs
+title: Superfluid — Local AI Server for Distributed LLM Inference
 diataxis: Explanation
 domain: cloud-infrastructure
 topic: llm-serving
@@ -12,39 +12,43 @@ keywords:
 - cloud-infrastructure
 - explanations
 ---
-# Superfluid: Fine-Grained Multi-LLM Serving on Shared GPUs
+# Superfluid: Local AI Server for Distributed LLM Inference
+
+> Corrected 2026-11-16 by KB Zookeeper: the first intake version of this note described a different paper ("fine-grained multi-LLM sharing on a single A40", attributed to Jiang & Lu, CUHK-Shenzhen). That content did not match arXiv:2611.17753 and was replaced with facts verified against the arXiv abstract page.
 
 ## Overview
 
-Superfluid (Huiqiang Jiang, Youyou Lu, CUHK-Shenzhen) is a multi-LLM serving system that lets many models share a single GPU with *fine-grained, elastic* resource allocation. Instead of one model per GPU (wasteful) or crude time-slicing (latency spikes), it shares GPU compute tightly while enforcing per-model memory limits, and rebalances both load and memory dynamically across models.
+Superfluid (Prabod Rathnayaka, Isura Manchanayake, Srikandabala Kogul, Steve Siu, Fabian Waschkowski, Lukas Wesemann — BaseCompute; arXiv:2611.17753, submitted 13 Nov 2026, cs.DC) is an **open-source local-inference LLM server** designed for two scales at once: several agents sharing one locally served model alongside an interactive user on a single device, and a heterogeneous fleet of owned machines served through one API endpoint. Local serving keeps data private, removes per-token cost, cuts latency, and works offline; existing local servers serve one runtime on one machine, leaving multi-device owners' hardware idle.
 
 ## Problem Statement
 
-Serving many LLMs on dedicated GPUs wastes capacity; existing multi-model systems either decouple compute/memory poorly or allocate resources statically, so bursty traffic on one model degrades the latency SLOs of its co-tenants.
+On one device, agents sharing a model with an interactive user starve the user's requests. Across devices, every conventional local server (llama-server, Ollama, mlx_lm.server) is single-runtime and single-machine, so capable machines from different vendors sit idle most of the day.
 
 ## Key Technical Specifications
 
 | Property | Detail |
 |---|---|
-| Sharing model | Fine-grained GPU sharing across concurrently served LLMs |
-| Isolation | Per-model memory limits enforced at runtime |
-| Load balancing | Dynamic cross-model balancing of compute load |
-| Memory balancing | Eviction + paging mechanisms to rebalance memory between models |
-| Evaluated config | Multiple 8B-parameter models on a single NVIDIA A40 (48 GB) |
+| Backends | llama.cpp, MLX, or BaseRT driven in **isolated worker processes** |
+| Scheduling | One scheduler prioritises interactive requests ahead of agent work |
+| Prompt reuse | A prompt shared by many requests is computed once |
+| Durability | Every token is written to a durable log before reaching the client |
+| Fleet mode | One Superfluid server turns many machines into a single API endpoint |
+| Heterogeneity | Machines with different hardware serve copies of the same model; work is assigned by measured speed |
+| Elasticity | Machines can join or fail under load without losing a request |
+| License | Apache-2.0, https://github.com/basecompute/superfluid |
 
-## Results (Benchmark Data)
+## Results (Benchmark Data, from the abstract)
 
-On 8B-model workloads on one 48 GB A40:
-
-- **p99 TTFT** reduced **37% on average, up to 55%** vs. baselines.
-- **p99 TPOT** reduced **44% on average, up to 67%**.
+- **Qwen3.8-27B on Apple M5 Pro:** a chat sent while eight agents are working receives its first token in **1.5 s**, versus **291–612 s** on llama-server, Ollama, and mlx_lm.server.
+- **Six machines, three chip vendors, 64 simulated users for one hour:** all **5,041 requests** answered while machines join one at a time and one is killed and rejoins; throughput grows **112 → 534 tok/s**, median first-token time falls **99 → 12 s**.
+- **Twelve Mac Studio M3 Ultras:** sustains **10,656 tok/s** across **38,563 requests** from 384 agents without a failure.
 
 ## Relevance to Our Domain
 
-For GPU fleet operators, the eviction/paging + per-model quota design is the LLM-serving analogue of container memory ballooning — a concrete pattern for consolidating long-tail models onto shared accelerators without sacrificing tail latency. Complements our fair-inference and batch-inference serving notes.
+A concrete reference point for on-prem/edge LLM operations: the interactive-vs-agent priority scheduler, shared-prompt prefill reuse, durable token log, and speed-weighted heterogeneous fleet routing are directly reusable design patterns for self-hosted inference platforms. Complements our fair-inference and batch-inference serving notes.
 
 ## References
 
 - Paper: https://arxiv.org/abs/2611.17753
-- Semantic Scholar: https://api.semanticscholar.org/graph/v1/paper/arXiv:2611.17753
+- Code: https://github.com/basecompute/superfluid
 - Related: `explanation-fairinference-token-latency-fairness-llm-serving.md`

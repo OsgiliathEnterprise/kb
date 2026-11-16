@@ -1,6 +1,6 @@
 ---
-title: C-to-Rust Translation — Iteratively Generating Natural-Language Specs to Drive
-  LLM Porting
+title: Natural-Language Specs for LLM C-to-Rust Translation — What Works and What
+  Doesn't
 diataxis: How-to Guide
 domain: software-development
 topic: ai-assisted-development
@@ -13,35 +13,39 @@ keywords:
 - software-development
 - how-to
 ---
-# How to Drive LLM C-to-Rust Translation with Iteratively Generated Natural-Language Specs
+# Beyond Source Code: Natural-Language Specifications for LLM-Based C-to-Rust Translation
+
+> Corrected 2026-11-16 by KB Zookeeper: the first intake version mis-attributed the paper ("Edinburgh — Zhiyuan Li, Mark Harman, Jianfeng Ren"; "10 projects, ~80 files, 10 human participants"; a human-in-the-loop spec-refinement workflow). The actual paper is an automated three-setting evaluation study. Replaced with facts verified against the arXiv abstract page; diátaxis changed from how-to to explanation accordingly.
 
 ## Overview
 
-This Edinburgh paper (Zhiyuan Li, Mark Harman, Jianfeng Ren et al.) tackles a gap in LLM-based C-to-Rust migration: code translation quality depends heavily on the *natural-language specification* given to the model, and most legacy C code has none. Their answer: don't wait for humans to write specs — **generate them from the code itself, iteratively refine them with human feedback, then use them to drive translation**.
+"Beyond Source Code" (Biruk Tadesse, Lawrence Arkoh, Marcelo D'Amorim, Wesley K. G. Assunção; arXiv:2611.17581, 12 Nov 2026, cs.SE) asks whether **natural-language specifications** are a better input to LLM-based C→Rust translation than raw source code. Hypothesis: direct code translation makes LLMs preserve C-specific implementation choices — producing Rust that is functionally correct but verbose, `unsafe`-reliant, and non-idiomatic.
 
-## When to Use This
+## Study Design
 
-You are porting legacy C (no or stale documentation) to Rust with an LLM, and direct translation produces code that compiles but misrepresents intent. Attaching a good spec measurably improves both translation correctness and human usability of the result.
+| Property | Detail |
+|---|---|
+| Corpus | **300 C programs** from the **IBM CodeNet** dataset |
+| Models | GPT-5.2 and GPT-4o-mini |
+| Settings | **code-only**, **specification-only**, **code-and-specification** |
+| Metrics | functional correctness, maintainability, complexity, idiomaticity, unsafe-construct usage, cost |
 
-## Procedure
+## Key Findings (from the abstract)
 
-1. **Extract initial specs from code.** Prompt the LLM to produce natural-language descriptions of each C function's behaviour, working from the implementation and its context — no documentation required.
-2. **Iterate with human-in-the-loop refinement.** Developers review and correct the generated specs; the loop repeats, each round sharpening pre/post-conditions, edge cases, and data invariants. The spec is the human leverage point, not the code.
-3. **Translate against the refined spec.** Feed (C code + approved spec) to the LLM to generate Rust; the spec constrains semantics and reduces silent behaviour drift.
-4. **Validate and feed back.** Compilation and test failures are routed back as feedback for both spec and code repair, not just code patches.
+- **Code-only**: highest test pass rate (**98.6%**) but Rust that mirrors C implementation patterns.
+- **Specification-only**: most idiomatic, compact Rust — **~6× fewer `unsafe` blocks**, **2.4× fewer Clippy style warnings** — but **test pass rates as low as 86%** (best model) when specs are used without validation.
+- **Spec + iterative test-based validation/refinement**: raises spec-only pass rate to **95.3%**.
+- **Code-and-specification**: best balance — **98.3%** test pass rate with maintainability close to spec-driven output.
 
-## Evidence Base
+## Practical Takeaways
 
-Evaluated on **10 real-world open-source projects (~80 files)** with **10 participants**, measuring translation quality and usability against baselines without spec generation.
-
-## Pitfalls
-
-- **Spec hallucination**: an unreviewed generated spec can encode the LLM's *misreading* of the C code — translation then confidently reproduces the wrong semantics. The human refinement loop is mandatory, not optional.
-- Specs written at the wrong abstraction level (restating code) add no value; corrections should push toward intent and contracts.
+1. Don't feed only code if you care about idiomatic Rust: specs buy large idiomaticity/`unsafe`-hygiene wins.
+2. Specs without a validation loop are dangerous: they silently encode misreadings, dropping correctness ~12 points. Attach automated tests and iterate on the spec — not just the code — until pass rates recover.
+3. If one-shot quality matters, pass both code and validated spec.
 
 ## Relevance to Our Domain
 
-Provides a concrete, reproducible workflow for AI-assisted migration projects — and a general principle for our AI-assisted-development coverage: *invest in the intermediate natural-language artifact*, because it is where human oversight compounds across translation, review, and repair loops.
+A general principle for our AI-assisted-development coverage: *invest in the intermediate natural-language artifact*, but only with test-grounded validation — human review is not part of this study's loop, so budget for test infrastructure instead.
 
 ## References
 

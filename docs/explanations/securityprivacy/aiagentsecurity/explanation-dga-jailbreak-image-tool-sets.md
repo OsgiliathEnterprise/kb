@@ -1,5 +1,5 @@
 ---
-title: DGA Jailbreak — Weaponising Image Tool Sets Against VLM Agents
+title: 'DGA — Detail Guidance Attack: Jailbreaking LLMs with Indistinguishable Intent'
 diataxis: Explanation
 domain: security-privacy
 topic: ai-agent-security
@@ -12,36 +12,28 @@ keywords:
 - security-privacy
 - explanations
 ---
-# DGA Jailbreak: Adversarial Images from Agent Image Tool Sets Break VLM Agent Guardrails
+# DGA Jailbreak: Malicious Requests with Indistinguishable Intent
+
+> Corrected 2026-11-16 by KB Zookeeper: the first intake version ("Dynamic Generation of Adversarial Images against VLM agents' image tool sets, 15 agent systems, 90.7%/98.6% ASR") did not match arXiv:2611.17818 and was replaced with facts verified against the arXiv abstract page.
 
 ## Overview
 
-This paper exposes a jailbreak class nobody had studied before: attacking VLM-based agents *through the image-generation tools they already have*. DGA (Dynamic Generation of Adversarial Images) has the agent itself produce adversarial images — with varied visual patterns — and feeds them back as if they were external content. Because the images are produced locally by the agent's own tool chain, they bypass the input guardrails that assume external content is the threat vector. Accepted at a top venue, evaluated across 15 agent systems.
+This paper (Wenzhuo Xu, Zonghao Ying, Deyue Zhang, Dongdong Yang, Xiangzheng Zhang, Quanchen Zou; arXiv:2611.17818, 13 Nov 2026, cs.CR) shows that **requests which merely resemble normal user queries get past safety filters far more easily** than requests with obvious anomalous patterns — and weaponises that observation. The **Detail Guidance Attack (DGA)** uses an *auxiliary LLM* to construct detailed, innocuous-looking requests and interacts with the victim model in a **single turn**, achieving high attack success rates (above 95% in several evaluated settings under an automated judging criterion).
 
 ## Problem Statement
 
-Agentic jailbreak research has focused on text. But modern VLM agents (Claude/GPT/Gemini via API, or open-source stacks) routinely carry image tools: generation, editing, screenshot ingestion. Those tools create a new, unguarded path for adversarial visual content to enter the agent's context.
+Jailbreak defenses increasingly rely on LLM-based input filters. The authors first examine **eight jailbreak methods against an LLM-based filter** and observe that benign-looking requests have higher pass rates, motivating the hypothesis that *resemblance to normal requests* — not just payload obfuscation — drives jailbreak success.
 
 ## Key Contribution
 
-- First systematic study of **image tool-set jailbreaks** for VLM agents.
-- **DGA method**: prompt the agent's image tool to dynamically generate adversarial images containing harmful content rendered as text/visual patterns, then route those images back through the agent's vision pipeline — a self-reinforcing loop that starts from a single short prompt.
-- **Empirical scale**: evaluated on 15 agent systems spanning proprietary APIs and open-source stacks.
-- **Defence analysis**: shows existing jailbreak defences (input filters, alignment, fine-tuning-based defences) are largely ineffective against this vector.
-
-## Technical Approach
-
-Starting from one user prompt, the agent is induced to call its image-generation tool to synthesise an adversarial image; the image embeds harmful instructions in visual form (rendered text, steganographic-like patterns). The agent then processes its own generated image as a new observation, which carries the jailbreak payload past text-oriented guardrails. Because the image is regenerated dynamically each attempt, static blocklists and perceptual-hash filters cannot keep up.
-
-## Results
-
-- **90.7% attack success rate** on agents built over proprietary APIs (Claude, GPT, Gemini).
-- **98.6% ASR** on open-source agent stacks.
-- Standard defences do not meaningfully reduce success rates.
+- Empirical grounding: eight studied jailbreaks against a filter show pass rate correlates with normalcy resemblance.
+- **DGA framework**: an auxiliary LLM expands a harmful goal into a detailed, plausible, well-structured request; single-turn delivery; no multi-turn escalation needed.
+- **Scale**: evaluated across **11 victim models and three datasets**.
+- **Defense analysis**: a DGA-aware filter is evaluated; a **user study on everyday requests with ambiguous or dual-use intent** documents differing user expectations about whether models should respond — surfacing the false-positive/usability tension, with filter usability costs left unmeasured.
 
 ## Relevance to Our Domain
 
-Concrete, actionable threat for anyone deploying tool-equipped LLM/VLM agents: treat *agent-generated* content as untrusted input on re-entry. Defence implications belong in our agent-infrastructure hardening notes — mediate every tool output (images included) through the same guardrail pipeline as external input, and consider disabling image tools unless required.
+For agent platforms that gate tool calls behind intent classifiers: "looks like a normal request" is itself the attack surface. Detection must weigh content *and* the dual-use ambiguity problem — a filter strict enough to stop DGA risks blocking legitimate ambiguous requests, so defence-in-depth (least-privilege tools, human approval for high-risk actions) remains the answer. Pairs with our ReMA/SecMAS multi-agent security note.
 
 ## References
 

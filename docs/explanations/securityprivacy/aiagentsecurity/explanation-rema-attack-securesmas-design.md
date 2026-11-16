@@ -12,34 +12,35 @@ keywords:
 - security-privacy
 - explanations
 ---
-# ReMA Attacks and SecMAS: Security by Design for LLM Multi-Agent Systems
+# ReMA Attacks and SecMAS: Securing Multi-Agent Systems by Design
+
+> Corrected 2026-11-16 by KB Zookeeper: the first intake version mis-attributed the paper ("REmediate MAS" attacks on inter-agent communication channels, "Wenxin Zhang, Syracuse") and invented a channel-validation design. Replaced with facts verified against the arXiv abstract page.
 
 ## Overview
 
-This Syracuse University paper (Wenxin Zhang, Neil Gong et al.) argues that LLM-based multi-agent systems (MAS) must be secured *by design*, and backs the claim both ways: it introduces ReMA (REmediate MAS), a set of attacks showing that MAS designed without security considerations are fundamentally insecure, and SecMAS, a design framework that closes those gaps. It is one of the first works to formalise MAS security, including the inter-agent communication channels that most prior work ignores.
+"Securing Multi-Agent Systems by Design" (Xilong Wang, Xiaoxing Chen, Neil Gong; arXiv:2611.17883, 13 Nov 2026, cs.CR) attacks the **aggregation step** of LLM multi-agent systems (MAS). A MAS decomposes a task into subtasks, delegates them to agents, and **aggregates the agents' responses using an aggregation rule**. The paper shows malicious agents can manipulate the final solution by crafting malicious responses to their assigned subtasks — and defends at exactly that point.
 
 ## Problem Statement
 
-Existing MAS security research focuses on attacking *individual* agents (e.g. prompt injection). But in production MAS, agents exchange messages over communication channels — a much larger attack surface. Without a formal model of what "secure MAS" even means, defenders cannot tell whether a design is secure or simply unattacked yet.
+Malicious agents provide adversarial responses to legitimately assigned subtasks. Because aggregation rules (majority vote, LLM-as-judge merge, etc.) are not designed adversarially, the final solution can be steered without any agent breaking its own sandbox or forging identity.
 
 ## Key Contribution
 
-- **Formalisation of MAS** as a system including the communication channels between agents, plus a rigorous threat model: what an adversary can do by affecting any agent's behaviour and any agent's received messages.
-- **ReMA attacks**: two systematic attack strategies derived from the threat model — (1) injecting malicious agents into the MAS, and (2) compromising the behaviour of benign agents — with attack instantiations built on existing prompt-injection primitives.
-- **SecMAS**: a design framework that defends MAS against ReMA attacks, moving protection from per-agent filters to architectural properties.
-- **Prototype validation** against five ReMA attack types.
+- **ReMA (Response Manipulation Attacks)**: response-crafting attacks formulated as **optimization problems** for both **untargeted** and **targeted** goals, solved approximately by **iteratively refining malicious responses using feedback from a surrogate multi-agent system**.
+- **SecMAS**: a **secure aggregation rule** that exploits **semantic similarities among agent responses**, selecting the response most consistent with a **sufficiently large subset** of the other responses.
+- **Theoretical security guarantees** for SecMAS against both untargeted and targeted attacks.
 
 ## Technical Approach
 
-The authors model an MAS as agents plus explicit communication channels, then ask: given an adversary that can control or influence one or more agents and their incoming messages, can system-level goals still be guaranteed? ReMA attacks exploit the fact that most MAS trust internal messages by construction — a compromised or injected agent propagates malicious content that downstream agents act on. SecMAS counters with design-level mechanisms: validating agent identity/behaviour on channels and containing the blast radius of any single compromised agent.
+The attacker treats the aggregation rule as an oracle: generate candidate malicious responses, score their effect in a surrogate MAS, and iterate. SecMAS counters by never trusting a single response's plausibility in isolation — a response is favoured only when a sufficiently large subset of independent responses semantically corroborates it, which bounds a malicious minority's influence.
 
 ## Results
 
-The prototype SecMAS MAS defends against all five evaluated ReMA attack types, while unsecured MAS designs are systematically broken by the same attacks.
+Existing aggregation rules are vulnerable to ReMA (including **adaptive variants**); SecMAS defends against **all evaluated attacks** while keeping utility comparable to existing rules.
 
 ## Relevance to Our Domain
 
-Multi-agent orchestration is a core KB topic (agent frameworks, tooling, orchestration). This paper gives concrete, attack-derived requirements for any MAS we build or review: treat every inter-agent message as untrusted input, and design identity/attestation into communication channels. Pairs with Soteria's verify-then-enforce pattern for single agents.
+Multi-agent orchestration is a core KB topic: treat every inter-agent response as adversarial input *at the aggregation layer*, not just at the input layer. When building verifier-of-verigators or judge panels, adopt corroboration-based aggregation with a corroboration threshold, and red-team it with surrogate-feedback attacks like ReMA. Pairs with Soteria's verify-then-enforce pattern for single agents.
 
 ## References
 

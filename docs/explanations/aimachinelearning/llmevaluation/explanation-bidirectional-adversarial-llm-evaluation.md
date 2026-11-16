@@ -1,5 +1,5 @@
 ---
-title: When Both Sides Adapt — Bidirectional Adversarial Evaluation of LLMs
+title: When Both Sides Adapt — User Adaptivity and Prompt Endogeneity in LLM Evaluation
 diataxis: Explanation
 domain: ai-machine-learning
 topic: llm-evaluation
@@ -12,33 +12,29 @@ keywords:
 - ai-machine-learning
 - explanations
 ---
-# When Both Sides Adapt: Bidirectional Adversarial Evaluation of Large Language Models
+# When Both Sides Adapt: The Challenges of Evaluating Interactive LLM Systems
+
+> Corrected 2026-11-16 by KB Zookeeper: the first intake version ("proposer/solver ELO co-adaptive evaluation, Jun-Ping Jiang et al., University of Tokyo/Tohoku") did not match arXiv:2611.17239 and was replaced with facts verified against the arXiv abstract page.
 
 ## Overview
 
-Jun-Ping Jiang et al. (University of Tokyo, Tohoku University) propose an evaluation paradigm in which **both sides of the evaluation adapt**: a *proposer* model generates tasks, a *solver* model attempts them, and each side's standing updates from pairwise outcomes via ELO-style ratings. Unlike adversarial benchmarks where the task-setter is fixed (a template or a frozen generator), letting the proposer adapt turns evaluation into a co-evolutionary game that resists saturation.
+This paper (Hannah Li; arXiv:2611.17239, 12 Nov 2026, **stat.ME** — a statistics/methodology paper, not an adversarial-benchmark systems paper) studies **user adaptivity and prompt endogeneity** in interactive LLM systems: users observe model responses and then change their prompting strategy and the type/difficulty of subsequent tasks — so *the model's responses influence the prompts on which the model is later evaluated*.
 
 ## Problem Statement
 
-Static benchmarks saturate — models hit ceiling scores and stop discriminating — and reward-hacking against known test formats corrupts results. Existing adversarial evaluation fixes one side (usually the task generator), so solvers eventually overfit the generator's distribution.
+In live deployments, evaluation data is not exogenous. Offline benchmarks assume a fixed prompt distribution; live A/B tests let users adapt to each arm. Comparing models across these settings silently compares different quantities.
 
 ## Key Contribution
 
-- **Bidirectional adaptation**: task *difficulty calibration* on the proposer side (proposers are rewarded for posing tasks near the solver's capability frontier) and a unified scoring signal on the solver side.
-- **Pairwise-outcome ELO ratings** for solvers, avoiding absolute-score saturation.
-- **Emergent diversity**: as the game unfolds, proposers drift toward distinct task domains — spontaneous specialisation instead of manual test-suite curation.
-
-## Technical Approach
-
-A proposer LLM generates candidate tasks; solvers attempt them; outcomes (solved/unsolved, pairwise comparisons) update both proposer calibration and solver ELO. Difficulty is an explicit training signal: too easy or too hard tasks earn the proposer little. The system was run with GPT-5-class models in the loop, exercising the pipeline across multiple domains.
-
-## Results
-
-The authors report that the bidirectional design produces difficulty-calibrated tasks, ELO rankings that remain discriminative past static-benchmark ceilings, and emergent domain specialisation of proposers.
+- **Two estimands**: the **common-distribution effect** (performance of models on the *same* prompt distribution) vs the **induced-distribution effect** (each model judged on the prompt distribution its own behaviour induces).
+- **Offline benchmark evaluation and live A/B testing target different estimands**: standard difference-in-means estimators converge to the common-distribution and induced-distribution effects, respectively.
+- **Ranking reversals**: the two comparisons can rank models differently and change deployment recommendations; the paper characterises when reversals occur and gives a **sufficient condition guaranteeing agreement** — a practical heuristic for judging whether offline evaluation reproduces the live-experiment decision.
+- In a **stylized linear interaction model**, user adaptivity **increases estimation variance**.
+- Unification: adaptivity is a common mechanism behind familiar evaluation pathologies such as **reward hacking and novelty effects**.
 
 ## Relevance to Our Domain
 
-A practical answer to benchmark staleness in our LLM-evaluation coverage: co-evolutionary proposer/solver designs are self-maintaining and harder to game, which matters for internal model-selection and regression suites where maintaining curated benchmarks is a recurring cost.
+Foundational for designing model-selection and regression pipelines: offline eval and production A/B can legitimately disagree, and neither is "wrong" — they measure different estimands. The agreement condition gives a cheap pre-check before trusting offline decisions, and variance inflation argues for larger live experiments once users adapt.
 
 ## References
 
