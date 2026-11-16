@@ -1,6 +1,6 @@
 ---
-title: 'MemoArmor: Forget the Lineage: Forward-Secure, Lineage-Complete Cryptographic
-  Erasure for LLM-Agent Memory'
+title: 'Forget the Lineage: Forward-Secure, Lineage-Complete Cryptographic Erasure
+  for LLM-Agent Memory'
 diataxis: Explanation
 domain: security-privacy
 topic: ai-agent-security
@@ -16,31 +16,26 @@ keywords:
 # Forget the Lineage: Forward-Secure, Lineage-Complete Cryptographic Erasure for LLM-Agent Memory
 
 ## Overview
-Persistent LLM agents store observations, retrieved documents and tool results in external memory for the entire deployment — even after a user issues a deletion request. Current agent memory systems support whole-tenant deletion but lack per-item deletion with an enforceable post-deletion security guarantee. The paper identifies a previously unaddressed attack: **lineage reconstruction**. Even when the target item is destroyed, an adversary who reads live ciphertext can assemble the deleted item's *provenance chain* — source document, chunk offsets, embedding fingerprint, timestamps, embedding model ID — and use it to verify candidate re-insertions, amplifying extraction by roughly 6.5×.
+LLM agents keep a long-term memory the model itself writes: summaries, extracted facts, and embeddings derived from what users said. Deleting a message is therefore not enough — its derivatives, storage residue, and backups survive. The paper defines **lineage-complete forward-secure erasure** and presents **LinEra**, which encrypts each memory under a key derived from its parents' keys along the derivation graph. Source keys come from a puncturable pseudorandom function, so forgetting is a **single puncture** and every descendant becomes unreadable **without ever being located**.
 
 ## Problem Statement
-Deleting a memory row is not deleting a memory. Derived artefacts (embeddings, provenance metadata) survive the row and let an adversary brute-force what was deleted. Existing encryption schemes protect confidentiality at rest but provide no forward security against provenance reconstruction, and no cryptographic erasure semantics at the granularity of a single memory item.
+Logical deletion in agent-memory frameworks (summaries, extracted facts, embeddings) leaves derivatives recoverable by a forensic-strength adversary holding every file and the agent's current keys. Existing "secure deletion" primitives cover the object, not its lineage; the paper's threat model is explicitly forensic-complete (all storage + current keys).
 
 ## Key Contribution
-- **MemoArmor**: a forward-secure, lineage-complete cryptographic erasure system for agent memory.
-- **Threat model with lineage-reconstruction attack**: new attack class — adversary with live-ciphertext read access (e.g. via a compromised service component or forensic extraction) reconstructs deletion provenance; formalized as **LR-IND** (lineage-reconstruction indistinguishability) security.
-- **Dual-permutation key hierarchy**: an epoch key plus a content-addressed derivation chain make all item-derived information — embeddings included — post-compromise unreadable.
-- **Formal proofs**: security proved in the Random Oracle Model.
-
-## Technical Approach
-Each memory item's cryptographic material is derived through a two-level permutation structure tied to an epoch key; deleting the item's key cryptographically erases every artefact derived from it, so ciphertexts of deleted items become indistinguishable even to an adversary holding later keys and observing live storage. Evaluation: 18,500 controlled adversary trials across three architectures, five memory models, six embedding models, six data domains.
+- A formal definition of lineage-complete forward-secure erasure, with proofs of security and lineage integrity.
+- Key derivation along the lineage graph from puncturable-PRF source keys: one puncture renders the whole descendant closure unreadable, no descendant enumeration required.
+- **A sound lineage rule**: record as parents everything the writer saw when producing a memory — this confines all influence of a source to its descendants (an under-recording rule silently leaks, e.g. summaries written from retrieved context).
+- An encrypted vector index whose keys follow the lineage, and integration with mem0; two construction variants trading guarantee strength for cost.
 
 ## Results
-| Metric | Value |
-|---|---|
-| Recall@10 on 2WikiMultiHopQA (long-context, domain-expert, 10-hop adversarial queries) | **0.974** |
-| P95 lookup latency (NVIDIA A100, single node) | **28 ms** |
-| Throughput at N = 10^6 items | **5,580 lookups/s** |
-| vs unencrypted baseline | no significant accuracy drop |
-| vs standard AES-GCM | no significant overhead |
+Real LLM writers from two families (1.5B–7B parameters) populate memory over LoCoMo conversations; the adversary holds every file plus current keys:
+- After logical deletion, **70 of 71** forgotten secrets are recovered (all ten conversations, largest model); with per-object or epoch keys, **67 of 71**.
+- With LinEra: **none** recovered.
+- System cost (E4): writing an object, its key derivation and its vector entry costs **0.28 ms at 10⁶ objects**; reading with a cold key cache **0.16 ms**.
+- Answer-quality evaluation (E3) spans retrieval, small-context writing, and LongMemEval; mem0 case study shows vanilla vs LinEra side by side.
 
 ## Relevance to Our Domain
-RAG pipelines and agent memory stores (vector DBs + provenance metadata) are exactly the lineage-rich substrate this attack targets. The paper gives both a concrete threat model to add to our AI-agent security reviews and an implementable key-hierarchy design for per-item cryptographic erasure in compliance-driven deployments (GDPR-style deletion). Related: [[explanation-mcp-server-side-privilege-escalation]], [[explanation-agentcollab-secure-collaboration]].
+Agent memory systems (mem0-style RAG stacks) that promise "user data deletion" deliver only logical deletion today — a forensic adversary with disk + current keys reconstructs forgotten inputs from derivatives. LinEra offers a concrete cryptographic design for GDPR-style right-to-erasure in agent platforms, but the paper's sharpest engineering lesson is the **lineage rule**: record everything the writer saw, or the guarantee silently breaks. Related: [[explanation-privacy-debt-llm-agent-memory]].
 
 ## References
 - Paper: https://arxiv.org/abs/2611.18133

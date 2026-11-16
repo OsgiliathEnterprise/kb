@@ -1,6 +1,6 @@
 ---
-title: PrivacyPR — A Dataset of Real-World Privacy Fixes for Benchmarking Privacy-Aware
-  Code Review
+title: 'PrivacyPR: A Dataset of Real Privacy-Fix Pull Requests for Privacy-Aware Code
+  Review with AI'
 diataxis: Explanation
 domain: software-development
 topic: ai-assisted-development
@@ -13,35 +13,35 @@ keywords:
 - software-development
 - explanations
 ---
-# PrivacyPR: A Dataset of Real-World Privacy Fixes for Benchmarking Privacy-Aware Code Review
+# PrivacyPR: A Dataset of Real Privacy-Fix Pull Requests for Privacy-Aware Code Review with AI
 
 ## Overview
-LLM code review has become standard practice, yet benchmarks still evaluate it mainly on style, bug-detection quality and API usage. Whether a review comment actually identifies a **privacy defect** in a diff has gone unmeasured. PrivacyPR is a curated dataset of **150 real privacy-related pull requests** from open-source projects — spanning web/mobile apps, backend services, and libraries across seven languages — each with an LLM-assisted review grounded in **GDPR data-minimization and storage-limitation principles**.
+General-purpose code review misses security defects, and privacy defects — violations of the obligations laws like GDPR impose (e.g. purpose limitation, data minimisation, storage limitation) — have received little attention. **PrivacyPR** is a dataset of real-world merged GitHub pull requests that fix privacy defects, curated to evaluate and improve the privacy awareness of AI code reviewers.
 
 ## Problem Statement
-No existing code-review benchmark measures whether LLM reviewers can (1) detect privacy defects in realistic diffs, (2) justify findings with legal grounding, and (3) avoid noise from over-flagging. Without it, "AI-assisted review" quality on privacy-sensitive code is unverifiable.
-
-## Key Contribution
-- **150-PR privacy-fix dataset** with ground-truth privacy findings; per-PR legal grounding (GDPR minimization / storage limitation).
-- **Two orthogonal scoring axes**: *finding correctness* (did the model spot the right privacy defect?) and *review quality* (usefulness/actionability of the comment) — separating detection from presentation.
-- **Actionability controls**: measures over-flagging and noise, not just recall, so reviewers that flag everything are penalized.
-- **Empirical baseline over six open-weight LLMs (2B–20B)**:
-  - Finding detection: 0.46–0.70
-  - Review quality: 0.42–0.64
-  - Noise (false positives): 4.3–10.8 per review
-  - Clear capability tiers by model scale — a ready-made leaderboard for privacy-aware review models.
+There was no large, curated corpus of real privacy fixes to (1) benchmark AI reviewers on detecting privacy defects, (2) study which GDPR principles occur in practice, or (3) train/steer review agents toward privacy concerns.
 
 ## Dataset Facts
-| Property | Value |
+| Attribute | Value |
 |---|---|
-| Pull requests | 150 (real, open-source) |
-| Sectors | web/mobile apps, backends, libraries |
-| Languages | 7 |
-| Legal grounding | GDPR data minimization, storage limitation |
-| Evaluated models | 6 open-weight LLMs, 2B–20B params |
+| Merged PRs | **4,131** across **1,469** GitHub repositories |
+| Collection window | June 2018 – January 2024 |
+| Curation | **1,169** high-confidence privacy fixes + **1,643** non-fixes |
+| Verified split | **250** fixes + **250** non-fixes (manually verified) |
+| Small split | **100** fixes + **100** non-fixes (disjoint from Verified) |
+| Per-PR artifacts | Commits, code diffs, review discussions, LLM-generated labels |
+| Labels | Privacy relevance, fix type, associated GDPR principle |
+| Label quality | Annotators agree with the LLM's GDPR-principle assignment in **72%** of cases |
+| Benchmark harness | Reverts each fix to re-introduce the defect, then asks a reviewer to find it |
+
+## Benchmark Baselines
+Two coding agents (Gemini CLI and SWE-agent, with Gemini model variants) on the Small split:
+- Generic review prompt: detects **42–51%** of the re-introduced privacy defects.
+- Explicitly privacy-aware prompt: detection rises to **88–91%**, at the cost of flagging **11–15%** of non-fix PRs.
+This shows current agents are capable privacy reviewers **only when explicitly directed** — prompting for privacy, not raw model capability, is the lever.
 
 ## Relevance to Our Domain
-For AI-assisted DevOps pipelines, this is the first reference benchmark to wire privacy review into CI quality gates: use its two-axis scoring and noise metrics when selecting/configuring LLM reviewers, and its GDPR grounding template when writing review prompts for regulated codebases. Related: [[explanation-ai-generated-code-trustworthiness]].
+Directly usable to build and evaluate a privacy-aware review gate in AI-assisted development pipelines: replay PRs with the revert harness as a regression suite, and calibrate a GDPR taxonomy for review prompts against the 72%-validated LLM labels. Related: [[howto-ai-code-review-pipeline]] in this topic.
 
 ## References
 - Paper: https://arxiv.org/abs/2611.18293

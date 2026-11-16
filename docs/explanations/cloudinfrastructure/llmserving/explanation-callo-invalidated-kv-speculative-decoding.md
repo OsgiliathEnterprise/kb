@@ -1,6 +1,6 @@
 ---
-title: Callo — Serving Cache-Miss Requests with Speculative Decoding on Invalidated
-  KV under Prefill-Decode Disaggregation
+title: 'Callo: Serving Cache-Miss Requests with Speculative Decoding on Invalidated
+  KV under Prefill-Decode Disaggregation'
 diataxis: Explanation
 domain: cloud-infrastructure
 topic: llm-serving
@@ -16,26 +16,24 @@ keywords:
 # Callo: Serving Cache-Miss Requests with Speculative Decoding on Invalidated KV under Prefill-Decode Disaggregation
 
 ## Overview
-In prefill/decode (PD) disaggregation, cache-miss requests suffer a split critical path: prefill fills the KV cache while decode waits idle. Existing designs close that gap by *prefill-speculating* draft tokens — but those draft KV entries are written back as "invalidated KV". Callo shows this invalidated KV is not dead weight: under a unified position-addressed KV organization, it can serve as the speculative-decoding draft for the **same** request. Two serving instances run concurrently — the original PD pipeline plus a speculating pipeline — and the faster one's output wins, with a KV-aware restoration protocol keeping the two views consistent.
+Agent sessions involve frequent context edits, which effectively invalidate cached KV state and force the affected requests to wait for a full re-prefill before decoding can begin. Callo is a prefill/decode (PD) disaggregated serving system that turns this invalidated KV into an asset: it reuses it as speculative-decoding drafts for the cache-miss request itself, then verifies the drafts against the exact KV produced by the completed prefill before committing any token. Drafting overlaps the exact re-prefill, so decode capacity that would otherwise idle during the re-prefill wait is put to work.
 
 ## Problem Statement
-Cache misses make the prefill stage dominant: decode sits idle and speculative decoding (SD) only accelerates the short decode phase. Meanwhile, invalidated KV produced by prefill-speculation has no consumer and is simply ignored. The result is a split critical path that neither PD disaggregation nor SD alone fixes.
+Under PD disaggregation, a cache miss creates a split critical path: the prefill instance does the re-prefill while decode instances sit idle, and classic speculative decoding only accelerates the short decode phase — not the prefill-dominated wait. The KV entries invalidated by context edits were previously discarded even though they still encode most of what the request will need.
 
 ## Key Contribution
-- **First systematic exploitation of invalidated KV**: repurposing it as SD draft KV for the same request, so SD accelerates the *prefill-dominated* phase instead of only the decode-dominated one.
-- **Unified position-addressed KV organization**: an abstract logical layer over the physical blocks so original and speculative KV stay mutually visible, without modifying either engine's physical layout.
-- **Dual-instance racing**: concurrent original-PD + speculating pipelines; whichever finishes first supplies the output.
-- **KV-aware restoration protocol**: guarantees consistency between the racing KV views.
+- **Invalidated KV as speculative draft state**: the discarded KV from pre-speculation/context-edit invalidation becomes the draft source for speculative decoding of the same request.
+- **Verify-before-commit**: every drafted token is verified against the exact KV after prefill completes, preserving output equivalence with non-speculative execution.
+- **Opportunistic speculation scheduling**: speculation is scheduled while decode instances are underutilized and preempted when drafts are likely not to be accepted, protecting decode capacity.
+- **Drafting overlapped with exact re-prefill** plus a decode-side admission/policy layer and serving integration into a disaggregated stack.
 
 ## Results
-On vLLM, A100 and H100, Qwen3-8B/14B/32B:
-- TTFT reduction up to **3.7×**
-- throughput improvement up to **2.1×**
-- up to **2.3×** lower decode latency and **3.4×** faster prefill
-- energy per token reduced up to **58.2%**
+Evaluated on a two-GPU testbed replaying SWE-agent sessions across three model families:
+- All-request speedups of **1.05–1.19× over vLLM at moderate load**.
+- Cluster-scale simulations driven by real-world traces show the gains carry over to larger deployments across different prefill:decode allocations.
 
 ## Relevance to Our Domain
-PD disaggregation (DistServe/Splitwise-style) is now the default architecture for GPU serving platforms; cache-miss handling is the main TTFT lever for prefix-cache-unfriendly workloads. Callo's "race both pipelines, keep the winner" pattern and its reuse of garbage KV is a concrete design idea for serving stacks like vLLM/SGLang and for our GPU fleet cost/energy analysis. See also [[reference-kvcompass-prefix-cache-discovery]] and [[explanation-mosaickv-dynamic-2d-kv-cache-compression]] in this topic.
+PD disaggregation is the default architecture for GPU serving platforms; agent workloads with heavy context editing (SWE-agent-style sessions) are exactly the case where prefix caches churn and re-prefill dominates TTFT. Callo's "recycle invalidated KV as speculation, verify before commit" pattern is a concrete design idea for vLLM/SGLang-class serving stacks and for sizing P:D pools. See also [[reference-kvcompass-prefix-cache-discovery]] and [[explanation-mosaickv-dynamic-2d-kv-cache-compression]] in this topic.
 
 ## References
 - Paper: https://arxiv.org/abs/2611.18459

@@ -16,26 +16,24 @@ keywords:
 # ModHarness-RL: Recasting Harnesses as Learnable and Evolving Programs for Agentic RL
 
 ## Overview
-Agentic RL systems normally train only the policy weights while the surrounding *harness* — control flow, tools, memory, feedback loops, context assembly — stays frozen as hand-written scaffolding. ModHarness-RL reverses that asymmetry: it treats each harness component as an independent, editable **executable program** (a module contract plus implementation) maintained by an LLM evolver, while the target model's weights are never touched. Harness variants compete on the training split and only "champions" survive, so the control layer evolves under the same selection pressure as a policy would.
+Agentic RL normally trains only the policy weights under a **hand-written harness** (the scaffold deciding what the model sees of its own interaction and what guidance it receives) that stays fixed throughout training — yet the right harness depends on domain, data and model, and drifts as the model trains. ModHarness-RL recasts the harness as **programs learned from data that evolve together with the model**, with no weight updates to the harness side.
 
 ## Problem Statement
-The harness encodes behavioural priors as rigid engineering, which limits controllability and transparency. If scaffolding is fixed at design time, you cannot inspect *why* an agent behaves a certain way, nor adapt it per-task. The open question: can harness quality be optimized reliably without ever updating model weights?
+A fixed harness encodes behavioural priors as rigid scaffolding chosen at design time. As the policy improves, the context-assembly and guidance logic that helped early in training becomes stale, and rewriting it by hand per domain/model is neither systematic nor inspectable.
 
 ## Key Contribution
-- **Modular harness as code**: each component (control flow, tools, memory, feedback, context assembly) is exposed through a module contract; an LLM evolver proposes new implementations as executable programs.
-- **Champion selection**: candidate programs are scored on the training split; only champions are retained — an explicit evolutionary loop over scaffolding.
-- **Cross-model transfer**: a harness evolved for one backbone can be plugged into a different backbone and still improve it (Qwen3-4B-Instruct, MiniCPM-4.1-8B).
-- **Behaviour as readable artefacts**: learned control patterns surface as *selective vision refinement*, *redundant-action suppression*, and *cross-turn evidence accumulation* — inspectable code rather than opaque weights.
+- **Interaction recorded as structured State**: a set of typed blocks capturing the agent's trajectory, instead of an opaque message string.
+- **Harness components as programs over State**: a *Compression* program assembles accumulated history into the model's context; a *Steering* program supplies guidance when behavior deviates.
+- **Evolution loop during RL**: candidate programs are proposed from recent trajectories, **verified by execution**, and **replayed over past trajectories**, so the harness tracks the model's shifting behavior rather than freezing at design time.
 
 ## Technical Approach
-The evolver proposes program variants per module; variants are evaluated on the training split and ranked; champion programs are composed into the active harness. Because everything is Python-level programs behind contracts, the same evolved harness generalizes across backbones. Evaluation spans seven task domains: search, math, math-visual, knowledge QA, web browsing, SQL and programming.
+Propose → execute-verify → replay: candidate Compression/Steering programs are generated from recent trajectories, must run without error, and are re-scored by replay over past trajectories before being adopted. Because harness logic is code over typed State blocks, it is diffable, testable and versionable independently of the policy.
 
 ## Results
-- Avg@8 accuracy gains over the strongest fixed-harness baseline on **all seven evaluated task domains**, across all three backbone LLMs.
-- Gains persist without any weight updates — an order of magnitude cheaper than policy training.
+Studied in depth on **CodeSearch**, with further analysis on **ALFWorld** and **BIRD SQL**, using models from **1.5B to 8B** parameters. The learned Compression and Steering mechanisms improve **held-out performance over a fixed-harness baseline in most settings** — evidence that a harness for agentic RL can be learned from the task's data and evolved with the model.
 
 ## Relevance to Our Domain
-For agent infrastructure teams, this reframes "prompt + scaffolding engineering" as a trainable artefact: harness code becomes a versioned, benchmarked, evolvable component. The champion-selection pattern maps directly onto CI-style evaluation pipelines we already run for agents.
+For agent infrastructure teams, this reframes "prompt + scaffolding engineering" as a trainable artefact: context-compression and steering logic become versioned, execution-verified, replay-benchmarked components — a pattern directly portable onto CI-style evaluation pipelines we already run for agents, even outside RL (e.g. offline harness regression). Related: [[explanation-experience-handoff-rl-recursive-self-improvement]].
 
 ## References
 - Paper: https://arxiv.org/abs/2611.18533

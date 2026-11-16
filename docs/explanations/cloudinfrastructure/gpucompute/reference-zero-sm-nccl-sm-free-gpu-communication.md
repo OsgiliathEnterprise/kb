@@ -1,5 +1,5 @@
 ---
-title: Zero-SM NCCL — A Systematic Guide to Designing and Deploying SM-Free GPU Communication
+title: 'Zero-SM NCCL: A Systematic Guide to Designing and Deploying SM-Free GPU Communication'
 diataxis: Explanation
 domain: cloud-infrastructure
 topic: gpu-compute
@@ -15,28 +15,31 @@ keywords:
 # Zero-SM NCCL: A Systematic Guide to Designing and Deploying SM-Free GPU Communication
 
 ## Overview
-GPU collectives normally occupy streaming multiprocessors (SMs), stealing compute from training. A recent technique removes SMs from the datapath: **Zero-SM NCCL** uses GPUDirect Async-Task (GDAT) so the collective progresses entirely through DMA engines plus a GPU front-end scheduling unit. This paper is the first systematic account of that design space: it explains the mechanisms, quantifies the performance and resource benefits, and distils deployment recipes — with NCCL 2.29 as the reference implementation.
-
-## Problem Statement
-SM-free collective communication is newly emerging; the field lacks a consolidated understanding of *how* to design and deploy it, and of where it actually pays off vs classic SM-based communication.
+NCCL-class GPU communication libraries use Streaming Multiprocessors (SMs) for data movement and synchronization, stealing throughput from overlapped computation — a cost that grows with interconnect bandwidth. Zero-SM NCCL communicates within and across scale-up domains **without launching any SM kernel**: synchronization runs through CUDA stream memory operations, data moves asynchronously via copy engines within a scale-up domain, and network RDMA is driven from a stream-ordered CPU proxy. This paper is the first systematic guide to that design space: mechanisms, quantified benefits, and deployment recipes, built on **NCCL 2.32.3** extended with the required features.
 
 ## Key Contribution
-- **Mechanism taxonomy**: GDAT-based progression of collectives via DMA + front-end scheduling unit, with SMs fully out of the datapath.
-- **Benefit quantification**: communication runs concurrently with computation without SM contention.
-- **Deployment recipes**: concrete guidance for production collective communication.
-- **Limitation map**: profiles where SM-free communication underperforms — small data volumes (DMA setup overhead dominates), host-mediated control-plane operations, and workloads needing fine-grained synchronization with SM-executed kernels.
+- **SM-free mechanism stack**: CUDA stream memory ops for sync + copy-engine data movement + stream-ordered CPU proxy for RDMA — SMs fully out of the collective datapath.
+- **API surface**: data-movement collectives (AllGather, AlltoAll) plus one-sided `ncclPutSignal` / `ncclWaitSignal` APIs.
+- **Quantified benefits and a decision rule** distilled from an end-to-end study across models and parallelism strategies.
 
 ## Technical Reference Points
 | Aspect | Detail |
 |---|---|
-| Enabling hardware feature | GPUDirect Async-Task (GDAT) |
-| Datapath engines | DMA engines + GPU front-end scheduling unit (no SMs) |
-| Reference implementation | NCCL 2.29 |
-| Sweet spot | Large-volume collectives overlapping with compute |
-| Anti-patterns | Small messages; host-mediated control; tight SM sync |
+| Synchronization | CUDA stream memory operations |
+| Intra-domain data movement | Copy engines (async, no SM kernels) |
+| Network RDMA | Stream-ordered CPU proxy |
+| APIs | AllGather, AlltoAll, one-sided `ncclPutSignal`/`ncclWaitSignal` |
+| Evaluated on | GB200 NVL72 and B200 NVL8 systems |
+| Reference implementation | NCCL 2.32.3 (+ unreleased features) |
+| AllGather bandwidth | up to **1.36×** vs legacy SM-based NCCL kernels |
+| Overlapped GEMM median slowdown | **33% → 4%** |
+| Megatron-LM gains | FSDP up to **+3.5%**; pipeline parallelism up to **+15%** (one-sided puts) |
+| Trade-off | Higher latency per operation than SM kernels |
+| Pays off | Large transfers in GPU-bound workloads; deep pipelines with large bubbles |
+| Loses | Small messages; host-bound workloads |
 
 ## Relevance to Our Domain
-For large-scale distributed training on GPU fleets, SM-free collectives are the overlap mechanism that frees the whole SM budget for kernels — but only above certain message sizes. This guide is the lookup table for deciding when to enable it in NCCL-based training jobs. Related: [[reference-p2p-collectives-topology-aware-overlap]] in this topic.
+For large-scale distributed training on GPU fleets, SM-free collectives free the entire SM budget for kernels — but the paper's own win/loss map shows it is conditional: enable it for large-message, GPU-bound collectives and deep pipelines; keep classic SM-based communication for small messages and host-bound phases. This note is the lookup table for that decision in NCCL-based training jobs. Related: [[reference-p2p-collectives-topology-aware-overlap]] in this topic.
 
 ## References
 - Paper: https://arxiv.org/abs/2611.18075

@@ -1,5 +1,5 @@
 ---
-title: From Bytes to Behavior — Request-Level Attribution from Live GPU Hidden States
+title: 'From Bytes to Behavior: Request-Level Attribution from Live GPU Hidden States'
 diataxis: Explanation
 domain: security-privacy
 topic: ai-agent-security
@@ -15,25 +15,24 @@ keywords:
 # From Bytes to Behavior: Request-Level Attribution from Live GPU Hidden States
 
 ## Overview
-Memory forensics can extract *artefacts* from a compromised LLM serving host — KV blocks, prompt fragments, activation tensors — but artefacts alone do not answer the operational question: which request or session produced this behaviour? The paper presents the first end-to-end framework that turns raw GPU state into **request- and session-level attribution** during live inference. The core device, **TensorPrint**, attributes a recovered KV block to its originating prompt and classifies model behaviour directly from recovered activation tensors.
+Existing memory forensics for ML systems targets static artifacts — model weights, prompt logs — not the transient computational states of a live inference process. That gap blocks examiners from analyzing the specific behavior of a running LLM service that cannot be restarted or modified. This work attaches a **non-modifying debugger** (cuda-gdb) to a live vLLM/SGLang process and acquires **per-layer residual-stream activations**, without prior knowledge of the model's architecture parameters or weights — a general six-stage process with platform-specific adapters, using either a PyTorch allocator clock or a kernel-launch clock to identify and read tensor allocations from video memory.
 
 ## Problem Statement
-Incident response for LLM serving infrastructure has no method to bind recovered GPU artefacts to specific requests: KV blocks and activations are anonymous tensors. Without that binding, forensic evidence cannot support access decisions, abuse triage, or audit.
+For incident response on a running LLM service, there is no equivalent of a process memory dump that yields per-request behavior: hidden states vanish between steps, restarts destroy evidence, and instrumentation modifies the very system under examination. Attribution — which request produced which behavior — has no forensic evidence source.
 
 ## Key Contribution
-- **First request-level attribution framework from live GPU state** (KV blocks + activation tensors), evaluated on real deployments: Llama-3.1-8B and Qwen-2.5-14B on NVIDIA L4, RTX 6000 Ada, H100, under batch, continuous batching and p/d disaggregation.
-- **TensorPrint**: prompt-level attribution of a KV block via **Gumbel-Softmax search over token-level cosine similarity**; behaviour classification from activation tensors.
-- **Behavioural taxonomy** with four operational categories: refusal, anomalous (statistical outlier), high-risk, benign.
-- **Operational metrics**: false-positive rate, evidence quality, and a proposed **GPU Evidence Preservation Score** for incident-response readiness.
-
-## Technical Approach
-The framework reconstructs prompt-to-KV bindings by searching token embeddings (Gumbel-Softmax relaxed optimization) against candidate prompts, scoring cosine similarity; a parallel classifier reads recovered activation tensors to label behaviour. Experiments include **grounded** conditions (known request set) and **open-world** conditions where the ground-truth prompt may be absent — the latter measures how often the system wrongly attributes unknown prompts to known candidates, the key FP risk for real IR.
+- Live, read-only acquisition of per-layer residual-stream activations from an unmodified inference process via a debugger, no architecture/weight knowledge required.
+- Tensor-discovery via allocation clocks (PyTorch allocator clock or kernel-launch clock) instead of symbols.
+- Validation on **33 open-source decoder-only models across nine architecture classes**, recovered bytes byte-exact and usable downstream.
+- Request-level attribution as a use case: linear probes trained on standard framework activations, applied to recovered states, distinguish refusal from compliance.
 
 ## Results
-Strong attribution on known request sets in grounded settings; in open-world conditions the system exhibits a measurable tendency to attribute unseen prompts to known ones — quantified rather than hidden, giving defenders a calibrated confidence model.
+- Byte-exact layer recovery on the 33-model / 9-family suite (Qwen2.5, TinyLlama, Llama-3.2 and more), typically within four to six debugger passes.
+- **Refusal vs compliance: AUROC 0.88** on held-out prompts; request-level refusal classification with **5–15% error rates** on held-out sources; on 142 untouched prompts a frozen probe reaches AUROC 0.88 with a 28% false-positive rate.
+- Honest operational envelope: models up to **3.4B parameters** (plus one 7B model with 4-bit weights), batch size 1, single NVIDIA RTX 2080 Max-Q (8 GB), vLLM 0.32.0 / SGLang 0.5.23; TensorRT-LLM/TGI untested.
 
 ## Relevance to Our Domain
-As we operate GPU serving platforms for agents, GPU-state forensics becomes part of the security playbook: this paper supplies the first attribution methodology plus metrics (GPU Evidence Preservation Score) to assess whether our serving hosts preserve usable evidence after compromise. Related: [[explanation-forget-the-lineage-cryptographic-erasure-agent-memory]].
+For GPU serving platforms, this opens a genuine incident-response capability: answer "what did this live deployment actually do for request X" from hidden-state evidence without modifying the service — complementary to application-layer audit logs. The stated boundaries (model size, batch 1, per-platform adapters, intrusive-enough-to-attach debugger) define where today's forensic readiness is actually achievable. Related: [[explanation-forget-the-lineage-cryptographic-erasure-agent-memory]] in this topic.
 
 ## References
 - Paper: https://arxiv.org/abs/2611.18272
