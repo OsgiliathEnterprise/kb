@@ -4,14 +4,7 @@ title: Commit the Conversation — Keep Partial Voice Turns Out of Your AI Compa
 diataxis: Tutorial
 domain: ai-machine-learning
 topic: multimodal
-source: DEV.to Tech News
-source_url: https://dev.to/susiewang/commit-the-conversation-keep-partial-voice-turns-out-of-your-ai-companions-context-mb
-date: 2026-08-30
-keywords:
-- knowledge-base
-- multimodal
-- ai-machine-learning
-- tutorials
+source: ''
 ---
 # Commit the Conversation — Keep Partial Voice Turns Out of Your AI Companion's Context
 
@@ -85,6 +78,18 @@ type Event =
 
 Reduce events immutably (`replaceTurn` returns a new session), and guard against stale callbacks: an event whose `requestId` no longer matches the turn's current request, or that arrives after `INTERRUPTED`, is dropped — it cannot revive an old turn.
 
+## Production validation: Pipecat's interruption handling
+
+Pipecat (the open-source realtime voice-agent framework) implements exactly this commit discipline in production, which is a useful existence proof that the four rules are not over-engineering:
+
+- **Only spoken words reach context.** As the bot speaks, the output transport pushes `TTSTextFrame`s *in sync with audio playback*; text that never played never reaches the assistant context aggregator. On barge-in the aggregator commits the **partial, spoken-so-far text** as the assistant message — so the next LLM completion sees "the bot's message ends where the user cut it off, not where the LLM's generation ended." This is the `deliveredAssistantText` invariant, implemented.
+- **One frame cancels everything stale.** A user interruption broadcasts an `InterruptionFrame` (a `SystemFrame`, so it jumps queued frames): every processor cancels its task, the in-flight LLM stream is stopped mid-generation, TTS clears buffers and word timestamps, and the transport drains unplayed audio. Non-interruptible frames (e.g., `FunctionCallResultFrame`, `EndFrame`) are deliberately preserved — the same "some events must survive a turn transition" nuance as this note's stale-callback guard.
+- **Voided eager answers.** When the LLM answers before the turn ends (eager end-of-turn), and the user speaks again first, that answer is *voided* rather than committed — mirroring this note's rule that an LLM completion is only a draft.
+- **Empty interruptions are still handled.** A cough or noise interrupts playback but produces no transcript; instead of a stalled conversation, Pipecat runs the LLM once with an `empty_user_turn` config so the bot asks the user to repeat. Your state machine needs the same explicit "interrupted, but no user commit" path.
+- **Interrupt *detection* policy is separable from the commit protocol.** Backchannels ("uh-huh") can be filtered with a model (Krisp VIVA interruption prediction), short utterances excluded (`MinWordsUserTurnStartStrategy(min_words=3)`), and speech-over-bot discarded entirely with mute strategies. Provider-side speech-to-speech (Gemini Live, OpenAI Realtime) decides *when* the barge-in happened, but the local pipeline still flushes audio and commits only spoken text — the boundary logic stays yours even when detection is outsourced.
+
+Observability hook worth copying into any implementation: Pipecat's `on_assistant_turn_stopped` event reports the committed text *and* whether the turn was interrupted — i.e., the commit record itself carries the provenance this note argues for.
+
 ## Key takeaways
 
 - The model only sees what your application presents; garbage in history becomes confident fiction.
@@ -95,6 +100,8 @@ Reduce events immutably (`replaceTurn` returns a new session), and guard against
 
 - [Commit the Conversation: Keep Partial Voice Turns Out of Your AI Companion's Context (DEV.to)](https://dev.to/susiewang/commit-the-conversation-keep-partial-voice-turns-out-of-your-ai-companions-context-mb)
 - [Tencent RTC Conversational AI overview](https://trtc.io/document/conversational-ai-overview?product=conversationalai)
+- [Interruptions — Pipecat docs (spoken-only context commits, InterruptionFrame, empty_user_turn, mute/backchannel strategies)](https://docs.pipecat.ai/pipecat/fundamentals/interruptions)
+- [Configuring turn detection and interruptions in LiveKit Agents](https://livekit.com/blog/turn-detection-and-interruption-handling)
 
 ## Related
 - [[explanation-netflix-maps-multimodal-asset-personalization]]
