@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="36.0 -4.0 1328.0 798.0" width="1328" height="798">
+<rect x="36.0" y="-4.0" width="1328.0" height="798.0" fill="#ffffff"/>
+<rect x="80.0" y="80.0" width="520.0" height="90.0" rx="8" fill="#ffe3e3" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="80.0" y="200.0" width="520.0" height="90.0" rx="8" fill="#fff3bf" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="80.0" y="320.0" width="520.0" height="90.0" rx="8" fill="#fff3bf" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="80.0" y="440.0" width="520.0" height="90.0" rx="8" fill="#d0ebff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="80.0" y="560.0" width="520.0" height="90.0" rx="8" fill="#d0ebff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="80.0" y="680.0" width="520.0" height="90.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 340.0 170.0 L 340.0 200.0"/><line x1="340.0" y1="200.0" x2="344.6" y2="190.6"/><line x1="340.0" y1="200.0" x2="335.4" y2="190.6"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 340.0 290.0 L 340.0 320.0"/><line x1="340.0" y1="320.0" x2="344.6" y2="310.6"/><line x1="340.0" y1="320.0" x2="335.4" y2="310.6"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 340.0 410.0 L 340.0 440.0"/><line x1="340.0" y1="440.0" x2="344.6" y2="430.6"/><line x1="340.0" y1="440.0" x2="335.4" y2="430.6"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 340.0 530.0 L 340.0 560.0"/><line x1="340.0" y1="560.0" x2="344.6" y2="550.6"/><line x1="340.0" y1="560.0" x2="335.4" y2="550.6"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 340.0 650.0 L 340.0 680.0"/><line x1="340.0" y1="680.0" x2="344.6" y2="670.6"/><line x1="340.0" y1="680.0" x2="335.4" y2="670.6"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="22" fill="#1e1e1e" text-anchor="start"><tspan x="60.0" y="37.6">uBlock Origin UXSS - website-driven element picker attack chain</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="90.0" y="100.8">Malicious website</tspan><tspan x="90.0" y="120.8">hooks XMLHttpRequest.open</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="90.0" y="220.8">Trigger no-fetch-if filter</tspan><tspan x="90.0" y="240.8">-&gt; leak moz-extension UUID</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="90.0" y="340.8">Invisible iframe:</tspan><tspan x="90.0" y="360.8">epicker-ui.html (web-accessible)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="90.0" y="460.8">postMessage: showDialog + opt=</tspan><tspan x="90.0" y="480.8">&quot;image\ngoogle.com##+js(trusted-rpnt...)&quot;</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="90.0" y="580.8">Victim's ordinary click hits</tspan><tspan x="90.0" y="600.8">invisible 'Create' button</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="90.0" y="700.8">Arbitrary TRUSTED filter added</tspan><tspan x="90.0" y="720.8">-&gt; scriptlet injects JS on any site</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="20" fill="#1e1e1e" text-anchor="start"><tspan x="640.0" y="136.0">Fix: picker now requires a secret</tspan><tspan x="640.0" y="161.0">password from the content script</tspan><tspan x="640.0" y="186.0">in the initial postMessage</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="20" fill="#1e1e1e" text-anchor="start"><tspan x="640.0" y="336.0">Filters stay trusted until the next</tspan><tspan x="640.0" y="361.0">recompile - attacker navigates</tspan><tspan x="640.0" y="386.0">immediately to the victim page</tspan></text>
+</svg>

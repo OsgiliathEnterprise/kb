@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="36.0 -4.0 1578.0 488.0" width="1578" height="488">
+<rect x="36.0" y="-4.0" width="1578.0" height="488.0" fill="#ffffff"/>
+<rect x="60.0" y="120.0" width="230.0" height="140.0" rx="8" fill="#d0ebff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="320.0" y="120.0" width="230.0" height="140.0" rx="8" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="580.0" y="120.0" width="230.0" height="140.0" rx="8" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="840.0" y="120.0" width="230.0" height="140.0" rx="8" fill="#ffe3e3" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="1100.0" y="120.0" width="230.0" height="140.0" rx="8" fill="#ffd8a8" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="1360.0" y="120.0" width="230.0" height="140.0" rx="8" fill="#d0ebff" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 290.0 190.0 L 320.0 190.0"/><line x1="320.0" y1="190.0" x2="310.6" y2="185.4"/><line x1="320.0" y1="190.0" x2="310.6" y2="194.6"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 550.0 190.0 L 580.0 190.0"/><line x1="580.0" y1="190.0" x2="570.6" y2="185.4"/><line x1="580.0" y1="190.0" x2="570.6" y2="194.6"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 810.0 190.0 L 840.0 190.0"/><line x1="840.0" y1="190.0" x2="830.6" y2="185.4"/><line x1="840.0" y1="190.0" x2="830.6" y2="194.6"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 1070.0 190.0 L 1100.0 190.0"/><line x1="1100.0" y1="190.0" x2="1090.6" y2="185.4"/><line x1="1100.0" y1="190.0" x2="1090.6" y2="194.6"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 1330.0 190.0 L 1360.0 190.0"/><line x1="1360.0" y1="190.0" x2="1350.6" y2="185.4"/><line x1="1360.0" y1="190.0" x2="1350.6" y2="194.6"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="22" fill="#1e1e1e" text-anchor="start"><tspan x="60.0" y="37.6">AI agent auth: joining SPIFFE workload identity with OAuth delegation</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="70.0" y="139.2">Agent</tspan><tspan x="70.0" y="156.7">(no secret at rest)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="330.0" y="139.2">SPIRE Workload API</tspan><tspan x="330.0" y="156.7">-&gt; issues SVID (X.509/JWT)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="590.0" y="139.2">Gateway</tspan><tspan x="590.0" y="156.7">verifies SPIFFE ID</tspan><tspan x="590.0" y="174.2">on the wire</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="850.0" y="139.2">Authorization server</tspan><tspan x="850.0" y="156.7">RFC 8693 exchange:</tspan><tspan x="850.0" y="174.2">subject_token=user</tspan><tspan x="850.0" y="191.7">actor_token=JWT-SVID</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="1110.0" y="139.2">Audience-restricted access token</tspan><tspan x="1110.0" y="156.7">(scopes, expiry, user sub)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="1370.0" y="139.2">Backend / MCP tool</tspan><tspan x="1370.0" y="156.7">allows the call</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="20" fill="#1e1e1e" text-anchor="start"><tspan x="60.0" y="336.0">Rule: never forward the same bearer/SVID down an agent chain -</tspan><tspan x="60.0" y="361.0">mint a new audience-restricted token per hop (RFC 8707 resource indicator).</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="20" fill="#1e1e1e" text-anchor="start"><tspan x="60.0" y="416.0">Valid SVID != permission: policy (CEL / gateway ACL on source.spiffeId)</tspan><tspan x="60.0" y="441.0">decides authorization; OAuth scopes decide capability.</tspan></text>
+</svg>
