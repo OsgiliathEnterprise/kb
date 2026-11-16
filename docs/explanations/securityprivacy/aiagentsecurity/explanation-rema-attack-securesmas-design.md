@@ -1,20 +1,16 @@
 ---
-title: "ReMA Attacks and SecMAS — Securing LLM Multi-Agent Systems by Design"
+title: ReMA Attacks and SecMAS — Securing LLM Multi-Agent Systems by Design
 diataxis: Explanation
-domain: Security & Privacy
-topic: AI Agent Security
-source: "arXiv"
-source_url: "https://arxiv.org/abs/2611.17883"
-arxiv_id: "2611.17883"
+domain: security-privacy
+topic: ai-agent-security
+source: arXiv
+source_url: https://arxiv.org/abs/2611.17883
 date: 2026-11-16
 keywords:
 - knowledge-base
-- Multi-Agent Systems
-- Prompt Injection
-- Security by Design
-- AI Agent Security
+- ai-agent-security
+- security-privacy
 - explanations
-visibility: public
 ---
 # ReMA Attacks and SecMAS: Security by Design for LLM Multi-Agent Systems
 

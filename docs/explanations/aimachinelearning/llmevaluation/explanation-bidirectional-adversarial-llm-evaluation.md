@@ -1,20 +1,16 @@
 ---
-title: "When Both Sides Adapt — Bidirectional Adversarial Evaluation of LLMs"
+title: When Both Sides Adapt — Bidirectional Adversarial Evaluation of LLMs
 diataxis: Explanation
-domain: AI & Machine Learning
-topic: LLM Evaluation
-source: "arXiv"
-source_url: "https://arxiv.org/abs/2611.17239"
-arxiv_id: "2611.17239"
+domain: ai-machine-learning
+topic: llm-evaluation
+source: arXiv
+source_url: https://arxiv.org/abs/2611.17239
 date: 2026-11-16
 keywords:
 - knowledge-base
-- LLM Evaluation
-- Adversarial Evaluation
-- Benchmark Saturation
-- ELO
+- llm-evaluation
+- ai-machine-learning
 - explanations
-visibility: public
 ---
 # When Both Sides Adapt: Bidirectional Adversarial Evaluation of Large Language Models
 

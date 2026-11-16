@@ -1,20 +1,17 @@
 ---
-title: "C-to-Rust Translation — Iteratively Generating Natural-Language Specs to Drive LLM Porting"
-diataxis: How-to
-domain: Software Development
-topic: AI-Assisted Development
-source: "arXiv"
-source_url: "https://arxiv.org/abs/2611.17581"
-arxiv_id: "2611.17581"
+title: C-to-Rust Translation — Iteratively Generating Natural-Language Specs to Drive
+  LLM Porting
+diataxis: How-to Guide
+domain: software-development
+topic: ai-assisted-development
+source: arXiv
+source_url: https://arxiv.org/abs/2611.17581
 date: 2026-11-16
 keywords:
 - knowledge-base
-- Rust Migration
-- LLM Code Translation
-- Specification Mining
-- Human-in-the-Loop
+- ai-assisted-development
+- software-development
 - how-to
-visibility: public
 ---
 # How to Drive LLM C-to-Rust Translation with Iteratively Generated Natural-Language Specs
 

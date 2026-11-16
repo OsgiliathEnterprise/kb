@@ -1,20 +1,16 @@
 ---
-title: "TailGuard-GDS — Storage Bandwidth QoS for GPU-Direct NVMe under Oversubscription"
-diataxis: Reference
-domain: Cloud Infrastructure
-topic: GPU Compute
-source: "arXiv"
-source_url: "https://arxiv.org/abs/2611.17824"
-arxiv_id: "2611.17824"
+title: TailGuard-GDS — Storage Bandwidth QoS for GPU-Direct NVMe under Oversubscription
+diataxis: Explanation
+domain: cloud-infrastructure
+topic: gpu-compute
+source: arXiv
+source_url: https://arxiv.org/abs/2611.17824
 date: 2026-11-16
 keywords:
 - knowledge-base
-- GPU Direct Storage
-- NVMe
-- Storage QoS
-- Multi-Tenancy
-- reference
-visibility: public
+- gpu-compute
+- cloud-infrastructure
+- explanations
 ---
 # TailGuard-GDS: Bandwidth QoS for GPU-Direct NVMe Storage under Oversubscription
 

@@ -1,20 +1,17 @@
 ---
-title: "Soteria — Specification-Guided Verification and Runtime Enforcement for Safe LLM Agents"
+title: Soteria — Specification-Guided Verification and Runtime Enforcement for Safe
+  LLM Agents
 diataxis: Explanation
-domain: AI & Machine Learning
-topic: Agent Architecture
-source: "arXiv"
-source_url: "https://arxiv.org/abs/2611.17880"
-arxiv_id: "2611.17880"
+domain: ai-machine-learning
+topic: agent-architecture
+source: arXiv
+source_url: https://arxiv.org/abs/2611.17880
 date: 2026-11-16
 keywords:
 - knowledge-base
-- AI Agents
-- Agent Safety
-- Formal Verification
-- Runtime Enforcement
+- agent-architecture
+- ai-machine-learning
 - explanations
-visibility: public
 ---
 # Soteria: Specification-Guided Verification and Runtime Enforcement for Safe LLM Agents
 

@@ -1,20 +1,16 @@
 ---
-title: "DGA Jailbreak — Weaponising Image Tool Sets Against VLM Agents"
+title: DGA Jailbreak — Weaponising Image Tool Sets Against VLM Agents
 diataxis: Explanation
-domain: Security & Privacy
-topic: AI Agent Security
-source: "arXiv"
-source_url: "https://arxiv.org/abs/2611.17818"
-arxiv_id: "2611.17818"
+domain: security-privacy
+topic: ai-agent-security
+source: arXiv
+source_url: https://arxiv.org/abs/2611.17818
 date: 2026-11-16
 keywords:
 - knowledge-base
-- Vision Language Models
-- Jailbreak
-- AI Agent Security
-- Image Generation Tools
+- ai-agent-security
+- security-privacy
 - explanations
-visibility: public
 ---
 # DGA Jailbreak: Adversarial Images from Agent Image Tool Sets Break VLM Agent Guardrails
 

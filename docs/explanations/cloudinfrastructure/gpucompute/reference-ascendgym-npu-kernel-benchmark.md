@@ -1,21 +1,17 @@
 ---
-title: "AscendGYM — A Compiler-Native, Execution-Grounded Benchmark for LLM NPU Kernel Generation"
-diataxis: Reference
-domain: Cloud Infrastructure
-topic: GPU Compute
-source: "arXiv"
-source_url: "https://arxiv.org/abs/2611.17621"
-arxiv_id: "2611.17621"
+title: AscendGYM — A Compiler-Native, Execution-Grounded Benchmark for LLM NPU Kernel
+  Generation
+diataxis: Explanation
+domain: cloud-infrastructure
+topic: gpu-compute
+source: arXiv
+source_url: https://arxiv.org/abs/2611.17621
 date: 2026-11-16
 keywords:
 - knowledge-base
-- Kernel Generation
-- NPU
-- Benchmark
-- LLM Code Generation
-- Huawei Ascend
-- reference
-visibility: public
+- gpu-compute
+- cloud-infrastructure
+- explanations
 ---
 # AscendGYM: Compiler-Native, Execution-Grounded Benchmark for LLM-Driven NPU Kernel Generation
 

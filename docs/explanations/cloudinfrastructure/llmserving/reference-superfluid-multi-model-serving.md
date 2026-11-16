@@ -1,20 +1,16 @@
 ---
-title: "Superfluid — Fine-Grained Multi-LLM Serving on Shared GPUs"
-diataxis: Reference
-domain: Cloud Infrastructure
-topic: LLM Serving
-source: "arXiv"
-source_url: "https://arxiv.org/abs/2611.17753"
-arxiv_id: "2611.17753"
+title: Superfluid — Fine-Grained Multi-LLM Serving on Shared GPUs
+diataxis: Explanation
+domain: cloud-infrastructure
+topic: llm-serving
+source: arXiv
+source_url: https://arxiv.org/abs/2611.17753
 date: 2026-11-16
 keywords:
 - knowledge-base
-- LLM Serving
-- GPU Sharing
-- Memory Management
-- Cloud Infrastructure
-- reference
-visibility: public
+- llm-serving
+- cloud-infrastructure
+- explanations
 ---
 # Superfluid: Fine-Grained Multi-LLM Serving on Shared GPUs
 
