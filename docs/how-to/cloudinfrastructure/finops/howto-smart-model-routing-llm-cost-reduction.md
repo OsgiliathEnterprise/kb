@@ -51,8 +51,20 @@ Use model routing when your traffic is **heterogeneous** (a mix of trivial and h
 
 Directly actionable for our own agent/LLM pipelines and for advising on AI FinOps: model routing is one of the few cost levers with no architectural lock-in. The break-even analysis gives a defensible, quantitative gate before investing in routing infrastructure.
 
+## Off-the-Shelf Routers Before You Build One
+
+The paper's procedure is the right mental model, but check existing tooling before fitting your own classifier (verified via SearXNG, 2026-11-16):
+
+- **RouteLLM (LMSYS, ICLR 2025)** — open-source library; trains routers on human-preference data (similarity, matrix-factorization, BERT-class and LLM-classifier variants). Published benchmark: ~95% of GPT-4 quality at ~26% of GPT-4 cost — the same quality/cost frontier the paper's break-even math predicts.
+- **LiteLLM proxy** — production gateway with load balancing, routing, and fallbacks across providers. ⚠️ Category distinction: gateway routing is mostly **failover/availability** (keep requests reaching a working endpoint under rate limits or outages), **not difficulty-aware cheapest-model selection**. It pairs well with the paper's router — the classifier chooses the tier, the gateway keeps the tier available.
+- **OpenRouter / Portkey** — commercial gateways with routing policies; same failover-vs-cost-selection distinction applies when evaluating their "auto-router" claims.
+
+If your traffic is mostly one difficulty band, none of these pay off — re-check the break-even inequality's easy-query-proportion term before wiring any of them in.
+
 ## References
 
 - Paper: https://arxiv.org/abs/2611.15911 (cs.LG, cs.AI, cs.DC, submitted 2026-11-11)
 - Related: RouteLLM (ICLR 2025) — ~85% cost savings at 95% of GPT-4 quality on MT-Bench (https://www.digitalapplied.com/blog/llm-model-routing-2026-cost-quality-optimization-engineering-guide)
+- [LiteLLM gateway: routing/fallback docs](https://docs.litellm.ai/docs/simple_proxy)
+- [LLM gateway comparison 2026 (LiteLLM vs OpenRouter vs Portkey)](https://wavect.io/blog/llm-gateway-router-comparison-2026/)
 - Semantic Scholar: https://api.semanticscholar.org/graph/v1/paper/arXiv:2611.15911

@@ -48,6 +48,34 @@ Parquet and DuckDB's native storage are both **columnar and organized in row gro
 
 Trade-off to keep in mind: the design pushes consistency and concurrency onto the catalog database — catalog DB availability and scaling become part of the data plane's operational story, in exchange for drastically simpler operations.
 
+## Choosing the catalog database (official guidance, ducklake.select docs)
+
+| Workload | Catalog choice | Concurrency model |
+| --- | --- | --- |
+| Local warehousing, single client | DuckDB file (`ducklake:metadata.ducklake`) | **One process at a time** unless every process attaches `READ_ONLY`; many connections within that process are fine |
+| Local warehousing, multiple local clients | SQLite (`ducklake:sqlite:metadata.sqlite`) | Single writer, but DuckLake **retries lock conflicts**, effectively hiding it |
+| Multi-user lakehouse, remote clients | PostgreSQL (`ducklake:postgres:dbname=… host=…`) | Ordinary Postgres concurrency; requires PG 12+ and the `postgres` extension |
+| Serve a DuckDB catalog to many clients | Quack protocol (`quack:localhost`, default port **9494**) | Token-based secret; server-side `ducklake_commit` when the server has ducklake loaded |
+| MySQL | ⚠️ Officially **not recommended** | Known issues with the DuckDB MySQL connector; MySQL 8+ if forced |
+
+Minimal attach (DuckDB catalog):
+
+```sql
+INSTALL ducklake;
+ATTACH 'ducklake:metadata.ducklake' AS my_ducklake;
+USE my_ducklake;
+```
+
+Postgres catalog — note the explicit `DATA_PATH`, since the catalog DB holds only metadata:
+
+```sql
+INSTALL ducklake; INSTALL postgres;
+ATTACH 'ducklake:postgres:dbname=ducklake_catalog host=localhost' AS my_ducklake
+    (DATA_PATH 'data_files/');
+```
+
+Operational gotchas from the docs: use the `sqlite:` prefix (or `META_TYPE 'sqlite'`) rather than relying on unprefixed-file auto-detection; with Quack, `DATA_PATH` is stored *as written* — a relative path resolves against each client's working directory, so use absolute paths or object-storage URLs; Quack `set_option` changes are not undone by `ROLLBACK`.
+
 ## Related in this KB
 
 - How to Handle the Small Files Problem in Distributed Storage
@@ -60,3 +88,5 @@ Trade-off to keep in mind: the design pushes consistency and concurrency onto th
 - [DuckDB 2.0.0 LTS announcement](https://duckdb.org/2026-10-21/announcing-duckdb-200)
 - [MotherDuck: DuckDB ecosystem newsletter — DuckLake stores all metadata in a database catalog](https://motherduck.com/blog/duckdb-ecosystem-newsletter-april-2026/)
 - [Talk Python #562 — DuckLake: The Lakehouse That's Just SQL and Parquet](https://talkpython.fm/episodes/show/562/ducklake-the-lakehouse-thats-just-sql-and-parquet)
+- [DuckLake docs: Choosing a Catalog Database (official guidance verified 2026-11-16)](https://ducklake.select/docs/stable/duckdb/usage/choosing_a_catalog_database)
+- [DuckLake specification](https://ducklake.select/docs/stable/) · [duckdb/ducklake on GitHub](https://github.com/duckdb/ducklake)

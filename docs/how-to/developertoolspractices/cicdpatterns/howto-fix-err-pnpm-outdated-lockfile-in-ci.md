@@ -89,6 +89,21 @@ auto-install-peers=true
 node-linker=isolated
 ```
 
+## The sibling flags you actually want instead of `--no-frozen-lockfile`
+
+Verified against the pnpm 12 CLI docs:
+
+| Flag | Behaviour |
+| --- | --- |
+| `--prefer-frozen-lockfile` (`preferFrozenLockfile`) | Use the existing lockfile **without re-resolving**, even when the manifest might have changed — fast path that still refuses to silently write a new lockfile. Inverse: `--no-prefer-frozen-lockfile` always re-resolves against the registry. |
+| `--ignore-manifest-check` | Skips the "lockfile up to date with package.json" check under `--frozen-lockfile`. Docs warn: *use it only when you just wrote the lockfile yourself* — a targeted escape hatch, not a blanket CI setting. |
+| `--dry-run` | Full resolution, reports what a real install would change, writes nothing. **Exits 0 even when it would update the lockfile** — so it shows you the diff without failing the job. |
+
+Two detection details worth knowing:
+
+- **How pnpm decides "I'm in CI":** the same rules as the [`ci-info`](https://github.com/watson/ci-info) package (any recognized CI env var counts). Set `CI=false` to turn detection off locally — useful when your shell exports `CI` for other tooling and you wonder why a plain `pnpm install` suddenly refuses to relock.
+- **`pnpmfile` checksums.** The lockfile records a checksum of `.pnpmfile.cjs`; the check is content-based, so an unchanged pnpmfile passes `--frozen-lockfile` (verified on pnpm 12.5.1). But editing the pnpmfile without relocking reproduces this exact error (pnpm/pnpm#7951) — treat pnpmfile edits as manifest-equivalent changes.
+
 ## --no-frozen-lockfile: diagnose, never ship
 
 It makes the job green and the lockfile meaningless: the runner rewrites the lockfile, the runner gets thrown away, and your repository keeps the file that failed. Run it once locally to see what pnpm *would* change, then commit that change instead of disabling the check that found it.
@@ -107,4 +122,7 @@ It makes the job green and the lockfile meaningless: the runner rewrites the loc
 - [pnpm: install options, frozen-lockfile and its CI default](https://pnpm.io/cli/install)
 - [pnpm/pnpm#7934 — frozen-lockfile drift in CI](https://github.com/pnpm/pnpm/issues/7934)
 - [pnpm: the packageManager field and Corepack](https://pnpm.io/installation)
+- [pnpm CLI docs: --frozen-lockfile / --prefer-frozen-lockfile / --ignore-manifest-check / --dry-run](https://github.com/pnpm/pnpm.io/blob/main/docs/cli/install.md)
+- [watson/ci-info: the CI-detection rules pnpm reuses](https://github.com/watson/ci-info)
+- [pnpm/pnpm#7951 — pnpmfileChecksum and frozen installs (content-based checksum, verified pnpm 12.5.1)](https://github.com/pnpm/pnpm/issues/7951)
 - [GitHub Actions: dependency caching with actions/setup-node](https://docs.github.com/en/actions/reference/workflows-and-actions/dependency-caching)
