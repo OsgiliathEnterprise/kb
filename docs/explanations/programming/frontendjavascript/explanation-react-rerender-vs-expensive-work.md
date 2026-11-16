@@ -60,6 +60,8 @@ React 19's **React Compiler** automates exactly the judgment this note describes
 
 Adoption is incremental: the compiler can be enabled per-file/per-component in an existing codebase, so "measure first, memoize second" becomes "enable the compiler where safe, profile what's left."
 
+**Status update (2026-11).** React Compiler reached its **first stable release, v1.0, on 2025-10-07** (announced by Lauren Tan, Joe Savona, and Mofei Zhang) and is production-ready for both React and React Native — "incremental adoption" is now an option, not a prerequisite for stability. On the runtime side, React 19.x has continued patch releases (19.2.x through 2026, with 19.3.0 released 2026-09-09). The practical implication: for new projects in 2026, enable the compiler by default and treat manual `useMemo`/`useCallback`/`React.memo` as an escape hatch, not routine practice.
+
 ## Key takeaways
 
 - Re-rendering is how React determines what the UI should look like; it is part of normal operation.
@@ -73,6 +75,8 @@ Adoption is incremental: the compiler can be enabled per-file/per-component in a
 - [Automatic batching for fewer renders in React 18 — reactwg/react-18 discussion](https://github.com/reactwg/react-18/discussions/21)
 - [Optimizing Performance — React official docs (render vs. DOM mutation distinction)](https://legacy.reactjs.org/docs/optimizing-performance.html)
 - [React Compiler — React official docs (automatic memoization, incremental adoption, directives)](https://react.dev/learn/react-compiler)
+- [React Compiler v1.0 release announcement — react.dev blog (2025-10-07)](https://react.dev/blog/2025/10/07/react-compiler-1)
+- [React Versions — react.dev (19.2.x patches; v19.3.0 released 2026-09-09)](https://react.dev/versions)
 
 ## Related
 - [[example-intl-segmenter-text-analysis]]

@@ -72,6 +72,10 @@ Less than 1% of Cloudflare sites block search bots, while **17% enable some mech
 2. For Bing specifically, add the `NOARCHIVE` meta tag today if you want an immediate no-training signal; robots.txt-level support arrives early 2027.
 3. If your business depends on ad revenue from page views, the recommended preset (Disallow AI Training + Block-on-pages-with-ads for agents) is a reasonable starting point: it keeps humans and search while refusing training and blocking agent fetches where ads would be served.
 
+## Developments since the announcement (verified 2026-11-16)
+
+The Sept 15 defaults held and hardened the ecosystem: ad-monetized new domains continue to ship with `Training=Disallow AI Training` + `Agent=Block on pages with ads` (~20 bots blocked by default on ad-bearing pages per third-party coverage). The monetization track evolved beyond pay-per-crawl: publishers are now paid when AI products actually **use** their content, not merely when it is fetched, with Cloudflare Wallets handling settlement (an extension of the July 2026 "Your site, your rules" Search/Agent/Training controls that brought the three-behavior model to all customers, including Free tier). Site owners manage everything under Security → Configure AI bot policies in the dashboard. The AI-summaries opt-out promised for "early next year" remains the next milestone to watch.
+
 ## References
 
 - [Cloudflare Blog: Have it both ways — stay discoverable in search while disallowing AI training](https://blog.cloudflare.com/accountable-mixed-use-ai-crawlers/)
@@ -80,3 +84,4 @@ Less than 1% of Cloudflare sites block search bots, while **17% enable some mech
 - [Google common crawlers: Google-Extended documentation](https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers#google-extended)
 - [Bing Webmaster Tools: AI performance controls](https://www.bing.com/webmasters/help/ai-performance-9f8e7d6c)
 - [IETF ai-prefs working group documents](https://datatracker.ietf.org/wg/aipref/documents/)
+- [Cloudflare Blog: Your site, your rules — new AI traffic options for all customers (July 2026)](https://blog.cloudflare.com/content-independence-day-ai-options)
