@@ -14,7 +14,7 @@ keywords:
 ---
 # Universal XSS in uBlock Origin via Website-Driven Element Picker
 
-In November 2026 a **one-click universal XSS (UXSS)** was disclosed in the MV2 Firefox build of uBlock Origin (a weaker variant also affected the MV3 build, uBO Lite). A malicious website could trick the extension into adding **arbitrary trusted filters** on any domain — and because uBO trusted filters can inject JavaScript (scriptlets), that means arbitrary JS execution in the context of any site. Fixed by the vendor; see the [GitHub advisory GHSA-cmqw-9r2w-6wv2](https://github.com/gorhill/uBlock/security/advisories/GHSA-cmqw-9r2w-6wv2).
+In November 2026 a **one-click universal XSS (UXSS)** was disclosed in the MV2 Firefox build of uBlock Origin (a weaker variant also affected the MV3 build, uBO Lite). A malicious website could trick the extension into adding **arbitrary trusted filters** on any domain — and because uBO trusted filters can inject JavaScript (scriptlets), that means arbitrary JS execution in the context of any site. Reported by **Smitty van Bodegom (syvb)**, fixed in uBO 1.75.4; see the [GitHub advisory GHSA-cmqw-9r2w-6wv2](https://github.com/gorhill/uBlock/security/advisories/GHSA-cmqw-9r2w-6wv2).
 
 Notably, the vulnerability was found with AI assistance: the author asked GPT-5.6 Sol to look for a UXSS from filter injection; the model proposed the issue and the author verified it. The PoC code was mostly written by Claude.
 
@@ -57,6 +57,17 @@ Filters survive until the user next edits custom filters (which triggers a recom
 
 The core flaw was that the element picker accepted `postMessage` traffic from any embedder. One of the vendor fixes: the real picker now receives a **secret password from the content script** and requires it in the initial `postMessage` handshake, so attacker-driven frames can no longer talk to it.
 
+## Disclosure timeline & affected versions
+
+Reported privately to `ubo-security@raymondhill.net` by **Smitty van Bodegom (syvb)** on 2026-11-01; advisory GHSA-cmqw-9r2w-6wv2 published **2026-11-15** (severity **High**, **no CVE assigned**). Affected: **≤ 1.75.2**; patched in **1.75.4** (live on AMO 2026-11-03), with defense-in-depth follow-ups in **1.76.0** (2026-11-08). The four fix commits, in order:
+
+1. `bf69cf7` — "Avoid use of potentially tainted XHR methods in scriptlets" (shipped 1.75.2, Nov 2) — closes the `no-fetch-if`/`war:` UUID-leak vector.
+2. `9859477` — "Launch element picker only with a verified secret token" (1.75.4, Nov 3) — the handshake-secret fix.
+3. `b1f7d27` — "Validate about to be created filter in element picker" (1.76.0, Nov 8) — rejects the newline injection in `opt`.
+4. `150df12` — "Prevent war:-related filters for the time being" (1.76.0, Nov 8) — disables the `war:` scriptlet mechanism entirely.
+
+Note the patching was iterative: the initial XHR-hook fix was bypassed the same day by defining a `responseText` getter on `XMLHttpRequest.prototype` instead (`this.responseURL` still leaked the UUID), demonstrating that UUID exposure had multiple paths — a general lesson: patch the *capability* (unauthenticated picker control), not just the observed leak primitive.
+
 ## Lessons
 
 - **Web-accessible resources are an attack surface.** Any extension page reachable by URL from a web frame, plus an unauthenticated `postMessage` protocol, is a full control channel for the attacker.
@@ -73,5 +84,7 @@ See also: [Element picker — uBlock wiki](https://github.com/gorhill/uBlock/wik
 
 ## References
 
-- [Universal XSS in uBlock Origin from website-driven element picker — iter.ca](https://iter.ca/post/ubo-uxss/)
-- [GitHub Security Advisory GHSA-cmqw-9r2w-6wv2 — gorhill/uBlock](https://github.com/gorhill/uBlock/security/advisories/GHSA-cmqw-9r2w-6wv2)
+- [Universal XSS in uBlock Origin from website-driven element picker — iter.ca](https://iter.ca/post/ubo-uxss/) (write-up by Smitty van Bodegom)
+- [GitHub Security Advisory GHSA-cmqw-9r2w-6wv2 — gorhill/uBlock](https://github.com/gorhill/uBlock/security/advisories/GHSA-cmqw-9r2w-6wv2) (full report + PoC + fix-commit chronology)
+- [uBlock Origin patches one-click universal XSS in its element picker — RuntimeWire](https://runtimewire.com/article/ublock-origin-patches-one-click-universal-xss-element-picker)
+- [Reporter's PoC demo — lootdest.pages.dev/demo](https://lootdest.pages.dev/demo)

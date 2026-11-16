@@ -22,6 +22,14 @@ Commercial map APIs get prohibitively expensive when a project goes viral (Mapbo
 
 A `.pmtiles` archive packs all vector tiles (x/y/z) into one file with an internal directory index. The browser asks for byte ranges, not tile URLs. No tile server, no database, no rendering pipeline at request time — just static file serving. (For CDNs that can't do Range caching, like Cloudflare, Protomaps documents an [edge function](https://docs.protomaps.com/deploy/cloudflare) that translates x/y/z paths into Range requests.)
 
+### Format internals (current spec: v3)
+
+- **127-byte fixed header** at offset 0 holds everything needed to decode the archive (tile type, compression, min/max zoom, pointers to the metadata and root directories) — a client needs exactly one small Range request to bootstrap.
+- **Internal directory** maps tile IDs → byte offsets/lengths; in v3 it is itself chunked and gzip-compressed, with run-length encoding for contiguous tiles. The planet-scale build addresses **350M+ tiles with a ~91.6 MB directory**, ~3× better than generic compression.
+- Tile payloads can be stored **uncompressed, gzip, brotli, or zstd** (brotli/zstd require clients that can decompress them).
+- Reading a tile costs only a small constant number of Range requests — 127-byte header, the gzip-compressed directory chunk, then the tile bytes (the header/directory reads amortize away once cached), so CDN Range caching collapses latency to roughly one RTT per new tile after warm-up.
+- If you need transactional/atomic tile updates, the docs explicitly steer you to a database (SQLite, or PostgreSQL + `ST_asMVT`) instead of PMTiles — the format is immutable-artifact oriented: version by filename, not in place.
+
 ## 1. Get a tiles file
 
 - Whole world: download the latest daily build from the [Protomaps build page](https://maps.protomaps.com/builds/).
@@ -95,3 +103,6 @@ Bandwidth to Europe/North America is ~$0.01/GB ($0.005/GB on the Volume network)
 - [go-pmtiles CLI](https://github.com/protomaps/go-pmtiles)
 - [Deploy Protomaps on Cloudflare (edge function for Range requests)](https://docs.protomaps.com/deploy/cloudflare)
 - [Serving a custom vector web map with PMTiles — Simon Willison](https://til.simonwillison.net/gis/pmtiles)
+- [PMTiles v3 specification — protomaps/PMTiles (GitHub)](https://github.com/protomaps/PMTiles/blob/main/spec/v3/spec.md)
+- [PMTiles v3: disk layout and compressed directories — Protomaps blog](https://protomaps.com/blog/pmtiles-v3-layout-compression/)
+- [pmtiles on PyPI (client libraries: JS/Python/Go/Rust)](https://pypi.org/project/pmtiles/)
