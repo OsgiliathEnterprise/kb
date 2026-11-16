@@ -4,7 +4,14 @@ title: Commit the Conversation — Keep Partial Voice Turns Out of Your AI Compa
 diataxis: Tutorial
 domain: ai-machine-learning
 topic: multimodal
-source: ''
+source: DEV.to Tech News
+source_url: https://dev.to/susiewang/commit-the-conversation-keep-partial-voice-turns-out-of-your-ai-companions-context-mb
+date: 2026-08-30
+keywords:
+- knowledge-base
+- multimodal
+- ai-machine-learning
+- tutorials
 ---
 # Commit the Conversation — Keep Partial Voice Turns Out of Your AI Companion's Context
 
