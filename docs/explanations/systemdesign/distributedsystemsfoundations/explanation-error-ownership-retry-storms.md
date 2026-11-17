@@ -76,6 +76,16 @@ The mechanism is the "context-aware" upgrade of patterns available in standard i
 3. **Propagate decisions, not error codes.** Translating downstream error codes upstream doesn't scale with fan-in/fan-out and evolving call graphs; a single claim/unclaim header does.
 4. **Handle the uncooperative edge explicitly** — missing context or missing instrumentation should degrade to "unclaim at first sight," never to "retry everywhere."
 
+## Relationship to the classical AWS retry guidance
+
+Uber's error ownership is best understood as the *location* control layered on top of the two controls Amazon laid out in Marc Brooker's Builders' Library piece **"Timeouts, retries, and backoff with jitter"** (now hosted on AWS Builder Center). Amazon's stated position, verified against the live article:
+
+- **"Retries can amplify the load on a dependent system... if calls to a system are timing out, and that system is overloaded, retries can make the overload worse instead of better."** Amazon's countermeasures are orthogonal to ownership: *retry only when the dependency is observed to be healthy*, and *stop retrying when retries stop improving availability* — a feedback gate, not a static policy.
+- **Capped exponential backoff + jitter.** Uncapped exponential backoff grows too fast; a cap alone re-synchronizes clients "retrying constantly at the capped rate," so jitter (randomness in the wait) is mandatory to decorrelate failed calls that would otherwise re-collide at the same retry instant. The AWS Well-Architected Framework classifies *omitting* jitter as a High-risk common anti-pattern, and explicitly warns that retrying at multiple layers compounds attempts into a retry storm — the same R^d amplification Uber quantifies, arriving via a different door.
+- **Jitter beyond retries.** Amazon jitters all timers, periodic jobs, and delayed work (traffic spikes are often hidden by aggregated metrics), but uses a *host-consistent* jitter — the same random value every time on the same host — so overload/race failures reproduce in a diagnosable pattern instead of at random.
+
+The three controls compose cleanly: **jitter decorrelates retry timing, budgets bound the retry multiplier, ownership bounds the retry location.** Envoy/gRPC give the first two; Uber's claim/unclaim header supplies the third. Amazon's "retry only when dependency is healthy" gate is also a partial location control — it suppresses retries far from a *detected* unhealthy dependency — but unlike error ownership it keys on health signals rather than per-error causal attribution, so a gray failure with healthy health checks (Uber's motivating case) still retries everywhere.
+
 ## Diagram
 
 See [error-ownership-retry-storms.excalidraw](error-ownership-retry-storms.svg) for the claim/unclaim propagation across a call chain.
@@ -85,3 +95,5 @@ See [error-ownership-retry-storms.excalidraw](error-ownership-retry-storms.svg) 
 - [How Uber Protects Against Retry Storms (Uber Engineering, 2026-09-17)](https://www.uber.com/us/en/blog/protecting-against-retry-storms/)
 - [Envoy: handling transient failures and retry budgets](https://www.envoyproxy.io/docs/envoy/latest/faq/load_balancing/transient_failures)
 - [gRPC retry policy and throttling guide](https://grpc.io/docs/guides/retry/)
+- [Marc Brooker — Timeouts, retries, and backoff with jitter (AWS Builders' Library / Builder Center)](https://builder.aws.com/content/3EumjoZascWd1oZiEgL8ORlv3qE/timeouts-retries-and-backoff-with-jitter)
+- [Exponential Backoff and Jitter (AWS Architecture Blog)](https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/)

@@ -57,6 +57,10 @@ Every embedding above (CLIP for artwork; SeqCLIP and MediaFM for previews) lives
 
 ![Diagram 1 — explanation-netflix-maps-multimodal-asset-personalization](explanation-netflix-maps-multimodal-asset-personalization-excalidraw-1.svg)
 
+## Peer-reviewed paper version (arXiv)
+
+The TechBlog post has a formal paper counterpart: **"Multimedia Asset Personalization via Multimodal Embeddings at Netflix"** ([arXiv:2608.18322](https://arxiv.org/abs/2608.18322), cs.IR, submitted 2026-08-18), by Emma Yanyang Kong, Aditya Deshpande, Bowei Yan, Asad Abbasi, Santiago Castro, Avneesh Saluja, David Fagnan, and Ashish Rastogi. Beyond restating the three systems, the paper positions the **linear-probe screen** as the central methodology contribution: predicting the debiased popularity-based winner from embeddings alone ranks embedding models and versions, pruning the choice space *before* any end-to-end integration or A/B test — and it now gates **every new MediaFM checkpoint**, not just the original SeqCLIP-vs-MediaFM bake-off. The paper also foregrounds the production-engineering decisions (shared embedding infrastructure, low-latency serving, cheap screening) and the design tradeoffs/failure modes encountered — useful depth the blog compresses.
+
 ## What we learned (author's summary)
 
 1. Pretrained CLIP embeddings let five artwork models consolidate into one while boosting data-starved canvases — most visible when the redesigned TV home screen made short-panel dominant overnight.
@@ -70,6 +74,7 @@ Every embedding above (CLIP for artwork; SeqCLIP and MediaFM for previews) lives
 - [CLIP: Learning Transferable Visual Models From Natural Language Supervision](https://arxiv.org/abs/2103.00020)
 - [Netflix MediaFM — the multimodal AI foundation for media understanding](https://netflixtechblog.com/mediafm-the-multimodal-ai-foundation-for-media-understanding-at-netflix-e8c28df82e2d)
 - [Recommending for long-term member satisfaction at Netflix (reward modeling)](https://netflixtechblog.com/recommending-for-long-term-member-satisfaction-at-netflix-ac15cada49ef)
+- [Multimedia Asset Personalization via Multimodal Embeddings at Netflix (arXiv:2608.18322, Kong et al., 2026)](https://arxiv.org/abs/2608.18322)
 
 ## Related
 - [[explanation-deepseek-vision-lineage]]
