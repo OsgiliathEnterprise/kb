@@ -23,6 +23,10 @@ keywords:
 - Built-in resource records and JSON codecs are **generated from checksum-pinned Kubernetes OpenAPI schemas**. Each minor has a separate schema library (`kube.api.v1_34` … `kube.api.v1_37`) sharing the same runtime. The tutorials use `Kube_api_v1_36` for 1.36 resource types — that doesn't restrict operators to a 1.36 cluster.
 - Above the client sit **LIST/WATCH caches, a work queue, and retries**. `Kube.Operator` handles process startup, credentials, shutdown, diagnostics, and optional leader election. Application code describes *what should exist*.
 
+## Version freshness check (2026-11-17)
+
+`kube.0.1.3` is **still the latest opam release** (published 2026-09-10, Apache-2.0). Notable from the opam metadata: requires **OCaml ≥ 5.1** and **dune ≥ 3.15**; the crypto/TLS stack is pure-OCaml (`tls` ≥ 2.1.1, `x509`, `mirage-crypto-rng`, `ca-certs`), consistent with the "no Go bindings" claim — no FFI to `client-go` anywhere in the dependency set.
+
 ## Same pattern, different language
 
 An operator watches Kubernetes resources and repeatedly brings actual state toward the desired state in `spec`. Changing the language doesn't change that contract — the interesting part is how OCaml expresses it:
@@ -109,3 +113,4 @@ These are small examples for learning the API and controller patterns; for compl
 - [Building Kubernetes operators with OCaml (DEV.to / thevilledev)](https://dev.to/thevilledev/building-kubernetes-operators-with-ocaml-1n1j)
 - [ocaml-kube repository](https://github.com/thevilledev/ocaml-kube)
 - [kube-ocaml-examples (three operator tutorials)](https://github.com/thevilledev/kube-ocaml-examples)
+- [kube on opam (0.1.3, latest — 2026-09-10)](https://opam.ocaml.org/packages/kube/)

@@ -106,6 +106,27 @@ export default function RevenueSkeleton() {
 4. **Below-the-fold sections** rarely benefit from Suspense (the user won't see them for hundreds of ms anyway); lazy-load non-critical widgets instead.
 5. **Reverse proxies buffer chunks**: nginx defaults will swallow streaming; `proxy_buffering off; proxy_cache off;` is required to actually observe chunked delivery.
 6. **Errors after the shell flush can no longer change the HTTP status code** — pair boundaries with segment-level `error.tsx`.
+7. **Streaming breaks `<head>` (SEO/social previews)** — HTML is linear: once the shell (with `<head>`) flushes, late metadata can't be rewound. See the streaming-SEO section below.
+
+## The streaming `<head>` problem and bot-aware streaming (Next.js 15/16)
+
+Streaming SSR trades TTFB against `<head>` completeness. Frameworks pick one of four strategies: **Block** (wait for all data), **First-Flush** (head locked after first chunk, late data dropped), **Patch** (late-streamed `<script>` mutates `document.head` client-side), or **Block + Stream** (block for bots via User-Agent, stream for users).
+
+Production gotchas (from a 2026 cross-framework study):
+
+- **Next.js 15 regression**: `generateMetadata()` became non-blocking by default → broken social-preview cards on Twitter/Facebook/Slack, because those crawlers **don't execute JS** and drop the connection before late-streamed OG tags arrive. Fix: extend `htmlLimitedBots` with missing UA patterns.
+- **Next.js 16**: stabilizes **Partial Pre-Rendering (PPR)** and ships **bot-aware streaming** (rated best overall): users get streamed HTML with metadata injected via `<script>` and hoisted to `<head>` by React 19's native metadata hoisting; detected bots (Googlebot, Bingbot, Twitter/Facebook/LinkedIn/Slack/Discord in the default `htmlLimitedBots` list) get a blocking, complete `<head>`. Residual risk: niche crawlers not on the list.
+```tsx
+// app/products/[id]/page.tsx
+export async function generateMetadata({ params }) {
+  const { id } = await params
+  const product = await fetch(`/api/products/${id}`).then(r => r.json())
+  return { title: product.name, openGraph: { images: [product.image] } }
+}
+// Users see the page instantly; bots wait for this to resolve.
+```
+- **Rule of thumb**: keep `<head>` data out of the streaming path entirely, or use bot-aware rendering. **Interop 2026** is standardizing this with `<link rel="expect" href="#target" blocking="render">` — the browser withholds paint until the target element parses, removing the need for framework patching hacks (Chrome/Edge stable since v124; Safari/Firefox in development).
+- **Verify in a real network trace**, not just localhost — CDNs and proxies buffer chunks and can silently disable streaming end-to-end.
 
 ## Verification
 
@@ -122,3 +143,4 @@ See [nextjs-streaming-ssr-suspense.excalidraw](nextjs-streaming-ssr-suspense.svg
 - [Eradicating Slow TTFB: Streaming SSR in Next.js (dev.to, 2026-09-18)](https://dev.to/iprajapatiparesh/eradicating-slow-ttfb-streaming-ssr-in-nextjs-22dm)
 - [Next.js docs: Streaming](https://nextjs.org/docs/app/guides/streaming)
 - [Next.js docs: Loading UI and streaming (App Router)](https://nextjs.org/docs/14/app/building-your-application/routing/loading-ui-and-streaming)
+- [Server-Side Streaming SEO in 2026: A Cross-Framework Study (Unhead, 2026-03-05)](https://unhead.unjs.io/learn/research/streaming-head-performance)
