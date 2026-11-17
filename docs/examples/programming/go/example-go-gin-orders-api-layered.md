@@ -300,8 +300,20 @@ Hitting `POST /api/v1/orders` with a JSON body gives a real response — with va
 
 The series continues with **testing** — table-driven tests, the `httptest` package for handler tests without spinning up a real server, and the benchmarking habits that matter once the in-memory store is swapped for a real database.
 
+## Current state (verified 2026-11-17)
+
+All APIs used above (`ShouldBindJSON`, `AbortWithStatusJSON`, `r.Group`, `gin.New`) are unchanged in the current release line. Latest Gin is **v1.12.0** (released 2026-02-28). Notable additions since this note was written:
+
+- **Protocol Buffers support** in content negotiation — `c.Negotiate` can now serve `application/x-protobuf` alongside JSON.
+- **`c.GetError` / `c.GetErrorSlice`** — structured error retrieval instead of digging through `c.Errors`.
+- **`bson` render protocol** (`c.Render` with BSON) and `encoding.UnmarshalText` support in uri/query binding.
+- Logger middleware gained **colored latency** output; an option to route on the **escaped path** was added.
+
+Nothing in the v1.12.0 changelog affects the layered structure in this example — a `go get -u github.com/gin-gonic/gin` is a drop-in upgrade.
+
 ## References
 
+- [Gin v1.12.0 release notes (2026-02-28)](https://github.com/gin-gonic/gin/releases/tag/v1.12.0)
 - [Building My First Real API in Go — with Gin (DEV.to, 2026-06-22)](https://dev.to/mihirmohapatra/building-my-first-real-api-in-go-with-gin-3kio)
 - [Is net/http All You Need, or Does Gin Offer More? (DEV.to)](https://dev.to/leapcell/is-nethttp-all-you-need-or-does-gin-offer-more-4k4c)
 - [Gin (gin-gonic/gin) — documentation and examples](https://github.com/gin-gonic/gin)

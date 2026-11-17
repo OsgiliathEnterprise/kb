@@ -134,6 +134,14 @@ Implementation lives on the [babylon `hat/tensors/v2` branch](https://github.com
 
 ![Diagram 1 — example-babylon-hat-gpu-tensor-cores-from-java](example-babylon-hat-gpu-tensor-cores-from-java-excalidraw-1.svg)
 
+## Current state (verified 2026-11-17)
+
+Project Babylon is moving fast and this note's snapshot is still accurate:
+
+- **Code Reflection reached JEP-draft stage** (`JEP draft: Code Reflection (Incubator)`, owned by Paul Sandoz, reviewers incl. Adam Sotona, Juan Fumero, Maurizio Cimadamore) — the `@Reflect` mechanism used above is on the formal JEP track.
+- **HAT backends (as of early 2026): OpenCL and CUDA are supported; a SPIR-V backend is under active development** — the portability story in this note (CUDA `wmma`→`HMMA` on NVIDIA, loop-tiling on OpenCL/Apple Silicon) is expected to gain a third vendor-neutral target.
+- The two Inside Java articles remain the canonical walkthroughs: *Exploiting GPU Tensor Cores from Java using Babylon* (May/June 2026) and the companion *Optimizing GPU Programs from Java using Babylon and HAT* (January 2026).
+
 ## References
 
 - [Exploiting GPU Tensor Cores from Java using Babylon (Inside Java)](https://inside.java/2026-06-10/hat-tensors-computation/) — original article
