@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="96.0 -4.0 1168.0 398.0" width="1168" height="398">
+<rect x="96.0" y="-4.0" width="1168.0" height="398.0" fill="#ffffff"/>
+<rect x="120.0" y="90.0" width="200.0" height="60.0" rx="8" fill="#d0bfff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="370.0" y="90.0" width="170.0" height="60.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="590.0" y="70.0" width="300.0" height="170.0" rx="8" fill="#ffec99" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="940.0" y="70.0" width="300.0" height="170.0" rx="8" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="940.0" y="280.0" width="300.0" height="60.0" rx="8" fill="#e7f5ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="590.0" y="280.0" width="300.0" height="60.0" rx="8" fill="#e7f5ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="120.0" y="280.0" width="420.0" height="90.0" rx="8" fill="#f1f3f5" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 320.0 120.0 L 370.0 120.0"/><line x1="370.0" y1="120.0" x2="357.4" y2="113.9"/><line x1="370.0" y1="120.0" x2="357.4" y2="126.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 540.0 120.0 L 590.0 120.0"/><line x1="590.0" y1="120.0" x2="577.4" y2="113.9"/><line x1="590.0" y1="120.0" x2="577.4" y2="126.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 890.0 155.0 L 940.0 155.0"/><line x1="940.0" y1="155.0" x2="927.4" y2="148.9"/><line x1="940.0" y1="155.0" x2="927.4" y2="161.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 1090.0 240.0 L 1090.0 280.0"/><line x1="1090.0" y1="280.0" x2="1096.1" y2="267.4"/><line x1="1090.0" y1="280.0" x2="1083.9" y2="267.4"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 890.0 310.0 L 940.0 310.0"/><line x1="940.0" y1="310.0" x2="927.4" y2="303.9"/><line x1="940.0" y1="310.0" x2="927.4" y2="316.1"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="24" fill="#1e1e1e" text-anchor="start"><tspan x="120.0" y="39.2">Netflix AI Discover — intelligence layer (agent harness)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="140.0" y="117.8">TV app</tspan><tspan x="140.0" y="137.8">(remote, themes)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="395.0" y="122.8">Page Server</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="18" fill="#1e1e1e" text-anchor="start"><tspan x="610.0" y="96.4">CONTROLLER (plan)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="610.0" y="126.2">gather context (time of day…)</tspan><tspan x="610.0" y="143.7">planner drafts plan = graph of</tspan><tspan x="610.0" y="161.2">approved capability steps</tspan><tspan x="610.0" y="178.7">validate: producers, no loops,</tspan><tspan x="610.0" y="196.2">one terminal page</tspan><tspan x="610.0" y="213.7">fetch only needed Memory Hub data</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="18" fill="#1e1e1e" text-anchor="start"><tspan x="960.0" y="96.4">EXECUTOR (run)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="960.0" y="126.2">typed step contracts</tspan><tspan x="960.0" y="143.7">parallel steps, per-step deadline</tspan><tspan x="960.0" y="161.2">fallbacks on failure</tspan><tspan x="960.0" y="178.7">LLM calls = untrusted output</tspan><tspan x="960.0" y="196.2">re-check result before serving</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="960.0" y="307.8">Governed page served —</tspan><tspan x="960.0" y="327.8">always a page, even on LLM fail</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="610.0" y="307.8">Request records (traces)</tspan><tspan x="610.0" y="327.8">→ offline evaluation &amp; improvement</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="140.0" y="307.8">Capabilities wrap existing Netflix systems:</tspan><tspan x="140.0" y="327.8">search, large-scale ranking, catalog metadata,</tspan><tspan x="140.0" y="347.8">MemberLLM taste summaries, Memory Hub</tspan></text>
+</svg>
