@@ -298,6 +298,12 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Videoencoding',
+          link: {type: 'generated-index', title: 'Videoencoding', slug: 'how-to/programming/videoencoding'},
+          items: ['how-to/programming/videoencoding/howto-fix-mp4-color-range-tag-without-re-encoding'],
+        },
+        {
+          type: 'category',
           label: 'Webrealtime',
           link: {type: 'generated-index', title: 'Webrealtime', slug: 'how-to/programming/webrealtime'},
           items: ['how-to/programming/webrealtime/howto-scale-websocket-sse-redis-pubsub'],
@@ -306,7 +312,7 @@ const sidebars = {
           type: 'category',
           label: 'Webscraping',
           link: {type: 'generated-index', title: 'Webscraping', slug: 'how-to/programming/webscraping'},
-          items: ['how-to/programming/webscraping/howto-scrape-telegram-channel-history-before-parameter'],
+          items: ['how-to/programming/webscraping/howto-scrape-telegram-channel-history-before-parameter', 'how-to/programming/webscraping/howto-ytdlp-youtube-live-stream-recording'],
         },
         {
           type: 'category',
@@ -590,7 +596,7 @@ const sidebars = {
           type: 'category',
           label: 'Streaming',
           link: {type: 'generated-index', title: 'Streaming', slug: 'explanations/cloudinfrastructure/streaming'},
-          items: ['explanations/cloudinfrastructure/streaming/explanation-aria-message-bus-topic-partition-indexing', 'explanations/cloudinfrastructure/streaming/explanation-picomq-durable-streams', 'explanations/cloudinfrastructure/streaming/explanation-rocketmq-rust-v1-message-lifecycle-and-runtime-ownership'],
+          items: ['explanations/cloudinfrastructure/streaming/explanation-aria-message-bus-topic-partition-indexing', 'explanations/cloudinfrastructure/streaming/explanation-nats-jetstream-vs-kafka-vs-pulsar-storage-topologies', 'explanations/cloudinfrastructure/streaming/explanation-picomq-durable-streams', 'explanations/cloudinfrastructure/streaming/explanation-rocketmq-rust-v1-message-lifecycle-and-runtime-ownership'],
         },
         {
           type: 'category',
@@ -783,7 +789,7 @@ const sidebars = {
           type: 'category',
           label: 'Rust',
           link: {type: 'generated-index', title: 'Rust', slug: 'explanations/programming/rust'},
-          items: ['explanations/programming/rust/explanation-deser-event-driven-serialization-rust', 'explanations/programming/rust/explanation-jit-bitmap-text-rendering-rp2350', 'explanations/programming/rust/explanation-rust-1-100-never-type-allocator-dropguard', 'explanations/programming/rust/explanation-rust-1-98-algebraic-float-and-buffered-formatting', 'explanations/programming/rust/explanation-rust-gui-state-models-incrementalization'],
+          items: ['explanations/programming/rust/explanation-deser-event-driven-serialization-rust', 'explanations/programming/rust/explanation-jiff-1-0-datetime-onion', 'explanations/programming/rust/explanation-jit-bitmap-text-rendering-rp2350', 'explanations/programming/rust/explanation-rust-1-100-never-type-allocator-dropguard', 'explanations/programming/rust/explanation-rust-1-98-algebraic-float-and-buffered-formatting', 'explanations/programming/rust/explanation-rust-gui-state-models-incrementalization'],
         },
         {
           type: 'category',
