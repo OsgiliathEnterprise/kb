@@ -100,11 +100,23 @@ Original design: always destroy tagger on recycle (structurally prevents cross-t
 4. **Old primitives are underrated** — passing an fd over a socket (SCM_RIGHTS) concentrates privilege in one small place while keeping thousands of processes powerless
 5. **Keep the bolt pattern** — byte-for-byte identical output enables zero downstream migration and record-for-record completeness verification
 
+## Context: the broader eBPF-per-cgroup pattern
+
+Lambda's design sits within a well-established eBPF pattern: per-cgroup/cgroup-adjacent hooks (e.g. `BPF_PROG_TYPE_CGROUP_SKB`, available since Linux v4.10) are attached to a workload's cgroup and see packets without a global rule table — the structural reason they avoid iptables' linear rule walk. Relevant ecosystem facts when evaluating this pattern:
+
+- cgroup-SKB programs can **filter and observe but not modify** packets; packet rewriting needs TC/XDP or socket-layer programs instead.
+- cgroup BPF programs require **cgroup v2** — they cannot be applied to cgroup v1 hierarchies, a common blocker on older hosts.
+- At egress hooks the kernel has already done routing and checksumming, giving the program a clean packet representation — one reason per-cgroup designs are simpler to reason about than netfilter hooks.
+- For high-packet-rate observability, socket-filter/cgroup hooks are preferred over touching the physical NIC path, since they scope work to the container/namespace being observed.
+
 ## References
 
 - [How AWS Lambda logs every flow across thousands of microVMs per host with eBPF and Rust — The New Stack](https://thenewstack.io/aws-lambda-ebpf-rust/)
 - [BPF ring buffer — Linux kernel documentation](https://docs.kernel.org/bpf/ringbuf.html)
 - [eBPF ring buffer deep dive — Deep Kondah](https://www.deep-kondah.com/deep-dive-into-ebpf-ring-buffers/)
+- [eBPF docs: BPF_PROG_TYPE_CGROUP_SKB program type](https://docs.ebpf.io/linux/program-type/BPF_PROG_TYPE_CGROUP_SKB/)
+- [Oracle: Building a Linux firewall with TC and cgroup-SKB (why cgroup hooks beat iptables rules)](https://blogs.oracle.com/linux/ebpf-firewall-tc-and-cgroup-skb)
+- [eBPF network observability architecture at high packet rates — KB Technologies](https://www.kbytechnologies.com/security-operations/real-time-ebpf-network-observability-at-scale)
 
 ## Related
 

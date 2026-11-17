@@ -81,7 +81,16 @@ Ingestion side: PDFs (decades old, often scanned) → S3 data lake → extractio
 3. **Domain sub-agents over one monolithic researcher:** each domain owns its toolset, schema knowledge, and prompt conventions; the top-level agent routes. Keeps cross-domain leakage down and makes per-domain testing tractable.
 4. **Fail-fast clarification** beats expensive trial-and-error across all data sources when queries are ambiguous.
 
+## Reception and the wider "harness engineering" discourse
+
+The source article was published on martinfowler.com as **"Building Reliable Agentic AI Systems"** and reached the Hacker News front page (119 points, 29 comments) — a signal that the community is shifting from "which model is best?" to "how do we make agents accountable enough to deploy?". The takeaway echoed across the coverage: **agentic AI reliability is a systems problem**, delivered by context routing, traces, evals and human review, not by model choice alone.
+
+Worth knowing when using PRINCE as a reference architecture: the term *harness engineering* is often credited to Mitchell Hashimoto's formulation — engineer a fix every time an agent makes a mistake so it can never recur. PRINCE predates the vocabulary (the Fowler authors note the team designed these mechanisms before the terms "context/harness engineering" existed), which is why it reads as a validated case study rather than a trend piece.
+
 ## References
 
 - [MartinFowler.com: Building Reliable Agentic AI Systems (Bayer/Thoughtworks case study)](https://martinfowler.com/articles/reliable-llm-bayer.html)
 - [Frontiers in Artificial Intelligence paper on PRINCE's product evolution and business impact](https://www.frontiersin.org/journals/artificial-intelligence/articles/10.3389/frai.2025.1636809/full)
+- [Agentic AI Reliability Is a Systems Problem — Developers Digest analysis of the PRINCE case study](https://www.developersdigest.tech/blog/agentic-ai-reliability-case-study)
+- [Hacker News discussion of the Bayer/Thoughtworks case study](https://news.ycombinator.com/item?id=48615680)
+- [Agentic Harness Engineering: LLMs as the New OS — Decoding AI (Hashimoto's harness-engineering definition)](https://www.decodingai.com/p/agentic-harness-engineering)

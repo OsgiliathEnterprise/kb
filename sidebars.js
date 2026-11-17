@@ -576,9 +576,15 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Grpc',
+          link: {type: 'generated-index', title: 'Grpc', slug: 'explanations/cloudinfrastructure/grpc'},
+          items: ['explanations/cloudinfrastructure/grpc/explanation-grpc-http2-l4-connection-level-lb-hpa-blind-spot'],
+        },
+        {
+          type: 'category',
           label: 'Incidentresponse',
           link: {type: 'generated-index', title: 'Incidentresponse', slug: 'explanations/cloudinfrastructure/incidentresponse'},
-          items: ['explanations/cloudinfrastructure/incidentresponse/explanation-telstra-ntp-timing-loop-outage'],
+          items: ['explanations/cloudinfrastructure/incidentresponse/explanation-m365-nov2026-latent-lock-contention-outage', 'explanations/cloudinfrastructure/incidentresponse/explanation-telstra-ntp-timing-loop-outage'],
         },
         {
           type: 'category',
@@ -596,7 +602,7 @@ const sidebars = {
           type: 'category',
           label: 'Networking',
           link: {type: 'generated-index', title: 'Networking', slug: 'explanations/cloudinfrastructure/networking'},
-          items: ['explanations/cloudinfrastructure/networking/explanation-isis-vs-ospf-design-tradeoffs', 'explanations/cloudinfrastructure/networking/explanation-proxmox-cluster-heartbeat-wrong-network-corosync-link0', 'explanations/cloudinfrastructure/networking/explanation-submarine-cable-resilience-faults-repair-fleet-choke-points', 'explanations/cloudinfrastructure/networking/explanation-tailscale-multi-queue-buffer-reuse-netmap-caching'],
+          items: ['explanations/cloudinfrastructure/networking/explanation-isis-vs-ospf-design-tradeoffs', 'explanations/cloudinfrastructure/networking/explanation-proxmox-cluster-heartbeat-wrong-network-corosync-link0', 'explanations/cloudinfrastructure/networking/explanation-spamhaus-sender-requirements-nov2026', 'explanations/cloudinfrastructure/networking/explanation-submarine-cable-resilience-faults-repair-fleet-choke-points', 'explanations/cloudinfrastructure/networking/explanation-tailscale-multi-queue-buffer-reuse-netmap-caching'],
         },
         {
           type: 'category',
