@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 96.0 718.0 258.0" width="718" height="258">
+<rect x="16.0" y="96.0" width="718.0" height="258.0" fill="#ffffff"/>
+<rect x="40.0" y="120.0" width="170.0" height="70.0" rx="8" fill="#d0bfff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="280.0" y="120.0" width="190.0" height="70.0" rx="8" fill="#bde0fe" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="540.0" y="120.0" width="170.0" height="70.0" rx="8" fill="#c0eb75" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="540.0" y="260.0" width="170.0" height="70.0" rx="8" fill="#ffd43b" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="280.0" y="260.0" width="190.0" height="70.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="40.0" y="260.0" width="170.0" height="70.0" rx="8" fill="#ffe8cc" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 210.0 155.0 L 280.0 155.0"/><line x1="280.0" y1="155.0" x2="267.4" y2="148.9"/><line x1="280.0" y1="155.0" x2="267.4" y2="161.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 470.0 155.0 L 540.0 155.0"/><line x1="540.0" y1="155.0" x2="527.4" y2="148.9"/><line x1="540.0" y1="155.0" x2="527.4" y2="161.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 625.0 190.0 L 625.0 260.0"/><line x1="625.0" y1="260.0" x2="631.1" y2="247.4"/><line x1="625.0" y1="260.0" x2="618.9" y2="247.4"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 540.0 295.0 L 470.0 295.0"/><line x1="470.0" y1="295.0" x2="482.6" y2="301.1"/><line x1="470.0" y1="295.0" x2="482.6" y2="288.9"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 280.0 295.0 L 210.0 295.0"/><line x1="210.0" y1="295.0" x2="222.6" y2="301.1"/><line x1="210.0" y1="295.0" x2="222.6" y2="288.9"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 125.0 260.0 L 125.0 190.0"/><line x1="125.0" y1="190.0" x2="118.9" y2="202.6"/><line x1="125.0" y1="190.0" x2="131.1" y2="202.6"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="middle"><tspan x="125.0" y="157.8">Claude change</tspan><tspan x="125.0" y="177.8">(code + PR)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="middle"><tspan x="375.0" y="147.8">Run the change</tspan><tspan x="375.0" y="167.8">verify skill: E2E +</tspan><tspan x="375.0" y="187.8">property + differential</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="middle"><tspan x="625.0" y="147.8">Evidence passes</tspan><tspan x="625.0" y="167.8">stamp commit with</tspan><tspan x="625.0" y="187.8">verification method</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="middle"><tspan x="625.0" y="287.8">REVIEW.md checks</tspan><tspan x="625.0" y="307.8">(read from base branch,</tspan><tspan x="625.0" y="327.8">PR cannot edit them)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="middle"><tspan x="375.0" y="287.8">Fail x3 rounds</tspan><tspan x="375.0" y="307.8">stop -&gt; escalate</tspan><tspan x="375.0" y="327.8">to human</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="middle"><tspan x="125.0" y="287.8">Misses -&gt; rules</tspan><tspan x="125.0" y="307.8">(REVIEW.md, reliability</tspan><tspan x="125.0" y="327.8">checklist, 3-agent refute)</tspan></text>
+</svg>
