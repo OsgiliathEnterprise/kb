@@ -24,7 +24,7 @@ Reference measurements for how much the *harness* (the scaffold that builds prom
 | Dimension | Values |
 |-----------|--------|
 | Harnesses | 5 shipped harnesses (best mean: **Mingbird** at every size) |
-| Models | 0.75B, 1.9B, ~3B, 4.7B local open-weight + 35.5B anchor |
+| Models | 0.75B, 1.9B, 4.7B Qwen3.5 + 3.7B Granite 4.2 (cross-family rung), local open-weight + 35.5B MoE anchor |
 | Tasks | 18 artifact-producing tasks |
 | Cells | 360, one deterministic checker for all |
 
