@@ -106,12 +106,19 @@ Caveat from the talk: everything in the "future features" section is still in fl
 
 ## Roadmap anchors
 
-| Item | Status (mid-2026) |
+_Status verified 2026-11-17 (KB Zookeeper enrichment, kept public):_
+
+- **JEP 401 (Value Objects) and JEP 539 (Strict Field Initialization) are merged into OpenJDK mainline** and available as preview features in current JDK 28 early-access builds (Inside.java No Pillars podcast ep. 66, 2026-08-15; draft JDK 28 EA release notes last updated 2026-11-13).
+- Preview gating in JDK 28: the feature is a language **and** VM preview, disabled by default — compile with `javac --enable-preview --release 28` and run with `java --enable-preview` (JEP 401).
+- **JDK 28 timeline**: Rampdown Phase One (feature freeze) scheduled for **2026-12-03**; GA scheduled for **March 2027**. Six JEPs were targeted at last public count (InfoQ, 2026-08-24). JDK 27 (GA 2026-09) and JDK 28 are lean non-LTS releases following the JDK 25 LTS (2025-09).
+- No confirmed timeline yet for value objects leaving preview; JDK 28 ships the *first* preview of JEP 401.
+
+| Item | Status (mid-2026 → **2026-11 verified**) |
 | --- | --- |
 | Records, record patterns | Standard since JDK 14/16 |
 | Lazy constants API | Preview now; finalization expected |
-| JEP 401 Value Objects (Preview) | Integrated, targeted at **JDK 28** |
-| JEP 539 Strict Field Initialization in the JVM (Preview) | Integrated, targeted at **JDK 28** |
+| JEP 401 Value Objects (Preview) | **Merged to mainline (2026); first preview in JDK 28 EA builds; `--enable-preview` required; GA March 2027** |
+| JEP 539 Strict Field Initialization in the JVM (Preview) | **Merged to mainline (2026); preview in JDK 28** |
 | Marshalling API | Coming; replaces `Serializable` protocol for immutable classes |
 | Final arrays | Planned; `final` on array creation expressions |
 
@@ -126,3 +133,7 @@ Caveat from the talk: everything in the "future features" section is still in fl
 - [Project Valhalla documentation](https://github.com/openjdk/valhalla-docs)
 - [JEP 401: Value Objects (Preview)](https://openjdk.org/jeps/401)
 - [JEP 539: Strict Field Initialization in the JVM (Preview)](https://openjdk.org/jeps/539)
+- [JDK 28 project page (OpenJDK)](https://openjdk.org/projects/jdk/28/)
+- [JDK 28 Early-Access Release Notes (draft, updated 2026-11-13)](https://jdk.java.net/28/release-notes)
+- [No Pillars podcast ep. 66 — JEPs 401/539 merged, value types in JDK 28 EA (Inside.java, 2026-08-15)](https://inside.java/2026/08/15/podcast-066/)
+- InfoQ: "JDK 27 and JDK 28: What We Know So Far" (2026-08-24) — six JEPs targeted for JDK 28 at that date

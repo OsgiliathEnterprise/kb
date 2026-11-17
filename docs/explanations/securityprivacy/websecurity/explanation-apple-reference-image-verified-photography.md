@@ -53,6 +53,14 @@ Whenever the reference image is displayed, the client verifies the final JPEG si
 
 ![Diagram 1 — explanation-apple-reference-image-verified-photography](explanation-apple-reference-image-verified-photography-excalidraw-1.svg)
 
+## Adoption and user-facing notes (verified 2026-11-17, KB Zookeeper enrichment)
+
+- **Availability**: ships on iPhone 18 Pro / iPhone 18 Pro Max (launched September 2026), main camera only, **off by default** — an opt-in Reference mode added via Settings → Camera → Reference Image → Add Reference Mode. Two follow-on toggles: *Share Reference Image* (include reference data when sharing) and *Transfer Reference Image* (include it when transferring to a Mac/PC). (MacRumors how-to, 2026-09-18)
+- **Capture behaviour**: the Reference mode lives in the camera carousel; the reference image always contains the **full frame regardless of zoom level**, costing roughly **10–35 MB of storage per photo** depending on capture settings. In Photos, the *Reference* label lets you compare the developed reference image against the working copy to see whether the photo was edited. (MacRumors)
+- **Stated limitation**: Apple positions the guarantee as verifying **capture history** — that the image came from the sensor unaltered — *not* proving the scene itself was real or the subject genuine (staged scenes, screen re-photography, or coerced capture remain out of scope). Press coverage (iGeeksBlog 2026-09-16, Engadget 2026-09-16) stresses this distinction.
+- **Apple's claims**: resists data-injection attacks, compromised OS, hardware and cryptographic attacks; Apple calls it the only image-provenance system with quantum-secure defenses; per-sensor confidence scores plus revocation allow killing a single photo or an entire sensor. (MacRumors / 9to5Mac 2026-09-15)
+- **C2PA positioning**: press comparisons (Fstoppers 2026-09-17) frame Apple Reference Image as complementary to, not a replacement for, Content Credentials — C2PA still records edit history after capture; Reference Image anchors only the pre-processing original.
+
 ## Why this matters beyond Apple
 
 - **Signing at capture time vs. after processing** is the core architectural lesson: any provenance system that signs only after a long software pipeline inherits every compromise in that pipeline. Splitting into hardware-signed negative + verifiable-cloud development isolates the trust boundary.
@@ -64,3 +72,7 @@ Whenever the reference image is displayed, the client verifies the final JPEG si
 - [Apple Security Research: Apple Reference Image — A New Approach for Verified Photography](https://security.apple.com/blog/apple-reference-image/)
 - [Apple Private Cloud Compute (background)](https://security.apple.com/blog/private-cloud-compute/)
 - [C2PA standard (industry provenance baseline)](https://c2pa.org/)
+- [MacRumors: Apple Reference Image on iPhone 18 Pro — What It Does and How to Use It (2026-09-18)](https://www.macrumors.com/how-to/use-apple-reference-image-iphone-18-pro/)
+- [Engadget: How the iPhone 18 Pro's Apple Reference Image tech works (2026-09-16)](https://www.engadget.com/2259654/how-iphone-18-pro-apple-reference-image-works/)
+- [9to5Mac: Apple explains how the iPhone 18 Pro's Reference Image camera mode works (2026-09-15)](https://9to5mac.com/2026-09-15/apple-explains-how-the-iphone-18-pros-new-reference-image-camera-mode-works/)
+- [Fstoppers: Apple Reference Image — Proving Photos Are Real (C2PA comparison, 2026-09-17)](https://fstoppers.com/gear/apple-reference-image-how-iphone-18-pro-proves-photo-real-904649)
