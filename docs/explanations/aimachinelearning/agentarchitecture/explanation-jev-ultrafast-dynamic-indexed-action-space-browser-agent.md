@@ -87,6 +87,10 @@ The same policy runs different tasks (`examples/run.py --url ... --goal ...`); `
 
 The design is a concrete answer to "how do you keep a web agent fast *and* safe": structured state instead of screenshots (cheaper context, no vision latency), one fused operation+target request per cycle (halving round trips), DOM-node references instead of generated selectors (no selector-rot), and hard separation between model output and executable actions. The whole loop is small enough to read in `jev_ultrafast/agent.py`.
 
+## Update (2026-11-17): absorbed into Browser Use as "ultrafast mode"
+
+The standalone repo is now archived in spirit — **Jev Ultrafast became `ultrafast` mode in the main [Browser Use](https://github.com/browser-use/browser-use) library**. Same design, built in: `pip install browser-use`, then `Agent(task, mode='ultrafast')`; it is already the default on the `bu-fast` and `bu-ultrafast` models, and the hosted `bu-ultrafast` model on Browser Use Cloud ships the same agent on every plan. The original repo (~24.6k stars) stays up as the Browser Use × TypeSafe experiment. For new work, use the mainline `browser-use` package rather than cloning this repo.
+
 ## Diagram
 
 ![Jev Ultrafast decision cycle: element table → fused operation+target request → browser](jev-ultrafast-action-space.svg)

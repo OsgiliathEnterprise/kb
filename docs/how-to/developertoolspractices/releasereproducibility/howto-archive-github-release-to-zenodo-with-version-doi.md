@@ -101,8 +101,19 @@ assert oai.find("o:error", ns) is None
 
 Run it in an empty directory (it saves four response snapshots + the archive). It does not execute downloaded software, create a deposit, modify permissions, or require a token; any failed request or assertion stops the check. The useful deliverable is the **verification receipt** — what was preserved and what each check established — handed to the next developer.
 
+## 2026-11 refresh: known failure modes for the deposit step
+
+Zenodo's official FAQ (published 2026-01-28) formalizes the failure taxonomy this note's Step 6 anticipates — read the **Errors tab of the Zenodo panel in GitHub** first:
+
+- `"Extra metadata load failed"` → invalid `.zenodo.json`.
+- `"Citation metadata load failed"` → invalid `CITATION.cff`.
+- **Empty error message** → a known issue (permanent fix on Zenodo's 2026 roadmap); most often missing *required community metadata* (e.g., `grants` entries are mandatory for EU Open Research Repository / EU-funded communities). Fix: add the fields to `.zenodo.json` and **re-create the release** — re-tagging from scratch, consistent with this note's rule that retry must be tied to repository + tag + resolved commit.
+- The `.zenodo.json`-over-`CITATION.cff` precedence from Step 3 is confirmed as official behavior in the same FAQ.
+- **Rate-limit failures are a real deposit hazard:** Zenodo fetches the release using the maintainer's GitHub OAuth token, which shares the account's 5,000 req/hour quota with every other app. A 403 during ingestion leaves Zenodo holding the failed release id, so webhook redeliveries return 409 and nothing retries automatically — treat "ingestion pending forever" as a failed state and re-create the release rather than waiting. This vindicates Step 6's rule that an *unknown* result requires locating the existing record before any new deposit.
+
 ## References
 
+- [Zenodo FAQ: Why does my GitHub release fail with an error? (2026-01)](https://support.zenodo.org/help/en-gb/24-github-integration/204-why-does-my-github-release-fail-with-an-error)
 - [GitHub Release to Zenodo DOI (dev.to)](https://dev.to/dmytronasyrov/github-release-to-zenodo-doi-265f)
 - [Zenodo: describe software with .zenodo.json](https://help.zenodo.org/docs/github/describe-software/zenodo-json/)
 - [Zenodo DOI versioning explanation](https://support.zenodo.org/help/en-gb/1-upload-deposit/97-what-is-doi-versioning)

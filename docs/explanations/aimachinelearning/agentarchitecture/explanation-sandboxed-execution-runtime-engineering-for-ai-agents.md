@@ -108,7 +108,22 @@ When agents become autonomous execution units, managing them requires OS-level t
 - **Runtime engineering is the emerging discipline:** execution boundaries, capability systems, resource governance, fault containment, sandboxed tooling, orchestration safety. Prompt engineering is user-space; the security guarantees come from the kernel-space runtime.
 - **The future of agent infrastructure resembles an operating system** — scheduling, isolation, permissions, process management, resource governance — because autonomous execution units are, functionally, processes.
 
+## 2026-11 refresh: where BoxAgnts sits in the sandbox landscape
+
+A community-maintained taxonomy of coding-agent sandboxes (last active 2026-11-15) groups the field by **isolation primitive**, which maps BoxAgnts cleanly onto the WASM tier:
+
+| Tier | Primitives | Examples | Boundary strength |
+| --- | --- | --- | --- |
+| OS-level primitives | Seatbelt/`sandbox-exec`, Linux Landlock, seccomp-bpf, namespaces+cgroups, bubblewrap, nsjail, Firejail | Codex CLI (Landlock on Linux, Seatbelt on macOS, AppContainer on Windows), Gemini CLI, Anthropic `srt` | Lowest overhead, weakest boundary |
+| Application kernels | userspace syscall interception | gVisor | Middle |
+| MicroVMs | hardware-virt isolation | Firecracker, libkrun (microsandbox, sub-200 ms boot, MCP server), Kata Containers | Strong, slower boot |
+| Language-runtime isolation | V8 isolates; WASM linear memory + capability-based imports | Cloudflare Workers, Deno, BoxAgnts' `wasm-sandbox` | Capability-based by construction |
+
+The recurring conclusion across 2026 vendor guides and Wasm I/O talks: WASM is the compelling middle ground precisely for the properties BoxAgnts exploits — microsecond cold starts, memory-safe linear-memory boundaries, and **capability-based access control** (nothing is reachable unless the host explicitly imports it, which is why `allowed_outbound_hosts` / `map_dirs` style allowlists are enforceable rather than advisory). Useful for comparison when choosing an isolation tier: the same survey lists microVM and OS-primitive options worth combining with a WASM layer for the cases sandboxed execution needs a full Linux environment or GPU drivers.
+
 ## References
 
+- [List of coding agent sandboxes (gist, updated 2026-11)](https://gist.github.com/wincent/2752d8d97727577050c043e4ff9e386e)
+- [AI Sandbox: The Complete Guide to Sandboxing AI Agents in 2026 (Cosmonic)](https://cosmonic.com/blog/ai-sandbox-guide/)
 - [BoxAgnts Runtime (7) — Sandboxed Execution, Rebuilding Agent Infrastructure (DEV.to — guyoung)](https://dev.to/guyoung/boxagnts-runtime-7-sandboxed-execution-rebuilding-agent-infrastructure-4kj3)
 - [BoxAgnts source (GitHub — guyoung)](https://github.com/guyoung/boxagnts)

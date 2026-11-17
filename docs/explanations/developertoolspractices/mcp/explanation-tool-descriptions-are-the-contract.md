@@ -86,7 +86,16 @@ Treat descriptions like interfaces: one authoritative copy you can manage, revie
 
 - [How to Map HTTP API Path, Query, Header, and Body Parameters into MCP Tool Schemas](../../../how-to/developertoolspractices/mcp/howto-map-http-api-parameters-to-mcp-tool-schemas.md) (howto) — the schema side of this contract.
 
+## 2026-11 refresh: the MCP 2026-07-28 spec strengthens this argument
+
+- **Descriptions are now officially untrusted input.** The spec states that tool descriptions and annotations "should be considered untrusted, unless obtained from a trusted server" — the contract needs review *and* a trust boundary, exactly like any externally-supplied API surface.
+- **Cacheable list results change the token-budget math.** `tools/list` (and prompts/resources) responses now carry `ttlMs` and `cacheScope` with deterministic ordering (SEP-2549), so clients can cache tool catalogs and keep upstream prompt caches stable across reconnects. The per-call description cost described above is mitigated by caching, but a bloated catalog still costs on every cache miss and pollutes the prompt cache prefix when ordering drifts — the CI token-budget gate remains the right enforcement point.
+- **Descriptions become routable metadata.** Streamable HTTP requests must now carry `Mcp-Method` and `Mcp-Name` headers (SEP-2243) so gateways/WAFs route and authorize on headers instead of parsing bodies — another way the "prose is interface" claim became protocol reality.
+- Stateless protocol core (no `initialize`/sessions), Multi Round-Trip Requests for mid-call elicitation, and a 12-month deprecation policy round out the release; migration notes exist in the Tier 1 SDKs (TS/Python/Go/C# — TypeScript and Python each crossed 1B total downloads per the announcement).
+
 ## References
 
+- [MCP 2026-07-28 specification announcement](https://blog.modelcontextprotocol.io/posts/2026-07-28/)
+- [MCP spec — Tools (2026-07-28)](https://modelcontextprotocol.io/specification/2026-07-28/server/tools)
 - [Tool Descriptions Are the Contract (dev.to)](https://dev.to/steefjan_wiggers_34a415b/tool-descriptions-are-the-contract-5488)
 - [Sample repo: mcp-vs-api-azure-functions](https://github.com/steefjan1/mcp-vs-api-azure-functions)

@@ -57,6 +57,10 @@ Requirements: a coding agent with tool use + parallel sub-agents, Node.js for th
 
 In their test runs, **a single audit found roughly half the vulnerabilities that repeated runs found in total**. Multiple runs are additive: prior ledgers and findings target gaps, revalidate changed source, and carry forward current-source evidence without treating stale or unresolved work as covered. If you run agent-based audits once per release and call it done, expect to miss about half of what's findable.
 
+## Update (2026-11-17): adoption wave, no feature changes
+
+By week 46 of 2026 the repo hit a **second GitHub Trending wave** — ~**67,400 stars** and ~**4,400 forks** on November 9 (~10,600 stars gained in seven days), up from ~25.6k stars at its October launch. The repo has **not shipped a new release since September**: the surge is renewed attention to agent-driven security audits, not a changelog. Practical caveat surfaced in the HN thread: the six-phase, multi-agent design is **token-expensive** (a commenter reported heavy token use per audit) — budget accordingly and expect the sandbox + independent-verifier overhead to dominate cost.
+
 ## Diagram
 
 ![Six-phase audit pipeline with independent verification](cloudflare-security-audit-skill-pipeline.svg)
