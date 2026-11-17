@@ -15,26 +15,26 @@ keywords:
 # Beyond Prompt Injection: The Tool Update Gap in LLM Agent Security
 
 ## Overview
-This paper identifies the **tool update gap**: a vulnerability window that opens when an agent keeps using a tool whose schema has changed underneath it. Unlike prompt injection (malicious content entering the context), the threat here is a *trust-reuse* problem — the agent grants a tool continued trust because of prior approval, ignoring that its interface evolved. The authors instantiate it as **ETUDE** (Evolved Tool Undetected Dynamic Execution) against Model Context Protocol (MCP) ecosystems, a supply-chain class sitting between traditional software supply-chain attacks and prompt injection.
+This paper identifies the **tool update gap**: once a tool is admitted to an agent framework (reviewed at admission time), **subsequent updates to that tool can be adopted without re-examining the updated implementation**. The authors instantiate the threat as **ETUDE** (*Exploiting Tool Updates for Direct Execution*): malicious functionality is embedded inside an otherwise legitimate tool update. It is a supply-chain class of attack that sits *outside* the model's context window entirely — a different threat surface from prompt injection.
 
 ## Why Existing Defenses Miss It
-Current tool-poisoning defenses inspect tools only **at the moment of registration**. After approval, schema evolution goes unexamined. MCP makes this concrete: its tools and prompts can be modified dynamically through **ListChanged notifications** — a legitimate protocol feature that becomes the attack vector when nobody re-inspects what changed.
+- Malicious code rides in the tool update and executes **without ever entering the LLM's context and with no adversarial instructions**, so defenses restricted to model-visible content — prompt-injection detectors, static skill scanning — cannot see it.
+- **Integrity verification and code review can be bypassed** through obfuscation, or bypassed in practice because blocking updates would disrupt legitimate maintenance.
+- The structural flaw is at the **admission/review boundary**: review happens once, at admission; updates are trusted by inheritance.
 
-## How ETUDE Works (attack anatomy)
-1. Attacker registers a benign-looking tool in the MCP ecosystem.
-2. Agent approves it during normal onboarding.
-3. Later, the tool's schema is **mutated post-approval** via ListChanged-style updates, altering the instructions the agent reads for that tool.
-4. The agent, trusting its earlier approval decision, executes with the evolved schema — attacker-controlled semantics without any prompt injection into the conversation.
+## Attack Anatomy (ETUDE)
+1. A tool is published and passes admission review as a legitimate tool.
+2. A later update embeds the malicious functionality in the tool's implementation.
+3. The agent framework adopts the update; the malicious code runs **directly on the host with the agent's privileges** — no tokens ever enter the model's context.
+4. Delivery timing × execution path yields four conditions; ETUDE occupies the one no in-context defense reaches.
 
 ## Measured Impact
-- **60% attack success rate (ASR)** against Claude Code in tool-hijacking scenarios.
-- **96% ASR** for sensitive-information exfiltration.
-- **40% ASR for persistence** — the evolved tool keeps acting across sessions.
-- **68% median ASR against GPT-5** — severity does **not** diminish with model capability.
-- Evaluated across three MCP environments: **68 MCP servers, 185 MCP tools**.
+- Evaluated across **three representative attack workloads** and **seven widely used commercial and open-source agentic frameworks**, including Gemini CLI, Codex CLI, and Claude Code.
+- **97.6% attack success rate while maintaining a 95.9% legitimate task completion rate** (the attack is not degrading normal use).
+- Best framework–workload cell: **100.0% ASR / 99.6% task completion**, versus **20.2% ASR for the strongest in-context baseline** (context-delivered execution) — a ~79-point ASR gap between out-of-context tool-update delivery and in-context delivery.
 
 ## Defensive Implication
-Trust in agent tool ecosystems must be tied to the **current schema**, not to a registration-time snapshot. Practical mitigations: re-validate tool schemas on every ListChanged notification, pin/diff schemas, and treat post-approval schema mutation as a privilege-escalation event requiring fresh consent.
+Trust must be tied to the **current implementation of each tool**, not to an admission-time snapshot: re-review (or pin/diff) on every update, treat a tool update as a fresh privilege grant, and add integrity checks that run on the *executed binary*, not on declared content — because content-level review is bypassable by obfuscation.
 
 ## References
 - Paper: https://arxiv.org/abs/2611.01976

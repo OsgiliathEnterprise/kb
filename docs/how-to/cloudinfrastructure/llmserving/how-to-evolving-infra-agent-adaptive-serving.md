@@ -15,25 +15,27 @@ keywords:
 # Evolving Infra: Agent-Adaptive LLM Serving at Scale
 
 ## Overview
-How to operate a large LLM serving fleet that **adapts itself to agent workloads** instead of forcing them into a one-size-fits-all configuration. Evolving Infra, deployed on the ByteDance Seed serving fleet, is a closed-loop framework that treats serving parameters as *infrastructure that evolves*: a proposal agent generates configuration changes, a simulation layer evaluates them, and only validated changes ship to production.
+How to run a prefill/decode (PD) disaggregated LLM serving fleet that **adapts to agentic workloads at runtime** instead of assuming chat-like traffic. Evolving Infra (Georgia Tech / UIUC, with authors including Ion Stoica and Song Han) identifies where prefill–decode disaggregated serving mismatches agent traffic, then fixes each mismatch with a concrete infrastructure component.
 
-## Problem Statement
-Agentic workloads now dominate LLM inference demand, and their traffic characteristics (bursty, tool-call interleaved, long sessions, mixed prefill/decode ratios) differ sharply from chat traffic. Serving parameters tuned for general traffic are mismatched to them, and traffic keeps shifting under operator-defined assumptions — static tuning decays.
+## Problem Statement (measured mismatches)
+Agent traffic differs from chat: sessions switch phases, reuse long contexts, and shift demand over time. The paper's production study of **11.7 million requests** shows user-triggered task starts follow workday rhythms while automatic/agent-driven traffic varies differently — static fleet assumptions decay. Three concrete failures motivate the design:
+1. **Costly phase switches** — in PD-disaggregated engines, an agent flipping between prefill-heavy and decode-heavy phases forces expensive engine/role switches.
+2. **Misestimated compute demand** — prefill vs decode split planned for chat traffic misallocates GPUs for agents.
+3. **Misjudged KV reuse** — routers and evictors unaware of agent context management evict exactly the KV prefixes agents will reuse.
 
-## Procedure (the closed loop, as deployed)
-1. **Characterize agent traffic** across dimensions of the serving stack (request mix, session structure, latency sensitivity per workload class).
-2. **Generate candidate optimizations with LLM agents** — the proposal agents read fleet telemetry and propose changes to serving parameters and scheduling policy.
-3. **Evaluate proposals in simulation** before touching production; the simulation layer screens candidates for predicted fleet-wide benefit and regression risk.
-4. **Promote only validated changes** through the staged rollout, closing the loop: each shipped change updates fleet behavior, which the agents observe for the next cycle.
+## Procedure (the design recipe)
+1. **Symmetric engines for online phase switches**: deploy prefill and decode capabilities symmetrically so an agent session switching phase does not pay an engine reconfiguration/switch penalty.
+2. **Shared host-memory KV pool**: keep reusable KV beyond per-GPU HBM in a cluster-visible host-memory pool (fetch-through design evaluated against adding latency); agents' reused contexts survive eviction decisions made GPU-locally.
+3. **Agent-aware cluster-wide KV directory**: index KV blocks fleet-wide and score routing on actual reuse potential (what a plain KV index does *not* record matters — encode agent context structure into the routing/eviction signals).
+4. **Agent-adaptive compute allocation**: adjust the prefill/decode compute split at runtime from observed agent workload mix rather than a static split.
 
 ## Results
-- Serves **trillions of tokens per day across 100K+ GPUs**.
-- **+23% serving capacity improvement** observed in production after the agent-driven optimization loop shipped changes.
-- Operational effect: the framework keeps serving aligned with how agents actually execute as the pattern changes, rather than waiting for operators to notice drift.
+- Workloads: **mini-SWE-agent on PutnamBench** (decode-heavy, single agent hammering one session) and **Anthropic's computer-use agent on OSWorld 2.0**; models **GLM-5.2 and Kimi K2.6**.
+- On **up to 256 GB300 GPUs**: reduces **mean end-to-end request latency and P95 TTFT by up to 4.1× and 14× over NVIDIA Dynamo**, NVIDIA's production serving framework; gains hold in simulation at **3,072 GPUs** (with open-loop arrivals and asymmetric prefill/decode parallelism).
 
 ## Gotchas
-- The loop's safety rests on the simulation layer being trustworthy — a proposal agent is only as good as the simulator that vetoes it.
-- Capacity here is fleet-wide goodput, not per-request latency; per-workload SLO regressions must be gated separately.
+- The 14× P95 TTFT win is against Dynamo's chat-oriented defaults on agent workloads — expect smaller deltas if your traffic is actually chat-like.
+- Host-memory KV pooling adds a fetch-through latency path; the paper evaluates why fetching through the pool adds latency — measure your KV reuse rate before adopting.
 
 ## References
 - Paper: https://arxiv.org/abs/2611.12304

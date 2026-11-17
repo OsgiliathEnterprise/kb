@@ -15,23 +15,22 @@ keywords:
 # ServerBench: How can your coding agents design specialized LLM serving systems?
 
 ## Overview
-ServerBench is a **benchmark for coding agents that write LLM serving systems from scratch**, built around a simple but unresolved premise: no single serving design wins everywhere. Best designs depend on the model-architecture × hardware × workload combination, so specialization is mandatory — but writing each specialized engine by hand is costly. ServerBench asks whether coding agents can generate those specialized engines instead.
+ServerBench asks whether **coding agents can write complete, specialized LLM serving systems** for a given model–hardware–workload cell, where no single serving design wins everywhere. Agents start from a minimal server and experiment against a **common economic objective** rather than raw speedup.
 
-## Benchmark Composition
-- **60 tasks** spanning **6 GPU generations** (diverse hardware constraints, including memory-bandwidth limits).
-- **23 model architecture families** — each task pins a model/hardware constraint pair.
-- **Agentic execution loop**: agents iteratively write and test candidate serving systems against the task constraints.
-- **Scoring**: end-to-end serving speed, graded against reference **vLLM deployments and expert-written systems** as baselines.
+## Benchmark Design (verified specifics)
+- **Objective — "dollars per dollar"**: latency-qualified token value per dollar of GPU cost. Unlike prior benchmarks that score speedup/throughput vs a baseline, this prices the API cost of the agent's own effort against the serving value it delivers — and only **verified systems receive a score**.
+- **Stateful closed-loop replay**: workloads preserve session dependencies (agent-like multi-turn traffic), not independent requests.
+- **Independent verification** checks each submitted system (including correctness of optimization paths); prohibited shortcuts are enforced.
+- **Scale**: **11 coding-agent models across three model–hardware deployments** (e.g., L40 GPU allocations; models incl. Gemma E4B and Qwen checkpoints).
 
 ## Key Findings
-- Frontier models already produce **outperforming serving designs for some configurations** — specialization via agents is feasible today for a subset of the space.
-- Performance **varies substantially across models, tasks, and iterations** — no model dominates uniformly.
-- Bottlenecks are **architectural**: the leading failure mode is agents missing GPU-specific, low-level optimizations (the kind experts bake into specialized kernels/schedules), not general coding errors.
+- Best cell: **Claude Sonnet 5.5 reaches 2.97 dollars-per-dollar on Gemma E4B — 4.87× the vLLM serving baseline**; GPT-family agents offer lower-cost gains, Claude reaches higher value.
+- **22 of 33 runs yield verified systems; 13 exceed the strongest baseline** — agent-designed serving systems already beat reference deployments for a minority of runs.
+- Trajectory analysis, three findings: (1) **high-value designs coordinate capacity improvements with load selection**; (2) agents interpret performance feedback through **workload-relevant experiments**; (3) **reliable delivery requires verifying the execution paths introduced by optimization** (agents ship optimizations whose code paths never run).
 
 ## How To Use This (lookup)
-- Evaluating coding-agent capability on systems programming with hardware constraints → run the 60-task suite; track per-architecture-family pass rates.
-- Deciding "hand-tuned engine vs agent-generated engine" → check whether your model/hardware cell is in the already-outperforming subset; assume not for bandwidth-bound edge cases until measured.
-- Treat iteration count as a first-class cost dimension: scores improve across agent iterations, unevenly.
+- Evaluating coding agents on systems programming under hardware constraints → use a cost-qualified objective (dollars per dollar), stateful replay, and independent verification of executed paths — speedup-only scoring inflates results.
+- Deciding "hand-tuned vs agent-generated engine" → today the agent wins on some cells (13/33 runs exceed the strongest baseline); treat an unverified agent system as not-done: verify the optimization actually executes.
 
 ## References
 - Paper: https://arxiv.org/abs/2611.06841

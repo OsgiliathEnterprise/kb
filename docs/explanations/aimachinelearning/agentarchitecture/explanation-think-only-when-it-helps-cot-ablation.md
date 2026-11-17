@@ -15,27 +15,21 @@ keywords:
 # Agents, Think Only When it Helps
 
 ## Overview
-Should agentic LMs always emit chain-of-thought (CoT) reasoning before every action? This paper runs an unusually clean controlled study: an **ablation of the full CoT distillation pipeline**, where a teacher (o3) produces reasoning traces plus actions and a student (GPT-4.1) is trained with SFT on **actions only, reasoning only, or both**. The headline: the value of reasoning is conditional — distilled CoT helps *only when the task actually benefits from reasoning*.
-
-## Problem Statement
-The cost-benefit of CoT in agents is genuinely open. Reasoning traces add token cost and latency on every step; prior evidence is confounded because "distilled reasoning" bundles multiple effects (teacher knowledge, action formatting, rationale format) into one training recipe.
+Should distilled agent students always emit chain-of-thought before acting? This paper runs a **controlled causal ablation of thought supervision vs action supervision** in agentic CoT distillation. Headline: **thought supervision is often not critical** — what matters is the action supervision — and on some tasks the student trained on **actions only** matches or beats the student trained with thoughts (paper's Figure 1: the with-thought student answers wrong, the actions-only student answers correctly).
 
 ## Method (the ablation design)
-- Teacher: **o3** — the only model in the o-series that accepts image input — generating traces on multimodal agentic benchmarks: **Vision2Web and WebVoyager**.
-- Student: **GPT-4.1**, fine-tuned via SFT on three data variants:
-  1. **Actions only** (no rationale),
-  2. **Reasoning only**,
-  3. **Reasoning + actions**.
-- This isolates *what reasoning adds* from *what the teacher's action policy adds*.
+- Teachers generate agentic trajectories; **default teacher Qwen2.5-32B-Instruct**, students **initialized from Qwen2.5-3B-Instruct** and trained with an SFT objective; robustness studied across **student scales/families and across teacher models**.
+- **Corruption operators** intervene separately on the thought channel and the action channel: thoughts (or whole segments) can be deleted or corrupted; paraphrasing is defined **for thoughts only** (π_paraphrase instantiated with the teacher model). This isolates *what thoughts contribute* from *what the teacher's action policy contributes*.
+- Evaluated on multi-hop QA benchmarks — HotpotQA, 2WikiMultiHopQA, Bamboogle, MuSiQue — with **GPT-4o-mini as LLM judge**.
 
 ## Results
-- Distilled CoT improves performance **exclusively on task categories where reasoning is actually needed** — on the rest, reasoning traces add cost without benefit.
-- The **reasoning-only** and **action-only** variants reveal a **teacher-model dependence**: which variant wins shifts with the teacher, i.e. part of the "reasoning benefit" is really teacher knowledge transfer, not rationale format.
-- Practical reading: treat per-step CoT as an expensive optional component to be routed, not defaulted.
+- **Thought supervision is frequently non-critical**: ablating/corrupting thoughts often leaves final accuracy intact, while action supervision is load-bearing.
+- **Action-only distillation** is proposed as an alternative supervision recipe: it **gains efficiency in both training and inference** (shorter sequences, no reasoning tokens at serve time) in the evaluated regimes.
+- Where thoughts do help, it is task-dependent — the paper's title is the operative conclusion: think only when it helps, i.e. where the task genuinely requires deliberation.
 
 ## Relevance
-For agent platform teams, this is empirical grounding for **adaptive thinking budgets** (think selectively per step) and for questioning blanket "always reason" agent prompts: measure which task categories need deliberation, and ablate reasoning off elsewhere to cut latency/cost.
+For agent platform teams: do not bake "always emit CoT" into distilled agent students by default. Run the paper's ablation pattern on *your* task mix — corrupt the thought channel in your eval set; if accuracy is unmoved, drop reasoning tokens and cut serving latency/cost.
 
 ## References
 - Paper: https://arxiv.org/abs/2611.05709
-- Semantic Scholar: https://api.semanticscholar.org/graph/v1/paper/arXiv:2611.05709 (0 citations at ingest, 2026 paper)
+- Related: [[Route to Remember: Adaptive Memory Selection for LLM Agents]], [[Dependable Long-Horizon LLM Agents: A Trajectory-Centered Empirical Study of Where Errors Enter and Which Controls Reach Them]]

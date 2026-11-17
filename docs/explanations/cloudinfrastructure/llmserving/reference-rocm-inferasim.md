@@ -15,25 +15,21 @@ keywords:
 # ROCm InferaSim: Cut LLM Serving Trial Costs and Deploy the Best Configuration
 
 ## Overview
-ROCm InferaSim is an end-to-end, high-fidelity simulator for AMD GPUs that lets teams evaluate LLM serving configurations on a single host **without ever touching a real GPU**. Because large models make on-GPU trial-and-error tuning slow and expensive, the simulator compresses the design space exploration phase from hours of cluster time to minutes of CPU time, then emits only the best-scoring configurations for real validation.
+ROCm InferaSim is an AMD framework that **predicts LLM serving performance from a few measured "anchor" configurations** instead of exhaustively benchmarking every candidate on real GPUs. Exhaustively evaluating all candidate serving configurations in the paper's study would have required **~25,000 GPU-hours**; InferaSim replaces that sweep with predictions grounded in a small measured anchor set plus transfer laws, so teams shortlist configurations before committing scarce AMD GPU time.
 
-## Problem Statement
-Serving configuration is a large combinatorial space: engine, precision, parallelism, batching strategy, memory settings. Validating even a handful of candidates on real AMD GPUs requires provisioning the hardware, running full workloads, and repeating for each candidate — an expensive loop teams usually truncate, settling for suboptimal deployments.
+## Core Idea (anchor-based prediction)
+- **Key observation**: many serving choices change performance in smooth, predictable ways, so a handful of carefully chosen measured points ("anchors") can predict the behavior of the surrounding configuration space.
+- **Anchor economics (measured on AMD Instinct MI355X, engines vLLM / SGLang / ATOM)**: measuring **11 anchors took 9.1 GPU-hours**, while physically measuring the **226 fixed-length configurations they cover took 204 GPU-hours** — a ~22× measurement saving for that slice.
+- Predictions cover the serving configuration space (engine choice, model/hardware mapping, multi-GPU step-time behavior) so deployment candidates are ranked off-GPU.
 
-## Technical Approach (simulator internals)
-- **Two-level simulation architecture**: a per-call latency model predicts kernel-level timings, feeding a higher-level end-to-end serving simulator.
-- **Kernel database**: pre-measured kernel timings ground the latency model in real AMD hardware behavior rather than analytic guesses.
-- **Production traces**: workloads replayed from real traffic patterns (chat, coding, agentic).
-- **Three serving engines modelled**: vLLM, SGLang and TensorRT-LLM — so engine choice itself is part of the explored design space.
-- **Multi-GPU parallelism**: both data parallelism (DP) and tensor parallelism (TP) are simulated.
+## Validation Numbers
+- On **172 configurations** passing the authors' measurement filters: **8.1% median error on time-per-output-token**.
+- On a **multi-turn coding workload**: predictions **within 8% on throughput**.
+- Transfer-law limits are honest: extrapolating a measured four-GPU DeepSeek-V4-Pro step time to predict eight-GPU performance gives **44% median error** — cross-size extrapolation is the weak spot, intra-regime interpolation is strong.
 
-## Validation Results
-- Accuracy against real AMD GPU deployments: **median absolute error of 3.3% and 9.4%** across the evaluated regimes.
-- Case study: on a **4-GPU MI300X testbed**, pre-GPU exploration with ROCm InferaSim **reduced time-to-best-configuration by 43%** — the deployment team skipped most physical trials.
-
-## When to Use This
-Lookup guide for teams on AMD/ROCm hardware who need to shortlist serving configurations (engine × parallelism × precision × batching) before committing scarce GPU time. Caveat: fidelity depends on the kernel database covering the target GPU and engine versions.
+## When To Use This (lookup)
+Teams on AMD/ROCm hardware deciding serving configurations (engine × model × parallel layout) before burning GPU-hours: use anchors + predictions to shortlist, then measure only the finalists on hardware. Caveats: fidelity is validated on MI355X with vLLM/SGLang/ATOM; treat cross-GPU-count extrapolation (44% median error case) as directional only.
 
 ## References
 - Paper: https://arxiv.org/abs/2611.04032
-- Related: [[VelServe: Taming Decode Jitters in LLM Inference with Tail-Calibrated Scheduling]], [[LLM Serving Needs Mathematical Optimization and Algorithmic Design]]
+- Related: [[Evolving Infra: Agent-Adaptive LLM Serving at Scale]], [[ServerBench: How can your coding agents design specialized LLM serving systems?]]

@@ -16,22 +16,21 @@ keywords:
 # Dependable Long-Horizon LLM Agents: A Trajectory-Centered Empirical Study of Where Errors Enter and Which Controls Reach Them
 
 ## Overview
-A trajectory-centered **empirical reliability study** of long-horizon LLM agents. The unit of analysis is a whole execution trace, annotated with **30 error labels organized by stage** — the paper's core empirical question is two-fold: *where in a trajectory do errors actually enter*, and *which reliability controls can actually reach those points*.
+A trajectory-centered **empirical reliability study**: the authors read each failed agent trajectory in full from two public corpora — **Who&When** and the **MAST/MAD traces** (Cemri et al., 2025) — and answer three questions: where does the error *originate*, what is the observable *symptom*, and which reliability control would actually have intercepted it.
 
 ## Study Design (lookup material)
-- **30-label error taxonomy**, each label tied to a trajectory stage (perception/grounding, planning, action execution, state update, verification/termination...).
-- **Manual trace annotation protocol** — human annotators label long-horizon executions, not final outcomes only.
-- Analysis cross-tabs two axes: the stage where an error **enters** vs the control (guardrail, verification step, recovery mechanism) that could intercept it.
+- Unit of analysis = the whole execution trace, not the final outcome; full manual reading, with MAST failure modes assigned as **symptom** labels (**2.9 modes per run on average**).
+- **Origin vs symptom separation**: the causal origin is located and compared against the corpus's own decisive-step labels; **in 37 of 88 Who&When traces the true origin is earlier than the human-labeled decisive step**, at a **median origin→symptom gap of 0.67 of the run** (origins cluster early, ~0.18 into the run, as wrong decisions or fabrications over task/reasoning/knowledge state).
 
 ## Main Empirical Findings
-1. **Most failures are not model-reasoning failures** — they originate in **scaffolding** (the harness around the model: tool plumbing, state handling, environment feedback), not in the LLM's reasoning core.
-2. **Error distributions are stable across model classes** — the *shape* of the failure distribution persists across different underlying models, i.e. it is a property of agent architectures/scaffolds, not model quality.
-3. **Most existing agent controls do not cover the observed error paths** — the controls teams actually deploy (retries, output validation, guardrails) intercept a minority of the stages where errors enter, leaving dominant failure paths unguarded.
+1. **Agents ignore their own contradicting evidence**: **in 72% of failed runs a contradicting observation appears before the failure, and the agent ignores the large majority of them** — failures are visibly foreshadowed in the trace.
+2. **State-restore controls reach less than assumed**: restoring the agent's own state (local checkpoint) would have sufficed in only **35 of 95 runs**; in **56 runs the fault sat in a plan or policy that a restore would simply replay** — checkpoint/rollback is not a general-purpose control.
+3. **Harness-level failures hide behind attribution labels**: **26 of 58** hand-crafted Who&When failures ended in a **provider content-filter crash after which the harness emitted a final answer no agent produced** — a harness bug misattributed to the model; a text scan shows **45% of hand-crafted Who&When failures** belong to this class.
 
 ## How To Use This
-- **Prioritization table for agent reliability work**: fix scaffolding (tool contracts, state consistency, environment feedback fidelity) before swapping in a smarter model — model swap doesn't move the dominant failure mass.
-- **Control-placement audit**: map your current guardrails onto the 30-label stage taxonomy; any stage with observed error entries and no reaching control is your coverage gap.
-- The stability-across-models result makes the taxonomy a reusable evaluation lens for any long-horizon agent stack.
+- **Control-placement audit**: map your controls (checkpoints, retries, output validation) onto origin-vs-symptom positions — a control that only fires at the symptom step misses origins a median 0.67 of the run earlier.
+- **Blame the harness first**: check for provider-filter/harness-injected final answers before concluding the model failed; label taxonomies that attribute harness failures to model decisions systematically mislead.
+- The ignore-your-own-evidence statistic argues for controls that react to mid-trajectory contradicting observations (evidence monitors), not just end-of-run validation.
 
 ## References
 - Paper: https://arxiv.org/abs/2611.13254

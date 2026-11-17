@@ -26,9 +26,10 @@ The adversarial prompt space grows exponentially with prompt length, and defensi
 - **General evaluation surface**: tested against **both open-weight and proprietary models**, across several distinct defenses.
 
 ## Results
-- **Up to 92% attack success rate** across the evaluated models and defenses.
-- **2× higher ASR than previous methods** on the same settings.
-- The paper also analyzes the **scaling behavior of ASR** (how success grows with swarm effort) and **cross-model transferability** of discovered strategies — strategies found against one model carry over to others.
+- **Up to 92% attack success rate** across the evaluated targets — **Gemini models (with out-of-model prompt-injection mitigations disabled) and several state-of-the-art open-weight LLMs** (e.g. 92% ASR with 100% task completion on Gemini 4 Argon in the paper's per-model table).
+- The swarm maintains a **strategy database** of attack strategies that steers the search; baseline comparisons include the **Prompt Siren mini-goat** attack.
+- **Visible CoT strengthens the attack** versus hidden CoT, and discovered strategies show **cross-model transferability** — a bypass found against one model carries over to others.
+
 
 ## Defensive Implications
 - Defenses evaluated only against single-shot or hand-crafted injections are **under-tested**; assume an adversary with parallel search budget.
