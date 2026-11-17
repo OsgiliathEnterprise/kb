@@ -27,7 +27,13 @@ When a trajectory is compressed, tool chains are collapsed, or sub-agent work is
 
 ## Results
 - Substantial transport failure, up to **~31%** under macro abstraction and delegation.
-- **Failure-mode split**: direct verification protocols fail with incorrect verdicts, while evidence-grounded and deliberative protocols fail through abstentions when observability is limited.
+- **Failure-mode split**: direct verification protocols fail with incorrect verdicts, while evidence-grounded and deliberative protocols fail through abstentions when observability is limited. **Lower transport failure rates do not necessarily imply greater reliability** — a protocol that abstains "survives" abstraction by refusing to judge.
+- **Provenance restoration recovers 85.5% of transport failures** when the corresponding execution provenance can be restored; recovery drops when provenance is lossy or unavailable. This makes provenance plumbing (keeping the native view recoverable) the highest-leverage fix.
+
+## Paper Metadata (enriched 2026-11-17)
+- Full title: *"Do Verifier Judgments Survive Abstraction? Measuring Verification Transport for LLM Agent Evaluation"* — Disha Sheshanarayana, Sai Linisha Reddy Goli (Manipal University).
+- arXiv:2611.18471 [cs.CL], submitted 2026-11-13; DOI 10.48550/arXiv.2611.18471.
+- **Accepted at the NeurIPS 2026 Workshop "Who Verifies the Agents? Toward Reliable Agent Development"**.
 
 ## Relevance to Our Domain
 Agent evaluation stacks routinely judge compressed trajectories (sub-agent reports, tool summaries). If judge stability is not measured, leaderboard-style claims and regression gates silently measure the abstraction layer. Practical takeaway: treat transport failure as a standing regression test, keep a native view in the loop, and remember that abstention is the dominant failure mode of evidence-grounded verifiers. Related: [[explanation-evidence-bound-multiagent-verification]].

@@ -55,8 +55,18 @@ Plus: Spamhaus HELO/DNS checker on the guidelines page, email to `helocheck@abus
 
 This is the checklist side of email deliverability; for continuous monitoring of these exact records (MX/SPF/DKIM/DMARC drift over time) see [[howto-monitor-email-dns-records-mx-spf-dkim-dmarc]]. The new HELO+PTR+A trinity requirement means homelab and VPS operators can no longer ship mail with the hosting provider's default reverse DNS — branded rDNS is now table stakes, not a nice-to-have.
 
+## Current status (verified 2026-11-17 against the live guidelines page)
+
+- The HELO + PTR + matching-A requirement is **gradually rolling out** as of November 2026 (not yet enforced universally) — a "Note" banner on the guidelines page announces it; the enforcement cadence will tighten over time, so build to the bar now rather than waiting for a listing.
+- Non-compliance feeds specifically the **CSS (Email Spam IPs)** and **XBL (Compromised IPs)** zones; the broader family (SBL, PBL, DBL, ZEN) consumes the same reputation signals.
+- **Newly registered domain rule (30 days):** do not use a domain in SMTP as a FROM or HELO domain until at least **30 days after registration**; a web presence established before sending improves credibility. A young domain in message *content* also looks suspicious.
+- **Reputation checking is self-service and continuous:** Spamhaus publishes IP/domain reputation statistics (including per-registrar and per-hosting-provider reputation) and a Reputation Checker — check proactively instead of waiting for a delivery issue or a listing. Note: Spamhaus does **not** explain individual reputation attributes or reset reputation on request.
+- The guidelines page embeds a **HELO/DNS checker** (results not guaranteed for every IP) — complement it with `helocheck@abuseat.org` for the authoritative view of what a receiving server actually sees.
+
 ## References
 
-- Spamhaus Sender Guidelines (primary source, Nov 2026 rollout notice): [Spamhaus Sender Guidelines](https://www.spamhaus.org/sender-guidelines/)
+- Spamhaus Sender Guidelines (primary source, Nov 2026 rollout notice + embedded HELO/DNS checker): [Spamhaus Sender Guidelines](https://www.spamhaus.org/sender-guidelines/)
+- Newly registered domain best practice: [Best practice for owners of a newly registered domain](https://www.spamhaus.com/resource-center/best-practice-for-owners-of-a-newly-registered-domain-part-3/)
+- Registrar / hosting-provider reputation statistics: [Spamhaus Reputation Statistics](https://www.spamhaus.org/reputation-statistics/registrars/domains/)
 - ESP & large-sender addendum: [Spamhaus ESP & Large Senders](https://www.spamhaus.org/sender-guidelines/esp-large-senders/)
 - RFC 6177 (IPv6 sender allocation guidance): [RFC Editor](https://www.rfc-editor.org/info/rfc6177/)

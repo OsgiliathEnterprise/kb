@@ -55,8 +55,19 @@ Architecture also set the ceiling on blast radius: Teams, OneDrive, SharePoint a
 - **Cascades defeat automated recovery.** Recovery runbooks assume a minority of unhealthy nodes; rehearse the >80%-unresponsive state (drain, ramp, re-admit) explicitly. See also [[explanation-telstra-ntp-timing-loop-outage]] for another single-mechanism-becomes-fleet-wide cascade.
 - **Shared chokepoints define blast radius.** Services that cannot fail out of a shared gateway path inherit its availability, not theirs. Audit which of your services are "Exchange Online" in this sense.
 
+## Impact scale and confirmed aftermath (verified 2026-11-17)
+
+- **Scale:** ~430 million Microsoft 365 users worldwide; issues reported from more than 70 countries. Government departments in Australia, Japan, the Philippines, Singapore, South Africa and the US were affected; airlines, schools (UK DfE/Ofsted) and search/AI services that depend on Microsoft infrastructure (Bing, DuckDuckGo, ChatGPT) also degraded.
+- **Not an attack.** Microsoft explicitly stated the outage was *not* caused by a cyberattack or by AI agents — a notable framing decision, since early speculation ran both ways. Customers were directed to admin-center advisory **MO1550821**.
+- **Cross-region leak via the abstraction layer.** Charles Lamanna's root-cause summary adds a fifth ingredient beyond the three above: the management abstraction of "capacity units" meant to isolate infrastructure **failed to isolate the fault**, so a defect in one gateway group propagated across regions — which is why a gateway outage became worldwide rather than regional.
+- **The recovery stampede was mitigated manually.** As the fix rolled out, re-admitted servers were immediately overwhelmed again; Microsoft had to **disable automated traffic routing entirely** so hosts could recover before receiving requests — the concrete countermeasure for the ">80% unresponsive" runbook gap noted above.
+- **Timing context.** The outage began 12 November ~17:00–18:00 UTC (first acknowledgement 17:54 UTC for Exchange Online mailbox access in the Americas) — two days after a November Patch Tuesday that shipped fixes for 1,094 vulnerabilities. Full restoration was confirmed the morning of 14 November, consistent with the timeline above.
+
 ## References
 
+- Wikipedia (contemporaneous cross-outage summary with Lamanna's full root-cause list and impact table): [2026 Microsoft outage](https://en.wikipedia.org/wiki/2026_Microsoft_outage)
+- Tony Redmond, detailed practitioner analysis: [The Great Exchange Online Outage of November 2026](https://office365itpros.com/2026-11-16/exchange-online-outage-nov26/)
+- Microsoft 365 Status channel: [MSFT365Status advisory thread](https://x.com/MSFT365Status/status/2122205066157257160)
 - The Register: [Microsoft blames monster email outage on software defect introduced in July fix](https://www.theregister.com/saas/2026-11-16/microsoft-blames-monster-email-outage-on-software-defect-introduced-in-july-fix/5310026)
 - Microsoft preliminary post-incident report (as posted by Charles Lamanna, VP): [X/Twitter announcement](https://x.com/clamanna/status/2122209697226948729)
 - Developpez (French coverage of the PIR): [Microsoft révèle comment un bug caché de Windows a provoqué la panne des services Microsoft 365](https://microsoft.developpez.com/actu/389145/Microsoft-revele-comment-un-bug-cache-de-Windows-a-provoque-la-panne-des-services-Microsoft-365-dans-le-monde-entier-ce-bug-ayant-entraine-une-autre-serie-de-desastres/)
