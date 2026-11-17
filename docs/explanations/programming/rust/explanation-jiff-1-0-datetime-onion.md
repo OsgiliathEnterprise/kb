@@ -102,9 +102,20 @@ assert_eq!(rounded.to_string(), "P32D"); // relative to the anchor date
 
 Jiff is heavily inspired by **Temporal** (the TC39 datetime proposal) — nearly a direct translation of its API. Intentional renames to avoid clashing with `std::time`: Temporal `Duration` → Jiff `Span`, Temporal `Instant` → Jiff `Timestamp`, Temporal "plain" types → Jiff "civil" types. Jiff is Gregorian-only and bounds datetime range to ±9999 (Temporal is wider). The same mental model maps onto Java's `java.time`: `Instant` ≈ `Timestamp`, `LocalDateTime` ≈ `civil::DateTime`, `ZonedDateTime` ≈ `ZonedDateTime` — see the Java-DateTime notes in this vault for the Java side.
 
+## Practical adoption notes
+
+- **Name/parsing mental model**: Jiff is pronounced like "gif" with a soft "g" ("gem"). Its grammar is the Temporal RFC 9557 / ISO 8601 grammar: `Timestamp` serializes as RFC 3339 (`2026-11-12T15:36:00-05:00`), `ZonedDateTime` as RFC 9557 with an IANA annotation (`2026-11-12T15:36:00-05:00[America/New_York]`). It also leniently parses strings outside those specs, e.g. `2026-11-12[America/New_York]` → midnight in that zone.
+- **When *not* to use Jiff** (from the announcement): measuring elapsed time in a process → use monotonic `std::time::Instant`; pure-UTC work with Unix timestamps → `std::time::SystemTime` suffices. Jiff earns its keep the moment you need civil time, time zones, DST-safe arithmetic, or non-trivial string formats.
+- **MSRV policy**: minimum supported `rustc` is **1.85.0**, with a standing rule never to require a compiler released in the previous year (per the repo README's Minimum Rust version policy; MSRV bumps limited to minor releases).
+- **Ecosystem crates published alongside 1.0**: `jiff-icu` (ICU4X integration — the recommended path for non-Gregorian calendars and locale-aware output, closing Jiff's Gregorian-only gap), `jiff-sqlx` and `jiff-diesel` (wrapper types for storing/retrieving Jiff values via SQLx / Diesel).
+- **Performance stance**: "reasonable performance", not fastest-possible — per the crate docs.
+
 ## References
 
 - [Jiff 1.0 announcement and API tour — Andrew Gallant's blog](https://burntsushi.net/jiff/)
 - [jiff on crates.io](https://crates.io/crates/jiff)
+- [jiff on docs.rs (crate docs, MSRV, feature notes)](https://docs.rs/jiff/latest/jiff/)
+- [Jiff design & comparison docs (Jiff vs chrono vs time)](https://docs.rs/jiff/1.*/jiff/_documentation/comparison/index.html)
 - [Jiff CHANGELOG (1.0.0, 2026-11-15 — breaking changes vs 0.2)](https://github.com/BurntSushi/jiff/blob/master/CHANGELOG.md#100-2026-11-15)
+- [BurntSushi/jiff releases (jiff-icu, jiff-sqlx, jiff-diesel)](https://github.com/BurntSushi/jiff/releases)
 - [MDN: Temporal (JS datetime proposal that inspired Jiff)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Temporal)
