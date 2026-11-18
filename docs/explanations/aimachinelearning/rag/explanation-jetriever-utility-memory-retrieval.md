@@ -33,6 +33,7 @@ Vector/BM25 retrieval assumes the relevant memory looks like the query. Agent me
 - **InMind (125 indirect-query tasks)**: gold exchange ranked first in **84.8%** of cases, versus **1.6%** for matched BM25 and **0.0%** for MiniLM when indexing user turns.
 - **Finding vs ranking (20-question comparison)**: Jev and Qwen3.5 9B each find 90% of gold exchanges by rank 50 (Laya: 30%), but at rank one Jev reaches 85% vs 40% — ranking, not recall, is where similarity search and weaker rankers fail.
 - **MemoryAgentBench (60-question proportional sample)**: four-dimension score 55.4% vs 44.3% for ReFind on the same questions.
+- **Takeaway (authors' framing)**: the value comes from *world knowledge* — scores that rank decisive memories first — combined with *affordable* full-pool scoring.
 
 ## Relevance to Our Domain
 
@@ -40,6 +41,7 @@ For agent memory and RAG infrastructure, this reframes the retrieval layer: with
 
 ## References
 
-- Paper: https://arxiv.org/abs/2611.21478
+- Paper: https://arxiv.org/abs/2611.21478 (cs.CL; Ruizhe Li, Licheng Zhang, Mingxuan Du, Zhendong Mao; submitted 16 Nov 2026; 13 pages, 1 figure, 8 tables; CC-BY-4.0; DOI: 10.48550/arXiv.2611.21478)
+- **Project repository: https://github.com/imlrz/Jetriever** (code available)
 - Related KB notes: [[explanation-lemmalog-datalog-memory-for-llm-agents]], [[explanation-claude-unified-memory-architecture]] (agent-architecture)
 - Semantic Scholar: https://api.semanticscholar.org/graph/v1/paper/arXiv:2611.21478

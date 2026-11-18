@@ -42,5 +42,10 @@ Validates the grep-first retrieval many of our coding agents already use, and gi
 
 ## References
 
-- Paper: https://arxiv.org/abs/2611.20455 (cs.SE — Xue, Zhang, Liao, Qin, Mu, Yu)
+- Paper: https://arxiv.org/abs/2611.20455 (cs.SE — Siqiao Xue, Ziyin Zhang, Zihan Liao, Jin Qin, Yixiang Mu, Hang Yu; submitted 16 Nov 2026; CC-BY-4.0; DOI: 10.48550/arXiv.2611.20455)
+- Benchmark: https://huggingface.co/datasets/hq-bench/repo-premium
 - Related: `explanation-prince-bayer-agentic-rag-context-harness-engineering.md` (agent-architecture), `ai-machine-learning/rag/`
+
+## Verification (KB Zookeeper, 2026-11-18)
+
+Content re-verified against the arXiv abstract page: benchmark composition (6 languages, PRs 2022–2026, preregistered 91-repo pool), the two inflation artefacts (chunking BM25 inputs; counting edited tests as relevant), generate-then-grep result (BM25 matches dense in every Python pool, including post-release PRs), the negative predictability finding, and all three guidelines match the abstract exactly. No corrections needed.

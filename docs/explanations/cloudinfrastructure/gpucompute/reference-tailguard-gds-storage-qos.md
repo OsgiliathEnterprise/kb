@@ -22,7 +22,7 @@ TailGuard-GDS (Jiaqi Liu, Fan Yang, Xiaohang Shi, Xianzhe Zhang, Tao Jiang, Guoj
 
 ## Problem Statement
 
-Frameworks specify *what* moves and when; GPU I/O stacks expose *mechanisms*; neither combines phase semantics with measured tail behaviour to pick a delivery plan. A fixed choice (always GDS or always host staging) leaves tail latency on the table.
+AI runtimes move state between NVMe storage and GPU memory *on critical paths* (checkpoint save/load, KV offload, data ingest). Frameworks specify *what* moves and when; GPU I/O stacks expose *mechanisms*; neither combines phase semantics with measured tail behaviour to pick a delivery plan. A fixed choice (always GDS or always host staging) leaves tail latency on the table.
 
 ## Key Technical Specifications
 
@@ -44,7 +44,11 @@ Frameworks specify *what* moves and when; GPU I/O stacks expose *mechanisms*; ne
 
 Practical guidance for GPU clusters that use GDS for checkpointing and disaggregated serving: "GDS everywhere" is not tail-optimal; a phase-aware plan selector with measured (not assumed) path choice is the robust pattern. Relevant to any GDS-based KV-offload or checkpoint-loading architecture.
 
+## Verification (KB Zookeeper, 2026-11-18)
+
+All numbers re-checked against the arXiv abstract (v1, 13 Nov 2026): eight-H100 study, plan dimensions, microsecond-scale switching overhead, FSDP −18.4%/−25.3%, ZeRO-3 ranges −7.9–24.6% / −28.4–42.6%, and DeepSpeed AIO −5.6% step p95 / +6.1% throughput. Confirmed 35-page full-length research article (14 figures, 17 tables incl. appendix). Note: despite the intake filename "storage-qos", this is a per-phase plan-selector paper, not a multi-tenant bandwidth-QoS paper — the corrected framing above is authoritative.
+
 ## References
 
-- Paper: https://arxiv.org/abs/2611.17824
+- Paper: https://arxiv.org/abs/2611.17824 (cs.DC/cs.OS; DOI: 10.48550/arXiv.2611.17824)
 - Related: `reference-superfluid-multi-model-serving.md`
