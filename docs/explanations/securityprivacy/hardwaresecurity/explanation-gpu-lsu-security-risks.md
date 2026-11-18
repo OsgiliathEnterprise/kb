@@ -15,7 +15,7 @@ keywords:
 # Dissecting the GPU Load/Store Unit and Exposing Its Security Risks
 
 ## Overview
-Han and Talbot reverse-engineer the **Load/Store Unit (LSU)** — the hardware component processing all global-memory and shared-memory accesses — of recent NVIDIA GPUs using carefully designed microbenchmarks. They derive **cycle-accurate latency formulations** for global (L1-hit) and shared-memory accesses and show the LSU is a much larger attack surface than previously recognized.
+Han and Talbot (Wenbo Han, Pierre Talbot; arXiv:2611.23022, cs.AR/cs.CR, submitted 2026-11-17, DOI 10.48550/arXiv.2611.23022) reverse-engineer the **Load/Store Unit (LSU)** — the hardware component processing all global-memory and shared-memory accesses — of recent NVIDIA GPUs using carefully designed microbenchmarks. They derive **cycle-accurate latency formulations** for global (L1-hit) and shared-memory accesses and show the LSU is a much larger attack surface than previously recognized. Their framing: until each LSU mechanism is *measured*, neither its security risk nor a defense is known — prior work knew "only a few isolated mechanisms and parameters, and even a single one has been enough for an attack."
 
 ## Problem Statement
 Prior GPU microarchitecture studies probed only **parts** of the LSU, and prior side-channel/DoS work exploited only some of the resources it manages — leaving the LSU's exploitable resources largely unexplored.

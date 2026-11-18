@@ -15,7 +15,7 @@ keywords:
 # Distortion-Free Semantic Watermarks for Black-Box Generative Models
 
 ## Overview
-Yossef, Patashnik and Zamir present a **provably distortion-free semantic watermarking algorithm** that needs only **black-box sampling access** to a generative model and black-box access to a semantic embedding. It targets the two properties watermarking practitioners most often have to trade off: **no quality loss** (distortion-freeness) and **robustness to benign content-preserving edits** — without any white-box hooks into the generator.
+Yossef, Patashnik and Zamir (Aviv Yossef, Or Patashnik, Or Zamir — Tel Aviv University; arXiv:2611.23208, cs.LG/cs.CR/cs.CV, submitted 2026-11-17, DOI 10.48550/arXiv.2611.23208) present a **provably distortion-free semantic watermarking algorithm** that needs only **black-box sampling access** to a generative model and black-box access to a semantic embedding. It targets the two properties watermarking practitioners most often have to trade off: **no quality loss** (distortion-freeness) and **robustness to benign content-preserving edits** — without any white-box hooks into the generator.
 
 ## Problem Statement
 - *Distortion-free* means: averaged over the secret detection key, the watermark leaves the generator's **output distribution unchanged** — a formal guarantee that watermarking doesn't degrade output quality.

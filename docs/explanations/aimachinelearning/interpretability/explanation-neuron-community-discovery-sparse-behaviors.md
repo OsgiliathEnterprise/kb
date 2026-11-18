@@ -31,7 +31,7 @@ With communities capped at **128 neurons across all layers**:
 - **10.3%** of held-out prompts have at least one layer's contribution explained on a neuron-sparse basis.
 - **8.7%** coverage when requiring ≥4 such layers; **3.3%** when requiring ≥12 layers.
 
-Conclusion: small groups of existing neurons act as **reusable computational components across prompts**, and such groups are discoverable at scale.
+Conclusion: small groups of existing neurons act as **reusable computational components across prompts**, and such groups are discoverable at scale. The authors frame the discovered communities as a **"useful dictionary" of reusable neuron groups**; they note that many prompts remain unexplained, which may reflect computations that are genuinely *not* neuron-sparse as well as limitations of the discovery method itself.
 
 ## Relevance to Our Domain
 For model auditing and safety engineering, the existence of causally-validated, reusable neuron communities suggests **localized intervention points** (ablation, steering, surgical editing) for known behaviors — and a measurable "explained fraction" as an interpretability coverage metric, complementary to logit-lens attribution. Related: [[explanation-surgery-not-lenses-visual-token-attribution]], [[explanation-norm-aware-cross-architecture-auditing]].
@@ -39,3 +39,5 @@ For model auditing and safety engineering, the existence of causally-validated, 
 ## References
 - Paper: https://arxiv.org/abs/2611.23112
 - Semantic Scholar: https://api.semanticscholar.org/graph/v1/paper/arXiv:2611.23112
+- Goodfire research page (author team): https://www.goodfire.com/research/neuron-communities
+- Authors: Igor Shilov, Thomas Fel, Tal Haklay, Lucius Bushnaq, Owen Lewis (cs.LG/cs.CL, submitted 2026-11-17, DOI 10.48550/arXiv.2611.23112)
