@@ -216,7 +216,7 @@ const sidebars = {
           type: 'category',
           label: 'Aicodingagents',
           link: {type: 'generated-index', title: 'Aicodingagents', slug: 'how-to/developertoolspractices/aicodingagents'},
-          items: ['how-to/developertoolspractices/aicodingagents/how-to-fair-code-retrieval-benchmarking-generate-then-grep', 'how-to/developertoolspractices/aicodingagents/how-to-gate-llm-code-repairs-after-api-migrations', 'how-to/developertoolspractices/aicodingagents/howto-audit-claude-code-skill-context-tax-skill-tax-cli', 'how-to/developertoolspractices/aicodingagents/howto-autocompact-context-compaction-coding-agents', 'how-to/developertoolspractices/aicodingagents/howto-build-an-ai-workflow-inventory', 'how-to/developertoolspractices/aicodingagents/howto-check-ai-quota-headroom-before-dispatch', 'how-to/developertoolspractices/aicodingagents/howto-chronicle-cut-point-replay-regression-testing', 'how-to/developertoolspractices/aicodingagents/howto-litellm-gateway-for-codex-cli', 'how-to/developertoolspractices/aicodingagents/howto-maintainability-sensors-for-coding-agents', 'how-to/developertoolspractices/aicodingagents/howto-metal-sandbox-gpu-coding-agents-apple-silicon', 'how-to/developertoolspractices/aicodingagents/howto-migrate-gemini-cli-to-antigravity-cli', 'how-to/developertoolspractices/aicodingagents/howto-neurotestgen-neuro-symbolic-test-generation', 'how-to/developertoolspractices/aicodingagents/howto-predict-coding-agent-performance-base-models', 'how-to/developertoolspractices/aicodingagents/howto-require-a-job-receipt-for-remote-model-proposals', 'how-to/developertoolspractices/aicodingagents/howto-satisfix-mitigate-specification-satisficing', 'how-to/developertoolspractices/aicodingagents/howto-spring-upgrades-with-openrewrite-and-agents', 'how-to/developertoolspractices/aicodingagents/howto-verify-claude-code-relay-serves-claude'],
+          items: ['how-to/developertoolspractices/aicodingagents/how-to-fair-code-retrieval-benchmarking-generate-then-grep', 'how-to/developertoolspractices/aicodingagents/how-to-gate-llm-code-repairs-after-api-migrations', 'how-to/developertoolspractices/aicodingagents/how-to-synapse-agent-skill-program-repair', 'how-to/developertoolspractices/aicodingagents/howto-audit-claude-code-skill-context-tax-skill-tax-cli', 'how-to/developertoolspractices/aicodingagents/howto-autocompact-context-compaction-coding-agents', 'how-to/developertoolspractices/aicodingagents/howto-build-an-ai-workflow-inventory', 'how-to/developertoolspractices/aicodingagents/howto-check-ai-quota-headroom-before-dispatch', 'how-to/developertoolspractices/aicodingagents/howto-chronicle-cut-point-replay-regression-testing', 'how-to/developertoolspractices/aicodingagents/howto-litellm-gateway-for-codex-cli', 'how-to/developertoolspractices/aicodingagents/howto-maintainability-sensors-for-coding-agents', 'how-to/developertoolspractices/aicodingagents/howto-metal-sandbox-gpu-coding-agents-apple-silicon', 'how-to/developertoolspractices/aicodingagents/howto-migrate-gemini-cli-to-antigravity-cli', 'how-to/developertoolspractices/aicodingagents/howto-neurotestgen-neuro-symbolic-test-generation', 'how-to/developertoolspractices/aicodingagents/howto-predict-coding-agent-performance-base-models', 'how-to/developertoolspractices/aicodingagents/howto-require-a-job-receipt-for-remote-model-proposals', 'how-to/developertoolspractices/aicodingagents/howto-satisfix-mitigate-specification-satisficing', 'how-to/developertoolspractices/aicodingagents/howto-spring-upgrades-with-openrewrite-and-agents', 'how-to/developertoolspractices/aicodingagents/howto-verify-claude-code-relay-serves-claude'],
         },
         {
           type: 'category',
@@ -376,6 +376,12 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Vulnerabilitymanagement',
+          link: {type: 'generated-index', title: 'Vulnerabilitymanagement', slug: 'how-to/securityprivacy/vulnerabilitymanagement'},
+          items: ['how-to/securityprivacy/vulnerabilitymanagement/how-to-toctou-race-reproduction-security-discovery'],
+        },
+        {
+          type: 'category',
           label: 'Websecurity',
           link: {type: 'generated-index', title: 'Websecurity', slug: 'how-to/securityprivacy/websecurity'},
           items: ['how-to/securityprivacy/websecurity/howto-absentia-broken-access-control-detection', 'how-to/securityprivacy/websecurity/howto-emergency-response-critical-php-rce-audit-patch-offline', 'how-to/securityprivacy/websecurity/howto-patch-apache-httpd-2-4-71-mod-http2-rce-cve-2026-119618'],
@@ -530,7 +536,7 @@ const sidebars = {
           type: 'category',
           label: 'Trainingoptimization',
           link: {type: 'generated-index', title: 'Trainingoptimization', slug: 'explanations/aimachinelearning/trainingoptimization'},
-          items: ['explanations/aimachinelearning/trainingoptimization/explanation-group-standard-deviation-identity-grpo-drgrpo-dapo'],
+          items: ['explanations/aimachinelearning/trainingoptimization/explanation-group-standard-deviation-identity-grpo-drgrpo-dapo', 'explanations/aimachinelearning/trainingoptimization/explanation-tailroll-tail-aware-rollout-acceleration'],
         },
         {
           type: 'category',
@@ -561,6 +567,12 @@ const sidebars = {
           label: 'Cicdsecurity',
           link: {type: 'generated-index', title: 'Cicdsecurity', slug: 'explanations/cloudinfrastructure/cicdsecurity'},
           items: ['explanations/cloudinfrastructure/cicdsecurity/explanation-terraform-sensitive-masking-plan-review'],
+        },
+        {
+          type: 'category',
+          label: 'Distributedsystems',
+          link: {type: 'generated-index', title: 'Distributedsystems', slug: 'explanations/cloudinfrastructure/distributedsystems'},
+          items: ['explanations/cloudinfrastructure/distributedsystems/explanation-tloe-operational-equilibrium-telemetry'],
         },
         {
           type: 'category',
@@ -614,7 +626,7 @@ const sidebars = {
           type: 'category',
           label: 'Llmserving',
           link: {type: 'generated-index', title: 'Llmserving', slug: 'explanations/cloudinfrastructure/llmserving'},
-          items: ['explanations/cloudinfrastructure/llmserving/explanation-batch-makespan-llm-agent-workloads', 'explanations/cloudinfrastructure/llmserving/explanation-broadcast-dont-replicate-moe-serving', 'explanations/cloudinfrastructure/llmserving/explanation-callo-invalidated-kv-speculative-decoding', 'explanations/cloudinfrastructure/llmserving/explanation-cross-tenant-cache-hit-leakage-llm-serving', 'explanations/cloudinfrastructure/llmserving/explanation-llm-api-relay-integrity-measurement', 'explanations/cloudinfrastructure/llmserving/explanation-mosaickv-dynamic-2d-kv-cache-compression', 'explanations/cloudinfrastructure/llmserving/explanation-tritify-deterministic-integer-inference', 'explanations/cloudinfrastructure/llmserving/explanation-velserve-tail-calibrated-scheduling', 'explanations/cloudinfrastructure/llmserving/reference-kvcompass-prefix-cache-discovery', 'explanations/cloudinfrastructure/llmserving/reference-moe-core-expert-offloading-residency', 'explanations/cloudinfrastructure/llmserving/reference-rocm-inferasim', 'explanations/cloudinfrastructure/llmserving/reference-serverbench-coding-agents-serving-systems', 'explanations/cloudinfrastructure/llmserving/reference-stint-productive-preemption-long-output', 'explanations/cloudinfrastructure/llmserving/reference-superfluid-multi-model-serving'],
+          items: ['explanations/cloudinfrastructure/llmserving/explanation-batch-makespan-llm-agent-workloads', 'explanations/cloudinfrastructure/llmserving/explanation-broadcast-dont-replicate-moe-serving', 'explanations/cloudinfrastructure/llmserving/explanation-callo-invalidated-kv-speculative-decoding', 'explanations/cloudinfrastructure/llmserving/explanation-cross-tenant-cache-hit-leakage-llm-serving', 'explanations/cloudinfrastructure/llmserving/explanation-echomoe-activation-compression-expert-parallelism', 'explanations/cloudinfrastructure/llmserving/explanation-llm-api-relay-integrity-measurement', 'explanations/cloudinfrastructure/llmserving/explanation-mosaickv-dynamic-2d-kv-cache-compression', 'explanations/cloudinfrastructure/llmserving/explanation-tritify-deterministic-integer-inference', 'explanations/cloudinfrastructure/llmserving/explanation-velserve-tail-calibrated-scheduling', 'explanations/cloudinfrastructure/llmserving/reference-grace-blackwell-desktop-inference-benchmark', 'explanations/cloudinfrastructure/llmserving/reference-kvcompass-prefix-cache-discovery', 'explanations/cloudinfrastructure/llmserving/reference-moe-core-expert-offloading-residency', 'explanations/cloudinfrastructure/llmserving/reference-rocm-inferasim', 'explanations/cloudinfrastructure/llmserving/reference-serverbench-coding-agents-serving-systems', 'explanations/cloudinfrastructure/llmserving/reference-stint-productive-preemption-long-output', 'explanations/cloudinfrastructure/llmserving/reference-superfluid-multi-model-serving'],
         },
         {
           type: 'category',
@@ -650,7 +662,7 @@ const sidebars = {
           type: 'category',
           label: 'Aicodingagents',
           link: {type: 'generated-index', title: 'Aicodingagents', slug: 'explanations/developertoolspractices/aicodingagents'},
-          items: ['explanations/developertoolspractices/aicodingagents/explanation-ai-slop-pull-requests-oss-study', 'explanations/developertoolspractices/aicodingagents/explanation-bash-write-targets-static-extraction', 'explanations/developertoolspractices/aicodingagents/explanation-codex-cli-managed-daemon-trust-concerns', 'explanations/developertoolspractices/aicodingagents/explanation-coding-agent-failure-prediction-confounds', 'explanations/developertoolspractices/aicodingagents/explanation-cut-agent-tool-schemas-47-percent-yaml-duplicate-key-trap', 'explanations/developertoolspractices/aicodingagents/explanation-efficiency-throughput-gap-github-copilot-okta', 'explanations/developertoolspractices/aicodingagents/explanation-overclaimbench-quantifying-agent-overclaiming', 'explanations/developertoolspractices/aicodingagents/explanation-rasoi-visual-diffs-structural-agent-changes', 'explanations/developertoolspractices/aicodingagents/explanation-valkey-ai-agents-backporting-provenance', 'explanations/developertoolspractices/aicodingagents/reference-swe-bench-pro-v2-coding-benchmark'],
+          items: ['explanations/developertoolspractices/aicodingagents/explanation-ai-slop-pull-requests-oss-study', 'explanations/developertoolspractices/aicodingagents/explanation-bash-write-targets-static-extraction', 'explanations/developertoolspractices/aicodingagents/explanation-codex-cli-managed-daemon-trust-concerns', 'explanations/developertoolspractices/aicodingagents/explanation-coding-agent-failure-prediction-confounds', 'explanations/developertoolspractices/aicodingagents/explanation-cut-agent-tool-schemas-47-percent-yaml-duplicate-key-trap', 'explanations/developertoolspractices/aicodingagents/explanation-efficiency-throughput-gap-github-copilot-okta', 'explanations/developertoolspractices/aicodingagents/explanation-overclaimbench-quantifying-agent-overclaiming', 'explanations/developertoolspractices/aicodingagents/explanation-rasoi-visual-diffs-structural-agent-changes', 'explanations/developertoolspractices/aicodingagents/explanation-readie-low-latency-code-sandboxes', 'explanations/developertoolspractices/aicodingagents/explanation-valkey-ai-agents-backporting-provenance', 'explanations/developertoolspractices/aicodingagents/reference-swe-bench-pro-v2-coding-benchmark'],
         },
         {
           type: 'category',
@@ -945,7 +957,7 @@ const sidebars = {
           type: 'category',
           label: 'Vulnerabilitymanagement',
           link: {type: 'generated-index', title: 'Vulnerabilitymanagement', slug: 'explanations/securityprivacy/vulnerabilitymanagement'},
-          items: ['explanations/securityprivacy/vulnerabilitymanagement/explanation-java4shell-openjdk-base64-rce', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-machine-speed-vulnerability-discovery', 'explanations/securityprivacy/vulnerabilitymanagement/reference-crossploit-cross-version-poc-migration-benchmark'],
+          items: ['explanations/securityprivacy/vulnerabilitymanagement/explanation-java4shell-openjdk-base64-rce', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-machine-speed-vulnerability-discovery', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-procreverser-multi-agent-microarch-reverse-engineering', 'explanations/securityprivacy/vulnerabilitymanagement/reference-crossploit-cross-version-poc-migration-benchmark'],
         },
         {
           type: 'category',
