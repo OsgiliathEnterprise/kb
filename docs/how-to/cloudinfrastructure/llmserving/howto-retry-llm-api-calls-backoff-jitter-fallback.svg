@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="36.0 -4.0 1104.0 528.0" width="1104" height="528">
+<rect x="36.0" y="-4.0" width="1104.0" height="528.0" fill="#ffffff"/>
+<rect x="60.0" y="90.0" width="620.0" height="80.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="60.0" y="200.0" width="620.0" height="80.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="60.0" y="310.0" width="620.0" height="80.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="60.0" y="420.0" width="620.0" height="80.0" rx="8" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 370.0 172.0 L 370.0 198.0"/><line x1="370.0" y1="198.0" x2="374.0" y2="189.8"/><line x1="370.0" y1="198.0" x2="366.0" y2="189.8"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 370.0 282.0 L 370.0 308.0"/><line x1="370.0" y1="308.0" x2="374.0" y2="299.8"/><line x1="370.0" y1="308.0" x2="366.0" y2="299.8"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 370.0 392.0 L 370.0 418.0"/><line x1="370.0" y1="418.0" x2="374.0" y2="409.8"/><line x1="370.0" y1="418.0" x2="366.0" y2="409.8"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="24" fill="#1e1e1e" text-anchor="start"><tspan x="60.0" y="39.2">LLM API retry ladder: classify -&gt; backoff with full jitter -&gt; budget -&gt; fallback</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="70.0" y="120.8">Call fails: status in {408,429,500,502,503,504,529}</tspan><tspan x="70.0" y="140.8">or timeout/ECONNRESET?  400/401/403 -&gt; NEVER retry</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="70.0" y="230.8">Sleep = max(Retry-After, random()*min(maxMs, base*2^n))</tspan><tspan x="70.0" y="250.8">full jitter; provider's Retry-After wins when longer</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="70.0" y="340.8">Total waited &gt; budgetMs? -&gt; stop early,</tspan><tspan x="70.0" y="360.8">fail fast or fall back; do not hang the user</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="70.0" y="450.8">Fall back to next tested model;</tspan><tspan x="70.0" y="470.8">log which model answered (cost + routing)</tspan></text>
+</svg>

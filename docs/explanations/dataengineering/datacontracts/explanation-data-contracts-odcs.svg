@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="36.0 -4.0 1408.0 238.0" width="1408" height="238">
+<rect x="36.0" y="-4.0" width="1408.0" height="238.0" fill="#ffffff"/>
+<rect x="60.0" y="110.0" width="240.0" height="100.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="340.0" y="110.0" width="240.0" height="100.0" rx="8" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="620.0" y="110.0" width="240.0" height="100.0" rx="8" fill="#ffd8a8" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="900.0" y="110.0" width="240.0" height="100.0" rx="8" fill="#d0bfff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="1180.0" y="110.0" width="240.0" height="100.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 302.0 160.0 L 338.0 160.0"/><line x1="338.0" y1="160.0" x2="326.7" y2="154.5"/><line x1="338.0" y1="160.0" x2="326.7" y2="165.5"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 582.0 160.0 L 618.0 160.0"/><line x1="618.0" y1="160.0" x2="606.7" y2="154.5"/><line x1="618.0" y1="160.0" x2="606.7" y2="165.5"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 862.0 160.0 L 898.0 160.0"/><line x1="898.0" y1="160.0" x2="886.7" y2="154.5"/><line x1="898.0" y1="160.0" x2="886.7" y2="165.5"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 1142.0 160.0 L 1178.0 160.0"/><line x1="1178.0" y1="160.0" x2="1166.7" y2="154.5"/><line x1="1178.0" y1="160.0" x2="1166.7" y2="165.5"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="24" fill="#1e1e1e" text-anchor="start"><tspan x="60.0" y="39.2">Data contracts: schema + guarantees as a versioned interface (ODCS)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="70.0" y="150.8">Producer publishes contract</tspan><tspan x="70.0" y="170.8">(ODCS YAML in Git): schema,</tspan><tspan x="70.0" y="190.8">quality rules, ownership, SLAs,</tspan><tspan x="70.0" y="210.8">terms of use, AI context</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="350.0" y="150.8">CI/CD gate: data validated</tspan><tspan x="350.0" y="170.8">against contract on every</tspan><tspan x="350.0" y="190.8">commit; breaking changes</tspan><tspan x="350.0" y="210.8">caught before consumers break</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="630.0" y="150.8">Consumers incl. AI agents</tspan><tspan x="630.0" y="170.8">read the metadata: catalog,</tspan><tspan x="630.0" y="190.8">lineage, chat-with-data,</tspan><tspan x="630.0" y="210.8">pipeline generation</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="910.0" y="150.8">Consumer-driven contracts:</tspan><tspan x="910.0" y="170.8">same ODCS structure states</tspan><tspan x="910.0" y="190.8">expectations, not promises;</tspan><tspan x="910.0" y="210.8">contract-first discovery</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="1190.0" y="150.8">Open standard (Linux Fdn) =</tspan><tspan x="1190.0" y="170.8">metadata sovereignty; plain</tspan><tspan x="1190.0" y="190.8">files in Git, no lock-in</tspan></text>
+</svg>

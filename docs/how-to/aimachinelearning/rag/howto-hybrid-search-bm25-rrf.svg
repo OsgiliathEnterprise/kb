@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="36.0 -4.0 1408.0 238.0" width="1408" height="238">
+<rect x="36.0" y="-4.0" width="1408.0" height="238.0" fill="#ffffff"/>
+<rect x="60.0" y="110.0" width="240.0" height="100.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="340.0" y="110.0" width="240.0" height="100.0" rx="8" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="620.0" y="110.0" width="240.0" height="100.0" rx="8" fill="#ffd8a8" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="900.0" y="110.0" width="240.0" height="100.0" rx="8" fill="#d0bfff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="1180.0" y="110.0" width="240.0" height="100.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 302.0 160.0 L 338.0 160.0"/><line x1="338.0" y1="160.0" x2="326.7" y2="154.5"/><line x1="338.0" y1="160.0" x2="326.7" y2="165.5"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 582.0 160.0 L 618.0 160.0"/><line x1="618.0" y1="160.0" x2="606.7" y2="154.5"/><line x1="618.0" y1="160.0" x2="606.7" y2="165.5"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 862.0 160.0 L 898.0 160.0"/><line x1="898.0" y1="160.0" x2="886.7" y2="154.5"/><line x1="898.0" y1="160.0" x2="886.7" y2="165.5"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 1142.0 160.0 L 1178.0 160.0"/><line x1="1178.0" y1="160.0" x2="1166.7" y2="154.5"/><line x1="1178.0" y1="160.0" x2="1166.7" y2="165.5"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="24" fill="#1e1e1e" text-anchor="start"><tspan x="60.0" y="39.2">Hybrid retrieval: BM25 + vectors merged with reciprocal rank fusion</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="70.0" y="150.8">Query -&gt; BM25 keyword search</tspan><tspan x="70.0" y="170.8">(exact tokens: INV-20931,</tspan><tspan x="70.0" y="190.8">ECONNRESET, names)</tspan><tspan x="70.0" y="210.8">top 20-50</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="350.0" y="150.8">Query -&gt; vector embedding</tspan><tspan x="350.0" y="170.8">search (paraphrases,</tspan><tspan x="350.0" y="190.8">semantics) top 20-50</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="630.0" y="150.8">RRF merge: score(doc) =</tspan><tspan x="630.0" y="170.8">sum over lists 1/(k+rank),</tspan><tspan x="630.0" y="190.8">k=60, no normalisation</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="910.0" y="150.8">Keep top 5-10 for the prompt;</tspan><tspan x="910.0" y="170.8">optional reranker after fusion</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="1190.0" y="150.8">Evaluate: recall@k + MRR</tspan><tspan x="1190.0" y="170.8">split by query type</tspan><tspan x="1190.0" y="190.8">(ID vs paraphrase)</tspan></text>
+</svg>

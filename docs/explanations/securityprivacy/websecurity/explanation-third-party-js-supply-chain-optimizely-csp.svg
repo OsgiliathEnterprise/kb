@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="36.0 -4.0 1408.0 238.0" width="1408" height="238">
+<rect x="36.0" y="-4.0" width="1408.0" height="238.0" fill="#ffffff"/>
+<rect x="60.0" y="110.0" width="240.0" height="100.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="340.0" y="110.0" width="240.0" height="100.0" rx="8" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="620.0" y="110.0" width="240.0" height="100.0" rx="8" fill="#ffd8a8" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="900.0" y="110.0" width="240.0" height="100.0" rx="8" fill="#d0bfff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="1180.0" y="110.0" width="240.0" height="100.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 302.0 160.0 L 338.0 160.0"/><line x1="338.0" y1="160.0" x2="326.7" y2="154.5"/><line x1="338.0" y1="160.0" x2="326.7" y2="165.5"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 582.0 160.0 L 618.0 160.0"/><line x1="618.0" y1="160.0" x2="606.7" y2="154.5"/><line x1="618.0" y1="160.0" x2="606.7" y2="165.5"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 862.0 160.0 L 898.0 160.0"/><line x1="898.0" y1="160.0" x2="886.7" y2="154.5"/><line x1="898.0" y1="160.0" x2="886.7" y2="165.5"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 1142.0 160.0 L 1178.0 160.0"/><line x1="1178.0" y1="160.0" x2="1166.7" y2="154.5"/><line x1="1178.0" y1="160.0" x2="1166.7" y2="165.5"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="24" fill="#1e1e1e" text-anchor="start"><tspan x="60.0" y="39.2">Optimizely A/B-test malware campaign (Nov 2026) - third-party JS supply chain</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="70.0" y="150.8">Vuln in Optimizely Experimentation:</tspan><tspan x="70.0" y="170.8">attacker injects JS into 178 sites</tspan><tspan x="70.0" y="190.8">(BBC, CNN, Equifax, Ledger, Zoom)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="350.0" y="150.8">Payload rebuilt 26x/day: skimmer,</tspan><tspan x="350.0" y="170.8">cookie/screenshot theft, crypto addr</tspan><tspan x="350.0" y="190.8">swap; iOS zero-click kits (DarkSword)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="630.0" y="150.8">Fires on page load, no consent</tspan><tspan x="630.0" y="170.8">needed - A/B tags render before</tspan><tspan x="630.0" y="190.8">consent dialog</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="910.0" y="150.8">CSP outcome: 68 sites no CSP,</tspan><tspan x="910.0" y="170.8">50 permissive (attack passed),</tspan><tspan x="910.0" y="190.8">only 24 (15%) fully blocked</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="1190.0" y="150.8">Defense: strict CSP allowlist,</tspan><tspan x="1190.0" y="170.8">SRI, script blockers, market-</tspan><tspan x="1190.0" y="190.8">stack vendors get real scrutiny</tspan></text>
+</svg>

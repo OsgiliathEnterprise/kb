@@ -112,6 +112,12 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Rag',
+          link: {type: 'generated-index', title: 'Rag', slug: 'how-to/aimachinelearning/rag'},
+          items: ['how-to/aimachinelearning/rag/howto-hybrid-search-bm25-rrf'],
+        },
+        {
+          type: 'category',
           label: 'Trainingoptimization',
           link: {type: 'generated-index', title: 'Trainingoptimization', slug: 'how-to/aimachinelearning/trainingoptimization'},
           items: ['how-to/aimachinelearning/trainingoptimization/howto-negative-only-policy-optimization-one-sided-rewards', 'how-to/aimachinelearning/trainingoptimization/howto-taco-memory-efficient-llm-fine-tuning-optimizer'],
@@ -121,6 +127,12 @@ const sidebars = {
           label: 'Requestretrial',
           link: {type: 'generated-index', title: 'Requestretrial', slug: 'how-to/apidesign/requestretrial'},
           items: ['how-to/apidesign/requestretrial/howto-singleflight-full-jitter-concurrency-caps-typescript'],
+        },
+        {
+          type: 'category',
+          label: 'Eventdrivenarchitecture',
+          link: {type: 'generated-index', title: 'Eventdrivenarchitecture', slug: 'how-to/backendengineering/eventdrivenarchitecture'},
+          items: ['how-to/backendengineering/eventdrivenarchitecture/howto-idempotent-webhook-handlers-nodejs'],
         },
         {
           type: 'category',
@@ -204,7 +216,7 @@ const sidebars = {
           type: 'category',
           label: 'Llmserving',
           link: {type: 'generated-index', title: 'Llmserving', slug: 'how-to/cloudinfrastructure/llmserving'},
-          items: ['how-to/cloudinfrastructure/llmserving/how-to-energy-efficient-epd-serving', 'how-to/cloudinfrastructure/llmserving/how-to-evolving-infra-agent-adaptive-serving', 'how-to/cloudinfrastructure/llmserving/how-to-fast-serverless-llm-cold-starts-cairn', 'how-to/cloudinfrastructure/llmserving/howto-litellm-zero-api-key-cross-cloud-gateway-entra-jwt', 'how-to/cloudinfrastructure/llmserving/howto-share-kv-cache-paged-engine-kv-shared-lm'],
+          items: ['how-to/cloudinfrastructure/llmserving/how-to-energy-efficient-epd-serving', 'how-to/cloudinfrastructure/llmserving/how-to-evolving-infra-agent-adaptive-serving', 'how-to/cloudinfrastructure/llmserving/how-to-fast-serverless-llm-cold-starts-cairn', 'how-to/cloudinfrastructure/llmserving/howto-litellm-zero-api-key-cross-cloud-gateway-entra-jwt', 'how-to/cloudinfrastructure/llmserving/howto-retry-llm-api-calls-backoff-jitter-fallback', 'how-to/cloudinfrastructure/llmserving/howto-share-kv-cache-paged-engine-kv-shared-lm'],
         },
         {
           type: 'category',
@@ -654,6 +666,18 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Datacontracts',
+          link: {type: 'generated-index', title: 'Datacontracts', slug: 'explanations/dataengineering/datacontracts'},
+          items: ['explanations/dataengineering/datacontracts/explanation-data-contracts-odcs'],
+        },
+        {
+          type: 'category',
+          label: 'Lakehouse',
+          link: {type: 'generated-index', title: 'Lakehouse', slug: 'explanations/dataengineering/lakehouse'},
+          items: ['explanations/dataengineering/lakehouse/explanation-lakegres-vector-search-open-table-formats'],
+        },
+        {
+          type: 'category',
           label: 'Platformarchitectures',
           link: {type: 'generated-index', title: 'Platformarchitectures', slug: 'explanations/datamesh/platformarchitectures'},
           items: ['explanations/datamesh/platformarchitectures/explanation-data-product-platform-navigator'],
@@ -970,13 +994,13 @@ const sidebars = {
           type: 'category',
           label: 'Vulnerabilitymanagement',
           link: {type: 'generated-index', title: 'Vulnerabilitymanagement', slug: 'explanations/securityprivacy/vulnerabilitymanagement'},
-          items: ['explanations/securityprivacy/vulnerabilitymanagement/explanation-java4shell-openjdk-base64-rce', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-machine-speed-vulnerability-discovery', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-procreverser-multi-agent-microarch-reverse-engineering', 'explanations/securityprivacy/vulnerabilitymanagement/reference-crossploit-cross-version-poc-migration-benchmark'],
+          items: ['explanations/securityprivacy/vulnerabilitymanagement/explanation-java4shell-openjdk-base64-rce', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-kvm-guest-to-host-escape-cve-2026-99312', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-machine-speed-vulnerability-discovery', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-nginx-http2-rce-cve-2026-123633-123007', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-procreverser-multi-agent-microarch-reverse-engineering', 'explanations/securityprivacy/vulnerabilitymanagement/reference-crossploit-cross-version-poc-migration-benchmark'],
         },
         {
           type: 'category',
           label: 'Websecurity',
           link: {type: 'generated-index', title: 'Websecurity', slug: 'explanations/securityprivacy/websecurity'},
-          items: ['explanations/securityprivacy/websecurity/explanation-apple-reference-image-verified-photography', 'explanations/securityprivacy/websecurity/explanation-cisco-ise-cve-2026-76423-rest-api-auth-bypass', 'explanations/securityprivacy/websecurity/explanation-cloudflare-disallow-ai-training-mixed-use-crawlers', 'explanations/securityprivacy/websecurity/explanation-data-only-attacks-einstein', 'explanations/securityprivacy/websecurity/explanation-drupal-cve-2026-96362-batch-version-based-scanning-limits', 'explanations/securityprivacy/websecurity/explanation-edge-logic-only-full-chain-pwn2own-2026', 'explanations/securityprivacy/websecurity/explanation-feature-flags-are-not-authorization', 'explanations/securityprivacy/websecurity/explanation-kestra-cve-2026-49869-suffix-match-auth-bypass', 'explanations/securityprivacy/websecurity/explanation-libheif-heic-rce-chain-openai-sso-takeover', 'explanations/securityprivacy/websecurity/explanation-open-redirect-php-laravel', 'explanations/securityprivacy/websecurity/explanation-passkeys-attestation-aaguid-domain-binding-phishing', 'explanations/securityprivacy/websecurity/explanation-pitworld-private-search-moshpit-network', 'explanations/securityprivacy/websecurity/explanation-telegram-desktop-cve-2026-107181-ipc-injection-account-takeover', 'explanations/securityprivacy/websecurity/explanation-telnetd-cve-2026-32746-linemode-slc-buffer-overflow', 'explanations/securityprivacy/websecurity/explanation-ublock-origin-element-picker-uxss', 'explanations/securityprivacy/websecurity/explanation-weekly-security-advisories-node2shell-php2shell-pillow', 'explanations/securityprivacy/websecurity/explanation-wordpress-cve-2026-87902-patch-windows'],
+          items: ['explanations/securityprivacy/websecurity/explanation-apple-reference-image-verified-photography', 'explanations/securityprivacy/websecurity/explanation-cisco-ise-cve-2026-76423-rest-api-auth-bypass', 'explanations/securityprivacy/websecurity/explanation-cloudflare-disallow-ai-training-mixed-use-crawlers', 'explanations/securityprivacy/websecurity/explanation-data-only-attacks-einstein', 'explanations/securityprivacy/websecurity/explanation-drupal-cve-2026-96362-batch-version-based-scanning-limits', 'explanations/securityprivacy/websecurity/explanation-edge-logic-only-full-chain-pwn2own-2026', 'explanations/securityprivacy/websecurity/explanation-feature-flags-are-not-authorization', 'explanations/securityprivacy/websecurity/explanation-kestra-cve-2026-49869-suffix-match-auth-bypass', 'explanations/securityprivacy/websecurity/explanation-libheif-heic-rce-chain-openai-sso-takeover', 'explanations/securityprivacy/websecurity/explanation-open-redirect-php-laravel', 'explanations/securityprivacy/websecurity/explanation-passkeys-attestation-aaguid-domain-binding-phishing', 'explanations/securityprivacy/websecurity/explanation-pitworld-private-search-moshpit-network', 'explanations/securityprivacy/websecurity/explanation-telegram-desktop-cve-2026-107181-ipc-injection-account-takeover', 'explanations/securityprivacy/websecurity/explanation-telnetd-cve-2026-32746-linemode-slc-buffer-overflow', 'explanations/securityprivacy/websecurity/explanation-third-party-js-supply-chain-optimizely-csp', 'explanations/securityprivacy/websecurity/explanation-ublock-origin-element-picker-uxss', 'explanations/securityprivacy/websecurity/explanation-weekly-security-advisories-node2shell-php2shell-pillow', 'explanations/securityprivacy/websecurity/explanation-wordpress-cve-2026-87902-patch-windows'],
         },
         {
           type: 'category',
