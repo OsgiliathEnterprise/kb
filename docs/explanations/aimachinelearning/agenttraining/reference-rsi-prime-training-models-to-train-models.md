@@ -15,7 +15,7 @@ keywords:
 # RSI-Prime: Training Models to Train Models
 
 ## Overview
-Zhang, Liu, Wang, Li and Wang attack the **RSI-Meta bottleneck**: recursive self-improvement is usually studied on task-facing RSI, while the capability that actually drives it — a model's ability to **train and improve other models** — improves only incidentally through general capability growth. RSI-Prime is, per the authors, **the first dataset explicitly designed to teach models to become better trainers of other models**.
+Zheng, Ye, Zhang, Yu and Wang attack the **RSI-Meta bottleneck**: recursive self-improvement is usually studied on task-facing RSI, while the capability that actually drives it — a model's ability to **train and improve other models** — improves only incidentally through general capability growth. RSI-Prime is, per the authors, **the first dataset explicitly designed to teach models to become better trainers of other models**.
 
 ## Dataset Specification
 | Property | Value |

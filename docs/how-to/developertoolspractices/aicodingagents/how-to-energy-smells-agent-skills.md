@@ -15,7 +15,7 @@ keywords:
 # Identifying and Repairing Energy Smells with Agent Skills
 
 ## Overview
-Pecoraro, Palazzo, Oliva, Cagncini, Ceccato and Panichella tackle **energy smells** — inefficient implementations that consume more energy than functionally equivalent alternatives while preserving behavior, i.e., **green-software maintenance made proactive**. They observe that energy-efficiency concerns should **shift left** into the development environment (IDE, coding agent) instead of being assessed only at test/release time. Their contribution is **DR. GREENS**, an **agent skill** that detects and repairs energy smells in Python projects from within the developer's coding environment.
+Mehditabar, Rajput and Sharma tackle **energy smells** — inefficient implementations that consume more energy than functionally equivalent alternatives while preserving behavior, i.e., **green-software maintenance made proactive**. They observe that energy-efficiency concerns should **shift left** into the development environment (IDE, coding agent) instead of being assessed only at test/release time. Their contribution is **DR. GREENS**, an **agent skill** that detects and repairs energy smells in Python projects from within the developer's coding environment.
 
 ## Problem Statement
 Existing energy-smell tools (i) rely on **fixed static rules** that miss smell manifestations outside the rule set, and (ii) **do not measure actual energy savings** of proposed fixes. LLM-based optimizers typically target **execution time**, not the energy-smell definitions, so they miss smells that are not latency-relevant.

@@ -15,13 +15,13 @@ keywords:
 # The Resolution Hypothesis: Agent Evolution's Key Is Identifying Improvements
 
 ## Overview
-Chang, Li and Zhao challenge the dominant agenda in **agent evolution** research (self-improving agent harnesses that rewrite their own prompts, skills and memories). Standard methods run a loop: a frozen *proposer* writes artifact candidates, *selection* accepts those with higher evaluation scores. When methods trade wins on benchmarks, the field typically blames candidate quality or proposer design. The paper's **resolution hypothesis** says the real bottleneck is **evaluation resolution**: noisy evaluations fail to identify improvements.
+Zeng, Lan, Lu et al. (11 authors) challenge the dominant agenda in **agent evolution** research (self-improving agent harnesses that rewrite their own prompts, skills and memories). Standard methods run a loop: a frozen *proposer* writes artifact candidates, *selection* accepts those with higher evaluation scores. When methods trade wins on benchmarks, the field typically blames candidate quality or proposer design. The paper's **resolution hypothesis** says the real bottleneck is **evaluation resolution**: noisy evaluations fail to identify improvements.
 
 ## Problem Statement
 If selection cannot reliably tell a beneficial candidate from a harmful one, evolution stalls regardless of proposer quality. The hypothesis: **stagnation is caused by failure to identify true improvements, not by their absence.**
 
 ## Key Contribution
-An empirical study of **seven evolution methods on six models (open and closed) in six domains — over 10M LLM calls** — with counterfactual candidate injection and per-round trace analysis, yielding two findings:
+An empirical study of **seven evolution methods across six models — over 10M LLM calls** — yielding two findings:
 1. **Candidate-level**: beneficial candidates exist but are **not identified** — selection mistakes them for harmful ones at a rate **indistinguishable from random guessing**, and these mistakes **compound across rounds**.
 2. **Method-level**: typical leaderboard gaps of **a few percentage points are smaller than the run-to-run score variability of a single method** — so **published rankings reflect luck, not method quality**.
 
@@ -32,4 +32,5 @@ Directly applicable to our own agent-harness and self-improvement experiments (M
 
 ## References
 - Paper: https://arxiv.org/abs/2611.23068
+- Project page: https://lineshogan.github.io/resolution-hypothesis/
 - Semantic Scholar: https://api.semanticscholar.org/graph/v1/paper/arXiv:2611.23068

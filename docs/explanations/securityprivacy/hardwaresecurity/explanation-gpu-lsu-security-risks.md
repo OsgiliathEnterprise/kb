@@ -15,14 +15,14 @@ keywords:
 # Dissecting the GPU Load/Store Unit and Exposing Its Security Risks
 
 ## Overview
-Wang, Xu, Song and Song reverse-engineer the **Load/Store Unit (LSU)** — the hardware component processing all global-memory and shared-memory accesses — of recent NVIDIA GPUs using carefully designed microbenchmarks. They derive **cycle-accurate latency formulations** for global (L1-hit) and shared-memory accesses and show the LSU is a much larger attack surface than previously recognized.
+Han and Talbot reverse-engineer the **Load/Store Unit (LSU)** — the hardware component processing all global-memory and shared-memory accesses — of recent NVIDIA GPUs using carefully designed microbenchmarks. They derive **cycle-accurate latency formulations** for global (L1-hit) and shared-memory accesses and show the LSU is a much larger attack surface than previously recognized.
 
 ## Problem Statement
 Prior GPU microarchitecture studies probed only **parts** of the LSU, and prior side-channel/DoS work exploited only some of the resources it manages — leaving the LSU's exploitable resources largely unexplored.
 
 ## Technical Approach
 - **Microbenchmarks** expose **address-dependent latency terms**: bank conflicts and L1 tag lookups, for both global and shared memory, plus contention arising from both sites.
-- Novel finding: when the LSU pipeline saturates, **warps from blocks that started later can starve warps from blocks that started earlier** — a scheduling pathology with security consequences.
+- Novel finding: when the LSU pipeline is full, **a warp can starve a warp of a later-launched block** — a scheduling pathology with security consequences.
 
 ## Results
 - **Information leakage**: an AES-128 key is recoverable using **only** global-memory bank-conflict or L1-tag-lookup leakage (under the threat model of the prior GPU AES timing attack) — showing LSU access timing alone can leak keys.
