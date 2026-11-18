@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="6.0 -4.0 978.0 308.0" width="978" height="308">
+<rect x="6.0" y="-4.0" width="978.0" height="308.0" fill="#ffffff"/>
+<rect x="30.0" y="110.0" width="170.0" height="90.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="270.0" y="110.0" width="190.0" height="90.0" rx="8" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="530.0" y="110.0" width="170.0" height="90.0" rx="8" fill="#ffd8a8" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="770.0" y="110.0" width="190.0" height="90.0" rx="8" fill="#d0bfff" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 205.0 155.0 L 265.0 155.0"/><line x1="265.0" y1="155.0" x2="252.4" y2="148.9"/><line x1="265.0" y1="155.0" x2="252.4" y2="161.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 465.0 155.0 L 525.0 155.0"/><line x1="525.0" y1="155.0" x2="512.4" y2="148.9"/><line x1="525.0" y1="155.0" x2="512.4" y2="161.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 705.0 155.0 L 765.0 155.0"/><line x1="765.0" y1="155.0" x2="752.4" y2="148.9"/><line x1="765.0" y1="155.0" x2="752.4" y2="161.1"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="18" fill="#1e1e1e" text-anchor="start"><tspan x="120.0" y="34.4">Cerebras disaggregated inference: GPU prefill + WSE decode</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="45.0" y="138.4">Request</tspan><tspan x="45.0" y="154.7">inference framework</tspan><tspan x="45.0" y="170.9">(routing, replicas)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="285.0" y="138.4">Prefill pool</tspan><tspan x="285.0" y="154.7">AMD Instinct GPUs</tspan><tspan x="285.0" y="170.9">(vLLM / SGLang engine)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="545.0" y="138.4">KV Portal</tspan><tspan x="545.0" y="154.7">transfer KV state</tspan><tspan x="545.0" y="170.9">over RDMA</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="785.0" y="138.4">Decode pool</tspan><tspan x="785.0" y="154.7">Cerebras CS-3 (WSE)</tspan><tspan x="785.0" y="170.9">on-chip SRAM, PB/s BW</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#495057" text-anchor="start"><tspan x="200.0" y="250.4">Measured on GPT-OSS-120B shared endpoint: 5x tokens/MW vs aggregated CS-3,</tspan><tspan x="200.0" y="266.6">same decode speed. KV transfer fabric must be RDMA-class; 10-25GbE erases the TTFT gain.</tspan></text>
+</svg>

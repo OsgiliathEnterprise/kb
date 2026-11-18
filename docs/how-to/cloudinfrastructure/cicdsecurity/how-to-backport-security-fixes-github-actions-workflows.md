@@ -5,6 +5,7 @@ domain: cloud-infrastructure
 topic: ci-cd-security
 source: arXiv
 source_url: https://arxiv.org/abs/2611.22519
+date: '2026-11-18'
 keywords:
 - knowledge-base
 - ci-cd-security
@@ -29,7 +30,7 @@ CI/CD workflow files are executable infrastructure. A security fix that never re
 ## Results
 - The gap is pervasive: **224,392 of 474,490 audited release branches remain vulnerable**.
 - Deliberate backporting is rare and slow: only **19,476 of 78,907** already-fixed branches confirmed as plausible backports, at a **median lag of 243 days**.
-- WorkflowBP produces a scanner-checked backport for **67.9%** of 12,000 real unpatched workflow files.
+- WorkflowBP produces a scanner-checked backport for **67.9%** of 12,000 real unpatched workflow files — about **3.8× the best naive baseline** and well above a pure LLM rewrite (the LLM fallback is held to the same scanner validation and never trusted to edit the file directly). The authors release the dataset and tool.
 - Real-world validation: 176 issues with WorkflowBP-generated backports submitted; **44 confirmed or fixed** by developers.
 
 ## Relevance to Our Domain
