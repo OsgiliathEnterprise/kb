@@ -26,7 +26,8 @@ Scaling per-token computation currently trades off depth (latency), looping (ins
 
 - The Lattice of Latents: a set of per-layer horizontal latent streams recurring across tokens, providing **companion computational states that persist across tokens**.
 - Unlike hyper-connections/mHC/attention residuals (which add or reroute residual pathways through depth), and unlike hybrid Transformer–SSM recurrent states (internal memory for mixing), the lattice latents **directly condition** the vertical stream's attention, KV-cache writes, MLP computation, and decoding.
-- Establishes persistent per-layer state as a **complementary scaling axis**, orthogonal to existing residual-stream enhancements.
+- **Mechanism** (per alphaXiv review, verified 2026-11-18): at each Lattice layer the horizontal state is updated from its own previous state plus the incoming vertical representation, then modulates the layer via **FiLM-style scale-and-shift** — it modulates attention Q/K/V projections (affecting what the layer reads from and writes into the KV cache) and shifts the MLP's gate and up inputs. The latents add **no token positions and no extra KV-cache entries** and accompany attention rather than replacing it.
+- Establishes persistent per-layer state as a **complementary scaling axis**, orthogonal to existing residual-stream enhancements — at roughly matched parameters and forward compute.
 
 ## Results
 
@@ -43,5 +44,6 @@ A concrete new axis in the architecture design space our team tracks (transforme
 ## References
 
 - Paper: https://arxiv.org/abs/2611.21608 (cs.LG, cs.AI, cs.CL — Duggal, Wu, Freeman, Torralba, Zhang, Shechtman)
-- Project page: https://shivamduggal4.github.io/latent-lattice-language-model/
+- Project page: https://shivamduggal4.github.io/latent-lattice-language-models/ (HTTP 200, verified 2026-11-18; note: a singular-form URL without the trailing "s" 404s — cite the plural form from the arXiv abstract)
+- alphaXiv review: https://www.alphaxiv.org/abs/2611.21608
 - Related: `explanation-positional-embeddings-rope-nope-modern-llms.md`, `explanation-cnn-rnn-vs-transformer-for-sequential-data.md`
