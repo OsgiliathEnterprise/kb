@@ -18,6 +18,8 @@ keywords:
 
 Today's agentic applications glue three things together through scaffolding code: LLM operations, workflow structure with application state, and model-guided routing. SDKs and agent frameworks hide execution logic in framework internals, so workflow changes ripple through supporting code and compilers can't see control or state dependencies. This paper proposes **Agent-Native Programming** — unifying all three components under shared execution semantics — realized in **Jac**, a Python-superset language.
 
+**Authors:** Jayanaka L. Dantanarayana, Savini Kashmira, Lingjia Tang, and Jason Mars (University of Michigan); Xiaoyu Ma (Shanghai Jiao Tong University); Malitha Prabhashana (Jaseci Labs). arXiv:2611.21298v1 [cs.PL], 16 Nov 2026. Jason Mars's group previously built the Jaseci/Jac stack; this paper extends it from "AI-native full-stack" to agent-native execution semantics.
+
 ## Problem Statement
 
 With SDK-based agent development, developers write supporting code that prepares model inputs, propagates state, and dispatches model-selected steps. Consequences:
@@ -42,12 +44,27 @@ Because model decisions are explicitly connected to program execution, the compi
 - Across five benchmarks and five baselines: **1.8–8.7× less AI-integration code** than the OpenAI SDK, with competitive observed task quality and lower coding-agent development effort.
 - Two case studies — **speculative execution** and **service partitioning** — are enabled through *configuration alone*, with program analysis and runtime checks preserving workflow behavior under stated conditions.
 
+## The Jac Ecosystem Around the Paper
+
+The paper's claims sit on top of a live open-source stack (jaseci-labs/jac on GitHub, jaclang.org):
+
+- **One language, many targets:** Jac is a Python superset that compiles to Python bytecode, JavaScript/React, native binaries via LLVM (no cc/ld needed), and WebAssembly; a single `import` statement can reach PyPI, npm, or C ABIs.
+- **Persistence and APIs as language features:** `node` types persist with no schema/migrations, `def:pub` is an API endpoint, and components compile to React — the compiler writes the scaffolding the paper's "supporting code" refers to.
+- **Agent-oriented tooling:** `jac guide` and `jac mcp` expose the full language manual to coding agents offline (`claude mcp add jac -- jac mcp`).
+- **Performance positioning:** a raylib benchmark compiled natively puts Jac within 0.4% of Zig/Rust FPS (vs. ~2× Python), supporting the claim that the high-level abstractions don't cost runtime.
+- **Case study:** a startup's production Next.js + TypeScript + Supabase platform (~605k LoC) was rewritten in pure Jac + one `jac.toml` (~30k LoC, ~95% fewer lines) with pixel-perfect parity.
+
+These ecosystem datapoints contextualize the paper's 1.8–8.7× code reduction claim: the language already removes conventional glue (schema, ORM, API boilerplate), and the paper adds *agentic* glue (model ops, routing) to the set the compiler owns.
+
 ## Relevance to Our Domain
 
 A concrete data point in the "frameworks vs languages" debate for agentic systems: treating routing as a language construct rather than framework plumbing unlocks compiler-level optimizations (speculation, partitioning) that SDK architectures structurally cannot do. Worth tracking for our agent-infrastructure and GenAI app-framework coverage.
 
 ## References
 
-- Paper: https://arxiv.org/abs/2611.21298
+- Paper: https://arxiv.org/abs/2611.21298 (HTML: https://arxiv.org/html/2611.21298)
+- Jac language site: https://jaclang.org/
+- Jaseci docs: https://docs.jaseci.org/
+- GitHub: https://github.com/Jaseci-Labs/jac
 - Related KB notes: GenAI-App-Frameworks LangChain series, [[explanation-anatomy-of-an-agent-harness]]
 - Semantic Scholar: https://api.semanticscholar.org/graph/v1/paper/arXiv:2611.21298

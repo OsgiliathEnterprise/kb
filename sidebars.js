@@ -719,6 +719,7 @@ const sidebars = {
           items: ['explanations/developertoolspractices/remotedevelopment/explanation-vscode-ssh-agent-architecture'],
         },
         'explanations/general/2026-11-17',
+        'explanations/general/2026-11-18',
         {
           type: 'category',
           label: 'Authorization',
