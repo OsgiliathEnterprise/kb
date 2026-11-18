@@ -73,7 +73,7 @@ Spot price $8.60/h (us-east-2, 3 Nov 2026); on a capacity block ($35.76/h) batch
 ## When this matters
 - **Cost-driven inference**: at $0.040/M tokens (spot) TrnRT pricing undercuts most managed open-model APIs for agentic workloads, if you can operate a trn2.48xlarge.
 - **Non-NVIDIA strategy**: the offline-compile split is the pattern to copy on any accelerator with a slow compiler — cache artifacts like build outputs, keep the accelerator on the serving path only.
-- **Caveats**: single model supported today (GLM-5.3-Flash), single instance type, benchmark measured on an earlier build, and cached first-token latency (6.5–77 s p50) shows prompt processing, not decode, is the current latency wall — consistent with [Cerebras-style prefill/decode disaggregation](explanation-cerebras-disaggregated-inference-wafer-decode.md) being the longer-term fix.
+- **Caveats**: single model supported today (GLM-5.3-Flash), single instance type, benchmark measured on an earlier build, and cached first-token latency (6.53 s median at batch 8, rising to 77.9 s p90 TTFT at 32 agents) shows prompt processing and decode-slot queueing, not decode speed, is the current latency wall — consistent with [Cerebras-style prefill/decode disaggregation](explanation-cerebras-disaggregated-inference-wafer-decode.md) being the longer-term fix.
 
 ## References
 - [TrnRT repository](https://github.com/RunanywhereAI/trnrt)
