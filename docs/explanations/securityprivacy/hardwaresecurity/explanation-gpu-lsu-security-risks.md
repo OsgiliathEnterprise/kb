@@ -30,7 +30,7 @@ Prior GPU microarchitecture studies probed only **parts** of the LSU, and prior 
 - **Cross-tenant DoS/starvation**: LSU contention slows a co-located **cuBLAS matrix multiplication by up to 750× on A100 and 563× on H100**.
 
 ## Relevance to Our Domain
-Multi-tenant GPU serving (shared A100/H100 pools for LLM inference) is our deployment model; this quantifies a **concrete cross-tenant risk class** beyond memory-capacity attacks: timing side channels and extreme matmul degradation via LSU contention. Relevant to GPU-fleet isolation policy (MPS vs MIG vs dedicated allocation) and to threat models for shared accelerator infrastructure. Related: [[explanation-policy-sniff-llm-vm-side-channel]], [[explanation-pacer-gpu-scheduling-agentic-serving]].
+Multi-tenant GPU serving (shared A100/H100 pools for LLM inference) is our deployment model; this quantifies a **concrete cross-tenant risk class** beyond memory-capacity attacks: timing side channels and extreme matmul degradation via LSU contention. Relevant to GPU-fleet isolation policy (MPS vs MIG vs dedicated allocation) and to threat models for shared accelerator infrastructure.
 
 ## References
 - Paper: https://arxiv.org/abs/2611.23022

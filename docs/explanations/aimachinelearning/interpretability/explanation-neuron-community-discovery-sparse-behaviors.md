@@ -34,7 +34,7 @@ With communities capped at **128 neurons across all layers**:
 Conclusion: small groups of existing neurons act as **reusable computational components across prompts**, and such groups are discoverable at scale. The authors frame the discovered communities as a **"useful dictionary" of reusable neuron groups**; they note that many prompts remain unexplained, which may reflect computations that are genuinely *not* neuron-sparse as well as limitations of the discovery method itself.
 
 ## Relevance to Our Domain
-For model auditing and safety engineering, the existence of causally-validated, reusable neuron communities suggests **localized intervention points** (ablation, steering, surgical editing) for known behaviors — and a measurable "explained fraction" as an interpretability coverage metric, complementary to logit-lens attribution. Related: [[explanation-surgery-not-lenses-visual-token-attribution]], [[explanation-norm-aware-cross-architecture-auditing]].
+For model auditing and safety engineering, the existence of causally-validated, reusable neuron communities suggests **localized intervention points** (ablation, steering, surgical editing) for known behaviors — and a measurable "explained fraction" as an interpretability coverage metric, complementary to logit-lens attribution.
 
 ## References
 - Paper: https://arxiv.org/abs/2611.23112

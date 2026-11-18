@@ -35,7 +35,7 @@ The maintenance loop is evidence-driven rather than model-driven: successful exe
 - With selective maintenance: up to +67pp accuracy and −37% steps relative to stale reuse, without a description of the environment change and without extra model calls.
 
 ## Relevance to Our Domain
-Directly relevant to our skill library operations (`~/code/skills/`) and to skill/memory evolution work in the KB (WikiSkill, CoReMem, LEDGER, Route-to-Remember): a skill corpus is a *living* asset that requires a maintenance discipline. The replay-checks-from-success pattern is cheap and implementable today — log verifiable post-conditions with each skill run and replay them as staleness probes. Related: [[explanation-agent-memory-designs-program-evolution]], [[reference-ledger-auditable-agent-memory]], [[how-to-route-to-remember-adaptive-memory-selection]].
+Directly relevant to our skill library operations (`~/code/skills/`) and to skill/memory evolution work in the KB (WikiSkill, CoReMem, LEDGER, Route-to-Remember): a skill corpus is a *living* asset that requires a maintenance discipline. The replay-checks-from-success pattern is cheap and implementable today — log verifiable post-conditions with each skill run and replay them as staleness probes. Related: [[reference-ledger-auditable-agent-memory]], [[how-to-route-to-remember-adaptive-memory-selection]].
 
 ## References
 - Paper: https://arxiv.org/abs/2611.22525

@@ -36,7 +36,7 @@ You fine-tune a tool-calling agent for repo QA (or similar gather-then-answer wo
 - Lower inference cost in both settings.
 
 ## Relevance to Our Domain
-A cheap, reproducible efficiency lever for the coding-agent stacks we cover: over-exploration is directly observable in our own agent traces (repeated identical greps, re-reads of unchanged files). The truncate-at-sufficiency + rationale-upweighting pattern is a template applicable beyond repo QA — any tool loop with a definable "enough evidence" predicate. Related: [[explanation-modharness-rl-evolving-harness-programs]], [[explanation-dependence-decomposed-skill-learning-long-horizon-agents]].
+A cheap, reproducible efficiency lever for the coding-agent stacks we cover: over-exploration is directly observable in our own agent traces (repeated identical greps, re-reads of unchanged files). The truncate-at-sufficiency + rationale-upweighting pattern is a template applicable beyond repo QA — any tool loop with a definable "enough evidence" predicate. Related: [[explanation-modharness-rl-evolving-harness-programs]].
 
 ## References
 - Paper: https://arxiv.org/abs/2611.22539

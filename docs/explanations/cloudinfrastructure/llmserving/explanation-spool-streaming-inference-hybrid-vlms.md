@@ -36,7 +36,7 @@ Across **five open-source hybrid VLMs and four video reasoning benchmarks**:
 - Average accuracy **improvement of 2.3 percentage points** (eviction-by-replay alternatives are not more accurate).
 
 ## Relevance to Our Domain
-Hybrid attention + GDN architectures (Qwen3.5/3.6/3.8, Qwen3-Next, Kimi-Linear, GLM-5.3-Flash class models) are becoming the default for long-context and streaming serving; cache systems like LMCache already need dedicated recurrent-state objects for them. Spool shows that **state eviction, not just KV eviction, is the next serving bottleneck** for video/robotic agent products, and that the fix is algebraic (associative state transformations), which any hybrid-aware serving stack will want. Related: [[explanation-velserve-tail-calibrated-scheduling]], [[reference-gemma4-shared-kv-cache-paged-serving]].
+Hybrid attention + GDN architectures (Qwen3.5/3.6/3.8, Qwen3-Next, Kimi-Linear, GLM-5.3-Flash class models) are becoming the default for long-context and streaming serving; cache systems like LMCache already need dedicated recurrent-state objects for them. Spool shows that **state eviction, not just KV eviction, is the next serving bottleneck** for video/robotic agent products, and that the fix is algebraic (associative state transformations), which any hybrid-aware serving stack will want. Related: [[explanation-velserve-tail-calibrated-scheduling]].
 
 ## References
 - Paper: https://arxiv.org/abs/2611.23228

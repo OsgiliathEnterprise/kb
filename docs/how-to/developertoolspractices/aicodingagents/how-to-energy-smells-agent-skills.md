@@ -30,7 +30,7 @@ Existing energy-smell tools (i) rely on **fixed static rules** that miss smell m
 Exploratory study over **18 interactive sessions on three repositories and two foundation models under three configurations**: DR. GREENS produces **258 measured repairs, with 68.6% saving energy (median reduction 24.9%)**. A baseline agent **without the taxonomy produces fewer verified energy-saving repairs**.
 
 ## Relevance to Our Domain
-Agent skills are emerging as the packaging format for coding-agent expertise; this is a template for **"verified optimization" skills**: taxonomy + static analyzer + independent measurement, which generalizes to performance, security and cost skills. Also feeds FinOps/GreenOps: median 24.9% energy reduction on real repos is a concrete, auditable CI-level check. Related: [[explanation-harness-maintenance-rolling-window]].
+Agent skills are emerging as the packaging format for coding-agent expertise; this is a template for **"verified optimization" skills**: taxonomy + static analyzer + independent measurement, which generalizes to performance, security and cost skills. Also feeds FinOps/GreenOps: median 24.9% energy reduction on real repos is a concrete, auditable CI-level check.
 
 ## References
 - Paper: https://arxiv.org/abs/2611.23203

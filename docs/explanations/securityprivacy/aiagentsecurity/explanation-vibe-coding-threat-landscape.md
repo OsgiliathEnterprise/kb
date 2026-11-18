@@ -32,7 +32,7 @@ Vibe-coding security research is scattered across prompt injection, insecure cod
 - Most current defenses lean on **model judgement** (asking the model not to misbehave) and each addresses an **isolated threat** — there is no compositional defense story.
 
 ## Relevance to Our Domain
-The best current map for securing the agentic-dev pipelines in our own SDLC (coding agents with shell, package installs, cloud credentials — exactly the trust boundaries this paper formalizes). The autonomy ladder is a practical procurement/deployment rubric: match the granted autonomy level to enforceable controls, don't rely on model judgement. Pairs with our agent-permissioning and prompt-injection-defense notes; its "enforceable authority limits" challenge aligns with Cedar-policy RLVR-verifier and token-scoping work in the KB. Related: [[explanation-kosher-privileged-tool-calling]], [[reference-piatlas-prompt-injection-attack-taxonomy]], [[explanation-prompt-injection-defense-taxonomy]].
+The best current map for securing the agentic-dev pipelines in our own SDLC (coding agents with shell, package installs, cloud credentials — exactly the trust boundaries this paper formalizes). The autonomy ladder is a practical procurement/deployment rubric: match the granted autonomy level to enforceable controls, don't rely on model judgement. Pairs with our agent-permissioning and prompt-injection-defense notes; its "enforceable authority limits" challenge aligns with Cedar-policy RLVR-verifier and token-scoping work in the KB. Related: [[reference-piatlas-prompt-injection-attack-taxonomy]].
 
 ## References
 - Paper: https://arxiv.org/abs/2611.21822
