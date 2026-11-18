@@ -35,8 +35,16 @@ Jailbreak defenses increasingly rely on LLM-based input filters. The authors fir
 
 For agent platforms that gate tool calls behind intent classifiers: "looks like a normal request" is itself the attack surface. Detection must weigh content *and* the dual-use ambiguity problem — a filter strict enough to stop DGA risks blocking legitimate ambiguous requests, so defence-in-depth (least-privilege tools, human approval for high-risk actions) remains the answer. Pairs with our ReMA/SecMAS multi-agent security note.
 
+## Related Defences and Follow-ups (added 2026-11-18, KB Zookeeper enrichment)
+
+- **Peer-review track version:** "Indistinguishability from Benign Requests Enables Jailbreak Success" (OpenReview, forum id `WZr5q26MtG`) — same core thesis under review; check it for any post-review revisions to the ASR numbers.
+- **Detection countermeasure line:** **ALERT** (arXiv:2601.03600) proposes *zero-shot jailbreak detection via internal discrepancy amplification* — detecting the gap between a request's benign surface and the model's internal response. This is the natural answer to DGA's core trick: if "normalcy resemblance" defeats content filters, defence must move from content to internal-state signals.
+- **Timeline context:** DGA sits in the 2025–2026 shift from token-level obfuscation attacks to *intent-mimicry* attacks (see e.g. LochBot's LLM Jailbreak Timeline, https://lochbot.com/research/llm-jailbreak-timeline.html). Our defense-in-depth stance (least-privilege tools, human approval for high-risk actions) is the mitigation that does not degrade under this shift.
+
 ## References
 
 - Paper: https://arxiv.org/abs/2611.17818
+- OpenReview (peer-review track): https://openreview.net/forum?id=WZr5q26MtG
+- ALERT defence paper: https://arxiv.org/abs/2601.03600
 - Semantic Scholar: https://api.semanticscholar.org/graph/v1/paper/arXiv:2611.17818
 - Related: `explanation-rema-attack-securesmas-design.md`, `explanation-llm-inference-engine-exploits.md`

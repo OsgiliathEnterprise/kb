@@ -38,6 +38,11 @@ Vendors advertise coding models by benchmark-score improvements, but no study ha
 ## Relevance to Our Domain
 Strong caution for our coding-agent model-selection practice: SWE-Bench-Pro-style score differences should not justify migration costs or be assumed to improve throughput. Decide on internal, measured merge/acceptance telemetry instead of leaderboards.
 
+## Corroborating Signals (added 2026-11-18, KB Zookeeper enrichment)
+- **Vendors are converging on the same conclusion:** OpenAI publicly announced it **no longer evaluates on SWE-bench Verified** (https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/), citing saturation and weak alignment with real engineering work — the same measurement-validity critique this paper makes from the productivity side.
+- **Leaderboard churn cuts both ways:** Scale's SWE-Bench Pro V2 (https://labs.scale.com/leaderboard/swe_bench_pro_public_v2) is a hardening response to contamination/saturation, but a harder leaderboard still does not establish transfer to merged work — this paper's DiD design is currently the closest thing to that evidence.
+- **Practical implication:** treat any "N points higher on SWE-Bench-Pro" claim as *cost-neutral at best* until your own merge-rate telemetry says otherwise; the study's five replicated upgrades all had negative point estimates.
+
 ## References
 - Paper: https://arxiv.org/abs/2611.23216 (published 2026-11-17)
 - Author: Yining Hua

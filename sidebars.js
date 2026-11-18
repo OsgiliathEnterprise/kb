@@ -222,7 +222,7 @@ const sidebars = {
           type: 'category',
           label: 'Aicodingagents',
           link: {type: 'generated-index', title: 'Aicodingagents', slug: 'how-to/developertoolspractices/aicodingagents'},
-          items: ['how-to/developertoolspractices/aicodingagents/how-to-fair-code-retrieval-benchmarking-generate-then-grep', 'how-to/developertoolspractices/aicodingagents/how-to-gate-llm-code-repairs-after-api-migrations', 'how-to/developertoolspractices/aicodingagents/how-to-synapse-agent-skill-program-repair', 'how-to/developertoolspractices/aicodingagents/howto-audit-claude-code-skill-context-tax-skill-tax-cli', 'how-to/developertoolspractices/aicodingagents/howto-autocompact-context-compaction-coding-agents', 'how-to/developertoolspractices/aicodingagents/howto-build-an-ai-workflow-inventory', 'how-to/developertoolspractices/aicodingagents/howto-check-ai-quota-headroom-before-dispatch', 'how-to/developertoolspractices/aicodingagents/howto-chronicle-cut-point-replay-regression-testing', 'how-to/developertoolspractices/aicodingagents/howto-litellm-gateway-for-codex-cli', 'how-to/developertoolspractices/aicodingagents/howto-maintainability-sensors-for-coding-agents', 'how-to/developertoolspractices/aicodingagents/howto-metal-sandbox-gpu-coding-agents-apple-silicon', 'how-to/developertoolspractices/aicodingagents/howto-migrate-gemini-cli-to-antigravity-cli', 'how-to/developertoolspractices/aicodingagents/howto-neurotestgen-neuro-symbolic-test-generation', 'how-to/developertoolspractices/aicodingagents/howto-predict-coding-agent-performance-base-models', 'how-to/developertoolspractices/aicodingagents/howto-require-a-job-receipt-for-remote-model-proposals', 'how-to/developertoolspractices/aicodingagents/howto-satisfix-mitigate-specification-satisficing', 'how-to/developertoolspractices/aicodingagents/howto-spring-upgrades-with-openrewrite-and-agents', 'how-to/developertoolspractices/aicodingagents/howto-verify-claude-code-relay-serves-claude'],
+          items: ['how-to/developertoolspractices/aicodingagents/how-to-energy-smells-agent-skills', 'how-to/developertoolspractices/aicodingagents/how-to-fair-code-retrieval-benchmarking-generate-then-grep', 'how-to/developertoolspractices/aicodingagents/how-to-gate-llm-code-repairs-after-api-migrations', 'how-to/developertoolspractices/aicodingagents/how-to-synapse-agent-skill-program-repair', 'how-to/developertoolspractices/aicodingagents/howto-audit-claude-code-skill-context-tax-skill-tax-cli', 'how-to/developertoolspractices/aicodingagents/howto-autocompact-context-compaction-coding-agents', 'how-to/developertoolspractices/aicodingagents/howto-build-an-ai-workflow-inventory', 'how-to/developertoolspractices/aicodingagents/howto-check-ai-quota-headroom-before-dispatch', 'how-to/developertoolspractices/aicodingagents/howto-chronicle-cut-point-replay-regression-testing', 'how-to/developertoolspractices/aicodingagents/howto-litellm-gateway-for-codex-cli', 'how-to/developertoolspractices/aicodingagents/howto-maintainability-sensors-for-coding-agents', 'how-to/developertoolspractices/aicodingagents/howto-metal-sandbox-gpu-coding-agents-apple-silicon', 'how-to/developertoolspractices/aicodingagents/howto-migrate-gemini-cli-to-antigravity-cli', 'how-to/developertoolspractices/aicodingagents/howto-neurotestgen-neuro-symbolic-test-generation', 'how-to/developertoolspractices/aicodingagents/howto-predict-coding-agent-performance-base-models', 'how-to/developertoolspractices/aicodingagents/howto-require-a-job-receipt-for-remote-model-proposals', 'how-to/developertoolspractices/aicodingagents/howto-satisfix-mitigate-specification-satisficing', 'how-to/developertoolspractices/aicodingagents/howto-spring-upgrades-with-openrewrite-and-agents', 'how-to/developertoolspractices/aicodingagents/howto-verify-claude-code-relay-serves-claude'],
         },
         {
           type: 'category',
@@ -396,7 +396,7 @@ const sidebars = {
           type: 'category',
           label: 'Aiassisteddevelopment',
           link: {type: 'generated-index', title: 'Aiassisteddevelopment', slug: 'how-to/softwaredevelopment/aiassisteddevelopment'},
-          items: ['how-to/softwaredevelopment/aiassisteddevelopment/how-to-c-to-rust-llm-spec-translation', 'how-to/softwaredevelopment/aiassisteddevelopment/howto-llm-assisted-dafny-verification-workflow'],
+          items: ['how-to/softwaredevelopment/aiassisteddevelopment/how-to-c-to-rust-llm-spec-translation', 'how-to/softwaredevelopment/aiassisteddevelopment/how-to-coding-agents-selective-inference-correction', 'how-to/softwaredevelopment/aiassisteddevelopment/howto-llm-assisted-dafny-verification-workflow'],
         },
         {
           type: 'category',
@@ -494,7 +494,7 @@ const sidebars = {
           type: 'category',
           label: 'Agenttraining',
           link: {type: 'generated-index', title: 'Agenttraining', slug: 'explanations/aimachinelearning/agenttraining'},
-          items: ['explanations/aimachinelearning/agenttraining/explanation-bait-probing-reward-agentic-rl-defense', 'explanations/aimachinelearning/agenttraining/explanation-do-llm-agents-still-need-to-be-told-how-to-self-improve', 'explanations/aimachinelearning/agenttraining/explanation-experience-handoff-rl-recursive-self-improvement', 'explanations/aimachinelearning/agenttraining/explanation-modharness-rl-evolving-harness-programs', 'explanations/aimachinelearning/agenttraining/explanation-optimistic-verifiers-reward-hacking'],
+          items: ['explanations/aimachinelearning/agenttraining/explanation-bait-probing-reward-agentic-rl-defense', 'explanations/aimachinelearning/agenttraining/explanation-do-llm-agents-still-need-to-be-told-how-to-self-improve', 'explanations/aimachinelearning/agenttraining/explanation-experience-handoff-rl-recursive-self-improvement', 'explanations/aimachinelearning/agenttraining/explanation-modharness-rl-evolving-harness-programs', 'explanations/aimachinelearning/agenttraining/explanation-optimistic-verifiers-reward-hacking', 'explanations/aimachinelearning/agenttraining/explanation-resolution-hypothesis-agent-evolution', 'explanations/aimachinelearning/agenttraining/reference-rsi-prime-training-models-to-train-models'],
         },
         {
           type: 'category',
@@ -506,7 +506,7 @@ const sidebars = {
           type: 'category',
           label: 'Interpretability',
           link: {type: 'generated-index', title: 'Interpretability', slug: 'explanations/aimachinelearning/interpretability'},
-          items: ['explanations/aimachinelearning/interpretability/explanation-manifestation-unit-protocol-interpretability-schema'],
+          items: ['explanations/aimachinelearning/interpretability/explanation-manifestation-unit-protocol-interpretability-schema', 'explanations/aimachinelearning/interpretability/explanation-neuron-community-discovery-sparse-behaviors'],
         },
         {
           type: 'category',
@@ -632,7 +632,7 @@ const sidebars = {
           type: 'category',
           label: 'Llmserving',
           link: {type: 'generated-index', title: 'Llmserving', slug: 'explanations/cloudinfrastructure/llmserving'},
-          items: ['explanations/cloudinfrastructure/llmserving/explanation-batch-makespan-llm-agent-workloads', 'explanations/cloudinfrastructure/llmserving/explanation-broadcast-dont-replicate-moe-serving', 'explanations/cloudinfrastructure/llmserving/explanation-callo-invalidated-kv-speculative-decoding', 'explanations/cloudinfrastructure/llmserving/explanation-cerebras-disaggregated-inference-wafer-decode', 'explanations/cloudinfrastructure/llmserving/explanation-cross-tenant-cache-hit-leakage-llm-serving', 'explanations/cloudinfrastructure/llmserving/explanation-echomoe-activation-compression-expert-parallelism', 'explanations/cloudinfrastructure/llmserving/explanation-llm-api-relay-integrity-measurement', 'explanations/cloudinfrastructure/llmserving/explanation-mosaickv-dynamic-2d-kv-cache-compression', 'explanations/cloudinfrastructure/llmserving/explanation-specsearch-hardware-aware-speculative-decoding', 'explanations/cloudinfrastructure/llmserving/explanation-tritify-deterministic-integer-inference', 'explanations/cloudinfrastructure/llmserving/explanation-trnrt-nki-megakernels-trainium', 'explanations/cloudinfrastructure/llmserving/explanation-velserve-tail-calibrated-scheduling', 'explanations/cloudinfrastructure/llmserving/reference-grace-blackwell-desktop-inference-benchmark', 'explanations/cloudinfrastructure/llmserving/reference-kvcompass-prefix-cache-discovery', 'explanations/cloudinfrastructure/llmserving/reference-moe-core-expert-offloading-residency', 'explanations/cloudinfrastructure/llmserving/reference-rocm-inferasim', 'explanations/cloudinfrastructure/llmserving/reference-serverbench-coding-agents-serving-systems', 'explanations/cloudinfrastructure/llmserving/reference-stint-productive-preemption-long-output', 'explanations/cloudinfrastructure/llmserving/reference-superfluid-multi-model-serving', 'explanations/cloudinfrastructure/llmserving/reference-xm-sparse-sparse-attention-serving-scale-up-memory-pools'],
+          items: ['explanations/cloudinfrastructure/llmserving/explanation-batch-makespan-llm-agent-workloads', 'explanations/cloudinfrastructure/llmserving/explanation-broadcast-dont-replicate-moe-serving', 'explanations/cloudinfrastructure/llmserving/explanation-callo-invalidated-kv-speculative-decoding', 'explanations/cloudinfrastructure/llmserving/explanation-cerebras-disaggregated-inference-wafer-decode', 'explanations/cloudinfrastructure/llmserving/explanation-cross-tenant-cache-hit-leakage-llm-serving', 'explanations/cloudinfrastructure/llmserving/explanation-echomoe-activation-compression-expert-parallelism', 'explanations/cloudinfrastructure/llmserving/explanation-llm-api-relay-integrity-measurement', 'explanations/cloudinfrastructure/llmserving/explanation-mosaickv-dynamic-2d-kv-cache-compression', 'explanations/cloudinfrastructure/llmserving/explanation-specsearch-hardware-aware-speculative-decoding', 'explanations/cloudinfrastructure/llmserving/explanation-spool-streaming-inference-hybrid-vlms', 'explanations/cloudinfrastructure/llmserving/explanation-tritify-deterministic-integer-inference', 'explanations/cloudinfrastructure/llmserving/explanation-trnrt-nki-megakernels-trainium', 'explanations/cloudinfrastructure/llmserving/explanation-velserve-tail-calibrated-scheduling', 'explanations/cloudinfrastructure/llmserving/reference-grace-blackwell-desktop-inference-benchmark', 'explanations/cloudinfrastructure/llmserving/reference-kvcompass-prefix-cache-discovery', 'explanations/cloudinfrastructure/llmserving/reference-moe-core-expert-offloading-residency', 'explanations/cloudinfrastructure/llmserving/reference-rocm-inferasim', 'explanations/cloudinfrastructure/llmserving/reference-serverbench-coding-agents-serving-systems', 'explanations/cloudinfrastructure/llmserving/reference-stint-productive-preemption-long-output', 'explanations/cloudinfrastructure/llmserving/reference-superfluid-multi-model-serving', 'explanations/cloudinfrastructure/llmserving/reference-xm-sparse-sparse-attention-serving-scale-up-memory-pools'],
         },
         {
           type: 'category',
@@ -896,6 +896,12 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Hardwaresecurity',
+          link: {type: 'generated-index', title: 'Hardwaresecurity', slug: 'explanations/securityprivacy/hardwaresecurity'},
+          items: ['explanations/securityprivacy/hardwaresecurity/explanation-gpu-lsu-security-risks'],
+        },
+        {
+          type: 'category',
           label: 'Iotfirmwaresecurity',
           link: {type: 'generated-index', title: 'Iotfirmwaresecurity', slug: 'explanations/securityprivacy/iotfirmwaresecurity'},
           items: ['explanations/securityprivacy/iotfirmwaresecurity/explanation-danfoss-storeview-france-fridge-attack', 'explanations/securityprivacy/iotfirmwaresecurity/explanation-eufy-homebase2-firmware-wifi-credentials-uart'],
@@ -922,7 +928,7 @@ const sidebars = {
           type: 'category',
           label: 'Modelprovenance',
           link: {type: 'generated-index', title: 'Modelprovenance', slug: 'explanations/securityprivacy/modelprovenance'},
-          items: ['explanations/securityprivacy/modelprovenance/explanation-flashprove-provable-inference', 'explanations/securityprivacy/modelprovenance/explanation-verifiable-ai-proof-costs-hardware'],
+          items: ['explanations/securityprivacy/modelprovenance/explanation-distortion-free-semantic-watermarks-black-box', 'explanations/securityprivacy/modelprovenance/explanation-flashprove-provable-inference', 'explanations/securityprivacy/modelprovenance/explanation-verifiable-ai-proof-costs-hardware'],
         },
         {
           type: 'category',

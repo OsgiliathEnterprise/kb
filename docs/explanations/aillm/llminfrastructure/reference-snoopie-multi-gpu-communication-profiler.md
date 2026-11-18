@@ -38,6 +38,32 @@ Data movement is one of the most expensive bottlenecks in modern accelerated com
 2. **Locating performance bugs** — applications where communication volume/behavior deviates from what the code implies.
 3. **Understanding library abstraction** — making concrete the transfers that collective/communication libraries hide behind high-level calls.
 
+## Getting Started (from the official repo)
+
+**Dependencies:** CMake ≥3.23, CUDA ≥11.8, NVIDIA driver 545.23.08, OpenMPI ≥4.1.4, NVSHMEM ≥2.7, NVBit 1.5.5, Python 3 (+`python3-dev`), `libzstd-dev`, `libunwind-dev`, NumPy.
+
+**Build:**
+```shell
+cmake . && make snoop && . ./snoopie_path.sh
+```
+
+**Run (two equivalent forms):**
+```shell
+LD_PRELOAD="/path/to/mem_multigpu.so" KERNEL_NAME="kernel_to_track" /path/to/multigpu-app
+# or
+./snoop --kernel-name kernel_to_track -- /path/to/multigpu-app
+```
+
+**Key environment variables / options:**
+- `CODE_ATTRIBUTION=1` — enable source-line attribution (adds overhead; repo has an explicit "lowering overhead of data/code-line attribution of Python/PyTorch" optimization commit).
+- `NVSHMEM_VERSION=2.7` — required when not on NVSHMEM 2.8/2.9.
+- `NVSHMEM_NGPUS=4` — mandatory on NVSHMEM 2.8/2.9 (you must declare the GPU count).
+- `SAMPLE_SIZE=<n>` — sampling-based profiling to cut overhead on hot kernels.
+
+**Docker workflow:** `docker build -t snoopie .` → `docker run --gpus all -it --rm -p 8000:8000 snoopie:latest` → profile with `snoop.py ./your-app` → open `localhost:8000` (Streamlit visualizer) and upload generated log files. Visualizer upload limit is 200 MB by default; raise it with `STREAMLIT_SERVER_MAX_UPLOAD_SIZE`. An Electron desktop build is also provided.
+
+**Publication:** ICS '24 (38th Int'l Conf. on Supercomputing), DOI 10.1145/3650200.3656597; authors: Issa, Sasongko, Turimbetov, Baydamirli, Sağbili, Unat (ParCoreLab, KU Leuven).
+
 ## Relevance to Our Domain
 
 For LLM infrastructure work (tensor/pipeline/data-parallel training, multi-GPU serving), communication profiling is the missing observability tier: NCCL-level black boxes make scaling regressions hard to attribute. Snoopie's line-level and object-level attribution is the capability that turns "interconnect-bound" from a guess into a measured fact, and its instruction/address views are useful when a library's hidden behavior is the bug. Worth trialing alongside NCCL's own debugging env vars and vendor profilers, specifically for the inter-GPU blind spot they leave.
