@@ -48,6 +48,9 @@ Dedicated mode for coding agents (Claude Code, Codex, Cursor) that cuts token wa
 - **Machine-readable errors structured in JSON**, so agents can interpret failures and self-correct SQL faster.
 - **Guardrails against runaway queries**.
 
+## Release status check (KB Zookeeper, 2026-11-18)
+GitHub `duckdb/duckdb` releases still list **v2.0.0 as Latest** (tag `v2.0.0`, released 2026-10-21, GPG-verified, ~28 contributors). The release is tagged **"Cyanoptera"**, named after *Spatula cyanoptera* — the Cinnamon Teal duck species (DuckDB names releases after duck species; "Cinnamon Teal" and "Cyanoptera" refer to the same release). **No 2.0.1 patch had shipped as of this check**, so the "never migrate to a `.0` release in production" rule still binds — re-verify the patch cadence before upgrading production workloads.
+
 ## Practical guidance
 1. Plan upgrades as two steps: binary → 2.0.x stable; format → deliberately, since writing in the new format is a point of no return for older readers.
 2. If agents drive your DuckDB CLI, turn on Agent Mode — cheaper and more accurate self-correction loops.
@@ -58,3 +61,4 @@ Dedicated mode for coding agents (Claude Code, Codex, Cursor) that cuts token wa
 - Quack protocol docs: [Quack Remote Protocol overview](https://duckdb.org/docs/2.0/quack/overview) · [Quack announcement page](https://duckdb.org/quack/)
 - Analysis: [InfoQ — DuckDB Quack: Client/Server Protocol over HTTP](https://www.infoq.com/news/2026/05/duckdb-quack-protocol/)
 - Agent Mode: [DuckDB CLI Agent Mode docs](https://duckdb.org/docs/2.0/clients/cli/agent_mode)
+- Release status: [duckdb/duckdb GitHub Releases](https://github.com/duckdb/duckdb/releases) (v2.0.0 "Cyanoptera", 2026-10-21)

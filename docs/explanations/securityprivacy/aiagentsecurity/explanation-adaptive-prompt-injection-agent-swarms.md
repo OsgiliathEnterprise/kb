@@ -31,6 +31,13 @@ The adversarial prompt space grows exponentially with prompt length, and defensi
 - **Visible CoT strengthens the attack** versus hidden CoT, and discovered strategies show **cross-model transferability** — a bypass found against one model carries over to others.
 
 
+## Evaluation Design (key methodological contribution)
+- The authors built a **new synthetic evaluation dataset that uses random non-malicious actions as adversarial goals** — instead of obvious malicious targets, the attacker must get the agent to perform innocuous-but-unauthorized actions.
+- This design measures prompt-injection robustness as a **model ability to respect the instruction hierarchy** (system prompt > tool output), deliberately disentangled from the model's learned knowledge of security practices (which can inflate public-benchmark scores).
+- Context from the paper: static-payload injection research **saturated by mid-2025**, and by Fall 2026 **human red-teaming may be nearing saturation, especially on the Gemini family**. The swarm exists precisely to break this apparent plateau.
+- The agentic attacker reliably tricks models into **following instructions embedded in tool output**, even models previously considered robust on public prompt-injection benchmarks such as **GraySwan Arena**.
+- 11 authors (Kurakin, Karande, Bie, Shi, Song, Mahloujifar, Köksal, Hayes, Pluto, Sun, Chaudhuri), submitted 9 Nov 2026, 15 pages / 4 figures — a defensive-lab red-teaming effort, reinforcing the "automated red-team before attackers do" message.
+
 ## Defensive Implications
 - Defenses evaluated only against single-shot or hand-crafted injections are **under-tested**; assume an adversary with parallel search budget.
 - Transferability results mean a bypass found on one model is a warning for the rest of the fleet — defense-in-depth, not per-model patching.
@@ -39,4 +46,4 @@ The adversarial prompt space grows exponentially with prompt length, and defensi
 ## References
 - Paper: https://arxiv.org/abs/2611.11861
 - Semantic Scholar: https://api.semanticscholar.org/graph/v1/paper/arXiv:2611.11861 (0 citations at ingest, 2026 paper)
-- Related: [[Beyond Prompt Injection: The Tool Update Gap in LLM Agent Security]]
+- Related: [[explanation-tool-update-gap-llm-agents-etude]] (complementary agent-security attack surface in this topic)

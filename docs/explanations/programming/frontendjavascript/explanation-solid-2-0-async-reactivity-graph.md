@@ -65,6 +65,17 @@ Diagnostics cover async waterfalls, effect loops, and poorly-scaling graph shape
 
 The "Long Hold" title references the `long-hold` diagnostic — fires when a hold (pending computation shown via `isPending`) has had no input for too long.
 
+## Mechanics on the ground (independent deep dive, 2026-11)
+Dennis Morello's React-developer deep dive (written on the `2.0.0-beta.18` line) pins down the plumbing behind the headline claims:
+
+- **`NotReadyError` is the suspension mechanism**: reading an in-flight async memo throws `NotReadyError` internally, which propagates up the graph to the nearest boundary — never caught by user code; it is what makes `<Loading>` and error boundaries work without a dedicated suspense primitive.
+- **`<Loading>` covers initial readiness only** (vs 1.x `<Suspense>`): after first paint, a refetch keeps the *old* content on screen instead of flashing the fallback — the exact behavior React forces you to fight for with `useTransition`. Opt into fallback-reappear on a specific dependency with the new `on` prop: `<Loading on={userId()} fallback={…}>`.
+- **Imperative escape**: `await resolve(() => user())` hands you a real promise outside a reactive scope (route loaders, event handlers).
+- **Trap to avoid**: there is **no `createAsync` in core 2.0** — that name belongs to `@solidjs/router` and its 2.0 shape is unsettled; the core async primitive is a plain `createMemo` returning a promise (per the async RFC: async is "a first-class capability of computations").
+- `<Reveal>` coordinates several boundaries (see the deep dive for the multi-boundary choreography).
+
+Assessment: the fine-grained-graph-does-async story holds up under scrutiny; the beta-era API names are the main caveat, so pin the stable release before porting Morello's snippets verbatim.
+
 ## Assessment for our stack
 Signals won the framework layer (Angular, Svelte runes, Vue Vapor, a TC39 proposal, React's compiler conversation) — Solid 2.0's real novelty is not signals but **observable reactivity as an agent-feedback loop**: compiler/runtime diagnostics with stable codes + in-package repair guides are a reusable pattern for any tooling that expects AI-authored code. Watch whether the diagnostic-code + SKILL.md convention gets adopted elsewhere.
 
@@ -72,3 +83,4 @@ Signals won the framework layer (Angular, Svelte runes, Vue Vapor, a TC39 propos
 - Release post: [Solid 2.0 — The Long Hold](https://www.solidjs.com/blog/solid-2-0-the-long-hold/)
 - Diagnostics reference: [long-hold](https://docs.solidjs.com/reference/solid-js/diagnostics/long-hold)
 - Experimental syntaxes: [ReactiveScript](https://reactivescript.dev/) · [TSRX](https://tsrx.dev/)
+- Deep dive: [SolidJS 2.0 Async Data — A Deep Dive for React Devs (Morello)](https://morello.dev/blog/solidjs-2-async-data) · [Async RFC](https://github.com/solidjs/solid/blob/next/documentation/solid-2.0/05-async-data.md)

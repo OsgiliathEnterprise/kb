@@ -45,4 +45,5 @@ Directly usable to build and evaluate a privacy-aware review gate in AI-assisted
 
 ## References
 - Paper: https://arxiv.org/abs/2611.18293
+- Data + eval harness (Zenodo): https://doi.org/10.5281/zenodo.23744765
 - Semantic Scholar: https://api.semanticscholar.org/graph/v1/paper/arXiv:2611.18293
