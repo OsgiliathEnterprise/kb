@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="36.0 6.0 688.0 318.0" width="688" height="318">
+<rect x="36.0" y="6.0" width="688.0" height="318.0" fill="#ffffff"/>
+<rect x="60.0" y="120.0" width="140.0" height="60.0" rx="8" fill="#d0bfff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="280.0" y="120.0" width="140.0" height="60.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="520.0" y="80.0" width="140.0" height="50.0" rx="8" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="520.0" y="170.0" width="140.0" height="50.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 205.0 150.0 L 275.0 150.0"/><line x1="275.0" y1="150.0" x2="262.4" y2="143.9"/><line x1="275.0" y1="150.0" x2="262.4" y2="156.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 425.0 140.0 L 515.0 110.0"/><line x1="515.0" y1="110.0" x2="501.1" y2="108.2"/><line x1="515.0" y1="110.0" x2="505.0" y2="119.8"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 425.0 160.0 L 515.0 190.0"/><line x1="515.0" y1="190.0" x2="505.0" y2="180.2"/><line x1="515.0" y1="190.0" x2="501.1" y2="191.8"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="18" fill="#1e1e1e" text-anchor="start"><tspan x="140.0" y="44.4">3 booleans = 8 combos (5 illegal)  vs  1 union = 5 states (0 illegal)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="85.0" y="152.8">idle</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="295.0" y="152.8">submitting</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="545.0" y="107.8">success</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="555.0" y="197.8">error</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="60.0" y="271.2">submitting has ONE exit: the double-click bug</tspan><tspan x="60.0" y="288.7">(isSuccess &amp;&amp; isError in the same tick) is structurally impossible</tspan></text>
+</svg>

@@ -632,7 +632,7 @@ const sidebars = {
           type: 'category',
           label: 'Llmserving',
           link: {type: 'generated-index', title: 'Llmserving', slug: 'explanations/cloudinfrastructure/llmserving'},
-          items: ['explanations/cloudinfrastructure/llmserving/explanation-batch-makespan-llm-agent-workloads', 'explanations/cloudinfrastructure/llmserving/explanation-broadcast-dont-replicate-moe-serving', 'explanations/cloudinfrastructure/llmserving/explanation-callo-invalidated-kv-speculative-decoding', 'explanations/cloudinfrastructure/llmserving/explanation-cerebras-disaggregated-inference-wafer-decode', 'explanations/cloudinfrastructure/llmserving/explanation-cross-tenant-cache-hit-leakage-llm-serving', 'explanations/cloudinfrastructure/llmserving/explanation-echomoe-activation-compression-expert-parallelism', 'explanations/cloudinfrastructure/llmserving/explanation-llm-api-relay-integrity-measurement', 'explanations/cloudinfrastructure/llmserving/explanation-mosaickv-dynamic-2d-kv-cache-compression', 'explanations/cloudinfrastructure/llmserving/explanation-specsearch-hardware-aware-speculative-decoding', 'explanations/cloudinfrastructure/llmserving/explanation-tritify-deterministic-integer-inference', 'explanations/cloudinfrastructure/llmserving/explanation-velserve-tail-calibrated-scheduling', 'explanations/cloudinfrastructure/llmserving/reference-grace-blackwell-desktop-inference-benchmark', 'explanations/cloudinfrastructure/llmserving/reference-kvcompass-prefix-cache-discovery', 'explanations/cloudinfrastructure/llmserving/reference-moe-core-expert-offloading-residency', 'explanations/cloudinfrastructure/llmserving/reference-rocm-inferasim', 'explanations/cloudinfrastructure/llmserving/reference-serverbench-coding-agents-serving-systems', 'explanations/cloudinfrastructure/llmserving/reference-stint-productive-preemption-long-output', 'explanations/cloudinfrastructure/llmserving/reference-superfluid-multi-model-serving', 'explanations/cloudinfrastructure/llmserving/reference-xm-sparse-sparse-attention-serving-scale-up-memory-pools'],
+          items: ['explanations/cloudinfrastructure/llmserving/explanation-batch-makespan-llm-agent-workloads', 'explanations/cloudinfrastructure/llmserving/explanation-broadcast-dont-replicate-moe-serving', 'explanations/cloudinfrastructure/llmserving/explanation-callo-invalidated-kv-speculative-decoding', 'explanations/cloudinfrastructure/llmserving/explanation-cerebras-disaggregated-inference-wafer-decode', 'explanations/cloudinfrastructure/llmserving/explanation-cross-tenant-cache-hit-leakage-llm-serving', 'explanations/cloudinfrastructure/llmserving/explanation-echomoe-activation-compression-expert-parallelism', 'explanations/cloudinfrastructure/llmserving/explanation-llm-api-relay-integrity-measurement', 'explanations/cloudinfrastructure/llmserving/explanation-mosaickv-dynamic-2d-kv-cache-compression', 'explanations/cloudinfrastructure/llmserving/explanation-specsearch-hardware-aware-speculative-decoding', 'explanations/cloudinfrastructure/llmserving/explanation-tritify-deterministic-integer-inference', 'explanations/cloudinfrastructure/llmserving/explanation-trnrt-nki-megakernels-trainium', 'explanations/cloudinfrastructure/llmserving/explanation-velserve-tail-calibrated-scheduling', 'explanations/cloudinfrastructure/llmserving/reference-grace-blackwell-desktop-inference-benchmark', 'explanations/cloudinfrastructure/llmserving/reference-kvcompass-prefix-cache-discovery', 'explanations/cloudinfrastructure/llmserving/reference-moe-core-expert-offloading-residency', 'explanations/cloudinfrastructure/llmserving/reference-rocm-inferasim', 'explanations/cloudinfrastructure/llmserving/reference-serverbench-coding-agents-serving-systems', 'explanations/cloudinfrastructure/llmserving/reference-stint-productive-preemption-long-output', 'explanations/cloudinfrastructure/llmserving/reference-superfluid-multi-model-serving', 'explanations/cloudinfrastructure/llmserving/reference-xm-sparse-sparse-attention-serving-scale-up-memory-pools'],
         },
         {
           type: 'category',
@@ -980,6 +980,12 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Frontendarchitecture',
+          link: {type: 'generated-index', title: 'Frontendarchitecture', slug: 'explanations/softwaredevelopment/frontendarchitecture'},
+          items: ['explanations/softwaredevelopment/frontendarchitecture/explanation-boolean-flags-vs-state-machine-ui'],
+        },
+        {
+          type: 'category',
           label: 'Cdndesign',
           link: {type: 'generated-index', title: 'Cdndesign', slug: 'explanations/systemdesign/cdndesign'},
           items: ['explanations/systemdesign/cdndesign/explanation-cloudflare-vary-cache-rules'],
@@ -1034,6 +1040,12 @@ const sidebars = {
       collapsed: true,
       link: {type: 'generated-index', title: 'Examples', slug: 'examples'},
       items: [
+        {
+          type: 'category',
+          label: 'Agentarchitecture',
+          link: {type: 'generated-index', title: 'Agentarchitecture', slug: 'examples/aimachinelearning/agentarchitecture'},
+          items: ['examples/aimachinelearning/agentarchitecture/example-typesafe-jev-typed-judgments-api'],
+        },
         {
           type: 'category',
           label: 'Multiagentsystems',
