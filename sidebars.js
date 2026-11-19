@@ -536,7 +536,7 @@ const sidebars = {
           type: 'category',
           label: 'Llmevaluation',
           link: {type: 'generated-index', title: 'Llmevaluation', slug: 'explanations/aimachinelearning/llmevaluation'},
-          items: ['explanations/aimachinelearning/llmevaluation/explanation-bidirectional-adversarial-llm-evaluation', 'explanations/aimachinelearning/llmevaluation/explanation-netflix-synopsis-factuality-cascade', 'explanations/aimachinelearning/llmevaluation/explanation-verification-transport-llm-agent-evaluation', 'explanations/aimachinelearning/llmevaluation/reference-livegeo-geographic-agent-benchmark', 'explanations/aimachinelearning/llmevaluation/reference-rsibench-infra-agent-infrastructure-optimization'],
+          items: ['explanations/aimachinelearning/llmevaluation/explanation-bidirectional-adversarial-llm-evaluation', 'explanations/aimachinelearning/llmevaluation/explanation-netflix-synopsis-factuality-cascade', 'explanations/aimachinelearning/llmevaluation/explanation-openrouter-live-frontier-benchmark-nov-2026', 'explanations/aimachinelearning/llmevaluation/explanation-verification-transport-llm-agent-evaluation', 'explanations/aimachinelearning/llmevaluation/reference-livegeo-geographic-agent-benchmark', 'explanations/aimachinelearning/llmevaluation/reference-rsibench-infra-agent-infrastructure-optimization'],
         },
         {
           type: 'category',
@@ -765,6 +765,12 @@ const sidebars = {
           label: 'Nixdeterminism',
           link: {type: 'generated-index', title: 'Nixdeterminism', slug: 'explanations/developertoolspractices/nixdeterminism'},
           items: ['explanations/developertoolspractices/nixdeterminism/explanation-nix-rewind-deterministic-debugging'],
+        },
+        {
+          type: 'category',
+          label: 'Observability',
+          link: {type: 'generated-index', title: 'Observability', slug: 'explanations/developertoolspractices/observability'},
+          items: ['explanations/developertoolspractices/observability/explanation-nginx-log-analyzer-visitor-counting'],
         },
         {
           type: 'category',
@@ -1030,7 +1036,7 @@ const sidebars = {
           type: 'category',
           label: 'Websecurity',
           link: {type: 'generated-index', title: 'Websecurity', slug: 'explanations/securityprivacy/websecurity'},
-          items: ['explanations/securityprivacy/websecurity/explanation-apple-reference-image-verified-photography', 'explanations/securityprivacy/websecurity/explanation-cisco-ise-cve-2026-76423-rest-api-auth-bypass', 'explanations/securityprivacy/websecurity/explanation-cloudflare-disallow-ai-training-mixed-use-crawlers', 'explanations/securityprivacy/websecurity/explanation-data-only-attacks-einstein', 'explanations/securityprivacy/websecurity/explanation-drupal-cve-2026-96362-batch-version-based-scanning-limits', 'explanations/securityprivacy/websecurity/explanation-edge-logic-only-full-chain-pwn2own-2026', 'explanations/securityprivacy/websecurity/explanation-feature-flags-are-not-authorization', 'explanations/securityprivacy/websecurity/explanation-kestra-cve-2026-49869-suffix-match-auth-bypass', 'explanations/securityprivacy/websecurity/explanation-libheif-heic-rce-chain-openai-sso-takeover', 'explanations/securityprivacy/websecurity/explanation-open-redirect-php-laravel', 'explanations/securityprivacy/websecurity/explanation-passkeys-attestation-aaguid-domain-binding-phishing', 'explanations/securityprivacy/websecurity/explanation-pitworld-private-search-moshpit-network', 'explanations/securityprivacy/websecurity/explanation-telegram-desktop-cve-2026-107181-ipc-injection-account-takeover', 'explanations/securityprivacy/websecurity/explanation-telnetd-cve-2026-32746-linemode-slc-buffer-overflow', 'explanations/securityprivacy/websecurity/explanation-third-party-js-supply-chain-optimizely-csp', 'explanations/securityprivacy/websecurity/explanation-ublock-origin-element-picker-uxss', 'explanations/securityprivacy/websecurity/explanation-weekly-security-advisories-node2shell-php2shell-pillow', 'explanations/securityprivacy/websecurity/explanation-wordpress-cve-2026-87902-patch-windows'],
+          items: ['explanations/securityprivacy/websecurity/explanation-apple-reference-image-verified-photography', 'explanations/securityprivacy/websecurity/explanation-cisco-ise-cve-2026-76423-rest-api-auth-bypass', 'explanations/securityprivacy/websecurity/explanation-cloudflare-disallow-ai-training-mixed-use-crawlers', 'explanations/securityprivacy/websecurity/explanation-data-only-attacks-einstein', 'explanations/securityprivacy/websecurity/explanation-drupal-cve-2026-96362-batch-version-based-scanning-limits', 'explanations/securityprivacy/websecurity/explanation-edge-logic-only-full-chain-pwn2own-2026', 'explanations/securityprivacy/websecurity/explanation-feature-flags-are-not-authorization', 'explanations/securityprivacy/websecurity/explanation-jquery-4-1-0-redos-selector-identifier-fix', 'explanations/securityprivacy/websecurity/explanation-kestra-cve-2026-49869-suffix-match-auth-bypass', 'explanations/securityprivacy/websecurity/explanation-libheif-heic-rce-chain-openai-sso-takeover', 'explanations/securityprivacy/websecurity/explanation-open-redirect-php-laravel', 'explanations/securityprivacy/websecurity/explanation-passkeys-attestation-aaguid-domain-binding-phishing', 'explanations/securityprivacy/websecurity/explanation-pitworld-private-search-moshpit-network', 'explanations/securityprivacy/websecurity/explanation-telegram-desktop-cve-2026-107181-ipc-injection-account-takeover', 'explanations/securityprivacy/websecurity/explanation-telnetd-cve-2026-32746-linemode-slc-buffer-overflow', 'explanations/securityprivacy/websecurity/explanation-third-party-js-supply-chain-optimizely-csp', 'explanations/securityprivacy/websecurity/explanation-ublock-origin-element-picker-uxss', 'explanations/securityprivacy/websecurity/explanation-weekly-security-advisories-node2shell-php2shell-pillow', 'explanations/securityprivacy/websecurity/explanation-wordpress-cve-2026-87902-patch-windows'],
         },
         {
           type: 'category',

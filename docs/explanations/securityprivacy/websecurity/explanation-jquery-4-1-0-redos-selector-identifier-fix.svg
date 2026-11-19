@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="36.0 -4.0 968.0 448.0" width="968" height="448">
+<rect x="36.0" y="-4.0" width="968.0" height="448.0" fill="#ffffff"/>
+<rect x="60.0" y="20.0" width="920.0" height="40.0" rx="8" fill="#ffec99" stroke="#f08c00" stroke-width="1.5"/>
+<rect x="60.0" y="90.0" width="400.0" height="80.0" rx="8" fill="#ffc9c9" stroke="#e03131" stroke-width="1.5"/>
+<rect x="60.0" y="220.0" width="400.0" height="90.0" rx="8" fill="#ffd8a8" stroke="#e8590c" stroke-width="1.5"/>
+<rect x="540.0" y="220.0" width="420.0" height="90.0" rx="8" fill="#d3f9d8" stroke="#2f9e44" stroke-width="1.5"/>
+<rect x="60.0" y="360.0" width="920.0" height="60.0" rx="8" fill="#e9ecef" stroke="#1971c2" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 460.0 130.0 L 540.0 220.0"/><line x1="540.0" y1="220.0" x2="536.2" y2="206.5"/><line x1="540.0" y1="220.0" x2="527.1" y2="214.7"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 460.0 265.0 L 540.0 265.0"/><line x1="540.0" y1="265.0" x2="527.4" y2="258.9"/><line x1="540.0" y1="265.0" x2="527.4" y2="271.1"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="17" fill="#1e1e1e" text-anchor="start"><tspan x="72.0" y="47.6">jQuery selector ReDoS: catastrophic backtracking in identifier regex (fixed in 4.1.0 / 3.8.0)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="72.0" y="115.2">Attacker input:</tspan><tspan x="72.0" y="132.7">[attr=\x41\x42\x43...\xZZ]</tspan><tspan x="72.0" y="150.2">long hex-escape chain</tspan><tspan x="72.0" y="167.7">+ invalid char</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="72.0" y="245.2">Old regex: ambiguous branches</tspan><tspan x="72.0" y="262.7">-&gt; exponential backtracking</tspan><tspan x="72.0" y="280.2">-&gt; ~120s main-thread hang</tspan><tspan x="72.0" y="297.7">(page frozen, no error)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="552.0" y="245.2">Fixed regex: explicitly excludes</tspan><tspan x="552.0" y="262.7">digits &amp; hex where CSS spec requires;</tspan><tspan x="552.0" y="280.2">invalid escapes -&gt; U+FFFD</tspan><tspan x="552.0" y="297.7">-&gt; resolved in ~ms</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="72.0" y="384.4">Vector: $(userInput) / find(userInput) / '[id=&quot;'+input+'&quot;]'  -- DoS of your own users' tabs; audit any lib compiling user input to regex/selectors</tspan></text>
+</svg>
