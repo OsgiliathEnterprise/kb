@@ -94,6 +94,12 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Llmevaluation',
+          link: {type: 'generated-index', title: 'Llmevaluation', slug: 'how-to/aillm/llmevaluation'},
+          items: ['how-to/aillm/llmevaluation/how-to-executable-program-judges-relevance-labeling'],
+        },
+        {
+          type: 'category',
           label: 'Llminfrastructure',
           link: {type: 'generated-index', title: 'Llminfrastructure', slug: 'how-to/aillm/llminfrastructure'},
           items: ['how-to/aillm/llminfrastructure/howto-exact-match-prompt-caching-single-flight', 'how-to/aillm/llminfrastructure/howto-run-gemma-3-1b-locally-transformers-js-onnx', 'how-to/aillm/llminfrastructure/howto-running-nemotron-3-5-transcribe-locally', 'how-to/aillm/llminfrastructure/howto-tiered-response-caching-for-llm-costs', 'how-to/aillm/llminfrastructure/howto-tiktoken-token-budgeting-chunking'],
@@ -348,7 +354,7 @@ const sidebars = {
           type: 'category',
           label: 'Aiagentsecurity',
           link: {type: 'generated-index', title: 'Aiagentsecurity', slug: 'how-to/securityprivacy/aiagentsecurity'},
-          items: ['how-to/securityprivacy/aiagentsecurity/how-to-evolve-agent-safety-harnesses-adaptive-injection-stressors', 'how-to/securityprivacy/aiagentsecurity/how-to-pipette-purple-team-prompt-injection-defense', 'how-to/securityprivacy/aiagentsecurity/howto-caplite-prompt-injection-defense-slm-agents', 'how-to/securityprivacy/aiagentsecurity/howto-continuation-audits-agent-overeagerness', 'how-to/securityprivacy/aiagentsecurity/howto-mcp-security-hardening', 'how-to/securityprivacy/aiagentsecurity/howto-mobileprobe-mobile-agent-red-teaming'],
+          items: ['how-to/securityprivacy/aiagentsecurity/how-to-answerability-audit-state-dependent-command-safety', 'how-to/securityprivacy/aiagentsecurity/how-to-autopi-taxonomy-adaptive-red-teaming', 'how-to/securityprivacy/aiagentsecurity/how-to-evolve-agent-safety-harnesses-adaptive-injection-stressors', 'how-to/securityprivacy/aiagentsecurity/how-to-pipette-purple-team-prompt-injection-defense', 'how-to/securityprivacy/aiagentsecurity/howto-caplite-prompt-injection-defense-slm-agents', 'how-to/securityprivacy/aiagentsecurity/howto-continuation-audits-agent-overeagerness', 'how-to/securityprivacy/aiagentsecurity/howto-mcp-security-hardening', 'how-to/securityprivacy/aiagentsecurity/howto-mobileprobe-mobile-agent-red-teaming'],
         },
         {
           type: 'category',
@@ -566,7 +572,7 @@ const sidebars = {
           type: 'category',
           label: 'Trainingoptimization',
           link: {type: 'generated-index', title: 'Trainingoptimization', slug: 'explanations/aimachinelearning/trainingoptimization'},
-          items: ['explanations/aimachinelearning/trainingoptimization/explanation-group-standard-deviation-identity-grpo-drgrpo-dapo', 'explanations/aimachinelearning/trainingoptimization/explanation-spice-sparse-parameter-gossip-pretraining', 'explanations/aimachinelearning/trainingoptimization/explanation-tailroll-tail-aware-rollout-acceleration'],
+          items: ['explanations/aimachinelearning/trainingoptimization/explanation-group-standard-deviation-identity-grpo-drgrpo-dapo', 'explanations/aimachinelearning/trainingoptimization/explanation-spice-sparse-parameter-gossip-pretraining', 'explanations/aimachinelearning/trainingoptimization/explanation-tailroll-tail-aware-rollout-acceleration', 'explanations/aimachinelearning/trainingoptimization/reference-opengns-gradient-noise-scale-dataset'],
         },
         {
           type: 'category',
@@ -662,7 +668,7 @@ const sidebars = {
           type: 'category',
           label: 'Llmserving',
           link: {type: 'generated-index', title: 'Llmserving', slug: 'explanations/cloudinfrastructure/llmserving'},
-          items: ['explanations/cloudinfrastructure/llmserving/explanation-batch-makespan-llm-agent-workloads', 'explanations/cloudinfrastructure/llmserving/explanation-broadcast-dont-replicate-moe-serving', 'explanations/cloudinfrastructure/llmserving/explanation-callo-invalidated-kv-speculative-decoding', 'explanations/cloudinfrastructure/llmserving/explanation-cap-and-track-refusal-driven-dispatch', 'explanations/cloudinfrastructure/llmserving/explanation-cerebras-disaggregated-inference-wafer-decode', 'explanations/cloudinfrastructure/llmserving/explanation-cross-tenant-cache-hit-leakage-llm-serving', 'explanations/cloudinfrastructure/llmserving/explanation-echomoe-activation-compression-expert-parallelism', 'explanations/cloudinfrastructure/llmserving/explanation-kv-cache-bit-flip-silent-task-failures', 'explanations/cloudinfrastructure/llmserving/explanation-llm-api-relay-integrity-measurement', 'explanations/cloudinfrastructure/llmserving/explanation-mosaickv-dynamic-2d-kv-cache-compression', 'explanations/cloudinfrastructure/llmserving/explanation-narrowspec-narrow-draft-width-speculative-decoding', 'explanations/cloudinfrastructure/llmserving/explanation-specsearch-hardware-aware-speculative-decoding', 'explanations/cloudinfrastructure/llmserving/explanation-spool-streaming-inference-hybrid-vlms', 'explanations/cloudinfrastructure/llmserving/explanation-tilecache-multi-round-diffusion-editing', 'explanations/cloudinfrastructure/llmserving/explanation-tritify-deterministic-integer-inference', 'explanations/cloudinfrastructure/llmserving/explanation-trnrt-nki-megakernels-trainium', 'explanations/cloudinfrastructure/llmserving/explanation-velserve-tail-calibrated-scheduling', 'explanations/cloudinfrastructure/llmserving/reference-grace-blackwell-desktop-inference-benchmark', 'explanations/cloudinfrastructure/llmserving/reference-kvcompass-prefix-cache-discovery', 'explanations/cloudinfrastructure/llmserving/reference-moe-core-expert-offloading-residency', 'explanations/cloudinfrastructure/llmserving/reference-retained-context-measurement-charging-long-context', 'explanations/cloudinfrastructure/llmserving/reference-rocm-inferasim', 'explanations/cloudinfrastructure/llmserving/reference-serverbench-coding-agents-serving-systems', 'explanations/cloudinfrastructure/llmserving/reference-stint-productive-preemption-long-output', 'explanations/cloudinfrastructure/llmserving/reference-superfluid-multi-model-serving', 'explanations/cloudinfrastructure/llmserving/reference-xm-sparse-sparse-attention-serving-scale-up-memory-pools'],
+          items: ['explanations/cloudinfrastructure/llmserving/explanation-batch-makespan-llm-agent-workloads', 'explanations/cloudinfrastructure/llmserving/explanation-broadcast-dont-replicate-moe-serving', 'explanations/cloudinfrastructure/llmserving/explanation-callo-invalidated-kv-speculative-decoding', 'explanations/cloudinfrastructure/llmserving/explanation-cap-and-track-refusal-driven-dispatch', 'explanations/cloudinfrastructure/llmserving/explanation-cerebras-disaggregated-inference-wafer-decode', 'explanations/cloudinfrastructure/llmserving/explanation-cross-tenant-cache-hit-leakage-llm-serving', 'explanations/cloudinfrastructure/llmserving/explanation-echomoe-activation-compression-expert-parallelism', 'explanations/cloudinfrastructure/llmserving/explanation-efair-fair-serving-hourly-electricity', 'explanations/cloudinfrastructure/llmserving/explanation-kv-cache-bit-flip-silent-task-failures', 'explanations/cloudinfrastructure/llmserving/explanation-llm-api-relay-integrity-measurement', 'explanations/cloudinfrastructure/llmserving/explanation-mosaickv-dynamic-2d-kv-cache-compression', 'explanations/cloudinfrastructure/llmserving/explanation-narrowspec-narrow-draft-width-speculative-decoding', 'explanations/cloudinfrastructure/llmserving/explanation-specsearch-hardware-aware-speculative-decoding', 'explanations/cloudinfrastructure/llmserving/explanation-spool-streaming-inference-hybrid-vlms', 'explanations/cloudinfrastructure/llmserving/explanation-tilecache-multi-round-diffusion-editing', 'explanations/cloudinfrastructure/llmserving/explanation-tritify-deterministic-integer-inference', 'explanations/cloudinfrastructure/llmserving/explanation-trnrt-nki-megakernels-trainium', 'explanations/cloudinfrastructure/llmserving/explanation-velserve-tail-calibrated-scheduling', 'explanations/cloudinfrastructure/llmserving/reference-grace-blackwell-desktop-inference-benchmark', 'explanations/cloudinfrastructure/llmserving/reference-kvcompass-prefix-cache-discovery', 'explanations/cloudinfrastructure/llmserving/reference-ledge-edge-llm-serving-simulator', 'explanations/cloudinfrastructure/llmserving/reference-moe-core-expert-offloading-residency', 'explanations/cloudinfrastructure/llmserving/reference-retained-context-measurement-charging-long-context', 'explanations/cloudinfrastructure/llmserving/reference-rocm-inferasim', 'explanations/cloudinfrastructure/llmserving/reference-serverbench-coding-agents-serving-systems', 'explanations/cloudinfrastructure/llmserving/reference-stint-productive-preemption-long-output', 'explanations/cloudinfrastructure/llmserving/reference-superfluid-multi-model-serving', 'explanations/cloudinfrastructure/llmserving/reference-xm-sparse-sparse-attention-serving-scale-up-memory-pools'],
         },
         {
           type: 'category',
@@ -956,6 +962,12 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Fuzzing',
+          link: {type: 'generated-index', title: 'Fuzzing', slug: 'explanations/securityprivacy/fuzzing'},
+          items: ['explanations/securityprivacy/fuzzing/explanation-mlir-mracle-memory-model-fuzzing'],
+        },
+        {
+          type: 'category',
           label: 'Hardwaresecurity',
           link: {type: 'generated-index', title: 'Hardwaresecurity', slug: 'explanations/securityprivacy/hardwaresecurity'},
           items: ['explanations/securityprivacy/hardwaresecurity/explanation-gpu-lsu-security-risks'],
@@ -1042,7 +1054,7 @@ const sidebars = {
           type: 'category',
           label: 'Aiassisteddevelopment',
           link: {type: 'generated-index', title: 'Aiassisteddevelopment', slug: 'explanations/softwaredevelopment/aiassisteddevelopment'},
-          items: ['explanations/softwaredevelopment/aiassisteddevelopment/explanation-llm-agents-database-debugging-access-gap', 'explanations/softwaredevelopment/aiassisteddevelopment/explanation-llm-c-to-rust-translation-retesting', 'explanations/softwaredevelopment/aiassisteddevelopment/explanation-where-the-tokens-go-software-thermodynamics', 'explanations/softwaredevelopment/aiassisteddevelopment/reference-coevobench-kernel-interface-adaptation', 'explanations/softwaredevelopment/aiassisteddevelopment/reference-privacypr-privacy-fix-code-review-dataset'],
+          items: ['explanations/softwaredevelopment/aiassisteddevelopment/explanation-comprehension-gap-llm-assisted-development', 'explanations/softwaredevelopment/aiassisteddevelopment/explanation-llm-agents-database-debugging-access-gap', 'explanations/softwaredevelopment/aiassisteddevelopment/explanation-llm-c-to-rust-translation-retesting', 'explanations/softwaredevelopment/aiassisteddevelopment/explanation-where-the-tokens-go-software-thermodynamics', 'explanations/softwaredevelopment/aiassisteddevelopment/reference-coevobench-kernel-interface-adaptation', 'explanations/softwaredevelopment/aiassisteddevelopment/reference-privacypr-privacy-fix-code-review-dataset'],
         },
         {
           type: 'category',
