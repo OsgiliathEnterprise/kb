@@ -30,7 +30,7 @@ Stripped to the essential syscalls (`listen`, `accept`, `recv`, `send`, `close`)
 
 ## Custom runtime: 16 bytes per guest
 
-The answer (as with running millions of V8 guests in one process) is a **userland scheduler** with **LFI** (Lightweight Fork-based Isolation, a sandboxing technique) for memory isolation. LFI replaces every syscall with a call into the host handler, so I/O is implemented entirely by the runtime — a "micro OS" that switches the CPU between guests.
+The answer (as with running millions of V8 guests in one process) is a **userland scheduler** with **LFI** ([Lightweight Fork-based Isolation](https://www.scs.stanford.edu/~zyedidia/docs/papers/lfi.pdf), a sandboxing technique) for memory isolation. LFI replaces every syscall with a call into the host handler, so I/O is implemented entirely by the runtime — a "micro OS" that switches the CPU between guests.
 
 The suspendable loop `accept → recv → send → close` has only two state variables (`server`, `client` fds), so the minimum saved context is:
 
@@ -46,7 +46,7 @@ struct Context {
 
 ## Replacing the kernel network stack
 
-The kernel stack OOMs at ~**2.5M** servers and RPS *drops* as more servers run — per-socket kernel state dominates. Replacing it with a userland stack changes the economics:
+The kernel stack OOMs at ~**2.5M** servers and RPS *drops* as more servers run — per-socket kernel state dominates. The concrete culprit: the bare `socket()` syscall allocates **~3,300 bytes per socket** whether it is active, listening, or idle — just 10M idle listening sockets OOM a 10 GB VM. The AnyIP path is also effectively **IPv6-only economics**: VPS providers hand out a whole `/64` free (18 quintillion addresses), while an equivalent 15M-address IPv4 subnet would cost ~$250M. Replacing the stack with a userland one changes the economics:
 
 - **smoltcp** (Rust TCP/IP stack): implement its `phy::Device` trait (3 methods) for full control, or use `rust-dpdk-net` (DPDK) / `xsk-rs` (AF_XDP) crates.
 - **DPDK**: full userspace drivers, polling mode drivers, zero kernel involvement per packet — best in the benchmark.
@@ -68,6 +68,10 @@ The final flow: runtime loads 15M guests → scheduler executes them one by one 
 ## References
 
 - [15 million web servers on one VM — smoltcp, DPDK, AF_XDP (kapteko)](https://kapteko.com/15-million-webservers/)
+- [Same series: Running 10 million Codex CLIs on one server — LFI processes (kapteko)](https://kapteko.com/running-10-million-codex-clis-on-one-server-lfi-processes)
+- [Same series: Userland Linux scheduler in Rust (kapteko)](https://kapteko.com/userland-linux-scheduler-in-rust)
+- [LFI: Lightweight Fork-based Isolation paper (Stanford SCS)](https://www.scs.stanford.edu/~zyedidia/docs/papers/lfi.pdf)
+- [Understanding Delays in AF_XDP-based Applications (arXiv 2402.10513 — latency pitfalls of AF_XDP socket parameters/system config vs kernel stack and DPDK)](https://arxiv.org/abs/2402.10513)
 - [PoC source: AI10M/ten-million-webservers](https://github.com/artemyarulin/AI10M/tree/main/poc/ten-million-webservers)
 - [AF_XDP kernel documentation](https://docs.kernel.org/networking/af_xdp.html)
 - [DPDK documentation](https://doc.dpdk.org/guides/index.html)
