@@ -109,4 +109,4 @@ Notable deprecations / BC breaks to plan for before upgrading:
 - Official release announcement and feature guide: [PHP 8.6 Release Announcement — php.net](https://www.php.net/releases/8.6/en.php)
 - Full change list: [PHP 8 ChangeLog](https://www.php.net/ChangeLog-8.php#PHP_8_6)
 - Migration guide: [Migrating to PHP 8.6 — php.net manual](https://www.php.net/manual/en/migration86.php)
-- Stdlib investment background (SortDirection): [The PHP Foundation blog](https://thephp.foundation/blog/2026-11-03/stdlib-investment/)
+- Stdlib investment background (SortDirection): [The PHP Foundation blog](https://thephp.foundation/blog/2026/11/03/stdlib-investment/)

@@ -43,6 +43,36 @@ Notably the malware has **no persistence mechanism** — it only lives as long a
 
 In a developer laptop, stolen env vars are bad. In a **cloud build pipeline**, the runner legitimately holds *fresh, scoped, high-value* tokens (GitHub Actions OIDC, Azure DevOps) at exactly the moment the malware executes. Immediate exfiltration collapses the assumed safety of short-lived credentials: TTL protects against stolen-token *reuse later*, not against *real-time theft*. Combined with auto-execution on interpreter start, simply **having the package installed** in the build image is enough — you do not have to import or use it.
 
+## Precise timeline and payload internals (Chainguard / StepSecurity)
+
+- **20:35:20 UTC** Nov 17 — malicious **1.26.1** published via the Microsoft-associated PyPI
+  publisher; quarantined by PyPI at **21:06:16**. Payload: `agent_framework_meta.pth` +
+  `_telemetry.py`.
+- **21:08:39 UTC** — **1.26.2** published **2 min 23 s after** the quarantine, same technique with
+  renamed files (`af_runtime_diag.pth` + `af_runtime_diag.py`).
+- The auto-execution trick is a **`.pth` file in site-packages**: Python executes `.pth` contents
+  at interpreter startup, so the stealer runs on `pip`, `pytest`, IDE language servers and every
+  script in the environment — the 23-byte `.pth` is a single `import` of the payload, which sets
+  an `_AF_TEL=1` double-run guard and forks a child process (daemon-thread fallback).
+- **Harvest scope is far wider than Azure/Git/Docker/HF**: env vars matching `TOKEN`, `SECRET`,
+  `PASSWORD`, `KEY`, `AZURE`, `AWS`, `GITHUB`, `OPENAI`, `PIP`, `NPM`, `NUGET`; files including
+  Azure CLI JSON, `pip.conf`, `.npmrc`, `.netrc`, Git credential stores, Docker `config.json`,
+  HF tokens, Azure Pipelines `.credentials`, `.env` files and GitHub Actions runner temp files;
+  even **`/proc/<pid>/environ` of other processes**. Live minting covers GitHub Actions OIDC,
+  Azure DevOps OIDC, Azure managed-identity tokens for **nine resource types**, and IMDS data.
+- **Exfil fingerprint**: zlib-compressed, Base64-encoded JSON POSTed over HTTPS to the
+  webhook.site endpoint (hidden behind a Base64 string in the package) with
+  `User-Agent: runtime-diagnostics/1` — a greppable signal for egress/proxy logs.
+- **Still-open risk**: the PyPI publisher account was quarantined, but researchers believe the
+  attacker may **still hold publishing access** — treat any `agent-framework` release from
+  Nov 17–18 as suspect until Microsoft confirms cleanup. Microsoft acknowledged the incident in a
+  GitHub discussion (compromised releases removed, investigation ongoing).
+- **On-host rule (Chainguard)**: on any host that installed either version, **do not start
+  Python** (any interpreter start triggers the stealer). Remove the `.pth` and payload files with
+  shell tools, isolate the host, rotate every credential it could reach, and revoke GitHub Actions
+  / Azure DevOps runtime credentials. Chainguard caught 1.26.1 in 48 s and 1.26.2 in 42 s — a
+  useful yardstick for how fast registry-level detection has to be.
+
 ## Response checklist
 
 1. **Scan** dev environments, CI/CD pipelines and container images for `agent-framework==1.26.1` or `==1.26.2` (lockfiles, SBOMs, registry caches).
@@ -61,6 +91,9 @@ In a developer laptop, stolen env vars are bad. In a **cloud build pipeline**, t
 ## References
 
 - Incident report: [Hijacked Microsoft Agent Framework releases steal Azure and CI credentials — OX Security](https://www.ox.security/blog/breaking-hijacked-releases-of-microsofts-official-agent-framework-steals-azure-and-ci-credentials/)
+- [Full payload walkthrough, timeline and removal guidance — Chainguard](https://www.chainguard.dev/unchained/microsoft-agent-framework-compromised-on-pypi-november-2026)
+- [Detection, logs and IOCs — Spectrum Security](https://www.spectrum.security/threats/agent-framework-pypi-compromise)
+- [Versions 1.26.1/1.26.2 steal cloud credentials — Orca Security](https://orca.security/resources/research/microsoft-agent-framework-pypi-supply-chain-attack-versions-1-26-1-and-1-26-2-steal-cloud-credentials/)
 - [Agent Framework compromised: software supply chain attack — Endor Labs](https://www.endorlabs.com/learn/agent-framework-compromised-software-supply-chain-attack)
 - [PyPI maintainer analysis — SafeDep](https://safedep.io/blog/microsoft-agent-framework-pypi-compromise)
 - French summary: [Developpez.com](https://microsoft.developpez.com/actu/389288/Le-framework-Python-officiel-de-Microsoft-pour-les-agents-IA-a-ete-detourne-pour-diffuser-des-logiciels-malveillants-concus-pour-exfiltrer-des-identifiants-sensibles-et-des-variables-d-environnement/)
