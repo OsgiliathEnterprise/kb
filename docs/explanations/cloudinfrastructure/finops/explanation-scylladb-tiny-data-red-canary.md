@@ -53,5 +53,5 @@ Batching-into-object-storage wins when payloads are naturally large and access i
 ## References
 
 - [S3 vs. ScyllaDB for tiny telemetry: What Red Canary learned the hard way — The New Stack](https://thenewstack.io/scylladb-s3-tiny-telemetry/)
-- [Using ScyllaDB to Store Large Amounts of Small Data — ScyllaDB / Monster Scale Summit](https://www.scylladb.com/monster-scale-summit/agenda/)
-- [Medium: ScyllaDB Feature Store (hot partitions)](https://thenewstack.io/medium-scylladb-feature-store/)
+- [Using ScyllaDB to Store Large Amounts of Small Data — ScyllaDB tech talk (Andres Medina, Red Canary LinuxEDR)](https://www.scylladb.com/tech-talk/using-scylladb-to-store-large-amounts-of-small-data/)
+- [Monster SCALE Summit 2026 talk recording](https://www.youtube.com/watch?v=cpMqUxF6PhY) · [Summit on-demand library](https://www.scylladb.com/monster-scale-summit/)

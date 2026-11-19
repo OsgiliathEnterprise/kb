@@ -24,7 +24,7 @@ Clustering is the bottleneck of large-scale vector index construction: IVF and S
 Traditional IVF training uses Lloyd's k-means standardized to **10 epochs** (FAISS default). Two ways out:
 
 1. **SuperKMeans** — *prune dimensions*: avoid scanning most vector dimensions per point while assigning, accelerating Lloyd's by 2–10× with no quality loss. Adopted by ParadeDB, Zilliz (knowhere) and upstreamed toward FAISS.
-2. **e-means** — *run fewer epochs*: instead of one full-data Lloyd assignment per epoch, perform many **mini-batch centroid updates** (the paper's Figure 1 example: 1 update per epoch for Lloyd vs ~97 for e-means). It reaches Lloyd's converged test MSE in ~2 epochs, needs no tuning beyond `k`, and ships in FAISS 1.16.0 (`contrib/e_means`) ([paper, arXiv 2611.09501](https://arxiv.org/abs/2611.09501)).
+2. **e-means** — *run fewer epochs*: instead of one full-data Lloyd assignment per epoch, perform many **mini-batch centroid updates** (the paper's Figure 1 example: 1 update per epoch for Lloyd vs ~97 for e-means). From **Meta FAIR** (Bessa, Mazaré, Szilvasy, Touvron, Picard, Douze & Jégou), it reaches Lloyd's converged test MSE in ~2 epochs, needs no tuning beyond `k`, and ships in FAISS 1.16.0 (released 2026-11-09/10, CPU and GPU) as `faiss.contrib.e_means` ([paper, arXiv 2611.09501](https://arxiv.org/abs/2611.09501), project site [e-means.github.io](https://e-means.github.io/)).
 
 Since pruning dimensions and reducing epochs are independent ideas, **SuperEMeans** fuses both: dimension-pruned mini-batch clustering, up to **3.2× faster than e-means itself** at 5 epochs.
 
@@ -39,7 +39,9 @@ OpenAI-1536d 5M dataset (VectorDBBench `openai_large_5m`):
 | e-means (2 epochs) | 203 | 0.967 | 58 184 |
 | **SuperEMeans (2 epochs)** | **128** | 0.967 | 58 198 |
 
-Cohere-1024d 10M (MS MARCO v2.1): Lloyd 2504 s → SuperKMeans 623 s → e-means 526 s → SuperEMeans 295 s. At 5 epochs SuperEMeans is 3–3.2× faster than the authors' own FAISS-based implementation with identical recall.
+Cohere-1024d 10M (MS MARCO v2.1): Lloyd 2504 s → SuperKMeans 623 s → e-means 526 s → SuperEMeans 295 s. At 5 epochs SuperEMeans is 3–3.2× faster than the authors' own FAISS-based implementation with identical recall. For reference, the e-means authors' own FAISS implementation needed 333 s (OpenAI) / 927 s (Cohere) at 2 epochs — i.e. the blog's e-means port was already ~1.6× faster than the reference, and SuperEMeans builds on that.
+
+**Context**: this sits in a fast-moving 2026 cluster-for-embeddings space — EVōC (Tutte Institute), QGKmeans (RaBitQ library), o-means and s-means are the neighbouring entries; SuperKMeans' dimension pruning and e-means' epoch reduction are the two that compose cleanly.
 
 ## The subtlety: WCSS is not what vector search pays for
 

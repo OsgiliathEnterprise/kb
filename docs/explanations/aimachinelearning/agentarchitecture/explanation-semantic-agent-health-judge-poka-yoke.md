@@ -46,6 +46,18 @@ Guardrails that make an inline judge safe on the hot path:
 - **Andon cord**: tracing is structured as a parent `intent_agent_turn` span wrapping `primary_agent_interaction` and children (`context_retrieval`, `prompt_render`, `llm_inference`), followed synchronously by `nli_evaluation`. A detected semantic mismatch emits an `andon_pulled` event — the digital emergency stop.
 - **Prompt version provenance**: treat prompt text like compiled bytecode — every revision hashed into deployment manifests, with release notes logging every semantic instruction modifier, preventing unannounced semantic drift.
 
+## Setting the andon page floor, and what happened when it fired
+
+The judge's error profile derives the trip condition mathematically: **below a 0.9 confidence score the evaluator's false-alarm rate spikes above 18 %**, causing operator fatigue — so the andon page floor is set at 0.9. The alert lands in a `#andon-agent-alerts` Slack channel carrying the trace ID, prompt version tag, candidate classification, and the evaluator's confidence verdict.
+
+The pattern paid for itself on prompt `v1.2.0`, which accidentally flagged product sizing swaps as out-of-scope: the inline judge caught the regression at t=0, the Slack webhook fired at t+2 s, and a full rollback to `v1.1.0` completed in 2 min 36 s. The host instance was a co-hosted `c7i.xlarge` (4 vCPUs, 8 GB RAM) already serving ~100 requests/min baseline.
+
+## Known limitations (stated by the author, Boris Chabeda)
+
+1. **Correlated failure blind spot** — if the primary LLM agent and the RoBERTa judge misinterpret a novel phrase identically, no alert fires.
+2. **Cold-start vulnerability** — the first 30 requests of a new prompt version run unguarded by monitoring thresholds to avoid small-sample noise trips.
+3. **Operator dependency** — pulling an andon cord with no human operators on duty creates queue backlogs without resolving customer friction.
+
 ## Key takeaways
 
 1. HTTP-level health signals are blind to semantic failure; instrument *intent outcomes*, not transport status.
