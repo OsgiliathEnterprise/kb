@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 36.0 718.0 338.0" width="718" height="338">
+<rect x="16.0" y="36.0" width="718.0" height="338.0" fill="#ffffff"/>
+<rect x="40.0" y="120.0" width="160.0" height="60.0" rx="0" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="260.0" y="120.0" width="160.0" height="60.0" rx="0" fill="#d0bfff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="480.0" y="60.0" width="230.0" height="70.0" rx="0" fill="#b2f2bb" stroke="#2f9e44" stroke-width="1.5"/>
+<rect x="480.0" y="170.0" width="230.0" height="70.0" rx="0" fill="#ffc9c9" stroke="#e03131" stroke-width="1.5"/>
+<rect x="260.0" y="290.0" width="450.0" height="60.0" rx="0" fill="#d0ebff" stroke="#1971c2" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 205.0 150.0 L 255.0 150.0"/><line x1="255.0" y1="150.0" x2="242.4" y2="143.9"/><line x1="255.0" y1="150.0" x2="242.4" y2="156.1"/></g>
+<g stroke="#2f9e44" stroke-width="1.5" fill="none"><path d="M 425.0 140.0 L 475.0 95.0"/><line x1="475.0" y1="95.0" x2="461.5" y2="98.9"/><line x1="475.0" y1="95.0" x2="469.8" y2="108.0"/></g>
+<g stroke="#e03131" stroke-width="1.5" fill="none"><path d="M 425.0 165.0 L 475.0 200.0"/><line x1="475.0" y1="200.0" x2="468.2" y2="187.8"/><line x1="475.0" y1="200.0" x2="461.2" y2="197.8"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="20" fill="#1971c2" text-anchor="start"><tspan x="40.0" y="76.0">Two injection paths into a tool-calling agent</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="120.0" y="152.4">User asks</tspan><tspan x="120.0" y="169.9">normal question</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="340.0" y="144.2">Tool result</tspan><tspan x="340.0" y="160.4">(attacker controls</tspan><tspan x="340.0" y="176.7">one field)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#2f9e44" text-anchor="middle"><tspan x="595.0" y="89.2">Instruction payload</tspan><tspan x="595.0" y="105.4">(fake error/system tag)</tspan><tspan x="595.0" y="121.7">-&gt; flagged by hardened models</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#e03131" text-anchor="middle"><tspan x="595.0" y="199.2">Plain data (metrics table,</tspan><tspan x="595.0" y="215.4">error row) - no instruction</tspan><tspan x="595.0" y="231.7">-&gt; hijacks all hardened models</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1971c2" text-anchor="middle"><tspan x="485.0" y="322.4">What actually holds: capability limits -</tspan><tspan x="485.0" y="339.9">tool allowlist + human approval card</tspan></text>
+</svg>
