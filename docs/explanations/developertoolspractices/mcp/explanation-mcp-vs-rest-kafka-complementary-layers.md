@@ -29,6 +29,17 @@ Adoption timeline:
 
 Enterprise-maturity signals: agents paying for API access autonomously, cross-SDK interoperability converging on MCP Resources, composable workflows where agents read tool signatures and compose cross-system flows without predefined paths, and an official **MCP Registry** (launched late 2025) as a community-driven server directory. The 2026 roadmap targets scalable transport, agent-to-agent communication, governance maturation, and enterprise readiness (audit trails + SSO-integrated auth).
 
+### The roadmap has since firmed up (verified 2026-11-19)
+
+The **2026-07-28 specification release** was the inflection point: it made a remote MCP server *a normal HTTP workload* (headers and status codes now carry transport-level information) and grew async primitives — **Tasks** (SEP-2663), `subscriptions/listen`, and progress notifications. The current official roadmap (last updated 2026-08-22) is organized into five priority areas run by Working/Interest Groups, each with named Core Maintainers and expedited SEP review:
+
+1. **Agentic Messaging Primitives** — unifying Tasks, Triggers, server-initiated events/webhooks so long-running work shares one lifecycle, cancellation model, and error surface.
+2. **HTTP-Native Transport Unification & Hardening** — "HTTP over stdio" (HTTP/2 over stdin/stdout as the single binding for local servers, ending the two-transport-pipeline split), plus caching built on `ttlMs`/`cacheScope` (SEP-2549) extended to ETags for versioned tool results, and capability scoping for tool lists (SEP-2575, stateless MCP).
+3. **Agent Identity & Enterprise-Ready Security** — this is where the note's "auth still catching up" gap is being closed: DPoP specification, Workload Identity Federation (SEP-1933), Identity Assertion JWT Authorization Grant (ID-JAG) for enterprise-managed authorization, and RFC 8693 token exchange, coordinated with the IETF OAuth and WIMSE working groups. The driver: callers are increasingly headless agents, not humans with browsers — pasted API keys and long-lived refresh tokens are the anti-pattern being standardized away.
+4. **Improved Primitives**, and 5. **Improved SDK Developer Experience** — spec-driven codegen of a candidate Tier 1 SDK validated against a conformance test suite.
+
+**Architecture implication for this note's thesis:** the roadmap *reinforces* the "complementary layers" framing rather than eroding it. MCP is standardizing transport, async lifecycle, and identity — still the *interface* layer. It has explicitly not taken on data freshness, delivery guarantees, or governance, so the decision rule (Kafka/REST own freshness; MCP owns tool access) holds. Watch item: as Tasks/subscriptions mature, MCP overlaps more with what message brokers do for *job queues* — revisit the boundary when the Tasks extension lands in core.
+
 **Boundary:** MCP handles *tool access* — how an agent calls an external capability. It does **not** handle agent-to-agent coordination (that's the domain of protocols like Google's A2A). The moment MCP is asked to do more than tool access, the architecture starts to break.
 
 ### Security maturity is still catching up with adoption
@@ -76,3 +87,6 @@ One protocol, one job — that is the right way to use MCP.
 ## References
 - [MCP vs REST/HTTP API vs Kafka: The Architect's Guide to Agentic AI Integration (DZone / Kai Wähner)](https://feeds.dzone.com/link/23558/17466283/mcp-vs-resthttp-api-vs-kafka)
 - [Model Context Protocol — guide, architecture, uses, implementation](https://dzone.com/articles/model-context-protocol-mcp-guide-architecture-uses-implementation)
+- [Official MCP Roadmap (last updated 2026-08-22)](https://modelcontextprotocol.io/development/roadmap)
+- [The 2026 MCP Roadmap — blog announcement](https://blog.modelcontextprotocol.io/posts/2026-mcp-roadmap/)
+- [MCP 2026-07-28 specification changelog](https://modelcontextprotocol.io/specification/2026-07-28/changelog)

@@ -37,11 +37,21 @@ Debian **DSA-6417-1** (2026-08-08) covers libheif: CVE-2025-68431, CVE-2026-3274
 | CVE-2026-32741 | Heap buffer overflow in `MaskImageCodec::decode_mask_image()` — attacker-controlled iloc extent copied via single `memcpy` with no upper-bound check (trigger: mskC bits_per_pixel=8, ispe even width ≥ 64) | 1.22.0 |
 | CVE-2026-32740 | Grid tile compositing overflow — 64 bytes of fully attacker-controlled chroma data written past a heap allocation via a 1×4 grid of odd-height tiles, default build config | 1.22.0 |
 
-Debian status: **bookworm (1.15.1-1+deb12u1) still vulnerable**; trixie fixed in `1.19.8-1+deb13u1`; forky/sid at `1.23.3-1`. Note the CVEs above are *not* the only issues — DSA-6417-1 lists 12 total, and upstream's latest security release is **v1.23.4** (as of 2026-09-14).
+Debian status: **bookworm (1.15.1-1+deb12u1) still vulnerable**; trixie fixed in `1.19.8-1+deb13u1`; forky/sid at `1.23.3-1`. Note the CVEs above are *not* the only issues — DSA-6417-1 lists 12 total.
+
+## Post-disclosure update (verified 2026-11-19)
+
+Upstream has continued to ship security releases at a rapid cadence since the original incident — evidence that the AI-assisted fuzzing pressure on libheif is not abating:
+
+- **v1.23.3** (security/bugfix): ABI-compatible drop-in for 1.23.2; fixed a **critical** heap buffer overflow (write) in the uncompressed (`unci`) mixed-interleave decoder when the two chroma components declare different bit depths (GHSA-x8r2-mggj-j6wr).
+- **v1.23.4 → v1.23.6**: further security releases; v1.23.6 hardened the FFmpeg HEVC plugin (unparseable SPS is now an error, NAL units with start-code prefixes refused) and fixed a reachable assertion when decoding grid images with >16-bit alpha planes (GHSA-3gwx-cjv4-jr74). Note: builds decoding HEVC with libde265 were unaffected by the FFmpeg-plugin issue.
+- **v1.23.7** (released 2026-10-26, current latest; ~14 high-rated fixes): OOB read in the OpenH264 decoder plugin via crafted AVC SPS cropping offsets (GHSA-xwcv-cp39-m2w4), two AV1 coded-size-check bypasses via libaom OBU handling (GHSA-jx54-6rm6-2cgj, GHSA-fpr5-xpfr-vcq3), heap use-after-free when grid tiles decode in parallel and share a coded input image — **only v1.23.6 affected** (GHSA-35mc-3887-rr37), plus a cluster of **CPU-exhaustion / DoS classes**: billion-laughs-style derived-image decode amplification (2.6 kB file → 26 s), hidden-picture floods (16 kB → 1000× 4096² HEVC pictures), repeated `irot`/`imir`/`clap` transformation chains, `colr` association blowup, and quadratic `moov`/`stsc` parsing. Upstream added decode pixel budgets, per-codec coded-picture caps (≤8), and transformation-count limits.
+
+Two operational lessons from this follow-up wave: (1) several high-severity bugs were **regressions introduced by the security hardening of v1.23.5** itself — hardening code needs the same adversarial review as the code it guards; (2) DoS/complexity bugs are now fixed with the same priority as memory corruption, consistent with treating parser availability as a security property. Fedora 44 already packages 1.23.7; distributions lag by days-to-weeks, so image pipelines parsing untrusted HEIF/AVIF should prefer upstream builds until distro channels catch up.
 
 ## Remediation checklist
 
-1. **Patch**: install the latest security-patched `libheif`/`libde265` from your distribution's security channel or upstream v1.23.4+. Distribution packages may carry backported fixes under older version numbers — check the package advisory, not just the version string.
+1. **Patch**: install the latest security-patched `libheif`/`libde265` from your distribution's security channel or upstream v1.23.7+ (latest security release as of 2026-11-19). Distribution packages may carry backported fixes under older version numbers — check the package advisory, not just the version string.
 2. **Self-hosted Discourse: rebuild now.** Older Docker images contain a vulnerable libheif dependency permitting code execution through image upload. From `/var/discourse`: `git pull` then `./launcher rebuild app` — a web-interface update alone may not replace the underlying image (advisory GHSA-vhm9-85gw-x335).
 3. **Defense in depth**: disable untrusted HEIF/AVIF decoding where not needed, or isolate image-processing pipelines in hardened ephemeral sandboxes; ImageMagick's security policy can restrict accepted formats and resource usage. Discourse additionally started sandboxing ImageMagick (commit a071880).
 4. **SSO hygiene**: the escalation was an OpenAI-side identity flaw — any first- or third-party service using that SSO had the same exposure; audit your own SSO trust boundaries, not just the forum.
@@ -58,3 +68,6 @@ See [libheif-heic-rce-chain.excalidraw](libheif-heic-rce-chain.svg) for the full
 - [CVE-2026-32741 (NVD)](https://nvd.nist.gov/vuln/detail/CVE-2026-32741) — mask image heap overflow
 - [CVE-2026-32740 (NVD)](https://nvd.nist.gov/vuln/detail/CVE-2026-32740) — grid tile compositing overflow
 - [Discourse advisory GHSA-vhm9-85gw-x335](https://github.com/discourse/discourse/security/advisories/GHSA-vhm9-85gw-x335)
+- [libheif releases (v1.23.3–v1.23.7 security advisories)](https://github.com/strukturag/libheif/releases)
+- [libheif security policy](https://github.com/strukturag/libheif/security)
+- [Fedora 44 libheif 1.23.7 security update](https://linuxsecurity.com/advisories/fedora/fedora-libheif-2026-09382b8de6)
