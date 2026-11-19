@@ -5,6 +5,7 @@ domain: security-privacy
 topic: fuzzing
 source: arXiv
 source_url: https://arxiv.org/abs/2611.24804
+date: '2026-11-20'
 keywords:
 - knowledge-base
 - fuzzing

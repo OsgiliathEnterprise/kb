@@ -34,6 +34,14 @@ When LLM tools are pushed beyond their reliable capabilities, developers must st
 ## Relevance to Our Domain
 This is empirical grounding for the KB's AI-assisted-development coverage: it supports pairing speed metrics with comprehension checks (mutation-finding, code walkthroughs) in team practice and in agent-policy design — e.g., requiring developers to review/explain generated diffs before merge, and watching the high-reliance/low-engagement profile as the at-risk cohort for cognitive debt.
 
+## Broader Context (added 2026-11-20, KB enrichment)
+- **Comprehension debt as a team-level construct.** A companion qualitative study (Ahmad, Karlstad University, EASE 2026; 621 reflective diaries from 207 students over eight weeks) identifies **four comprehension-debt accumulation patterns** in GenAI-assisted projects — (1) AI-as-black-box code acceptance, (2) context-mismatch debt, (3) dependency-induced atrophy, (4) verification-bypass — and one **mitigating pattern**: using GenAI as a *comprehension scaffold* to build deeper understanding. It argues CD is distinct from technical debt because it resides in the *collective cognition of the team*, not the codebase.
+- **Industry convergence.** The same concept is now tracked in practice (Faros AI) and practitioner literature (O'Reilly Radar): the gap between code shipped and code understood, with the added hazard of **false confidence** — unlike technical debt, comprehension debt does not announce itself through build friction until an intervention is needed.
+- **Study caveats.** The authors note possible **Rosenthal effect**: participants may have inferred the experiment's intent (comparing self-written vs. LLM-generated code comprehension), which could bias self-reports.
+
 ## References
 - Paper: https://arxiv.org/abs/2611.24216
+- Comprehension Debt in GenAI-Assisted SE Projects: https://arxiv.org/abs/2604.13277
+- Faros AI — Comprehension debt in software engineering: https://www.faros.ai/blog/comprehension-debt-in-software-engineering
+- O'Reilly Radar — Comprehension Debt: The Hidden Cost of AI-Generated Code: https://www.oreilly.com/radar/comprehension-debt-the-hidden-cost-of-ai-generated-code/
 - Related: [[how-to-ai-pair-programming-productivity-measurement]]

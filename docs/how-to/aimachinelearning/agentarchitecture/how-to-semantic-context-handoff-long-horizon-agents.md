@@ -35,6 +35,13 @@ Full-history prompting grows context without bound, raising inference cost and d
 ## Relevance to Our Domain
 A concrete, deployable recipe for agent context engineering — relevant to coding-agent harnesses and any long-running agent where token cost and evidence retention trade off. Complements compaction-based approaches (e.g., ACE-style semantic compression) by making discarded evidence recoverable rather than lost.
 
+## Broader Context (added 2026-11-20, KB enrichment)
+- **Anthropic's context-engineering guidance** frames the same problem from the practitioner side: context is a *finite resource with diminishing marginal returns* — "context rot" degrades recall as token count grows, so agents have an **attention budget** that every token depletes. Its recommended primitive is **just-in-time retrieval**: store what the agent learns and pull it back on demand rather than loading everything upfront — precisely the rehydration step SCH formalizes.
+- **Compaction is lossy and hard to control.** A parallel line of work (Parallel Context Compaction for Long-Horizon LLM Agent Serving, arXiv:2605.23296) characterizes sequential vs. parallel compaction and finds summarization output is largely **input- and prompt-invariant** — prompt engineering is an unreliable knob for summary volume, and blocking summarization stalls inference for tens of seconds. This is the failure mode SCH's evidence-index approach sidesteps.
+- **Field taxonomy.** Practitioner surveys converge on four viable long-session strategies: provider-native summarization APIs, structured "anchored iterative" compaction with persistent templates, external memory offload (MemGPT/Letta, Cognee), and just-in-time retrieval — SCH is a lightweight instance of the last category without an external retrieval model.
+
 ## References
 - Paper: https://arxiv.org/abs/2611.24357
 - Semantic Scholar: https://api.semanticscholar.org/graph/v1/paper/arXiv:2611.24357
+- Anthropic — Effective context engineering for AI agents: https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents
+- Parallel Context Compaction for Long-Horizon LLM Agent Serving: https://arxiv.org/abs/2605.23296

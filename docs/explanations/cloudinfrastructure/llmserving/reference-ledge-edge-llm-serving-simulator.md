@@ -39,10 +39,15 @@ LEDGE builds an event graph of the serving pipeline, estimates each stage's exec
 - Shared-link contention materially changes optimal placement decisions.
 - Network topology (not just compute) constrains scaling of distributed edge serving.
 
+## Broader Context (added 2026-11-20, KB enrichment)
+- Edge-first inference studies underscore *why* heterogeneous placement matters: memory is the binding constraint on-device (e.g., full-precision Llama2-7B needs ≥28 GB vs. 8–16 GB on a Jetson Orin NX), forcing partition/quantization decisions that LEDGE's model–precision sweep space captures.
+- Cloud-vs-edge cost comparisons (GPT-4 cloud vs. Qwen-2.5 SLMs on Jetson AGX/Nano) show per-response economics, not just latency, drive placement — an axis a calibrated simulator can sweep cheaply before buying hardware.
+
 ## Relevance to Our Domain
 Complements the KB's LLM-serving simulation coverage (Koi, InferSim/ROCm, ServerBench): LEDGE fills the **heterogeneous edge** niche — useful for planning distributed inference on ARM/Jetson fleets, on-prem edge boxes, or federated devices where interconnect asymmetry dominates.
 
 ## References
 - Paper: https://arxiv.org/abs/2611.24085
 - Code: https://github.com/gdfwj/LEDGE
+- Edge-First Language Model Inference: Models, Metrics, and Tradeoffs: https://arxiv.org/abs/2505.16508
 - Related: [[reference-rocm-inferasim]], [[reference-koi-edge-llm-serving-simulator]]

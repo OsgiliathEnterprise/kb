@@ -6,6 +6,7 @@ domain: AI-LLM
 topic: LLM-Evaluation
 source: arXiv
 source_url: https://arxiv.org/abs/2611.24849
+date: '2026-11-20'
 keywords:
 - knowledge-base
 - LLM-Evaluation
