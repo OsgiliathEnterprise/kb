@@ -402,7 +402,7 @@ const sidebars = {
           type: 'category',
           label: 'Vulnerabilitymanagement',
           link: {type: 'generated-index', title: 'Vulnerabilitymanagement', slug: 'how-to/securityprivacy/vulnerabilitymanagement'},
-          items: ['how-to/securityprivacy/vulnerabilitymanagement/how-to-toctou-race-reproduction-security-discovery', 'how-to/securityprivacy/vulnerabilitymanagement/howto-score-context-management-exploit-agents'],
+          items: ['how-to/securityprivacy/vulnerabilitymanagement/how-to-toctou-race-reproduction-security-discovery', 'how-to/securityprivacy/vulnerabilitymanagement/howto-assess-patch-nginx-http2-rce-fleet', 'how-to/securityprivacy/vulnerabilitymanagement/howto-score-context-management-exploit-agents'],
         },
         {
           type: 'category',
@@ -662,7 +662,7 @@ const sidebars = {
           type: 'category',
           label: 'Networking',
           link: {type: 'generated-index', title: 'Networking', slug: 'explanations/cloudinfrastructure/networking'},
-          items: ['explanations/cloudinfrastructure/networking/explanation-isis-vs-ospf-design-tradeoffs', 'explanations/cloudinfrastructure/networking/explanation-proxmox-cluster-heartbeat-wrong-network-corosync-link0', 'explanations/cloudinfrastructure/networking/explanation-spamhaus-sender-requirements-nov2026', 'explanations/cloudinfrastructure/networking/explanation-submarine-cable-resilience-faults-repair-fleet-choke-points', 'explanations/cloudinfrastructure/networking/explanation-tailscale-multi-queue-buffer-reuse-netmap-caching'],
+          items: ['explanations/cloudinfrastructure/networking/explanation-ipv6-jumbograms-rfc-2675', 'explanations/cloudinfrastructure/networking/explanation-isis-vs-ospf-design-tradeoffs', 'explanations/cloudinfrastructure/networking/explanation-proxmox-cluster-heartbeat-wrong-network-corosync-link0', 'explanations/cloudinfrastructure/networking/explanation-spamhaus-sender-requirements-nov2026', 'explanations/cloudinfrastructure/networking/explanation-submarine-cable-resilience-faults-repair-fleet-choke-points', 'explanations/cloudinfrastructure/networking/explanation-tailscale-multi-queue-buffer-reuse-netmap-caching'],
         },
         {
           type: 'category',
@@ -687,6 +687,12 @@ const sidebars = {
           label: 'Lakehouse',
           link: {type: 'generated-index', title: 'Lakehouse', slug: 'explanations/dataengineering/lakehouse'},
           items: ['explanations/dataengineering/lakehouse/explanation-lakegres-vector-search-open-table-formats'],
+        },
+        {
+          type: 'category',
+          label: 'Processintelligence',
+          link: {type: 'generated-index', title: 'Processintelligence', slug: 'explanations/dataengineering/processintelligence'},
+          items: ['explanations/dataengineering/processintelligence/explanation-process-intelligence-mining-orchestration-decision-gate'],
         },
         {
           type: 'category',

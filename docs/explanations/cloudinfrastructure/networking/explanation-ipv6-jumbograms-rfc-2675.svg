@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="96.0 -4.0 1368.0 536.8" width="1368" height="537">
+<rect x="96.0" y="-4.0" width="1368.0" height="536.8" fill="#ffffff"/>
+<rect x="120.0" y="90.0" width="700.0" height="70.0" rx="8" fill="#d0ebff" stroke="#1971c2" stroke-width="1.5"/>
+<rect x="135.0" y="130.0" width="180.0" height="26.0" rx="8" fill="none" stroke="#e03131" stroke-width="1.5"/>
+<rect x="820.0" y="90.0" width="620.0" height="70.0" rx="8" fill="#d0ebff" stroke="#1971c2" stroke-width="1.5"/>
+<rect x="835.0" y="130.0" width="240.0" height="26.0" rx="8" fill="none" stroke="#1971c2" stroke-width="1.5"/>
+<rect x="120.0" y="200.0" width="1320.0" height="90.0" rx="8" fill="#d3f9d8" stroke="#2f9e44" stroke-width="1.5"/>
+<rect x="150.0" y="245.0" width="130.0" height="30.0" rx="8" fill="none" stroke="#2f9e44" stroke-width="1.5"/>
+<rect x="295.0" y="245.0" width="150.0" height="30.0" rx="8" fill="none" stroke="#2f9e44" stroke-width="1.5"/>
+<rect x="460.0" y="245.0" width="420.0" height="30.0" rx="8" fill="none" stroke="#2f9e44" stroke-width="1.5"/>
+<rect x="120.0" y="330.0" width="1320.0" height="60.0" rx="8" fill="#e5dbff" stroke="#6741d9" stroke-width="1.5"/>
+<rect x="850.0" y="342.0" width="330.0" height="30.0" rx="8" fill="none" stroke="#e03131" stroke-width="1.5"/>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="26" fill="#1e1e1e" text-anchor="start"><tspan x="120.0" y="40.8">IPv6 Jumbogram (RFC 2675) — packet layout and length signaling</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="135.0" y="112.8">IPv6 header (40 B)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#e03131" text-anchor="start"><tspan x="140.0" y="143.4">Payload Length = 0</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="840.0" y="143.4">Next Header = 0 (Hop-by-Hop)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="135.0" y="222.8">Hop-by-Hop Options header</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="158.0" y="259.4">Opt Type 0xC2</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="303.0" y="259.4">Data Len = 4</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="468.0" y="259.4">Jumbo Payload Length: 32-bit, &gt; 65,535</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="135.0" y="357.8">Upper-layer segment  ·  TCP / UDP (with RFC 2675 enhancements)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#c92a2a" text-anchor="start"><tspan x="858.0" y="356.4">UDP Length field = 0  (jumbo flag)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="15" fill="#495057" text-anchor="start"><tspan x="120.0" y="442.0">Valid only on links with MTU &gt; 65,575 (65,535 + 40) · never with a Fragment header</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="15" fill="#495057" text-anchor="start"><tspan x="120.0" y="472.0">Checksum pseudo-header uses Jumbo Payload Length · 16-bit checksum weakens as data grows</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="15" fill="#495057" text-anchor="start"><tspan x="120.0" y="502.0">Malformed combos → ICMPv6 Parameter Problem (prescribed Code/Pointer per error)</tspan></text>
+</svg>

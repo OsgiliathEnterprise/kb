@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="96.0 -4.0 1048.0 556.8" width="1048" height="557">
+<rect x="96.0" y="-4.0" width="1048.0" height="556.8" fill="#ffffff"/>
+<rect x="120.0" y="90.0" width="360.0" height="100.0" rx="8" fill="#d0ebff" stroke="#1971c2" stroke-width="1.5"/>
+<rect x="120.0" y="230.0" width="360.0" height="100.0" rx="8" fill="#d3f9d8" stroke="#2f9e44" stroke-width="1.5"/>
+<rect x="120.0" y="370.0" width="360.0" height="100.0" rx="8" fill="#fff3bf" stroke="#e67700" stroke-width="1.5"/>
+<rect x="700.0" y="90.0" width="420.0" height="80.0" rx="8" fill="#e5dbff" stroke="#6741d9" stroke-width="1.5"/>
+<rect x="700.0" y="230.0" width="420.0" height="80.0" rx="8" fill="#e5dbff" stroke="#6741d9" stroke-width="1.5"/>
+<rect x="700.0" y="370.0" width="420.0" height="80.0" rx="8" fill="#e5dbff" stroke="#6741d9" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 480.0 140.0 L 700.0 130.0"/><line x1="700.0" y1="130.0" x2="687.2" y2="124.4"/><line x1="700.0" y1="130.0" x2="687.7" y2="136.7"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 480.0 280.0 L 700.0 270.0"/><line x1="700.0" y1="270.0" x2="687.2" y2="264.4"/><line x1="700.0" y1="270.0" x2="687.7" y2="276.7"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 480.0 420.0 L 700.0 410.0"/><line x1="700.0" y1="410.0" x2="687.2" y2="404.4"/><line x1="700.0" y1="410.0" x2="687.7" y2="416.7"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="26" fill="#1e1e1e" text-anchor="start"><tspan x="120.0" y="40.8">Process intelligence: three layers bound to agentic AI needs</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="18" fill="#1e1e1e" text-anchor="start"><tspan x="134.0" y="118.4">Mining</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#495057" text-anchor="start"><tspan x="134.0" y="144.4">reconstructs how work really runs</tspan><tspan x="134.0" y="160.7">from ERP/CRM/ticketing event logs</tspan><tspan x="134.0" y="176.9">(OCEL 2.0 / XES portability check)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="18" fill="#1e1e1e" text-anchor="start"><tspan x="134.0" y="258.4">Orchestration</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#495057" text-anchor="start"><tspan x="134.0" y="284.4">governs what happens next: routes</tspan><tspan x="134.0" y="300.6">work across systems &amp; people</tspan><tspan x="134.0" y="316.9">(BPMN/DMN, open core = exit option)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="18" fill="#1e1e1e" text-anchor="start"><tspan x="134.0" y="398.4">Decision gate (a function,</tspan><tspan x="134.0" y="420.9">not a product)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#495057" text-anchor="start"><tspan x="134.0" y="424.4">checks every automated action &amp;</tspan><tspan x="134.0" y="440.6">AI recommendation against rules +</tspan><tspan x="134.0" y="456.9">confidence thresholds beforehand</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="18" fill="#1e1e1e" text-anchor="start"><tspan x="714.0" y="118.4">Agents need: Operational boundaries</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#495057" text-anchor="start"><tspan x="714.0" y="144.4">decide alone / approve / escalate</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="18" fill="#1e1e1e" text-anchor="start"><tspan x="714.0" y="258.4">Agents need: Live context</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#495057" text-anchor="start"><tspan x="714.0" y="284.4">current reality, not stale arrivals</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="18" fill="#1e1e1e" text-anchor="start"><tspan x="714.0" y="398.4">Agents need: Audit trails</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#495057" text-anchor="start"><tspan x="714.0" y="424.4">actions + decisions + checkpoints,</tspan><tspan x="714.0" y="440.6">compliance-grade</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="15" fill="#c92a2a" text-anchor="start"><tspan x="120.0" y="522.0">Redesign with mining evidence BEFORE agentic automation — else you automate inefficiencies at machine speed</tspan></text>
+</svg>
