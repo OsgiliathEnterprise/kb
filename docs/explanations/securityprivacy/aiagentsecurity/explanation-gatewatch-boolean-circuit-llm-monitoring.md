@@ -15,6 +15,8 @@ keywords:
 # GateWatch: Low-Overhead LLM Monitoring with Boolean Circuits
 
 ## Overview
+**Authors:** Firas Spanioli and Yaniv David (arXiv:2611.24619, cs.AI/cs.LG, submitted 18 Nov 2026, 23 pages).
+
 GateWatch is a compact, interpretable behavior-monitor for deployed LLMs and agents. It expresses its entire decision rule as an explicit Boolean logic circuit over a handful of binarized sparse-autoencoder (SAE) features, and its serving companion GateWatchServe computes only the selected features and evaluates probes with lookup tables — making always-on safety monitoring nearly free inside vLLM.
 
 ## Problem Statement
@@ -22,7 +24,7 @@ Monitoring LLM/agent behavior for unsafe or unintended actions needs efficient c
 
 ## Key Contribution
 - **Whole-rule transparency:** the decision is an explicit Boolean circuit over a small set of binarized SAE features — auditable logic, not a hidden-weight head.
-- **Three construction approaches** for building circuits under a specified gate budget.
+- **Three construction approaches** for building circuits under a specified gate budget (explored comparatively in the paper).
 - **GateWatchServe deployment layer:** computes only the SAE features a circuit actually needs, streams their binary values across layers during inference, and evaluates many GateWatch classifiers in parallel via compact lookup tables.
 
 ## Technical Approach
@@ -38,3 +40,5 @@ Makes runtime guardrails on agent fleets economically viable: thousands of behav
 ## References
 - Paper: https://arxiv.org/abs/2611.24619
 - Semantic Scholar: https://api.semanticscholar.org/graph/v1/paper/arXiv:2611.24619
+- Editorial summary (franklineh.com): https://franklineh.com/learn/research/editorial-research-ef30a88f5bb362d856ff7eac427a77c0
+- Practical take on monitoring without a second model: https://sentx.ai/blog/llm-monitoring-burns-tokens-catch-dangerous-output/

@@ -16,24 +16,27 @@ keywords:
 # CrossEnv: Synthesizing Verifiable Cross-Environment Tasks for Long-Horizon Agent Training
 
 ## Overview
-Zheng, Li, Xu et al. (HKUST) observe that agent environments are **modularly structured** — tool schemas, entity formats, interaction styles, state transitions — yet training tasks overwhelmingly come from a handful of hand-designed environments. That pins policies to surface patterns of a single design. **CrossEnv** is an end-to-end framework that synthesizes large-scale training tasks that vary systematically across these structural axes, and a staged curriculum that exploits them.
+**Authors:** Zhengfeng Yu, Tian Lan, Zhijing Wu, Enbo Zhao, Xuannan Liu, Feihu Jiang, Qianghuai Jia, Longyue Wang, Zhao Xu, Weihua Luo, Xian-Ling Mao (arXiv:2611.22777, cs.AI/cs.CL, submitted 17 Nov 2026, 23 pages, CC-BY-4.0).
+
+Yu et al. observe that real work spans **multiple services** — actions in one service depend on information obtained from another — yet existing environment-synthesis methods generate tasks *within individual environments*, so trained agents never practice cross-service coordination. **CrossEnv** synthesizes executable, verifiable **cross-environment** tasks: an **entity-tool graph** identifies connections between environments, and task-specific data is aligned across environments so interactions stay consistent, executable, and verifiable. **CrossEnv-Curriculum** then trains in stages: single-environment tool use → coordination across more environments and business domains → user interaction.
 
 ## When to Use This
 You're training (SFT or RL) a tool-using / GUI / embodied language agent and its performance collapses on environments that differ from the training ones — different tool APIs, entity formats, or interaction protocols — despite the underlying skills being the same.
 
 ## Steps (the CrossEnv procedure)
-1. **Parameterize the environment space** along five axes: tool interface, observation format, entity structure, interaction pattern, and state dynamics.
-2. **Derive task schemas** from a base environment that explicitly separate *structural variation* (what the environment looks like) from *skill-intrinsic difficulty* (what the task requires).
-3. **Instantiate schemas** via LLMs — generate concrete task instances across environment configurations — and validate each candidate instance by **interaction-based rollouts** (discard instances that don't check out when actually executed).
-4. **Train with the CrossEnv curriculum** — a staged schedule that introduces structural variation progressively.
-5. **Evaluate cross-environment**: expect policy generalization to new tool schemas, interface formats and interaction protocols, not just higher in-distribution success.
+1. **Build an entity-tool graph** over your environments — entities shared across services and the tools that read/write them reveal where cross-environment tasks can exist.
+2. **Identify cross-environment task opportunities** where an action in one service depends on information obtained from another.
+3. **Align task-specific data across environments** so the shared state stays consistent — this is what makes the synthesized tasks executable *and* verifiable (the main synthesis challenge).
+4. **Instantiate and validate tasks** by interaction-based rollouts — discard instances that don't check out when actually executed, so training isn't poisoned by unsolvable tasks.
+5. **Train with CrossEnv-Curriculum** — staged schedule: single-environment tool use first, then coordination across more environments and business domains, and finally user interaction.
+6. **Evaluate cross-environment**: expect transfer to new environment combinations, tasks less similar to training data, and longer workflows — not just higher in-distribution success.
 
 ## Concrete Results
-- **10K validated training instances** across **15 environments**.
-- Both SFT and RL with the CrossEnv curriculum improve in-environment success *and*, critically, cross-environment transfer (new tool schemas, interface formats, interaction protocols).
+- Across **four external benchmarks**, combining cross-environment training data with the curriculum achieves **competitive performance with fewer training examples**.
+- Analyses support transfer benefits to: **new environment combinations**, external tasks **less similar** to the training data, and **longer workflows**.
 
 ## Relevance to Our Domain
-A practical blueprint for de-risking the "trained on our harness, breaks on a new one" failure mode in agent development — the five-axis parameterization doubles as a checklist for designing eval environments that genuinely stress transfer. The interaction-based validation step is the key to scaling synthesis without poisoning training with unsolvable instances. Related: [[explanation-modharness-rl-evolving-harness-programs]], [[reference-rsi-prime-training-models-to-train-models]].
+A practical blueprint for de-risking the "trained on our harness, breaks on a new one" failure mode in agent development — the entity-tool graph doubles as a checklist for designing eval environments that genuinely stress cross-service transfer. The interaction-based validation step is the key to scaling synthesis without poisoning training with unsolvable instances. Related: [[explanation-modharness-rl-evolving-harness-programs]], [[reference-rsi-prime-training-models-to-train-models]].
 
 ## References
 - Paper: https://arxiv.org/abs/2611.22777
