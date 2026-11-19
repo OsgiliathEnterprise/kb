@@ -5,6 +5,7 @@ domain: security-privacy
 topic: llm-privacy
 source: arXiv
 source_url: https://arxiv.org/abs/2611.24689
+date: 2026-11-19
 keywords:
 - knowledge-base
 - llm-privacy
@@ -34,3 +35,5 @@ A decisive data point for federated-learning threat modeling: client-side advers
 ## References
 - Paper: https://arxiv.org/abs/2611.24689
 - Semantic Scholar: https://api.semanticscholar.org/graph/v1/paper/arXiv:2611.24689
+- Related peeling-style inversion: "Cascading Gradient Inversion via LT-Code Inspired Peeling" (arXiv:2609.09659, Sep 2026) — reconstructs data by iteratively peeling recoverable components from aggregates
+- Survey/threat taxonomy: "SoK: Gradient Inversion Attacks in Federated Learning" (USENIX Security 2025, Carletti et al.)

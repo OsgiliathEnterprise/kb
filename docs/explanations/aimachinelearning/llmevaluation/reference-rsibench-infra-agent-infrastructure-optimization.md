@@ -6,6 +6,7 @@ domain: ai-machine-learning
 topic: llm-evaluation
 source: arXiv
 source_url: https://arxiv.org/abs/2611.24395
+date: 2026-11-19
 keywords:
 - knowledge-base
 - llm-evaluation
@@ -33,6 +34,9 @@ The benchmark fixes runnable, recipe-derived baselines, then lets agents edit th
 ## Results
 - 66.2% of task results exceed 1.10× validated speedup — current agents *can* improve production-scale training/inference.
 - Remaining gaps: discovering effective optimization strategies, and translating *local* improvements into *end-to-end* gains, remain hard.
+
+## Ecosystem
+The paper (Wu et al., 22 pages, Nov 2026 — Tsinghua-affiliated team incl. Wei-Ying Ma, Ya-Qin Zhang, Jingjing Liu, Hao Zhou) is part of an RSIBench family targeting components of recursive self-improvement: **RSIBench-Data** (arXiv:2607.25886) benchmarks agents as *data-centric* researchers inside a fixed post-training stack, while RSIBench-Infra benchmarks the *systems* side. Project page: https://rsibench-infra.github.io/
 
 ## Relevance to Our Domain
 This is the reference point for "can coding/ML agents optimize serving and training stacks?" — directly relevant to LLM serving operations, GPU fleet engineering, and agent-infrastructure roadmaps. The OCI-layer submission protocol is also a reusable pattern for reproducible agent-submitted infrastructure changes.
