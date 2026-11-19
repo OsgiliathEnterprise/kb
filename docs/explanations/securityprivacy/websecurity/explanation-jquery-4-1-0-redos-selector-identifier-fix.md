@@ -25,8 +25,9 @@ the selector engine has enormous blast radius.
 The regex jQuery used to match identifiers in selectors exhibited **catastrophic backtracking**:
 a **long chain of hexadecimal escapes followed by an invalid character** — e.g. inside an
 attribute selector — made the regex engine explore exponentially many backtracking paths and
-**hang the page** (community reports measured hangs on the order of ~120 seconds; the patched
-build resolves the same input in milliseconds).
+**hang the page** (per GitHub issue jquery/jquery#5904, an ~80-character selector already blocks
+the main thread for several seconds and the hang grows exponentially with selector length,
+unbounded; the patched build resolves the same input instantly).
 
 The attack surface is any code path that feeds **untrusted strings into a jQuery selector**:
 `$(userInput)`, `$(ctx).find(userInput)`, attribute-selector templates like
