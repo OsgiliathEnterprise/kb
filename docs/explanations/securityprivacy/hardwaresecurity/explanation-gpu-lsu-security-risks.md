@@ -29,6 +29,11 @@ Prior GPU microarchitecture studies probed only **parts** of the LSU, and prior 
 - **Cross-process covert channels** via **MPS co-execution**, available separately through bank accesses and tag lookups, with **rates increasing across GPU generations**.
 - **Cross-tenant DoS/starvation**: LSU contention slows a co-located **cuBLAS matrix multiplication by up to 750× on A100 and 563× on H100**.
 
+## Context & Related Work
+- **Bank-conflict side channels are established prior art**: an ACM survey of bank-conflict-based GPU timing leakage (doi 10.1145/3361870) covers Kepler-era shared-memory/L1 bank attacks — this paper's novelty is showing LSU channels *beyond* bank conflicts (tag lookups, pipeline starvation) and quantifying them cycle-accurately. Per the paper, an `bf`-way bank conflict adds `2(bf − 1)` extra cycles via serialization. https://dl.acm.org/doi/fullHtml/10.1145/3361870
+- **Same threat class at the serving layer**: "Governing the KV Cache" (arXiv:2608.09225) shows shared KV/prefix caches in multi-tenant LLM serving leak private prompts via cache-hit latency (cold TTFT 149.6 ms vs cached 32.8 ms on A100) — an attack surface *above* the LSU; together they bound the isolation problem at two stack levels. https://arxiv.org/abs/2608.09225
+- **Mitigation direction**: NVIDIA is pushing memory-enforced GPU sharing on Kubernetes via CUDA MPS supervision with per-workload limits (GPU Operator), a step toward containment but not timing isolation — MIG or dedicated allocation remain the stronger controls against LSU contention. https://developer.nvidia.com/blog/memory-enforced-gpu-sharing-in-kubernetes-with-nvidia-cuda-13-4/
+
 ## Relevance to Our Domain
 Multi-tenant GPU serving (shared A100/H100 pools for LLM inference) is our deployment model; this quantifies a **concrete cross-tenant risk class** beyond memory-capacity attacks: timing side channels and extreme matmul degradation via LSU contention. Relevant to GPU-fleet isolation policy (MPS vs MIG vs dedicated allocation) and to threat models for shared accelerator infrastructure.
 
