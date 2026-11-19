@@ -32,6 +32,10 @@ Exploratory study over **18 interactive sessions on three repositories and two f
 ## Relevance to Our Domain
 Agent skills are emerging as the packaging format for coding-agent expertise; this is a template for **"verified optimization" skills**: taxonomy + static analyzer + independent measurement, which generalizes to performance, security and cost skills. Also feeds FinOps/GreenOps: median 24.9% energy reduction on real repos is a concrete, auditable CI-level check.
 
+## Companion Taxonomy Paper (enriched 2026-11-19)
+DR. GREENS' taxonomy comes from the same authors' earlier paper **"Watts This Smell: A Comprehensive Taxonomy of Software Energy Smells"** (Mehditabar, Rajput & Sharma, arXiv:2604.04809, ICSME 2026) — the upstream reference for the 12-smell / 65-root-cause structure. Key findings from that foundation work: the taxonomy was built from a systematic review of **60 papers** (320 inefficiency patterns coded), then validated by profiling **>21,000 functionally-equivalent Python code pairs** for energy/time/memory, mapping **55 of 65 root causes to real code**. Three findings that shape how to use the skill: (1) **71% of samples exhibit multiple co-occurring smells** — fix smells in bundles, not one at a time; (2) **memory-related smells yield the highest per-fix energy savings** — prioritize them first; (3) power-draw variation across patterns confirms **energy optimization ≠ performance optimization** — a latency-neutral refactor can still save meaningful energy, which is precisely why LLM optimizers trained on "make it fast" miss energy smells. The labeled dataset (energy profiles + reasoning traces) is publicly released and useful as an eval set for any green-CI check.
+
 ## References
 - Paper: https://arxiv.org/abs/2611.23203
 - Semantic Scholar: https://api.semanticscholar.org/graph/v1/paper/arXiv:2611.23203
+- Companion taxonomy: "Watts This Smell" — https://arxiv.org/abs/2604.04809 (ICSME 2026)

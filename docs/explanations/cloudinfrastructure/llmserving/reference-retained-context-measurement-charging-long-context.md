@@ -41,7 +41,11 @@ Three separated layers:
 - [[reference-serverbench-coding-agents-serving-systems]] — serving benchmark context
 - [[explanation-where-the-tokens-go-software-thermodynamics]] — what tokens actually buy, from the agent side
 
+## Industry Pricing Anchor (enriched 2026-11-19)
+Anthropic's published prompt-caching economics are the canonical real-world instance of the "auditable positional weights" layer above: **cache write costs 125% of base input price, cache read costs 10%** (a 90% discount on repeated prefix), with up to 85% latency reduction on long prompts (e.g., a 100K-token "chat with a book" prompt: 11.5s → 2.4s TTFT, −90% cost). Two sanity checks this gives the framework: (i) the 10× read discount is economically sustainable because, consistent with the paper's >100× measured prefix-compute saving at 65,536 tokens, the write surcharge (25% premium) pre-pays the expensive first pass — the paper's "cold resends constrain discount depth" is exactly why providers charge *more* for cache writes rather than making caching free; (ii) providers advertise a **flat** per-token cached discount, not positional weights — matching the paper's finding that positional discount families don't beat a relevance-only baseline, so nobody has shipped defensible position-based pricing.
+
 ## References
 - Paper: https://arxiv.org/abs/2611.24071
 - Primary class: cs.PF (also cs.CL)
 - Key numbers: >100× prefix compute saving at 65,536-token cache hits; p99 charge −31–42% in simulation
+- Industry anchor: Anthropic prompt caching (GA Dec 2024) — cache write +25% / cache read −90% vs base input; https://www.anthropic.com/news/prompt-caching
