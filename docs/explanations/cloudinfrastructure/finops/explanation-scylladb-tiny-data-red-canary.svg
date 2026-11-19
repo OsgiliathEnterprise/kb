@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 -4.0 888.0 418.0" width="888" height="418">
+<rect x="16.0" y="-4.0" width="888.0" height="418.0" fill="#ffffff"/>
+<rect x="40.0" y="80.0" width="250.0" height="80.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="40.0" y="200.0" width="250.0" height="80.0" rx="8" fill="#ffd8a8" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="330.0" y="140.0" width="250.0" height="80.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="620.0" y="140.0" width="260.0" height="130.0" rx="8" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 165.0 160.0 L 165.0 160.0"/><line x1="165.0" y1="160.0" x2="157.8" y2="156.5"/><line x1="165.0" y1="160.0" x2="157.8" y2="163.5"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 290.0 240.0 L 330.0 240.0"/><line x1="330.0" y1="240.0" x2="317.4" y2="233.9"/><line x1="330.0" y1="240.0" x2="317.4" y2="246.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 290.0 120.0 L 330.0 120.0"/><line x1="330.0" y1="120.0" x2="317.4" y2="113.9"/><line x1="330.0" y1="120.0" x2="317.4" y2="126.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 580.0 180.0 L 620.0 180.0"/><line x1="620.0" y1="180.0" x2="607.4" y2="173.9"/><line x1="620.0" y1="180.0" x2="607.4" y2="186.1"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="22" fill="#1e1e1e" text-anchor="start"><tspan x="120.0" y="37.6">Tiny telemetry: three stages of the storage decision</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="50.0" y="120.2">Stage 1: S3 per payload</tspan><tspan x="50.0" y="137.7">PUT fee per tiny upload:</tspan><tspan x="50.0" y="155.2">hundreds of K PUTs/cycle</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="50.0" y="240.2">Kinesis+Firehose batch</tspan><tspan x="50.0" y="257.7">1MB/shard limit, stale</tspan><tspan x="50.0" y="275.2">health, un-debuggable</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="340.0" y="180.2">Stage 2: Postgres metadata</tspan><tspan x="340.0" y="197.7">fleet-restart write spikes</tspan><tspan x="340.0" y="215.2">-&gt; throttling, outages</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="630.0" y="205.2">Stage 3: ScyllaDB Cloud BYOA</tspan><tspan x="630.0" y="222.7">TTL instead of deletes (tombstones)</tspan><tspan x="630.0" y="240.2">bucketing vs hot partitions</tspan><tspan x="630.0" y="257.7">unnest big arrays, partition-aware</tspan><tspan x="630.0" y="275.2">batching (Rayon CPU + Tokio IO)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#495057" text-anchor="start"><tspan x="60.0" y="341.2">Outcome: ~670K rows/s ingested with ~36K writes/s (batching ~20x), double-digit-ms queries,</tspan><tspan x="60.0" y="358.7">portal listings minutes -&gt; seconds, lower per-endpoint cost.</tspan></text>
+</svg>

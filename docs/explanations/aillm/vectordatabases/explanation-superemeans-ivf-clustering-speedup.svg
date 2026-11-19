@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="36.0 -4.0 848.0 568.0" width="848" height="568">
+<rect x="36.0" y="-4.0" width="848.0" height="568.0" fill="#ffffff"/>
+<rect x="300.0" y="80.0" width="300.0" height="60.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="150.0" y="210.0" width="280.0" height="60.0" rx="8" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="480.0" y="210.0" width="280.0" height="60.0" rx="8" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="300.0" y="380.0" width="300.0" height="60.0" rx="8" fill="#74c0fc" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 380.0 160.0 L 250.0 160.0"/><line x1="250.0" y1="160.0" x2="262.6" y2="166.1"/><line x1="250.0" y1="160.0" x2="262.6" y2="153.9"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 520.0 160.0 L 650.0 160.0"/><line x1="650.0" y1="160.0" x2="637.4" y2="153.9"/><line x1="650.0" y1="160.0" x2="637.4" y2="166.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 300.0 290.0 L 420.0 290.0"/><line x1="420.0" y1="290.0" x2="407.4" y2="283.9"/><line x1="420.0" y1="290.0" x2="407.4" y2="296.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 610.0 290.0 L 490.0 290.0"/><line x1="490.0" y1="290.0" x2="502.6" y2="296.1"/><line x1="490.0" y1="290.0" x2="502.6" y2="283.9"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="22" fill="#1e1e1e" text-anchor="start"><tspan x="100.0" y="37.6">IVF centroid training: two orthogonal speedup axes</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="310.0" y="110.2">Lloyd's k-means, 10 epochs</tspan><tspan x="310.0" y="127.7">(FAISS IVF baseline)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="160.0" y="240.2">Axis 1: SuperKMeans</tspan><tspan x="160.0" y="257.7">prune dimensions per point</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="490.0" y="240.2">Axis 2: e-means</tspan><tspan x="490.0" y="257.7">mini-batch updates, ~2 epochs</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="310.0" y="410.2">SuperEMeans = both axes</tspan><tspan x="310.0" y="427.7">3-3.2x faster than e-means @ 5 epochs</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#495057" text-anchor="start"><tspan x="60.0" y="491.2">Caveat: mini-batch leaves unbalanced clusters -&gt; +10-20% vectors scanned at fixed recall.</tspan><tspan x="60.0" y="508.7">Knob: raise revival threshold 0.1 -&gt; 0.3 to restore cluster balance.</tspan></text>
+</svg>
