@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 -4.0 908.0 448.0" width="908" height="448">
+<rect x="16.0" y="-4.0" width="908.0" height="448.0" fill="#ffffff"/>
+<rect x="40.0" y="90.0" width="260.0" height="170.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="340.0" y="90.0" width="260.0" height="170.0" rx="8" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="640.0" y="90.0" width="260.0" height="170.0" rx="8" fill="#ffd8a8" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="40.0" y="300.0" width="430.0" height="120.0" rx="8" fill="#d0bfff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="500.0" y="300.0" width="400.0" height="120.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="20" fill="#1e1e1e" text-anchor="start"><tspan x="120.0" y="36.0">PHP 8.6 (2026-11-19): three feature themes + deprecation wave</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="60.0" y="114.8">Expressive code</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="60.0" y="144.6">Partial Function Application</tspan><tspan x="60.0" y="159.6">  version_compare(?, '8.6', '&gt;=')</tspan><tspan x="60.0" y="174.6">clamp($v, $min, $max)</tspan><tspan x="60.0" y="189.6">SortDirection enum</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="360.0" y="114.8">Stronger types &amp; time</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="360.0" y="144.6">\Time\Duration (ns precision,</tspan><tspan x="360.0" y="159.6">  comparable, tz-independent)</tspan><tspan x="360.0" y="174.6">Readonly property defaults</tspan><tspan x="360.0" y="189.6">Param DocComments</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="660.0" y="114.8">Scalable I/O</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="660.0" y="144.6">Io\Poll (epoll/kqueue/ports)</tspan><tspan x="660.0" y="159.6">  foundation for ReactPHP/AMPHP</tspan><tspan x="660.0" y="174.6">no more stream_select 1024 cap</tspan><tspan x="660.0" y="189.6">StreamException + StreamError</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="60.0" y="324.8">Security by default</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="60.0" y="354.6">session.use_strict_mode = On</tspan><tspan x="60.0" y="369.6">session.cookie_httponly = On</tspan><tspan x="60.0" y="384.6">session.cookie_samesite = Lax</tspan><tspan x="60.0" y="399.6">handlers must implement create_sid()+validateId()</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="15" fill="#1e1e1e" text-anchor="start"><tspan x="520.0" y="324.0">Deprecation wave (plan before upgrade)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="520.0" y="354.6">mb_ereg/mb_split (Oniguruma unmaintained)</tspan><tspan x="520.0" y="369.6">return in finally | spl_object_hash | strcoll</tspan><tspan x="520.0" y="384.6">trim() strips \f | fclose/copy fail on flush error</tspan><tspan x="520.0" y="399.6">ValueError instead of silent truncation</tspan></text>
+</svg>

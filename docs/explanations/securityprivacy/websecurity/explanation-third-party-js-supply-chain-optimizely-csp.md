@@ -59,6 +59,37 @@ A genuine caveat from practitioner discussion: a CSP that allowlists a compromis
 
 **End users** — the effective control flipped: ad and script blockers are now the firewall. uBlock Origin / NoScript-class tooling blocks most third-party JavaScript; the 2016-era advice (antivirus plus host firewall) does not address code executing inside your browser's origin.
 
+## The write path and loader variants (what to hunt for)
+
+The injection point was the **Project JavaScript (`projectJS`)** field of Optimizely Web Experimentation — customer-authored code that executes wherever the per-project snippet loads. The attacker wrote a loader into that field across many unrelated projects and left everything else untouched; Report URI confirmed it was **not cache poisoning** — the CDN served exactly what it was given, with Optimizely's own certificate. Three loader variants were observed:
+
+1. A plain tag appending `https://1688360.cc/track.js`.
+2. The same URL **base64-encoded and decoded at runtime** (`atob`) — a text search of your repo, WAF rules or tag inventory finds nothing. Smartsheet's snippet was cleaned and then **re-infected with the base64 variant**, proving the attacker retained write access during cleanup.
+3. A full inline payload executed via `eval()` as fallback when `1688360.cc` was blocked.
+
+Self-hosted snippet copies (`opt.scheels.com`, `www.vodafone.com.au/js/<id>.js`) were affected too — the content still comes from the same Optimizely project. Exposure ran **04:21–23:11 UTC** (~18h50m), with the payload rebuilt 26 times in that window.
+
+Detection: in the browser, on your own pages,
+
+```js
+[...document.scripts].map(s => s.src).filter(s => s && !s.startsWith(location.origin))
+// payload markers seen in this campaign
+window._k7, window.__k7b, document.querySelector('[data-channel-code="02111110"]')
+```
+
+Hunt `1688360.cc`, `webshell.lol`, `5vobauua3ojpklx.icu`, `eil786npto9u5bq.icu`, `linkforge.cc` in page source, CSP reports and proxy logs. The first two are now on `clientHold` — domains dead, **historical logs are not**. If you used Optimizely: audit Project JavaScript/experiment code for those domains and `atob(`, rotate credentials and API tokens, treat cards entered on 16 Nov as exposed and non-`HttpOnly` session cookies as stolen.
+
+## The CSP data: which directives actually decided the outcome
+
+Report URI evaluated the policies of 256 affected organizations against what the payload needs: 68 had **no CSP**; 50 allowed **both payload and exfiltration**; 17 blocked only `connect-src` (addresses still swapped in-page, but no cards/cookies/screenshots left the browser); 24 (15%) blocked the payload outright. Allowlisting `cdn.optimizely.com` was never going to help — that is where the code legitimately came from. Two directives inverted the protection:
+
+- **`'strict-dynamic'`** — trusts any script inserted by a trusted script; the loader *is* a script inserted by a trusted script.
+- **`'unsafe-eval'`** — lets the inline fallback run. Observed on HSBC: `track.js` was blocked and theft blocked, but the inline copy still executed — and Optimizely's own docs tell customers to allow it.
+
+`connect-src` is the undervalued directive: it is what separated total compromise from partial. CSP never judges whether an allowed script is honest — it constrains what that script may load and where it may send data.
+
+Compliance angle for card-taking sites: **PCI DSS v4.x requirements 6.4.3** (authorize, inventory and integrity-check every payment-page script) and **11.6.1** (change/tamper detection on that page) have been mandatory since 2025-03-31. Monitor for script *change*, not uptime — the certificate was valid and the servers were up the whole 19 hours.
+
 ## Related
 
 - [[../ai-agent-security/explanation-adaptive-prompt-injection-agent-swarms]] — same trust-collapse theme: the input you trust is the one you did not write.
@@ -71,3 +102,6 @@ A genuine caveat from practitioner discussion: a CSP that allowlists a compromis
 - [Content Security Policy — MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP)
 - [2025 Web Almanac — HTTP Archive](https://almanac.httparchive.org/en/2025/table-of-contents)
 - [Optimizely Security Incident Report, Nov 17 2026 (PDF)](https://pages.optimizely.com/rs/947-RKE-048/images/Security%20Incident%20Report%20-%20Optimizely%20Web%20Experimentation%20-%20Nov%2017%202026.pdf)
+- [OPTIMJACK technical breakdown (loader variants, CSP outcomes, IOCs) — DEV.to](https://dev.to/stanleya/optimjack-how-178-sites-served-a-card-skimmer-from-a-trusted-cdn-and-why-csp-allowlisting-cant-1397)
+- [Owner-facing deep dive — WardenBit](https://wardenbit.com/posts/optimizely-supply-chain-attack-178-sites-third-party-script-risk/)
+- [OPTIMJACK analysis — StepSecurity](https://www.stepsecurity.io/blog/optimjack-optimizely-hosted-scripts-crypto-clipper-card-skimmer), [Truesec](https://www.truesec.com/hub/blog/optimjack-optimizely)

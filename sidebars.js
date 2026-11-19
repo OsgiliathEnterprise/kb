@@ -310,6 +310,12 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Php',
+          link: {type: 'generated-index', title: 'Php', slug: 'how-to/programming/php'},
+          items: ['how-to/programming/php/howto-php-nov-2026-security-release-triage'],
+        },
+        {
+          type: 'category',
           label: 'Python',
           link: {type: 'generated-index', title: 'Python', slug: 'how-to/programming/python'},
           items: ['how-to/programming/python/howto-python-logging-instead-of-print'],
@@ -866,6 +872,12 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Php',
+          link: {type: 'generated-index', title: 'Php', slug: 'explanations/programming/php'},
+          items: ['explanations/programming/php/explanation-php-8-6-new-features'],
+        },
+        {
+          type: 'category',
           label: 'Python',
           link: {type: 'generated-index', title: 'Python', slug: 'explanations/programming/python'},
           items: ['explanations/programming/python/explanation-cpython-lean-formalization', 'explanations/programming/python/explanation-python-str-lower-idna-unicode-cve-2026-17084', 'explanations/programming/python/explanation-tempfile-gc-finalizer-antipattern'],
@@ -994,7 +1006,7 @@ const sidebars = {
           type: 'category',
           label: 'Supplychain',
           link: {type: 'generated-index', title: 'Supplychain', slug: 'explanations/securityprivacy/supplychain'},
-          items: ['explanations/securityprivacy/supplychain/explanation-litellm-1-107-0-pypi-compromise-cook-stealer', 'explanations/securityprivacy/supplychain/explanation-quantized-llm-supply-chain-verifiability-gap', 'explanations/securityprivacy/supplychain/explanation-tanstack-mini-shai-hulud-npm-worm-supply-chain-attack', 'explanations/securityprivacy/supplychain/reference-ai-supply-chain-ecosystem-dataset'],
+          items: ['explanations/securityprivacy/supplychain/explanation-litellm-1-107-0-pypi-compromise-cook-stealer', 'explanations/securityprivacy/supplychain/explanation-microsoft-agent-framework-pypi-compromise', 'explanations/securityprivacy/supplychain/explanation-quantized-llm-supply-chain-verifiability-gap', 'explanations/securityprivacy/supplychain/explanation-tanstack-mini-shai-hulud-npm-worm-supply-chain-attack', 'explanations/securityprivacy/supplychain/reference-ai-supply-chain-ecosystem-dataset'],
         },
         {
           type: 'category',
