@@ -5,6 +5,7 @@ domain: ai-machine-learning
 topic: multi-agent-systems
 source: arXiv
 source_url: https://arxiv.org/abs/2611.24839
+date: 2026-11-19
 keywords:
 - knowledge-base
 - multi-agent-systems

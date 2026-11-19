@@ -5,6 +5,7 @@ domain: cloud-infrastructure
 topic: distributed-systems
 source: arXiv
 source_url: https://arxiv.org/abs/2611.24264
+date: 2026-11-19
 keywords:
 - knowledge-base
 - distributed-systems
@@ -36,6 +37,17 @@ Graph partitioning underpins sparse linear algebra, load-balanced parallel compu
 ## Why It Matters for the KB
 GPU-native partitioning is the substrate for load-balanced distributed compute (and data placement) on modern AI supercomputers; this is the current reference implementation profile for multilevel partitioning at multi-GPU scale.
 
+## Lineage: the Jet partitioner (added 2026-11-19)
+The single-GPU base this paper extends is **Jet** (Gilbert, Madduri, Boman, Rajamanickam — PNNL/Drexel, SIAM J. Scientific Computing 2024):
+- Jet is a **parallel partition-refinement algorithm designed for GPUs**, combined with **GPU-aware coarsening** to form a full k-way multilevel partitioner.
+- On a large collection of test graphs it achieved **superior quality vs. state-of-the-art shared-memory partitioners** — i.e., the distributed successor inherits a partitioner that was already quality-competitive with CPU multilevel tools (ParMETIS/KaHIP class) on a single GPU.
+- The PNNL-distributed full text is openly available via OSTI, useful for implementation-level detail the short distributed paper omits.
+
+## Practical context for the CUDA-aware MPI + one-sided + BSP stack
+- CUDA-aware MPI lets MPI send/recv buffers live in **device memory** (registered GPU pointers) — the runtime moves data over NVLink/PCIe without explicit host staging; the NVIDIA introduction post is the standard onboarding reference.
+- **One-sided (RMA) communication** on GPU clusters has been benchmarked head-to-head with two-sided MPI in recent IPDPS/SC evaluations — relevant because coarsening/distribution phases exchange sparse adjacency data where RMA avoids rendezvous overhead.
+- Caveat from those studies: one-sided gains depend on the network (NVLink vs InfiniBand) and whether GPU memory is directly accessible — the paper's BSP structure sidesteps much of this by synchronizing globally, but porting the pattern to other kernels should re-measure.
+
 ## Related
 - [[explanation-dexattention-distributed-sparse-attention]] — another GPU-distributed graph-structured workload
 - [[explanation-checkco-checkpoint-coordinated-load-balancing]] — load balancing at the stream layer
@@ -44,4 +56,7 @@ GPU-native partitioning is the substrate for load-balanced distributed compute (
 ## References
 - Paper: https://arxiv.org/abs/2611.24264
 - Primary class: cs.DC
-- Baseline/lineage: Jet single-GPU partitioner
+- Baseline/lineage: Jet single-GPU partitioner — https://arxiv.org/abs/2304.13194 (SIAM SISC 2024)
+- Jet full text (PNNL/OSTI): https://www.osti.gov/servlets/purl/2432093
+- CUDA-aware MPI primer: https://developer.nvidia.com/blog/introduction-cuda-aware-mpi/
+- GPU one-sided MPI evaluation: https://oadoi.org/10.1145/3624062.3624182
