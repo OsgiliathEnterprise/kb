@@ -78,10 +78,14 @@ The hardest remaining problem is **uncached / write-combine memory** — e.g. a 
 
 FEX started with ARMv8.0-a as a minimum spec; hardware has improved dramatically since (LRCPC, LSE2, Apple's TSO mode). Not all edge cases are resolved at the architecture level yet, but there's genuine ecosystem commitment to improving the worst cases — vendors solving parts of the problem and moving the needle forward for compatibility.
 
+The article landed alongside ongoing release work: **FEX 2609 (released 2026-09-08)** optimised the PMULHRSW instruction and improved detection of self-modifying code in Unity games ([coverage](https://techaiwire.com/articles/fex-emu-x86-tso-emulation-cost-arm/), citing Phoronix) — a reminder that while the TSO problem is architectural, day-to-day emulation quality keeps compounding through ordinary JIT work. The [FEX-Emu/FEX GitHub repo](https://github.com/FEX-Emu/FEX) is the place to track both.
+
 ## Diagram
 
 ![[x86-tso-emulation-on-arm.excalidraw]]
 
 ## References
 - [The scourge of x86 emulation (FEX-Emu, 2026-09-17)](https://fex-emu.com/Scourge-of-emulation/)
+- [FEX-Emu/FEX — GitHub](https://github.com/FEX-Emu/FEX)
+- [FEX-Emu breaks down the cost of x86 TSO on Arm (TechAIWire, 2026-09, citing Phoronix for the 2609 release)](https://techaiwire.com/articles/fex-emu-x86-tso-emulation-cost-arm/)
 - [x86-TSO memory model (Wikipedia)](https://en.wikipedia.org/wiki/Processor_consistency#Similarity_to_SPARC_V8_TSO,_IBM-370,_and_x86-TSO_memory_models)

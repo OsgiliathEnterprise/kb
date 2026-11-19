@@ -63,6 +63,17 @@ A timing loop is the network equivalent of believing a rumour by asking three pe
 
 Once a wrong value is circulating, the sources start agreeing with each other and the majority vote lands on the wrong value. The protocol worked; the architecture did not.
 
+## The mechanism: GPS week-number rollover (why 2006 specifically)
+
+The "year 2006" is not arbitrary — it is the signature of a **GPS week-number rollover**. GPS internally counts weeks since **January 5, 1980** in a **10-bit field**, so the count wraps every **1024 weeks (~19.7 years)**. Receivers that don't handle the wrap compute a date one epoch in the past. The generic rollover date was April 6, 2019; the specific hardware involved — the **Microchip SSU 2000** synchronization supply unit Telstra deployed in the 2020 upgrade (local vendor: Scientific Devices) — had its own rollover date of **September 18, 2022**. A vulnerable card only rolls over when power-cycled *after* that date, and the rollback is 1024 weeks (~19.7 years) from the then-current date: when the card was power-cycled on July 8, 2026, its clock jumped back from July 2026 to **November 2006** — exactly the date the GPS card reported (Hochstein's analysis of the TAP findings report).
+
+Crucially, a vulnerable card only rolls over **after a power cycle** — a card running continuously through the rollover date behaves fine. That is why September 18, 2022 passed with no incident: the GPS cards were idle failover sources that nobody rebooted for years. The bug stayed latent until **July 8, 2026**, when maintenance staff powered the Melbourne SSU 2000 down to replace its chassis (the backup power supply had failed) — and the un-updated GPS card woke up believing it was 2006.
+
+## Two warnings that passed unnoticed
+
+- **October 2025:** Melbourne's stratum-3 server kept losing connectivity to its Sydney stratum-2 source. Peering mode silently re-parented it to a **stratum-4 client of Sydney or Perth**, making Melbourne effectively stratum 5. The TAP report notes this proves **timing loops were already occurring** a year before the outage — the same emergent-topology failure mode, caught by an alarm that led nowhere.
+- **January 2026:** Scientific Devices sent Telstra a **reminder about the SSU 2000 GPS firmware update** — years after it was first available. Per CEO Vicki Brady's Senate testimony, the update was *not ignored*: engineers assessed it and deferred it because, "given the design that was in place, it was not relevant because we were not using this equipment in the way that would trigger this risk," and "any software update creates a risk." Notably, another Telstra executive ("Mr Tracey" in the transcript) stated the GPS module "is not used as part of that design" — evidence that **different people held different models of the architecture**, and the failover role was invisible to the people deciding on the update.
+
 ## How the 2006 error won
 
 When the Melbourne GPS card returned from maintenance reporting year **2006**, it was promoted into the stratum-1 tier of the local timing hierarchy. Because the topology had become a peering loop, the "independent" sources were in fact all tracing back through shared references — so the bad value propagated and outvoted the correct ones. The network's majority-vote mechanism then *confirmed* the wrong time instead of rejecting it, because the sources that should have disagreed with each other had been made to agree by the loop.
@@ -74,6 +85,7 @@ When the Melbourne GPS card returned from maintenance reporting year **2006**, i
 - **Redundancy loss must be tracked, not accepted.** The 2020 upgrade knowingly reduced each site from two S2 sources to one; the compounding risk (loop + single source) was never assessed.
 - **Design the target architecture first** rather than accepting what new hardware imposes. Plan replacement on a rolling cycle and fund keeping existing infrastructure healthy alongside new projects — not with leftovers.
 - **Time is a critical service.** The outage happened even though NTP worked as intended; everything *around* it (architecture choices, budget cuts, low staffing, lack of monitoring/ownership/documentation) failed because no one appreciated how vital time services are.
+- **Latent hardware bugs need power-cycle drills.** A rollover bug only manifests after a reboot; the only way to test dormant failover hardware is to deliberately cycle it. Vendors publish rollover notices and firmware fixes — treat an "unused" card's firmware as part of the critical path, because *someone will eventually power it on*.
 
 ## Diagram
 
@@ -83,3 +95,5 @@ When the Melbourne GPS card returned from maintenance reporting year **2006**, i
 - [Netnod — Telstra outage: The night a network decided the year was 2006](https://www.netnod.se/blog/telstra-outage-night-network-decided-year-was-2006) (Sven-Christian "Svenne" Ebenhag, 2026-09-17)
 - [Telstra — What we've learned from the external investigation of our July outage (TAP report)](https://www.telstra.com.au/exchange/what-weve-learned-from-the-external-investigation-of-our-july-outage)
 - [Technology Audit Partners — TAP Findings for Telstra Outage (full PDF)](https://www.telstra.com.au/content/dam/tcom/dynamic-media-projects/exchange/TAPFindingsforTelstraOutage.pdf)
+- [Surfing Complexity — Thoughts on the July 8th Telstra outage report](https://surfingcomplexity.blog/2026/09/12/thoughts-on-the-july-8th-telestra-outage-report/) (Lorin Hochstein, 2026-09-12 — GPS week rollover mechanics, SSU 2000 timeline, Senate testimony quotes)
+- [Telstra CEO Senate Environment and Communications References Committee testimony, 17 July 2026](https://parlinfo.aph.gov.au/parlInfo/download/committees/commsen/29800/toc_pdf/Environment%20and%20Communications%20References%20Committee_2026_07_17.pdf)
