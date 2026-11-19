@@ -47,6 +47,12 @@ The option alone is not enough — both transports have their own 16-bit constra
 
 An explicit caveat in the RFC: the **16-bit TCP/UDP checksum becomes less accurate as the checksummed data grows** — application designers carrying 4 GB datagrams should not rely on it as a strong integrity check.
 
+## Status today: still a Proposed Standard, never deployed
+
+Despite decades of non-deployment, **RFC 2675 was never moved to Historic** — the IETF Datatracker still lists it as Proposed Standard. In May 2019, T. Jones and G. Fairhurst proposed exactly that in `draft-jones-6man-historic-rfc2675`, arguing the mechanism had zero real-world deployment and should be retired from the standards; the draft expired without adoption. So the normative text remains "current" even though every practical assumption behind it (links with MTU > 65,575) failed to materialize. Note also that published errata exist against RFC 2675 — check the RFC Editor errata page before quoting edge-case behavior from memory.
+
+A common confusion worth pre-empting: **jumbograms ≠ jumbo frames**. Jumbo frames are a *link-layer* practice (typically 9,000-byte Ethernet payloads) and are widely deployed in datacenters; a jumbogram is an *internet-layer* IPv6 packet exceeding the 65,535-byte header field limit. Ordinary jumbo frames are two orders of magnitude too small to ever require (or trigger) the RFC 2675 option — which is precisely why the option has no deployment pressure.
+
 ## Why you have (almost) never heard of them
 
 Jumbograms are a **link-local-scale tool**, not an internet-wide mechanism: Path MTU Discovery (RFC 1981) across heterogeneous networks caps you at the smallest link MTU, so a 65,575+ byte packet only survives inside controlled high-MTU domains (dedicated datacenter backbones, HPC fabrics). Host stacks historically implemented RFC 2675 selectively — Linux support, where present, was opt-in and largely unmaintained — and no mainstream network path advertises such MTUs. The RFC's own framing is honest about this: the option "need not be implemented or understood" by ordinary nodes. The lasting value of reading it today is conceptual: it is a clean case study in how a fixed-width field (16 bits) in a base header becomes a protocol ceiling, and how extension options + "magic zero" signaling (Payload Length = 0, UDP Length = 0) retrofit around it without breaking the original parser contract.
@@ -60,3 +66,6 @@ Jumbograms are a **link-local-scale tool**, not an internet-wide mechanism: Path
 
 - [RFC 2675: IPv6 Jumbograms — RFC Editor](https://www.rfc-editor.org/info/rfc2675/) — the normative text (option format, error matrix, TCP/UDP changes)
 - [RFC 2675 on the IETF Datatracker](https://datatracker.ietf.org/doc/html/rfc2675) — status and related drafts (merges RFC 1883's option spec and RFC 2147's transport changes)
+- [draft-jones-6man-historic-rfc2675 (expired, 2019)](https://datatracker.ietf.org/doc/html/draft-jones-6man-historic-rfc2675-00) — the abandoned proposal to retire RFC 2675 to Historic
+- [RFC 2675 errata — RFC Editor](https://www.rfc-editor.org/errata_search.php?rfc=2675) — published errata against the option spec
+- [Jumbogram — Wikipedia](https://en.wikipedia.org/wiki/Jumbogram) — jumbogram vs. jumbo frame terminology
