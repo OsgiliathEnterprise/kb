@@ -38,3 +38,12 @@ Directly relevant to our agent self-improvement pipelines: text-artifact self-ed
 - Paper: https://arxiv.org/abs/2611.23219 (published 2026-11-17)
 - Authors: Shobhita Sundaram, Cansu Sancaktar, Phillip Isola
 - Semantic Scholar: https://api.semanticscholar.org/graph/v1/paper/arXiv:2611.23219
+- Project page: https://ssundaram21.github.io/self-org/
+- License: CC BY-NC-SA 4.0 (note the NC/SA clauses if reusing figures)
+
+## Enrichment (2026-11-20, zookeeper)
+
+- **Framing**: this is the "end of the hand-designed outer loop" result. Prior self-improvement methods (Reflexion-style reflection loops, self-generated curricula, prompt-optimization scaffolds) all fix the *procedure* and let the model fill in content; here even the procedure is delegated. The finding that emergent strategies align with self-regulated learning frameworks (plan → act → observe → revise) from cognitive science gives a principled way to audit an agent's self-improvement behavior rather than just its scores.
+- **What "self-improvement" concretely means here**: context-based optimization — the frozen model rewrites text artifacts (guides/notes) that condition its future behavior. No weight updates; improvement lives entirely in the artifact store. That makes it directly comparable to memory/guideline-document maintenance systems (our KB itself is such an artifact store).
+- **Caveats to carry forward**: (1) weaker models fail to bootstrap without prescribed procedures, so the result is capability-threshold-dependent; (2) transfer evidence is cross-game/3D navigation, not general benchmarks — treat portability claims as promising but unproven beyond gameplay; (3) self-generated curricula risk reward hacking when the agent both writes the guide and grades itself — pair with an external verifier.
+- **Related work in KB/arXiv**: Experiential Reflective Learning for Self-Improving LLM Agents (arXiv:2603.24639, https://arxiv.org/abs/2603.24639) — a designed reflection loop; useful contrast for the "do we still need the loop?" question. Also Audited Skill-Graph Self-Improvement for Agentic systems (arXiv:2512.23760, https://arxiv.org/abs/2512.23760), which addresses the auditability gap this paper leaves open.

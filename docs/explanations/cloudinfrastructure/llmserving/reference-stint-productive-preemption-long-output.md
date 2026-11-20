@@ -47,4 +47,12 @@ For anyone serving reasoning-style models (long agentic/tool loops included), KV
 ## References
 
 - Paper: https://arxiv.org/abs/2611.20106 (cs.DC, cs.AI, cs.OS — Shi, Wan, Ruan, Huang, Lin, Li; 40 pp., under review)
+- HTML (experimental) full text: https://arxiv.org/html/2611.20106v1
+- License: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
 - Related: `explanation-velserve-tail-calibrated-scheduling.md`, `explanation-batch-makespan-llm-agent-workloads.md`
+
+## Enrichment (2026-11-20, zookeeper)
+
+- **Baseline context**: Stint's KV-thrashing problem is the same failure mode addressed from the other direction by *Robust KV Cache Management for LLM Serving under Output Length Uncertainty* (arXiv:2607.16892, https://arxiv.org/abs/2607.16892) — that line of work tries to avoid bad preemption decisions via output-length prediction, while Stint accepts arbitrary preemption and makes recovery cheap and fair. A useful mental split: **avoidance vs. productive preemption**.
+- **Numbers to remember**: p99 time-per-output-token −50.7% vs recomputation; zero pauses > 50 s; +12.0% whole-replay throughput on olympiad-math replays (Qwen3-32B, H200). The >1-minute stall pathology affects >20% of requests in existing engines — a diagnostic threshold: if your serving stack shows minute-scale gaps between tokens for a minority of requests under memory pressure, suspect KV thrashing before blaming the model.
+- **Design checklist for vLLM/SGLang-class schedulers**: (1) fixed-length KV snapshots in a contiguous CPU pool with exact-extent allocation (avoids fragmentation stalls on swap-in), (2) fused gather/scatter + double buffering so save/restore is not serialized with compute, (3) age-based readmission so victims outrank fresh admissions, (4) a decode-protection window after readmission to prevent immediate re-thrash, (5) hidden-state-derived remaining-length estimates for victim selection.

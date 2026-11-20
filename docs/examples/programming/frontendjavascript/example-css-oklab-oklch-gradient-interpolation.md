@@ -60,7 +60,35 @@ The second declaration wins in browsers that can parse it; older browsers ignore
 
 sRGB coordinates are not perceptually uniform: equal steps in RGB are not equal steps in perceived color, and the chord between two saturated colors can cut near the grey axis. OKLab/OKLCH *are* designed for perceptual uniformity — interpolating linearly in OKLab keeps lightness even and stays saturated, so the midpoint of blue→yellow reads as the green you expect rather than grey. Same reasoning applies to `color-mix(in oklab, ...)`, which takes the identical `in <color-space>` syntax.
 
+## Which spaces you can name (`<color-interpolation-method>` syntax)
+
+Per MDN, the `in …` clause accepts (CSS Color 4):
+
+- **Rectangular spaces:** `srgb`, `srgb-linear`, `display-p3`, `a98-rgb`, `prophoto-rgb`, `rec2020`, `lab`, `oklab`, `xyz`, `xyz-d50`, `xyz-d65`
+- **Polar spaces** (with optional hue method `shorter hue` | `longer hue` | `increasing hue` | `decreasing hue`, default `shorter hue`): `hsl`, `hwb`, `lch`, `oklch`
+- A `<dashed-ident>` referring to a custom `@color-profile` rule
+
+The same syntax works identically in `color-mix()`, `linear-gradient()`, `radial-gradient()`, and `conic-gradient()`.
+
+## Spec shift: Oklab is becoming the *default*
+
+The sRGB-muddiness described above is the *legacy* behavior. The W3C CSSWG resolved to change the **default** interpolation of `<color>` values (gradients, `color-mix()`) from gamma-encoded sRGB to **Oklab** — "interpolating colors in Oklab never produces worse results" was the decisive argument in the working-group discussion (csswg-drafts #7948). MDN now documents the default interpolation space as Oklab. Practical takeaway: eventually the `in oklab` hint becomes redundant and the sRGB-fallback-first pattern only matters for older engines; today, still declare both.
+
+## Browser support (color functions and `in <space>` interpolation)
+
+| Browser | First version with oklab/oklch |
+|---|---|
+| Chrome / Edge | 111 |
+| Firefox | 113 |
+| Safari | 15.4 |
+
+Oklab/OKLCH colors are Baseline "widely available" (caniuse). One quirk to know: for `longer hue`/`shorter hue` in polar gradients, Safari historically followed a strictly numeric interpolation for edge cases (csswg-drafts #7750) — if a rainbow gradient renders differently across engines, pin the hue method explicitly.
+
 ## References
 
 - [Why your CSS gradients look muddy in the middle (and the one-word fix) — DEV.to](https://dev.to/gotoolsonline/why-your-css-gradients-look-muddy-in-the-middle-and-the-one-word-fix-4phj)
+- [MDN: `<color-interpolation-method>`](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/color-interpolation-method)
 - [MDN: CSS `<gradient>` — interpolation color space](https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/linear-gradient)
+- [CSSWG draft discussion: default gradient interpolation in Oklab (issue #7948)](https://github.com/w3c/csswg-drafts/issues/7948)
+- [OKLCH in CSS: why we moved from RGB and HSL — Evil Martians](https://evilmartians.com/chronicles/oklch-in-css-why-quit-rgb-hsl)
+- [caniuse: css-oklch](https://caniuse.com/css-oklch)

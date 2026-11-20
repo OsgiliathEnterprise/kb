@@ -18,6 +18,8 @@ keywords:
 ## Overview
 This paper (GPCPlace) shows that SM partitioning via CUDA Green Contexts does not fully isolate co-located GPU workloads: contention also happens at the crossbar ports linking each Graphics Processing Cluster (GPC) to the L2 cache. A runtime system that dynamically chooses between "spreading" and "packing" workloads across GPCs recovers much of the lost latency.
 
+**Paper details** (verified on arXiv, 2026-11-20): Ziwen Wang, Qi Luo, Kunlin Li, Changxi Liu, Dongsheng Wang, Yun Chen — submitted 18 Nov 2026, 7 pages / 7 figures / 1 table, categories cs.DC (primary) and cs.AR.
+
 ## Problem Statement
 Green Contexts restrict concurrent workloads to disjoint SMs to avoid scheduling interference, yet latency-critical workloads still slow down. Prior work blamed shared L2/memory bandwidth, but the authors identify a second mechanism: all SMs of a GPC share a single crossbar port to L2, and Green Contexts' spreading policy co-locates background requests with latency-critical ones on the same ports.
 
