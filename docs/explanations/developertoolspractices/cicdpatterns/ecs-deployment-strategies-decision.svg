@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="36.0 -4.0 998.0 460.0" width="998" height="460">
+<rect x="36.0" y="-4.0" width="998.0" height="460.0" fill="#ffffff"/>
+<rect x="60.0" y="90.0" width="200.0" height="60.0" rx="8" fill="#f1f3f5" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="60.0" y="200.0" width="200.0" height="60.0" rx="8" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="330.0" y="90.0" width="230.0" height="60.0" rx="8" fill="#f1f3f5" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="330.0" y="200.0" width="230.0" height="70.0" rx="8" fill="#d0ebff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="620.0" y="90.0" width="230.0" height="60.0" rx="8" fill="#f1f3f5" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="620.0" y="200.0" width="230.0" height="70.0" rx="8" fill="#e5dbff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="60.0" y="320.0" width="420.0" height="70.0" rx="8" fill="#fff9db" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="540.0" y="320.0" width="310.0" height="70.0" rx="8" fill="#ffe3e3" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 160.0 152.0 L 160.0 198.0"/><line x1="160.0" y1="198.0" x2="166.1" y2="185.4"/><line x1="160.0" y1="198.0" x2="153.9" y2="185.4"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 262.0 118.0 L 328.0 118.0"/><line x1="328.0" y1="118.0" x2="315.4" y2="111.9"/><line x1="328.0" y1="118.0" x2="315.4" y2="124.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 445.0 152.0 L 445.0 198.0"/><line x1="445.0" y1="198.0" x2="451.1" y2="185.4"/><line x1="445.0" y1="198.0" x2="438.9" y2="185.4"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 562.0 118.0 L 618.0 118.0"/><line x1="618.0" y1="118.0" x2="605.4" y2="111.9"/><line x1="618.0" y1="118.0" x2="605.4" y2="124.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 735.0 152.0 L 735.0 198.0"/><line x1="735.0" y1="198.0" x2="741.1" y2="185.4"/><line x1="735.0" y1="198.0" x2="728.9" y2="185.4"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 270.0 272.0 L 270.0 318.0"/><line x1="270.0" y1="318.0" x2="276.1" y2="305.4"/><line x1="270.0" y1="318.0" x2="263.9" y2="305.4"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 700.0 272.0 L 700.0 318.0"/><line x1="700.0" y1="318.0" x2="706.1" y2="305.4"/><line x1="700.0" y1="318.0" x2="693.9" y2="305.4"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="24" fill="#1e1e1e" text-anchor="start"><tspan x="60.0" y="39.2">ECS deployment strategy: pick by rollback speed vs cost</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="72.0" y="111.2">Everyday change,</tspan><tspan x="72.0" y="128.7">cost-sensitive?</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="72.0" y="221.2">ROLLING</tspan><tspan x="72.0" y="238.7">+ circuit breaker + alarms</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="342.0" y="111.2">Bad release expensive?</tspan><tspan x="342.0" y="128.7">Need instant rollback?</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="342.0" y="219.2">BLUE/GREEN</tspan><tspan x="342.0" y="236.7">old rev warm 24h bake;</tspan><tspan x="342.0" y="254.2">rollback = traffic shift</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="632.0" y="111.2">Need gradual traffic</tspan><tspan x="632.0" y="128.7">steps?</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="632.0" y="219.2">LINEAR (equal steps)</tspan><tspan x="632.0" y="236.7">CANARY (2-step shift)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="72.0" y="339.2">Guardrails on ALL strategies:</tspan><tspan x="72.0" y="356.7">circuit breaker, CloudWatch alarms, StopServiceDeployment,</tspan><tspan x="72.0" y="374.2">lifecycle hooks (Lambda / pause -&gt; ContinueServiceDeployment)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="552.0" y="339.2">No ALB/Service Connect/VPC Lattice?</tspan><tspan x="552.0" y="356.7">Lambda hook at traffic-shift stage:</tspan><tspan x="552.0" y="374.2">you own the traffic shifting</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#495057" text-anchor="start"><tspan x="60.0" y="421.2">Rolling rollback = full redeploy (bad version keeps serving). Blue/green doubles capacity during window.</tspan></text>
+</svg>
