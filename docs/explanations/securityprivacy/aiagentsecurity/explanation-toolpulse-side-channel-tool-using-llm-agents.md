@@ -41,3 +41,8 @@ Complements the KB's GPU-side channel notes (`explanation-policysniff-shared-gpu
 ## References
 - Paper: https://arxiv.org/abs/2611.25470
 - Semantic Scholar: https://api.semanticscholar.org/graph/v1/paper/arXiv:2611.25470
+
+## Further Reading (added 2026-11-20 by KB Zookeeper audit)
+- **Spill The Beans: Exploiting CPU Cache Side-Channels to Leak Tokens from LLMs, arXiv:2505.00817:** https://arxiv.org/abs/2505.00817 — same Flush+Reload family, one layer earlier in the stack: monitors the embedding layer of a co-located LLM process (via KSM-deduplicated shared pages) to leak generated *tokens*. Shows the inference half of the stack is already covered by prior work, which is why ToolPulse's tool-execution focus is the novel piece.
+- **I Know What You Said: Unveiling Hardware Cache Side-Channels in Local LLM Inference (USENIX Security 2025):** https://www.usenix.org/system/files/sec25_slides_gao-zibo.pdf — documents the noise problem ToolPulse had to solve: standard Flush+Reload on local LLMs yields ~100 valid tokens/s against ~5×10⁶ noise events/s, with the hardware adjacent-cache-line prefetcher as root cause; a reminder that attack feasibility hinges on microarchitectural noise control.
+- **Governing the KV Cache: Preventing Timing Side-Channels in Multi-Tenant LLM Serving, arXiv:2608.09225:** https://arxiv.org/abs/2608.09225 — the shared-state analogue one layer up: shared prefix KV caches let one tenant reconstruct another's private prompt from cache-hit latency (PROMPTPEEK-family attacks). Together with ToolPulse this forms a three-layer threat surface for agentic serving — KV-cache timing, CPU library residency, and GPU policy state — each needing its own isolation control.

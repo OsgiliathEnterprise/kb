@@ -35,3 +35,8 @@ Direct evolution of the KB's KV tiering notes: KVCompass covers discovery, MoE-C
 ## References
 - Paper: https://arxiv.org/abs/2611.25112
 - Semantic Scholar: https://api.semanticscholar.org/graph/v1/paper/arXiv:2611.25112
+
+## Further Reading (added 2026-11-20 by KB Zookeeper audit)
+- **vLLM tiered KV cache offloading (official blog, 2026-09-10):** https://vllm.ai/blog/2026-09-10-tiered-kv-offloading — the production framework that corresponds to TripleKV's "vLLM with DRAM+SSD tiers" baseline. Host-centric design: all KV data flows through CPU DRAM first; accelerator memory is freed as soon as the PCIe host copy completes (just-in-time allocation); secondary tiers (filesystem, object storage, remote peers) extend capacity and enable cross-node cache sharing via a canonical host-side memory layout. Available in vLLM since v0.22. Crucially, reloads are *reactive* — "hits in the offload tiers are promoted back to GPU on demand" — which is exactly the demand-miss behaviour TripleKV's tool-aware prefetcher eliminates from the critical path.
+- **vLLM KV Offloading Usage Guide:** https://docs.vllm.ai/en/stable/features/kv_offloading_usage/ — configuration of the OffloadingConnector (CPU host memory + optional secondary tiers); useful for reproducing TripleKV's baseline setups.
+- **Benchmark artifacts:** https://github.com/neuralmagic/fs-offload-experiments — storage-tier offloading benchmarks (Qwen3.6-35B-A3B on 2×H100, NVMe filesystem tier): beyond ~128 concurrent conversations the CPU cache also fills and storage-backed hits more than double throughput vs recompute — quantifying the SSD-read cost TripleKV hides behind tool-execution gaps.
