@@ -94,6 +94,27 @@ Confirmed end-to-end with real Copilot CLI: it re-requested `tools/list` repeate
 
 **Finding 3 — client-side caching is timing-sensitive.** A simulated edge proxy that *does* honor `ttlMs` normally collapses 20 planning turns to ~2 fetches. But under adversarial timing (slow laptop, ~2 s round-trips matching the proxy's own 2 s window), the client cache expired just before every next call: **0% avoided** — while the server-side cache still served 19 of 20 calls from memory. TTL effectiveness depends on the relationship between cache TTL, request frequency, and round-trip latency; client-side caching is dependent on consumer behavior and timing, server-side stays effective even when clients ignore the hint.
 
+## The other half of freshness: `ttlMs` × `list_changed`
+
+Caching and change notifications are designed to work together, and the interaction changed in the stateless 2026-07-28 spec:
+
+- A `notifications/tools/list_changed` **invalidates a cached list immediately**, even if its TTL hasn't expired. A server that *can't* push notifications can still keep clients reasonably fresh with a short TTL — TTL is the fallback freshness mechanism when push isn't available.
+- Under 2026-07-28 there is no protocol-level session: `list_changed` is delivered **only on a `subscriptions/listen` stream** the client opened with `toolsListChanged: true` (the server confirms via `notifications/subscriptions/acknowledged`). The old "call `login`, new tools appear on this connection" pattern is no longer allowed — tool lists must not vary per connection, only by the caller's authorization (which is exactly what `cacheScope: "private"` encodes).
+- The spec asks servers to return tools in a **deterministic order**, which keeps both client caches and upstream LLM prompt caches stable — and makes it easier to notice when the catalog actually changed.
+- Client support is uneven: support "varies by host, version and protocol revision, and some clients only fetch tools when they connect" (Claude Code documents re-fetching on `list_changed`). Test `list_changed` against every target client and keep the server usable with its initial tool list. SDK note: the v2 TypeScript `registerTool` handle sends `list_changed` automatically on `enable()/disable()/update()/remove()`; the Python v2 `MCPServer` (`FastMCP` renamed `MCPServer` in `mcp` 2.x) requires you to publish it yourself (`ctx.notify_tools_changed()` or a subscription bus).
+
+## Caching as a security control: tool poisoning
+
+Cache hints have a security dimension the performance framing misses (Invariant Labs' *tool poisoning* attack, analyzed by Willis Vandevanter): an attacker changes a tool's **description** *after* the user approved it — same name, hidden instructions or exfil arguments in the new description, while the UI still shows the friendly approved name. Short-lived server compromise, a swapped local package, or a malicious operator edit are all paths to the same failure.
+
+`ttlMs`/`cacheScope` blunt this when the client treats a catalog change as a **security event, not just a cache miss**:
+
+- A client that honors `ttlMs` keeps one catalog for the TTL window, so a fleeting compromise can't poison the very next agent turn — analogous to a package-registry publish cool-down: it buys time and makes sudden post-trust changes harder to hide.
+- A client that re-lists on every agent step gets **zero** protection from the fields; a client that caches forever without integrity checking can keep a poisoned catalog in memory. Caching alone fixes nothing — it proves nothing about who produced the catalog.
+- The defense-in-depth checklist for client builders: (1) honor `ttlMs`; (2) **hash the approved catalog** (name + full description + schemas) at approve time and re-prompt when the hash changes after expiry; (3) show full descriptions at approval, not just tool names; (4) pin server/package versions — a TTL won't protect a floating `npx` tag.
+
+> 💡 SEP-2549 was written for cache strategy and prompt-cache stability; the security benefit is a side effect — but implement the fields *as if the security benefit were intentional*.
+
 ## Whose database, and who protects it?
 
 This protects the **server's** backend, not the client's: the agent is the *source* of the load; the corporate database behind the server is the victim. Three places a cache can step in — each reduces load reaching the DB, and the further upstream it lives, the more work it eliminates:
@@ -113,6 +134,8 @@ Since the tested clients don't honor the hint, **the server-side cache is the on
 - Recursive AI planning turns `tools/list` into a self-inflicted DoS — every planning turn re-runs the registry/RBAC/schema queries behind discovery.
 - `ttlMs`/`cacheScope` are the right vocabulary, but they're **advice for consumers** — and the tested Copilot CLI/Cursor versions didn't honor it, so a **server-side discovery cache** is the protection you can enforce unilaterally.
 - Cache read-only results, never actions; key the cache by `cacheScope` (`public` vs `private`) so per-tenant tool lists never leak across callers.
+- TTL is the freshness *fallback* — a `list_changed` notification (2026-07-28: only on an opened `subscriptions/listen` stream) invalidates a cached list before its TTL expires; test each client, since some only fetch tools at connect.
+- Treat catalog changes as security events: honor `ttlMs`, hash approved catalogs, show full descriptions at approval — otherwise post-approval tool poisoning survives the cache.
 
 ## References
 
@@ -121,3 +144,6 @@ Since the tested clients don't honor the hint, **the server-side cache is the on
 - [SEP-2549 — TTL for List Results](https://modelcontextprotocol.io/seps/2549-TTL-for-list-results)
 - [SEP-2575 — Make MCP Stateless (Part 1 of this series)](https://modelcontextprotocol.io/seps/2575-stateless-mcp)
 - [HTTP Caching — Cache-Control (RFC 9111)](https://www.rfc-editor.org/rfc/rfc9111)
+- [MCP list caching and tool poisoning — Willis Vandevanter (silentrobots.com)](https://silentrobots.com/mcp-list-caching-and-tool-poisoning/)
+- [MCP Dynamic Tool Registration and Discovery, Explained (mcp.so)](https://mcp.so/blog/mcp-tool-discovery)
+- [Invariant Labs — MCP Security Notification: Tool Poisoning Attacks](https://invariantlabs.ai/blog/mcp-security-notification-tool-poisoning-attacks)
