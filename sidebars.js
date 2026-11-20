@@ -360,7 +360,7 @@ const sidebars = {
           type: 'category',
           label: 'Aiagentsecurity',
           link: {type: 'generated-index', title: 'Aiagentsecurity', slug: 'how-to/securityprivacy/aiagentsecurity'},
-          items: ['how-to/securityprivacy/aiagentsecurity/how-to-answerability-audit-state-dependent-command-safety', 'how-to/securityprivacy/aiagentsecurity/how-to-autopi-taxonomy-adaptive-red-teaming', 'how-to/securityprivacy/aiagentsecurity/how-to-evolve-agent-safety-harnesses-adaptive-injection-stressors', 'how-to/securityprivacy/aiagentsecurity/how-to-origin-agent-incident-backtracking-cldg', 'how-to/securityprivacy/aiagentsecurity/how-to-pipette-purple-team-prompt-injection-defense', 'how-to/securityprivacy/aiagentsecurity/howto-caplite-prompt-injection-defense-slm-agents', 'how-to/securityprivacy/aiagentsecurity/howto-continuation-audits-agent-overeagerness', 'how-to/securityprivacy/aiagentsecurity/howto-mcp-security-hardening', 'how-to/securityprivacy/aiagentsecurity/howto-mobileprobe-mobile-agent-red-teaming'],
+          items: ['how-to/securityprivacy/aiagentsecurity/how-to-answerability-audit-state-dependent-command-safety', 'how-to/securityprivacy/aiagentsecurity/how-to-autopi-taxonomy-adaptive-red-teaming', 'how-to/securityprivacy/aiagentsecurity/how-to-evolve-agent-safety-harnesses-adaptive-injection-stressors', 'how-to/securityprivacy/aiagentsecurity/how-to-origin-agent-incident-backtracking-cldg', 'how-to/securityprivacy/aiagentsecurity/how-to-pipette-purple-team-prompt-injection-defense', 'how-to/securityprivacy/aiagentsecurity/howto-caplite-prompt-injection-defense-slm-agents', 'how-to/securityprivacy/aiagentsecurity/howto-continuation-audits-agent-overeagerness', 'how-to/securityprivacy/aiagentsecurity/howto-mcp-security-hardening', 'how-to/securityprivacy/aiagentsecurity/howto-mobileprobe-mobile-agent-red-teaming', 'how-to/securityprivacy/aiagentsecurity/howto-wolf-defender-camel-prompt-injection-gate'],
         },
         {
           type: 'category',
@@ -1166,6 +1166,18 @@ const sidebars = {
           label: 'Multimodal',
           link: {type: 'generated-index', title: 'Multimodal', slug: 'examples/aimachinelearning/multimodal'},
           items: ['examples/aimachinelearning/multimodal/example-whistle-on-device-speech-to-text'],
+        },
+        {
+          type: 'category',
+          label: 'Workflowautomation',
+          link: {type: 'generated-index', title: 'Workflowautomation', slug: 'examples/developertoolspractices/workflowautomation'},
+          items: ['examples/developertoolspractices/workflowautomation/example-python-review-request-automation'],
+        },
+        {
+          type: 'category',
+          label: 'Cpp',
+          link: {type: 'generated-index', title: 'Cpp', slug: 'examples/programming/cpp'},
+          items: ['examples/programming/cpp/example-std-generator-lazy-file-lines'],
         },
         {
           type: 'category',
