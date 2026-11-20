@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 36.0 948.0 268.0" width="948" height="268">
+<rect x="16.0" y="36.0" width="948.0" height="268.0" fill="#ffffff"/>
+<rect x="40.0" y="60.0" width="240.0" height="80.0" rx="0" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="360.0" y="60.0" width="250.0" height="80.0" rx="0" fill="#d9ccff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="690.0" y="60.0" width="250.0" height="80.0" rx="0" fill="#fff3bf" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="690.0" y="210.0" width="250.0" height="70.0" rx="0" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 285.0 100.0 L 355.0 100.0"/><line x1="355.0" y1="100.0" x2="342.4" y2="93.9"/><line x1="355.0" y1="100.0" x2="342.4" y2="106.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 615.0 100.0 L 685.0 100.0"/><line x1="685.0" y1="100.0" x2="672.4" y2="93.9"/><line x1="685.0" y1="100.0" x2="672.4" y2="106.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 815.0 145.0 L 815.0 205.0"/><line x1="815.0" y1="205.0" x2="821.1" y2="192.4"/><line x1="815.0" y1="205.0" x2="808.9" y2="192.4"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="160.0" y="93.7">Lines (BT-131)</tspan><tspan x="160.0" y="111.2">qty x net price - line allowances</tspan><tspan x="160.0" y="128.7">ROUND each line to 2 decimals</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="485.0" y="93.7">Per VAT category (BT-116)</tspan><tspan x="485.0" y="111.2">SUM rounded line nets</tspan><tspan x="485.0" y="128.7">then apply rate ONCE (BR-CO-17)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="815.0" y="93.7">Totals chain</tspan><tspan x="815.0" y="111.2">BT-109 = sum - BT-107 + BT-108</tspan><tspan x="815.0" y="128.7">BT-112 = BT-109 + BT-110</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="815.0" y="238.7">BT-115 amount due</tspan><tspan x="815.0" y="256.2">= BT-112 - BT-113 + BT-114</tspan><tspan x="815.0" y="273.7">(declare prepaid = 0 due)</tspan></text>
+</svg>

@@ -106,6 +106,12 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Voiceassistants',
+          link: {type: 'generated-index', title: 'Voiceassistants', slug: 'how-to/aillm/voiceassistants'},
+          items: ['how-to/aillm/voiceassistants/howto-microwakeword-voice-assistant-pipeline'],
+        },
+        {
+          type: 'category',
           label: 'Agentarchitecture',
           link: {type: 'generated-index', title: 'Agentarchitecture', slug: 'how-to/aimachinelearning/agentarchitecture'},
           items: ['how-to/aimachinelearning/agentarchitecture/how-to-route-to-remember-adaptive-memory-selection', 'how-to/aimachinelearning/agentarchitecture/how-to-semantic-context-handoff-long-horizon-agents', 'how-to/aimachinelearning/agentarchitecture/howto-agentic-rag-pipeline-with-real-time-web-search', 'how-to/aimachinelearning/agentarchitecture/howto-build-effectively-once-agent-workflows', 'how-to/aimachinelearning/agentarchitecture/howto-closed-world-resolution-tool-hallucination', 'how-to/aimachinelearning/agentarchitecture/howto-durable-genkit-flows-with-temporal', 'how-to/aimachinelearning/agentarchitecture/howto-idempotency-keys-ai-agent-tool-execution', 'how-to/aimachinelearning/agentarchitecture/howto-jev-mobile-vlm-planning-lightweight-execution', 'how-to/aimachinelearning/agentarchitecture/howto-langgraph-node-failure-observability', 'how-to/aimachinelearning/agentarchitecture/howto-raft-stateful-rag-troubleshooting-agents', 'how-to/aimachinelearning/agentarchitecture/howto-step-functions-waitfortasktoken-agent-approvals'],
@@ -430,6 +436,12 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Einvoicing',
+          link: {type: 'generated-index', title: 'Einvoicing', slug: 'how-to/softwaredevelopment/einvoicing'},
+          items: ['how-to/softwaredevelopment/einvoicing/howto-en-16931-vat-rounding-and-total-checks'],
+        },
+        {
+          type: 'category',
           label: 'Distributedtransactions',
           link: {type: 'generated-index', title: 'Distributedtransactions', slug: 'how-to/systemdesign/distributedtransactions'},
           items: ['how-to/systemdesign/distributedtransactions/howto-implement-transactional-outbox-pattern'],
@@ -507,6 +519,12 @@ const sidebars = {
           label: 'Mechanisticinterpretability',
           link: {type: 'generated-index', title: 'Mechanisticinterpretability', slug: 'explanations/aillm/mechanisticinterpretability'},
           items: ['explanations/aillm/mechanisticinterpretability/explanation-goal-encoding-in-llms', 'explanations/aillm/mechanisticinterpretability/explanation-mechanistic-interpretability-ai-safety-survey'],
+        },
+        {
+          type: 'category',
+          label: 'Mlopsdevops',
+          link: {type: 'generated-index', title: 'Mlopsdevops', slug: 'explanations/aillm/mlopsdevops'},
+          items: ['explanations/aillm/mlopsdevops/explanation-llm-incident-triage-evidence-schema-grading'],
         },
         {
           type: 'category',
@@ -678,6 +696,12 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Objectstorage',
+          link: {type: 'generated-index', title: 'Objectstorage', slug: 'explanations/cloudinfrastructure/objectstorage'},
+          items: ['explanations/cloudinfrastructure/objectstorage/explanation-multitenant-private-bucket-database-metadata'],
+        },
+        {
+          type: 'category',
           label: 'Streaming',
           link: {type: 'generated-index', title: 'Streaming', slug: 'explanations/cloudinfrastructure/streaming'},
           items: ['explanations/cloudinfrastructure/streaming/explanation-aria-message-bus-topic-partition-indexing', 'explanations/cloudinfrastructure/streaming/explanation-nats-jetstream-vs-kafka-vs-pulsar-storage-topologies', 'explanations/cloudinfrastructure/streaming/explanation-picomq-durable-streams', 'explanations/cloudinfrastructure/streaming/explanation-rocketmq-rust-v1-message-lifecycle-and-runtime-ownership'],
@@ -832,7 +856,7 @@ const sidebars = {
           type: 'category',
           label: 'Frontendjavascript',
           link: {type: 'generated-index', title: 'Frontendjavascript', slug: 'explanations/programming/frontendjavascript'},
-          items: ['explanations/programming/frontendjavascript/explanation-browser-apis-replacing-npm-packages', 'explanations/programming/frontendjavascript/explanation-html-in-canvas-api', 'explanations/programming/frontendjavascript/explanation-js-string-concatenation-methods', 'explanations/programming/frontendjavascript/explanation-oxlint-oxfmt-benchmark-on-excalidraw', 'explanations/programming/frontendjavascript/explanation-pdf-compression-internals', 'explanations/programming/frontendjavascript/explanation-react-rerender-vs-expensive-work', 'explanations/programming/frontendjavascript/explanation-social-link-preview-metadata-pitfalls', 'explanations/programming/frontendjavascript/explanation-solid-2-0-async-reactivity-graph'],
+          items: ['explanations/programming/frontendjavascript/explanation-browser-apis-replacing-npm-packages', 'explanations/programming/frontendjavascript/explanation-html-in-canvas-api', 'explanations/programming/frontendjavascript/explanation-javascript-expression-evaluation-order', 'explanations/programming/frontendjavascript/explanation-js-string-concatenation-methods', 'explanations/programming/frontendjavascript/explanation-oxlint-oxfmt-benchmark-on-excalidraw', 'explanations/programming/frontendjavascript/explanation-pdf-compression-internals', 'explanations/programming/frontendjavascript/explanation-react-rerender-vs-expensive-work', 'explanations/programming/frontendjavascript/explanation-social-link-preview-metadata-pitfalls', 'explanations/programming/frontendjavascript/explanation-solid-2-0-async-reactivity-graph'],
         },
         {
           type: 'category',
@@ -856,7 +880,7 @@ const sidebars = {
           type: 'category',
           label: 'Java',
           link: {type: 'generated-index', title: 'Java', slug: 'explanations/programming/java'},
-          items: ['explanations/programming/java/explanation-better-tools-immutable-data-java', 'explanations/programming/java/explanation-java-sealed-classes-exhaustive-pattern-matching', 'explanations/programming/java/explanation-jdk-26-performance-improvements', 'explanations/programming/java/explanation-jdk-27-stop-the-world-gc-changes', 'explanations/programming/java/explanation-jdk-28-pooled-confined-arena', 'explanations/programming/java/explanation-jdk-28-value-classes-preview', 'explanations/programming/java/explanation-jep-540-simple-json-api-incubator', 'explanations/programming/java/explanation-jep-543-structured-concurrency-finalized-jdk28', 'explanations/programming/java/explanation-jep-546-zgc-adaptive-heap-sizing', 'explanations/programming/java/explanation-netflix-ja-module-system-toolchain', 'explanations/programming/java/explanation-specjbb-workload-generator-same-jvm-limitations', 'explanations/programming/java/explanation-spring-ai-2-0-composable-tool-calling-advisor-architecture', 'explanations/programming/java/explanation-structured-concurrency-project-loom', 'explanations/programming/java/explanation-valhalla-ticker-value-class', 'explanations/programming/java/explanation-value-class-numeric-conversions-primitive-patterns-jdk28', 'explanations/programming/java/explanation-zgc-decade-of-low-latency-gc', 'explanations/programming/java/explanation-zgc-weak-reference-processing'],
+          items: ['explanations/programming/java/explanation-better-tools-immutable-data-java', 'explanations/programming/java/explanation-java-sealed-classes-exhaustive-pattern-matching', 'explanations/programming/java/explanation-jdk-26-performance-improvements', 'explanations/programming/java/explanation-jdk-27-stop-the-world-gc-changes', 'explanations/programming/java/explanation-jdk-28-pooled-confined-arena', 'explanations/programming/java/explanation-jdk-28-value-classes-preview', 'explanations/programming/java/explanation-jep-540-simple-json-api-incubator', 'explanations/programming/java/explanation-jep-543-structured-concurrency-finalized-jdk28', 'explanations/programming/java/explanation-jep-546-zgc-adaptive-heap-sizing', 'explanations/programming/java/explanation-netflix-ja-module-system-toolchain', 'explanations/programming/java/explanation-specjbb-workload-generator-same-jvm-limitations', 'explanations/programming/java/explanation-spring-ai-2-0-composable-tool-calling-advisor-architecture', 'explanations/programming/java/explanation-spring-batch-6-1-features-and-breaking-changes', 'explanations/programming/java/explanation-structured-concurrency-project-loom', 'explanations/programming/java/explanation-valhalla-ticker-value-class', 'explanations/programming/java/explanation-value-class-numeric-conversions-primitive-patterns-jdk28', 'explanations/programming/java/explanation-zgc-decade-of-low-latency-gc', 'explanations/programming/java/explanation-zgc-weak-reference-processing'],
         },
         {
           type: 'category',
@@ -1042,7 +1066,7 @@ const sidebars = {
           type: 'category',
           label: 'Vulnerabilitymanagement',
           link: {type: 'generated-index', title: 'Vulnerabilitymanagement', slug: 'explanations/securityprivacy/vulnerabilitymanagement'},
-          items: ['explanations/securityprivacy/vulnerabilitymanagement/explanation-java4shell-openjdk-base64-rce', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-kvm-guest-to-host-escape-cve-2026-99312', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-machine-speed-vulnerability-discovery', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-nginx-http2-rce-cve-2026-123633-123007', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-procreverser-multi-agent-microarch-reverse-engineering', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-ruby-regexp-case-conversion-heap-overflows', 'explanations/securityprivacy/vulnerabilitymanagement/reference-crossploit-cross-version-poc-migration-benchmark'],
+          items: ['explanations/securityprivacy/vulnerabilitymanagement/explanation-java4shell-openjdk-base64-rce', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-kvm-guest-to-host-escape-cve-2026-99312', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-machine-speed-vulnerability-discovery', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-nginx-http2-rce-cve-2026-123633-123007', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-procreverser-multi-agent-microarch-reverse-engineering', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-ruby-regexp-case-conversion-heap-overflows', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-synology-sa-26-21-dsm-oauth-cve-2026-120382', 'explanations/securityprivacy/vulnerabilitymanagement/reference-crossploit-cross-version-poc-migration-benchmark'],
         },
         {
           type: 'category',

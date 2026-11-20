@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 46.0 918.0 318.0" width="918" height="318">
+<rect x="16.0" y="46.0" width="918.0" height="318.0" fill="#ffffff"/>
+<rect x="40.0" y="70.0" width="230.0" height="95.0" rx="0" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="340.0" y="70.0" width="250.0" height="95.0" rx="0" fill="#d9ccff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="660.0" y="70.0" width="250.0" height="95.0" rx="0" fill="#fff3bf" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="340.0" y="250.0" width="250.0" height="90.0" rx="0" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 275.0 117.0 L 335.0 117.0"/><line x1="335.0" y1="117.0" x2="322.4" y2="110.9"/><line x1="335.0" y1="117.0" x2="322.4" y2="123.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 595.0 117.0 L 655.0 117.0"/><line x1="655.0" y1="117.0" x2="642.4" y2="110.9"/><line x1="655.0" y1="117.0" x2="642.4" y2="123.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 785.0 170.0 L 605.0 250.0"/><line x1="605.0" y1="250.0" x2="619.0" y2="250.5"/><line x1="605.0" y1="250.0" x2="614.0" y2="239.3"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="155.0" y="102.5">Checked-in lineage &amp;</tspan><tspan x="155.0" y="120.0">ownership manifest (YAML)</tspan><tspan x="155.0" y="137.4">SLA, upstreams, owners,</tspan><tspan x="155.0" y="154.9">known_failure_modes</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="465.0" y="102.5">Page fires -&gt; assembler walks</tspan><tspan x="465.0" y="120.0">lineage upstream (depth 4),</tspan><tspan x="465.0" y="137.4">collects state + recent_changes</tspan><tspan x="465.0" y="154.9">(deploys/DDL)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="785.0" y="102.5">LLM with fixed JSON schema:</tspan><tspan x="785.0" y="120.0">cause + reasoning + confidence</tspan><tspan x="785.0" y="137.4">+ CONTRADICTING evidence</tspan><tspan x="785.0" y="154.9">+ first check (not a fix)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="465.0" y="279.9">Shadow-mode grading quarter:</tspan><tspan x="465.0" y="297.4">hit-rate by confidence bucket.</tspan><tspan x="465.0" y="314.9">Confidently-wrong is the</tspan><tspan x="465.0" y="332.4">failure mode to measure</tspan></text>
+</svg>

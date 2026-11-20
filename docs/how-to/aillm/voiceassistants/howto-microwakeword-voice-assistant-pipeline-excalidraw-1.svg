@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 56.0 1138.0 163.0" width="1138" height="163">
+<rect x="16.0" y="56.0" width="1138.0" height="163.0" fill="#ffffff"/>
+<rect x="40.0" y="80.0" width="220.0" height="90.0" rx="0" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="330.0" y="80.0" width="220.0" height="90.0" rx="0" fill="#d9ccff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="620.0" y="80.0" width="220.0" height="90.0" rx="0" fill="#fff3bf" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="910.0" y="80.0" width="220.0" height="90.0" rx="0" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 265.0 125.0 L 325.0 125.0"/><line x1="325.0" y1="125.0" x2="312.4" y2="118.9"/><line x1="325.0" y1="125.0" x2="312.4" y2="131.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 555.0 125.0 L 615.0 125.0"/><line x1="615.0" y1="125.0" x2="602.4" y2="118.9"/><line x1="615.0" y1="125.0" x2="602.4" y2="131.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 845.0 125.0 L 905.0 125.0"/><line x1="905.0" y1="125.0" x2="892.4" y2="118.9"/><line x1="905.0" y1="125.0" x2="892.4" y2="131.1"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="150.0" y="118.7">Wake word</tspan><tspan x="150.0" y="136.2">assistant.microwakeword (local)</tspan><tspan x="150.0" y="153.7">ESPHome/microWakeWord models</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="440.0" y="118.7">Speech-to-text</tspan><tspan x="440.0" y="136.2">assistant.openai (Whisper, cloud)</tspan><tspan x="440.0" y="153.7">assistant.vosk (local)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="730.0" y="118.7">Response</tspan><tspan x="730.0" y="136.2">openai plugin</tspan><tspan x="730.0" y="153.7">(cloud or local, keeps context)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="1020.0" y="118.7">Text-to-speech</tspan><tspan x="1020.0" y="136.2">tts.openai (cloud)</tspan><tspan x="1020.0" y="153.7">tts.piper (local, +3-4s on RPi 5)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="275.0" y="107.8">HotwordDetectedEvent</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="565.0" y="107.8">SpeechRecognizedEvent</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="640.0" y="207.8">response ends with '?' -&gt; follow-up round</tspan></text>
+</svg>
