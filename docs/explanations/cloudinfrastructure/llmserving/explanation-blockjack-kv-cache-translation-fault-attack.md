@@ -39,8 +39,13 @@ The attack corrupts block-table entries so that a request's logical KV blocks re
 ## Relevance to Our Domain
 Multi-tenant LLM serving has an OS-like memory-management substrate that inherits OS-class threats. This parallels earlier findings on cross-tenant cache-hit leakage and KV bit-flip task failures in this KB: serving-framework internals (block tables, prefix caches) are now first-class attack surface. Operators running shared vLLM fleets should track the vendor patches and consider isolation/monitoring of KV metadata.
 
+## Provenance & Verification (2026-11-21)
+Verified against the arXiv v1 abstract (submitted 2026-11-19): all headline claims in this note match — first KV-cache address-translation fault attack; block-table corruption without touching weights/prompts/KV states; confidentiality + integrity violations; predictability characterization for vLLM paged mappings; seven models across Qwen, Llama, Gemma, Phi; 41.1% less-urgent care recommendations on the 248-scene medical benchmark; Rowhammer feasibility; assignment-validation defense; vLLM and Sonar confirmed via responsible disclosure. Authors: Qifan Wang, Jeremy Boy, Jonas Sander, Yansong Gao, Hongsheng Hu, Ye Dong, Thomas Eisenbarth, David Oswald (8 authors; Eisenbarth and Oswald are established hardware/fault-attack security researchers — the OS-page-table analogy is deliberate and grounded in that lineage). Category: cs.CR; 6 figures, 5 tables.
+
 ## References
 - Paper: https://arxiv.org/abs/2611.25945
 - Semantic Scholar: https://api.semanticscholar.org/graph/v1/paper/arXiv:2611.25945
 - Related in KB: `explanation-cross-tenant-cache-hit-leakage-llm-serving.md`, `explanation-kv-cache-bit-flip-silent-task-failures.md`
 - Background: vLLM PagedAttention design docs (https://docs.vllm.ai/en/latest/design/paged_attention/)
+- vLLM Hybrid KV Cache Manager design docs — block-table management internals relevant to the attacked mapping layer (https://docs.vllm.ai/en/latest/design/hybrid_kv_cache_manager/)
+- arXiv HTML full text: https://arxiv.org/html/2611.25945v1
