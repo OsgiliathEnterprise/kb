@@ -72,13 +72,47 @@ IRREGULAR = {
 }
 ```
 
+## 5. Server-side alternative: synonym / thesaurus dictionaries
+Query-side expansion (Section 4) leaves the index untouched and needs no reindex. If you'd rather fix it at **index time**, PostgreSQL ships two dictionary templates for exactly this (docs §12.6.3–12.6.4):
+
+**Synonym dictionary** — one mapping per line (`word synonym`) in `$SHAREDIR/tsearch_data/<name>.syn`, placed *before* the stemmer in the mapping chain:
+
+```sql
+-- $SHAREDIR/tsearch_data/irregular_verbs.syn:
+--   paid pay
+--   sent send
+--   bought buy
+CREATE TEXT SEARCH DICTIONARY irregular_syn (
+    TEMPLATE = synonym,
+    SYNONYMS = irregular_verbs
+);
+ALTER TEXT SEARCH CONFIGURATION english
+    ALTER MAPPING FOR asciiword
+    WITH irregular_syn, english_stem;
+```
+
+After this, `ts_debug('english', 'paid')` yields `{pay}` and the original Section-1 query matches with no query-side changes. Caveats: the synonym file is server-side (needs file access or a DBA, shared across the cluster); append `*` to a synonym to make it a prefix match in `to_tsquery`; `CaseSensitive => true` disables case folding.
+
+**Thesaurus dictionary (TZ)** — extends synonym with **phrase** support: `sample word(s) : indexed word(s)` entries, normalized first by a single required subdictionary (e.g. `english_stem`). Use `?` where a stop word may appear, and the longest match wins:
+
+```sql
+CREATE TEXT SEARCH DICTIONARY verb_thes (
+    TEMPLATE = thesaurus,
+    DictFile = verb_thesaurus,
+    Dictionary = pg_catalog.english_stem
+);
+```
+
+⚠️ **Thesaurus changes require reindexing** the tsvector data (unlike stop-word tweaks) — and for a `GENERATED ALWAYS` column that means rewriting the table. Prefer the synonym template for one-word mappings; reserve thesaurus for multi-word equivalences. Either way, the application-side dictionary in Section 4 remains the deploy-free fallback.
+
 ## Checklist
 - [ ] Generated `tsvector` column (not trigger-maintained) for in-sync indexing
 - [ ] `ts_debug` check on your domain's verbs before shipping
 - [ ] Bound-parameter `plainto_tsquery` per word, combined with `&&` / `||` — never string-concatenated `to_tsquery`
-- [ ] Small reviewed irregular-verb dictionary
+- [ ] Small reviewed irregular-verb dictionary (app-side) — or a synonym dictionary mapped before `english_stem` (server-side; thesaurus template only if you accept reindexing)
 - [ ] Trigrams only as a typo-safety net, with a length-aware threshold
 
 ## References
 - Original: [Why "paying invoices" doesn't find "paid" in PostgreSQL full-text search](https://dev.to/danbasseda/why-paying-invoices-doesnt-find-paid-in-postgresql-full-text-search-3j4b)
+- [PostgreSQL Docs §12.6.3 Synonym Dictionary](https://www.postgresql.org/docs/current/textsearch-dictionaries.html#TEXTSEARCH-SYNONYM-DICTIONARY) and [§12.6.4 Thesaurus Dictionary](https://www.postgresql.org/docs/current/textsearch-dictionaries.html#TEXTSEARCH-THESAURUS)
 - Related: [[explanation-postgresql-generated-columns-vs-triggers]]
