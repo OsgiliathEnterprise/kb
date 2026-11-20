@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="36.0 -4.0 1048.0 345.5" width="1048" height="346">
+<rect x="36.0" y="-4.0" width="1048.0" height="345.5" fill="#ffffff"/>
+<rect x="60.0" y="100.0" width="210.0" height="90.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="305.0" y="100.0" width="210.0" height="90.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="550.0" y="100.0" width="210.0" height="90.0" rx="8" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="795.0" y="100.0" width="210.0" height="90.0" rx="8" fill="#ffd8a8" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 275.0 140.0 L 305.0 140.0"/><line x1="305.0" y1="140.0" x2="295.6" y2="135.4"/><line x1="305.0" y1="140.0" x2="295.6" y2="144.6"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 520.0 140.0 L 550.0 140.0"/><line x1="550.0" y1="140.0" x2="540.6" y2="135.4"/><line x1="550.0" y1="140.0" x2="540.6" y2="144.6"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 765.0 140.0 L 795.0 140.0"/><line x1="795.0" y1="140.0" x2="785.6" y2="135.4"/><line x1="795.0" y1="140.0" x2="785.6" y2="144.6"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="24" fill="#1e1e1e" text-anchor="start"><tspan x="60.0" y="39.2">PostgreSQL 19: REPACK (CONCURRENTLY) — online table rebuild</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="75.0" y="136.2">1. Start logical decoding</tspan><tspan x="75.0" y="153.7">slot on table WAL</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="320.0" y="136.2">2. Create + populate</tspan><tspan x="320.0" y="153.7">shadow copy of table</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="565.0" y="136.2">3. Replay concurrent I/U/D</tspan><tspan x="565.0" y="153.7">from WAL (no triggers!)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="810.0" y="136.2">4. Brief ACCESS EXCLUSIVE</tspan><tspan x="810.0" y="153.7">lock: swap files</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="60.0" y="241.2">Live table: fully READABLE + WRITABLE during steps 1-3   |   vs VACUUM FULL: locked entire duration</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="60.0" y="276.2">Requirements: 2x disk space · WAL-logged · not partitioned · indexable PK · one REPACK per DB</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="60.0" y="311.2">pg_repack: external CLI + triggers   |   pg_squeeze: extension + shared_preload_libraries   |   REPACK: built-in</tspan></text>
+</svg>

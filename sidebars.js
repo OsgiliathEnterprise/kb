@@ -294,7 +294,7 @@ const sidebars = {
           type: 'category',
           label: 'Databases',
           link: {type: 'generated-index', title: 'Databases', slug: 'how-to/programming/databases'},
-          items: ['how-to/programming/databases/howto-build-full-text-search-sqlite-fts5', 'how-to/programming/databases/howto-catch-silent-table-loss-in-supabase-pg-restore', 'how-to/programming/databases/howto-port-mysql-schema-to-postgresql', 'how-to/programming/databases/howto-postgresql-fts-irregular-verb-stemming', 'how-to/programming/databases/howto-prevent-oversell-atomic-conditional-update'],
+          items: ['how-to/programming/databases/howto-build-full-text-search-sqlite-fts5', 'how-to/programming/databases/howto-catch-silent-table-loss-in-supabase-pg-restore', 'how-to/programming/databases/howto-port-mysql-schema-to-postgresql', 'how-to/programming/databases/howto-postgresql-fts-irregular-verb-stemming', 'how-to/programming/databases/howto-prevent-oversell-atomic-conditional-update', 'how-to/programming/databases/howto-repack-online-table-bloat-postgres-19'],
         },
         {
           type: 'category',
@@ -788,7 +788,7 @@ const sidebars = {
           type: 'category',
           label: 'Mcp',
           link: {type: 'generated-index', title: 'Mcp', slug: 'explanations/developertoolspractices/mcp'},
-          items: ['explanations/developertoolspractices/mcp/explanation-mcp-code-mode-context-engineering', 'explanations/developertoolspractices/mcp/explanation-mcp-discovery-storms-sep-2549-caching', 'explanations/developertoolspractices/mcp/explanation-mcp-protocol-era-silent-downgrade-2026-07-28', 'explanations/developertoolspractices/mcp/explanation-mcp-servers-writing-public-content', 'explanations/developertoolspractices/mcp/explanation-mcp-step-up-authorization-vs-oauth-incremental', 'explanations/developertoolspractices/mcp/explanation-mcp-vs-rest-kafka-complementary-layers', 'explanations/developertoolspractices/mcp/explanation-tool-descriptions-are-the-contract'],
+          items: ['explanations/developertoolspractices/mcp/explanation-mcp-code-mode-context-engineering', 'explanations/developertoolspractices/mcp/explanation-mcp-context-tax-tool-schema-tokens', 'explanations/developertoolspractices/mcp/explanation-mcp-discovery-storms-sep-2549-caching', 'explanations/developertoolspractices/mcp/explanation-mcp-protocol-era-silent-downgrade-2026-07-28', 'explanations/developertoolspractices/mcp/explanation-mcp-servers-writing-public-content', 'explanations/developertoolspractices/mcp/explanation-mcp-step-up-authorization-vs-oauth-incremental', 'explanations/developertoolspractices/mcp/explanation-mcp-vs-rest-kafka-complementary-layers', 'explanations/developertoolspractices/mcp/explanation-tool-descriptions-are-the-contract'],
         },
         {
           type: 'category',
@@ -839,7 +839,7 @@ const sidebars = {
           type: 'category',
           label: 'Databases',
           link: {type: 'generated-index', title: 'Databases', slug: 'explanations/programming/databases'},
-          items: ['explanations/programming/databases/explanation-blobasaur-sqlite-sharded-blob-storage', 'explanations/programming/databases/explanation-duckdb-2-0-async-io-recursive-ctes-variant', 'explanations/programming/databases/explanation-duckdb-2-0-quack-client-server-agent-mode', 'explanations/programming/databases/explanation-keyset-pagination-offset-drift', 'explanations/programming/databases/explanation-mysql-json-duality-views', 'explanations/programming/databases/explanation-postgresql-generated-columns-vs-triggers', 'explanations/programming/databases/explanation-postgresql-local-nvme-storage-latency', 'explanations/programming/databases/explanation-row-number-rank-dense-rank-top-n', 'explanations/programming/databases/explanation-sql-not-in-null-trap'],
+          items: ['explanations/programming/databases/explanation-blobasaur-sqlite-sharded-blob-storage', 'explanations/programming/databases/explanation-duckdb-2-0-async-io-recursive-ctes-variant', 'explanations/programming/databases/explanation-duckdb-2-0-quack-client-server-agent-mode', 'explanations/programming/databases/explanation-keyset-pagination-offset-drift', 'explanations/programming/databases/explanation-mysql-json-duality-views', 'explanations/programming/databases/explanation-postgresql-19-release-highlights', 'explanations/programming/databases/explanation-postgresql-generated-columns-vs-triggers', 'explanations/programming/databases/explanation-postgresql-local-nvme-storage-latency', 'explanations/programming/databases/explanation-row-number-rank-dense-rank-top-n', 'explanations/programming/databases/explanation-sql-not-in-null-trap'],
         },
         {
           type: 'category',
@@ -1067,7 +1067,7 @@ const sidebars = {
           type: 'category',
           label: 'Vulnerabilitymanagement',
           link: {type: 'generated-index', title: 'Vulnerabilitymanagement', slug: 'explanations/securityprivacy/vulnerabilitymanagement'},
-          items: ['explanations/securityprivacy/vulnerabilitymanagement/explanation-java4shell-openjdk-base64-rce', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-kvm-guest-to-host-escape-cve-2026-99312', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-machine-speed-vulnerability-discovery', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-nginx-http2-rce-cve-2026-123633-123007', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-procreverser-multi-agent-microarch-reverse-engineering', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-ruby-regexp-case-conversion-heap-overflows', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-synology-sa-26-21-dsm-oauth-cve-2026-120382', 'explanations/securityprivacy/vulnerabilitymanagement/reference-crossploit-cross-version-poc-migration-benchmark'],
+          items: ['explanations/securityprivacy/vulnerabilitymanagement/explanation-java4shell-openjdk-base64-rce', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-kvm-guest-to-host-escape-cve-2026-99312', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-machine-speed-vulnerability-discovery', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-nginx-http2-rce-cve-2026-123633-123007', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-openssl-evp-encodeblock-buffer-overflow-cve-2026-121481', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-procreverser-multi-agent-microarch-reverse-engineering', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-ruby-regexp-case-conversion-heap-overflows', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-synology-sa-26-21-dsm-oauth-cve-2026-120382', 'explanations/securityprivacy/vulnerabilitymanagement/reference-crossploit-cross-version-poc-migration-benchmark'],
         },
         {
           type: 'category',
@@ -1171,7 +1171,7 @@ const sidebars = {
           type: 'category',
           label: 'Frontendjavascript',
           link: {type: 'generated-index', title: 'Frontendjavascript', slug: 'examples/programming/frontendjavascript'},
-          items: ['examples/programming/frontendjavascript/example-browser-only-pdf-processing-with-csp-enforcement', 'examples/programming/frontendjavascript/example-clock-based-countdown-timer', 'examples/programming/frontendjavascript/example-css-starting-style-allow-discrete-transitions', 'examples/programming/frontendjavascript/example-hldays-business-day-api-jurisdiction-holidays', 'examples/programming/frontendjavascript/example-intl-segmenter-text-analysis'],
+          items: ['examples/programming/frontendjavascript/example-browser-only-pdf-processing-with-csp-enforcement', 'examples/programming/frontendjavascript/example-clock-based-countdown-timer', 'examples/programming/frontendjavascript/example-css-oklab-oklch-gradient-interpolation', 'examples/programming/frontendjavascript/example-css-starting-style-allow-discrete-transitions', 'examples/programming/frontendjavascript/example-hldays-business-day-api-jurisdiction-holidays', 'examples/programming/frontendjavascript/example-intl-segmenter-text-analysis'],
         },
         {
           type: 'category',
