@@ -78,6 +78,15 @@ auto logs() const {
 - `co_yield` requires a generator promise type — `std::generator` provides it; hand-rolling `promise_type`/`initial_suspend`/`final_suspend` is what `std::generator` saves you.
 - Requires a C++23 toolchain with `<generator>` support (GCC 12+/Clang 15+/MSVC 17.3+ roughly); on embedded targets check your libc++/libstdc++ availability.
 
+## The standard contract (what you get for free)
+
+From [coro.generator] (C++23 §26.8): `std::generator<Ref, V = void, Allocator = void>` derives from `ranges::view_interface`, so it is a **single-pass input view** — `begin()` resumes the initially-suspended coroutine and returns an iterator; `end()` is `std::default_sentinel`. Practical consequences:
+
+- **Move-only, one pass**: you cannot iterate the same generator object twice; each range-for re-runs the call expression (`file.lines()` each time). A destructor destroys the whole coroutine chain — no leaks even if you break out of the loop early.
+- **Nested composition**: `co_yield ranges::elements_of(rng)` (C++23) splices another range/generator into the sequence. Generators are tracked on an internal stack of coroutine handles, so a *flat* output can be built from nested sub-generators — e.g. `lines()` could yield `elements_of` per rotated file and callers still see one flat line stream.
+- **Custom allocation**: the `Allocator` template parameter (or the `std::pmr::generator` alias using `polymorphic_allocator`) controls where the coroutine frame is allocated — relevant on embedded targets that pool memory.
+- `Ref` is what `co_yield` produces (a reference type or a copy-constructible value); `V` is the value type stored in the frame — they may differ (yield `string_view` referring to a stored `std::string` value is *not* allowed unless the common-reference requirements hold, which is why the dangling-view caveat above matters).
+
 ## When to reach for this
 
 Prefer `std::generator` over an iterator adapter when: iteration is linear, state is naturally expressed as local variables, and you want range composability without writing iterator concepts plumbing. The read-all-into-vector option remains fine when the working set is genuinely small — don't pay coroutine machinery cost for tiny files.
@@ -86,4 +95,6 @@ Prefer `std::generator` over an iterator adapter when: iteration is linear, stat
 
 - [Original post: On C++ — Coroutines (DEV.to)](https://dev.to/fill1890/on-c-coroutines-40cd)
 - [std::generator reference (cppreference)](https://en.cppreference.com/cpp/coroutine/generator)
+- [ranges::elements_of reference (cppreference)](https://en.cppreference.com/cpp/ranges/elements_of)
+- [MS C++ Team Blog: std::generator — Standard Library Coroutine Support](https://devblogs.microsoft.com/cppblog/std-generator-standard-library-coroutine-support/)
 - Related KB: [Cpp-Concurrency-Fundamentals](../Cpp-Concurrency-Fundamentals/), [Cpp-Language-Features](../Cpp-Language-Features/)

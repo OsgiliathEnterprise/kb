@@ -128,6 +128,13 @@ The author's local run (real model, no mocks) produced:
 - **Scan what actually reaches the model**: if retrieved knowledge, tool results or further forwarded text are appended downstream, the email-only pre-scan does not cover them. A local check also doesn't make the rest of the pipeline local — a continued message sent to a cloud LLM still leaves the machine.
 - **Pilot on your own mail** (ordinary requests, forwarded threads, quoted security advice, multilingual messages) before enabling automatic replies; a security discussion can contain injection-like words.
 
+## 7. About the model itself (Wolf Defender Small)
+
+- **Architecture**: ~141M parameters (140,642,306), fine-tuned from [mmBERT-small](https://huggingface.co/jhu-clsp/mmBERT-small) (ModernBERT backbone); multilingual binary classifier emitting `BENIGN` / `INJECTION` with a probability, 2,048-token context window. Apache-2.0 weights; upstream mmBERT-small is MIT.
+- **Camel's documented baseline** pins ONNX Runtime Java **1.30.0** and DJL HF Tokenizers **0.38.0** (the snapshot run above resolved newer 1.31.1 / 0.40.0 — treat the docs pair as the validated contract). Tested on Linux x86-64 CPU; jars ship CPU libs for Linux AArch64, macOS AArch64 and Windows x86-64 but those are unvalidated. No other Wolf variants, quantizations or execution providers are supported by this integration.
+- **Anti-tamper contract**: the component verifies **SHA-256 hashes of model.onnx, tokenizer.json and config.json at startup**, with no option to skip the checks — the pinned hashes establish label order, logits semantics and tokenizer compatibility. Keep the provisioned directory read-only while Camel runs. Only a plain nonblank `String` is accepted; structured wrappers, media parts and binary payloads are rejected *before* inference (text merely *mentioning* URLs/media is still text).
+- **Family**: a larger [Wolf Defender 308M](https://huggingface.co/patronus-studio/wolf-defender-prompt-injection) exists (Horizon 13-benchmark mean 92.29%, validation recall 95.84%, FPR 0.64%), plus quantized/edge variants; a Red Hat AI mirror is published as `RedHatAI/wolf-defender-prompt-injection`. Other integrations using the Small model: TrustyAI guardrails, AI-Parrot ONNX detector, Delphi Security xaIDR.
+
 ## References
 
 - [Original tutorial: Check Support Emails Before the LLM — Wolf Defender in Apache Camel (DEV.to)](https://dev.to/patronus_protect/check-support-emails-before-the-llm-wolf-defender-in-apache-camel-1dc)

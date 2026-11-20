@@ -83,7 +83,8 @@ Every weekday at 09:00 it asks newly finished clients and nudges anyone due — 
 ## Hardening notes (not in the original)
 
 - The state file is written once at the end: a crash mid-run loses that run's updates and can re-send the day's emails. For production, write atomically (temp file + `os.replace`) and record the send *before* sending (at-least-once beats at-most-once for spam risk).
-- `smtplib.SMTP_SSL(..., 465)` only; for START-on port 587 use `smtplib.SMTP(...)` + `starttls()`.
+- `smtplib.SMTP_SSL(..., 465)` only; for START-on port 587 use `smtplib.SMTP(...)` + `starttls()`. Pass `timeout=30` to the constructor — the default is *no timeout*, so a hung SMTP connection blocks the cron run indefinitely (and later cron ticks can pile up).
+- Wrap each `send()` in try/except and only flip `asked`/`reminded` on success; transient `SMTPServerDisconnected`/`SMTPResponseException` should leave the record unset so the next tick retries — but catch `SMTPAuthenticationException` separately and abort, or you'll loop a bad app password into provider lockout.
 - Marking `reviewed` in the CSV is manual — wire it to a webhook or your review platform's export instead.
 - Practical extensions: pull jobs from a CRM API instead of CSV, route negative replies to support instead of the public review page, log testimonials for reuse.
 
@@ -91,4 +92,5 @@ Every weekday at 09:00 it asks newly finished clients and nudges anyone due — 
 
 - [Original post: Automate Review Requests With 40 Lines of Python (DEV.to)](https://dev.to/greatest7/automate-review-requests-with-40-lines-of-python-h4h)
 - [Python smtplib docs](https://docs.python.org/3/library/smtplib.html)
+- [Python email.message docs (EmailMessage)](https://docs.python.org/3/library/email.message.html)
 - Related KB: [howto-qualify-inbound-leads-by-domain-apify-n8n](../../../how-to/developertoolspractices/workflowautomation/howto-qualify-inbound-leads-by-domain-apify-n8n.md)
