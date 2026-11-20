@@ -30,6 +30,9 @@ Yossef, Patashnik and Zamir (Aviv Yossef, Or Patashnik, Or Zamir — Tel Aviv Un
 ## Results
 Strong aggregate detection while remaining robust to various transformations, demonstrated on **both open-source and closed (API) models** — possible precisely because the scheme is restricted to black-box access. Code and project page are public (see paper comment field).
 
+## Security Caveat (enriched 2026-11-20)
+Distortion-freeness and transformation robustness are not the same as **unforgeability**. Independent work on diffusion-model semantic watermarks shows they remain **vulnerable to black-box forgery attacks** — an adversary with only sampling access can craft inputs that produce images carrying a target watermark signature ("On Forging Semantic Watermarks in Diffusion Models", OpenReview, 2025). Any deployment of this scheme for provenance/attribution should therefore treat detection as **evidence, not proof**, and combine it with cryptographic content credentials (e.g., C2PA manifests) where the publisher cooperates.
+
 ## Relevance to Our Domain
 AI provenance and content-attribution pipelines increasingly must watermark models they don't control (commercial image APIs). A black-box, distortion-free semantic watermark is deployable **without vendor cooperation**, which changes the economics of content-authenticity infrastructure. Complements token-level watermark references with a **semantic-space** detection design. Related: [[reference-codebook-multibit-llm-watermarking]].
 

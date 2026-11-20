@@ -25,15 +25,18 @@ The GNS→CBS relationship (McCandlish et al., 2018) is central to batch-size an
 | Dimension | Coverage |
 |---|---|
 | Size | >400 GNS measurement trajectories |
-| Domains | ResNets (classification), GPTs (language modeling), DiTs (image synthesis) |
-| Model scale | 11M – 1B parameters |
+| Domains | ResNets (classification, CIFAR-10), GPTs (language modeling, FineWeb), DiTs (image synthesis, ImageNet) |
+| Model scale | 11 configurations, 11M – 1B parameters |
 | Parameterization | Maximal Update Parameterization (muP) |
 | Sweeps | Dense batch-size × learning-rate grids |
+| Seeds | Mostly single seed; CV grid rerun with a second seed for error bars |
 | Access | https://huggingface.co/datasets/olympique-marcel/OpenGNS |
 
 ## Key Findings
-- **GNS behaves like a "temperature of training"**: stable across model sizes under muP at equivalent loss — a transferable quantity for hyperparameter planning.
-- **Task-dependent bias in the GNS→CBS relation**: CBS tends to be **overestimated for classification** and **underestimated for generative tasks**, consistently in direction across common CBS definitions.
+- **GNS behaves like a "temperature of training"**: stable across model sizes under muP at equivalent loss — a transferable quantity for hyperparameter planning. Holds only when batch size and learning rate are **jointly well-tuned**; GNS depends strongly on the (BS, LR) configuration otherwise.
+- **Task-dependent bias in the GNS→CBS relation**: CBS tends to be **overestimated for classification** and **underestimated for generative tasks**, consistently in direction across common CBS definitions and tolerated-overhead thresholds (10%/30%/50%).
+- **Seed sensitivity**: GNS trajectories are nearly identical across seeds; CBS estimates vary by a small factor (largest at the lowest target losses) but keep the same over/underestimation tendency.
+- **Context**: GNS appeared in frontier-model reports (GPT-3) and open-source implementations exist for autoregressive (GPT-NeoX) and diffusion (DiT) training, but no open measurement corpus existed before OpenGNS.
 
 ## How to Use (lookup guidance)
 1. Before a large training run, look up GNS trajectories for your architecture family and scale band to sanity-check your batch size against the implied CBS.
@@ -44,6 +47,7 @@ The GNS→CBS relationship (McCandlish et al., 2018) is central to batch-size an
 Practical MLOps reference for training-optimization: GNS/CBS measurement is the standard way to set critical batch size and learning-rate scaling. An open corpus lets us validate batch-size automation and budget planning against real trajectories instead of folklore.
 
 ## References
-- Paper: https://arxiv.org/abs/2611.24331
+- Paper: https://arxiv.org/abs/2611.24331 (Aach, Wang, Kesselheim, Lintermann — Jülich Supercomputing Centre; submitted 2026-11-18, cs.LG)
 - Dataset: https://huggingface.co/datasets/olympique-marcel/OpenGNS
 - Foundational: McCandlish et al. 2018, "An Empirical Model of Large-Batch Training"
+- Related: Scaling Diffusion Transformers via μP, https://arxiv.org/abs/2505.15270; Critical Batch Size Revisited, https://arxiv.org/abs/2505.23971
