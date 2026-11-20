@@ -184,6 +184,22 @@ echo "invalid exit: $?"    # expect 2
 
 The remote model (or any agent) produces a `receipt` that must satisfy the *same* schema and envelope. It never mutates your tree directly; it returns a proposal you run through `verify_receipt.py`. Only after the verifier exits 0 do you apply the patch — and even then, rerun `test_command` at home before trusting it.
 
+## Verifier hardening notes (jsonschema library)
+
+Three details from the `jsonschema` docs that matter once this gate is real:
+
+1. **`validate()` checks your schema first.** The convenience function validates the schema itself against its meta-schema before validating the instance — so a typo'd `receipt.schema.json` fails loudly with `SchemaError` instead of silently passing junk. If you validate many receipts in one run (a CI matrix), build a `Draft202012Validator` once and call `.validate()` / `.iter_errors()` on it directly; `iter_errors()` gives you *all* violations, not just the first, which makes the exit-2 report far more useful to whoever owns the agent.
+2. **`format` is opt-in — by default it is decorative.** `"format": "date-time"` or `"format": "ipv4"` in your schema does nothing unless you pass a checker: `Draft202012Validator(schema, format_checker=Draft202012Validator.FORMAT_CHECKER)`. If your receipt envelope grows fields that carry format constraints (timestamps, URLs, emails), wire in the `FormatChecker` or you are enforcing prose, not types.
+3. **Always pin the draft.** Keep the explicit `"$schema": "https://json-schema.org/draft/2020-12/schema"` in the receipt schema (as above). Without it, the validator class silently defaults to the library's latest draft, and a `pip install -U jsonschema` can change what your gate accepts.
+
+## The ecosystem moved toward this gate (2026)
+
+The receipt pattern is no longer just folk wisdom — platforms are making execution a permission, not a default:
+
+- **GitHub blocked `pull_request_target` by default in public repositories** starting December 2, 2026 (announced via workflow execution protections; enforcement was originally scheduled for November 2, 2026), unless an Actions event policy explicitly allows it. This trigger was the classic AI-review-bot exposure: it runs workflow code from the *base* branch with write secrets on untrusted PRs. The default-off rule is exactly the job-receipt philosophy applied at the CI layer — an unparseable/unauthorized proposal gets nothing.
+- The same "propose / rehearse / commit" staging shows up in agent platform design: the agent **proposes** (structured output only), a pipeline **rehearses** commands inside a throwaway deny-by-default sandbox, and only CI or a named human **commits**, with the actor identity stamped onto the artifact. If you add a rehearsal stage between Stage 4 and applying the patch, apply `test_command` inside an ephemeral environment (container/microVM), never on your laptop's shell.
+- CLI agent tools that gained `--json-schema` structured-output flags make unattended CI invocations attractive — but check the tool's permission surface first (turn limits, allowed/disallowed tools, sandbox or approval layer). A structured output from an unsandboxed agent is still an unsandboxed agent.
+
 ## Why this works
 
 - **The model is off your shell** — it can't touch files, secrets, or infra; it only returns JSON.
@@ -197,3 +213,7 @@ The remote model (or any agent) produces a `receipt` that must satisfy the *same
 
 ## References
 - [Require a Job Receipt. Apply Nothing the Schema Cannot Parse (DEV.to / aiio_8140)](https://dev.to/aiio_8140/require-a-job-receipt-apply-nothing-the-schema-cannot-parse-18dn)
+- [Schema Validation — jsonschema 4.26.0 documentation](https://python-jsonschema.readthedocs.io/en/stable/validate/)
+- [pull_request_target blocked by default December 2 — GitHub Changelog (2026-11-02)](https://github.blog/changelog/2026-11-02-pull_request_target-blocked-by-default-december-2/)
+- [Governing execution of GitHub Actions workflows — GitHub Docs](https://docs.github.com/en/actions/how-tos/administer/control-workflow-execution)
+- [GitHub Turns Off pull_request_target: Check AI Bots (Digital Applied)](https://www.digitalapplied.com/blog/github-pull-request-target-default-off-ai-review-bots)
