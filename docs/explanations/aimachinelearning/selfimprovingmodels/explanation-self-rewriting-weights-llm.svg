@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 -4.0 608.0 538.0" width="608" height="538">
+<rect x="16.0" y="-4.0" width="608.0" height="538.0" fill="#ffffff"/>
+<rect x="60.0" y="100.0" width="240.0" height="80.0" rx="8" fill="#e7f5ff" stroke="#1971c2" stroke-width="1.5"/>
+<rect x="360.0" y="100.0" width="240.0" height="80.0" rx="8" fill="#e7f5ff" stroke="#1971c2" stroke-width="1.5"/>
+<rect x="360.0" y="260.0" width="240.0" height="80.0" rx="8" fill="#d0bfff" stroke="#1971c2" stroke-width="1.5"/>
+<rect x="60.0" y="260.0" width="240.0" height="80.0" rx="8" fill="#e7f5ff" stroke="#1971c2" stroke-width="1.5"/>
+<rect x="60.0" y="420.0" width="540.0" height="90.0" rx="8" fill="#fff9db" stroke="#1971c2" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 300.0 140.0 L 360.0 140.0"/><line x1="360.0" y1="140.0" x2="347.4" y2="133.9"/><line x1="360.0" y1="140.0" x2="347.4" y2="146.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 480.0 180.0 L 480.0 260.0"/><line x1="480.0" y1="260.0" x2="486.1" y2="247.4"/><line x1="480.0" y1="260.0" x2="473.9" y2="247.4"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 360.0 300.0 L 300.0 300.0"/><line x1="300.0" y1="300.0" x2="312.6" y2="306.1"/><line x1="300.0" y1="300.0" x2="312.6" y2="293.9"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 180.0 260.0 L 180.0 180.0"/><line x1="180.0" y1="180.0" x2="173.9" y2="192.6"/><line x1="180.0" y1="180.0" x2="186.1" y2="192.6"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="20" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="36.0">Self-rewriting loop (no gradients, forward passes only)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="75.0" y="129.2">Run on graded tasks</tspan><tspan x="75.0" y="146.7">(own weights)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="375.0" y="129.2">Diagnose failures</tspan><tspan x="375.0" y="146.7">(own reasoning)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="375.0" y="289.2">Edit own weight files</tspan><tspan x="375.0" y="306.7">(its own optimizer)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="75.0" y="289.2">Test edits on practice set;</tspan><tspan x="75.0" y="306.7">submit only what works</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="75.0" y="442.4">Result: +6.6 pts on 490 unseen problems; accuracy rises monotonically over 8 sessions;</tspan><tspan x="75.0" y="458.6">repairs a damaged copy of itself to &gt;80% of original accuracy without ever</tspan><tspan x="75.0" y="474.9">reading the original weights. Emerges with scale (smaller models self-break).</tspan></text>
+</svg>
