@@ -28,7 +28,7 @@ PostgreSQL 19.0 was released **2026-11-19**. It is a major release with one head
 | Quicker foreign-key checks | Optimized FK constraint verification | Cheaper writes on FK-heavy schemas |
 | Logical replication without restart | Can be enabled when `wal_level = replica` (previously required `logical` + restart) | Much lower barrier to adopt logical replication / zero-downtime upgrades |
 | Sequence replication | Logical replication can now replicate sequence values | Removes a classic cutover footgun (sequence rollback after failover) |
-| `WAIT` command | "Read-your-writes" consistency on standbys | Applications can block until replay passes a known LSN before reading a replica |
+| `WAIT FOR LSN` command | "Read-your-writes" consistency on standbys | Applications can block until replay passes a known LSN before reading a replica |
 | Parallel autovacuum of indexes + prioritization scoring | `autovacuum_max_parallel_workers`; new scoring system prioritizes tables | Tackles the classic "autovacuum falls behind on big tables" problem |
 
 ## Migration and breaking changes (upgrade checklist)
@@ -44,6 +44,20 @@ Migrating from any prior major version requires `pg_dumpall`, `pg_upgrade`, or l
 7. **`postgres_fdw` inherits `READ ONLY`/`DEFERRABLE`** — read-only transactions can no longer write through FDW sessions.
 8. **`max_locks_per_transaction` default raised 64 → 128** — memory accounting changes on hosts with many `max_connections`.
 9. System columns disallowed in `COPY FROM ... WHERE` (values were ill-defined).
+
+## Confirmed by the official announcement (2026-11-19)
+
+The release announcement adds detail beyond the release-notes skim:
+
+- **REPACK replaces *both* `VACUUM FULL` and `CLUSTER`** (the note above only mentions VACUUM FULL). Both old commands remain available for compatibility. `REPACK` can reorder a table's data to match an index, the way `CLUSTER` did — without blocking reads or writes in the `CONCURRENTLY` form.
+- **Logical replication needs no `wal_level = logical` in postgresql.conf at all** — stronger than "no restart": PostgreSQL 19 *automatically raises the effective WAL level* to `logical` when you create the first logical replication slot. Inspect the real setting with the new preset GUC `effective_wal_level` (`wal_level` itself can stay `replica`).
+- **The standby consistency command is `WAIT FOR LSN`** (not just `WAIT`): a session on a standby blocks until replay passes a specific LSN before running the query.
+- **New observability**: `pg_stat_lock` (per-lock-type stats), `pg_stat_recovery` (recovery status), `pg_stat_autovacuum_scores` (see how the prioritization scores tables), an `IO` option for `EXPLAIN ANALYZE` (plus a matching `auto_explain` setting) reporting async-I/O activity, and full-page-image WAL bytes now surfaced in `pg_stat_wal`, `EXPLAIN (ANALYZE, WAL)`, and vacuum/analyze log events.
+- **I/O worker GUCs changed — a config-compat trap**: `io_workers` is **gone**, replaced by `io_min_workers` / `io_max_workers` (with `io_method = worker` as default). Any tuning that pinned `io_workers` on PG 18 must be rewritten on upgrade.
+- **Vacuum/analyze quality-of-life**: queries can now mark pages all-visible in the visibility map during execution (reducing future vacuum work); `vacuumdb --analyze-only` now covers partitioned tables when no tables are specified.
+- **Concrete performance claim**: optimized FK checks made **bulk inserts nearly 2× faster** in testing. Planner adds `NOT IN` → anti-join conversion (when no NULLs possible) and eager aggregation before joins.
+- **More developer features** (beyond the table): `INSERT ... ON CONFLICT DO SELECT` ("get or create" — `RETURNING` yields the conflicting existing rows), `COPY` to JSON output including a single JSON array, SQL/JSON path string methods (`lower()`, `upper()`, `replace()`, `split_part()`, `btrim()`), window functions `lead/lag/first_value/last_value/nth_value` gain `IGNORE NULLS`, and `random()` can produce random dates/timestamps in a range.
+- **Replication additions** (beyond sequences): `CREATE PUBLICATION ... FOR ALL TABLES EXCEPT ...` to exclude tables; `CREATE SUBSCRIPTION ... SERVER` sources connection settings from a foreign server (e.g. `postgres_fdw`); the `retain_dead_tuples` subscription option lets conflicts against concurrent deletes be detected and counted in `pg_stat_subscription_stats`; `postgres_fdw` `import_stats` pulls remote table statistics during `ANALYZE` instead of sampling rows remotely.
 
 ## Mental model
 

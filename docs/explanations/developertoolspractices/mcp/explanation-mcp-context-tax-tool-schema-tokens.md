@@ -61,6 +61,16 @@ Share of a 200k window @4cpt=0.099%
 
 The tax is not any single tool — it is the habit of registering an entire API surface "just in case". The adopted gate before adding tool #3: **each tool's schema must earn its per-turn cost**, measured (chars → estimated tokens/turn, cumulative across the expected agent-loop length), not guessed. Alternatives when a schema is too expensive: consolidate tools, shorten descriptions, flatten/simplify JSON Schemas, or move rarely-used capabilities behind a code-mode/meta-tool pattern (see related note on MCP code mode).
 
+## The industry answer: pay the tax lazily (verified 2026-11-20)
+
+The measured-tax framing has gone mainstream, and both major API vendors now ship *lazy tool loading* as the systemic fix — which validates the audit-first habit (you need the measurement to know when lazy loading pays for its extra round trip):
+
+- **Anthropic — Tool Search in Claude Code.** MCP tool definitions have been observed consuming **66,000+ tokens before the user types anything** with several servers connected. Claude Code's tool-search auto mode is now default: when MCP tool descriptions exceed **10% of the context window**, tools are deferred and loaded on demand. Independent benchmarks report whole-task cost savings around **46%** (not the ~64% off the definitions alone) because lazy loading costs **one extra round trip** to fetch a tool definition.
+- **OpenAI — Tool search in the API.** Model-side dynamic search/load of tools into context, explicitly designed to **preserve the prompt cache**: newly discovered tools are injected without invalidating the cached prefix. Same economic shape as the note's mental model: definitions become pay-per-use instead of a standing charge.
+- **Cost decomposition** (independent DEV.to write-up on the same problem): MCP token cost = *definitions* (all servers, every request, unless deferred) + *overhead* (tool-use system prompt, a few hundred tokens) + *traffic* (the calls and results — often bigger than the definitions). The definitions term is the only one you can audit offline, which is exactly what the 30-line script does.
+
+These mechanisms change the design gate slightly: with a deferring host, registering a rarely-used tool is cheaper than the raw per-turn math suggests — but the schema still costs when *discovered*, and hosts without deferral (or with schemas below the 10% threshold) still bill the full tax every turn. Measure first; don't assume the host saves you.
+
 ## Mental model
 
 ```
@@ -80,3 +90,7 @@ Registering "just in case" =>  cost × unused_tools × turns, paid forever
 
 - [I Measured My MCP Server's Context Tax Before Adding a Third Tool (DEV.to)](https://dev.to/eliashivemind/i-measured-my-mcp-servers-context-tax-before-adding-a-third-tool-40gg)
 - [nova-ops-nim-mcp (the measured server)](https://github.com/elias-hivemind/nova-ops-nim-mcp)
+- [Anthropic Tool Search / Claude Code lazy MCP loading (Cyrus guide)](https://www.atcyrus.com/stories/mcp-tool-search-claude-code-context-pollution-guide)
+- [OpenAI API — Tool search guide](https://developers.openai.com/api/docs/guides/tools-tool-search)
+- [Claude Code Tool Search benchmarks (Towards AI)](https://pub.towardsai.net/claude-code-tool-search-nearly-halves-your-context-bill-a14defdf42f3)
+- [MCP Context Window Cost: Measure and Cut Tool Definition Tokens (DEV.to)](https://dev.to/nilesharma0108/mcp-context-window-cost-measure-and-cut-tool-definition-tokens-552n)
