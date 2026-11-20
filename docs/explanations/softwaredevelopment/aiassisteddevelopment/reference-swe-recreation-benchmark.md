@@ -5,6 +5,7 @@ domain: software-development
 topic: ai-assisted-development
 source: arXiv
 source_url: https://arxiv.org/abs/2611.26311
+date: 2026-11-20
 keywords:
 - knowledge-base
 - ai-assisted-development
@@ -46,5 +47,8 @@ For teams shipping agentic developer tooling, the ≤0.53 fidelity ceiling shows
 
 ## References
 - Paper: https://arxiv.org/abs/2611.26311
+- Paper (HTML full text): https://arxiv.org/html/2611.26311
 - Repository: https://github.com/nologistic/recreateanything
 - Semantic Scholar: https://api.semanticscholar.org/graph/v1/paper/arXiv:2611.26311
+
+*Verification (2026-11-20): headline numbers cross-checked against the arXiv abstract — 54 real applications, rendered-pixels-only interface, fixed pixel-evidence judge + post-hoc exploration-coverage judge, and the ≤0.530 weighted fidelity / ≤22.9% fully-reproduced-requirements ceilings for 5 frontier systems all match the source.*

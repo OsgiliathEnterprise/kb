@@ -6,6 +6,7 @@ domain: ai-machine-learning
 topic: resource-optimization
 source: arXiv
 source_url: https://arxiv.org/abs/2611.26480
+date: 2026-11-20
 keywords:
 - knowledge-base
 - resource-optimization
@@ -44,9 +45,20 @@ The per-step compute figures (ms range) are estimates because naive approaches s
 - Always close conversations explicitly; a 33-second conversation can hold a VM for ~15 minutes.
 - Consolidation ratio potential under sharing is two orders of magnitude (59× in simulation) with negligible tail-latency cost.
 
+## Platform Corroboration (AWS docs, verified 2026-11-20)
+The paper's measurements line up exactly with AgentCore Runtime's documented session model:
+- **Dedicated microVM per session** — each `runtimeSessionId` gets isolated CPU/memory/filesystem; the microVM is terminated and memory sanitized only after session completion ("sandbox-per-session" is the documented design, confirming the paper's 1:1 pinning finding).
+- **Idle timeout default = 15 minutes** (`idleRuntimeSessionTimeout`) — matches the paper's measured 15-min extra environment hold; stop also occurs at max compute lifetime (default **8 h**; sessions last up to 8 h per lifecycle on microVMs, up to 14 days on Instances).
+- **Client-side close is a real API**: `StopRuntimeSession` terminates the compute immediately — the free fix the paper recommends has first-class platform support.
+- A stopped session resumes on next invocation with a *new* compute (another up-to-8 h lifecycle); filesystem state survives only if session storage is configured, otherwise use AgentCore Memory for structured persistence.
+- Capacity implication restated in platform terms: quotas bind on concurrent *sessions/microVMs*, not CPU-seconds — the 59× consolidation headroom is a platform-roadmap issue, not a billing knob.
+
 ## Relevance to Our Domain
 Directly actionable for our agent-infrastructure cost/capacity work (see [[explanation-inference-operational-economics]]): on managed agent runtimes, "no CPU billing while waiting" masks a real scarcity — pinned environments. The client-side close fix is free; platform-level sharing is a vendor-selection criterion.
 
 ## References
 - Paper: https://arxiv.org/abs/2611.26480
 - Semantic Scholar: https://api.semanticscholar.org/graph/v1/paper/arXiv:2611.26480
+- AWS: Use isolated sessions for agents (session lifecycle, 15-min idle / 8-h max defaults): https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-sessions.html
+- AWS: AgentCore Runtime (per-session microVM isolation): https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/agents-tools-runtime.html
+- AWS: StopRuntimeSession API (explicit client-side close): https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_StopRuntimeSession.html
