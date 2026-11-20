@@ -127,10 +127,26 @@ The article's central argument: Java developers were "exceptionally well served 
 4. **Integrity by Default alignment**: explicit access authorization + persistent dependency hashes make supply-chain attacks harder
 5. **Maven-compatible, not Maven-replacing**: uses verified namespaces for discovery; relocation POMs bridge existing artifacts
 
+## Project Status (verified 2026-11-20)
+
+The toolchain is **in preview** and actively developed (~159 commits on `main`), published on Maven Central as `com.netflix:com.netflix.tools.ja` under Apache-2.0. Key facts from the official repository:
+
+- **Requires JDK 25 or later**, discoverable via `JAVA_HOME`, `PATH`, or an environment manager such as `jenv`.
+- Two install styles via `install.sh` / `install.ps1`: the default **development JDK** mode links `ja` and its tools into a development JDK (so selecting the JDK selects the toolchain — friendly to `JAVA_HOME`, `PATH`, IDE JDK discovery); `--standalone` adds only the `ja` launcher against an existing unchanged JDK. Neither modifies shell config; the installer prints activation/completion lines to add yourself.
+- Beyond module projects, it **also works with Maven and Gradle projects**; the working directory selects the build context, and insight commands search across project contexts (`-p` to restrict, `--external`/`--all` to widen).
+- Quick start: `ja init --main-class com.example.hello.Main com.example.hello` then `ja require org.apache.commons.text@1.13.1` (version recorded as a comment beside `requires`), then `ja run`.
+- Agent-friendly inspection commands include `ja describe member/type/module/file --source <scope>` (scopes: `none`, `body`, `signature`, `doc`, `definition`, `symbol`, `type`, `unit`) and `ja find declarations` with `-i` or Java-regex `-e` expressions; `ja skill ja` prints the full navigation guide.
+- `ja install com.github.ricksbrown.cowsay@1.1.0` demos distributing applications directly from Maven Central.
+- `jig` is also published as a **standalone repo** (Netflix/jig) for JPMS version resolution, proxying, and deployment; `ja` uses it for module resolution, compilation, and assembly.
+- Netflix engineers are directed to the internally bundled toolchain rather than installing `ja` separately.
+
 ## References
 
 - [Netflix TechBlog: Leave the Class Path in the Rearview Mirror](https://netflixtechblog.com/leave-the-class-path-in-the-rearview-mirror-67a85b15b6be)
 - [Netflix/ja GitHub Repository](https://github.com/Netflix/ja)
+- [Netflix/jig — standalone JPMS resolution/proxy/deployment tool](https://github.com/Netflix/jig)
+- [Maven Central: com.netflix:com.netflix.tools.ja](https://central.sonatype.com/artifact/com.netflix/com.netflix.tools.ja)
+- [How Netflix Uses Java — 2026 Edition (talk)](https://www.youtube.com/watch?v=ucJTPda_zx0)
 - [JEP 261: The Java Module System](https://openjdk.org/jeps/261)
 - [JEP 500: Prepare to Make Final Mean Final](https://openjdk.org/jeps/500)
 - [Integrity by Default (OpenJDK draft)](https://openjdk.org/jeps/8305968)

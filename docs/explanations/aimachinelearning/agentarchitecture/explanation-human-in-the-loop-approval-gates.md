@@ -122,3 +122,6 @@ HITL agents should not be designed as autonomous systems with an approval button
 ## References
 - [Designing Human-in-the-Loop Approval Gates for Enterprise AI Agents (DZone)](https://feeds.dzone.com/link/23558/17466284/human-in-the-loop-approval-enterprise-ai-agents)
 - [AWS Well-Architected — Agentic AI Lens: human approval of agent actions (risk-tiered gates, deterministic policy engines, timeouts with safe fallbacks)](https://docs.aws.amazon.com/wellarchitected/latest/agentic-ai-lens/agentsec04-bp02.html)
+- [NeuralTrust — Human-in-the-Loop AI Agents: 2026 Guide](https://neuraltrust.ai/blog/human-in-the-loop-ai-agents) (tier approvals by risk, show the approver what will actually happen, make the default safe, enforce limits outside the model)
+- [StackAI — Designing approval workflows for safe and scalable automation](https://www.stackai.com/insights/human-in-the-loop-ai-agents-how-to-design-approval-workflows-for-safe-and-scalable-automation)
+- [Human in the Loop AI Agents: Approval Gates, Interrupts, and Escalation](https://www.openlegion.ai/en/learn/human-in-the-loop-ai-agents) (interrupt patterns in LangGraph and OpenAI Agents SDK, confidence thresholds, escalation policies)
