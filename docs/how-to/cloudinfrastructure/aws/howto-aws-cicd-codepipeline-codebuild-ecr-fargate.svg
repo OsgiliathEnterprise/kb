@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="36.0 0.0 998.0 374.0" width="998" height="374">
+<rect x="36.0" y="0.0" width="998.0" height="374.0" fill="#ffffff"/>
+<rect x="60.0" y="100.0" width="170.0" height="90.0" rx="8" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="300.0" y="100.0" width="170.0" height="90.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="540.0" y="100.0" width="220.0" height="90.0" rx="8" fill="#d0bfff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="830.0" y="100.0" width="180.0" height="90.0" rx="8" fill="#ffd8a8" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="60.0" y="250.0" width="950.0" height="100.0" rx="8" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 235.0 145.0 L 295.0 145.0"/><line x1="295.0" y1="145.0" x2="282.4" y2="138.9"/><line x1="295.0" y1="145.0" x2="282.4" y2="151.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 475.0 145.0 L 535.0 145.0"/><line x1="535.0" y1="145.0" x2="522.4" y2="138.9"/><line x1="535.0" y1="145.0" x2="522.4" y2="151.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 765.0 145.0 L 825.0 145.0"/><line x1="825.0" y1="145.0" x2="812.4" y2="138.9"/><line x1="825.0" y1="145.0" x2="812.4" y2="151.1"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="24" fill="#1e1e1e" text-anchor="start"><tspan x="60.0" y="43.2">git push -&gt; CodePipeline: Source -&gt; Build -&gt; Deploy -&gt; ECS Fargate</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="75.0" y="136.2">GitHub push</tspan><tspan x="75.0" y="153.7">to main</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="315.0" y="129.2">Source stage</tspan><tspan x="315.0" y="146.7">CodePipeline</tspan><tspan x="315.0" y="164.2">fetches code</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="555.0" y="122.4">Build stage</tspan><tspan x="555.0" y="138.7">CodeBuild runs</tspan><tspan x="555.0" y="154.9">buildspec.yml: docker</tspan><tspan x="555.0" y="171.2">build, push to ECR,</tspan><tspan x="555.0" y="187.4">out imagedefinitions.json</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="845.0" y="129.2">Deploy stage</tspan><tspan x="845.0" y="146.7">ECS pulls new</tspan><tspan x="845.0" y="164.2">image, rolls</tspan><tspan x="845.0" y="181.7">Fargate task</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="80.0" y="275.4">imagedefinitions.json = [{&quot;name&quot;: &quot;&lt;container-name&gt;&quot;, &quot;imageUri&quot;: &quot;&lt;ECR_URI&gt;:&lt;tag&gt;&quot;}]</tspan><tspan x="80.0" y="291.6">maps the task-definition container name to the new ECR image; ECS creates a new task-def revision.</tspan><tspan x="80.0" y="307.9">Prerequisite: manual deployment verified first (cluster, task def, service, SG port 80) - automate only what works by hand.</tspan></text>
+</svg>

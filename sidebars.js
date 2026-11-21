@@ -106,6 +106,12 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Ollama',
+          link: {type: 'generated-index', title: 'Ollama', slug: 'how-to/aillm/ollama'},
+          items: ['how-to/aillm/ollama/howto-detect-prevent-ollama-silent-cpu-fallback'],
+        },
+        {
+          type: 'category',
           label: 'Voiceassistants',
           link: {type: 'generated-index', title: 'Voiceassistants', slug: 'how-to/aillm/voiceassistants'},
           items: ['how-to/aillm/voiceassistants/howto-microwakeword-voice-assistant-pipeline'],
@@ -156,7 +162,7 @@ const sidebars = {
           type: 'category',
           label: 'Aws',
           link: {type: 'generated-index', title: 'Aws', slug: 'how-to/cloudinfrastructure/aws'},
-          items: ['how-to/cloudinfrastructure/aws/howto-deploy-aws-from-github-actions-with-oidc', 'how-to/cloudinfrastructure/aws/howto-deploy-ml-model-to-sagemaker-endpoint'],
+          items: ['how-to/cloudinfrastructure/aws/howto-aws-cicd-codepipeline-codebuild-ecr-fargate', 'how-to/cloudinfrastructure/aws/howto-deploy-aws-from-github-actions-with-oidc', 'how-to/cloudinfrastructure/aws/howto-deploy-ml-model-to-sagemaker-endpoint'],
         },
         {
           type: 'category',
@@ -506,7 +512,7 @@ const sidebars = {
           type: 'category',
           label: 'Llminfrastructure',
           link: {type: 'generated-index', title: 'Llminfrastructure', slug: 'explanations/aillm/llminfrastructure'},
-          items: ['explanations/aillm/llminfrastructure/explanation-cerebras-wafer-pipeline-trillion-parameter-models', 'explanations/aillm/llminfrastructure/explanation-claude-message-threads-beta', 'explanations/aillm/llminfrastructure/explanation-deepseek-search-fetch-api', 'explanations/aillm/llminfrastructure/explanation-fairinference-token-latency-fairness-llm-serving', 'explanations/aillm/llminfrastructure/explanation-fine-tuning-memory-accounting-lora-qlora', 'explanations/aillm/llminfrastructure/explanation-ggml-1-0-stable-tensor-api', 'explanations/aillm/llminfrastructure/explanation-janas-moe-ssd-streaming-llm-inference', 'explanations/aillm/llminfrastructure/explanation-llm-inference-parallelism-compute-communication-tradeoffs', 'explanations/aillm/llminfrastructure/explanation-openai-jalapeno-chip-first-benchmarks', 'explanations/aillm/llminfrastructure/explanation-prefixbench-h100-prefix-reuse-ttft', 'explanations/aillm/llminfrastructure/explanation-qwen3-embedding-cloud-tpu-vllm', 'explanations/aillm/llminfrastructure/explanation-tpu-sync-kv-cache-transfer', 'explanations/aillm/llminfrastructure/reference-snoopie-multi-gpu-communication-profiler'],
+          items: ['explanations/aillm/llminfrastructure/explanation-cerebras-wafer-pipeline-trillion-parameter-models', 'explanations/aillm/llminfrastructure/explanation-claude-message-threads-beta', 'explanations/aillm/llminfrastructure/explanation-deepseek-search-fetch-api', 'explanations/aillm/llminfrastructure/explanation-fairinference-token-latency-fairness-llm-serving', 'explanations/aillm/llminfrastructure/explanation-fine-tuning-memory-accounting-lora-qlora', 'explanations/aillm/llminfrastructure/explanation-ggml-1-0-stable-tensor-api', 'explanations/aillm/llminfrastructure/explanation-janas-moe-ssd-streaming-llm-inference', 'explanations/aillm/llminfrastructure/explanation-llm-inference-parallelism-compute-communication-tradeoffs', 'explanations/aillm/llminfrastructure/explanation-openai-jalapeno-chip-first-benchmarks', 'explanations/aillm/llminfrastructure/explanation-prefixbench-h100-prefix-reuse-ttft', 'explanations/aillm/llminfrastructure/explanation-qwen3-embedding-cloud-tpu-vllm', 'explanations/aillm/llminfrastructure/explanation-tpu-sync-kv-cache-transfer', 'explanations/aillm/llminfrastructure/explanation-vram-budget-kv-cache-sizing-formulas', 'explanations/aillm/llminfrastructure/reference-snoopie-multi-gpu-communication-profiler'],
         },
         {
           type: 'category',

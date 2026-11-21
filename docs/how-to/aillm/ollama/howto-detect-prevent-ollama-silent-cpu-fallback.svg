@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="36.0 0.0 948.0 474.0" width="948" height="474">
+<rect x="36.0" y="0.0" width="948.0" height="474.0" fill="#ffffff"/>
+<rect x="60.0" y="90.0" width="380.0" height="200.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="580.0" y="90.0" width="380.0" height="200.0" rx="8" fill="#ffd8a8" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="60.0" y="330.0" width="900.0" height="120.0" rx="8" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 445.0 185.0 L 575.0 185.0"/><line x1="575.0" y1="185.0" x2="562.4" y2="178.9"/><line x1="575.0" y1="185.0" x2="562.4" y2="191.1"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="24" fill="#1e1e1e" text-anchor="start"><tspan x="60.0" y="43.2">Silent CPU fallback: layers split between VRAM and system RAM</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="18" fill="#1e1e1e" text-anchor="start"><tspan x="80.0" y="119.4">GPU VRAM (GDDR6X)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="80.0" y="151.2">760-1008 GB/s on-die bus</tspan><tspan x="80.0" y="168.7">34/48 layers resident</tspan><tspan x="80.0" y="186.2">KV-cache + CUDA context</tspan><tspan x="80.0" y="203.7">sub-microsecond transfers</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="18" fill="#1e1e1e" text-anchor="start"><tspan x="600.0" y="119.4">System RAM (DDR4/DDR5)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="600.0" y="151.2">38-64 GB/s via PCIe</tspan><tspan x="600.0" y="168.7">14/48 layers offloaded</tspan><tspan x="600.0" y="186.2">stall at every layer transition</tspan><tspan x="600.0" y="203.7">~1.2 tok/s vs 35-45 tok/s</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="440.0" y="160.4">PCIe Gen4/5</tspan><tspan x="440.0" y="176.7">~31.5 GB/s</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="80.0" y="356.2">Fixes: OLLAMA_FLASH_ATTENTION=1 + OLLAMA_KV_CACHE_TYPE=q8_0 (halve KV-cache)</tspan><tspan x="80.0" y="373.7">Modelfile: PARAMETER num_ctx 8192 / num_gpu &lt;full&gt;  |  Detect: ollama ps (PROCESSOR must read 100% GPU)</tspan><tspan x="80.0" y="391.2">journalctl -u ollama | grep load_tensors  -&gt; 'offloaded 34/48 layers to GPU'</tspan></text>
+</svg>

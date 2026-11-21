@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="36.0 0.0 998.0 394.0" width="998" height="394">
+<rect x="36.0" y="0.0" width="998.0" height="394.0" fill="#ffffff"/>
+<rect x="60.0" y="90.0" width="210.0" height="130.0" rx="8" fill="#d0bfff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="290.0" y="90.0" width="260.0" height="130.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="570.0" y="90.0" width="190.0" height="130.0" rx="8" fill="#ffd8a8" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="780.0" y="90.0" width="190.0" height="130.0" rx="8" fill="#ffe066" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="60.0" y="260.0" width="910.0" height="110.0" rx="8" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1.5"/>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="24" fill="#1e1e1e" text-anchor="start"><tspan x="60.0" y="43.2">VRAM_total = weights + KV-cache + CUDA context + compute scratch</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="75.0" y="113.2">Weights</tspan><tspan x="75.0" y="130.7">(P x bpw)/8/1024^3</tspan><tspan x="75.0" y="148.2">Q4_K_M 70B = 39.6 GB</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="305.0" y="113.2">KV-cache (dynamic)</tspan><tspan x="305.0" y="130.7">2 x L x kv_heads x d_head x B</tspan><tspan x="305.0" y="148.2">tok per token</tspan><tspan x="305.0" y="165.7">128k ctx FP16 = 43 GB!</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="585.0" y="113.2">CUDA context</tspan><tspan x="585.0" y="130.7">400-800 MB</tspan><tspan x="585.0" y="148.2">driver+cublas</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="795.0" y="113.2">Compute scratch</tspan><tspan x="795.0" y="130.7">0.5-1.5 GB</tspan><tspan x="795.0" y="148.2">activations</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="80.0" y="286.2">Biggest lever: KV-cache. GQA (64 q-heads, 8 kv-heads) cuts it 8x vs MHA.</tspan><tspan x="80.0" y="303.7">q8_0 halves it, q4_0 quarters it: 128k ctx 43 GB -&gt; 21.5 GB -&gt; 10.7 GB</tspan><tspan x="80.0" y="321.2">Requires flash attention: OLLAMA_FLASH_ATTENTION=1 OLLAMA_KV_CACHE_TYPE=q8_0</tspan></text>
+</svg>
