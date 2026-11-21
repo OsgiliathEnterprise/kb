@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 -4.0 828.0 508.0" width="828" height="508">
+<rect x="16.0" y="-4.0" width="828.0" height="508.0" fill="#ffffff"/>
+<rect x="40.0" y="90.0" width="360.0" height="170.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="500.0" y="90.0" width="320.0" height="90.0" rx="8" fill="#ffd8a8" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="40.0" y="320.0" width="360.0" height="160.0" rx="8" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="500.0" y="320.0" width="320.0" height="160.0" rx="8" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 400.0 135.0 L 500.0 135.0"/><line x1="500.0" y1="135.0" x2="487.4" y2="128.9"/><line x1="500.0" y1="135.0" x2="487.4" y2="141.1"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="24" fill="#1e1e1e" text-anchor="start"><tspan x="220.0" y="39.2">A timeout that cannot run is a comment</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="15" fill="#1e1e1e" text-anchor="start"><tspan x="55.0" y="122.0">Event-loop thread</tspan><tspan x="55.0" y="140.8"> </tspan><tspan x="55.0" y="159.5">sync loop: millions of</tspan><tspan x="55.0" y="178.2">iterations, no await/yield</tspan><tspan x="55.0" y="197.0"> </tspan><tspan x="55.0" y="215.8">health check: silent</tspan><tspan x="55.0" y="234.5">26 minutes</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="15" fill="#1e1e1e" text-anchor="start"><tspan x="515.0" y="122.0">Abort timer</tspan><tspan x="515.0" y="140.8">queued... never given</tspan><tspan x="515.0" y="159.5">a turn to run</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="415.0" y="200.4">&quot;is my timer fired?&quot;</tspan><tspan x="415.0" y="216.7">always no</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="55.0" y="351.2">Fix 1: memoize per (name, depth)</tspan><tspan x="55.0" y="368.7">- exponential name-graph walk</tspan><tspan x="55.0" y="386.2">  (40^n visits) becomes linear</tspan><tspan x="55.0" y="403.7">- Sentry read: 364-550 s -&gt; 3.6 s</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="515.0" y="351.2">Fix 2: make work stoppable</tspan><tspan x="515.0" y="368.7">- yield to the loop periodically</tspan><tspan x="515.0" y="386.2">- 1 s watchdog timer: fires &gt;5 s</tspan><tspan x="515.0" y="403.7">  late =&gt; thread held =&gt; alert</tspan></text>
+</svg>

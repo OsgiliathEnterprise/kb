@@ -61,7 +61,16 @@ Strands Harness sits on top of the **Strands Agents** SDK (Python + TypeScript m
 2. Use `LocalMemoryStore` for prototyping and personal agents (hundreds–low thousands of entries); its lexical recall is explicitly not semantic search — production corpora need a different store behind the same interface.
 3. Pick session ids deliberately (`--session-id api-design`) when you want resumable, named conversations; sessions are per-conversation state, distinct from long-term memory.
 
+## Update (2026-11-22): release cadence and cost-claim nuance
+
+Two months after launch the project is under active development in the unified **`strands-agents/harness-sdk` monorepo** (Python + TypeScript), with releases through November 2026 (e.g., sandbox platform reporting fixes, Anthropic API-version gating). The TypeScript line ships from the same monorepo (first TS release cut from it tracked in the changelog at strandsagents.com/changelog/).
+
+Worth noting for the cost claims: The New Stack's "~45% cheaper than Claude Code/Codex" headline coexists with AWS's own framing in the launch post ("**28% lower token cost at comparable accuracy**"). The two numbers measure different baselines — treat both as vendor-reported, not independently benchmarked.
+
 ## References
+
+- [Strands Harness launch post (official blog)](https://strandsagents.com/blog/introducing-strands-harness/)
+- [Strands Agents changelog](https://strandsagents.com/changelog/)
 
 - [The New Stack: AWS open-sources an AI agent it says is 45% cheaper than Claude Code and Codex](https://thenewstack.io/aws-strands-harness-agent/)
 - [strands-agents/harness-sdk (GitHub)](https://github.com/strands-agents/harness-sdk)

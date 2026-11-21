@@ -129,6 +129,17 @@ High-volume bounded decisions where a frontier LLM is overkill: support ticket r
 3. Batch all bounded decisions into one request — parallel evaluation makes extra questions nearly free.
 4. For guardrails, the advisor pattern (`JevPromptGuardAdvisor` in the Spring AI bridge) is the cheapest interception point: one cheap Jev call per prompt instead of a second LLM pass.
 
+## Update (2026-11-22): Jev 1.14 and the "danger zone" opt-ins
+
+TypeSafe released **Jev 1.14.0** on 2026-10-14 (available under `jev-preview`), with small across-the-board improvements and the largest gain in **multi-lingual support**. The release also introduced experimental capabilities gated behind API-header flags — explicitly *not* production-vetted:
+
+- **Composable images** (`TypeSafe-Danger-Zone-Images: true`): Jev turns out to have been multimodal all along. Images are supplied via a find-and-replace in `assets` and can be placed anywhere the JSON interface accepts text — `state`, `instructions`, or even `criteria`. Caveat from TypeSafe: multimodal performance is below pure text; decompose questions into the simplest parts.
+- **`box` type**: the first primitive that is not a decision type — it returns a single bounding box. Available only on `jev-1.14.0`. Signals TypeSafe's expansion "beyond smart-if statements".
+- **Longer context** (`TypeSafe-Danger-Zone-Long-Context: true`): the production context limit was an intentional reliability guardrail, now opt-in removable.
+- **Jaggedness opt-in**: you can allow TypeSafe to see your queries to help find model failures (they still claim not to train on them).
+
+Access also changed: API keys are now issued directly from the **TypeSafe console** (console.typesafe.ai) rather than by waitlist. For the Spring AI integration above, the primitives and API shape are unchanged — the danger-zone flags are header-level additions to the same `POST /v1/systemone` contract.
+
 ## References
 
 - [Spring Blog: Spring AI and TypeSafe Jev — Fast, Cheap, Structured Decisions](https://spring.io/blog/2026-09-21/spring-ai-typesafe-structured-judgment)
