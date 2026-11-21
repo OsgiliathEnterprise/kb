@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 -4.0 988.0 475.5" width="988" height="476">
+<rect x="16.0" y="-4.0" width="988.0" height="475.5" fill="#ffffff"/>
+<rect x="60.0" y="110.0" width="340.0" height="22.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="60.0" y="140.0" width="340.0" height="22.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="60.0" y="170.0" width="340.0" height="22.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="60.0" y="200.0" width="340.0" height="22.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="520.0" y="110.0" width="340.0" height="22.0" rx="8" fill="#ffd8a8" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="560.0" y="132.0" width="340.0" height="22.0" rx="8" fill="#ffd8a8" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="600.0" y="154.0" width="340.0" height="22.0" rx="8" fill="#ffd8a8" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="640.0" y="176.0" width="340.0" height="22.0" rx="8" fill="#ffd8a8" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="60.0" y="330.0" width="200.0" height="60.0" rx="8" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="300.0" y="330.0" width="200.0" height="60.0" rx="8" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="540.0" y="330.0" width="200.0" height="60.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="780.0" y="330.0" width="200.0" height="60.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 265.0 360.0 L 295.0 360.0"/><line x1="295.0" y1="360.0" x2="285.6" y2="355.4"/><line x1="295.0" y1="360.0" x2="285.6" y2="364.6"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 745.0 360.0 L 775.0 360.0"/><line x1="775.0" y1="360.0" x2="765.6" y2="355.4"/><line x1="775.0" y1="360.0" x2="765.6" y2="364.6"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="20" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="36.0">CMR vs SMR: overlapping tracks turn random writes into read-modify-write</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="60.0" y="92.8">CMR: separated tracks (guard gap)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="60.0" y="251.2">Random 4 KB overwrite in place:</tspan><tspan x="60.0" y="268.7">~4-12 ms, predictable.</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="520.0" y="92.8">SMR: shingled overlapping bands (+20-25% capacity)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="520.0" y="226.2">Overwrite mid-band damages neighbour:</tspan><tspan x="520.0" y="243.7">read band -&gt; merge 4 KB block -&gt; rewrite band</tspan><tspan x="520.0" y="261.2">= tens-hundreds of ms; cache saturation</tspan><tspan x="520.0" y="278.7">=&gt; whole-drive stall (seconds).</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="72.0" y="352.4">Append-only /</tspan><tspan x="72.0" y="368.6">sequential write</tspan><tspan x="72.0" y="384.9">(archive, backup)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="312.0" y="352.4">Zoned / host-managed</tspan><tspan x="312.0" y="368.6">SMR: btrfs zoned,</tspan><tspan x="312.0" y="384.9">f2fs, object store</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="552.0" y="352.4">Random rewrites</tspan><tspan x="552.0" y="368.6">(DB, VM image,</tspan><tspan x="552.0" y="384.9">journal metadata)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="792.0" y="352.4">Device-managed SMR:</tspan><tspan x="792.0" y="368.6">cost hidden until GC</tspan><tspan x="792.0" y="384.9">compaction falls behind</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="60.0" y="441.2">Reads unaffected (narrow read sensor). Judge by tail latency under your write pattern,</tspan><tspan x="60.0" y="458.7">not headline throughput: SMR charges you for randomness.</tspan></text>
+</svg>

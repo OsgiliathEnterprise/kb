@@ -720,6 +720,12 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Storagehardware',
+          link: {type: 'generated-index', title: 'Storagehardware', slug: 'explanations/cloudinfrastructure/storagehardware'},
+          items: ['explanations/cloudinfrastructure/storagehardware/explanation-smr-vs-cmr-hard-drives'],
+        },
+        {
+          type: 'category',
           label: 'Streaming',
           link: {type: 'generated-index', title: 'Streaming', slug: 'explanations/cloudinfrastructure/streaming'},
           items: ['explanations/cloudinfrastructure/streaming/explanation-aria-message-bus-topic-partition-indexing', 'explanations/cloudinfrastructure/streaming/explanation-nats-jetstream-vs-kafka-vs-pulsar-storage-topologies', 'explanations/cloudinfrastructure/streaming/explanation-picomq-durable-streams', 'explanations/cloudinfrastructure/streaming/explanation-rocketmq-rust-v1-message-lifecycle-and-runtime-ownership'],
@@ -1237,7 +1243,7 @@ const sidebars = {
           type: 'category',
           label: 'Webrealtime',
           link: {type: 'generated-index', title: 'Webrealtime', slug: 'examples/programming/webrealtime'},
-          items: ['examples/programming/webrealtime/example-webrtc-p2p-file-transfer-browser'],
+          items: ['examples/programming/webrealtime/example-mouse-polling-rate-pointerrawupdate', 'examples/programming/webrealtime/example-webrtc-p2p-file-transfer-browser'],
         },
         {
           type: 'category',

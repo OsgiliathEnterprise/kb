@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 -4.0 948.0 345.5" width="948" height="346">
+<rect x="16.0" y="-4.0" width="948.0" height="345.5" fill="#ffffff"/>
+<rect x="60.0" y="90.0" width="180.0" height="70.0" rx="8" fill="#ffd8a8" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="320.0" y="90.0" width="220.0" height="70.0" rx="8" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="620.0" y="90.0" width="230.0" height="70.0" rx="8" fill="#d0bfff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="620.0" y="210.0" width="230.0" height="60.0" rx="8" fill="#d0bfff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="320.0" y="210.0" width="220.0" height="60.0" rx="8" fill="#ffe066" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="60.0" y="210.0" width="180.0" height="60.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 245.0 125.0 L 315.0 125.0"/><line x1="315.0" y1="125.0" x2="302.4" y2="118.9"/><line x1="315.0" y1="125.0" x2="302.4" y2="131.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 545.0 125.0 L 615.0 125.0"/><line x1="615.0" y1="125.0" x2="602.4" y2="118.9"/><line x1="615.0" y1="125.0" x2="602.4" y2="131.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 735.0 165.0 L 735.0 205.0"/><line x1="735.0" y1="205.0" x2="741.1" y2="192.4"/><line x1="735.0" y1="205.0" x2="728.9" y2="192.4"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 615.0 240.0 L 545.0 240.0"/><line x1="545.0" y1="240.0" x2="557.6" y2="246.1"/><line x1="545.0" y1="240.0" x2="557.6" y2="233.9"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 315.0 240.0 L 245.0 240.0"/><line x1="245.0" y1="240.0" x2="257.6" y2="246.1"/><line x1="245.0" y1="240.0" x2="257.6" y2="233.9"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="20" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="36.0">Browser mouse polling-rate measurement: raw reports -&gt; counting window -&gt; throttled UI</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="75.0" y="123.2">Mouse</tspan><tspan x="75.0" y="140.7">(125–8000 Hz)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="335.0" y="108.4">pointerrawupdate</tspan><tspan x="335.0" y="124.7">(Chrome/Edge, HTTPS)</tspan><tspan x="335.0" y="140.9">or pointermove +</tspan><tspan x="335.0" y="157.2">getCoalescedEvents()</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="635.0" y="110.4">report(t): push event</tspan><tspan x="635.0" y="126.7">.timeStamp into sliding</tspan><tspan x="635.0" y="142.9">500 ms window (reset</tspan><tspan x="635.0" y="159.2">after 60 ms pause)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="635.0" y="235.4">rate() = (n-1)/span * 1000</tspan><tspan x="635.0" y="251.7">counting, NOT gap timing</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="335.0" y="230.4">snap() to nearest of</tspan><tspan x="335.0" y="246.7">[125..8000] within 10%</tspan><tspan x="335.0" y="262.9">keep peak (&gt;=20 reports)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="75.0" y="232.4">UI: rAF loop,</tspan><tspan x="75.0" y="248.7">DOM update max</tspan><tspan x="75.0" y="264.9">5x/s (200 ms)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="60.0" y="311.2">Why: pointermove bundles reports per frame (measures monitor, not mouse);</tspan><tspan x="60.0" y="328.7">Spectre timestamp rounding (~0.1 ms) kills gap-timing at 4-8 kHz; polling rate is a maximum</tspan><tspan x="60.0" y="346.2">(mouse reports only while moving) -&gt; count in window, require continuous movement.</tspan></text>
+</svg>
