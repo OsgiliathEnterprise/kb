@@ -47,6 +47,17 @@ Expert-parallel MoE serving (DeepSeek-style models) is one of the hottest bottle
 - Code: https://github.com/AMDResearch/kiwi
 - Semantic Scholar: https://api.semanticscholar.org/graph/v1/paper/arXiv:2611.23848
 - Related: NCCL GPU-initiated networking (arXiv:2511.15076) for the GDA/IBGDA baseline this paper compares against
+- arXiv listing (v1, 2026-11-18, cs.DC + cs.LG): https://arxiv.org/abs/2611.23848v1
+
+## Corroboration (zookeeper pass, 2026-11-21)
+
+Re-verified against the arXiv v1 abstract: full author list **Jiakun Yan, Shiksha Patel, David
+Sidler, Gengyu Rao, Brandon Potter, Bradford Beckmann** (AMD Research — Sidler and Beckmann are
+established GPU-communication/RDMA systems researchers), submission 2026-11-18, 11 pages / 9
+figures / 3 tables. All headline figures in the spec table match the abstract verbatim:
+sub-microsecond one-way device-to-host latency, hundreds of millions of ops/s, KIWI-P2P beating
+state-of-the-art GDA on both latency and bandwidth, KIWI-EP up to 2.3× lower expert-parallel
+communication latency on AMD GPUs and up to 29% lower vLLM time-per-output-token.
 
 ## Provenance & verification
 Grounded 2026-11-21 after audit: all retained claims verified against the arXiv abstract (arxiv_meta.xml) and v1 PDF — authors (Yan, Patel, Sidler, Rao et al., AMD), GPU-initiated CPU invocation replacing host-mediated RPC (~500 ns vs ~2–3 µs launch overhead), AMD deployment for MoE router gating in vLLM. Repository URL amdresearch/kiwi confirmed in the v1 PDF and live (HTTP 200).
