@@ -76,8 +76,16 @@ Reusable takeaways:
   overflow) before it's a configuration choice.
 - Reproduce with **constant-rate UDP** to separate buffer ceilings from TCP congestion control.
 
+## Independent corroboration (verified 2026-11-21)
+
+The case was independently covered the day after the original post: same numbers (~600 Mbps down
+vs 2.4 Gbps up on a 2.5 Gbps line behind a Studio Display XDR hub), same root cause — the RTL8156B
+"send[s] only four 1 KB packets per USB burst, which capped throughput near 2 Gbps behind the
+hub." Use the technology.org write-up as a second source when citing this class of ceiling.
+
 ## References
 
 - [Original post (blog.tymscar.com, Oscar Molnar)](https://blog.tymscar.com/posts/studiodisplayethernet/)
+- [Independent coverage: "Monitor USB Hub Throttled 2.5 Gbps Downloads" (technology.org, 2026-11-20)](https://www.technology.org/2026-11-20/monitor-usb-hub-ethernet-adapter-download-speed-rtl8156b/)
 - [Ethernet flow control (802.3x)](https://en.wikipedia.org/wiki/Ethernet_flow_control)
 - [Realtek RTL8156 driver downloads](https://www.realtek.com/Download/List?cate_id=585)
