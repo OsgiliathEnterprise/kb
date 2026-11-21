@@ -228,7 +228,7 @@ const sidebars = {
           type: 'category',
           label: 'Kubernetes',
           link: {type: 'generated-index', title: 'Kubernetes', slug: 'how-to/cloudinfrastructure/kubernetes'},
-          items: ['how-to/cloudinfrastructure/kubernetes/howto-argocd-git-to-live-sync-verification', 'how-to/cloudinfrastructure/kubernetes/howto-check-cgroup-v1-before-k8s-upgrade', 'how-to/cloudinfrastructure/kubernetes/howto-inspect-volcano-knative-workloads-with-headlamp-plugins', 'how-to/cloudinfrastructure/kubernetes/howto-install-kubeflow-for-ml-on-eks', 'how-to/cloudinfrastructure/kubernetes/howto-manage-cluster-api-resources-with-headlamp'],
+          items: ['how-to/cloudinfrastructure/kubernetes/howto-argocd-git-to-live-sync-verification', 'how-to/cloudinfrastructure/kubernetes/howto-check-cgroup-v1-before-k8s-upgrade', 'how-to/cloudinfrastructure/kubernetes/howto-inspect-volcano-knative-workloads-with-headlamp-plugins', 'how-to/cloudinfrastructure/kubernetes/howto-install-kubeflow-for-ml-on-eks', 'how-to/cloudinfrastructure/kubernetes/howto-kapitan-multi-env-promotion-diff-guard', 'how-to/cloudinfrastructure/kubernetes/howto-manage-cluster-api-resources-with-headlamp'],
         },
         {
           type: 'category',
@@ -438,7 +438,7 @@ const sidebars = {
           type: 'category',
           label: 'Websecurity',
           link: {type: 'generated-index', title: 'Websecurity', slug: 'how-to/securityprivacy/websecurity'},
-          items: ['how-to/securityprivacy/websecurity/howto-absentia-broken-access-control-detection', 'how-to/securityprivacy/websecurity/howto-emergency-response-critical-php-rce-audit-patch-offline', 'how-to/securityprivacy/websecurity/howto-patch-apache-httpd-2-4-71-mod-http2-rce-cve-2026-119618'],
+          items: ['how-to/securityprivacy/websecurity/howto-absentia-broken-access-control-detection', 'how-to/securityprivacy/websecurity/howto-emergency-response-critical-php-rce-audit-patch-offline', 'how-to/securityprivacy/websecurity/howto-frontend-secrets-audit-before-shipping', 'how-to/securityprivacy/websecurity/howto-patch-apache-httpd-2-4-71-mod-http2-rce-cve-2026-119618'],
         },
         {
           type: 'category',
@@ -846,7 +846,7 @@ const sidebars = {
           type: 'category',
           label: 'Authorization',
           link: {type: 'generated-index', title: 'Authorization', slug: 'explanations/identitysecurity/authorization'},
-          items: ['explanations/identitysecurity/authorization/explanation-postgres-rls-database-enforced-authorization'],
+          items: ['explanations/identitysecurity/authorization/explanation-opensearch-dashboards-tenancy-is-not-backend-authorization', 'explanations/identitysecurity/authorization/explanation-postgres-rls-database-enforced-authorization'],
         },
         {
           type: 'category',
@@ -942,7 +942,7 @@ const sidebars = {
           type: 'category',
           label: 'Php',
           link: {type: 'generated-index', title: 'Php', slug: 'explanations/programming/php'},
-          items: ['explanations/programming/php/explanation-php-8-6-new-features'],
+          items: ['explanations/programming/php/explanation-php-8-6-new-features', 'explanations/programming/php/explanation-zts-threaded-php-extension-bugs'],
         },
         {
           type: 'category',
@@ -1104,7 +1104,7 @@ const sidebars = {
           type: 'category',
           label: 'Vulnerabilitymanagement',
           link: {type: 'generated-index', title: 'Vulnerabilitymanagement', slug: 'explanations/securityprivacy/vulnerabilitymanagement'},
-          items: ['explanations/securityprivacy/vulnerabilitymanagement/explanation-hardening-js-against-llm-vuln-detection', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-java4shell-openjdk-base64-rce', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-kvm-guest-to-host-escape-cve-2026-99312', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-machine-speed-vulnerability-discovery', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-nginx-http2-rce-cve-2026-123633-123007', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-openssl-evp-encodeblock-buffer-overflow-cve-2026-121481', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-procreverser-multi-agent-microarch-reverse-engineering', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-ruby-regexp-case-conversion-heap-overflows', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-sbind-behavioral-containment-1-day-detection', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-sok-llm-vuln-research-autonomy', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-synology-sa-26-21-dsm-oauth-cve-2026-120382', 'explanations/securityprivacy/vulnerabilitymanagement/reference-crossploit-cross-version-poc-migration-benchmark'],
+          items: ['explanations/securityprivacy/vulnerabilitymanagement/explanation-gpgme-double-free-cve-2026-129975', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-hardening-js-against-llm-vuln-detection', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-java4shell-openjdk-base64-rce', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-kvm-guest-to-host-escape-cve-2026-99312', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-machine-speed-vulnerability-discovery', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-nginx-http2-rce-cve-2026-123633-123007', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-openssl-evp-encodeblock-buffer-overflow-cve-2026-121481', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-procreverser-multi-agent-microarch-reverse-engineering', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-ruby-regexp-case-conversion-heap-overflows', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-sbind-behavioral-containment-1-day-detection', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-sok-llm-vuln-research-autonomy', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-synology-sa-26-21-dsm-oauth-cve-2026-120382', 'explanations/securityprivacy/vulnerabilitymanagement/reference-crossploit-cross-version-poc-migration-benchmark'],
         },
         {
           type: 'category',
@@ -1197,6 +1197,12 @@ const sidebars = {
           label: 'Multimodal',
           link: {type: 'generated-index', title: 'Multimodal', slug: 'examples/aimachinelearning/multimodal'},
           items: ['examples/aimachinelearning/multimodal/example-whistle-on-device-speech-to-text'],
+        },
+        {
+          type: 'category',
+          label: 'Networking',
+          link: {type: 'generated-index', title: 'Networking', slug: 'examples/cloudinfrastructure/networking'},
+          items: ['examples/cloudinfrastructure/networking/example-usb-ethernet-burst-bottleneck-debugging'],
         },
         {
           type: 'category',

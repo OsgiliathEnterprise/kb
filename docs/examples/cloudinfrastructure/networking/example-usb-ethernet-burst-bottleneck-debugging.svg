@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="36.0 -4.0 848.0 558.0" width="848" height="558">
+<rect x="36.0" y="-4.0" width="848.0" height="558.0" fill="#ffffff"/>
+<rect x="60.0" y="110.0" width="170.0" height="90.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="320.0" y="110.0" width="230.0" height="90.0" rx="8" fill="#ffd8a8" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="640.0" y="110.0" width="220.0" height="90.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="320.0" y="270.0" width="540.0" height="120.0" rx="8" fill="#fff3bf" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="320.0" y="430.0" width="540.0" height="100.0" rx="8" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 230.0 155.0 L 320.0 155.0"/><line x1="320.0" y1="155.0" x2="307.4" y2="148.9"/><line x1="320.0" y1="155.0" x2="307.4" y2="161.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 550.0 155.0 L 640.0 155.0"/><line x1="640.0" y1="155.0" x2="627.4" y2="148.9"/><line x1="640.0" y1="155.0" x2="627.4" y2="161.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 570.0 200.0 L 570.0 270.0"/><line x1="570.0" y1="270.0" x2="576.1" y2="257.4"/><line x1="570.0" y1="270.0" x2="563.9" y2="257.4"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 570.0 390.0 L 570.0 430.0"/><line x1="570.0" y1="430.0" x2="576.1" y2="417.4"/><line x1="570.0" y1="430.0" x2="563.9" y2="417.4"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="18" fill="#1e1e1e" text-anchor="start"><tspan x="160.0" y="34.4">USB Ethernet behind a monitor hub: burst-limited drain rate</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="75.0" y="135.4">Router / ISP</tspan><tspan x="75.0" y="151.7">2.5 Gbps in</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="335.0" y="129.6">RTL8156B adapter</tspan><tspan x="335.0" y="144.6">wMaxPacketSize 1024</tspan><tspan x="335.0" y="159.6">bMaxBurst 3 -&gt; 4 pkts/burst</tspan><tspan x="335.0" y="174.6">(4 KB per burst)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="655.0" y="129.6">Mac via monitor's</tspan><tspan x="655.0" y="144.6">USB hub: ~7.6 us wait</tspan><tspan x="655.0" y="159.6">for go-ahead per burst</tspan><tspan x="655.0" y="174.6">(link idle meanwhile)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#e03131" text-anchor="start"><tspan x="555.0" y="134.6">~2 Gbps max</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="335.0" y="291.6">Drain rate = burst size / (send time + go-ahead wait)</tspan><tspan x="335.0" y="306.6">4 KB / (8.2 us + 7.6 us) ~ 2 Gbps  &lt; 2.5 Gbps in</tspan><tspan x="335.0" y="321.6">=&gt; buffer fills, adapter drops frames above ~168k fps</tspan><tspan x="335.0" y="336.6">=&gt; TCP backoff: 600 Mbps downloads, 10% ping loss,</tspan><tspan x="335.0" y="351.6">zero errors visible in macOS logs</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="335.0" y="451.6">Fix: RTL8157 adapter, bMaxBurst 7 -&gt; 8 pkts at 2x link speed</tspan><tspan x="335.0" y="466.6">= 8x less time on the wire per burst; drain ceiling ~4.5 Gbps</tspan><tspan x="335.0" y="481.6">0 drops at 2.4 Gbps. (UniFi Ethernet flow control was only a</tspan><tspan x="335.0" y="496.6">band-aid: ~2 Gbps but adds latency for other hosts)</tspan></text>
+</svg>

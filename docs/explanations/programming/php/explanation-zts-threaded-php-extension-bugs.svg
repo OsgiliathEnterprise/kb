@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="36.0 -4.0 948.0 458.0" width="948" height="458">
+<rect x="36.0" y="-4.0" width="948.0" height="458.0" fill="#ffffff"/>
+<rect x="60.0" y="80.0" width="320.0" height="210.0" rx="8" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="90.0" y="125.0" width="120.0" height="60.0" rx="8" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="230.0" y="125.0" width="120.0" height="60.0" rx="8" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="480.0" y="80.0" width="480.0" height="210.0" rx="8" fill="#ffe3e3" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="510.0" y="125.0" width="120.0" height="60.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="660.0" y="125.0" width="120.0" height="60.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="810.0" y="125.0" width="120.0" height="60.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="60.0" y="330.0" width="900.0" height="100.0" rx="8" fill="#e7f5ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#e03131" stroke-width="1.5" fill="none"><path d="M 630.0 155.0 L 660.0 155.0"/><line x1="660.0" y1="155.0" x2="650.6" y2="150.4"/><line x1="660.0" y1="155.0" x2="650.6" y2="159.6"/></g>
+<g stroke="#e03131" stroke-width="1.5" fill="none"><path d="M 780.0 155.0 L 810.0 155.0"/><line x1="810.0" y1="155.0" x2="800.6" y2="150.4"/><line x1="810.0" y1="155.0" x2="800.6" y2="159.6"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="18" fill="#1e1e1e" text-anchor="start"><tspan x="140.0" y="34.4">php-fpm vs threaded SAPI (FrankenPHP): why process-wide state breaks</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="75.0" y="101.2">php-fpm: 1 worker = 1 request at a time</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="100.0" y="149.6">worker</tspan><tspan x="100.0" y="164.6">request A</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="240.0" y="149.6">worker</tspan><tspan x="240.0" y="164.6">request B</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="75.0" y="209.6">setlocale()/getenv()/static caches</tspan><tspan x="75.0" y="224.6">leak only to the NEXT request</tspan><tspan x="75.0" y="239.6">on the same worker</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="495.0" y="101.2">Threaded SAPI: many requests, ONE process</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="520.0" y="149.6">thread</tspan><tspan x="520.0" y="164.6">request A</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="670.0" y="149.6">thread</tspan><tspan x="670.0" y="164.6">request B</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="820.0" y="149.6">thread</tspan><tspan x="820.0" y="164.6">request C</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="495.0" y="209.6">process-wide state (LC_NUMERIC via LibXL</tspan><tspan x="495.0" y="224.6">setlocale, putenv, module globals) leaks</tspan><tspan x="495.0" y="239.6">SIDEWAYS into concurrent requests</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="75.0" y="351.6">Fixes: per-thread locale (php_excel 2.10 'LibXL locale isolation'), ts_free_thread()</tspan><tspan x="75.0" y="366.6">cleanup on thread exit, ZEND_HAS_OOM safe-point stops for memory_limit</tspan><tspan x="75.0" y="381.6">(otherwise _exit() kills the WHOLE threaded server, not one worker),</tspan><tspan x="75.0" y="396.6">startup ABI check refusing mismatched prebuilt binaries</tspan></text>
+</svg>
