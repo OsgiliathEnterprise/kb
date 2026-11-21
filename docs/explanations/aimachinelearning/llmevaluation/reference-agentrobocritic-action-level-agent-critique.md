@@ -25,7 +25,7 @@ Episode-level success rates tell you neither *how* frontier agents succeed at di
 - **Scope**: systematic action-level analysis across 12 manipulation benchmarks, applied to frontier multimodal agents (e.g. GPT-6 Astra) issuing raw numerical actions.
 - **Intent-grounded critique loop**: the policy agent states a local intent alongside every action; a critic evaluates the action's outcome and failure mode against that stated intent.
 - **Critic validation**: validated on a 400-action human-annotated benchmark.
-- **Released artifacts**: a dataset of 12,844 annotated actions and an open-source fine-tuned critic, Muse-Glimmer-30B, whose failure-mode accuracy rises from 32.58% to 74.24% after fine-tuning — enabling low-cost action-level analysis.
+- **Released artifacts**: a dataset of 12,844 annotated actions and an open-source fine-tuned critic, Muse-Glimmer-30B, whose failure-mode accuracy rises from 32.58% to 74.24% after fine-tuning — enabling low-cost action-level analysis. The critic VLM is published on Hugging Face as `cx-cmu/AgentRoboCritic-Muse-Glimmer-30B` (CMU/Carnegie School, lead author Yiyang Du et al., 2026; arXiv primary class cs.RO).
 
 ## Key Findings (capability matrix)
 Capabilities observed in frontier agents:
@@ -43,4 +43,5 @@ The intent-stated-then-critiqued pattern generalizes beyond robotics to any agen
 ## References
 - Paper: https://arxiv.org/abs/2611.26613
 - Project page: https://adu2021.github.io/blog/AgentRoboCritic/
+- Critic model weights: https://huggingface.co/cx-cmu/AgentRoboCritic-Muse-Glimmer-30B
 - Semantic Scholar: https://api.semanticscholar.org/graph/v1/paper/arXiv:2611.26613

@@ -29,9 +29,16 @@ Star-M tensor algebra generalizes matrix SVD's optimal compression to N-way tens
 - Strong-scaling: at least 70% parallel efficiency up to 128 nodes / 6,144 cores.
 - Applied star-M compression to application datasets up to 768 GB.
 
+## Performance vs. Baseline (PyStarM)
+- Shared-memory baseline is PyStarM; both implementations use MKL's batched strided GEMM for tensor-times-matrix (TTM).
+- Key kernel win: the t-SVDM-II cutoff takes 0.8–14.4 s in PyStarM vs at most 0.11 s in StarMPI-SVD — attributed to each MPI rank operating on a smaller local buffer, improving cache utilization (the large shared-memory buffer defeats the cache).
+- Related earlier shared-memory work: "High-Performance Star-M SVD for Big Data Compression" (ACM, doi:10.1145/3832810.3832889), which defines the ★M-product, full t-SVDM-I and adaptively truncated t-SVDM-II variants this paper parallelizes.
+
 ## Relevance to Our Domain
 A concrete data point for large-scale distributed numerical workloads: which kernels parallelize well (slice-wise truncated SVD), which need async redistribution to stay efficient, and what parallel efficiency is realistic at ~6k cores. Useful when sizing HPC-style tensor compression jobs on cluster or cloud batch infrastructure, and as a reference implementation pattern for hiding MPI communication behind computation in redistribution-heavy kernels.
 
 ## References
 - Paper: https://arxiv.org/abs/2611.26451
+- HTML full text: https://arxiv.org/html/2611.26451
+- Related ACM paper (shared-memory predecessor): https://doi.org/10.1145/3832810.3832889
 - Semantic Scholar: https://api.semanticscholar.org/graph/v1/paper/arXiv:2611.26451
