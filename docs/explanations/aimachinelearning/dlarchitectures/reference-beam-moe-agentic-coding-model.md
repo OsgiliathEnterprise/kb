@@ -39,6 +39,15 @@ Beam is a sparse Mixture-of-Experts (MoE) model built and optimized specifically
 ## Why It Matters
 A compact reference for what frontier-scale open-weight training now looks like: MoE sparsity around ~4.7% active fraction, correctness-anchored mid-training for long context, asynchronous large-scale RL as the main capability driver, and quantization/speculative decoding treated as first-class citizens of the model report rather than serving afterthoughts.
 
+## Ecosystem & Release Context
+- **Reflection's first open-weight model**, released under **Apache 2.0** (weights + model card + fine-tuning/eval stack; announced Nov 2026). HF: `reflection/Beam-1.0-501B-A23B`.
+- Positioning: competitive with GLM 5.2/5.3 on coding/agentic tasks and approaching Qwen 3.8-Max, with the core advantage of **inference efficiency** (3–4× less compute; Artificial Analysis/DataCurve-based estimates, FLOPs ≈ 2 × active params × tokens).
+- Selected benchmarks (10/27 update): SWE-Bench Pro v1 65.5, SWE-Bench Verified 80.9, Terminal-Bench v2.1 80.1, AIME 2026 97.8, GPQA-Diamond 90.5, HLE w/ tools 51.2, MCP Atlas 78.7.
+- Safety program: red-teaming + published eval suites, plus external autonomy evaluation ("Mr. Beam" with Andon Labs, Nov 20) and a Gray Swan partnership (Nov 18).
+
 ## References
 - Paper: https://arxiv.org/abs/2611.26358
+- Reflection blog: https://reflection.ai/blog/introducing-beam
+- Model card: https://reflection.ai/beam-model-card
+- Weights: https://huggingface.co/reflection/Beam-1.0-501B-A23B
 - Semantic Scholar: https://api.semanticscholar.org/graph/v1/paper/arXiv:2611.26358
