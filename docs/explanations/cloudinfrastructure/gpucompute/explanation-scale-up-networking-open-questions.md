@@ -28,6 +28,11 @@ The paper's core move is to derive requirements bottom-up:
 
 This reveals how each fabric trades off performance, scalability, compatibility and implementation cost.
 
+## Fabrics Examined (from the paper)
+- **Mature proprietary fabrics:** NVLink (+NVSwitch), Google ICI.
+- **Open/Ethernet-derived standards:** Broadcom Scale-Up Ethernet (SUE), UALink (memory-semantic, 1.0 spec released 2025), UB-2.0, ESUN.
+- Common technical ground: **CBFC (credit-based flow control)** over PFC for lossless operation (less head-of-line blocking, finer traffic classes), and **flat L2-only addressing** since endpoints in a single domain are pre-determinable. Key semantic split: UALink-class fabrics carry memory semantics in the fabric, while Ethernet-derived frameworks (SUE) push address translation to the XPU/vendor layer.
+
 ## Open Challenges Identified
 Drawing on the analysis and discussions with industry experts, the paper identifies open problems in:
 - **Physical interconnects and switching** — reach, density and power of the links and switches that form the domain.
@@ -39,6 +44,13 @@ Drawing on the analysis and discussions with industry experts, the paper identif
 ## Relevance to Our Domain
 For AI infrastructure planning (GPU pods, MoE training, inference clusters), this paper provides the vocabulary and the requirements framework to reason about where scale-up fabrics end and scale-out networking begins, and which design debates (semantics, collectives, heterogeneity) will shape procurement and architecture decisions.
 
+## Provenance & Verification
+- Verified against arXiv v1 abstract (submitted 19 Nov 2026): requirement-derivation method and all five open-problem categories match the abstract verbatim in substance.
+- Authors: Tingting Xu, Zixun Su, Xinyang Huang, Bowen Liu, Kun Tan, Dong Lin, Hao Wang, Yinben Xia, Weifeng Zhang, Binzhang Fu, Shuihai Hu, Kai Chen (12).
+- Category: cs.NI.
+
 ## References
 - Paper: https://arxiv.org/abs/2611.26156
 - Semantic Scholar: https://api.semanticscholar.org/graph/v1/paper/arXiv:2611.26156
+- UALink Consortium white paper (open scale-up vs Ethernet transport positioning): https://ualinkconsortium.org/wp-content/uploads/2026/01/UALink_White_Paper_Publication_Candidate_FINAL_VERSION.pdf
+- APNIC Blog — Scale-up fabrics (Sharada Yeluri, Jun 2025; UALink 1.0 context): https://blog.apnic.net/2025-06-03/scale-up-fabrics/
