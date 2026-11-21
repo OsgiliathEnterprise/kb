@@ -41,7 +41,8 @@ Automated RL red-teaming generates high-ASR IPI attacks used for pre-deployment 
 - [[explanation-skillcfi-control-flow-integrity-agent-skills]] — runtime/architectural defense complementing training-time hardening
 
 ## References
-- Paper: https://arxiv.org/abs/2611.24362
+- Paper: https://arxiv.org/abs/2611.24362 (v1, 18 Nov 2026; Lipeng He + 3 co-authors)
+- Hugging Face Papers: https://huggingface.co/papers/2611.24362
 - Primary class: cs.CR (also cs.AI)
 - Benchmarks: AgentDojo, ASB
 - Baselines analyzed: RL-Hammer, PISmith

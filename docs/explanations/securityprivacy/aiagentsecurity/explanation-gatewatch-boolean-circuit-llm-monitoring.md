@@ -28,7 +28,7 @@ Monitoring LLM/agent behavior for unsafe or unintended actions needs efficient c
 - **GateWatchServe deployment layer:** computes only the SAE features a circuit actually needs, streams their binary values across layers during inference, and evaluates many GateWatch classifiers in parallel via compact lookup tables.
 
 ## Technical Approach
-Given a trained SAE, binarize feature activations, then search/construct a gate-budgeted Boolean circuit separating monitored behaviors. At serve time, only selected features are encoded; binary values flow layer-to-layer and LUT evaluation keeps per-token overhead negligible.
+Given a trained SAE, binarize feature activations, then search/construct a gate-budgeted Boolean circuit separating monitored behaviors. Circuit compaction reuses hardware-design EDA tooling — the authors convert trained binary-input/binary-output classifiers into compact Boolean circuits with **Yosys** and **ABC**, the standard logic-synthesis tools from chip design. At serve time, only selected features are encoded; binary values flow layer-to-layer and LUT evaluation keeps per-token overhead negligible.
 
 ## Results
 - 24 tasks on Gemma-2-9B: **80.49% mean test accuracy with ~3.8 SAE features and ~3.5 gates per probe** — just **1.17 points below full 16K-feature SAE probes**, matching or beating them on 10 tasks, with **99.98% less probe memory**.

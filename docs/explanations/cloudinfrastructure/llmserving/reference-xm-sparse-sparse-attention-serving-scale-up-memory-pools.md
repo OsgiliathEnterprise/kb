@@ -16,7 +16,7 @@ keywords:
 # XM-Sparse: High-Throughput Sparse-Attention LLM Serving over Scale-up Memory Pools
 
 ## Overview
-XM-Sparse is the first sparse-attention **offloading** system built over scale-up memory pools (e.g., X-Mem). Production LLMs increasingly use sparse attention for long-context inference, but serving stacks still retain the full KV history, so GPU HBM capacity caps serving concurrency. Host-memory offload (PCIe-based) trades one bottleneck (capacity) for another (bandwidth); scale-up memory pools relieve both — yet the authors show decode throughput remains HBM-bound because hot KV buffers and a fully resident indexer-key (K-index) cache occupy large HBM footprints.
+XM-Sparse is the first sparse-attention **offloading** system built over scale-up memory pools (e.g., X-Mem). Sparse attention is increasingly adopted in production LLMs — including recent DeepSeek (2025) and GLM (2026) models — for long-context inference, but serving stacks still retain the full KV history, so GPU HBM capacity caps serving concurrency. Host-memory offload (PCIe-based) trades one bottleneck (capacity) for another (bandwidth); scale-up memory pools relieve both — yet the authors show decode throughput remains HBM-bound because hot KV buffers and a fully resident indexer-key (K-index) cache occupy large HBM footprints.
 
 ## Problem Statement
 How to serve sparse-attention LLMs at high decode throughput over very long contexts (16K–1M tokens) when HBM is the binding constraint even with an external memory pool — given that the two hot caches (dynamic KV entries, K-index) have fundamentally different access patterns.
@@ -27,6 +27,7 @@ How to serve sparse-attention LLMs at high decode throughput over very long cont
 | Dynamic KV entry retrieval | TMA-based retrieval **fused** with attention in a tile-level pipeline, hiding on-demand I/O latency |
 | K-index cache | Predictable accesses → page prefetch via SM-efficient **GPU-initiated DMA**, coordinated with latency-critical decode ops to avoid interference |
 | Core idea | Offload *both* caches aggressively, but match each cache with an I/O mechanism tailored to its access pattern |
+| HBM residency | Only compact hot KV buffers, K-index staging buffers, and a subset of K-index pages stay in HBM; full KV and K-index caches live in the external pool |
 | Implementation | Built atop **SGLang**; evaluated with an emulated scale-up memory pool |
 
 ## Results
@@ -43,4 +44,5 @@ Reference architecture for our long-context serving roadmap: the key operational
 - Paper: https://arxiv.org/abs/2611.22280 (published 2026-11-17)
 - Authors: Yijun Sun, Xudong Liao, Zhuobin Huang, Kai Chen, Nikita Lazarev, Zhizhen Zhong
 - Prior systems: ECHO, HiSparse; scale-up memory pool: X-Mem; base serving engine: SGLang
+- Industry write-up (Netpreme, X-Mem + SGLang HiSparse integration): https://netpreme.com/blog/xm-sparse-sglang-hisparse-netpreme-xmem
 - Semantic Scholar: https://api.semanticscholar.org/graph/v1/paper/arXiv:2611.22280
