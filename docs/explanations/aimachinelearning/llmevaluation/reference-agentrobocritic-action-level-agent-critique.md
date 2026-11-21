@@ -18,6 +18,8 @@ keywords:
 ## Overview
 AgentRoboCritic is an evaluation framework and released toolchain for assessing frontier multimodal language agents that control robots *directly* via low-level numerical actions (no high-level primitives). Where existing benchmarks report only episode-level success rates, this work provides action-level attribution: what the agent intended, whether the action achieved it, and which failure mode occurred.
 
+**Paper metadata**: Yiyang Du, Yuxuan Kuang, Qitao Zhao, Yixuan Wang, Zhanqiu Guo, Yi Xu, Xin Li, Wenbin He, Liu Ren, Chenyan Xiong — arXiv:2611.26613 [cs.RO, cs.CL, cs.CV], submitted 2026-11-19, 28 pages, DOI 10.48550/arXiv.2611.26613.
+
 ## Problem Statement
 Episode-level success rates tell you neither *how* frontier agents succeed at direct robot control nor *where* they fail. Without per-action signal, capability assessments of low-level agent control are coarse and non-diagnostic.
 
@@ -25,7 +27,7 @@ Episode-level success rates tell you neither *how* frontier agents succeed at di
 - **Scope**: systematic action-level analysis across 12 manipulation benchmarks, applied to frontier multimodal agents (e.g. GPT-6 Astra) issuing raw numerical actions.
 - **Intent-grounded critique loop**: the policy agent states a local intent alongside every action; a critic evaluates the action's outcome and failure mode against that stated intent.
 - **Critic validation**: validated on a 400-action human-annotated benchmark.
-- **Released artifacts**: a dataset of 12,844 annotated actions and an open-source fine-tuned critic, Muse-Glimmer-30B, whose failure-mode accuracy rises from 32.58% to 74.24% after fine-tuning — enabling low-cost action-level analysis. The critic VLM is published on Hugging Face as `cx-cmu/AgentRoboCritic-Muse-Glimmer-30B` (CMU/Carnegie School, lead author Yiyang Du et al., 2026; arXiv primary class cs.RO).
+- **Released artifacts**: a dataset of 12,844 annotated actions and an open-source fine-tuned critic, Muse-Glimmer-30B, whose failure-mode accuracy rises from 32.58% to 74.24% after fine-tuning — enabling low-cost action-level analysis. The fine-tuned critic **approaches GPT-6 Astra on both action-outcome and failure-mode accuracy**, making a 30B open model a viable substitute for a frontier judge. The critic VLM is published on Hugging Face as `cx-cmu/AgentRoboCritic-Muse-Glimmer-30B` (CMU/Carnegie School, lead author Yiyang Du et al., 2026; arXiv primary class cs.RO).
 
 ## Key Findings (capability matrix)
 Capabilities observed in frontier agents:

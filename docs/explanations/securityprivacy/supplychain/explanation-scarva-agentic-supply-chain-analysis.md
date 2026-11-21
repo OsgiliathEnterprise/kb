@@ -17,6 +17,8 @@ keywords:
 ## Overview
 SCARVA (Supply-Chain Agentic Risk & Vulnerability Analyzer) is a framework for deciding whether a known vulnerability in a dependency actually endangers the application that imports it. A vulnerable dependency is not automatically exploitable — the vulnerable code may never be reachable. SCARVA combines LLM agents with an evidence-collection methodology so that the verdict arrives as an *interpretable, evidence-backed report* rather than an opaque agent conclusion.
 
+**Paper metadata**: Tim Barsch, Bruno Nogueira, Tobias Wienand, Jan Fopma, Flavio Toffalini — arXiv:2611.26131 [cs.CR], submitted 2026-11-19, CC-BY 4.0, DOI 10.48550/arXiv.2611.26131.
+
 ## Problem Statement
 Existing SCA tools flag dependencies associated with public vulnerabilities; more advanced ones analyze the call graph to assess whether vulnerable code is reachable — but are limited to specific languages and ecosystems. LLM agents generalize across ecosystems, yet they **hallucinate, take shortcuts, and reward-hack**; because their reasoning is opaque, their conclusions cannot be trusted for security triage.
 
@@ -32,6 +34,11 @@ Existing SCA tools flag dependencies associated with public vulnerabilities; mor
 
 ## Relevance to Our Domain
 Dependency triage at our scale means answering "is this CVE reachable in *this* app?" across polyglot stacks where call-graph tools fall short. SCARVA's record-everything + independent-judge pattern is a directly reusable design for trustworthy agentic security review — the same audit-the-agent principle we apply to agent evaluation generally (cf. faithfulness of agent work reports in this KB).
+
+## Practical Takeaways
+- **Audit-the-agent is the trust mechanism, not the model choice**: an open-weight ANALYST (Qwen 3.8) beat proprietary models on balanced accuracy, but the paper's credibility rests on recording *every* tool call, file access, and web request so independent JUDGEs can verify claims — adopt the trace-first design before optimizing model selection.
+- **Judge-as-annotator is nearly human-grade**: Claude Opus 5.5 agreed with human annotators on 94% of claim checks, suggesting automated evidence auditing can be productionized for triage queues rather than being a research-only scaffold.
+- **Baseline gap**: call-graph reachability tools are language-locked; SCARVA's LLM-agent approach targets exactly the polyglot cases where they go silent — treat its 82% balanced accuracy as the current reference point for agentic reachability on a 54-case balanced benchmark.
 
 ## References
 - Paper: https://arxiv.org/abs/2611.26131
