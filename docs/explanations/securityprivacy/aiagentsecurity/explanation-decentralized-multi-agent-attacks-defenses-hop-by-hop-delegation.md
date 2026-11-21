@@ -15,6 +15,10 @@ keywords:
 ---
 # Attacks and Defenses in Decentralized Multi-Agent Systems with Hop-by-Hop Task Decomposition and Delegation
 
+## Paper Metadata
+- Authors: Matthew D. Laws, Maria Lazou, Alina Oprea, Cristina Nita-Rotaru (security group at Northeastern University)
+- Submitted: 2026-11-18 (v1) · Category: cs.CR (Cryptography and Security)
+
 ## Overview
 A systematization of threats in decentralized multi-agent LLM systems, where independently administered agents (own operator, model, memory, configuration) collaborate without central coordination: each agent decomposes tasks, executes subtasks, and delegates remaining work to peers. The paper quantifies how much damage one malicious agent can do and proposes a cryptographic trace protocol plus an auditor to catch it.
 

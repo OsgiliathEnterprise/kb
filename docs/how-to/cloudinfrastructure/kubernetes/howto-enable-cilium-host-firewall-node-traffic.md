@@ -110,4 +110,4 @@ Watch host endpoint policy verdicts, interface coverage, agent restarts, and nod
 - [Cilium docs: Host Firewall](https://docs.cilium.io/en/stable/security/host-firewall/)
 - [Cilium docs: Host Policies](https://docs.cilium.io/en/stable/security/policy/host/)
 - [Cilium Helm reference](https://docs.cilium.io/en/stable/helm-reference/)
-- [Cilium blog: Securing the Node — A Primer on Cilium's Host Firewall](https://cilium.io/blog/2025-08-15/host-firewall-primer/)
+- [Cilium blog: Securing the Node — A Primer on Cilium's Host Firewall](https://cilium.io/blog/2025/08/15/host-firewall-primer/)
