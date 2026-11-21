@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 -4.0 968.0 413.0" width="968" height="413">
+<rect x="16.0" y="-4.0" width="968.0" height="413.0" fill="#ffffff"/>
+<rect x="60.0" y="80.0" width="180.0" height="60.0" rx="8" fill="#e7f5ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="330.0" y="80.0" width="210.0" height="60.0" rx="8" fill="#fff9db" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="630.0" y="80.0" width="230.0" height="60.0" rx="8" fill="#f3f0ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="560.0" y="215.0" width="370.0" height="70.0" rx="8" fill="#ebfbee" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="60.0" y="215.0" width="380.0" height="70.0" rx="8" fill="#ffe3e3" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="60.0" y="330.0" width="900.0" height="55.0" rx="8" fill="#f8f9fa" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 250.0 110.0 L 320.0 110.0"/><line x1="320.0" y1="110.0" x2="307.4" y2="103.9"/><line x1="320.0" y1="110.0" x2="307.4" y2="116.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 550.0 110.0 L 620.0 110.0"/><line x1="620.0" y1="110.0" x2="607.4" y2="103.9"/><line x1="620.0" y1="110.0" x2="607.4" y2="116.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 745.0 145.0 L 745.0 205.0"/><line x1="745.0" y1="205.0" x2="751.1" y2="192.4"/><line x1="745.0" y1="205.0" x2="738.9" y2="192.4"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 450.0 250.0 L 550.0 250.0"/><line x1="550.0" y1="250.0" x2="537.4" y2="243.9"/><line x1="550.0" y1="250.0" x2="537.4" y2="256.1"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="20" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="36.0">At-least-once job consumer: exactly-once business effect</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="80.0" y="110.4">Broker redelivers</tspan><tspan x="80.0" y="126.7">(after worker crash</tspan><tspan x="80.0" y="142.9">pre-ack)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="345.0" y="102.4">Derive BUSINESS key</tspan><tspan x="345.0" y="118.7">digest:customer-1842:2026-W32</tspan><tspan x="345.0" y="134.9">+ payload hash</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="645.0" y="102.4">DB TX: INSERT key UNIQUE</tspan><tspan x="645.0" y="118.7">+ outbox record + accepted</tspan><tspan x="645.0" y="134.9">(ack ONLY after commit)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="575.0" y="235.4">Unique-constraint hit?</tspan><tspan x="575.0" y="251.7">-&gt; duplicate: read existing decision,</tspan><tspan x="575.0" y="267.9">record attempt, ack, NO second send</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="75.0" y="235.4">Outbox worker: call provider with SAME idempotency</tspan><tspan x="75.0" y="251.7">key; record response; 429 -&gt; Retry-After/backoff+jitter;</tspan><tspan x="75.0" y="267.9">permanent fail -&gt; DLQ (preserve key on redrive)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="75.0" y="352.4">Invariant: one customer-period = ONE accepted decision.  Alert separately on duplicate deliveries (normal) vs second sends (correctness incident).  Reconcile: producer cmd x idempotency record x domain data x provider result.</tspan></text>
+</svg>

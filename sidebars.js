@@ -150,7 +150,7 @@ const sidebars = {
           type: 'category',
           label: 'Eventdrivenarchitecture',
           link: {type: 'generated-index', title: 'Eventdrivenarchitecture', slug: 'how-to/backendengineering/eventdrivenarchitecture'},
-          items: ['how-to/backendengineering/eventdrivenarchitecture/howto-idempotent-webhook-handlers-nodejs'],
+          items: ['how-to/backendengineering/eventdrivenarchitecture/howto-idempotent-job-queue-consumers-at-least-once', 'how-to/backendengineering/eventdrivenarchitecture/howto-idempotent-webhook-handlers-nodejs'],
         },
         {
           type: 'category',
@@ -384,7 +384,7 @@ const sidebars = {
           type: 'category',
           label: 'Emailsecurity',
           link: {type: 'generated-index', title: 'Emailsecurity', slug: 'how-to/securityprivacy/emailsecurity'},
-          items: ['how-to/securityprivacy/emailsecurity/howto-outlook-dmarc-enforcement-fix'],
+          items: ['how-to/securityprivacy/emailsecurity/howto-defend-password-spraying-residential-proxies', 'how-to/securityprivacy/emailsecurity/howto-outlook-dmarc-enforcement-fix'],
         },
         {
           type: 'category',
@@ -596,7 +596,7 @@ const sidebars = {
           type: 'category',
           label: 'Resourceoptimization',
           link: {type: 'generated-index', title: 'Resourceoptimization', slug: 'explanations/aimachinelearning/resourceoptimization'},
-          items: ['explanations/aimachinelearning/resourceoptimization/reference-agentcore-environment-reservation'],
+          items: ['explanations/aimachinelearning/resourceoptimization/explanation-llm-cost-optimization-agent-fleets', 'explanations/aimachinelearning/resourceoptimization/reference-agentcore-environment-reservation'],
         },
         {
           type: 'category',
