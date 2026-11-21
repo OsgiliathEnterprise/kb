@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="36.0 36.0 1068.0 543.0" width="1068" height="543">
+<rect x="36.0" y="36.0" width="1068.0" height="543.0" fill="#ffffff"/>
+<rect x="60.0" y="60.0" width="480.0" height="200.0" rx="8" fill="#e7f5ff" stroke="#1971c2" stroke-width="1.5"/>
+<rect x="100.0" y="120.0" width="170.0" height="90.0" rx="8" fill="#ffffff" stroke="#1971c2" stroke-width="1.5"/>
+<rect x="320.0" y="120.0" width="170.0" height="90.0" rx="8" fill="#ffffff" stroke="#1971c2" stroke-width="1.5"/>
+<rect x="620.0" y="120.0" width="220.0" height="90.0" rx="8" fill="#fff4e6" stroke="#e8590c" stroke-width="1.5" stroke-dasharray="7 5"/>
+<rect x="60.0" y="320.0" width="780.0" height="180.0" rx="8" fill="#fff0f6" stroke="#c2255c" stroke-width="1.5"/>
+<rect x="100.0" y="380.0" width="320.0" height="90.0" rx="8" fill="#ffffff" stroke="#c2255c" stroke-width="1.5"/>
+<rect x="480.0" y="380.0" width="320.0" height="90.0" rx="8" fill="#fff9db" stroke="#e8a50c" stroke-width="1.5"/>
+<g stroke="#c2255c" stroke-width="1.5" fill="none"><path d="M 900.0 400.0 L 820.0 400.0"/><line x1="820.0" y1="400.0" x2="832.6" y2="406.1"/><line x1="820.0" y1="400.0" x2="832.6" y2="393.9"/></g>
+<g stroke="#495057" stroke-width="1.5" fill="none"><path d="M 300.0 260.0 L 300.0 320.0"/><line x1="300.0" y1="320.0" x2="306.1" y2="307.4"/><line x1="300.0" y1="320.0" x2="293.9" y2="307.4"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="18" fill="#1e1e1e" text-anchor="start"><tspan x="80.0" y="89.4">Pod layer</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="115.0" y="151.2">Pod A</tspan><tspan x="115.0" y="168.7">NetworkPolicy</tspan><tspan x="115.0" y="186.2">(podSelector)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="335.0" y="151.2">Pod B</tspan><tspan x="335.0" y="168.7">NetworkPolicy</tspan><tspan x="335.0" y="186.2">(podSelector)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="635.0" y="145.4">hostNetwork pod</tspan><tspan x="635.0" y="161.7">bypasses Cilium policy</tspan><tspan x="635.0" y="177.9">by default -&gt; needs</tspan><tspan x="635.0" y="194.2">host policies</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="18" fill="#1e1e1e" text-anchor="start"><tspan x="80.0" y="349.4">Node (host endpoint) layer  -  hostFirewall.enabled=false BY DEFAULT!</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="115.0" y="410.4">CiliumClusterwideNetworkPolicy</tspan><tspan x="115.0" y="426.6">+ nodeSelector (e.g. node-access=ssh)</tspan><tspan x="115.0" y="442.9">enforces kubelet/etcd/SSH/node-port traffic</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="495.0" y="410.4">Policy Audit Mode</tspan><tspan x="495.0" y="426.6">= observation, NOT enforcement</tspan><tspan x="495.0" y="442.9">does NOT survive cilium-agent restart</tspan><tspan x="495.0" y="459.1">(silently flips to enforcing)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="910.0" y="395.4">lateral / mgmt-</tspan><tspan x="910.0" y="411.6">network traffic</tspan><tspan x="910.0" y="427.9">(deny unless allowed)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="310.0" y="285.4">two layers must be tested together</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="60.0" y="541.2">Before first enforcement: verify console/IPMI/serial out-of-band access (mistake can lock you out).</tspan></text>
+</svg>

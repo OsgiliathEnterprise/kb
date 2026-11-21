@@ -228,7 +228,7 @@ const sidebars = {
           type: 'category',
           label: 'Kubernetes',
           link: {type: 'generated-index', title: 'Kubernetes', slug: 'how-to/cloudinfrastructure/kubernetes'},
-          items: ['how-to/cloudinfrastructure/kubernetes/howto-argocd-git-to-live-sync-verification', 'how-to/cloudinfrastructure/kubernetes/howto-check-cgroup-v1-before-k8s-upgrade', 'how-to/cloudinfrastructure/kubernetes/howto-inspect-volcano-knative-workloads-with-headlamp-plugins', 'how-to/cloudinfrastructure/kubernetes/howto-install-kubeflow-for-ml-on-eks', 'how-to/cloudinfrastructure/kubernetes/howto-kapitan-multi-env-promotion-diff-guard', 'how-to/cloudinfrastructure/kubernetes/howto-manage-cluster-api-resources-with-headlamp'],
+          items: ['how-to/cloudinfrastructure/kubernetes/howto-argocd-git-to-live-sync-verification', 'how-to/cloudinfrastructure/kubernetes/howto-check-cgroup-v1-before-k8s-upgrade', 'how-to/cloudinfrastructure/kubernetes/howto-enable-cilium-host-firewall-node-traffic', 'how-to/cloudinfrastructure/kubernetes/howto-inspect-volcano-knative-workloads-with-headlamp-plugins', 'how-to/cloudinfrastructure/kubernetes/howto-install-kubeflow-for-ml-on-eks', 'how-to/cloudinfrastructure/kubernetes/howto-kapitan-multi-env-promotion-diff-guard', 'how-to/cloudinfrastructure/kubernetes/howto-manage-cluster-api-resources-with-headlamp'],
         },
         {
           type: 'category',
