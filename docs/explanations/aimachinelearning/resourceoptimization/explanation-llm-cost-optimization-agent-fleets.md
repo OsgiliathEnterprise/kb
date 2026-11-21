@@ -48,6 +48,15 @@ and retrieved documents repeat across calls.
   cache on that stable prefix. This is the fastest first win: a configuration
   change with no behavioral risk, typically double-digit percentage savings on
   fleets with long system prompts.
+- The economics are concrete: on Anthropic's explicit caching, cache **reads**
+  cost ~10% of the base input rate (writes ~1.25x, 5-minute default TTL with a
+  pricier 1-hour option); OpenAI discounts cached input tokens by up to ~95%.
+  The January 2026 study *"Don't Break the Cache"* — the first systematic
+  evaluation of prompt caching on long-horizon agent tasks across three major
+  providers — measured **41–80% API cost reduction** and **13–31% faster
+  time-to-first-token** (see References). Break the stable prefix anywhere
+  (a timestamp, a reordered tool schema) and you pay full price again — treat
+  prefix stability as a regression-tested invariant, not a hint.
 - **Memoize expensive tool results** below the provider layer: a fetched document
   or computed embedding does not need regeneration inside one workflow run.
 - One layer lower, KV-cache compression research (MiniCache) shows cached state
@@ -101,6 +110,9 @@ mix, not a measured universal.
 - [Splitwise: phase-splitting for generative LLM inference (ISCA 2024)](https://doi.org/10.1109/isca59077.2024.00019)
 - [MiniCache: depth-dimension KV cache compression](https://doi.org/10.52202/079017-4443)
 - [PagedAttention / vLLM: memory management for high-throughput LLM serving](https://doi.org/10.1145/3600006.3613165)
+- [Don't Break the Cache: An Evaluation of Prompt Caching for Long-Horizon Agentic Tasks (arXiv:2601.06007, Jan 2026)](https://arxiv.org/abs/2601.06007)
+- [Anthropic: prompt caching (read/write rates, TTLs)](https://platform.claude.com/docs/en/build-with-claude/prompt-caching)
+- [OpenAI: prompt caching (cached-input discount)](https://developers.openai.com/api/docs/guides/prompt-caching)
 
 ## Related
 
