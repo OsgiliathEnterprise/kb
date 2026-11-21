@@ -32,6 +32,14 @@ The agent treats post-training itself as an optimization over interventions: min
 ## Relevance to Our Domain
 For agent-training pipelines built on SFT from agent logs: curating only successful trajectories is insufficient; process-level shaping via natural-language skills is cheap and measurable. The "keep the skill text in training demonstrations" finding is a directly usable recipe detail for anyone distilling agent behavior into smaller models.
 
+## Metadata (verified vs arXiv, 2026-11-21)
+- Authors: Guoxin Chen, Shuang Sun, Fanzhe Meng, Xinyu Tang, Ruihua Song, Wayne Xin Zhao (RUC-AIBOX / Renmin University of China group).
+- Submitted 2026-11-19, arXiv:2611.26510 [cs.CL], CC-BY-4.0.
+- Official artifacts: project website, code, and released checkpoints are public (see References) — the loop is reproducible end-to-end rather than paper-only.
+
 ## References
 - Paper: https://arxiv.org/abs/2611.26510
 - Semantic Scholar: https://api.semanticscholar.org/graph/v1/paper/arXiv:2611.26510
+- Code: https://github.com/RUCAIBox/AutoMaster
+- Models: https://huggingface.co/collections/RUC-AIBOX/automaster
+- Website: https://aweai-team.github.io/AutoMaster/
