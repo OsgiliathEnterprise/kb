@@ -18,6 +18,9 @@ keywords:
 ## Overview
 LightningMoBA is a serving-side acceleration of **Mixture of Block Attention (MoBA)** — long-context attention that selects KV blocks per query. Building on FlashMoBA, it removes two fixed design choices (uniform Top-k budget, query-centric scheduling) and co-designs selection with execution. This note is a lookup sheet for its mechanisms and measured figures.
 
+## Background: MoBA
+Mixture of Block Attention is a trainable block-sparse attention mechanism introduced (Feb 2025) by Moonshot AI (Kimi) with Tsinghua University: the KV sequence is split into contiguous blocks and a learned gate routes each query to a small number of blocks, cutting the quadratic cost of long-context attention. LightningMoBA optimizes this mechanism at serving time (below).
+
 ## Baseline Limitations (FlashMoBA)
 | Issue | Consequence |
 |---|---|
@@ -46,4 +49,5 @@ Sits alongside Twindex in the KB's sparse-attention serving coverage: Twindex op
 
 ## References
 - Paper: https://arxiv.org/abs/2611.26268
+- MoBA origin (Moonshot AI / Tsinghua, Feb 2025): https://arxiv.org/abs/2502.13189
 - Related: [[explanation-twindex-index-cache-offloading]]
