@@ -25,8 +25,10 @@ that gap in ten minutes, before every deploy.
 Frontend frameworks **inline prefixed environment variables into the bundle at build time** — by
 design, since the browser cannot read server environment. The prefix *is* the security model:
 
-- **Vite:** anything prefixed `VITE_` is baked into client code.
+- **Vite:** anything prefixed `VITE_` is baked into client code (the docs explicitly say: do not
+  put secrets behind this prefix).
 - **Next.js:** anything prefixed `NEXT_PUBLIC_` is public.
+- **CRA / some React stacks:** anything prefixed `REACT_APP_` is inlined into the bundle too.
 
 If an AI agent (or tired human) puts an API key behind that prefix, the key ships to everyone who
 opens the page. Quiet variants: a `.env` file left in the deployed folder, or a key pasted into
@@ -97,6 +99,35 @@ holds the key, validates the request, and proxies to the provider. Two habits ma
 **secret scanning in CI** (gitleaks or GitHub secret scanning catches keys at commit time) and
 **separate keys per environment** (dev/staging/prod — when one leaks, rotate one, not everything).
 
+## Automating the audit so it runs even on a Friday
+
+Ten-minute manual audits decay; wire the same checks into the pipeline:
+
+```yaml
+# .pre-commit-config.yaml — gitleaks on staged changes, locally, before any commit
+repos:
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.24.2
+    hooks:
+      - id: gitleaks
+```
+
+Then layer on:
+
+- **GitHub push protection** (Settings → Code security and analysis): blocks pushes containing
+  recognized provider tokens *before* they reach the repo — catches the AI-pasted-key case at the
+  earliest possible moment.
+- **CI scanning as the safety net**: run gitleaks (or detect-secrets) in the pipeline against the
+  full history, not just the diff — a key in an old commit is still a key.
+- **Scan the artifact, not the repo**: add a bundle-audit step after `npm run build`, e.g.
+  `if grep -rE "sk-(live|proj|pro)-|sk-[A-Za-z0-9]{20,}|AKIA[0-9A-Z]{16}" dist/; then echo "SECRET IN BUNDLE"; exit 1; fi`
+  — built output can leak what source never contained.
+- **Restrict keys aggressively** even when they are meant to be public: the Stripe publishable key
+  and any client key should still be limited by domain, IP allowlist, or API scope.
+
+When a leak *is* found, speed beats perfection: rotate first, then investigate — a key's exposure
+window is measured from when it was committed, not from when you noticed.
+
 ## The lesson beyond keys
 
 The failure mode is invisible to the person shipping: the agent built what it was asked to build,
@@ -109,3 +140,6 @@ it is still your job.**
 - [Vite env variables and prefixing](https://vite.dev/guide/env-and-mode)
 - [Next.js environment variable prefixes](https://nextjs.org/docs/app/guides/environment-variables)
 - [gitleaks](https://github.com/gitleaks/gitleaks)
+- [API Key Leak Detection: Stop Exposing Secrets in Your Frontend (checkvibe)](https://checkvibe.dev/blog/api-key-leak-detection)
+- [What to Do When Your API Keys End Up in a Repo (OpenReplay blog)](https://blog.openreplay.com/api-keys-repo/)
+- [GitGuardian API Security Best Practices](https://github.com/GitGuardian/APISecurityBestPractices)

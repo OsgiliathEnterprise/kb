@@ -29,11 +29,26 @@ what data can actually be read.
 | Roles, DLS, FLS | OpenSearch cluster backend | Which indices/documents/fields a user identity may read |
 
 The `securitytenant` header is *context information*, not an authorization grant. Dashboards must be
-configured to forward it to OpenSearch alongside the standard `Authorization` header — but even a
-correctly forwarded tenant header does not replace a role mapping that allows reading the underlying
-index. Tenant names also appear in URLs, which invites exactly the wrong test: "change the tenant
-parameter and see what leaks". The backend must reject that request even when the caller knows the
-target tenant's name.
+configured to forward it to OpenSearch alongside the standard `Authorization` header — the allowlist
+lives in `opensearch_dashboards.yml`:
+
+```yaml
+# opensearch_dashboards.yml
+opensearch.username: kibanaserver           # the Dashboards *server* identity
+opensearch.password: ***
+opensearch.requestHeadersAllowlist: ["securitytenant", "Authorization"]
+opensearch_security.multitenancy.enabled: true
+opensearch_security.multitenancy.tenants.enable_global: true
+opensearch_security.multitenancy.tenants.enable_private: true
+opensearch_security.multitenancy.tenants.preferred: ["Private", "Global"]
+```
+
+Note `do_not_fail_on_forbidden: false` on the cluster side: if it is `true`, Dashboards serves
+*unsecured* content when the backend rejects a request — the exact inversion that turns a
+presentation boundary into an open door. But even a correctly forwarded tenant header does not
+replace a role mapping that allows reading the underlying index. Tenant names also appear in URLs,
+which invites exactly the wrong test: "change the tenant parameter and see what leaks". The backend
+must reject that request even when the caller knows the target tenant's name.
 
 ## The over-privileged Dashboards server account
 
@@ -75,6 +90,16 @@ Design rule: treat multi-tenancy as a presentation and collaboration boundary, a
 authorization decision (index, document, field, tenant membership) in the backend role model, then
 verify it out-of-band at the API edge.
 
+## Provenance note (verified 2026-11-21)
+
+The `opensearch_dashboards.yml` block above matches the official multi-tenancy configuration
+docs verbatim (`do_not_fail_on_forbidden: false` on the cluster side,
+`opensearch.requestHeadersAllowlist: ["securitytenant", "Authorization"]` on the Dashboards
+side). One naming caveat when copying between versions: older docs and 2.x releases use
+`opensearch.requestHeadersWhitelist` for the same allowlist — if tenant switching silently does
+nothing after a config "looks right", check whether the deployment expects the whitelist spelling
+and silently ignores the allowlist key (or vice versa).
+
 ## References
 
 - [Original article (dev.to, bianliang)](https://dev.to/bianliang/opensearch-dashboards-tenancy-is-not-backend-authorization-1ip)
@@ -82,3 +107,4 @@ verify it out-of-band at the API edge.
 - [OpenSearch multi-tenancy configuration](https://docs.opensearch.org/latest/security/multi-tenancy/multi-tenancy-config/)
 - [OpenSearch Dashboards information API](https://docs.opensearch.org/latest/security/api/dashboards-info/)
 - [OpenSearch security best practices](https://docs.opensearch.org/latest/security/configuration/best-practices/)
+- [Forum case: securitytenant header ignored until server creds + allowlist are set](https://forum.opensearch.org/t/header-securitytenant-doesnt-work-in-opensearch-dashboard/22886)
