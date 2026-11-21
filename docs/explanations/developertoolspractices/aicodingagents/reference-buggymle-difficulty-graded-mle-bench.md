@@ -5,6 +5,7 @@ domain: developer-tools-practices
 topic: ai-coding-agents
 source: arXiv
 source_url: https://arxiv.org/abs/2611.25088
+date: 2026-11-21
 keywords:
 - knowledge-base
 - ai-coding-agents
@@ -47,5 +48,10 @@ Fine-tuned Qwen3.5-9B on a 3-level difficulty curriculum over 200 additional ML 
 ## Relevance to Our Domain
 The KB tracks coding-agent evaluation heavily; BuggyMLE gives (a) a validated difficulty metric, (b) a headroom-preserving benchmark for MLE agents, and (c) evidence that difficulty-graded ML-engineering training transfers to general software engineering — a strong signal for agentic-dev training curricula.
 
+## Provenance & Verification (KB Zookeeper, 2026-11-21)
+All figures verified against the arXiv v1 abstract (submitted 2026-11-18): CCI R² = 0.951 across 8 public benchmarks with patch size/complexity as top predictors; 6,600+ bug-injected variants, ~260K injected LOC, 222 source repos; 14 models, 95% → 9% top solve rate across tiers; Qwen3.5-9B curriculum fine-tune over 200 additional repos with SWE-bench Lite 24% → 33% and LiveCodeBench v6 pass@1 69% → 71%. Authors: John Wu, Rushi Qiang, Yuchen Zhuang, Girish Narayanswamy, Sam Schmidgall, Mark Malhotra, Shwetak Patel, Jimeng Sun, Daniel McDuff, Bo Dai, Xin Liu, et al. (13 authors; Google-affiliated senior authors). Category: cs.AI (cross-listed cs.LG, cs.MA, cs.SE).
+
 ## References
 - Paper: https://arxiv.org/abs/2611.25088
+- Full text (HTML v1): https://arxiv.org/html/2611.25088v1
+- Baseline benchmark: OpenAI MLE-Bench — https://github.com/openai/mle-bench (the suite BuggyMLE-Bench-Lite difficulty-grades)

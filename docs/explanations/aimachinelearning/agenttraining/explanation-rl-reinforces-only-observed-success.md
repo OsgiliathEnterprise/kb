@@ -5,6 +5,7 @@ domain: ai-machine-learning
 topic: agent-training
 source: arXiv
 source_url: https://arxiv.org/abs/2611.26084
+date: 2026-11-21
 keywords:
 - knowledge-base
 - agent-training
