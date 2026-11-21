@@ -48,3 +48,6 @@ Directly informs our agent-architecture coverage: single-interface always-on ass
 - Paper: https://arxiv.org/abs/2611.26346
 - Code: https://github.com/Viacol0916/ClonAct
 - Semantic Scholar: https://api.semanticscholar.org/graph/v1/paper/arXiv:2611.26346
+
+## Provenance & verification
+Grounded 2026-11-21 after audit: all retained claims verified against the arXiv abstract (arxiv_meta.xml) and v1 PDF — authors (Tian, Hu, Du), context-as-a-resource framing, clone/fork-at-checkpoint worker mechanism. Repository URL Viacol0916/ClonAct confirmed in the v1 PDF and live (HTTP 200).

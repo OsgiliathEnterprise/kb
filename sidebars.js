@@ -130,12 +130,6 @@ const sidebars = {
         },
         {
           type: 'category',
-          label: 'Mlops',
-          link: {type: 'generated-index', title: 'Mlops', slug: 'how-to/aimachinelearning/mlops'},
-          items: ['how-to/aimachinelearning/mlops/how-to-cost-aware-agentic-feature-optimization'],
-        },
-        {
-          type: 'category',
           label: 'Mlreproducibility',
           link: {type: 'generated-index', title: 'Mlreproducibility', slug: 'how-to/aimachinelearning/mlreproducibility'},
           items: ['how-to/aimachinelearning/mlreproducibility/howto-fedbrew-paper-faithful-federated-learning'],
@@ -579,6 +573,12 @@ const sidebars = {
           label: 'Llmevaluation',
           link: {type: 'generated-index', title: 'Llmevaluation', slug: 'explanations/aimachinelearning/llmevaluation'},
           items: ['explanations/aimachinelearning/llmevaluation/explanation-bidirectional-adversarial-llm-evaluation', 'explanations/aimachinelearning/llmevaluation/explanation-netflix-synopsis-factuality-cascade', 'explanations/aimachinelearning/llmevaluation/explanation-openrouter-live-frontier-benchmark-nov-2026', 'explanations/aimachinelearning/llmevaluation/explanation-verification-transport-llm-agent-evaluation', 'explanations/aimachinelearning/llmevaluation/reference-agentrobocritic-action-level-agent-critique', 'explanations/aimachinelearning/llmevaluation/reference-livegeo-geographic-agent-benchmark', 'explanations/aimachinelearning/llmevaluation/reference-llm-judge-scoring-topology', 'explanations/aimachinelearning/llmevaluation/reference-rsibench-infra-agent-infrastructure-optimization'],
+        },
+        {
+          type: 'category',
+          label: 'Mlops',
+          link: {type: 'generated-index', title: 'Mlops', slug: 'explanations/aimachinelearning/mlops'},
+          items: ['explanations/aimachinelearning/mlops/reference-cost-aware-agentic-feature-optimization'],
         },
         {
           type: 'category',

@@ -47,3 +47,6 @@ Expert-parallel MoE serving (DeepSeek-style models) is one of the hottest bottle
 - Code: https://github.com/AMDResearch/kiwi
 - Semantic Scholar: https://api.semanticscholar.org/graph/v1/paper/arXiv:2611.23848
 - Related: NCCL GPU-initiated networking (arXiv:2511.15076) for the GDA/IBGDA baseline this paper compares against
+
+## Provenance & verification
+Grounded 2026-11-21 after audit: all retained claims verified against the arXiv abstract (arxiv_meta.xml) and v1 PDF — authors (Yan, Patel, Sidler, Rao et al., AMD), GPU-initiated CPU invocation replacing host-mediated RPC (~500 ns vs ~2–3 µs launch overhead), AMD deployment for MoE router gating in vLLM. Repository URL amdresearch/kiwi confirmed in the v1 PDF and live (HTTP 200).
