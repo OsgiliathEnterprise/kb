@@ -501,7 +501,11 @@ def sync_diagrams(new_files):
     content never leaks diagram assets to the site. Returns the set of
     docs-relative paths of generated SVGs (used for stale-SVG cleanup).
     """
-    draw_map = {f.name: f for f in KB_SOURCE.rglob("*.excalidraw")}
+    draw_map = {
+        f.name: f
+        for f in KB_SOURCE.rglob("*.excalidraw")
+        if ".kb-quarantine" not in f.relative_to(KB_SOURCE).parts
+    }
     converter = Path(__file__).resolve().parent / "excalidraw-to-svg.py"
 
     generated = set()   # SVGs converted this run
@@ -612,8 +616,10 @@ def sync_kb():
     print("KB Sync — Organizing by Diátaxis type")
     print("=" * 60)
 
-    # Collect all KB markdown files
-    kb_files = list(KB_SOURCE.rglob("*.md"))
+    # Collect all KB markdown files (quarantined vault files are excluded,
+    # same convention as the Zookeeper scan)
+    kb_files = [f for f in KB_SOURCE.rglob("*.md")
+                if ".kb-quarantine" not in f.relative_to(KB_SOURCE).parts]
     print(f"\nFound {len(kb_files)} markdown files in KB source")
 
     # Get existing docs files
