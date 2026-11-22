@@ -47,7 +47,18 @@ keywords:
 
 A general principle for our AI-assisted-development coverage: *invest in the intermediate natural-language artifact*, but only with test-grounded validation — human review is not part of this study's loop, so budget for test infrastructure instead.
 
+## Related Work (added 2026-11-22 by KB Zookeeper)
+
+Complementary approaches to the same C→Rust problem — useful context for where spec-driven translation sits:
+
+- **Search-based multi-trajectory refinement** (Sim, Cho, Go, et al.; arXiv:2505.15858, v3 Apr 2026): treats translation as search over multiple LLM generation trajectories with safety-focused refinement — attacks correctness by exploring *many candidate translations* rather than improving the input representation.
+- **Project-level translation via pointer knowledge graphs** (Yuan, Mao, Chen, et al.; arXiv:2510.10956, v3 May 2026): targets *whole-project* translation, using pointer analysis knowledge graphs to handle cross-file aliasing that defeats function-level translators.
+
+Positioning: "Beyond Source Code" optimizes the **input artifact** (spec vs. code); these two optimize the **search/analysis loop**. They are composable — a validated spec plus project-level pointer context plus trajectory search is the natural combined recipe, and no published study yet evaluates that combination.
+
 ## References
 
 - Paper: https://arxiv.org/abs/2611.17581
 - Semantic Scholar: https://api.semanticscholar.org/graph/v1/paper/arXiv:2611.17581
+- Related: https://arxiv.org/abs/2505.15858 (search-based multi-trajectory refinement)
+- Related: https://arxiv.org/abs/2510.10956 (project-level translation via pointer knowledge graphs)
