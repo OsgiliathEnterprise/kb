@@ -304,12 +304,6 @@ const sidebars = {
         },
         {
           type: 'category',
-          label: 'Aillm',
-          link: {type: 'generated-index', title: 'Aillm', slug: 'how-to/kbquarantine/aillm'},
-          items: ['how-to/kbquarantine/aillm/howto-detect-prevent-ollama-silent-cpu-fallback'],
-        },
-        {
-          type: 'category',
           label: 'Databases',
           link: {type: 'generated-index', title: 'Databases', slug: 'how-to/programming/databases'},
           items: ['how-to/programming/databases/howto-build-full-text-search-sqlite-fts5', 'how-to/programming/databases/howto-catch-silent-table-loss-in-supabase-pg-restore', 'how-to/programming/databases/howto-port-mysql-schema-to-postgresql', 'how-to/programming/databases/howto-postgresql-fts-irregular-verb-stemming', 'how-to/programming/databases/howto-prevent-oversell-atomic-conditional-update', 'how-to/programming/databases/howto-repack-online-table-bloat-postgres-19'],
