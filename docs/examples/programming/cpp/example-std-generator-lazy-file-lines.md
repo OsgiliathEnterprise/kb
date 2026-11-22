@@ -97,4 +97,4 @@ Prefer `std::generator` over an iterator adapter when: iteration is linear, stat
 - [std::generator reference (cppreference)](https://en.cppreference.com/cpp/coroutine/generator)
 - [ranges::elements_of reference (cppreference)](https://en.cppreference.com/cpp/ranges/elements_of)
 - [MS C++ Team Blog: std::generator — Standard Library Coroutine Support](https://devblogs.microsoft.com/cppblog/std-generator-standard-library-coroutine-support/)
-- Related KB: [Cpp-Concurrency-Fundamentals](../Cpp-Concurrency-Fundamentals/), [Cpp-Language-Features](../Cpp-Language-Features/)
+- Related KB topics: Cpp-Concurrency-Fundamentals, Cpp-Language-Features
