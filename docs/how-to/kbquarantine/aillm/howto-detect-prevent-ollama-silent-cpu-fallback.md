@@ -16,7 +16,7 @@ keywords:
 
 **Symptom:** a 14B/32B model generates at 35–45 tok/s on the first prompt, then collapses to ~1.2 tok/s once a long prompt (3,000+ tokens of function definitions or log traces) is fed in. No error is raised — the CPU fans simply spike. This is *silent CPU fallback*: Ollama's llama.cpp-based runner partitions transformer layers between GPU VRAM and system RAM instead of throwing OOM, and every autoregressive token then stalls at PCIe bus transitions.
 
-![Diagram: layer split between GPU VRAM and system RAM over PCIe](howto-detect-prevent-ollama-silent-cpu-fallback.svg)
+
 
 ## Why it is so slow
 
