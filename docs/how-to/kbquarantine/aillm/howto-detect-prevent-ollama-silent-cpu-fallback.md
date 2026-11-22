@@ -1,15 +1,15 @@
 ---
 title: How to Detect and Prevent Silent CPU Fallback (CUDA Spillover) in Ollama
 diataxis: How-to Guide
-domain: AI-LLM
-topic: Ollama
+domain: .kb-quarantine
+topic: AI-LLM
 source: DEV.to Tech News
 source_url: https://dev.to/thezerodollardev/silent-cpu-fallback-in-ollama-how-to-detect-and-prevent-cuda-spillover-56lc
 date: 2026-11-21
 keywords:
 - knowledge-base
-- Ollama
 - AI-LLM
+- .kb-quarantine
 - how-to
 ---
 # How to Detect and Prevent Silent CPU Fallback (CUDA Spillover) in Ollama

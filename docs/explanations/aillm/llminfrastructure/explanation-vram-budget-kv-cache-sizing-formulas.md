@@ -78,7 +78,7 @@ Across context lengths:
 
 - Weights: 39.6 GB → fits 2×24 GB with ~8 GB spare — **but that spare is not free**
 - 16k context FP16 KV: 5.4 GB + CUDA context ~0.6 GB + scratch ~1 GB → ~7 GB overhead
-- Result: with default FP16 KV the setup is already at its ceiling; a longer conversation evicts layers to CPU (silent fallback — see [[howto-detect-prevent-ollama-silent-cpu-fallback]])
+- Result: with default FP16 KV the setup is already at its ceiling; a longer conversation evicts layers to CPU (silent fallback — see [[howto-prevent-ollama-silent-cpu-fallback]])
 - With `q8_0` KV at 16k: 2.7 GB overhead for KV → deterministic full-GPU offload
 
 Practical Ollama configuration:
@@ -113,4 +113,4 @@ ollama create llama33-dev -f ./llama33-70b-fast.modelfile
 - Original article: [Llama 3.3 70B on Consumer GPU: The VRAM Calculation Math and KV-Cache Allocation Formula](https://dev.to/thezerodollardev/llama-33-70b-on-consumer-gpu-the-vram-calculation-math-and-kv-cache-allocation-formula-ho6)
 - Cross-check: [Understanding context length and memory usage — r/LocalLLaMA](https://www.reddit.com/r/LocalLLaMA/comments/1j7r1sm/understanding_context_length_and_memory_usage/)
 - Cross-check: [Ollama KV cache quantization: q8_0 vs f16 — SSD Nodes](https://www.ssdnodes.com/learn/ollama-kv-cache-quantization)
-- Related: [[howto-detect-prevent-ollama-silent-cpu-fallback]], [[explanation-quantization-formats-gguf-gptq-awq]], [[explanation-fine-tuning-memory-accounting-lora-qlora]]
+- Related: [[howto-prevent-ollama-silent-cpu-fallback]], [[explanation-quantization-formats-gguf-gptq-awq]], [[explanation-fine-tuning-memory-accounting-lora-qlora]]

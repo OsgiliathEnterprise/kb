@@ -108,7 +108,7 @@ const sidebars = {
           type: 'category',
           label: 'Ollama',
           link: {type: 'generated-index', title: 'Ollama', slug: 'how-to/aillm/ollama'},
-          items: ['how-to/aillm/ollama/howto-detect-prevent-ollama-silent-cpu-fallback', 'how-to/aillm/ollama/howto-prevent-ollama-silent-cpu-fallback'],
+          items: ['how-to/aillm/ollama/howto-prevent-ollama-silent-cpu-fallback'],
         },
         {
           type: 'category',
@@ -301,6 +301,12 @@ const sidebars = {
           label: 'Workflowautomation',
           link: {type: 'generated-index', title: 'Workflowautomation', slug: 'how-to/developertoolspractices/workflowautomation'},
           items: ['how-to/developertoolspractices/workflowautomation/howto-qualify-inbound-leads-by-domain-apify-n8n'],
+        },
+        {
+          type: 'category',
+          label: 'Aillm',
+          link: {type: 'generated-index', title: 'Aillm', slug: 'how-to/kbquarantine/aillm'},
+          items: ['how-to/kbquarantine/aillm/howto-detect-prevent-ollama-silent-cpu-fallback'],
         },
         {
           type: 'category',
