@@ -4,14 +4,7 @@ title: 'When Suspicion Adds Up: Stochastic Sizing of Honeypot-Based Insider-Thre
 diataxis: How-to Guide
 domain: security-privacy
 topic: detection
-source: arxiv
-source_url: https://arxiv.org/abs/2611.26353
-date: 2026-11-22
-keywords:
-- knowledge-base
-- detection
-- security-privacy
-- how-to
+source: ''
 ---
 # When Suspicion Adds Up: Stochastic Sizing of Honeypot-Based Insider-Threat Detection
 
@@ -38,6 +31,12 @@ keywords:
 ## Voir aussi
 
 - [[howto-alert-triage-playbooks-ai-soc]]
+
+## Références
+
+- N. Spitzner, *Honeypots: Catching the Insider Threat*, ACSAC 2003 — l'article fondateur qui adapte les honeypots à un adversaire déjà en accès légitime (le cadre exact de ce papier) — https://www.researchgate.net/publication/4049405_Honeypots_Catching_the_insider_threat
+- M. Ben Salem, S. Hershkop, S.F. Stolfo, *A Survey of Insider Attack Detection Research* — panorama classique (abuse detection vs anomaly detection, rôle des honeypots) — https://web.stanford.edu/class/cs259d/readings/Insider_survey.pdf
+- Lignes de travaux citées par le papier lui-même : Panigrahi et al. (2013) sur la mise à jour de croyance intra/inter-transactions ; Pawlick et al. (2019) sur les modèles-game de déception défensive et le « leaky deception » (l'insider qui détecte le leurre) — angle complémentaire au dimensionnement stochastique.
 
 ---
 *Référence : arXiv:2611.26353 (cs.CR) — When Suspicion Adds Up, Mehrani et al. (nov. 2026). Abstract vérifié contre arxiv_meta.xml le 2026-11-22 ; claims audités contre arxiv.org/html/2611.26353v1 (la mention « régimes non-stationnaires » d'une version antérieure n'était pas étayée et a été retirée).*

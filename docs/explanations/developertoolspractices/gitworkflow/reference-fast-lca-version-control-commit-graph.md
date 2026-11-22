@@ -39,6 +39,12 @@ keywords:
 
 - [[reference-git-internals-object-model-reachability]]
 
+## Références
+
+- Git officiel — `git-merge-base` : sémantique des merge bases multiples (`--all`, `--octopus`) — https://git-scm.com/docs/git-merge-base
+- Git officiel — format binaire `commit-graph` (accélère les requêtes d'ancêtres en stockant les métadonnées d'histoire, y compris les informations de reachability) — https://git-scm.com/docs/commit-graph
+- GitHub Engineering, *Git's database internals II: commit history queries* (contexte industriel : generation-number cache et topological queries sur le DAG de commits, l'approximation pratique du problème LCA-DAG que le papier attaque) — https://github.blog/open-source/git/gits-database-internals-ii-commit-history-queries/
+
 ---
 *Référence : arXiv:2611.25912 (cs.DS) — Fast Computation of LCA in Version Control Commit Graph, Polokhin, Savchenko, Chernyshov (Yandex, nov. 2026). Abstract vérifié contre arxiv_meta.xml le 2026-11-22 ; claims audités contre arxiv.org/html/2611.25912v1.*
 
