@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 -4.0 1048.0 388.0" width="1048" height="388">
+<rect x="16.0" y="-4.0" width="1048.0" height="388.0" fill="#ffffff"/>
+<rect x="40.0" y="120.0" width="150.0" height="110.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="200.0" y="120.0" width="150.0" height="110.0" rx="8" fill="#ffd8a8" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="360.0" y="120.0" width="150.0" height="110.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="520.0" y="120.0" width="150.0" height="110.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="680.0" y="120.0" width="150.0" height="110.0" rx="8" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="840.0" y="120.0" width="150.0" height="110.0" rx="8" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="40.0" y="300.0" width="910.0" height="60.0" rx="8" fill="#fff3bf" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 190.0 175.0 L 200.0 175.0"/><line x1="200.0" y1="175.0" x2="192.8" y2="171.5"/><line x1="200.0" y1="175.0" x2="192.8" y2="178.5"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 350.0 175.0 L 360.0 175.0"/><line x1="360.0" y1="175.0" x2="352.8" y2="171.5"/><line x1="360.0" y1="175.0" x2="352.8" y2="178.5"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 510.0 175.0 L 520.0 175.0"/><line x1="520.0" y1="175.0" x2="512.8" y2="171.5"/><line x1="520.0" y1="175.0" x2="512.8" y2="178.5"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 670.0 175.0 L 680.0 175.0"/><line x1="680.0" y1="175.0" x2="672.8" y2="171.5"/><line x1="680.0" y1="175.0" x2="672.8" y2="178.5"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 830.0 175.0 L 840.0 175.0"/><line x1="840.0" y1="175.0" x2="832.8" y2="171.5"/><line x1="840.0" y1="175.0" x2="832.8" y2="178.5"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="18" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="34.4">VPS miner incident: kill -&gt; lock SSH -&gt; fail2ban -&gt; rkhunter -&gt; unattended-upgrades</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="50.0" y="177.2">Detect: top shows</tspan><tspan x="50.0" y="194.7">/tmp/mysql 381% CPU</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="210.0" y="177.2">Kill miner</tspan><tspan x="210.0" y="194.7">kill -9 + rm binary</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="370.0" y="177.2">Lock SSH:</tspan><tspan x="370.0" y="194.7">PermitRootLogin prohibit-password</tspan><tspan x="370.0" y="212.2">PasswordAuthentication no</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="530.0" y="177.2">fail2ban 24h ban</tspan><tspan x="530.0" y="194.7">+ recidive jail 1w</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="690.0" y="177.2">rkhunter scan</tspan><tspan x="690.0" y="194.7">(498 rootkits, 0 found)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="850.0" y="177.2">unattended-</tspan><tspan x="850.0" y="194.7">upgrades on</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="50.0" y="332.2">After 1 week: 44 IPs banned, 15,678 failed attempts blocked; CPU idle 0%-&gt;79%, load 6.06-&gt;1.54</tspan></text>
+</svg>

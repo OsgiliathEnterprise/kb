@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 -4.0 1048.0 428.0" width="1048" height="428">
+<rect x="16.0" y="-4.0" width="1048.0" height="428.0" fill="#ffffff"/>
+<rect x="40.0" y="120.0" width="200.0" height="80.0" rx="8" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="320.0" y="120.0" width="220.0" height="80.0" rx="8" fill="#ffd8a8" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="620.0" y="60.0" width="260.0" height="90.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="620.0" y="200.0" width="260.0" height="90.0" rx="8" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="40.0" y="330.0" width="840.0" height="70.0" rx="8" fill="#fff3bf" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 240.0 160.0 L 320.0 160.0"/><line x1="320.0" y1="160.0" x2="307.4" y2="153.9"/><line x1="320.0" y1="160.0" x2="307.4" y2="166.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 540.0 140.0 L 620.0 105.0"/><line x1="620.0" y1="105.0" x2="606.0" y2="104.4"/><line x1="620.0" y1="105.0" x2="610.9" y2="115.7"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 540.0 180.0 L 620.0 245.0"/><line x1="620.0" y1="245.0" x2="614.1" y2="232.3"/><line x1="620.0" y1="245.0" x2="606.4" y2="241.8"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="18" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="34.4">TTSwap investGood: zero-share dust bug and pre-mutation guard</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="50.0" y="162.2">invest tiny amount</tspan><tspan x="50.0" y="179.7">at high leverage</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="330.0" y="162.2">investShare =</tspan><tspan x="330.0" y="179.7">amount / sharePrice</tspan><tspan x="330.0" y="197.2">(rounds DOWN to 0)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="630.0" y="107.2">UNFIXED: tokens moved,</tspan><tspan x="630.0" y="124.7">state mutated,</tspan><tspan x="630.0" y="142.2">0 shares minted</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="630.0" y="247.2">FIX: before mutation</tspan><tspan x="630.0" y="264.7">if investShare==0:</tspan><tspan x="630.0" y="282.2"> revert TTSwapError(38)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#e03131" text-anchor="start"><tspan x="520.0" y="112.1">no guard</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#e03131" text-anchor="start"><tspan x="520.0" y="202.1">guard clause</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="50.0" y="367.2">Lesson: rounding is a security boundary - any amount/sharePrice that floors to 0 is an unpriced deposit.</tspan><tspan x="50.0" y="384.7">Check every mint path for 'succeeded but gave nothing'; revert BEFORE state mutation.</tspan></text>
+</svg>

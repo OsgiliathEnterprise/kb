@@ -39,6 +39,14 @@ Current agent memory architectures capture what happened and leave the reasoning
 
 Directly relevant to our agent-infrastructure coverage: the insight-scored-by-supporting-events design is a concrete pattern for turning raw agent logs into durable, queryable behavioral knowledge, and the relational projection offers a principled route to personalization without per-user cold-start data.
 
+## Context & Related Work
+
+- **Benchmark landscape**: the LongMemEval line is moving fast — **LongMemEval-V2** (arXiv:2605.12493, https://arxiv.org/abs/2605.12493) extends the original suite toward harder long-term agent-memory evaluation; STARK's +1.48 judge-score delta is measured against the SOTA on the original LongMemEval, so results should be re-checked when V2-style evaluations become standard.
+- **Graph-native memory** is an active parallel track: e.g., a graph-native **bitemporal memory store** for agents (arXiv:2607.26520, https://arxiv.org/abs/2607.26520) explores time-travelling episode/insight separation. STARK's distinguishing bet is *events-as-edges* — support-count-scored insight nodes — which simultaneously cuts the retrieval tax and enables the relational projection used for cold-start transfer.
+- Practical caveat: the Insight Graph depends on **LLM-extracted** behavioral signals, so insight quality inherits the extractor's failure modes (hallucinated patterns, stale insights as user behavior drifts); support-count scoring mitigates but does not eliminate this.
+
 ## References
 - Paper: https://arxiv.org/abs/2611.25705 (cs.CL, cs.AI, cs.IR — Aryan Jain, Abhishek Jha, Anish Nediyanchath, Promod Yenigalla, 2026-11-19)
+- LongMemEval-V2: https://arxiv.org/abs/2605.12493
+- Graph-native bitemporal memory store: https://arxiv.org/abs/2607.26520
 - Related in vault: [[explanation-jetriever-utility-memory-retrieval]] (retrieval side of agent memory)

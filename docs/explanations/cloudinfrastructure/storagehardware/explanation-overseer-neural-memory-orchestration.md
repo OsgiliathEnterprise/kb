@@ -43,6 +43,13 @@ On two page-fault-heavy workloads:
 
 Page-fault stalls from mmap'd files and tiered memory are a live SLO problem for large-model serving and data-heavy pipelines. Overseer's pattern — eBPF observation, prediction offloaded to network-attached inference, kernel enforcement — is a deployable template for learned systems infrastructure, and the rank-over-deltas encoding shows how one model generalizes across processes.
 
+## Context & Related Work
+
+- **Prior learned prefetchers** (e.g., IPCP/Ship-based designs) were evaluated only in simulators; Overseer's claimed novelty is the full deployed pipeline — eBPF collector + remote OverNet inference + kernel enforcer — running against live workloads.
+- On the enforcement side, **FetchBPF** (USENIX ATC 2024, https://tfjmp.org/publication/2024-atc/) showed that prefetching policies themselves can be made programmable via eBPF in Linux; Overseer's kernel-resident enforcer fits this lineage of eBPF-based, in-kernel extensibility, but swaps heuristics for a remote transformer predictor.
+- Paper details: 10 pages, 9 figures; cs.DC/cs.LG/cs.OS; released under CC-BY 4.0 (https://arxiv.org/abs/2611.23857).
+
 ## References
 - Paper: https://arxiv.org/abs/2611.23857 (cs.DC, cs.LG, cs.OS — Michael Zizov, Boris Morose, 2026-11-18)
+- FetchBPF: Customizable Prefetching Policies in Linux with eBPF — https://tfjmp.org/publication/2024-atc/
 - Related in vault: cloud-infrastructure/gpu-compute (HBM pressure), cloud-infrastructure/llm-serving (KV-cache tiering)

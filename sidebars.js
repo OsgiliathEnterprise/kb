@@ -420,7 +420,7 @@ const sidebars = {
           type: 'category',
           label: 'Ssh',
           link: {type: 'generated-index', title: 'Ssh', slug: 'how-to/securityprivacy/ssh'},
-          items: ['how-to/securityprivacy/ssh/howto-ssh-keys-macos-touch-id-secure-enclave'],
+          items: ['how-to/securityprivacy/ssh/howto-harden-vps-after-ssh-bruteforce-miner', 'how-to/securityprivacy/ssh/howto-ssh-keys-macos-touch-id-secure-enclave'],
         },
         {
           type: 'category',
@@ -1050,7 +1050,7 @@ const sidebars = {
           type: 'category',
           label: 'Llmprivacy',
           link: {type: 'generated-index', title: 'Llmprivacy', slug: 'explanations/securityprivacy/llmprivacy'},
-          items: ['explanations/securityprivacy/llmprivacy/explanation-dp-spd-dummy-augmented-shuffling-private-inference', 'explanations/securityprivacy/llmprivacy/explanation-exact-training-data-theft-federated-learning', 'explanations/securityprivacy/llmprivacy/explanation-gapleak-web-agent-disclosure-gap', 'explanations/securityprivacy/llmprivacy/explanation-kv-cache-shuffling-token-recovery', 'explanations/securityprivacy/llmprivacy/explanation-synthesis-smuggling-steganographic-privacy-leaks'],
+          items: ['explanations/securityprivacy/llmprivacy/explanation-dp-spd-dummy-augmented-shuffling-private-inference', 'explanations/securityprivacy/llmprivacy/explanation-exact-training-data-theft-federated-learning', 'explanations/securityprivacy/llmprivacy/explanation-gapleak-web-agent-disclosure-gap', 'explanations/securityprivacy/llmprivacy/explanation-kv-cache-shuffling-token-recovery', 'explanations/securityprivacy/llmprivacy/explanation-openrouter-zdr-inference-provider-incidents', 'explanations/securityprivacy/llmprivacy/explanation-synthesis-smuggling-steganographic-privacy-leaks'],
         },
         {
           type: 'category',
@@ -1081,6 +1081,12 @@ const sidebars = {
           label: 'Quantumcryptography',
           link: {type: 'generated-index', title: 'Quantumcryptography', slug: 'explanations/securityprivacy/quantumcryptography'},
           items: ['explanations/securityprivacy/quantumcryptography/explanation-qma-qcma-oracle-separation-quantum-cryptography'],
+        },
+        {
+          type: 'category',
+          label: 'Sdlsecuredevelopment',
+          link: {type: 'generated-index', title: 'Sdlsecuredevelopment', slug: 'explanations/securityprivacy/sdlsecuredevelopment'},
+          items: ['explanations/securityprivacy/sdlsecuredevelopment/explanation-zero-share-rounding-mint-bug-ttswap'],
         },
         {
           type: 'category',

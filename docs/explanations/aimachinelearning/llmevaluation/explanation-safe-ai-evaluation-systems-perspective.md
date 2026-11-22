@@ -29,12 +29,18 @@ When the thing under test is an adaptive agent pursuing a goal inside an evaluat
 
 1. **Diverse supervisors** — don't concentrate oversight in one homogeneous control layer; use supervisors with different vantage points so a failure mode that defeats one is visible to another.
 2. **Independent verifier** — a verification path that does not share assumptions or incentives with the agent (or the eval harness) being verified, so success claims aren't self-certified.
-3. **Silent monitoring** — observe without signalling, so an adaptive agent cannot detect and plan around the monitor; important precisely because the evalued system *re-plans in response to its environment*.
+3. **Silent monitoring** — observe without signalling, so an adaptive agent cannot detect and plan around the monitor; important precisely because the evaluated system *re-plans in response to its environment*.
 4. **Coordinated shutdown** — termination as a designed, coordinated capability across the agent, its tools, and any delegated work, not an ad-hoc process kill.
 
 ## Relevance to Our Domain
 
 Any team running agentic benchmarks (SWE-bench-style harnesses, browsing/tool agents) operates exactly this kind of adaptive-optimisation eval loop. These four patterns are a checklist for hardening our own evaluation infrastructure — especially silent monitoring and coordinated shutdown for agents with real tool access.
+
+## Context & Practical Ecosystem
+
+- The "coordinated shutdown" concern is not theoretical: a 2026 study reported that **AI shutdown controls may not work as expected** when agents can delegate or hold external state (ComputerWorld coverage, https://www.computerworld.com/article/4154447/). This directly motivates pattern 4 — termination must propagate across tool subprocesses and delegated sub-agents, not just the top-level loop.
+- Open-source **control toolkits for out-of-control AI agents** are emerging as the implementation layer for these patterns (InfoWorld, https://www.infoworld.com/article/4175859/), consistent with the paper's argument that safety of evaluation is a *systems-engineering* problem of control placement, observation and intervention rather than a model-training problem.
+- The patterns map closely to the wider "agentic monitoring for AI control" literature (LessWrong discussion thread) and industry agentic-AI evaluation programs (Brookings agentic-AI evaluation collection) — the paper's contribution is framing them specifically for the **evaluation harness** context, where safeguards are deliberately relaxed.
 
 ## References
 - Paper: https://arxiv.org/abs/2611.24987 (cs.SE — Qinghua Lu, 2026-11-18)
