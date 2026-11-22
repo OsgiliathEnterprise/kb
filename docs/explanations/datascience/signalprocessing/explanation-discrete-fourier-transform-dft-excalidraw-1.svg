@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 86.0 1238.0 368.0" width="1238" height="368">
+<rect x="16.0" y="86.0" width="1238.0" height="368.0" fill="#ffffff"/>
+<rect x="40.0" y="120.0" width="220.0" height="110.0" rx="0" fill="#c4e0f2" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="340.0" y="110.0" width="250.0" height="130.0" rx="0" fill="#d9ccff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="670.0" y="110.0" width="250.0" height="130.0" rx="0" fill="#f9e0a3" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="1000.0" y="120.0" width="230.0" height="110.0" rx="0" fill="#c9e7c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="670.0" y="320.0" width="250.0" height="110.0" rx="0" fill="#f7c8c8" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 270.0 170.0 L 330.0 170.0"/><line x1="330.0" y1="170.0" x2="317.4" y2="163.9"/><line x1="330.0" y1="170.0" x2="317.4" y2="176.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 600.0 170.0 L 660.0 170.0"/><line x1="660.0" y1="170.0" x2="647.4" y2="163.9"/><line x1="660.0" y1="170.0" x2="647.4" y2="176.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 930.0 170.0 L 990.0 170.0"/><line x1="990.0" y1="170.0" x2="977.4" y2="163.9"/><line x1="990.0" y1="170.0" x2="977.4" y2="176.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 1110.0 240.0 L 840.0 370.0"/><line x1="840.0" y1="370.0" x2="854.0" y2="370.1"/><line x1="840.0" y1="370.0" x2="848.7" y2="359.0"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="150.0" y="168.7">N time samples</tspan><tspan x="150.0" y="186.2">x[n], n=0..N-1</tspan><tspan x="150.0" y="203.7">(finite-duration signal)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="465.0" y="168.7">Assume block = one full period</tspan><tspan x="465.0" y="186.2">=&gt; DTFS coefficients a_k</tspan><tspan x="465.0" y="203.7">X[k] = N * a_k</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="795.0" y="168.7">DFT as matrix product</tspan><tspan x="795.0" y="186.2">X = F . x</tspan><tspan x="795.0" y="203.7">F = Fourier matrix (roots of unity)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="1115.0" y="168.7">Frequency bins X[k]</tspan><tspan x="1115.0" y="186.2">= N equally spaced</tspan><tspan x="1115.0" y="203.7">samples of the DTFT</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="795.0" y="368.7">Inverse: F . Fc = N.I</tspan><tspan x="795.0" y="386.2">x = (Fc / N) . X</tspan><tspan x="795.0" y="403.7">exact reconstruction</tspan></text>
+</svg>

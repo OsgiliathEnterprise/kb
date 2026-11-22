@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 16.0 1028.0 448.0" width="1028" height="448">
+<rect x="16.0" y="16.0" width="1028.0" height="448.0" fill="#ffffff"/>
+<rect x="40.0" y="130.0" width="200.0" height="100.0" rx="0" fill="#c4e0f2" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="330.0" y="40.0" width="300.0" height="110.0" rx="0" fill="#c9e7c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="330.0" y="190.0" width="300.0" height="110.0" rx="0" fill="#f7c8c8" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="330.0" y="340.0" width="300.0" height="100.0" rx="0" fill="#f9e0a3" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="700.0" y="130.0" width="320.0" height="120.0" rx="0" fill="#d9ccff" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 250.0 160.0 L 320.0 80.0"/><line x1="320.0" y1="80.0" x2="307.1" y2="85.4"/><line x1="320.0" y1="80.0" x2="316.3" y2="93.5"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 250.0 185.0 L 320.0 250.0"/><line x1="320.0" y1="250.0" x2="315.0" y2="236.9"/><line x1="320.0" y1="250.0" x2="306.6" y2="245.9"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 250.0 210.0 L 320.0 395.0"/><line x1="320.0" y1="395.0" x2="321.3" y2="381.1"/><line x1="320.0" y1="395.0" x2="309.8" y2="385.4"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="middle"><tspan x="140.0" y="182.8">Client gets</tspan><tspan x="140.0" y="202.8">HTTP 429</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="480.0" y="80.0">body code = rate_limited</tspan><tspan x="480.0" y="97.5">honor Retry-After (cap it)</tspan><tspan x="480.0" y="115.0">or jittered backoff</tspan><tspan x="480.0" y="132.4">retry the request</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="480.0" y="238.7">body code = quota_exceeded</tspan><tspan x="480.0" y="256.2">raise now - retrying cannot</tspan><tspan x="480.0" y="273.7">help before period reset</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="480.0" y="383.7">unknown / non-JSON body</tspan><tspan x="480.0" y="401.2">(proxy HTML page)</tspan><tspan x="480.0" y="418.7">raise, do not blind-retry</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="860.0" y="174.9">Never classify by Retry-After size:</tspan><tspan x="860.0" y="192.4">quota 429s can say Retry-After: 1;</tspan><tspan x="860.0" y="209.9">real throttles can say 30 days.</tspan><tspan x="860.0" y="227.4">The body code is the contract.</tspan></text>
+</svg>

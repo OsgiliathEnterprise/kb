@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 86.0 1238.0 348.0" width="1238" height="348">
+<rect x="16.0" y="86.0" width="1238.0" height="348.0" fill="#ffffff"/>
+<rect x="40.0" y="120.0" width="210.0" height="110.0" rx="0" fill="#c4e0f2" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="330.0" y="110.0" width="250.0" height="130.0" rx="0" fill="#d9ccff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="660.0" y="110.0" width="250.0" height="130.0" rx="0" fill="#f9e0a3" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="990.0" y="120.0" width="240.0" height="110.0" rx="0" fill="#c9e7c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="330.0" y="320.0" width="580.0" height="90.0" rx="0" fill="#f7c8c8" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 260.0 170.0 L 320.0 170.0"/><line x1="320.0" y1="170.0" x2="307.4" y2="163.9"/><line x1="320.0" y1="170.0" x2="307.4" y2="176.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 590.0 170.0 L 650.0 170.0"/><line x1="650.0" y1="170.0" x2="637.4" y2="163.9"/><line x1="650.0" y1="170.0" x2="637.4" y2="176.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 920.0 170.0 L 980.0 170.0"/><line x1="980.0" y1="170.0" x2="967.4" y2="163.9"/><line x1="980.0" y1="170.0" x2="967.4" y2="176.1"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="145.0" y="168.7">AI Application</tspan><tspan x="145.0" y="186.2">selects tool from</tspan><tspan x="145.0" y="203.7">tools/list schemas</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="455.0" y="168.7">MCP Server</tspan><tspan x="455.0" y="186.2">validates tools/call</tspan><tspan x="455.0" y="203.7">readOnlyHint = label only!</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="785.0" y="168.7">App layer</tspan><tspan x="785.0" y="186.2">input validation +</tspan><tspan x="785.0" y="203.7">resource ownership</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="1110.0" y="168.7">Database</tspan><tspan x="1110.0" y="186.2">SELECT-only credential</tspan><tspan x="1110.0" y="203.7">= real enforcement</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="620.0" y="367.4">Read-only != safe: without per-record authorization,</tspan><tspan x="620.0" y="384.9">a read-only server is still an exfiltration surface</tspan></text>
+</svg>

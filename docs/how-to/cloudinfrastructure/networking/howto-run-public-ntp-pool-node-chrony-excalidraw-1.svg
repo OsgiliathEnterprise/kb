@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 86.0 1248.0 358.0" width="1248" height="358">
+<rect x="16.0" y="86.0" width="1248.0" height="358.0" fill="#ffffff"/>
+<rect x="40.0" y="120.0" width="230.0" height="120.0" rx="0" fill="#c4e0f2" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="350.0" y="110.0" width="260.0" height="140.0" rx="0" fill="#d9ccff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="690.0" y="110.0" width="240.0" height="140.0" rx="0" fill="#f9e0a3" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="1010.0" y="120.0" width="230.0" height="120.0" rx="0" fill="#c9e7c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="350.0" y="330.0" width="580.0" height="90.0" rx="0" fill="#f7c8c8" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 280.0 175.0 L 340.0 175.0"/><line x1="340.0" y1="175.0" x2="327.4" y2="168.9"/><line x1="340.0" y1="175.0" x2="327.4" y2="181.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 620.0 175.0 L 680.0 175.0"/><line x1="680.0" y1="175.0" x2="667.4" y2="168.9"/><line x1="680.0" y1="175.0" x2="667.4" y2="181.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 940.0 175.0 L 1000.0 175.0"/><line x1="1000.0" y1="175.0" x2="987.4" y2="168.9"/><line x1="1000.0" y1="175.0" x2="987.4" y2="181.1"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="155.0" y="173.7">GNSS (u-blox ZED-F9T)</tspan><tspan x="155.0" y="191.2">PPS + NMEA</tspan><tspan x="155.0" y="208.7">Timing-grade, OCP M.2</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="480.0" y="173.7">Stratum 1 Time Pi (private)</tspan><tspan x="480.0" y="191.2">ts2phc -&gt; i226 PHC (~10s of ns)</tspan><tspan x="480.0" y="208.7">refclock PHC in chrony (~1 us)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="810.0" y="173.7">WireGuard tunnel</tspan><tspan x="810.0" y="191.2">Stratum 2 VPS (Oxtrys,</tspan><tspan x="810.0" y="208.7">St. Louis - few BGP hops)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="1125.0" y="173.7">NTP Pool</tspan><tspan x="1125.0" y="191.2">public IP, score &gt; 10</tspan><tspan x="1125.0" y="208.7">to serve time</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="640.0" y="377.4">noselect source on the Pi: server ntp-01.example.com noselect</tspan><tspan x="640.0" y="394.9">=&gt; measure Internet delay to public node without ever following it</tspan></text>
+</svg>
