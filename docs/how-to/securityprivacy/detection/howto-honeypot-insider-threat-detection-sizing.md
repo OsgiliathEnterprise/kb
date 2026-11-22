@@ -4,7 +4,14 @@ title: 'When Suspicion Adds Up: Stochastic Sizing of Honeypot-Based Insider-Thre
 diataxis: How-to Guide
 domain: security-privacy
 topic: detection
-source: ''
+source: arxiv
+source_url: https://arxiv.org/abs/2611.26353
+date: 2026-11-22
+keywords:
+- knowledge-base
+- detection
+- security-privacy
+- how-to
 ---
 # When Suspicion Adds Up: Stochastic Sizing of Honeypot-Based Insider-Threat Detection
 
