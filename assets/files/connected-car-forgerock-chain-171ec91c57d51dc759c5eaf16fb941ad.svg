@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 -4.0 1048.0 656.0" width="1048" height="656">
+<rect x="16.0" y="-4.0" width="1048.0" height="656.0" fill="#ffffff"/>
+<rect x="60.0" y="70.0" width="620.0" height="46.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="60.0" y="134.0" width="620.0" height="46.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="60.0" y="198.0" width="620.0" height="46.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="60.0" y="262.0" width="620.0" height="46.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="60.0" y="326.0" width="620.0" height="46.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="60.0" y="390.0" width="620.0" height="46.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="60.0" y="454.0" width="620.0" height="46.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="60.0" y="518.0" width="620.0" height="46.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="60.0" y="582.0" width="620.0" height="46.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 360.0 118.0 L 360.0 118.0"/><line x1="360.0" y1="118.0" x2="352.8" y2="114.5"/><line x1="360.0" y1="118.0" x2="352.8" y2="121.5"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 360.0 182.0 L 360.0 182.0"/><line x1="360.0" y1="182.0" x2="352.8" y2="178.5"/><line x1="360.0" y1="182.0" x2="352.8" y2="185.5"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 360.0 246.0 L 360.0 246.0"/><line x1="360.0" y1="246.0" x2="352.8" y2="242.5"/><line x1="360.0" y1="246.0" x2="352.8" y2="249.5"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 360.0 310.0 L 360.0 310.0"/><line x1="360.0" y1="310.0" x2="352.8" y2="306.5"/><line x1="360.0" y1="310.0" x2="352.8" y2="313.5"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 360.0 374.0 L 360.0 374.0"/><line x1="360.0" y1="374.0" x2="352.8" y2="370.5"/><line x1="360.0" y1="374.0" x2="352.8" y2="377.5"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 360.0 438.0 L 360.0 438.0"/><line x1="360.0" y1="438.0" x2="352.8" y2="434.5"/><line x1="360.0" y1="438.0" x2="352.8" y2="441.5"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 360.0 502.0 L 360.0 502.0"/><line x1="360.0" y1="502.0" x2="352.8" y2="498.5"/><line x1="360.0" y1="502.0" x2="352.8" y2="505.5"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 360.0 566.0 L 360.0 566.0"/><line x1="360.0" y1="566.0" x2="352.8" y2="562.5"/><line x1="360.0" y1="566.0" x2="352.8" y2="569.5"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="32.8">Connected-car takeover chain: number plate -&gt; remote door-unlock (ForgeRock OpenIDM)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="370.0" y="102.6">Number plate (public)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="370.0" y="166.6">VIN via state registration lookup</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="370.0" y="230.6">Subscriber GUID via unauthenticated admin-tool API (hardcoded JS key)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="370.0" y="294.6">Account PII + email via /v1/account</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="370.0" y="358.6">OpenIDM admin creds found in vendor JS bundle</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="370.0" y="422.6">WAF bypass: /static%2f..%2fopenidm/... (path traversal not covered by rules)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="370.0" y="486.6">PATCH /managed/user/{guid} -&gt; replace password</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="370.0" y="550.6">MFA bypass: ROPC grant (grant_type=password) -&gt; id_token -&gt; session -&gt; app token</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="370.0" y="614.6">POST /v1/remote/route/command  {&quot;command&quot;:&quot;door-unlock&quot;} -&gt; DOORS OPEN</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="720.0" y="101.2">Root causes:</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="720.0" y="127.6">- identity stack exposed to internet</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="720.0" y="149.6">- creds shipped in JS bundles</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="720.0" y="171.6">- WAF as compensating control</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="720.0" y="193.6">- ROPC flow kept MFA optional</tspan></text>
+</svg>
