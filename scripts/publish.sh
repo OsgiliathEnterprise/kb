@@ -309,8 +309,11 @@ update_ghpages() {
   # Create PR branch
   local pr_branch="${PR_PREFIX}-${DATE_STAMP}"
 
-  # Remove old PR branches (keep repo clean)
-  for old in $(git_run for-each-ref --format='%(refname:short)' refs/heads/"$PR_PREFIX-"* 2>/dev/null); do
+  # Remove leftover local publish/* branches (ALL names: the old publisher
+  # emitted daily-YYYY-MM-DD branches which the auto-* cleanup never matched —
+  # 97 such stale branches were found and purged 2026-11-22; keep this sweep
+  # prefix-agnostic). Safe: the new branch is created after this sweep.
+  for old in $(git_run for-each-ref --format='%(refname:short)' refs/heads/publish/* 2>/dev/null); do
     git_run branch -D "$old" 2>/dev/null || true
     git_run push "$REMOTE" --delete "$old" 2>/dev/null || true
   done
@@ -458,6 +461,14 @@ check_stale_prs() {
     esac
     if branch_superseded_by_ghpages "$b"; then
       close_superseded_branch "$b" "legacy/leftover publish branch fully contained in gh-pages"
+      # Also drop the twin ref on the other remote (origin mirrors upstream
+      # pushes — legacy daily-* branches lived there too, 2026-11-22).
+      for other in origin upstream; do
+        [ "$other" = "$REMOTE" ] && continue
+        if git -C "$REPO_DIR" rev-parse --verify --quiet "$other/$b" >/dev/null; then
+          git -C "$REPO_DIR" push "$other" --delete "$b" 2>/dev/null || true
+        fi
+      done
       stale_found=true
     fi
   done
