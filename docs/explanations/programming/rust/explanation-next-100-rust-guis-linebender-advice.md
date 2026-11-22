@@ -59,6 +59,10 @@ Immediate mode = less code, simpler, great for game dev tools — "good at the f
 
 Related in this KB: [Rust GUI State Models and the Incrementalization Question](explanation-rust-gui-state-models-incrementalization.md) covers the reactivity-model taxonomy this post builds on.
 
+## Corroboration (KB Zookeeper audit, 2026-11-22)
+
+Verified against the primary source (linebender.org/blog/next-100-guis/, Raph Levien, **November 21, 2026**): follow-up to *Advice for the next dozen Rust GUIs* published "4.5 years ago"; "roughly 20 Rust GUI toolkits announced since that blog post (see 2026 survey)"; GPUI/Zed flagship claim plus its renderer caveats; AI-fueled acceleration; Liquid Glass / mobile-native argument; Shopify / 1Password / Discord Phoenix mobile strategies; Parley investors (Google, Canva, Dioxus/Cognition) and Cosmic Text; AccessKit status; subduction and the system-compositor gap; the "first 90% / second 90%" immediate-mode quote; WPT/standards strategy, virtualized-list spec gap, Blitz/Stylo, Xilem/Masonry module split vs SwiftUI counterexample, `.drawingGroup()` / `RepaintBoundary` layer precedents; the danluu token-cost link (danluu.com/pl-tokens/); and the four closing advice items including the "slop PRs" warning — all confirmed present in the original post.
+
 ## References
 
 - [Linebender — Advice for the next 100 Rust GUIs](https://linebender.org/blog/next-100-guis/)

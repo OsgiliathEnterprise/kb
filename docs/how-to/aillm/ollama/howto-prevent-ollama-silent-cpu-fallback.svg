@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="36.0 -4.0 1168.0 444.2" width="1168" height="444">
+<rect x="36.0" y="-4.0" width="1168.0" height="444.2" fill="#ffffff"/>
+<rect x="60.0" y="90.0" width="280.0" height="90.0" rx="8" fill="#e7f5ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="440.0" y="90.0" width="240.0" height="90.0" rx="8" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="440.0" y="230.0" width="320.0" height="110.0" rx="8" fill="#ffe3e3" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="840.0" y="230.0" width="340.0" height="130.0" rx="8" fill="#fff3bf" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="60.0" y="230.0" width="300.0" height="110.0" rx="8" fill="#f1f3f5" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 340.0 135.0 L 435.0 135.0"/><line x1="435.0" y1="135.0" x2="422.4" y2="128.9"/><line x1="435.0" y1="135.0" x2="422.4" y2="141.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 200.0 185.0 L 200.0 285.0"/><line x1="200.0" y1="285.0" x2="206.1" y2="272.4"/><line x1="200.0" y1="285.0" x2="193.9" y2="272.4"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 760.0 285.0 L 835.0 285.0"/><line x1="835.0" y1="285.0" x2="822.4" y2="278.9"/><line x1="835.0" y1="285.0" x2="822.4" y2="291.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 360.0 285.0 L 435.0 285.0"/><line x1="435.0" y1="285.0" x2="422.4" y2="278.9"/><line x1="435.0" y1="285.0" x2="422.4" y2="291.1"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="22" fill="#1e1e1e" text-anchor="start"><tspan x="60.0" y="37.6">Ollama silent CPU fallback: detect -&gt; fix flow</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="15" fill="#1e1e1e" text-anchor="start"><tspan x="80.0" y="117.0">ollama ps while querying:</tspan><tspan x="80.0" y="135.8">PROCESSOR == 100% GPU?</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="15" fill="#1e1e1e" text-anchor="start"><tspan x="460.0" y="127.0">OK - no action</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="460.0" y="255.4">Silent CPU fallback!</tspan><tspan x="460.0" y="271.6">(35-45 tok/s -&gt; ~1.2 tok/s,</tspan><tspan x="460.0" y="287.9">CPU fans spike, no error)</tspan><tspan x="460.0" y="304.1">journalctl -u ollama | grep load_tensors</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="860.0" y="255.4">Fix:</tspan><tspan x="860.0" y="271.6">OLLAMA_FLASH_ATTENTION=1</tspan><tspan x="860.0" y="287.9">OLLAMA_KV_CACHE_TYPE=q8_0</tspan><tspan x="860.0" y="304.1">Modelfile: num_ctx 8192, num_gpu &lt;full&gt;</tspan><tspan x="860.0" y="320.4">watchdog script on 'ollama ps'</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="360.0" y="120.4">yes</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="215.0" y="235.4">no</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="80.0" y="255.4">Triggers: KV-cache growth,</tspan><tspan x="80.0" y="271.6">unbound num_ctx (32k-128k),</tspan><tspan x="80.0" y="287.9">desktop/browser CUDA overhead</tspan><tspan x="80.0" y="304.1">(0.6-1.5 GB VRAM)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#495057" text-anchor="start"><tspan x="60.0" y="410.4">VRAM ~760-1000 GB/s vs PCIe ~31.5 GB/s: even 2/48 CPU layers stall every token</tspan></text>
+</svg>

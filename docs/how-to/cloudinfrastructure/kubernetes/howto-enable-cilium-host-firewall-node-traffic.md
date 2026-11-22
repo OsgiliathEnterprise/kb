@@ -104,10 +104,19 @@ Watch host endpoint policy verdicts, interface coverage, agent restarts, and nod
 - Audit mode = observation, not enforcement, and it silently flips back to enforcing on agent restart.
 - Always secure an out-of-band recovery path before first enforcement.
 
+## Corroboration (KB Zookeeper audit, 2026-11-22)
+
+All operational claims verified against the official Cilium documentation (docs.cilium.io, "Host Firewall" guide, Cilium 1.20.x):
+
+- The install snippet (`helm install cilium cilium/cilium --version 1.20.5 --set hostFirewall.enabled=true --set devices='{ethX,ethY}'`), the `cilium-dbg status` "Host firewall: Enabled [eth0]" output, the `node-access=ssh` label, and the `PolicyAuditMode=Enabled` endpoint-config commands match the docs verbatim.
+- **"Audit mode does not persist across cilium-agent restarts. Once the agent is restarted, it will immediately enforce any existing host policies."** — confirmed verbatim; the docs' Emergency Recovery section likewise describes temporarily disabling host policy enforcement until the next agent restart, matching the Step 4 recovery path.
+- Host policies as `CiliumClusterwideNetworkPolicy` with `nodeSelector` (docs' `demo-host-policy.yaml` example) and the host being represented as a special endpoint — confirmed.
+
 ## References
 
 - [DEV.to: Cilium HostFirewall guards node traffic, but it is disabled by default](https://dev.to/sorrelthorncroft/cilium-hostfirewall-guards-node-traffic-but-it-is-disabled-by-default-5fg0)
 - [Cilium docs: Host Firewall](https://docs.cilium.io/en/stable/security/host-firewall/)
 - [Cilium docs: Host Policies](https://docs.cilium.io/en/stable/security/policy/host/)
 - [Cilium Helm reference](https://docs.cilium.io/en/stable/helm-reference/)
-- [Cilium blog: Securing the Node — A Primer on Cilium's Host Firewall](https://cilium.io/blog/2025/08/15/host-firewall-primer/)
+- [Isovalent Lab: Cilium Host Firewall](https://isovalent.com/labs/cilium-host-firewall/)
+- [Cilium blog: Securing the Node — A Primer on Cilium's Host Firewall](https://cilium.io/blog/2025-08-15/host-firewall-primer/)
