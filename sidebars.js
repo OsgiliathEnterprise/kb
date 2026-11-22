@@ -384,7 +384,7 @@ const sidebars = {
           type: 'category',
           label: 'Detection',
           link: {type: 'generated-index', title: 'Detection', slug: 'how-to/securityprivacy/detection'},
-          items: ['how-to/securityprivacy/detection/howto-raven-self-rag-soc-alert-triage', 'how-to/securityprivacy/detection/howto-self-evolving-static-analysis-llm-pseudo-labeling'],
+          items: ['how-to/securityprivacy/detection/howto-honeypot-insider-threat-detection-sizing', 'how-to/securityprivacy/detection/howto-raven-self-rag-soc-alert-triage', 'how-to/securityprivacy/detection/howto-self-evolving-static-analysis-llm-pseudo-labeling'],
         },
         {
           type: 'category',
@@ -444,7 +444,7 @@ const sidebars = {
           type: 'category',
           label: 'Aiassisteddevelopment',
           link: {type: 'generated-index', title: 'Aiassisteddevelopment', slug: 'how-to/softwaredevelopment/aiassisteddevelopment'},
-          items: ['how-to/softwaredevelopment/aiassisteddevelopment/how-to-c-to-rust-llm-spec-translation', 'how-to/softwaredevelopment/aiassisteddevelopment/how-to-coding-agents-selective-inference-correction', 'how-to/softwaredevelopment/aiassisteddevelopment/how-to-fips-to-fpga-llm-agents-verification-gated-workflow', 'how-to/softwaredevelopment/aiassisteddevelopment/how-to-option-grpo-unseen-sdk-code-generation', 'how-to/softwaredevelopment/aiassisteddevelopment/how-to-static-analysis-guidance-secure-codegen', 'how-to/softwaredevelopment/aiassisteddevelopment/howto-aider-git-review-undo-routine', 'how-to/softwaredevelopment/aiassisteddevelopment/howto-llm-assisted-dafny-verification-workflow'],
+          items: ['how-to/softwaredevelopment/aiassisteddevelopment/how-to-c-to-rust-llm-spec-translation', 'how-to/softwaredevelopment/aiassisteddevelopment/how-to-coding-agents-selective-inference-correction', 'how-to/softwaredevelopment/aiassisteddevelopment/how-to-fips-to-fpga-llm-agents-verification-gated-workflow', 'how-to/softwaredevelopment/aiassisteddevelopment/how-to-option-grpo-unseen-sdk-code-generation', 'how-to/softwaredevelopment/aiassisteddevelopment/how-to-static-analysis-guidance-secure-codegen', 'how-to/softwaredevelopment/aiassisteddevelopment/howto-aider-git-review-undo-routine', 'how-to/softwaredevelopment/aiassisteddevelopment/howto-llm-assisted-dafny-verification-workflow', 'how-to/softwaredevelopment/aiassisteddevelopment/howto-oceancoder-verification-guided-llm-simulation-code'],
         },
         {
           type: 'category',
@@ -566,13 +566,13 @@ const sidebars = {
           type: 'category',
           label: 'Interpretability',
           link: {type: 'generated-index', title: 'Interpretability', slug: 'explanations/aimachinelearning/interpretability'},
-          items: ['explanations/aimachinelearning/interpretability/explanation-geometry-of-lies-persona-knowledge-directions-deception', 'explanations/aimachinelearning/interpretability/explanation-manifestation-unit-protocol-interpretability-schema', 'explanations/aimachinelearning/interpretability/explanation-moe-decisions-beyond-gradients', 'explanations/aimachinelearning/interpretability/explanation-neuron-community-discovery-sparse-behaviors', 'explanations/aimachinelearning/interpretability/explanation-post-training-readout-changes-judgment-use'],
+          items: ['explanations/aimachinelearning/interpretability/explanation-geometry-of-lies-persona-knowledge-directions-deception', 'explanations/aimachinelearning/interpretability/explanation-manifestation-unit-protocol-interpretability-schema', 'explanations/aimachinelearning/interpretability/explanation-moe-decisions-beyond-gradients', 'explanations/aimachinelearning/interpretability/explanation-neuron-community-discovery-sparse-behaviors', 'explanations/aimachinelearning/interpretability/explanation-post-training-readout-changes-judgment-use', 'explanations/aimachinelearning/interpretability/explanation-rl-post-training-in-diffusion-transformers-is-activation-steering'],
         },
         {
           type: 'category',
           label: 'Llmevaluation',
           link: {type: 'generated-index', title: 'Llmevaluation', slug: 'explanations/aimachinelearning/llmevaluation'},
-          items: ['explanations/aimachinelearning/llmevaluation/explanation-anytime-valid-self-consistency-correlated-rollouts', 'explanations/aimachinelearning/llmevaluation/explanation-bidirectional-adversarial-llm-evaluation', 'explanations/aimachinelearning/llmevaluation/explanation-netflix-synopsis-factuality-cascade', 'explanations/aimachinelearning/llmevaluation/explanation-openrouter-live-frontier-benchmark-nov-2026', 'explanations/aimachinelearning/llmevaluation/explanation-safe-ai-evaluation-systems-perspective', 'explanations/aimachinelearning/llmevaluation/explanation-verification-transport-llm-agent-evaluation', 'explanations/aimachinelearning/llmevaluation/reference-agentrobocritic-action-level-agent-critique', 'explanations/aimachinelearning/llmevaluation/reference-livegeo-geographic-agent-benchmark', 'explanations/aimachinelearning/llmevaluation/reference-llm-judge-scoring-topology', 'explanations/aimachinelearning/llmevaluation/reference-rsibench-infra-agent-infrastructure-optimization', 'explanations/aimachinelearning/llmevaluation/reference-twinlab-bench-ai-scientist-agentic-twins'],
+          items: ['explanations/aimachinelearning/llmevaluation/explanation-anytime-valid-self-consistency-correlated-rollouts', 'explanations/aimachinelearning/llmevaluation/explanation-bidirectional-adversarial-llm-evaluation', 'explanations/aimachinelearning/llmevaluation/explanation-netflix-synopsis-factuality-cascade', 'explanations/aimachinelearning/llmevaluation/explanation-openrouter-live-frontier-benchmark-nov-2026', 'explanations/aimachinelearning/llmevaluation/explanation-safe-ai-evaluation-systems-perspective', 'explanations/aimachinelearning/llmevaluation/explanation-twice-told-critiques-claim-level-homogenization', 'explanations/aimachinelearning/llmevaluation/explanation-verification-transport-llm-agent-evaluation', 'explanations/aimachinelearning/llmevaluation/reference-agentrobocritic-action-level-agent-critique', 'explanations/aimachinelearning/llmevaluation/reference-livegeo-geographic-agent-benchmark', 'explanations/aimachinelearning/llmevaluation/reference-llm-judge-scoring-topology', 'explanations/aimachinelearning/llmevaluation/reference-rsibench-infra-agent-infrastructure-optimization', 'explanations/aimachinelearning/llmevaluation/reference-twinlab-bench-ai-scientist-agentic-twins'],
         },
         {
           type: 'category',
@@ -620,7 +620,7 @@ const sidebars = {
           type: 'category',
           label: 'Trainingoptimization',
           link: {type: 'generated-index', title: 'Trainingoptimization', slug: 'explanations/aimachinelearning/trainingoptimization'},
-          items: ['explanations/aimachinelearning/trainingoptimization/explanation-complete-svd-functional-norm-low-rank-llm-compression', 'explanations/aimachinelearning/trainingoptimization/explanation-group-standard-deviation-identity-grpo-drgrpo-dapo', 'explanations/aimachinelearning/trainingoptimization/explanation-spice-sparse-parameter-gossip-pretraining', 'explanations/aimachinelearning/trainingoptimization/explanation-tailroll-tail-aware-rollout-acceleration', 'explanations/aimachinelearning/trainingoptimization/reference-opengns-gradient-noise-scale-dataset'],
+          items: ['explanations/aimachinelearning/trainingoptimization/explanation-complete-svd-functional-norm-low-rank-llm-compression', 'explanations/aimachinelearning/trainingoptimization/explanation-group-standard-deviation-identity-grpo-drgrpo-dapo', 'explanations/aimachinelearning/trainingoptimization/explanation-spice-sparse-parameter-gossip-pretraining', 'explanations/aimachinelearning/trainingoptimization/explanation-tailroll-tail-aware-rollout-acceleration', 'explanations/aimachinelearning/trainingoptimization/explanation-what-if-chain-of-thought-is-not-enough', 'explanations/aimachinelearning/trainingoptimization/reference-opengns-gradient-noise-scale-dataset'],
         },
         {
           type: 'category',
@@ -812,7 +812,7 @@ const sidebars = {
           type: 'category',
           label: 'Gitworkflow',
           link: {type: 'generated-index', title: 'Gitworkflow', slug: 'explanations/developertoolspractices/gitworkflow'},
-          items: ['explanations/developertoolspractices/gitworkflow/explanation-ast-based-merge-conflict-prediction-tree-sitter', 'explanations/developertoolspractices/gitworkflow/explanation-pando-git-backend-causal-consistency'],
+          items: ['explanations/developertoolspractices/gitworkflow/explanation-ast-based-merge-conflict-prediction-tree-sitter', 'explanations/developertoolspractices/gitworkflow/explanation-pando-git-backend-causal-consistency', 'explanations/developertoolspractices/gitworkflow/reference-fast-lca-version-control-commit-graph'],
         },
         {
           type: 'category',
@@ -1063,7 +1063,7 @@ const sidebars = {
           type: 'category',
           label: 'Modelprovenance',
           link: {type: 'generated-index', title: 'Modelprovenance', slug: 'explanations/securityprivacy/modelprovenance'},
-          items: ['explanations/securityprivacy/modelprovenance/explanation-distortion-free-semantic-watermarks-black-box', 'explanations/securityprivacy/modelprovenance/explanation-flashprove-provable-inference', 'explanations/securityprivacy/modelprovenance/explanation-verifiable-ai-proof-costs-hardware'],
+          items: ['explanations/securityprivacy/modelprovenance/explanation-distortion-free-semantic-watermarks-black-box', 'explanations/securityprivacy/modelprovenance/explanation-flashprove-provable-inference', 'explanations/securityprivacy/modelprovenance/explanation-verifiable-ai-proof-costs-hardware', 'explanations/securityprivacy/modelprovenance/reference-graded-provenance-auditing-video-apis'],
         },
         {
           type: 'category',
@@ -1129,7 +1129,7 @@ const sidebars = {
           type: 'category',
           label: 'Aiassisteddevelopment',
           link: {type: 'generated-index', title: 'Aiassisteddevelopment', slug: 'explanations/softwaredevelopment/aiassisteddevelopment'},
-          items: ['explanations/softwaredevelopment/aiassisteddevelopment/explanation-code-review-comments-to-reusable-rules', 'explanations/softwaredevelopment/aiassisteddevelopment/explanation-comprehension-gap-llm-assisted-development', 'explanations/softwaredevelopment/aiassisteddevelopment/explanation-copilot-or-culprit-ai-bug-reporting-longitudinal-study', 'explanations/softwaredevelopment/aiassisteddevelopment/explanation-formally-verified-sdp-solver-verus-claude', 'explanations/softwaredevelopment/aiassisteddevelopment/explanation-llm-agents-database-debugging-access-gap', 'explanations/softwaredevelopment/aiassisteddevelopment/explanation-llm-c-to-rust-translation-retesting', 'explanations/softwaredevelopment/aiassisteddevelopment/explanation-unfaithful-work-reports-coding-agents', 'explanations/softwaredevelopment/aiassisteddevelopment/explanation-verify-the-verifier-llm-cross-check-uvm-scoreboard-escapes', 'explanations/softwaredevelopment/aiassisteddevelopment/explanation-where-the-tokens-go-software-thermodynamics', 'explanations/softwaredevelopment/aiassisteddevelopment/reference-coevobench-kernel-interface-adaptation', 'explanations/softwaredevelopment/aiassisteddevelopment/reference-dvbench-uvm-agents', 'explanations/softwaredevelopment/aiassisteddevelopment/reference-metadata-driven-ai-architectural-pattern', 'explanations/softwaredevelopment/aiassisteddevelopment/reference-privacypr-privacy-fix-code-review-dataset', 'explanations/softwaredevelopment/aiassisteddevelopment/reference-swe-recreation-benchmark'],
+          items: ['explanations/softwaredevelopment/aiassisteddevelopment/explanation-code-review-comments-to-reusable-rules', 'explanations/softwaredevelopment/aiassisteddevelopment/explanation-comprehension-gap-llm-assisted-development', 'explanations/softwaredevelopment/aiassisteddevelopment/explanation-copilot-or-culprit-ai-bug-reporting-longitudinal-study', 'explanations/softwaredevelopment/aiassisteddevelopment/explanation-formally-verified-sdp-solver-verus-claude', 'explanations/softwaredevelopment/aiassisteddevelopment/explanation-genai-agile-transformation-barriers', 'explanations/softwaredevelopment/aiassisteddevelopment/explanation-llm-agents-database-debugging-access-gap', 'explanations/softwaredevelopment/aiassisteddevelopment/explanation-llm-c-to-rust-translation-retesting', 'explanations/softwaredevelopment/aiassisteddevelopment/explanation-unfaithful-work-reports-coding-agents', 'explanations/softwaredevelopment/aiassisteddevelopment/explanation-verify-the-verifier-llm-cross-check-uvm-scoreboard-escapes', 'explanations/softwaredevelopment/aiassisteddevelopment/explanation-where-the-tokens-go-software-thermodynamics', 'explanations/softwaredevelopment/aiassisteddevelopment/reference-coevobench-kernel-interface-adaptation', 'explanations/softwaredevelopment/aiassisteddevelopment/reference-dvbench-uvm-agents', 'explanations/softwaredevelopment/aiassisteddevelopment/reference-metadata-driven-ai-architectural-pattern', 'explanations/softwaredevelopment/aiassisteddevelopment/reference-privacypr-privacy-fix-code-review-dataset', 'explanations/softwaredevelopment/aiassisteddevelopment/reference-swe-recreation-benchmark'],
         },
         {
           type: 'category',
