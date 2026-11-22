@@ -28,7 +28,7 @@ An **automated 5-stage compiler** synthesizes the circuits; the injected computa
 
 ## Empirical Results (Reference Data)
 - **Boolean/logic**: 3-literal Boolean circuits 100% (N = 1,728; audited also on a 42-layer Gemma 4 E4B); 5-bit Majority/Parity voting 100% (N = 64).
-- **6-digit signed {+,−,×} arithmetic** (N = 1,200, BF16, constant TC⁰ depth): **IBM Granite 4.2 3B** → 99.17% ALU-prefix accuracy (1.07M–1.33M active non-zeros, ≤0.036% weight change); **Alibaba Qwen 3.5 4B** → 100.00% (2.25M–2.39M non-zeros, ≤0.057%); both 100% with an FP32 sidecar; 98–100% mid-sentence resumption.
+- **6-digit signed `{+,−,×}` arithmetic** (N = 1,200, BF16, constant TC⁰ depth): **IBM Granite 4.2 3B** → 99.17% ALU-prefix accuracy (1.07M–1.33M active non-zeros, ≤0.036% weight change); **Alibaba Qwen 3.5 4B** → 100.00% (2.25M–2.39M non-zeros, ≤0.057%); both 100% with an FP32 sidecar; 98–100% mid-sentence resumption.
 - Baselines: 12.8K-sample LoRA reaches only 42.2% / 61.7% with 0% inline continuation.
 - **Deployment**: factorized block-sparse sidecar holds A100 memory at 7.89 / 10.65 GiB (4.60 / 8.14 GiB under INT8/INT4 + FP32 sidecar); passes all 14/14 pre-registered >2K-token Tango continuity splits (N = 4,392; 0/11,134 OOD triggers).
 
@@ -36,7 +36,7 @@ An **automated 5-stage compiler** synthesizes the circuits; the injected computa
 Shows that arithmetic failure in LMs is not an architectural dead end: deterministic computation can be **compiled** into frozen weights with formal error bounds, no gradient steps, and negligible weight churn. Positions the LM forward pass as a substrate for constant-depth circuits (TC⁰), bridging circuit-complexity theory and practical weight editing — and giving interpretability a ground-truth knob (a known circuit whose drift is provably zero).
 
 ## Limitations & Considerations
-- Demonstrated on {+,−,×} up to 6–8 digits plus small Boolean/parity tasks — not general computation.
+- Demonstrated on `{+,−,×}` up to 6–8 digits plus small Boolean/parity tasks — not general computation.
 - Requires bias-free SwiGLU/GeGLU-compatible layers and a per-architecture compiler; sidecar memory still non-trivial.
 
 ## Relevance to Our Domain
