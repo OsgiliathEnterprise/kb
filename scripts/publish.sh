@@ -34,10 +34,12 @@ LOG_FILE="${REPO_DIR}/.hermes/publisher.log"
 # exactly this meta tag + JS hash rotation -> false "content changed".
 export GOOGLE_SEARCH_CONSOLE_META_KEY="${GOOGLE_SEARCH_CONSOLE_META_KEY:-xxySnOb78T9sc1drISeu6ym2kIXEB9__sDKBXxSAfHA}"
 DATE_STAMP="$(date -u '+%Y%m%d-%H%M%S')"
-DATE_HUMAN="$(date -u '+%Y-%m-%d %H:%M:%S UTC')"
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
-log()  { printf '[%s] %s\n' "$DATE_HUMAN" "$*" | tee -a "$LOG_FILE"; }
+# Fresh timestamp per line: the frozen run-start stamp made every log line of
+# a run identical (PR #137 forensics: impossible to see how long build/push
+# took, i.e. how wide the CI race window was).
+log()  { printf '[%s] %s\n' "$(date -u '+%Y-%m-%d %H:%M:%S UTC')" "$*" | tee -a "$LOG_FILE"; }
 err()  { log "ERROR: $*" >&2; }
 die()  { err "$*"; exit 1; }
 
@@ -50,7 +52,7 @@ git_run() {
 preflight() {
   mkdir -p "$(dirname "$LOG_FILE")"
   log "================================================================="
-  log "Osgiliath KB Publisher — $DATE_HUMAN"
+  log "Osgiliath KB Publisher — $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
   log "================================================================="
 
   if [ ! -d "$REPO_DIR/.git" ]; then
@@ -208,6 +210,38 @@ site_is_current() {
   [ -n "$deployed" ] && [ "$deployed" = "$(git -C "$REPO_DIR" rev-parse HEAD)" ]
 }
 
+# ── Is a publish branch's content already served by gh-pages? ────────────────
+# publish branches are whole generated trees; "superseded" means every file
+# outside assets/ is byte-identical between the branch and the gh-pages tip.
+# (Asset-name hash rotation is expected and ignored.)
+branch_superseded_by_ghpages() {
+  local branch="$1" out
+  out="$(git -C "$REPO_DIR" diff --name-only \
+    "$REMOTE/$TARGET_BRANCH" "$REMOTE/$branch" -- . ':(exclude)assets' 2>/dev/null)"
+  [ -z "$out" ]
+}
+
+# Source master commit a publish branch was built from (publish.sh records it
+# in the commit subject as "(<stamp> <- <40-hex>)"; empty for legacy branches
+# built before 2026-11-22, e.g. PR #137).
+branch_source_sha() {
+  git -C "$REPO_DIR" log -1 --format='%s' "$REMOTE/$1" 2>/dev/null \
+    | grep -oE '\b[0-9a-f]{40}\b' | head -1 || true
+}
+
+is_ancestor() {
+  git -C "$REPO_DIR" merge-base --is-ancestor "$1" "$2" 2>/dev/null
+}
+
+# ── Close + delete a superseded publish branch (age-independent) ─────────────
+close_superseded_branch() {
+  local branch="$1" reason="$2"
+  log "SUPERSEDED: $branch — $reason"
+  close_stale_pr "$branch"
+  git push "$REMOTE" --delete "$branch" 2>/dev/null || true
+  git -C "$REPO_DIR" branch -D "$branch" 2>/dev/null || true
+}
+
 # ── Scenario 2: gh-pages exists — compare & create PR ─────────────────────────
 # Asset bundle filenames (main.<hash>.js) rotate between builds even when the
 # source is identical, so raw file hashes always differ. We fingerprint the
@@ -247,6 +281,31 @@ update_ghpages() {
 
   log "Content changed (remote=$remote_fp local=$local_fp) — creating PR"
 
+  # RACE GUARD (PR #137, 2026-11-21): the agents push master every few
+  # minutes and each push makes CI force-orphan a NEW gh-pages tip. If that
+  # happened during our (multi-minute) build, this branch — based on the
+  # gh-pages tip fetched at preflight — is already an orphan with no history
+  # in common with the current tip: GitHub shows it CONFLICTING with a
+  # 1000+ file cross-tree diff and it can NEVER merge (and its tree is
+  # strictly older than the live site). Re-check the world before pushing.
+  git_run fetch "$REMOTE" --prune
+  local now_deployed now_master
+  now_deployed="$(ghpages_deployed_sha)"
+  now_master="$(git -C "$REPO_DIR" rev-parse "$REMOTE/$SOURCE_BRANCH")"
+  if [ "$now_deployed" != "$RUN_START_DEPLOYED_SHA" ]; then
+    log "ABORT publish: gh-pages was redeployed during this run ($RUN_START_DEPLOYED_SHA -> $now_deployed) — our build is stale, CI owns the site, nothing to do"
+    return 0
+  fi
+  if [ "$now_master" != "$RUN_START_MASTER_SHA" ]; then
+    log "ABORT publish: master advanced during this run ($RUN_START_MASTER_SHA -> $now_master); CI will deploy it — refusing to open a PR built from an outdated master"
+    return 0
+  fi
+  # Final idempotence check (also covers CI deploys whose message we parse).
+  if site_is_current; then
+    log "ABORT publish: gh-pages became current with master HEAD mid-run — nothing to publish"
+    return 0
+  fi
+
   # Create PR branch
   local pr_branch="${PR_PREFIX}-${DATE_STAMP}"
 
@@ -284,7 +343,7 @@ update_ghpages() {
   touch .nojekyll
   git add -A
   git diff --cached --quiet || \
-    git commit -m "publish: KB website update ($DATE_STAMP)"
+    git commit -m "publish: KB website update ($DATE_STAMP <- $(git -C "$REPO_DIR" rev-parse HEAD))"
 
   git push "$REMOTE" "HEAD:refs/heads/$pr_branch"
 
@@ -306,7 +365,7 @@ create_pr() {
   local pr_body="Automated publish of the Osgiliath Knowledge Base.
 
 **Source:** \`$SOURCE_BRANCH\`
-**Built:** $DATE_HUMAN
+**Built:** $(date -u "+%Y-%m-%d %H:%M:%S UTC")
 
 This PR was created by the daily publisher cron job."
 
@@ -367,6 +426,15 @@ check_stale_prs() {
 
     local age_days=$(( (now - commit_date) / 86400 ))
 
+    # Age-independent supersession: a branch whose entire non-asset tree is
+    # already byte-identical on gh-pages is dead (PR #137 sat CONFLICTING for
+    # days because cleanup only triggered at age >= 3d).
+    if branch_superseded_by_ghpages "$branch"; then
+      close_superseded_branch "$branch" "its whole non-asset tree is already byte-identical on gh-pages"
+      stale_found=true
+      continue
+    fi
+
     if [ "$age_days" -ge "$PR_MAX_AGE_DAYS" ]; then
       log "STALE: $branch is ${age_days} days old — force-merging"
       # Guarded: one unmergeable branch must not abort the whole run under
@@ -377,6 +445,20 @@ check_stale_prs() {
       stale_found=true
     else
       log "  $branch — ${age_days} days old (ok)"
+    fi
+  done
+
+  # Hygiene sweep: ANY publish/* branch (incl. legacy daily-* names that the
+  # auto-* loop above never matches) whose tree is already on gh-pages is
+  # closed and deleted, whatever its age.
+  for ref in $(git_run for-each-ref --format='%(refname:short)' refs/remotes/"$REMOTE"/publish/* 2>/dev/null); do
+    local b="${ref#$REMOTE/}"
+    case "$b" in
+      "$PR_PREFIX"-*) continue ;;  # already handled above
+    esac
+    if branch_superseded_by_ghpages "$b"; then
+      close_superseded_branch "$b" "legacy/leftover publish branch fully contained in gh-pages"
+      stale_found=true
     fi
   done
 
@@ -415,6 +497,27 @@ force_merge() {
     return 0
   fi
 
+  # Ancestry supersession (PR #137, 2026-11-21): if we know the master commit
+  # this branch was built from and the deployed source is that commit or one
+  # of its descendants, the live site already serves strictly newer content —
+  # grafting this tree would REGRESS the site. Close, never publish.
+  local bsrc deployed
+  bsrc="$(branch_source_sha "$branch")"
+  deployed="$(ghpages_deployed_sha)"
+  if [ -n "$bsrc" ] && [ -n "$deployed" ] && is_ancestor "$bsrc" "$deployed"; then
+    close_superseded_branch "$branch" "built from $bsrc which is an ancestor of the deployed source $deployed — the live site is strictly newer"
+    return 0
+  fi
+
+  # Sanity gate: only force-publish over a gh-pages we can account for. A
+  # deployed source that is not on master's line (grafted tree, or CI red
+  # while master moved) means the pipeline is in a state this heuristic
+  # publisher must not guess about.
+  if [ -n "$deployed" ] && ! is_ancestor "$deployed" "$REMOTE/$SOURCE_BRANCH"; then
+    err "REFUSING force-merge: deployed source $deployed is not an ancestor of $REMOTE/$SOURCE_BRANCH (CI may be red / tree grafted) — investigate before overriding the live site"
+    return 1
+  fi
+
   # Graft the branch's complete site tree onto the current gh-pages tip.
   local tree new_commit
   tree="$(git -C "$REPO_DIR" rev-parse "$REMOTE/$branch^{tree}" 2>/dev/null)" || {
@@ -451,6 +554,12 @@ force_merge() {
 # ── Main ──────────────────────────────────────────────────────────────────────
 main() {
   preflight
+
+  # Race-guard baseline (see update_ghpages): capture master and the deployed
+  # source at run start so a mid-run agent push or CI orphan force-push
+  # cannot go unnoticed before we publish.
+  RUN_START_MASTER_SHA="$(git -C "$REPO_DIR" rev-parse HEAD)"
+  RUN_START_DEPLOYED_SHA="$(ghpages_deployed_sha)"
 
   # Safety gate: abort if private content leaked into docs/
   visibility_gate
