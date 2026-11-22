@@ -66,8 +66,15 @@ The remaining work targets the tests themselves, using what was learned from the
 3. Make checkout resilient to network degradation between your runner provider and the git host, or one stalled fetch delays the whole run.
 4. When agents are in the loop, treat CI wait time as a first-class product metric alongside cost.
 
+## Update (2026-11-22, Zookeeper enrichment)
+
+- **tsgo has graduated from preview.** The `microsoft/typescript-go` staging repo was **archived on Sep 1, 2026** — the native Go port is now shipping as **TypeScript 7** (`tsgo`), distributed via `@typescript/native-preview` during the transition, with roughly **10× faster type-checking and builds** than the TypeScript 6 compiler. Linear's "-73% on the `tsc` check" was achieved with the preview build; the TS7 stable release means the same lever now comes from an ordinary compiler upgrade rather than a preview toolchain.
+- **Editor parity is real.** VS Code / VSCodium expose a `TypeScript Native Preview: Restart Language Server` command once `tsgo` is active, so the IDE feedback loop — the one agents wait on between edits — benefits from the same native compiler, not just CI.
+- **Adoption checklists from early TS7 migrations** (e.g. large monorepos filing tracking issues): verify custom transformers, `ts.createProgram`-based tooling, and any lint rules that reach into the TS compiler API — those are the usual blockers, which is exactly why the AST-only lint rewrite (lever 1) de-risks the compiler upgrade.
+
 ## References
 
 - [Linear: AI coding has made CI a bottleneck, so we reworked ours to keep up](https://linear.app/now/ci-bottleneck-reworked)
 - [tsgo — native TypeScript compiler](https://github.com/microsoft/typescript-go)
+- [TypeScript 7 / native compiler (@typescript/native-preview)](https://github.com/microsoft/TypeScript)
 - [Oxlint documentation](https://oxc.rs/docs/guide/usage/linter)

@@ -128,8 +128,20 @@ When those boundaries align, a lost mobile response can cause another HTTP attem
 4. MCP Tasks (July 2026 revision) give you durable handles for long-running tools; deduplication still belongs to your `operationId` lookup at creation time.
 5. Keep Kafka exactly-once inside Kafka's transactional domain and carry the same ID through outbox rows and event payloads.
 
+## Update (2026-11-22, Zookeeper enrichment)
+
+Official MCP Tasks docs and the LangGraph persistence guide add operational details worth pinning down:
+
+- **MCP Tasks lifecycle and shape.** The extension spec lives in [`modelcontextprotocol/ext-tasks`](https://github.com/modelcontextprotocol/ext-tasks). A server opts in per request: it returns a `CreateTaskResult` (`resultType: "task"`) carrying `taskId`, initial status, **TTL, and a suggested polling interval**. Statuses are `working`, `input_required`, `completed`, `failed`, `cancelled`. Mid-flight input flows through `input_required` → client fulfills elicitations via `tasks/update`. Negotiation is capability-based: the client declares the extension in the `extensions` field of per-request `_meta`, and the server advertises it in `server/discover` — so a client that never opted in silently gets the synchronous shape, and your dedup lookup must handle both shapes.
+- **LangGraph thread_id constraints.** With `PostgresSaver`/`AsyncPostgresSaver`, `thread_id` is stored in a length-limited column — keep it **under 255 characters** (hash/UUID if your `operationId` scheme is verbose). `MemorySaver`/`InMemorySaver` live in RAM: checkpoints vanish on process restart, so an "effectively-once" resume across deploys requires `PostgresSaver` (or `SqliteSaver` locally).
+- **Checkpoint hygiene.** Checkpoints accumulate per thread and inflate both latency and storage; schedule pruning or a retention policy. Note also that subgraphs have their own checkpoint namespace — a parent graph may not immediately see subgraph state updates, so carry the business `operationId`, not ambient graph state, across boundaries.
+- **Store vs checkpointer.** Persist the *dedup ledger* (operation → outcome) in a `Store` or your own database, not in the checkpointer: checkpoints are thread-scoped short-term memory, while the correctness guarantee must survive across threads and graph restarts.
+
 ## References
 
 - [DZone: When an iOS Retry Executes an Agent Twice — Building Effectively-Once Tool Workflows](https://dzone.com/articles/prevent-duplicate-agents)
 - [MCP Tasks extension (io.modelcontextprotocol/tasks)](https://modelcontextprotocol.io/)
 - [LangGraph persistence and checkpointing docs](https://langchain-ai.github.io/langgraph/concepts/persistence/)
+- [MCP Tasks extension spec (ext-tasks repo)](https://github.com/modelcontextprotocol/ext-tasks)
+- [MCP Tasks overview (official docs)](https://modelcontextprotocol.io/extensions/tasks/overview)
+- [LangGraph persistence guide (checkpointer vs store, PostgresSaver limits)](https://docs.langchain.com/oss/python/langgraph/persistence)

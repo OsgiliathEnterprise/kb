@@ -41,5 +41,8 @@ The insight is that KV-cache importance is non-uniform across both the token axi
 For long-context serving capacity planning: MosaicKV shows the KV-cache cost curve can be cut superlinearly when both dimensions are compressed *adaptively*, at the price of ~1-2% benchmark accuracy — a directly quotable trade for any 100K+ context deployment. Complements prefix-cache discovery (KVCompass) and residency management notes in this topic.
 
 ## Sources
-- arXiv: https://arxiv.org/abs/2607.00760
+- arXiv: https://arxiv.org/abs/2607.00760 (cs.LG, cross-listed cs.DC; 15 pages, 10 figures; v1 submitted 2026-07-01)
+- Authors: Sheng Qiang, Ruiwei Chen, Yinpeng Wu, Jinyu Gu, Zhichao Hua, Yubin Xia, Binyu Zang, Haibo Chen
 - Related: [[reference-kvcompass-prefix-cache-discovery]], [[reference-moe-core-expert-offloading-residency]]
+
+> Verified against arXiv abstract 2026-11-22 (KB Zookeeper): all headline numbers (16× attention speedup, 4.8× lower decode latency, 7.3× throughput, 3× memory reduction, 1.76% avg accuracy loss on LongBench/RULER, H800 eval) match the published abstract.
