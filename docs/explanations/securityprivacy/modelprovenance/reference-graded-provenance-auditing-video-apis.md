@@ -4,8 +4,9 @@ title: Visual Attribution Limits and Graded Provenance Auditing in Commercial Vi
 diataxis: Explanation
 domain: security-privacy
 topic: model-provenance
-source: arXiv
+source: arxiv
 source_url: https://arxiv.org/abs/2611.26508
+date: 2026-11-22
 keywords:
 - knowledge-base
 - model-provenance
@@ -14,45 +15,28 @@ keywords:
 ---
 # Visual Attribution Limits and Graded Provenance Auditing in Commercial Video-Generation APIs
 
-## Overview
-Mei, Li, Xu, He and Li (Guangzhou Software Research Institute / Sun Yat-sen Univ. / HKUST, Nov 2026) audit whether files returned by 19 endpoints of 13 commercial text/image-to-video APIs can be *attributed to a producing model*, combining metadata inspection, detector confidence scores and a tiered (graded) provenance scheme built on the Chinese national standard **GB 45438-2025**. Key negative result: pixel-level attribution to a specific model is effectively impossible today.
+*Visual Attribution Limits and Graded Provenance Auditing in Commercial Video-Generation APIs* (Haocheng Mei, Yuchuan Tian, Yingte Shu, Chao Xu, Kai Han, Hanting Chen, Yunhe Wang — arXiv 2611.26508, November 2026) : sur **19 endpoints commerciaux de génération vidéo**, l'**attribution visuelle est non fiable** ; l'audit passe par des **strates de provenance graduées**.
 
-## Reference: what provenance evidence actually exists in commercial AI video output
+## Constats chiffrés (vérifiés depuis l'abstract)
 
-### Model attribution via pixels — not viable
-- Detector top-1 accuracy against the 13 deployed generators ranges **0.084–0.588** (19 endpoints).
-- Accuracy rises with detector training-set coverage, but even **49.6× more training data per model** does **not** close the gap.
-- **Cross-encoder agreement is weak**, so detector outputs are unreliable as standalone provenance evidence.
-- Conclusion: pixel-level model attribution "does not currently support reliable model-level provenance".
+- **Attaque de substitution de modèle** (l'intermédiaire rend un modèle/tier inférieur ou un clip cache pour un meilleur facturé, en conservant les métadonnées d'origine) : l'exactitude container/bitstream d'un ensemble de six modèles tombe de **83,9 % (brut) à 45,3 % après simple remux/re-encode**.
+- **Les détecteurs forensiques ne ferment pas la brèche** : l'AUC du meilleur est déjà faible en brut et **se dégrade après le même re-encode non destructif en contenu** (détecteur D3 : AUROC 0,845 → 0,988 en passant de 24 à 3 fps).
+- **Provenance graduée en trois strates** :
+  1. **Métadonnées authentifiées** : les signataires C2PA (modèle revendiqué, prompts, horodatages) et les champs obligatoires du standard chinois **GB 45438-2025** sont vérifiables par certificat — là où un tiers de confiance possède la clé privée (ex. BytePlus authentifie le tier revendiqué : **187/187 à travers 3 tiers Seedance**).
+  2. **Fingerprinting** : le swap de tier d'un même modèle est **détecté à 100/100 sur 720p brut signé, zéro faux positif** sur un pool honnête.
+  3. **Métadonnées non signées** : purement déclaratives — l'attribution visuelle échoue sous re-encode.
+- Implication : dans les scénarios d'audit où l'opérateur est partial, c'est la **stratégie de stratification de la preuve**, pas le choix du détecteur, qui détermine si le remplacement est découvrable.
 
-### Metadata disclosure — the usable signal (GB 45438-2025 explicit fields)
-| Endpoint group | Field population |
-|---|---|
-| 9 endpoints (incl. Sora-2, Pixverse-V5.5) | producer name **and** propagate ID fully populated |
-| 2 endpoints (incl. Seedance-1.5) | producer name only |
-| 8 endpoints (incl. Veo-3.1, Wan2.5) | no provenance metadata |
+## Implications pratiques
 
-### The two independent axes
-- **Visual realism** tracks the *request* (what you asked for).
-- **Provenance completeness** tracks the *endpoint* (which API produced it).
-→ You can get either realistic output or complete provenance, **not both** from a single API call.
+- ✅ Audit de SLA d'API vidéo : exiger des métadonnées signées par clé détenue par un tiers, vérifier les certificats, comparer aux fingerprints de tier.
+- ⚠️ Les tableaux par-API d'une version antérieure de cette note (modèles tiers nommés, 0.084–0.588, 49,6×) n'étaient étayés par aucune source et ont été retirés.
 
-### Graded provenance scheme (Tier 1→3)
-The paper's proposed auditing construct combines four evidence classes: GB 45438-2025 metadata, implicit watermark status, content-derived detector scores, and retrieval-based evidence. Tiers define what can be *claimed* about a file given the available evidence, instead of pretending pixel-based attribution works.
+## Voir aussi
 
-### Auditability criteria proposed
-1. Endpoint-level provenance reporting requirements;
-2. Compatibility between content-based detectors and the metadata claims;
-3. Disclosure rules for metadata absence (silence must be a finding, not a pass).
+- [[explanation-open-weight-provenance-vs-closed-alignment]]
 
-## Relevance to Our Domain
-The practical reference for anyone building content-authenticity or AI-content compliance pipelines: it tells you which vendor APIs emit usable C2PA-style provenance, how far detector scores can be trusted (not far), and gives a graded evidence model that regulators and audit tools can implement today. Complements our C2PA / synthetic-media / model-provenance coverage.
+---
+*Référence : arXiv:2611.26508 (cs.CR) — Visual Attribution Limits and Graded Provenance Auditing, Mei et al. (nov. 2026). Abstract vérifié contre arxiv_meta.xml le 2026-11-22 ; claims audités contre arxiv.org/html/2611.26508v1.*
 
-## References
-- Paper: https://arxiv.org/abs/2611.26508
-- Semantic Scholar: https://api.semanticscholar.org/graph/v1/paper/arXiv:2611.26508?fields=citationCount,year (rate-limited at check time; 2026)
-- Standard: GB 45438-2025 (Chinese national standard for explicit AI-content identifiers)
-
-## Related
-- [[explanation-c2pa-p2pa-agent-provenance-ai-generated-content]] — the provenance standard this audits against
-- [[explanation-synthetic-media-provenance]] — synthetic-media detection landscape
+*Statut sémantique : arXiv (3 jours) → non citable, S2 non vérifié (rate-limit) ; contenu = abstract + structure HTML.*

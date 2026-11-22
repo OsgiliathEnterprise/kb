@@ -1,42 +1,43 @@
 ---
-title: 'Barriers to GenAI Integration During Large-Scale Agile Transformation: An
-  Exploratory Case Study'
+title: Barriers to GenAI Integration During Large-Scale Agile Transformation
 diataxis: Explanation
 domain: software-development
 topic: ai-assisted-development
-source: arXiv
+source: arxiv
 source_url: https://arxiv.org/abs/2611.25967
+date: 2026-11-22
 keywords:
 - knowledge-base
 - ai-assisted-development
 - software-development
 - explanations
 ---
-# Barriers to GenAI Integration During Large-Scale Agile Transformation: An Exploratory Case Study
+# Barriers to GenAI Integration During Large-Scale Agile Transformation
 
-## Overview
-Moe, Jafari and Fregman (SINTEF / University of Oslo, Nov 2026; accepted at HICSS 2027) study what happens when GenAI adoption is injected into an enterprise that is *already* mid-way through a large-scale agile transformation. Through 14 semi-structured interviews with managers, product/project owners and developers in a telecom organisation, they identify three categories of barriers that organisational-change theories do not anticipate.
+*Barriers to GenAI Integration During Large-Scale Agile Transformation: An Exploratory Case Study* (Nils Brede Moe & Astri Barbala [SINTEF], Marthe Berntzen & Viktoria Stray [Université d'Oslo] — arXiv 2611.25967, accepted at HICSS 2027) étudie les barrières à l'intégration de la **GenAI dans les grandes transformations agiles**.
 
-## Problem Statement
-Agile methods succeeded by emphasising people, interaction and self-organising teams — a culture GenAI now destabilises (e.g. non-developers generating code). Prior research treats GenAI adoption and agile practice separately; nobody has studied their *coupling* during a concurrent transformation, which is the realistic enterprise scenario.
+## Configuration de l'étude
 
-## Key Contribution
-Three empirically grounded barriers specific to the GenAI-plus-agile combination:
+- Étude de cas exploratoire d'une **grande organisation médiatique nordique** en pleine transformation agile à grande échelle.
+- Deux sources de données complémentaires : **17 entretiens semi-structurés** et données d'**enquête organisationnelle**.
+- Cadre : tensions d'autonomie, d'alignement, d'apprentissage et de coordination propres aux grandes transformations agiles.
 
-1. **Strategic goal ambiguity.** GenAI is framed as an umbrella term without concrete use cases. This has a double cost: managers cannot make strategic trade-off decisions, *and* teams lose the shared understanding that agile methods depend on. The resulting ad-hoc, fragmented experimentation also produces conflicting results — undermining the evidence base for further adoption.
-2. **AI leadership competency gap.** Leaders with software experience historically built team capability through *informal, personal knowledge-sharing*. That channel breaks for GenAI: leaders lack the specific expertise, and the field's rapid pace of change prevents accumulating it. Capability-building requires dedicated mechanisms and capacity, not goodwill.
-3. **Self-organising teams as an obstacle.** The agile asset becomes the liability: autonomy means no one coordinates GenAI experimentation across teams, so successful practices stay siloed and never spread.
+## Contributions clés
 
-## Technical Approach
-Qualitative exploratory case study: 14 interviews across management and product/development roles in one large telecom firm undergoing a company-wide agile transformation, analysed against the GenAI-adoption and agile-practice literatures.
+- **Barrières au niveau équipe** : croyances divergentes sur l'IA, absence de pratiques partagées, capacité d'expérimentation limitée.
+- **Barrières au niveau organisationnel** : maturité IA inégale, mécanismes d'apprentissage organisationnel faibles, défis de coordination et d'alignement inter-unités.
+- **Thèse centrale** : la GenAI ne crée pas de nouveaux défis organisationnels — elle s'entremêle aux tensions existantes de la transformation agile et peut intensifier les difficultés d'apprentissage, de coordination, de gouvernance et de confiance.
 
-## Relevance to Our Domain
-A social-systems complement to our technical AI-assisted-development coverage. If you are rolling out coding agents across an engineering org, these three failure modes (vague goals, leader competency gap, uncoordinated team autonomy) are the predicted blockers — actionable inputs for rollout planning, enablement teams, and communities-of-practice design.
+## Limites
 
-## References
-- Paper: https://arxiv.org/abs/2611.25967
-- Semantic Scholar: https://api.semanticscholar.org/graph/v1/paper/arXiv:2611.25967?fields=citationCount,year (rate-limited at check time; 2026, HICSS 2027)
+- ⚠️ Étude de cas unique — la généralisabilité est limitée.
+- ❌ Pas de recette d'intervention outillée (les conditions d'intégration durable restent descriptives).
 
-## Related
-- [[howto-coding-agents-real-world-software-engineering]] — the technical side of the same rollout
-- [[explanation-skillmind-retrieval-based-skill-policies]] — institutionalising team-level agent know-how
+## Voir aussi
+
+- [[explanation-ai-native-vs-ai-enabled-transformation]]
+
+---
+*Référence : arXiv:2611.25967 (cs.SE) — Barriers to GenAI Integration During Large-Scale Agile Transformation, Moe et al. (nov. 2026, HICSS 2027). Abstract vérifié contre arxiv_meta.xml le 2026-11-22 ; claims audités contre arxiv.org/html/2611.25967v1.*
+
+*Statut sémantique : arXiv (3 jours) → non citable, S2 non vérifié (rate-limit) ; contenu = abstract + structure HTML.*

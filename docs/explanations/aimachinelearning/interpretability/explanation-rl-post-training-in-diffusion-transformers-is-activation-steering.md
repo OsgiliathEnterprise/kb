@@ -3,8 +3,9 @@ title: RL Post-Training in Diffusion Transformers Is Activation Steering
 diataxis: Explanation
 domain: ai-machine-learning
 topic: interpretability
-source: arXiv
+source: arxiv
 source_url: https://arxiv.org/abs/2611.26627
+date: 2026-11-22
 keywords:
 - knowledge-base
 - interpretability
@@ -13,32 +14,30 @@ keywords:
 ---
 # RL Post-Training in Diffusion Transformers Is Activation Steering
 
-## Overview
-Meral, Zhang, Vanschoren and Fierimonte (TU Eindhoven / Eindhoven RF & AI Institute, Nov 2026) give a mechanistic account of what RL post-training actually *does* to diffusion transformers. Studying text-guided image editing in edit-reward optimisation (ERO) frameworks, they show the RL-trained update behaves like an activation-space shift — essentially the same operation as activation steering.
+*RL Post-Training in Diffusion Transformers Is Activation Steering* (Tuna Han Salih Meral [Virginia Tech], Kaan Oktay [FAL], Alec Helbling [Georgia Tech / IBM Research], Atakan Kara [FAL], Duen Horng Chau [Georgia Tech], Pinar Yanardag [Virginia Tech] — arXiv 2611.26627, novembre 2026 ; page projet : rl-is-steering.github.io) démontre que la majeure partie du gain du **post-training RL** des diffusion transformers s'explique par un **changement d'activations indépendant de l'entrée**.
 
-## Problem Statement
-RL has become a common recipe for aligning generative models, but we lack understanding of what this post-training phase changes *inside* the model. The natural question: does an RL-trained model develop genuinely new internal behaviour, or does it reweight/steer representations that already exist in the base model?
+## Mécanisme découvert
 
-## Key Contribution
-- A mechanistic-interpretability study of diffusion transformers under RL post-training for image editing.
-- Identification of a specific component: a **skip connection around the 2D positional encoding (2DPE)** in Qwen-Image — this 2DPE-skip is the primary mechanism behind editing performance.
-- Evidence that the RL update acts as a **global additive shift in activation space**: the RL delta aligns with the RL update direction and resembles the base model's editing mechanism.
-- An **orthogonalisation experiment**: removing the RL-specific activation component from the RL model abolishes its gains — the improvement lives in a low-dimensional, steerable direction.
+Les auteurs sondent chaque checkpoint RL-tuned public avec une paramétrisation volontairement simple : un **jeu fixe de vecteurs de steering ajoutés aux sorties des blocs du modèle de base gelé**, ajustés par appariement des prédictions de vélocité (velocity matching), **sans récompense dans l'objectif** :
+- Sur **SD3.5-M**, ces vecteurs utilisent **65× moins de paramètres** que la LoRA RL-tuned (0,29 M contre 18,8 M).
+- Bien qu'identiques pour chaque prompt, token et graine d'échantillonnage, ils **récupèrent 90,0–96,3 % des gains de récompense** de six modèles image RL-tuned, et 89,8 % / 111,9 % sur deux modèles vidéo RL-tuned.
+- Initiés à zéro et entraînés par RL online, les vecteurs seuls **dépassent** les gains du RL pondéré (OCR du rendu de texte, PickScore) sur SD3.5-M.
+- Le gain se situe **hors de la direction moyennée** : la composante de s_fit orthogonale à s_mean en conserve ~96 % (0,312 sur 0,325).
 
-## Technical Approach
-The authors compare internal activations of base vs. RL-fine-tuned (LoRA) models, isolate the RL delta, and test whether it behaves like a steering vector: alignment analyses plus ablation by orthogonalising out the RL-specific component. The architectural focus is the Qwen-Image block structure, where the 2DPE skip connection emerges as the functional bottleneck for edits.
+Conclusion : sans nouvelles transformations input-dépendantes, le RL post-training « steer » simplement le générateur pré-entraîné vers ce qu'il sait déjà calculer.
 
-## Results
-RL post-training improves editing capability, but its effect is (at least partly) re-expressing the base model's latent editing ability through an additive activation shift rather than creating new capabilities. Removing that shift collapses RL performance back toward base-model levels.
+## Implications pratiques
 
-## Relevance to Our Domain
-For ML-Ops and model-alignment practice, this reframes RL post-training as (partly) a cheap, steerable edit: if the gain is a directional shift, teams can analyse, transplant, or suppress it without full retraining — with implications for RLHF cost, model diffing, safety auditing of aligned checkpoints, and interpretability tooling.
+- ✅ Interprétabilité du RL post-training — le résultat est vérifiable empiriquement (velocity matching reproductible).
+- ✅ Économie de déploiement : un shift additif peut remplacer une LoRA pour servir un modèle RL-tuned.
+- ⚠️ Observation sur checkpoints publics RL-tuned — pas une recette d'entraînement RL complète.
+- ❌ Ne prétend pas que TOUS les gains sont input-indépendants : « la majeure partie ».
 
-## References
-- Paper: https://arxiv.org/abs/2611.26627
-- Semantic Scholar: https://api.semanticscholar.org/graph/v1/paper/arXiv:2611.26627?fields=citationCount,year (rate-limited at check time; 2026)
-- Code/data: https://huggingface.co/Densefloe/RL-VLM-Image-Editing-explainability
+## Voir aussi
 
-## Related
-- [[explanation-skill-sdct-self-distilled-continual-lora]] — what parameter-level post-training changes
-- [[explanation-what-if-chain-of-thought-is-not-enough]] — post-training as behaviour-shaping
+- [[explanation-rlaif-vs-rlhf-preference-mode-collapse]]
+
+---
+*Référence : arXiv:2611.26627 (cs.CV) — RL Post-Training in Diffusion Transformers Is Activation Steering, Meral et al. (nov. 2026). Abstract vérifié contre arxiv_meta.xml le 2026-11-22 ; claims audités contre arxiv.org/html/2611.26627v1.*
+
+*Statut sémantique : arXiv (3 jours) → non citable, S2 non vérifié (rate-limit) ; contenu = abstract + structure HTML.*

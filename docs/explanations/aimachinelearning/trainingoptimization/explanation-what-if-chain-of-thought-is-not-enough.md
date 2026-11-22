@@ -3,8 +3,9 @@ title: What If Chain-of-Thought Is Not Enough?
 diataxis: Explanation
 domain: ai-machine-learning
 topic: training-optimization
-source: arXiv
+source: arxiv
 source_url: https://arxiv.org/abs/2611.26282
+date: 2026-11-22
 keywords:
 - knowledge-base
 - training-optimization
@@ -13,31 +14,24 @@ keywords:
 ---
 # What If Chain-of-Thought Is Not Enough?
 
-## Overview
-This paper challenges the assumption that free-form Chain-of-Thought (CoT) is the natural substrate for high-stakes reasoning in LLMs. The author (A. Jansen, Nov 2026) fine-tunes language models to follow **Quantitative Overview Comparison (QOC)** — a structured decision-analysis schema — instead of generating unstructured CoT, and shows the resulting outputs can be more auditable, interpretable, and task-aligned than prompting baselines.
+*What If Chain-of-Thought Is Not Enough?* (Marc Jansen, Computer Science Institute, Ruhr West University of Applied Sciences, Bottrop, Germany — arXiv 2611.26282, November 2026) demande si le **modèle de raisonnement interne** d'un LLM peut être volontairement remplacé, et si un tel remplacement est bénéfique.
 
-## Problem Statement
-CoT traces are long, opaque, and hard to verify: they can drift, contain spurious steps, and resist systematic validation. In critical decision-support settings this creates risk, because CoT has often been adopted as the *default* reasoning mode without guarantees that it is the most faithful or useful one. The paper asks the counterfactual directly: what if CoT is *not* sufficient for high-stakes decision-making?
+## Idée principale
 
-## Key Contribution
-- Fine-tuning pipelines that move models from general-purpose base behaviour toward explicit QOC analysis and its answer-level realisation, rather than treating structured reasoning as a mere prompting constraint.
-- A controlled comparison: fine-tuned QOC variants vs. base model vs. prompting baselines, evaluated on multiple-choice answers **and** qualitative answer rationales.
-- Findings: models trained to follow QOC produce more coherent and decision-aligned answers; structured schemas make the internal decision process explicit, auditable, and comparable across alternatives.
+Plutôt que de s'appuyer sur le Chain-of-Thought (issu du prompting), l'auteur **entraîne** les modèles à suivre **QOC (Question–Option–Criteria)** : un processus de décision structuré qui décompose la tâche en questions explicites, options concurrentes et critères d'évaluation. Un pipeline de développement en **trois générations** va d'un noyau de décision QOC basique vers une synthèse de réponse enrichie statistiquement. Les modèles fine-tunés QOC améliorent la qualité des réponses par rapport aux modèles de base non fine-tunés, avec des gains particulièrement forts quand le modèle est assez grand pour exécuter fiablement les calculs QOC sous-jacents.
 
-## Technical Approach
-QOC (from decision analysis) forces the model to enumerate options, score them against explicit criteria, and reason over the comparison table before committing to an answer. The key methodological move is *training* this discipline in via fine-tuning — the structure becomes the model's internal thinking mode — instead of eliciting it through prompting alone. Evaluation goes beyond accuracy: answer rationales are assessed qualitatively for coherence and decision-alignment.
+## Quand l'utiliser / limites
 
-## Results
-QOC-trained models outperform CoT prompting baselines on decision-alignment and interpretability of rationales. The central conclusion: the "internal thinking model" of an LLM is trainable, and structured alternatives to CoT are a promising path toward reliable, interpretable, task-adapted decision support.
+- ✅ Pour explorer la **reprogrammation du processus de raisonnement interne** par fine-tuning plutôt que par prompting.
+- ✅ Pertinent si l'on cherche des alternatives structurées au CoT plus fiables, interprétables et adaptées à la tâche (aide à la décision).
+- ⚠️ Approche préliminaire — pas de benchmark de référence publié.
+- ❌ Non adaptée aux tâches où la trace de raisonnement libre est l'objectif même (maths compétitives, code).
 
-## Relevance to Our Domain
-Directly relevant to agent and LLM infrastructure: if agents make consequential decisions, free-form CoT is an auditing liability. This paper is evidence that structured reasoning schemas (QOC-style criteria tables) can be *trained in*, giving teams an alternative to prompt-only reasoning scaffolds — connecting to our coverage of reasoning models, agent guardrails, and AI decision-support reliability.
+## Voir aussi
 
-## References
-- Paper: https://arxiv.org/abs/2611.26282
-- Semantic Scholar: https://api.semanticscholar.org/graph/v1/paper/arXiv:2611.26282?fields=citationCount,year (0 citations, 2026 — just published)
-- Related work: Focused CoT (arXiv:2511.22176) on structured prompting for faster reasoning; Reasoning Consensus (arXiv:2607.27783) on preserving auditable reasoning structure.
+- [[explanation-reasoning-models-sequential-rl-scaling]] (pour comparaison — le CoT internalisé par RL)
 
-## Related
-- [[howto-verifiable-debate-multi-agent-code-generation]] — structured reasoning protocols as reliability levers
-- [[explanation-skill-sdct-self-distilled-continual-lora]] — training behaviours in, not just prompting them
+---
+*Référence : arXiv:2611.26282 (cs.CL) — What If Chain-of-Thought Is Not Enough?, M. Jansen (nov. 2026). Abstract vérifié contre arxiv_meta.xml le 2026-11-22 ; claims audités contre arxiv.org/html/2611.26282v1.*
+
+*Statut sémantique : arXiv (3 jours) → non citable, S2 non vérifié (rate-limit) ; contenu = abstract + structure HTML.*

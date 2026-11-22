@@ -4,8 +4,9 @@ title: 'Twice-Told Critiques: Claim-Level Homogenization of Peer Review in the L
 diataxis: Explanation
 domain: ai-machine-learning
 topic: llm-evaluation
-source: arXiv
+source: arxiv
 source_url: https://arxiv.org/abs/2611.26286
+date: 2026-11-22
 keywords:
 - knowledge-base
 - llm-evaluation
@@ -14,31 +15,29 @@ keywords:
 ---
 # Twice-Told Critiques: Claim-Level Homogenization of Peer Review in the LLM Era
 
-## Overview
-Gusev and Guseva (Nov 2026) quantify how LLM-assisted peer review reshapes the *content diversity* of reviews. Using large-scale peer-review data and a claim-level text-alignment metric, they show that the substance of reviewers' criticisms is converging across reviewers — even when surface wording still differs.
+*Twice-Told Critiques: Claim-Level Homogenization of Peer Review in the LLM Era* (Ilya Gusev, Keenable/Amsterdam — auteur unique ; arXiv 2611.26286, November 2026) mesure si les critiques des pairs **convergent au niveau des claims**, ce qui réduirait la valeur épistémique de la revue multiple.
 
-## Problem Statement
-Peer review depends on diverse, independent judgments. LLMs promise quality and consistency but risk suppressing the diversity that makes multiple reviews valuable. Prior work measured homogenization only at the **surface form** level (shared phrasing), leaving open whether the underlying *claims* — what reviewers actually criticize — are also converging.
+## Résultats chiffrés (vérifiés depuis l'abstract)
 
-## Key Contribution
-- A claim-level text-similarity metric that matches semantic claims rather than surface strings.
-- Evidence of significant claim-level homogenization in the LLM era across **eight major ML venues and one medical journal** (control domains included).
-- Two striking findings: (1) homogenization is measurable even among reviews with little surface-level overlap — and is *strongest* exactly there; (2) reviews that receive author rebuttals are systematically more distinctive, implying converged criticism is cheaper to answer and contributes less to evaluation.
+- À **ICLR**, le recouvrement de critiques mesuré est passé de **12,0 % (2026) à 21,3 % (2027)**, sur des revues du même stade du processus ; hausses année sur année à **NeurIPS, ICML et dans les journaux F1000 et PLOS**.
+- Une troisième revue ICLR d'un article n'a ajouté que **5,46 nouveaux problèmes** aux deux autres en 2027, contre **6,12 en 2026**.
+- Détection par **MELD** (détecteur de texte généré par LLM) appliquée à toutes les revues : au sein d'un même article, deux revues signalées par MELD se recouvrent plus que deux revues non signalées — **+3,0 points** (ICLR 2024-2025), **+4,5 points** (2026-2027), **+5,4 points** sur cinq sources de journaux.
+- Conclusion : les revues signalées LLM d'un même article sont moins distinctes entre elles ; la diversité des critiques baisse.
 
-## Technical Approach
-The metric aligns reviews at the level of individual claims, decoupling semantic convergence from paraphrase detection. Comparisons span venues with presumed LLM adoption vs. a control setting, and review distinctiveness is correlated with rebuttal behaviour as a proxy for review usefulness.
+## Implications pratiques
 
-## Results
-Substantive convergence is widespread and not an artefact of copy-paste phrasing. The rebuttal link suggests a quality cost: homogenized reviews add less evaluative value. The authors frame this as a threat to the integrity of peer review as a whole, with implications for emerging LLM-assisted and fully AI-driven review workflows.
+- ✅ Avertissement pour les comités : un 3e reviewer LLM-assisté apporte moins de problèmes nouveaux.
+- ✅ Ouvre une piste de recherche : mesurer le recouvrement sémantique des critiques et non leur similarité de surface.
+- ⚠️ Méthode dépendante de MELD (faux positifs possibles sur textes très structurés).
+- ❌ Ne conclut pas formellement à la causalité LLM → homogénéisation (corrélation avec le flag MELD).
 
-## Relevance to Our Domain
-A cautionary evaluation result for everything AI-assisted: if human reviewers and LLM agents converge on the same claims, ensembles of "independent" AI reviews may be redundant. Directly informs our coverage of LLM evaluation and AI-assisted development (AI code review, AI-assisted design review), where reviewer diversity is the actual quality signal.
+Code et jeux de données revues publiés sous github.com/ilyagusev/twicetold et Hugging Face (ilyagusev).
 
-## References
-- Paper: https://arxiv.org/abs/2611.26286
-- Semantic Scholar: https://api.semanticscholar.org/graph/v1/paper/arXiv:2611.26286?fields=citationCount,year (rate-limited at check time; 2026)
-- Code/data: https://github.com/semantic-summarization/claim-similarity
+## Voir aussi
 
-## Related
-- [[explanation-what-works-for-whom-agent-observability]] — observability for AI-assisted workflows
-- [[howto-verifiable-debate-multi-agent-code-generation]] — diversity vs. redundancy in multi-agent critique
+- [[explanation-automated-weak-to-strong-supervision]]
+
+---
+*Référence : arXiv:2611.26286 (cs.CL) — Twice-Told Critiques, I. Gusev (nov. 2026). Abstract vérifié contre arxiv_meta.xml le 2026-11-22 ; claims audités contre arxiv.org/html/2611.26286v1.*
+
+*Statut sémantique : arXiv (3 jours) → non citable, S2 non vérifié (rate-limit) ; contenu = abstract + structure HTML.*

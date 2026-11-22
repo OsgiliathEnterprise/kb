@@ -3,8 +3,9 @@ title: Fast Computation of Lowest Common Ancestor in Version Control Commit Grap
 diataxis: Explanation
 domain: developer-tools-practices
 topic: git-workflow
-source: arXiv
+source: arxiv
 source_url: https://arxiv.org/abs/2611.25912
+date: 2026-11-22
 keywords:
 - knowledge-base
 - git-workflow
@@ -13,35 +14,32 @@ keywords:
 ---
 # Fast Computation of Lowest Common Ancestor in Version Control Commit Graph
 
-## Overview
-Watanuki, Takayasu and Ito (Tokyo Tech, Nov 2026) benchmark LCA computation — the "merge base" query at the heart of every three-way merge and branch comparison — on real Git history graphs. They implement classic LCA algorithms against Git's parent-pointer DAG representation and evaluate on 25 popular open-source repositories (up to ~25,000 commits). Headline: pointer-chasing methods with preprocessing dominate.
+*Fast Computation of Lowest Common Ancestor in Version Control Commit Graph* (Stepan Polokhin, Ruslan Savchenko, Yuriy Chernyshov — **Yandex** ; arXiv 2611.25912, November 2026) attaque le calcul du **merge base** (plus proche ancêtre commun de deux commits) comme problème d'**LCA sur graphe orienté acyclique** — pas sur arbre.
 
-## Reference: algorithm comparison on Git commit graphs
+## Le problème
 
-| Aspect | Finding |
-|---|---|
-| Top performers | **Parent pointer** and **jump pointer** methods — direct graph traversal via Git's stored parent metadata |
-| Complexity (preprocessing + query) | **O(N + Q log N)**, N = commits, Q = queries |
-| Query time at scale (25k commits) | **&lt; 20 ms per LCA query** |
-| Losers | Euler-tour and related-tree methods — overhead of constructing/processing the auxiliary tree structure outweighs their theoretical appeal on VCS-shaped graphs |
-| Dataset | 25 popular open-source repositories, histories up to ~25,000 commits |
-| Implementation basis | Direct exploitation of Git's native parent-pointer representation (no auxiliary graph build) |
+- Le graphe de commits est un **DAG** (fusions = sommets à plusieurs parents) : les algorithmes d'LCA arborescents ne s'appliquent pas directement.
+- Sur les dépôts réels (plusieurs **millions de sommets**), le calcul du merge base par recherche exhaustive prend **dizaines de secondes** — bloquant pour le pre-receive hook de la plateforme de code interne de l'auteur (requiert des réponses en millisecondes).
 
-### When each approach makes sense
-- **Parent/jump pointers**: many interleaved queries over a mostly-append-only DAG (the VCS case) — preprocessing pays off once, queries stay log-time.
-- **Euler-tour/RMQ methods**: shine for static trees with dense query batches; on commit DAGs the auxiliary-structure construction cost dominates.
+## Contribution
 
-### Practical takeaways for VCS tooling
-- `git merge-base`-style operations do **not** require heavy graph libraries on commit-scale graphs; naive upward traversal with preprocessing is sufficient at ~10⁴–10⁵ commits.
-- The relevant scale question: the study caps at ~25k commits; kernel-scale histories (millions of commits, thousands of parents/day) remain outside the evaluated range — extrapolate with care.
+- Une **structure de données de branches supportantes** (supporting branches) pour les graphes de commits.
+- **Nouvel algorithme d'LCA** avec :
+  - **prétraitement** : temps **O(δ_G · m_c + n_s · log² n_s + m_s · log n_s)** ;
+  - **coût par sommet** du prétraitement : **O(d)** ;
+  - requêtes en temps logarithmique par rapport aux paramètres du DAG (d = degré, sous-graphes réduits n_s, m_s).
+- Contexte : les algorithmes d'LCA optimaux de l'état de l'art ne valent que pour les **arbres** ; le DAG des commits casse ces hypothèses.
 
-## Relevance to Our Domain
-Reference material for anyone building Git-native tooling — merge-base is on the critical path of merge, rebase, bisect, blame and branch-protection checks (e.g. CI "commits since divergence" gating). Documents empirically which textbook algorithm suits Git's data shape, saving re-implementation guesswork.
+## Usage pratique
 
-## References
-- Paper: https://arxiv.org/abs/2611.25912
-- Semantic Scholar: https://api.semanticscholar.org/graph/v1/paper/arXiv:2611.25912?fields=citationCount,year (rate-limited at check time; 2026)
+- Pour instrumenter un forge Git : c'est un résultat **théorique** (complexités, preuves dans le corps du texte) — pas un benchmark empirique ; les chiffres « 25 repos / &lt;20 ms / parent-jump pointers » d'une version antérieure de cette note étaient fabriqués et retirés.
+- Le besoin motivant (pre-receive hook chez Yandex) indique l'échelle visée : millions de commits, requêtes temps réel.
 
-## Related
-- [[explanation-distributed-version-control-systems]] — Git's DAG model
-- [[explanation-skillflow-workflow-induction-multi-agent]] — workflow analysis over agent commit graphs
+## Voir aussi
+
+- [[reference-git-internals-object-model-reachability]]
+
+---
+*Référence : arXiv:2611.25912 (cs.DS) — Fast Computation of LCA in Version Control Commit Graph, Polokhin, Savchenko, Chernyshov (Yandex, nov. 2026). Abstract vérifié contre arxiv_meta.xml le 2026-11-22 ; claims audités contre arxiv.org/html/2611.25912v1.*
+
+*Statut sémantique : arXiv (3 jours) → non citable, S2 non vérifié (rate-limit) ; contenu = abstract + structure HTML.*
