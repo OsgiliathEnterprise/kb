@@ -27,11 +27,18 @@ Plutôt que de s'appuyer sur le Chain-of-Thought (issu du prompting), l'auteur *
 - ⚠️ Approche préliminaire — pas de benchmark de référence publié.
 - ❌ Non adaptée aux tâches où la trace de raisonnement libre est l'objectif même (maths compétitives, code).
 
+## Contexte et travaux liés
+
+- La méthode **QOC (Question–Option–Criteria)** vient de l'analyse décisionnelle classique (aide à la décision structurée) ; son application aux LLM a été explorée par la même ligne de travail dans *Increasing AI Explainability by LLM Driven Standard Processes* (arXiv:2511.07083), qui intègre les LLM dans des modèles de décision formalisés comme QOC pour l'explicabilité.
+- Positionnement : le papier se situe dans la lignée « prompting → internalisation par fine-tuning » du raisonnement (à comparer au CoT internalisé par RL).
+- Fiche arXiv confirmée en ligne (2026-11-22) : double catégorie **cs.CL + cs.AI**, soumission v1 du 19 nov. 2026, licence **CC BY 4.0** (réutilisation large autorisée).
+
 ## Voir aussi
 
 - [[explanation-reasoning-models-sequential-rl-scaling]] (pour comparaison — le CoT internalisé par RL)
+- arXiv:2511.07083 — Increasing AI Explainability by LLM Driven Standard Processes (prédécesseur direct de la méthode QOC-LLM)
 
 ---
-*Référence : arXiv:2611.26282 (cs.CL) — What If Chain-of-Thought Is Not Enough?, M. Jansen (nov. 2026). Abstract vérifié contre arxiv_meta.xml le 2026-11-22 ; claims audités contre arxiv.org/html/2611.26282v1.*
+*Référence : arXiv:2611.26282 (cs.CL, cs.AI) — What If Chain-of-Thought Is Not Enough?, M. Jansen (nov. 2026). Abstract vérifié contre arxiv_meta.xml le 2026-11-22 ; claims audités contre arxiv.org/html/2611.26282v1.*
 
-*Statut sémantique : arXiv (3 jours) → non citable, S2 non vérifié (rate-limit) ; contenu = abstract + structure HTML.*
+*Statut sémantique : arXiv (3 jours) → non citable, S2 non vérifié (rate-limit) ; contenu = abstract + structure HTML. Enrichi par KB Zookeeper le 2026-11-22 (abstract re-vérifié en direct sur arxiv.org ; travail lié QOC identifié par recherche web).*

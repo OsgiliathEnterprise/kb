@@ -33,11 +33,17 @@ keywords:
 
 Code et jeux de données revues publiés sous github.com/ilyagusev/twicetold et Hugging Face (ilyagusev).
 
+## Contexte et travaux liés
+
+- Fiche arXiv confirmée en ligne (2026-11-22) : triple catégorie **cs.CL + cs.AI + cs.DL** (Digital Libraries — ancrage dans la recherche sur les systèmes de revue), classes ACM I.2.7 / H.3.7 / J.4, soumission v1 du 19 nov. 2026, licence **CC0 (domaine public)** — données et textes de revues réutilisables sans restriction.
+- Le papier s'appuie sur **MELD** (classeur de texte généré par LLM) comme instrument de mesure ; la validité des flags MELD (faux positifs sur textes formels/structurés) est le principal risque méthodologique, reconnu par l'auteur lui-même dans les limites.
+- Piste ouverte par l'auteur : distinguer recouvrement sémantique des claims vs similarité de surface — la mesure retenue ici porte bien sur les claims (« problems » distincts), pas sur le texte.
+
 ## Voir aussi
 
 - [[explanation-automated-weak-to-strong-supervision]]
 
 ---
-*Référence : arXiv:2611.26286 (cs.CL) — Twice-Told Critiques, I. Gusev (nov. 2026). Abstract vérifié contre arxiv_meta.xml le 2026-11-22 ; claims audités contre arxiv.org/html/2611.26286v1.*
+*Référence : arXiv:2611.26286 (cs.CL, cs.AI, cs.DL) — Twice-Told Critiques, I. Gusev (nov. 2026). Abstract vérifié contre arxiv_meta.xml le 2026-11-22 ; claims audités contre arxiv.org/html/2611.26286v1.*
 
-*Statut sémantique : arXiv (3 jours) → non citable, S2 non vérifié (rate-limit) ; contenu = abstract + structure HTML.*
+*Statut sémantique : arXiv (3 jours) → non citable, S2 non vérifié (rate-limit) ; contenu = abstract + structure HTML. Enrichi par KB Zookeeper le 2026-11-22 (abstract et tous les chiffres 12,0 %/21,3 %, 5,46/6,12, +3,0/+4,5/+5,4 re-vérifiés en direct sur arxiv.org).*

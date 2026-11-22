@@ -14,7 +14,7 @@ keywords:
 ---
 # Barriers to GenAI Integration During Large-Scale Agile Transformation
 
-*Barriers to GenAI Integration During Large-Scale Agile Transformation: An Exploratory Case Study* (Nils Brede Moe & Astri Barbala [SINTEF], Marthe Berntzen & Viktoria Stray [Université d'Oslo] — arXiv 2611.25967, accepted at HICSS 2027) étudie les barrières à l'intégration de la **GenAI dans les grandes transformations agiles**.
+*Barriers to GenAI Integration During Large-Scale Agile Transformation: An Exploratory Case Study* (Nils Brede Moe & Astri Barbala [SINTEF], Marthe Berntzen [Université d'Oslo] & Viktoria Stray [Université d'Oslo / SINTEF] — arXiv 2611.25967, accepted at HICSS 2027) étudie les barrières à l'intégration de la **GenAI dans les grandes transformations agiles**.
 
 ## Configuration de l'étude
 
@@ -33,11 +33,17 @@ keywords:
 - ⚠️ Étude de cas unique — la généralisabilité est limitée.
 - ❌ Pas de recette d'intervention outillée (les conditions d'intégration durable restent descriptives).
 
+## Détail des barrières (abstract vérifié en direct)
+
+- **Niveau équipe** : croyances IA divergentes entre membres (« diverging AI beliefs »), absence de pratiques partagées, capacité d'expérimentation limitée.
+- **Niveau organisation** : maturité IA inégale entre unités, mécanismes d'apprentissage organisationnel faibles, problèmes de coordination/alignement inter-unités.
+- **Contribution** : conditions d'une intégration GenAI durable à l'échelle, exprimées comme interaction avec le changement organisationnel en cours (pas comme défi autonome).
+
 ## Voir aussi
 
 - [[explanation-ai-native-vs-ai-enabled-transformation]]
 
 ---
-*Référence : arXiv:2611.25967 (cs.SE) — Barriers to GenAI Integration During Large-Scale Agile Transformation, Moe et al. (nov. 2026, HICSS 2027). Abstract vérifié contre arxiv_meta.xml le 2026-11-22 ; claims audités contre arxiv.org/html/2611.25967v1.*
+*Référence : arXiv:2611.25967 (cs.SE) — Barriers to GenAI Integration During Large-Scale Agile Transformation, Moe, Berntzen, Barbala, Stray (nov. 2026). 10 pages, accepté aux Proceedings of the 60th Hawaii International Conference on System Sciences (HICSS 2027). Abstract vérifié contre arxiv_meta.xml le 2026-11-22 ; claims audités contre arxiv.org/html/2611.25967v1.*
 
-*Statut sémantique : arXiv (3 jours) → non citable, S2 non vérifié (rate-limit) ; contenu = abstract + structure HTML.*
+*Statut sémantique : arXiv (3 jours) → non citable, S2 non vérifié (rate-limit) ; contenu = abstract + structure HTML. Enrichi par KB Zookeeper le 2026-11-22 (abstract re-vérifié en direct sur arxiv.org ; affiliation exacte et détail des barrières confirmés).*
