@@ -83,9 +83,22 @@ Network Time Security (NTS) is **not yet supported by the NTP Pool** (only commu
 
 - `cloud-infrastructure/incident-response/explanation-telstra-ntp-timing-loop-outage.md` — what happens when timing infrastructure fails at scale.
 
+## Corroboration (KB Zookeeper, 2026-11-23)
+
+Checked against the official NTP Pool participation page:
+
+- **Static IP is mandatory** ("once a year or less" change tolerance) plus a permanent connection — matches the note's stable-IP requirement.
+- **Bandwidth bar is low**: ~5–15 NTP packets/s steady, spikes of 60–120 pkt/s a few times a day (~10–15 Kbit/s, spikes to ~120 Kbit/s); the page suggests at least 384–512 Kbit/s.
+- **Stratum 3 (even 4) is explicitly acceptable** — the pool is load distribution, not a hardware club; only Stratum 1/2 upstreams being "nice" is folklore.
+- **Upstream rule**: joining servers *should not* use pool.ntp.org as their configured upstream — pick good static upstreams (which may themselves be pool members). This complements the note's "several trustworthy pool upstreams" checklist item with the anti-pattern to avoid.
+- **Decay warning is official wording too**: after leaving, client traffic "will take weeks, months or even YEARS before the traffic completely goes away."
+- Servers are continuously monitored for availability and precision after joining; scores are visible on the public scores page (the note's score>10 recovery detail is the operational consequence).
+
 ## References
 
 - **Jeff Geerling — I joined the NTP Pool, but not with my Stratum 1 Pi**: https://www.jeffgeerling.com/blog/2026/i-joined-the-ntp-pool/
+- **NTP Pool — official "Join the pool" requirements page**: https://www.ntppool.org/en/join.html
+- **NTP Pool — public server scores/monitoring**: https://www.ntppool.org/scores/
 - **time-pi project (Ansible-managed config for both tiers)**: https://github.com/geerlingguy/time-pi
 - **NTP Pool participation guide**: https://www.ntppool.org/en/
 - **TimeHAT v6**: https://github.com/Time-Appliances-Project/TimeHAT

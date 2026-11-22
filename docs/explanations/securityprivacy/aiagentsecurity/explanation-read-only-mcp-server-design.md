@@ -72,7 +72,19 @@ Model quality (reasoning, planning, tool selection) is not the reliability bottl
 - `security-privacy/ai-agent-security/howto-mcp-security-hardening.md` — broader MCP hardening checklist.
 - `security-privacy/ai-agent-security/explanation-mcp-filesystem-capability-laundering-mcp-fsd.md` — how MCP tools can launder capabilities beyond their label.
 
+## Corroboration (KB Zookeeper, 2026-11-23)
+
+The official MCP blog post *"Tool Annotations as Risk Vocabulary: What Hints Can and Can't Do"* (2026-03-16) confirms and sharpens the note's central claim:
+
+- The full `ToolAnnotations` interface — shipped in the `2025-03-26` spec revision, current as of `2025-11-25` — is four booleans plus a display title, **all hints**: `readOnlyHint` (default `false`), `destructiveHint` (default `true`), `idempotentHint` (default `false`), `openWorldHint` (default `true`). The defaults are deliberately pessimistic: an un-annotated tool is assumed writable, destructive, non-idempotent, and open-world.
+- Spec language: annotations "are not guaranteed to faithfully describe tool behavior, and clients **must** treat them as untrusted unless they come from a trusted server" — `readOnlyHint` is a label, exactly as the note argues.
+- The trust gap was known at design time: co-creator Justin Spahr-Summers asked during the original PR #185 review how a client "makes use of this flag knowing that it's *not* trustable"; the spec's answer was the hint/untrusted-by-default compromise.
+- Official guidance mirrors the note's layered-enforcement table: clients should use annotations "for UX, but keep your actual safety guarantees in deterministic controls" — the DB-layer `SELECT`-only credential is precisely such a deterministic control.
+- Current status: five SEPs propose richer annotations (trust/sensitivity #1913, governance/UX #1984, `unsafeOutputHint`, `secretHint`, `trustedHint`) — none would make existing hints enforceable; a Tool Annotations Interest Group is forming.
+
 ## References
 
 - **Day 29/90 — Building a Read-Only MCP Server (DEV.to)**: https://dev.to/rimsha_kanwal/day-2990-building-a-read-only-mcp-server-a-practical-approach-to-safer-ai-agents-1n73
 - **Model Context Protocol specification**: https://modelcontextprotocol.io/
+- **MCP official blog — Tool Annotations as Risk Vocabulary: What Hints Can and Can't Do (2026-03-16)**: https://blog.modelcontextprotocol.io/posts/2026-03-16-tool-annotations/
+- **MCP spec — ToolAnnotations schema (2025-11-25 revision)**: https://modelcontextprotocol.io/specification/2025-11-25/schema#toolannotations

@@ -35,10 +35,6 @@ keywords:
 - Pour instrumenter un forge Git : c'est un résultat **théorique** (complexités, preuves dans le corps du texte) — pas un benchmark empirique ; les chiffres « 25 repos / &lt;20 ms / parent-jump pointers » d'une version antérieure de cette note étaient fabriqués et retirés.
 - Le besoin motivant (pre-receive hook chez Yandex) indique l'échelle visée : millions de commits, requêtes temps réel.
 
-## Voir aussi
-
-- [[reference-git-internals-object-model-reachability]]
-
 ## Références
 
 - Git officiel — `git-merge-base` : sémantique des merge bases multiples (`--all`, `--octopus`) — https://git-scm.com/docs/git-merge-base

@@ -35,10 +35,6 @@ keywords:
 - ✅ Les formes fermées permettent un calcul instantané des métriques (faux positifs, temps moyen) sans simulation Monte-Carlo pour les seuils 2–3.
 - Résultat opérationnel : plus de leurres ≠ toujours mieux — le coût des fausses détections borne l'optimum (mis en évidence par les résultats numériques).
 
-## Voir aussi
-
-- [[howto-alert-triage-playbooks-ai-soc]]
-
 ## Références
 
 - N. Spitzner, *Honeypots: Catching the Insider Threat*, ACSAC 2003 — l'article fondateur qui adapte les honeypots à un adversaire déjà en accès légitime (le cadre exact de ce papier) — https://www.researchgate.net/publication/4049405_Honeypots_Catching_the_insider_threat
@@ -46,6 +42,6 @@ keywords:
 - Lignes de travaux citées par le papier lui-même : Panigrahi et al. (2013) sur la mise à jour de croyance intra/inter-transactions ; Pawlick et al. (2019) sur les modèles-game de déception défensive et le « leaky deception » (l'insider qui détecte le leurre) — angle complémentaire au dimensionnement stochastique.
 
 ---
-*Référence : arXiv:2611.26353 (cs.CR) — When Suspicion Adds Up, Mehrani et al. (nov. 2026). Abstract vérifié contre arxiv_meta.xml le 2026-11-22 ; claims audités contre arxiv.org/html/2611.26353v1 (la mention « régimes non-stationnaires » d'une version antérieure n'était pas étayée et a été retirée).*
+*Référence : arXiv:2611.26353 (math.OC, cross-listé cs.CR) — When Suspicion Adds Up, Mehrani et al. (nov. 2026). Abstract vérifié contre arxiv_meta.xml le 2026-11-22 ; claims audités contre arxiv.org/html/2611.26353v1 (la mention « régimes non-stationnaires » d'une version antérieure n'était pas étayée et a été retirée).*
 
 *Statut sémantique : arXiv (3 jours) → non citable, S2 non vérifié (rate-limit) ; contenu = abstract + structure HTML.*

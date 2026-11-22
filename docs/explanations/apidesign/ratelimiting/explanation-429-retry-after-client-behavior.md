@@ -79,9 +79,21 @@ For **both** kinds of limit: return 429, **say in the body which limit the calle
 
 ![Diagram 1 — explanation-429-retry-after-client-behavior](explanation-429-retry-after-client-behavior-excalidraw-1.svg)
 
+## Corroboration (KB Zookeeper, 2026-11-23)
+
+Verified against the published `draft-ietf-httpapi-ratelimit-headers-12` (Polli/Martinez/Miller, published 2026-11-20, Standards Track, expires 2027-05-24):
+
+- **draft-12 syntax confirmed**: `RateLimit` carries per-policy parameters where the available-quota parameter `a` is **REQUIRED** ("This REQUIRED parameter value conveys the available quota") and the effective window `w` is OPTIONAL — exactly the draft-11→12 breaking change the note describes. `RateLimit-Policy` keeps `q` as its REQUIRED parameter.
+- **`Retry-After` precedence confirmed as a client rule**: "If a response contains both the RateLimit and Retry-After fields, the Retry-After field MUST take precedence and the effective window MAY be ignored."
+- Three details worth adding to the client playbook:
+  1. **A new `c` (cost) parameter** (optional): lets a client estimate how many similar requests fit in the remaining quota without differencing successive `a` values — useful under concurrency or server-side quota adjustments.
+  2. **A positive `a` is not a promise**: "Clients MUST NOT assume that a positive available quota is a guarantee that further requests will be served" — so even a quota-aware client needs the 429 path.
+  3. **Server-side guardrails**: servers SHOULD avoid sending `RateLimit` fields on 3xx responses (a 0 quota could block following a redirect), and `Retry-After` SHOULD NOT point earlier than the end of the effective window.
+
 ## References
 
 - **Two kinds of 429, and what requests, got and ky do with Retry-After (DEV.to)**: https://dev.to/jackmally/two-kinds-of-429-and-what-requests-got-and-ky-do-with-retry-after-5aki
 - **draft-ietf-httpapi-ratelimit-headers (IETF datatracker)**: https://datatracker.ietf.org/doc/draft-ietf-httpapi-ratelimit-headers/
+- **draft-ietf-httpapi-ratelimit-headers-12 full text (published 2026-11-20)**: https://www.ietf.org/archive/id/draft-ietf-httpapi-ratelimit-headers-12.html
 - **API rate limit headers and 429 handling cheat sheet**: https://cheatography.com/superlede/cheat-sheets/api-rate-limit-headers-and-429-handling/
 - **Per-customer API rate limiting deck**: https://speakerdeck.com/superlede/per-customer-api-rate-limiting
