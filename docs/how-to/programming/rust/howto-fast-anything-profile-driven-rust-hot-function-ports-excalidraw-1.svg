@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="6.0 116.0 938.0 268.0" width="938" height="268">
+<rect x="6.0" y="116.0" width="938.0" height="268.0" fill="#ffffff"/>
+<rect x="30.0" y="140.0" width="180.0" height="100.0" rx="0" fill="#c4e0f2" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="260.0" y="140.0" width="190.0" height="100.0" rx="0" fill="#aceecc" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="500.0" y="140.0" width="200.0" height="100.0" rx="0" fill="#fff3bf" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="750.0" y="140.0" width="170.0" height="100.0" rx="0" fill="#d0bfff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="500.0" y="290.0" width="200.0" height="70.0" rx="0" fill="none" stroke="#e03131" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 210.0 190.0 L 260.0 190.0"/><line x1="260.0" y1="190.0" x2="247.4" y2="183.9"/><line x1="260.0" y1="190.0" x2="247.4" y2="196.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 450.0 190.0 L 500.0 190.0"/><line x1="500.0" y1="190.0" x2="487.4" y2="183.9"/><line x1="500.0" y1="190.0" x2="487.4" y2="196.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 700.0 190.0 L 750.0 190.0"/><line x1="750.0" y1="190.0" x2="737.4" y2="183.9"/><line x1="750.0" y1="190.0" x2="737.4" y2="196.1"/></g>
+<g stroke="#e03131" stroke-width="1.5" fill="none"><path d="M 600.0 240.0 L 600.0 290.0"/><line x1="600.0" y1="290.0" x2="606.1" y2="277.4"/><line x1="600.0" y1="290.0" x2="593.9" y2="277.4"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="120.0" y="183.7">scan</tspan><tspan x="120.0" y="201.2">profile + rank</tspan><tspan x="120.0" y="218.7">(time x portability)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="355.0" y="183.7">port</tspan><tspan x="355.0" y="201.2">record &lt;=500 calls</tspan><tspan x="355.0" y="218.7">1-fn crate + TASK.md</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="600.0" y="183.7">verify</tspan><tspan x="600.0" y="201.2">replay calls +</tspan><tspan x="600.0" y="218.7">derived edge cases</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="835.0" y="183.7">enable</tspan><tspan x="835.0" y="201.2">swap in Rust</tspan><tspan x="835.0" y="218.7">(reversible)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="600.0" y="327.3">mismatch or slower</tspan><tspan x="600.0" y="343.5">-&gt; NOT enabled</tspan></text>
+</svg>

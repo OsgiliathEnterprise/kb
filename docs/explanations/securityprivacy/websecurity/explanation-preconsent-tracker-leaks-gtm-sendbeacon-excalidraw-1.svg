@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 36.0 968.0 378.0" width="968" height="378">
+<rect x="16.0" y="36.0" width="968.0" height="378.0" fill="#ffffff"/>
+<rect x="40.0" y="60.0" width="250.0" height="90.0" rx="0" fill="#fad2cf" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="40.0" y="180.0" width="250.0" height="90.0" rx="0" fill="#fad2cf" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="40.0" y="300.0" width="250.0" height="90.0" rx="0" fill="#fad2cf" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="420.0" y="60.0" width="250.0" height="90.0" rx="0" fill="#aceecc" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="420.0" y="180.0" width="250.0" height="90.0" rx="0" fill="#aceecc" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="420.0" y="300.0" width="250.0" height="90.0" rx="0" fill="#aceecc" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="760.0" y="180.0" width="200.0" height="90.0" rx="0" fill="#c4e0f2" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 290.0 105.0 L 420.0 105.0"/><line x1="420.0" y1="105.0" x2="407.4" y2="98.9"/><line x1="420.0" y1="105.0" x2="407.4" y2="111.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 290.0 225.0 L 420.0 225.0"/><line x1="420.0" y1="225.0" x2="407.4" y2="218.9"/><line x1="420.0" y1="225.0" x2="407.4" y2="231.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 290.0 345.0 L 420.0 345.0"/><line x1="420.0" y1="345.0" x2="407.4" y2="338.9"/><line x1="420.0" y1="345.0" x2="407.4" y2="351.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 670.0 225.0 L 760.0 225.0"/><line x1="760.0" y1="225.0" x2="747.4" y2="218.9"/><line x1="760.0" y1="225.0" x2="747.4" y2="231.1"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="165.0" y="99.2">Leak path 1</tspan><tspan x="165.0" y="115.4">gtag/GTM inline script</tspan><tspan x="165.0" y="131.7">runs at parse time</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="165.0" y="219.2">Leak path 2</tspan><tspan x="165.0" y="235.4">GTM injects child &lt;script&gt;</tspan><tspan x="165.0" y="251.7">via createElement+append</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="165.0" y="339.1">Leak path 3</tspan><tspan x="165.0" y="355.4">fetch / XHR /</tspan><tspan x="165.0" y="371.6">sendBeacon pings</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="545.0" y="99.2">Guard 1</tspan><tspan x="545.0" y="115.4">sync head script sets</tspan><tspan x="545.0" y="131.7">Consent Mode v2 = denied</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="545.0" y="219.2">Guard 2</tspan><tspan x="545.0" y="235.4">prototype patch +</tspan><tspan x="545.0" y="251.7">MutationObserver quarantine</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="545.0" y="339.1">Guard 3</tspan><tspan x="545.0" y="355.4">wrap fetch/XHR/beacon,</tspan><tspan x="545.0" y="371.6">drop until consent</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="860.0" y="219.2">On Accept: release</tspan><tspan x="860.0" y="235.4">quarantined tags,</tspan><tspan x="860.0" y="251.7">grant signals</tspan></text>
+</svg>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 16.0 628.0 388.0" width="628" height="388">
+<rect x="16.0" y="16.0" width="628.0" height="388.0" fill="#ffffff"/>
+<rect x="40.0" y="140.0" width="230.0" height="120.0" rx="0" fill="#c4e0f2" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="360.0" y="40.0" width="260.0" height="100.0" rx="0" fill="#fad2cf" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="360.0" y="170.0" width="260.0" height="90.0" rx="0" fill="#aceecc" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="360.0" y="290.0" width="260.0" height="90.0" rx="0" fill="#fff3bf" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 270.0 200.0 L 350.0 200.0"/><line x1="350.0" y1="200.0" x2="337.4" y2="193.9"/><line x1="350.0" y1="200.0" x2="337.4" y2="206.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 270.0 210.0 L 350.0 80.0"/><line x1="350.0" y1="80.0" x2="338.2" y2="87.5"/><line x1="350.0" y1="80.0" x2="348.6" y2="93.9"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 270.0 215.0 L 350.0 325.0"/><line x1="350.0" y1="325.0" x2="347.6" y2="311.2"/><line x1="350.0" y1="325.0" x2="337.6" y2="318.4"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="15" fill="#1e1e1e" text-anchor="middle"><tspan x="155.0" y="193.2">Spring Cloud 2026.0.0</tspan><tspan x="155.0" y="212.0">(Paddington)</tspan><tspan x="155.0" y="230.8">BOM baseline</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="490.0" y="83.7">9 CVE fixes</tspan><tspan x="490.0" y="101.2">Config, Gateway, K8s,</tspan><tspan x="490.0" y="118.7">Function, Eureka, Stream</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="490.0" y="217.4">Bus merged into Stream</tspan><tspan x="490.0" y="234.9">(deps coordinates kept)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="490.0" y="329.1">Deprecations: RSocket/gRPC</tspan><tspan x="490.0" y="345.4">(Function), reactive Kafka,</tspan><tspan x="490.0" y="361.6">Schema Registry</tspan></text>
+</svg>
