@@ -3,18 +3,11 @@ title: Performance Improvements in JDK 26
 diataxis: Explanation
 domain: programming
 topic: java
-source: Inside Java
-source_url: https://inside.java/2026-06-09/jdk-26-performance-improvements/
-date: 2026-09-06
-keywords:
-- knowledge-base
-- java
-- programming
-- explanations
+source: ''
 ---
 # Performance Improvements in JDK 26
 
-JDK 26 is the latest feature release of the Java platform with more than **2500 issues fixed**, over a thousand of them enhancements. This note summarizes the notable performance work across four areas: **JDK Libraries, Garbage Collectors, Compiler, and Runtime** (source: Ana-Maria Mihalceanu & Per-Ake Minborg, Inside Java).
+JDK 26 (released March 2026) is the feature release preceding JDK 27 (GA 2026-09-15, see related notes); it fixed more than **2500 issues**, over a thousand of them enhancements. This note summarizes the notable performance work across four areas: **JDK Libraries, Garbage Collectors, Compiler, and Runtime** (source: Ana-Maria Mihalceanu & Per-Ake Minborg, Inside Java). JDK 27 continues the same trajectory — JEP 523 makes G1 the default collector everywhere, and Compact Object Headers ship enabled by default (12 → 8 bytes).
 
 ## JDK Libraries
 
@@ -69,4 +62,6 @@ The HotSpot AOT cache previously could not be used with all collectors because G
 ## References
 
 - [Performance Improvements in JDK 26 (Inside Java)](https://inside.java/2026-06-09/jdk-26-performance-improvements/)
+- [Performance Improvements in JDK 27 (Inside Java)](https://inside.java/2026-09-28/performance-update-jdk27/) — the successor release's performance work
+- [The Arrival of Java 27 (Inside Java)](https://inside.java/2026-09-15/jdk-27-available/)
 - [JDK 26 tag archive (Inside Java)](https://inside.java/tag/jdk-26/)
