@@ -3,14 +3,7 @@ title: Storing Jaeger v2 Spans in ClickHouse
 diataxis: How-to Guide
 domain: cloud-infrastructure
 topic: distributed-tracing
-source: TheNewStack
-source_url: https://thenewstack.io/jaeger-clickhouse-storage-backend/
-date: 2026-09-04
-keywords:
-- knowledge-base
-- distributed-tracing
-- cloud-infrastructure
-- how-to
+source: ''
 ---
 # Storing Jaeger v2 Spans in ClickHouse
 
@@ -64,13 +57,24 @@ Searching for `http.status_code=200` is ambiguous without context: is "200" a st
 
 ## Getting started
 
-ClickHouse support is **alpha** as a storage backend starting with Jaeger v2.18.0:
+ClickHouse support shipped as **alpha in v2.18.0** and remains **experimental** (schema subject to breaking changes) as of the current release, **v2.23.0** (2026-11-05). Two things changed between 2.18 and 2.23:
 
-1. Run a ClickHouse instance (single node for evaluation; the benchmark used one).
-2. Configure Jaeger v2 to use the ClickHouse backend — full instructions in the [Jaeger setup guide](https://www.jaegertracing.io/docs/2.18/storage/clickhouse/).
-3. For query performance, always combine attribute filters with `service` / `operation` / time-range fields.
+- **The `storage.clickhouse` feature gate was dropped.** v2.18 required running with `--feature-gates=storage.clickhouse`; from v2.23 the config alone is enough.
+- **Supported ClickHouse server version moved from 25.x to 26.x.**
 
-Full benchmark methodology, configuration, and query details are in the [benchmarking report](https://github.com/jaegertracing/jaeger/blob/main/internal/storage/v2/clickhouse/BENCHMARKING.md). Read the numbers (50k spans/sec, 8.6× compression) in that context — they come from a specific single-node environment and dataset.
+Quick start against the [Jaeger repository](https://github.com/jaegertracing/jaeger) root (v2.23 docs):
+
+1. Start ClickHouse (single node for evaluation; the benchmark used one):
+   `docker compose -f docker-compose/clickhouse/docker-compose-lts-march.yml up -d`
+   (the official 2.23 docs still reference `docker-compose.yml`, which does not exist at the v2.23.0 tag — only `docker-compose-lts-march.yml` / `docker-compose-lts-august.yml`)
+   → ClickHouse on ports 9000 (native) / 8123 (HTTP), database `jaeger`.
+2. Run Jaeger with the ClickHouse backend:
+   `go run ./cmd/jaeger --config cmd/jaeger/config-clickhouse.yaml`
+   (`create_schema: true` auto-creates tables and materialized views on startup; sample config: [config-clickhouse.yaml](https://github.com/jaegertracing/jaeger/blob/v2.23.0/cmd/jaeger/config-clickhouse.yaml), authoritative source: [config.go](https://github.com/jaegertracing/jaeger/blob/v2.23.0/internal/storage/v2/clickhouse/config.go)).
+3. Generate test data: `go run ./cmd/tracegen -duration 10s -workers 3 -pause 250ms`, then open the Jaeger UI at http://localhost:16686.
+4. For query performance, always combine attribute filters with `service` / `operation` / time-range fields.
+
+Full benchmark methodology, configuration, and query details are in the [benchmarking report](https://github.com/jaegertracing/jaeger/blob/main/internal/storage/v2/clickhouse/BENCHMARKING.md). Read the numbers (50k spans/sec, 8.6× compression) in that context — they come from a specific single-node environment and dataset (v2.18 era).
 
 ## Production evidence: Canva
 
@@ -84,5 +88,5 @@ Full benchmark methodology, configuration, and query details are in the [benchma
 
 - [How Jaeger hit 8.6× compression on 10 million spans with ClickHouse](https://thenewstack.io/jaeger-clickhouse-storage-backend/) (The New Stack, CNCF-sponsored post by Mahad Zaryab)
 - [Jaeger ADR 008: ClickHouse storage schema](https://github.com/jaegertracing/jaeger/blob/v2.18.0/docs/adr/008-clickhouse-storage-schema.md)
-- [ClickHouse setup guide for Jaeger v2.18](https://www.jaegertracing.io/docs/2.18/storage/clickhouse/)
+- [ClickHouse setup guide for Jaeger v2.23](https://www.jaegertracing.io/docs/2.23/storage/clickhouse/)
 - [Benchmarking report](https://github.com/jaegertracing/jaeger/blob/main/internal/storage/v2/clickhouse/BENCHMARKING.md)

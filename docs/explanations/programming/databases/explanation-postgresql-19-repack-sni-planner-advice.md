@@ -72,7 +72,7 @@ instead of assuming default row counts for foreign tables.
 - [ ] Inventory md5-encrypted roles in `pg_authid`; migrate to SCRAM before a future major drops md5.
 - [ ] If using per-host certificates behind one IP, replace proxy tricks with `pg_hosts.conf` SNI mappings.
 - [ ] Benchmark bulk loads with heavy FK graphs — the ~2× FK-validation win changes ETL capacity planning.
-- [ ] Evaluate `REPACK (CONCURRENTLY)` against existing pg_repart/pg_repack cron jobs during an upgrade cycle.
+- [ ] Evaluate `REPACK (CONCURRENTLY)` against existing pg_repack cron jobs during an upgrade cycle.
 - [ ] Test `pg_plan_advice` on known-regressed queries before relying on `pg_stash_advice` in production.
 
 ## References
