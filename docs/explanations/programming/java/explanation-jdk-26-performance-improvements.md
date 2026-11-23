@@ -3,7 +3,14 @@ title: Performance Improvements in JDK 26
 diataxis: Explanation
 domain: programming
 topic: java
-source: ''
+source: Inside Java
+source_url: https://inside.java/2026-06-09/jdk-26-performance-improvements/
+date: 2026-09-06
+keywords:
+- knowledge-base
+- java
+- programming
+- explanations
 ---
 # Performance Improvements in JDK 26
 

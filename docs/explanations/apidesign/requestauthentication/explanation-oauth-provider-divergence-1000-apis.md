@@ -67,9 +67,20 @@ Return `expires_in` always, in seconds. If you rotate refresh tokens, offer a sh
 
 The full per-provider registry lives in one file: `packages/providers/providers.yaml` in the NangoHQ/nango repo.
 
+## Standards context: where the spec stands on these issues (RFC 9700)
+
+The divergences above live in gaps that the standards process has since addressed at the protocol level — RFC 9700, *Best Current Practice for OAuth 2.0 Security* (supersedes RFC 6819, incorporated into OAuth 2.1):
+
+- **PKCE is now mandatory for all authorization-code flows**; Implicit and Password grants are formally deprecated — so a provider still pushing those flows is behind the BCP, not merely "quirky".
+- **Sender-constrained tokens (DPoP or mTLS)** are recommended where possible — relevant to the rotation incident: a stolen or double-used refresh token is far less useful when bound to a key held by the legitimate client.
+- Exact redirect-URI matching and mix-up-attack prevention are requirements, not options.
+- What RFC 9700 still does **not** fix is precisely Nango's pain: refresh-token lifetime policy, rotation grace windows, and error-response conventions remain provider discretion, which is why the per-provider matrix and verification-endpoint heuristics remain necessary engineering, not paperwork.
+
 ## References
 
 - [What we learned operating auth for 1,000+ APIs (Nango blog)](https://nango.dev/blog/lessons-from-operating-api-auth-for-900-apis/)
 - [Nango open-source repository](https://github.com/NangoHQ/nango)
 - [RFC 6749 — The OAuth 2.0 Authorization Framework (expires_in is optional, §5.1)](https://datatracker.ietf.org/doc/html/rfc6749#section-5.1)
+- [RFC 9700 — Best Current Practice for OAuth 2.0 Security](https://www.rfc-editor.org/rfc/rfc9700.html)
+- [OAuth 2.0 Security Best Current Practice overview (oauth.net)](https://oauth.net/2/oauth-best-practice/)
 - [Xero OAuth2 FAQ — refresh token retry window](https://developer.xero.com/faq/oauth2)

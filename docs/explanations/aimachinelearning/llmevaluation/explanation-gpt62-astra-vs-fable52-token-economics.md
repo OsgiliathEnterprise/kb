@@ -55,8 +55,19 @@ On the proration test (15-day cycle + 16-day new plan, same-day switch — a cla
 4. **Watch reasoning tokens as a cost dial** — the single largest variance driver between models at equal rates, and often the one with least observable quality payoff.
 5. **Hardening the suite against a third model (GPT-5) before benchmarking** guards against tests that flatter one model family.
 
+## Market context (independent corroboration, 2026-11-23)
+
+Cross-checked the note's pricing and standing claims against third-party trackers and release coverage:
+
+- **Rate card confirmed**: GPT-6.2 Astra at **$8/M input, $40/M output** (TensorFeed, as of 2026-11-20), a 20% cut from GPT-6 Astra's $10/$50; Claude Fable 5.2 sits at the same $8/$40 — confirming the note's "identical per-token pricing, 5x cost difference" setup. Cached input for Astra is **$0.40/M** (−60% vs $1), a further lever the benchmark didn't exercise.
+- **Leaderboard position matches the story**: Artificial Analysis Intelligence Index puts Fable 5.2 first (65 to Astra's 62) while Astra "dominates the Pareto frontier in cost-performance" (the-decoder) — the same divergence the billing-suite test found: near-parity on score, radically different cost.
+- **Epoch AI found Astra on par with Fable 5.2 on synthetic evals but weaker on real-world tasks** — the same evaluation-validity gap the authors addressed by hardening the suite until GPT-5 could pass it.
+- Astra's 1.05M-token context and background-completion tiers (30/40% below standard rates) are additional cost dials worth testing in the multi-run sampling pattern (takeaway #2).
+
 ## References
 
 - [GPT-6.2 Astra vs. Claude Fable 5.2 (The New Stack)](https://thenewstack.io/gpt-6-2-astra-vs-claude-fable-5-2/)
+- [OpenAI launches GPT-6.2 Astra and Sol (the-decoder, release coverage)](https://the-decoder.com/openai-launches-gpt-6-2-astra-and-sol-with-lower-api-prices-and-some-benchmark-gains/)
+- [GPT-6.2 Astra pricing/benchmarks (TensorFeed)](https://tensorfeed.ai/models/gpt-6-2-astra)
 - [OpenAI model pricing](https://openai.com/api/pricing/)
 - [Anthropic pricing](https://www.anthropic.com/pricing)
