@@ -50,23 +50,39 @@ Three sharing models, all scheduler-aware:
 
 Other expressiveness features: **prioritized alternatives** in device requests ("1× A100 80GB, else 2× A100 40GB") to improve obtainability and utilization, and **extended-resource mapping** so existing `resources.limits`-style workloads can consume DRA devices without modification.
 
-## KEP pipeline (as of 1.36)
+## KEP pipeline (as of 1.37)
 
-| KEP | Feature | 1.33 | 1.34 | 1.35 | 1.36 |
-| --- | --- | --- | --- | --- | --- |
-| 4381 | Structured parameters | Beta | **Stable** | | |
-| 5004 | Extended resource requests via DRA | | Alpha | Alpha | Beta |
-| 4817 | Resource claim status | Alpha | Beta | Beta | Beta |
-| 5018 | Namespace controlled admin access | | Alpha | Beta | **Stable** |
-| 5055 | Device taints and tolerations | | Alpha | Alpha | Beta |
-| 4816 | Prioritized alternatives | Alpha | Beta | Beta | **Stable** |
-| 5075 | Consumable capacity | | Alpha | Alpha | Beta |
-| 4815 | Partitionable devices | Alpha | Alpha | Alpha | Beta |
-| 4680 | Resource health status in Pod status | Alpha | Alpha | Alpha | Beta |
-| 5007 | Device binding conditions | | Alpha | Alpha | Beta |
-| 5729 | ResourceClaim support for workloads (gang-like) | | | | Alpha |
+| KEP | Feature | 1.33 | 1.34 | 1.35 | 1.36 | 1.37 |
+| --- | --- | --- | --- | --- | --- | --- |
+| 4381 | Structured parameters | Beta | **Stable** | | | |
+| 5004 | Extended resource requests via DRA | | Alpha | Alpha | Beta | **Stable** |
+| 4817 | Resource claim status | Alpha | Beta | Beta | Beta | **Stable** |
+| 5018 | Namespace controlled admin access | | Alpha | Beta | **Stable** | |
+| 5055 | Device taints and tolerations | | Alpha | Alpha | Beta | **Stable** |
+| 4816 | Prioritized alternatives | Alpha | Beta | Beta | **Stable** | |
+| 5075 | Consumable capacity | | Alpha | Alpha | Beta | Beta (fractional capacity) |
+| 4815 | Partitionable devices | Alpha | Alpha | Alpha | Beta | |
+| 4680 | Resource health status in Pod status | Alpha | Alpha | Alpha | Beta | |
+| 5007 | Device binding conditions | | Alpha | Alpha | Beta | |
+| 5729 | ResourceClaim support for workloads (gang-like) | | | | Alpha | Beta |
 
 Feature gates to be aware of: `DynamicResourceAllocation` (default-on at 1.34+), plus alpha gates for specific features (`DRAExtendedResource`, `DRAConsumableCapacity`, `DRADeviceBindingConditions`, `DRAResourceClaimDeviceStatus`, `DRAListTypeAttributes`), each required in apiserver, scheduler, and kubelet.
+
+## DRA in Kubernetes v1.37 (August 2026)
+
+**Graduated to stable in 1.37:**
+
+- **Extended resource support (KEP-5004)** — a DRA `DeviceClass` can carry an extended-resource name (e.g. `example.com/gpu`) so classic `resources.limits` pods are allocated through DRA with **no `ResourceClaim` in the workload spec** and no co-installed device plugin. This is the key migration path: legacy workloads keep working unmodified while allocation logic moves to DRA.
+- **`ResourceClaim` status with device data (KEP-4817)** — a `devices` field in `ResourceClaim.status` lets drivers report per-device state (for network devices: interface name, MAC, IPs), enabling controllers/network services that consume device-reported addresses.
+- **Device taints & tolerations (KEP-5055)** — drivers taint devices to exclude them from new scheduling; admins apply taints cluster-wide via `DeviceTaintRule`; Pods already on a tainted device can be auto-evicted unless their claim tolerates the taint. Mirrors node taints — take one device offline for maintenance without touching the node.
+- **Standard `numaNode` attribute** — `resource.kubernetes.io/numaNode` is now the canonical attribute name so devices from different drivers can be matched on the same NUMA node.
+
+**Promoted to Beta:**
+
+- **ResourceClaim support for workloads (KEP-5729)** — behind `DRAWorkloadResourceClaims` (off by default): `Workloads`/`PodGroups` reference claims directly, so one claim is shared across a whole Pod group, removing the old 256-Pod per-claim reservation cap.
+- **Device Attributes Downward API** — drivers populate a `Metadata` field at claim preparation; it's written to a JSON file mounted via CDI so workloads (aimed at KubeVirt VM injection) read PCI addresses/MACs directly instead of running custom ResourceClaim translators.
+
+**New/moved-up alphas:** list-typed attributes (2nd alpha — attributes hold multiple values); node allocatable resource requests (2nd alpha — scheduler/kubelet treat DRA-managed CPU/memory like ordinary requests, no oversubscription, no duplicated requests); resource availability visibility (`ResourcePoolStatusRequest` point-in-time snapshots, 2nd alpha); optional node operations (drivers skip kubelet prepare/unprepare when there's nothing to do); **derived attributes** (CEL-defined attribute mapping to pair cross-vendor devices without agreed naming, e.g. slicing IDs out of topology strings or building custom performance tiers); device compatibility groups (`DRADeviceCompatibilityGroups` — scheduler rejects incompatible partition combos like MIG vs vGPU up front); **PreQueueingHint** scheduler extension (`SchedulerPreQueueingHints` — DRA claim events no longer trigger O(N²) rescan of unschedulable pods; narrowed via pod-informer index to O(1), ~2× scheduling throughput in early benchmarks); fractional values in consumable-capacity `CapacityRequestPolicyRange`.
 
 ## Cross-SIG coordination
 
@@ -97,6 +113,7 @@ Device management touches scheduling, node operations, autoscaling, networking, 
 
 - [Spotlight on WG Device Management (Kubernetes blog, June 2026)](https://kubernetes.io/blog/2026/06/24/wg-device-management-spotlight-2026/) — original article (interview with the three WG chairs)
 - [Kubernetes v1.34: DRA has graduated to GA](https://kubernetes.io/blog/2025/09/01/kubernetes-v1-34-dra-updates/)
+- [Kubernetes v1.37: DRA Updates](https://kubernetes.io/blog/2026/09/03/kubernetes-v1-37-dra-updates/) — 1.37 graduations (extended resources, claim status, device taints) and new alphas (derived attributes, compatibility groups, PreQueueingHint)
 - [Dynamic Resource Allocation concepts (Kubernetes docs)](https://kubernetes.io/docs/concepts/scheduling-eviction/dynamic-resource-allocation/)
 - [KEP-4381: DRA Structured Parameters](https://www.kubernetes.dev/resources/keps/4381/)
 - [WG Device Management project board](https://github.com/orgs/kubernetes/projects/95)
