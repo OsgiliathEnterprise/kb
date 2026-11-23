@@ -104,3 +104,4 @@ Do not delete shared Queues unless no other workloads use them.
 - [See your serverless: introducing the Headlamp plugin for Knative (Kubernetes Blog)](https://kubernetes.io/blog/2026-06-25/headlamp-knative-plugin/)
 - [Headlamp on Volcano (Volcano docs)](https://volcano.sh/docs/ecosystem/headlamponvolcano/)
 - [Managing Cluster API Resources with the Headlamp Plugin](howto-manage-cluster-api-resources-with-headlamp.md) — companion note for CAPI in Headlamp
+- [Headlamp's Knative and Volcano plugins: serverless + batch debugging (BEX, Oct 2026)](https://bex.co/blog/2026-10-04/headlamp-knative-volcano-plugins-serverless-batch-debugging) — practitioner view one quarter post-launch: traffic-split editing, effective autoscaling, gang-scheduling blockers, and RBAC-aware console for small teams
