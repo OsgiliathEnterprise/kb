@@ -27,11 +27,12 @@ Ollama's runner (built on llama.cpp) partitions layers between GPU VRAM and syst
 | GPU VRAM (GDDR6X) | On-die memory bus | ~760–1,008 GB/s | sub-µs tensor transfers |
 | System RAM (DDR4/5) | PCIe Gen4/5 x16 (~31.5 GB/s practical) | ~38–64 GB/s | every layer transition stalls on PCIe copies |
 
-VRAM is 15–25× faster; if even **2 of 48 layers** sit in RAM, every autoregressive token crosses the PCIe bottleneck at each transition. Three hidden triggers:
+VRAM is 15–25× faster; if even **2 of 48 layers** sit in RAM, every autoregressive token crosses the PCIe bottleneck at each transition. Four hidden triggers:
 
 1. **Dynamic KV-cache growth** — long conversations expand the KV cache (multi-GB), the CUDA allocator fails, and layers/activations spill to host RAM.
-2. **Unbound context window** — modern GGUF defaults of `num_ctx` 32,768–128,000 make Ollama pre-allocate multi-GB context structures before the first token.
+2. **Unbound context window** — modern GGUF defaults of `num_ctx` 32,768–128,000 make Ollama pre-allocate multi-GB context structures before the first token. (Server-side default is `OLLAMA_CONTEXT_LENGTH=4096` per the official FAQ; GGUF model metadata can push the effective value far higher — check the model card, not the default.)
 3. **Competing CUDA contexts** — display servers (Xorg/Wayland/DWM) and GPU-accelerated browsers consume 0.6–1.5 GB of VRAM that Ollama may not account for.
+4. **Linux suspend/resume** — per the official GPU docs, after a suspend/resume cycle Ollama can fail to rediscover the NVIDIA GPU and silently fall back to CPU; the documented workaround is reloading the driver: `sudo rmmod nvidia_uvm && sudo modprobe nvidia_uvm`. If a fallback appears right after waking the machine, this is the cause — not VRAM pressure.
 
 ## Step 1 — Detect it in real time
 
@@ -80,7 +81,7 @@ export OLLAMA_KV_CACHE_TYPE=q8_0
 [System.Environment]::SetEnvironmentVariable('OLLAMA_KV_CACHE_TYPE', 'q8_0', 'Machine')
 ```
 
-Restart the Ollama service after setting.
+Restart the Ollama service after setting. Official-docs notes: Ollama now enables Flash Attention **automatically** when the backend/device supports it (`OLLAMA_FLASH_ATTENTION=1` forces it on, `=0` disables); `OLLAMA_KV_CACHE_TYPE` defaults to `f16` and quantized K/V cache is documented as working *with Flash Attention enabled*. On macOS app installs, environment variables must be set via `launchctl` (the app does not read your shell profile) — a common reason these flags silently don't apply.
 
 ## Step 3 — Lock context and layer offload in a Modelfile
 
@@ -130,4 +131,6 @@ Run it in the background during long sessions (or convert the alert branch to `s
 
 - [Original article — Silent CPU Fallback in Ollama: How to Detect and Prevent CUDA Spillover](https://dev.to/thezerodollardev/silent-cpu-fallback-in-ollama-how-to-detect-and-prevent-cuda-spillover-56lc)
 - [Canonical post with companion benchmarks — The Zero-Dollar Dev](https://thezerodollardev.blogspot.com/2026/11/silent-cpu-fallback-in-ollama-how-to.html)
+- [Ollama official FAQ — ollama ps PROCESSOR column, context size, Flash Attention & KV-cache env vars](https://docs.ollama.com/faq)
+- [Ollama official GPU docs — GPU selection, CUDA_VISIBLE_DEVICES, Linux suspend/resume CPU fallback](https://docs.ollama.com/gpu)
 - Sibling notes: `howto-check-model-sizes-gpu-memory.md`, `explanation-what-ollama-is-and-standardization-gap.md`

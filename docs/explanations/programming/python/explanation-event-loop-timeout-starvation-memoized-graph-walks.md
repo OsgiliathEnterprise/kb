@@ -77,6 +77,17 @@ The team learned about the outage from an unrelated site build failing. Now ever
 - Cancellation/timeouts in cooperative schedulers only work if the work **yields**; a deadline check inside a non-yielding loop is decoration that looks exactly like working code (it passed every test, because normal work finished before its deadline).
 - Health-check failure + total log silence + one giant request duration in the log = classic event-loop starvation signature.
 
+## Corroboration (KB Zookeeper audit, 2026-11-23)
+
+Verified against the official Python asyncio documentation (docs.python.org, Event loop):
+
+- The event loop is documented as **the core of every asyncio application** and a **single-threaded** construct: "Event loops run asynchronous tasks and callbacks, perform network IO operations, and run subprocesses." Coroutines run *on* the loop thread, so nothing the loop is busy computing can preempt it — exactly the starvation mechanism described above. This is why `asyncio.CancelledError` delivery, `call_later`/`call_at` timers, and `asyncio.wait_for` deadlines all require the current coroutine to `await` (suspend and hand control back to the loop) to take effect.
+- Python's sanctioned mitigations for CPU-bound work in an event-driven program are `loop.run_in_executor()` (offload to a thread/process pool — documented in the same page's executor API) and periodic yields (`await asyncio.sleep(0)` every N iterations). The postmortem's fix ("make the work stoppable by handing the thread back") is the informal equivalent of these documented patterns.
+- Python's own watchdog for this class of bug is the debug-mode **slow-callback** detector: enabling asyncio debug mode warns when a callback takes longer than `loop.slow_callback_duration` (default 0.1 s) — a built-in version of the team's home-grown 1-second late-timer watchdog. Use `PYTHONASYNCIODEBUG=1` (or `asyncio.run(..., debug=True)`) in development to catch starvation before production does.
+- JavaScript note: the same cooperative model is documented for the web/event-loop concurrency model — timers scheduled with `setTimeout` cannot fire while a synchronous function holds the thread; Node.js exposes the equivalent signal as **event-loop lag** (`perf_hooks.monitorEventLoopDelay`) and the `--trace-event-async-lag` flag, mirroring the late-timer watchdog.
+
 ## References
 
 - [DEV.to — One Request Froze Our API for 26 Minutes. Its Timeout Never Fired.](https://dev.to/nabil_since_dev/one-request-froze-our-api-for-26-minutes-its-timeout-never-fired-49l2)
+- [Python docs — asyncio Event Loop (single-threaded loop, timers, run_in_executor)](https://docs.python.org/3/library/asyncio-eventloop.html)
+- [Python docs — asyncio debug mode & slow_callback_duration](https://docs.python.org/3/library/asyncio-dev.html)

@@ -37,6 +37,7 @@ Ongoing work announced:
 
 ## Providers with public incident posts
 
+- **Atlas Cloud** — "Our commitment to your security and privacy" post.
 - **Novita** — privacy notice regarding MiniMax requests (requests handled outside claimed boundaries).
 - **Phala** — November preliminary incident report.
 - **Together** — security event: **prompt leakage** for requests in June–July 2026.
@@ -53,10 +54,21 @@ For anyone building on routed LLM infrastructure:
 
 ![OpenRouter ZDR canary-token incident chain](explanation-openrouter-zdr-inference-provider-incidents.svg)
 
+## Corroboration (KB Zookeeper audit, 2026-11-23)
+
+All load-bearing claims verified verbatim against the official OpenRouter incident post (published 2026-11-22):
+
+- Researcher report originated with **Dragos** ("AI supply chain security canary tokens"); OpenRouter collaborating with researchers and providers.
+- **"These findings did not show any breach or unauthorized access of OpenRouter"** — confirmed; failures localized to individual inference providers.
+- Actions confirmed: **off-boarded three providers**, **removed 125 endpoints from ZDR eligibility** (researcher-flagged + precautionary), **notified all potentially affected customers**.
+- Ongoing work confirmed: adapting the researchers' testing approach for **ongoing/in-house checks**, **technical verification of network paths** for third-party forwarding, and **restoration gating** ("appropriate assurances and validation" before ZDR eligibility is restored).
+- Provider security announcements list confirmed as **four** public posts: Atlas Cloud, Novita (MiniMax requests), Phala (November preliminary report), Together (June–July 2026 prompt leakage) — the earlier version of this note listed only three; Atlas Cloud added.
+
 ## References
 
-- [OpenRouter: Data Processing Incidents on Inference Providers](https://openrouter.ai/blog/announcements/data-processing-incidents-on-inference-providers/)
+- [OpenRouter: Data Processing Incidents on Inference Providers (2026-11-22)](https://openrouter.ai/blog/announcements/data-processing-incidents-on-inference-providers/)
 - [Dragos: AI supply chain security canary tokens](https://www.dragos.com/blog/ai-supply-chain-security-canary-tokens)
+- [Atlas Cloud: Our commitment to your security and privacy](https://www.atlascloud.ai/blog/ai-updates/security-and-privacy-commitment)
 - [Novita privacy notice: MiniMax requests](https://novita.ai/blog/minimax-requests-privacy-notice/)
 - [Phala November preliminary incident report](https://phala.com/posts/phala-november-preliminary-incident-report)
 - [Together AI: prompt leakage security event (June–July 2026)](https://www.together.ai/blog/security-event-prompt-leakage-for-requests-in-june-and-july-of-2026)
