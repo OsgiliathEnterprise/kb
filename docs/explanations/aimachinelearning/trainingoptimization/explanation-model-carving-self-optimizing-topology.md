@@ -14,6 +14,8 @@ keywords:
 ---
 # Model Carving: Training Transformers That Optimize Their Own Topology
 
+**Authors:** Kaden Zheng, Pratyusha Sharma — arXiv:2611.27962 (November 2026)
+
 ## Overview
 Model Carving collapses architecture choice and weight training into **a single run**: learnable scalar gates on every attention/MLP sublayer let the training loss itself remove components, "freeing" a smaller, heterogeneous network out of the dense one as it trains. The thesis: architecture, like weights, should be learned rather than fixed in advance.
 

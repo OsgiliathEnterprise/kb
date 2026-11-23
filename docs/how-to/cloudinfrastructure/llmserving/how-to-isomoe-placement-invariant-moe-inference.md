@@ -15,6 +15,8 @@ keywords:
 ---
 # IsoMoE: Placement-Invariant Hybrid CPU-GPU MoE Inference with Lossless 12-bit Experts
 
+**Authors:** Hang Gu, Teng Wang, Zhendong Zheng, Qianyu Cheng, Wenqi Lou, Lei Gong, Xi Li, Xuehai Zhou — arXiv:2611.27604 (November 2026)
+
 ## Overview
 IsoMoE is a hybrid CPU-GPU MoE inference system that guarantees **greedy-decoding outputs do not change with expert placement**. Hybrid engines let a single GPU run MoE models larger than its memory by offloading some experts to the CPU — but in existing engines, moving an expert between devices changes the output, because the two devices compute experts with different arithmetic. IsoMoE makes placement a pure performance knob, then exploits that freedom to overlap CPU and GPU work.
 

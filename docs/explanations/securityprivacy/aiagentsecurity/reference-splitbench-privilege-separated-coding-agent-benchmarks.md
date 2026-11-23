@@ -14,6 +14,8 @@ keywords:
 ---
 # Who Grades the Agent? Privilege Separation for Coding-Agent Benchmarks
 
+**Authors:** Nathan Nour Houlamy, Mattia Favretto, Earlence Fernandes, Mauro Conti — arXiv:2611.27860 (November 2026)
+
 ## Overview
 **SplitBench** is a privilege-separation framework for evaluating coding agents, built on secure-systems design. It is the first framework in the scientific literature to **separate running a task's tests from judging their results**: the agent's code may take over the entire test environment, yet cannot forge a pass, because a trusted grader holds the expected answers.
 

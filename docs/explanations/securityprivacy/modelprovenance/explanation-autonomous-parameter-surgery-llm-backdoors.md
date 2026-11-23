@@ -15,6 +15,8 @@ keywords:
 ---
 # Autonomous Parameter Surgery: How LLMs Implant Selective Backdoors into Language Models
 
+**Authors:** Xuyang Liu, Zhiwei Xu, Zirui Li, Jiabao Gao, Xiaolin Peng, Weixian Deng, Tian Qiu, Hai Wan, Xibin Zhao — arXiv:2611.27920 (November 2026)
+
 ## Overview
 Building on **weight-space programming** (LLMs directly inspecting and rewriting another network's parameters), this paper shows a general language model can turn a **natural-language backdoor specification** into persistent, selective weight edits entirely on its own — no gradient training, no layer hints, no external corpora, no prescribed editing formula. Evaluated on open checkpoints, the attacker LLM autonomously discovers concrete weight-surgery techniques and reaches near-perfect attack success while preserving clean accuracy.
 

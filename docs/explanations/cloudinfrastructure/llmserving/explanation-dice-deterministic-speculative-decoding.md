@@ -14,6 +14,8 @@ keywords:
 ---
 # Speculative Decoding Is Less Speculative Than You Think
 
+**Authors:** Guanning Zeng, Andrea Zanette — arXiv:2611.27891 (November 2026)
+
 ## Overview
 Speculative decoding's acceptance rate hides **two** sources of uncertainty: the target model's predictions and the randomness of sampling. This paper's observation: the first requires a target-model forward pass, but **the second can be fixed before drafting even starts**. **DICE** (Draw-Informed Candidate Selection) pre-samples the verification randomness and synchronizes it between drafting and verification, letting an ordinary drafter spend its budget on continuations that are actually likely to be used in the current sampling run.
 

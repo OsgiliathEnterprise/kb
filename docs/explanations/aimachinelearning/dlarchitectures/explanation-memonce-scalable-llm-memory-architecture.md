@@ -14,6 +14,8 @@ keywords:
 ---
 # MemOnce: A Scalable Memory Architecture for Large Language Models
 
+**Authors:** Chang Nie, Chaoyou Fu, Songlin Liu, Yiqing Hu, Caifeng Shan — arXiv:2611.27973 (November 2026)
+
 ## Overview
 MemOnce is a foundation architecture for LLMs that maintains **learned, reusable memory states** instead of either a growing token-level KV cache (Transformers: linear memory growth, quadratic compute as context expands) or a fixed-size compressed state (linear-time architectures: poor fine-grained recall). It caches only a small subset of **final-layer hidden states** and dynamically decodes them back into KV caches on demand, achieving linear-time complexity while retaining detail.
 

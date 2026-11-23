@@ -14,6 +14,8 @@ keywords:
 ---
 # Correct Precedents Induce Policy Violations in On-Device LLM Agents
 
+**Authors:** Chong Tian, Yu Wang, Steve Liu, Qirong Ho, Xiuying Chen — arXiv:2611.27216 (November 2026)
+
 ## Overview
 A new, adversary-free failure mode for **local-cloud agent systems** (a cloud model paired with a small on-device agent that acts on private data, often as the last check before an irreversible action): the on-device agent is led into a violation **by its own correct decisions within a session**. After correctly releasing an item whose restriction was lifted, it becomes more likely to release the *next* item, which is still restricted. The authors call this **correct-precedent generalization**.
 
