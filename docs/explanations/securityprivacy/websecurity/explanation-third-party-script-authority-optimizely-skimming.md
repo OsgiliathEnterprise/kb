@@ -43,7 +43,7 @@ Two settings that let the payload through: `'strict-dynamic'` and `'unsafe-eval'
 
 ## What the sources do and don't establish
 
-Keep vendor and observer accounts separate: Optimizely says the flaw was closed within three hours, code removed from all affected projects, "not a credentials breach", "&lt;5% of customers impacted" (no denominator given). Report URI says how write access was obtained is unknown and the true count is likely higher than 178. An approval decision should leave a record someone else can challenge — the authority boundary is the customer-writable code field, analogous to workflow-file write access in CI.
+Keep vendor and observer accounts separate: Optimizely says the flaw was closed within three hours, code removed from all affected projects, "not a credentials breach", "<5% of customers impacted" (no denominator given). Report URI says how write access was obtained is unknown and the true count is likely higher than 178. An approval decision should leave a record someone else can challenge — the authority boundary is the customer-writable code field, analogous to workflow-file write access in CI.
 
 ## References
 

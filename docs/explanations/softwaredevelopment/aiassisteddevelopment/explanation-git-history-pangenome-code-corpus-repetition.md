@@ -1,5 +1,6 @@
 ---
-title: 'Git History is Not the Code Pangenome: Deduplicating 2.4 Million Repositories'
+title: 'Git History Is a Pangenome: Repetition in Code Training Corpora and What Deduplication
+  Removes, Keeps and Misses'
 diataxis: Explanation
 domain: software-development
 topic: ai-assisted-development
@@ -11,29 +12,32 @@ keywords:
 - software-development
 - explanations
 ---
-# Git History is Not the Code Pangenome: Deduplicating 2.4 Million Repositories
+# Git History Is a Pangenome: Repetition in Code Training Corpora and What Deduplication Removes, Keeps and Misses
 
 ## Overview
-An empirical data-engineering study of the largest public code corpus assembled to date: **2.4 million repositories** reconstructed at **153 million snapshots** from the **3.9 billion blobs and 323 million trees** of the full Git object store. Its central finding: most snapshot "diversity" in git history is manufactured by editing — one-line changes across CI sweeps, dependency bumps, and formatting churn produce near-identical snapshots that inflate corpus size without adding training signal.
+Code models are increasingly trained on **full repository histories** — every version of every file — rather than single snapshots. This study measures, for the first time, what snapshot-era deduplication tooling actually does to such histories. Finding: a git history is mostly repetition — in text-indexing terms a *pangenome*, one text in many near-identical variants — and standard deduplication both keeps the wrong versions and misses benchmark answers.
 
 ## Problem Statement
-Git history looks like the natural source of code-diversity signal for pretraining, data-selection, and model-provenance pipelines. But no one had measured whether its apparent diversity is *semantic* (genuinely different code) or *temporal* (the same code at different times). If the latter dominates, every pipeline that treats history as diversity is systematically overweighting churn.
+Deduplication pipelines were designed for snapshot corpora. Whether history-based training multiplies effective data or just re-trains on the same code dozens of times had never been measured, nor had deduplication's behavior when applied across versions.
 
-## Key Contribution
-- First large-scale measurement of semantic vs. temporal diversity in git-history code corpora.
-- Evidence that **temporal near-duplication dominates** across CI/dependency/formatting churn.
-- A deduplication methodology: reconstruct snapshots from the Git object store (blobs + trees), then apply semantic near-duplicate detection to build a genuine "code pangenome" — the set of distinct code content, independent of when it appeared.
+## Key Findings
+Measured on a pre-registered random sample of 306 public repositories, 25 mature projects, and the 12 repositories behind SWE-bench:
+- **Repetition magnitude**: a typical repository's history holds the equivalent of **19 copies** of its current code; a mature repository, **89 copies**. Cause: each edit changes a few lines and leaves the rest — nine of ten tokens of a changed file already existed pre-change.
+- **Exact-match dedup removes nothing** — no two versions are byte-identical.
+- **Near-duplicate grouping works across versions too**: the standard snapshot step (group near-identical files, keep one) applied across versions brings repetition down to ~2 copies.
+- **But the kept version is often the old one**: widely used implementations (including the one measured) pick the survivor with a date-ignoring rule, so **half of all files train on a stale version**. Sorting versions newest-first before deduplicating fixes it at almost no cost.
+- **Benchmark leakage survives dedup**: a merged SWE-bench bug fix persists in a median of **18 later versions** of the files it changed; removing benchmark fixes requires a **separate pass over every version**.
 
-## Technical Approach
-Full-object-store reconstruction (not just checked-out HEADs) enables counting true content variants. Semantic deduplication then separates edits that change meaning from mechanical sweeps. The framing — history ≠ pangenome — parallels genomic pangenome thinking: keep one representative per equivalence class of content, not one per timestamp.
-
-## Results
-Across 2.4M repos / 153M snapshots, the vast majority of snapshot growth is edit-manufactured near-duplication, implying that history-derived corpora can be compressed to a small semantic core without losing coverage.
+## Practical Rules (as delivered by the paper)
+1. Deduplicate history corpora by near-duplicate grouping **across versions**, not per snapshot.
+2. Sort versions **newest-first** before grouping so the retained file is current.
+3. Run a dedicated **benchmark-fix scrubber over all versions** for history-trained models evaluated on SWE-bench-style tasks.
+The author releases the measurement instruments and frozen outputs (replication package on OSF).
 
 ## Relevance to Our Domain
-Directly relevant to any code-model fine-tuning or retrieval corpus we build: dedupe by content, not by commit; weight snapshots by semantic novelty. Also a caution for provenance/attribution tools that count history volume as evidence of independent authorship.
+Directly actionable for any code-model fine-tuning or retrieval corpus we build from repo histories: three concrete pipeline rules, one of them (newest-first sorting) a near-free correctness fix, and a reminder that history-based training silently inflates benchmark contamination.
 
 ## References
-- Paper: https://arxiv.org/abs/2611.27154 (cs.SE, cs.DL, cs.IR, 2026-11-26)
+- Paper: https://arxiv.org/abs/2611.27154 (cs.SE, cs.LG; published 2026-11-20; S. Chopra)
 - Semantic Scholar: https://api.semanticscholar.org/graph/v1/paper/arXiv:2611.27154
-- Related: explanation-training-data-contamination-detection.md, explanation-deduplication-training-corpora.md
+- Replication: https://osf.io/5nwgv/?view_only=34532f33e19149829435aa819d476191
