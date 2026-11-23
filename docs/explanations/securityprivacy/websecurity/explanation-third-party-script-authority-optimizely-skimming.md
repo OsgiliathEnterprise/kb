@@ -50,4 +50,4 @@ Keep vendor and observer accounts separate: Optimizely says the flaw was closed 
 - [Third-Party Script Authority (DEV.to / rack2cloud)](https://dev.to/ntctech/third-party-script-authority-a-trusted-origin-can-deliver-untrusted-code-nkj)
 - [Report URI: World's Largest Brands Infected With Malware Via Optimizely](https://blog.report-uri.com/worlds-largest-brands-infected-with-malware-via-optimizely/)
 - [Optimizely Service Status: Web Experimentation Security Incident](https://status.optimizely.com/incidents/ftw0fh9wx43z)
-- Related in KB: [Pre-consent tracker leaks via gtm sendBeacon](explanation-preconsent-tracker-leaks-gtm-sendbeacon.md)
+- Related in KB: [Pre-consent tracker leaks via gtm sendBeacon](explanation-preconsent-tracker-leaks-gtm-sendbeacon.md) · [Third-Party JS Supply Chain: the Optimizely campaign and why CSP is the missing control](explanation-third-party-js-supply-chain-optimizely-csp.md) (incident forensics: IOCs, loader variants, defense checklist)

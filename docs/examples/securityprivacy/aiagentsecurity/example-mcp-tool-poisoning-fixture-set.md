@@ -35,7 +35,7 @@ Other rows hide instructions in **enum values** or `examples` blocks. A scanner 
 
 ## The dataset
 
-`msaleme/mcp-tool-poisoning-fixtures` on Hugging Face (Apache-2.0), 23 labelled rows:
+`msaleme/mcp-tool-poisoning-fixtures` on Hugging Face (Apache-2.0), 23 labelled rows — verified live against the HF API on 2026-11-23: three `train` subsets named below, JSON format, `n&lt;1K`, dataset last modified 2026-11-22:
 
 | Subset | Rows | What it tests |
 | --- | --- | --- |

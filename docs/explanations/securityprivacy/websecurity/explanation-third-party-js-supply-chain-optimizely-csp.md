@@ -94,6 +94,7 @@ Compliance angle for card-taking sites: **PCI DSS v4.x requirements 6.4.3** (aut
 
 - [[../ai-agent-security/explanation-adaptive-prompt-injection-agent-swarms]] — same trust-collapse theme: the input you trust is the one you did not write.
 - [[../supply-chain/howto-audit-transitive-github-action-dependencies-pin-deep]] — pinning and auditing for the *other* JS supply chain (build-time vs run-time).
+- [Third-Party Script Authority: A Trusted Origin Can Deliver Untrusted Code](explanation-third-party-script-authority-optimizely-skimming.md) — companion note: the trust-layers framing (origin trust vs content trust vs execution restrictions) and source-vs-vendor epistemology for the same campaign.
 
 ## References
 
