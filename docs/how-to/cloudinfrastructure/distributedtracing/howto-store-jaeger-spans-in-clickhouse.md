@@ -3,7 +3,14 @@ title: Storing Jaeger v2 Spans in ClickHouse
 diataxis: How-to Guide
 domain: cloud-infrastructure
 topic: distributed-tracing
-source: ''
+source: TheNewStack
+source_url: https://thenewstack.io/jaeger-clickhouse-storage-backend/
+date: 2026-09-04
+keywords:
+- knowledge-base
+- distributed-tracing
+- cloud-infrastructure
+- how-to
 ---
 # Storing Jaeger v2 Spans in ClickHouse
 
