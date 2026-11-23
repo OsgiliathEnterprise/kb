@@ -438,6 +438,22 @@ check_stale_prs() {
       continue
     fi
 
+    # Age-independent supersession #2 (PR #139, 2026-11-22): master moved
+    # AFTER the branch was pushed, so its tree is no longer byte-identical
+    # (it is an older build) yet still fully contained in the live site.
+    # publish commits embed their source SHA in the subject
+    # "(<stamp> <- <sha>)"; if that source is an ancestor of the deployed
+    # source, the live site is strictly newer — same call force_merge makes,
+    # applied at ANY age instead of waiting PR_MAX_AGE_DAYS.
+    local bsrc deployed_src
+    bsrc="$(branch_source_sha "$branch")"
+    deployed_src="$(ghpages_deployed_sha)"
+    if [ -n "$bsrc" ] && [ -n "$deployed_src" ] && is_ancestor "$bsrc" "$deployed_src"; then
+      close_superseded_branch "$branch" "built from $bsrc which is an ancestor of the deployed source $deployed_src — the live site is strictly newer"
+      stale_found=true
+      continue
+    fi
+
     if [ "$age_days" -ge "$PR_MAX_AGE_DAYS" ]; then
       log "STALE: $branch is ${age_days} days old — force-merging"
       # Guarded: one unmergeable branch must not abort the whole run under
