@@ -14,7 +14,7 @@ keywords:
 ---
 # Kubernetes v1.37 Pod Certificates and Cluster Trust Bundles
 
-Kubernetes 1.37 makes the foundations of a new built-in production-identity technology GA: **Pod Certificates** (and the closely associated **Cluster Trust Bundles**) build X.509 certificate issuance for TLS/mTLS directly into core Kubernetes, alongside service account JWTs. The APIs (`PodCertificateRequest`, `ClusterTrustBundle` under `certificates.k8s.io/v1beta1`) are in place; no signer ships in core yet — you install a third-party one (e.g. [Tinycert](https://github.com/ahmedtd/tinycert)).
+Kubernetes 1.37 makes the foundations of a new built-in production-identity technology GA: **Pod Certificates** (and the closely associated **Cluster Trust Bundles**) build X.509 certificate issuance for TLS/mTLS directly into core Kubernetes, alongside service account JWTs. The APIs (`PodCertificateRequest`, `ClusterTrustBundle` under `certificates.k8s.io/v1`) are in place; no signer ships in core yet — you install a third-party one (e.g. [Tinycert](https://github.com/ahmedtd/tinycert)).
 
 ## Why: the bearer-token problem with service account JWTs
 
@@ -54,10 +54,18 @@ Per [KEP-4317](https://www.kubernetes.dev/resources/keps/4317/), `PodCertificate
 
 **Alternative delivery path**: [cert-manager's `csi-driver-spiffe`](https://github.com/cert-manager/csi-driver-spiffe) already mounts SPIFFE SVIDs into pods via CSI ephemeral volumes — the pre-Pod-Certificates way to do file-based SPIFFE credential delivery, and a useful comparison point when evaluating whether to adopt the built-in mechanism.
 
+## Release status (verified 2026-11-23)
+
+Kubernetes **v1.37 "Garhwal" released 2026-08-26** and is the current latest stable branch (EOL 2027-10-28 per upstream support policy). Pod Certificates and ClusterTrustBundles ship **Stable** in this release: the workload-facing contract (`podCertificate` / `clusterTrustBundle` projected volume sources, `PodCertificateRequest`, `ClusterTrustBundle`) is now a stable core API rather than a collection of Secret conventions — but the "still need a third-party signer" caveat from the blog post holds: Kubernetes defines request, delivery, and rotation, not your enterprise CA policy.
+
+Upstream currently maintains the three latest minors (1.35 "Timbernetes", 1.36 "Haru", 1.37 "Garhwal"); managed providers (GKE/EKS/AKS) lag on their own qualification calendars. **v1.38 is planned for 2026-12-16** — its enhancement set is still in flux on the [release tracking board](https://github.com/orgs/kubernetes/projects/269), so treat any v1.38 Pod-Certificates items as candidates, not shipped features.
+
 ## References
 
 - [Kubernetes v1.37: Pod Certificates and Cluster Trust Bundles (kubernetes.io)](https://kubernetes.io/blog/2026/08/28/kubernetes-v1-37-pod-certificates-and-cluster-trust-bundles/)
 - [Tinycert — toy Pod Certificate signer for experimenting](https://github.com/ahmedtd/tinycert)
-- [PodCertificateRequest API reference (certificates.k8s.io/v1beta1)](https://kubespec.dev/kubernetes/certificates.k8s.io/v1beta1/PodCertificateRequest)
-- [ClusterTrustBundle API reference](https://kubespec.dev/kubernetes/certificates.k8s.io/v1beta1/ClusterTrustBundle)
+- [PodCertificateRequest API reference (certificates.k8s.io/v1)](https://kubespec.dev/kubernetes/certificates.k8s.io/v1/PodCertificateRequest)
+- [ClusterTrustBundle API reference](https://kubespec.dev/kubernetes/certificates.k8s.io/v1/ClusterTrustBundle)
 - [KEP-4317: Pod Certificates (graduation path, version skew strategy)](https://www.kubernetes.dev/resources/keps/4317/)
+- [Kubernetes 1.35–1.38 production upgrade guide (release dates, EOL, 1.38 timeline)](https://www.alekseialeinikov.com/en/blog/topics/devops/kubernetes-135-136-137-138-production-changes)
+- [Kubernetes v1.38 release tracking board](https://github.com/orgs/kubernetes/projects/269)

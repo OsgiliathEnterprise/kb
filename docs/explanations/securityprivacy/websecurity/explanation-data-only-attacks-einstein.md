@@ -78,6 +78,10 @@ For control-flow hijacking, mitigations could be both *comprehensive* (cover the
 - Treat "the program only executes its own code" as **not** a safety property: intended syscalls with corrupted arguments are the attack surface.
 - Syscall filtering and selective DFI alone do not close this class; combine with memory-safety hardening of the components that hold security-critical state.
 
+## Currency check (2026-11-23)
+
+Re-verified against live sources: the Einstein pipeline (USENIX Security 2024, VUSec) remains the canonical published work on automated data-only attack generation — no major follow-up tool or contradictory result found. The [vusec/einstein](https://github.com/vusec/einstein) repo and paper PDF links are live, and the paper's characterization (dynamic taint analysis, identity dataflows, syscall chaining, mitigation-bypassing exploits at 27–49% coverage) still stands as published.
+
 ## References
 
 - [USENIX ;login: Data-Only Attacks Are Easier than You Think](https://www.usenix.org/publications/loginonline/data-only-attacks-are-easier-you-think)
