@@ -14,6 +14,9 @@ keywords:
 ---
 # Topology Hub Optimal Transport: Eliminating Long Context Dilution at Flash Speed
 
+**Authors:** Dylan Forde
+
+
 ## Overview
 THOT tackles "context dilution" — the observed collapse of LLM performance when context grows — by attacking its *root cause in softmax attention*: the row-stochastic constraint (each query's attention weights sum to one) forces every new token to steal attention mass from existing ones, an attention tax that grows with sequence length. THOT replaces softmax attention with an optimal-transport formulation executed in a single GPU kernel.
 

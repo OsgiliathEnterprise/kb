@@ -13,6 +13,9 @@ keywords:
 ---
 # PLoQ: A Prompt-Specific Low-Rank Basis for 4-bit Quantization of LLM Activations
 
+**Authors:** Faraz Tahmasebi, Michael Pellauer, Hyoukjun Kwon, Sitao Huang
+
+
 ## Overview
 PLoQ is a prompt-adaptive low-rank decomposition scheme for 4-bit activation quantization in LLM serving. It targets the structural cause of low-bit activation damage — a small number of dominant directions that dictate the quantization range — by extracting those directions **per prompt**, quantizing them separately, and restoring them inside the layer's GEMM, all without modifying the weights.
 

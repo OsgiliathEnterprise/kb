@@ -14,6 +14,9 @@ keywords:
 ---
 # Poisoning Attacks and Collaborative Defense Framework for LightRAG-Based Construction Regulation Knowledge
 
+**Authors:** Yingyan He
+
+
 ## Overview
 A systematic study of knowledge-poisoning attacks against **LightRAG** — a graph-enhanced RAG system that grounds LLM answers in explicit, multi-hop relational structures — deployed for safety-critical construction regulation knowledge bases. The paper formalizes four poisoning strategies spanning both the document layer and the graph layer, and proposes a collaborative (federated, privacy-preserving) defense framework.
 

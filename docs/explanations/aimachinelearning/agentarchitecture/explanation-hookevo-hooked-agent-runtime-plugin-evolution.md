@@ -14,6 +14,9 @@ keywords:
 ---
 # HookEvo: A Framework for Coordinated Plugin Evolution on Hook-Enabled Agent Runtimes
 
+**Authors:** Shengze Huang, Yanyu Mao, Xiaofei Yu, Baoshen Guo, Xiaorui Wang, Zhiwen Wu, Sheng Wu, Fukang Wen, Chengxu Wu, Linhao Li, Kailai Sun, Baotong Mi
+
+
 ## Overview
 HookEvo is a framework for letting a coding agent improve its own *harness* — the runtime around the model — by evolving multiple plugins (tools, skills, policies, subagents, hooks) together rather than one at a time. The harness is built on OpenAI's Agent SDK with a hook system that injects external logic into the agent loop, making it a practical substrate for runtime self-modification.
 

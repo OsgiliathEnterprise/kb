@@ -14,6 +14,9 @@ keywords:
 ---
 # From Correctness to Consistency: Redefining Reliability for the Agentware Era
 
+**Authors:** Xue Qin, Maurício Gruppi
+
+
 ## Overview
 This position paper argues that LLM-powered agents have become a new class of software artifact — "agentware" — whose failure modes break the assumptions of classical dependability engineering. The authors propose Dynamic Logical Architectures (DLA), an architectural paradigm in which the components of an agent system are themselves LLMs, and reliability is reframed as *consistency* across runs rather than binary *correctness* of a single run.
 

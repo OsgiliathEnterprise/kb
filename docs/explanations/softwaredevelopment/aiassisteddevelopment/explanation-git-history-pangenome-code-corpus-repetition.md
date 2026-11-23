@@ -14,6 +14,9 @@ keywords:
 ---
 # Git History Is a Pangenome: Repetition in Code Training Corpora and What Deduplication Removes, Keeps and Misses
 
+**Authors:** Saurabh Chopra
+
+
 ## Overview
 Code models are increasingly trained on **full repository histories** — every version of every file — rather than single snapshots. This study measures, for the first time, what snapshot-era deduplication tooling actually does to such histories. Finding: a git history is mostly repetition — in text-indexing terms a *pangenome*, one text in many near-identical variants — and standard deduplication both keeps the wrong versions and misses benchmark answers.
 

@@ -14,6 +14,9 @@ keywords:
 ---
 # Cleave: Severing Guardrails and Auditing Spectral Coupling in Open-Weight LLMs
 
+**Authors:** Feng Huang, Qiang Huang, Yue Gao, Mei Zhang, Bin Liu, Lihua Ju, Xinhao Wei, Yongfeng Huang, Yu Qing, Yunqi Zhang
+
+
 ## Overview
 Cleave is a weight-surgery technique that surgically strips safety guardrails from open-weight LLMs. Rather than prompt-level jailbreaking, it locates refusal behavior in parameter space and removes it directly, while introducing a new *spectral coupling* audit that measures how entangled safety behavior is with the model's reasoning geometry.
 

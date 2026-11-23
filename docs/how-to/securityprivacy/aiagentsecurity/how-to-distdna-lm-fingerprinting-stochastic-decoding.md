@@ -13,6 +13,9 @@ keywords:
 ---
 # DistDNA: Language Model Fingerprinting under Stochastic Decoding
 
+**Authors:** Lifan Hu, Qian Yu, Zhaomin Wu, Bingsheng He
+
+
 ## Overview
 How to fingerprint a language model through API access when the provider decodes stochastically. DistDNA is a protocol that builds *distributional* fingerprints from many sampled generations per probe, replaces pairwise divergence metrics with multi-reference divergences, and averages distances over probe sets so that identity decisions rest on statistical separation rather than any single output.
 
