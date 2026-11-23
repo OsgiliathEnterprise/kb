@@ -32,7 +32,7 @@ The core idea is to treat the megakernel's internal work partition as a scheduli
 Consistent wins across all evaluated platforms (NVIDIA SM90/SM103 and AMD CDNA3), with the largest single-case speedup of 2.87× on CDNA3 under EP16.
 
 ## Relevance to Our Domain
-MoE serving is a core KB theme (EchoMoE, MoE-CORE, XM-Sparse, broadcast-weights). Weave adds the *intra-kernel* dimension: once you've chosen EP and megakernels, warp-level adaptivity is where the remaining 30–90% lives. Useful mental model for anyone tuning EP deployments on heterogeneous fleets.
+MoE serving is a core KB theme (EchoMoE, MoE-CORE, XM-Sparse, broadcast-weights). Weave adds the *intra-kernel* dimension: once you've chosen EP and megakernels, the remaining headroom the paper targets is at the warp-scheduling level (its own measurements: up to 1.97× over DeepGEMM-MegaMoE on SM103, 1.44× geomean over RCCL+AITER on CDNA3). Useful mental model for anyone tuning EP deployments on heterogeneous fleets.
 
 ## References
 - Paper: https://arxiv.org/abs/2611.27765
