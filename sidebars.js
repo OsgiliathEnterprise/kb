@@ -890,7 +890,7 @@ const sidebars = {
           type: 'category',
           label: 'Authorization',
           link: {type: 'generated-index', title: 'Authorization', slug: 'explanations/identitysecurity/authorization'},
-          items: ['explanations/identitysecurity/authorization/explanation-opensearch-dashboards-tenancy-is-not-backend-authorization', 'explanations/identitysecurity/authorization/explanation-postgres-rls-database-enforced-authorization'],
+          items: ['explanations/identitysecurity/authorization/explanation-oauth-refresh-token-rotation-provider-quirks', 'explanations/identitysecurity/authorization/explanation-opensearch-dashboards-tenancy-is-not-backend-authorization', 'explanations/identitysecurity/authorization/explanation-postgres-rls-database-enforced-authorization'],
         },
         {
           type: 'category',
@@ -914,7 +914,7 @@ const sidebars = {
           type: 'category',
           label: 'Databases',
           link: {type: 'generated-index', title: 'Databases', slug: 'explanations/programming/databases'},
-          items: ['explanations/programming/databases/explanation-blobasaur-sqlite-sharded-blob-storage', 'explanations/programming/databases/explanation-duckdb-2-0-async-io-recursive-ctes-variant', 'explanations/programming/databases/explanation-duckdb-2-0-quack-client-server-agent-mode', 'explanations/programming/databases/explanation-gopgext-postgresql-extensions-in-go', 'explanations/programming/databases/explanation-keyset-pagination-offset-drift', 'explanations/programming/databases/explanation-mysql-json-duality-views', 'explanations/programming/databases/explanation-postgresql-19-release-highlights', 'explanations/programming/databases/explanation-postgresql-generated-columns-vs-triggers', 'explanations/programming/databases/explanation-postgresql-local-nvme-storage-latency', 'explanations/programming/databases/explanation-row-number-rank-dense-rank-top-n', 'explanations/programming/databases/explanation-sql-not-in-null-trap'],
+          items: ['explanations/programming/databases/explanation-blobasaur-sqlite-sharded-blob-storage', 'explanations/programming/databases/explanation-duckdb-2-0-async-io-recursive-ctes-variant', 'explanations/programming/databases/explanation-duckdb-2-0-quack-client-server-agent-mode', 'explanations/programming/databases/explanation-gopgext-postgresql-extensions-in-go', 'explanations/programming/databases/explanation-keyset-pagination-offset-drift', 'explanations/programming/databases/explanation-mysql-json-duality-views', 'explanations/programming/databases/explanation-postgresql-19-release-highlights', 'explanations/programming/databases/explanation-postgresql-19-repack-sni-planner-advice', 'explanations/programming/databases/explanation-postgresql-generated-columns-vs-triggers', 'explanations/programming/databases/explanation-postgresql-local-nvme-storage-latency', 'explanations/programming/databases/explanation-row-number-rank-dense-rank-top-n', 'explanations/programming/databases/explanation-sql-not-in-null-trap'],
         },
         {
           type: 'category',
@@ -1142,7 +1142,7 @@ const sidebars = {
           type: 'category',
           label: 'Supplychain',
           link: {type: 'generated-index', title: 'Supplychain', slug: 'explanations/securityprivacy/supplychain'},
-          items: ['explanations/securityprivacy/supplychain/explanation-litellm-1-107-0-pypi-compromise-cook-stealer', 'explanations/securityprivacy/supplychain/explanation-microsoft-agent-framework-pypi-compromise', 'explanations/securityprivacy/supplychain/explanation-quantized-llm-supply-chain-verifiability-gap', 'explanations/securityprivacy/supplychain/explanation-scarva-agentic-supply-chain-analysis', 'explanations/securityprivacy/supplychain/explanation-tanstack-mini-shai-hulud-npm-worm-supply-chain-attack', 'explanations/securityprivacy/supplychain/reference-ai-supply-chain-ecosystem-dataset'],
+          items: ['explanations/securityprivacy/supplychain/explanation-checksum-vs-signature-trusted-reference', 'explanations/securityprivacy/supplychain/explanation-litellm-1-107-0-pypi-compromise-cook-stealer', 'explanations/securityprivacy/supplychain/explanation-microsoft-agent-framework-pypi-compromise', 'explanations/securityprivacy/supplychain/explanation-quantized-llm-supply-chain-verifiability-gap', 'explanations/securityprivacy/supplychain/explanation-scarva-agentic-supply-chain-analysis', 'explanations/securityprivacy/supplychain/explanation-tanstack-mini-shai-hulud-npm-worm-supply-chain-attack', 'explanations/securityprivacy/supplychain/reference-ai-supply-chain-ecosystem-dataset'],
         },
         {
           type: 'category',
