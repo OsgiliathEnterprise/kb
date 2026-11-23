@@ -1,5 +1,5 @@
 ---
-title: 'Spring Cloud 2026.0.0 (Paddington): Nine CVEs Fixed and Architectural Consolidation
+title: 'Spring Cloud 2026.0.0 (Paddington): Twelve CVEs Fixed and Architectural Consolidation
   on Spring Boot 4.2'
 diataxis: Explanation
 domain: programming
@@ -13,9 +13,9 @@ keywords:
 - programming
 - explanations
 ---
-# Spring Cloud 2026.0.0 (Paddington): Nine CVEs Fixed and Architectural Consolidation on Spring Boot 4.2
+# Spring Cloud 2026.0.0 (Paddington): Twelve CVEs Fixed and Architectural Consolidation on Spring Boot 4.2
 
-The Spring Cloud 2026.0.0 release train ("Paddington", GA 2026-11-20) is notable for two reasons: it is a major version baseline built on **Spring Boot 4.2.0**, and it bundles fixes for **at least nine CVEs** across Config Server, Gateway, Kubernetes, Function, Netflix Eureka, and Stream. It is not a routine version bump — several fixes are credential-leak and RCE-class issues, and two modules are architecturally consolidated or deprecated.
+The Spring Cloud 2026.0.0 release train ("Paddington", GA 2026-11-20) is notable for two reasons: it is a major version baseline built on **Spring Boot 4.2.0**, and it bundles fixes for **twelve CVEs** across Config Server, Gateway, Kubernetes, Function, Netflix Eureka, and Stream. It is not a routine version bump — several fixes are credential-leak and RCE-class issues, and two modules are architecturally consolidated or deprecated.
 
 ## Security fixes (the headline)
 
