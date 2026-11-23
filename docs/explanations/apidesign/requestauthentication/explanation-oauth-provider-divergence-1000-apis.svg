@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 -4.0 1063.0 408.0" width="1063" height="408">
+<rect x="16.0" y="-4.0" width="1063.0" height="408.0" fill="#ffffff"/>
+<rect x="40.0" y="100.0" width="200.0" height="90.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="305.0" y="100.0" width="210.0" height="90.0" rx="8" fill="#ffec99" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="580.0" y="100.0" width="200.0" height="90.0" rx="8" fill="#ffec99" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="845.0" y="100.0" width="210.0" height="90.0" rx="8" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="430.0" y="270.0" width="500.0" height="110.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="40.0" y="270.0" width="340.0" height="110.0" rx="8" fill="#d0ebff" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 245.0 145.0 L 300.0 145.0"/><line x1="300.0" y1="145.0" x2="287.4" y2="138.9"/><line x1="300.0" y1="145.0" x2="287.4" y2="151.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 520.0 145.0 L 575.0 145.0"/><line x1="575.0" y1="145.0" x2="562.4" y2="138.9"/><line x1="575.0" y1="145.0" x2="562.4" y2="151.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 785.0 145.0 L 840.0 145.0"/><line x1="840.0" y1="145.0" x2="827.4" y2="138.9"/><line x1="840.0" y1="145.0" x2="827.4" y2="151.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 590.0 200.0 L 590.0 260.0"/><line x1="590.0" y1="260.0" x2="596.1" y2="247.4"/><line x1="590.0" y1="260.0" x2="583.9" y2="247.4"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="24" fill="#1e1e1e" text-anchor="start"><tspan x="60.0" y="39.2">OAuth refresh path after the token-rotation incident (persist like money)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="55.0" y="129.2">Scheduled</tspan><tspan x="55.0" y="146.7">refresh job</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="320.0" y="129.2">Distributed lock</tspan><tspan x="320.0" y="146.7">per connection</tspan><tspan x="320.0" y="164.2">(no duplicate refresh)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="595.0" y="129.2">Provider token</tspan><tspan x="595.0" y="146.7">endpoint</tspan><tspan x="595.0" y="164.2">(rotation may fire)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="860.0" y="129.2">PERSIST new refresh</tspan><tspan x="860.0" y="146.7">token FIRST,</tspan><tspan x="860.0" y="164.2">then everything else</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="445.0" y="299.2">If rotation already invalidated the old token and persist failed:</tspan><tspan x="445.0" y="316.7">connection is DEAD — user must re-consent (Airtable, Atlassian;</tspan><tspan x="445.0" y="334.2">Salesforce/Slack with rotation enabled). Xero allows retry with the</tspan><tspan x="445.0" y="351.7">previous refresh token for 30 minutes.</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="55.0" y="299.2">Providers that never rotate: old token keeps</tspan><tspan x="55.0" y="316.7">working — next refresh heals the connection</tspan><tspan x="55.0" y="334.2">(the 2h incident was cheap here, unrecoverable there)</tspan></text>
+</svg>
