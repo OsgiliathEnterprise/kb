@@ -406,6 +406,12 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Iotfirmwaresecurity',
+          link: {type: 'generated-index', title: 'Iotfirmwaresecurity', slug: 'how-to/securityprivacy/iotfirmwaresecurity'},
+          items: ['how-to/securityprivacy/iotfirmwaresecurity/howto-triage-glinet-router-malware'],
+        },
+        {
+          type: 'category',
           label: 'Malwareanalysis',
           link: {type: 'generated-index', title: 'Malwareanalysis', slug: 'how-to/securityprivacy/malwareanalysis'},
           items: ['how-to/securityprivacy/malwareanalysis/how-to-budgeted-llm-malware-triage'],
@@ -608,7 +614,7 @@ const sidebars = {
           type: 'category',
           label: 'Rag',
           link: {type: 'generated-index', title: 'Rag', slug: 'explanations/aimachinelearning/rag'},
-          items: ['explanations/aimachinelearning/rag/explanation-cited-but-unused-attribution-gaps-rag', 'explanations/aimachinelearning/rag/explanation-futurebench-knowledge-context-conflict', 'explanations/aimachinelearning/rag/explanation-jetriever-utility-memory-retrieval', 'explanations/aimachinelearning/rag/reference-autoragbench-llm-agents-rag-development'],
+          items: ['explanations/aimachinelearning/rag/explanation-agentic-rag-grade-rewrite-retry-cap', 'explanations/aimachinelearning/rag/explanation-cited-but-unused-attribution-gaps-rag', 'explanations/aimachinelearning/rag/explanation-futurebench-knowledge-context-conflict', 'explanations/aimachinelearning/rag/explanation-jetriever-utility-memory-retrieval', 'explanations/aimachinelearning/rag/reference-autoragbench-llm-agents-rag-development'],
         },
         {
           type: 'category',
@@ -1154,13 +1160,13 @@ const sidebars = {
           type: 'category',
           label: 'Vulnerabilitymanagement',
           link: {type: 'generated-index', title: 'Vulnerabilitymanagement', slug: 'explanations/securityprivacy/vulnerabilitymanagement'},
-          items: ['explanations/securityprivacy/vulnerabilitymanagement/explanation-cve-2026-91510-exposure-vs-compromise', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-ghostscript-upload2shell-cve-2026-125396', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-gpgme-double-free-cve-2026-129975', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-hardening-js-against-llm-vuln-detection', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-internet-exposure-measurement-server-header-recon', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-java4shell-openjdk-base64-rce', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-kvm-guest-to-host-escape-cve-2026-99312', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-machine-speed-vulnerability-discovery', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-nginx-http2-rce-cve-2026-123633-123007', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-openssl-evp-encodeblock-buffer-overflow-cve-2026-121481', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-procreverser-multi-agent-microarch-reverse-engineering', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-ruby-regexp-case-conversion-heap-overflows', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-sbind-behavioral-containment-1-day-detection', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-sok-llm-vuln-research-autonomy', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-synology-sa-26-21-dsm-oauth-cve-2026-120382', 'explanations/securityprivacy/vulnerabilitymanagement/reference-crossploit-cross-version-poc-migration-benchmark', 'explanations/securityprivacy/vulnerabilitymanagement/reference-cybergym-evaluation-reliability'],
+          items: ['explanations/securityprivacy/vulnerabilitymanagement/explanation-cve-2026-91510-exposure-vs-compromise', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-ghes-prereceive-sandbox-escape-cve-2026-112740', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-ghostscript-upload2shell-cve-2026-125396', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-gpgme-double-free-cve-2026-129975', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-hardening-js-against-llm-vuln-detection', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-internet-exposure-measurement-server-header-recon', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-java4shell-openjdk-base64-rce', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-kvm-guest-to-host-escape-cve-2026-99312', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-machine-speed-vulnerability-discovery', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-nginx-http2-rce-cve-2026-123633-123007', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-openssl-evp-encodeblock-buffer-overflow-cve-2026-121481', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-procreverser-multi-agent-microarch-reverse-engineering', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-ruby-regexp-case-conversion-heap-overflows', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-sbind-behavioral-containment-1-day-detection', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-sok-llm-vuln-research-autonomy', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-synology-sa-26-21-dsm-oauth-cve-2026-120382', 'explanations/securityprivacy/vulnerabilitymanagement/reference-crossploit-cross-version-poc-migration-benchmark', 'explanations/securityprivacy/vulnerabilitymanagement/reference-cybergym-evaluation-reliability'],
         },
         {
           type: 'category',
           label: 'Websecurity',
           link: {type: 'generated-index', title: 'Websecurity', slug: 'explanations/securityprivacy/websecurity'},
-          items: ['explanations/securityprivacy/websecurity/explanation-apple-reference-image-verified-photography', 'explanations/securityprivacy/websecurity/explanation-cisco-ise-cve-2026-76423-rest-api-auth-bypass', 'explanations/securityprivacy/websecurity/explanation-cloudflare-disallow-ai-training-mixed-use-crawlers', 'explanations/securityprivacy/websecurity/explanation-data-only-attacks-einstein', 'explanations/securityprivacy/websecurity/explanation-drupal-cve-2026-96362-batch-version-based-scanning-limits', 'explanations/securityprivacy/websecurity/explanation-edge-logic-only-full-chain-pwn2own-2026', 'explanations/securityprivacy/websecurity/explanation-feature-flags-are-not-authorization', 'explanations/securityprivacy/websecurity/explanation-geohunter-generative-engine-optimization-network', 'explanations/securityprivacy/websecurity/explanation-jquery-4-1-0-redos-selector-identifier-fix', 'explanations/securityprivacy/websecurity/explanation-kestra-cve-2026-49869-suffix-match-auth-bypass', 'explanations/securityprivacy/websecurity/explanation-libheif-heic-rce-chain-openai-sso-takeover', 'explanations/securityprivacy/websecurity/explanation-open-redirect-php-laravel', 'explanations/securityprivacy/websecurity/explanation-passkeys-attestation-aaguid-domain-binding-phishing', 'explanations/securityprivacy/websecurity/explanation-pitworld-private-search-moshpit-network', 'explanations/securityprivacy/websecurity/explanation-preconsent-tracker-leaks-gtm-sendbeacon', 'explanations/securityprivacy/websecurity/explanation-telegram-desktop-cve-2026-107181-ipc-injection-account-takeover', 'explanations/securityprivacy/websecurity/explanation-telnetd-cve-2026-32746-linemode-slc-buffer-overflow', 'explanations/securityprivacy/websecurity/explanation-third-party-js-supply-chain-optimizely-csp', 'explanations/securityprivacy/websecurity/explanation-ublock-origin-element-picker-uxss', 'explanations/securityprivacy/websecurity/explanation-weekly-security-advisories-node2shell-php2shell-pillow', 'explanations/securityprivacy/websecurity/explanation-wordpress-cve-2026-87902-patch-windows'],
+          items: ['explanations/securityprivacy/websecurity/explanation-apple-reference-image-verified-photography', 'explanations/securityprivacy/websecurity/explanation-cisco-ise-cve-2026-76423-rest-api-auth-bypass', 'explanations/securityprivacy/websecurity/explanation-cloudflare-disallow-ai-training-mixed-use-crawlers', 'explanations/securityprivacy/websecurity/explanation-data-only-attacks-einstein', 'explanations/securityprivacy/websecurity/explanation-drupal-cve-2026-96362-batch-version-based-scanning-limits', 'explanations/securityprivacy/websecurity/explanation-edge-logic-only-full-chain-pwn2own-2026', 'explanations/securityprivacy/websecurity/explanation-feature-flags-are-not-authorization', 'explanations/securityprivacy/websecurity/explanation-geohunter-generative-engine-optimization-network', 'explanations/securityprivacy/websecurity/explanation-jquery-4-1-0-redos-selector-identifier-fix', 'explanations/securityprivacy/websecurity/explanation-kestra-cve-2026-49869-suffix-match-auth-bypass', 'explanations/securityprivacy/websecurity/explanation-libheif-heic-rce-chain-openai-sso-takeover', 'explanations/securityprivacy/websecurity/explanation-open-redirect-php-laravel', 'explanations/securityprivacy/websecurity/explanation-passkeys-attestation-aaguid-domain-binding-phishing', 'explanations/securityprivacy/websecurity/explanation-pitworld-private-search-moshpit-network', 'explanations/securityprivacy/websecurity/explanation-preconsent-tracker-leaks-gtm-sendbeacon', 'explanations/securityprivacy/websecurity/explanation-telegram-desktop-cve-2026-107181-ipc-injection-account-takeover', 'explanations/securityprivacy/websecurity/explanation-telnetd-cve-2026-32746-linemode-slc-buffer-overflow', 'explanations/securityprivacy/websecurity/explanation-third-party-js-supply-chain-optimizely-csp', 'explanations/securityprivacy/websecurity/explanation-third-party-script-authority-optimizely-skimming', 'explanations/securityprivacy/websecurity/explanation-ublock-origin-element-picker-uxss', 'explanations/securityprivacy/websecurity/explanation-weekly-security-advisories-node2shell-php2shell-pillow', 'explanations/securityprivacy/websecurity/explanation-wordpress-cve-2026-87902-patch-windows'],
         },
         {
           type: 'category',
@@ -1203,6 +1209,12 @@ const sidebars = {
           label: 'Durableexecutions',
           link: {type: 'generated-index', title: 'Durableexecutions', slug: 'explanations/systemdesign/durableexecutions'},
           items: ['explanations/systemdesign/durableexecutions/explanation-timeout-attempt-state-model-for-paid-upstream-calls'],
+        },
+        {
+          type: 'category',
+          label: 'Integrationcontracts',
+          link: {type: 'generated-index', title: 'Integrationcontracts', slug: 'explanations/systemdesign/integrationcontracts'},
+          items: ['explanations/systemdesign/integrationcontracts/explanation-graphql-vs-rest-field-selection-overfetching'],
         },
         {
           type: 'category',
@@ -1262,6 +1274,12 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Authentication',
+          link: {type: 'generated-index', title: 'Authentication', slug: 'examples/identitysecurity/authentication'},
+          items: ['examples/identitysecurity/authentication/example-jwt-decode-vs-verify-python'],
+        },
+        {
+          type: 'category',
           label: 'Cpp',
           link: {type: 'generated-index', title: 'Cpp', slug: 'examples/programming/cpp'},
           items: ['examples/programming/cpp/example-std-generator-lazy-file-lines'],
@@ -1313,6 +1331,12 @@ const sidebars = {
           label: 'Zig',
           link: {type: 'generated-index', title: 'Zig', slug: 'examples/programming/zig'},
           items: ['examples/programming/zig/example-type-safe-html-templating-zig-zt', 'examples/programming/zig/example-zig-arraylist-pointer-stability-locks'],
+        },
+        {
+          type: 'category',
+          label: 'Aiagentsecurity',
+          link: {type: 'generated-index', title: 'Aiagentsecurity', slug: 'examples/securityprivacy/aiagentsecurity'},
+          items: ['examples/securityprivacy/aiagentsecurity/example-mcp-tool-poisoning-fixture-set'],
         },
         {
           type: 'category',

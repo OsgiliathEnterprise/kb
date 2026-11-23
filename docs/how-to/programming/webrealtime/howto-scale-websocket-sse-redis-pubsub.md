@@ -121,6 +121,15 @@ server.listen(process.env.PORT || 3000);
 - **SSE vs WebSockets** — see table above.
 - **Raw `ws` + manual fan-out vs Socket.IO.** If you're already on Socket.IO, its built-in Redis adapter (`@socket.io/redis-adapter`) gives you the same cross-node broadcast without hand-rolling pub/sub; it also adds namespace partitioning for sharding event traffic across nodes. The trade-off is Socket.IO's protocol overhead and polling-fallback behavior — disable polling in production (`transports: ['websocket']`, set `pingInterval`/`pingTimeout`) if you only need raw WebSocket semantics.
 
+## Fan-out amplification and Redis 7 sharded Pub/Sub (enriched 2026-11-23)
+
+The naive `chat:global` single-channel pattern above hides the **fan-out amplification problem** that appears at scale: every server node receives *every* message and filters locally, so a global channel makes each node's Redis ingress proportional to total cluster traffic, not to its own client population. Two fixes, in order of preference:
+
+1. **Per-room targeted channels instead of pattern subscriptions.** `psubscribe('room:*')` does not scale — pattern matching is executed against every pattern on every node for every published message, and it cannot be sharded. Model rooms as concrete channels (`room:<id>`) and have each node subscribe only to the channels its connected clients actually need (join/leave drives subscribe/unsubscribe). This turns O(all traffic) per node into O(interested traffic).
+2. **Redis ≥ 7.0 sharded Pub/Sub** in Cluster mode: `SPUBLISH`/`SSUBSCRIBE` (ioredis: `ssubscribe()`/`spublish()` on a clustered client). The channel name is hashed to a slot and the message is replicated/broadcast only within the shard that owns that slot, instead of being forwarded to every node in the cluster. This removes the cross-cluster broadcast storm for hot channels and is the default recommendation for new builds on Redis Cluster. Constraint: sharded channels live in keyspace slots, so `SPUBLISH` and `SSUBSCRIBE` for the same channel must be addressed to the node owning that slot — client libraries handle this, but raw clients must follow MOVED/ASK.
+
+Also mind the **publisher side**: a single hot channel with thousands of subscribers on one node can saturate that node's egress. Shard hot rooms across sharded channels (`room:<id>#<shard>`) or use per-room channels with a directory service mapping room → node set when a room grows past a few thousand concurrent members.
+
 ## Security checklist
 
 1. Validate tokens during the WebSocket handshake; never rely on `Origin` headers alone.
@@ -143,6 +152,7 @@ server.listen(process.env.PORT || 3000);
 - [MDN: WebSockets API](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API)
 - [MDN: Server-Sent Events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events)
 - [Redis pub/sub use-case documentation (node-redis)](https://redis.io/docs/latest/develop/use-cases/pub-sub/nodejs/)
+- [Redis sharded Pub/Sub (SPUBLISH/SSUBSCRIBE, Redis 7 Cluster)](https://redis.io/docs/latest/develop/pubsub/shardedpubsub/)
 - [ADR 0002: Redis Pub/Sub for scale-out routing (Spring Boot 4 real-time messaging)](https://github.com/jinwovo/realtime-messaging/blob/main/docs/adr/0002-redis-pubsub-for-scale-out-routing.md) — a worked architecture-decision record for the same three-layer pattern
 
 ## Related
