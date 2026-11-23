@@ -48,7 +48,8 @@ The signature segment is raw bytes, not JSON — return it as a string, never pa
 ```python
 import jwt  # pip install pyjwt
 
-decoded = jwt.decode_complete(LIVE, options={"verify_signature": False})
+token = "eyJhbGciOiJub25lIn0.eyJzdWIiOiJ1c2VyXzg2MTIiLCJyb2xlIjoiYWRtaW4ifQ."
+decoded = jwt.decode_complete(token, options={"verify_signature": False})
 # decoded["header"], decoded["payload"], decoded["signature"]
 ```
 
