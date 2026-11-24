@@ -15,6 +15,9 @@ keywords:
 ---
 # From Local Errors to System Failures: Modeling and Benchmarking Error Propagation in Multi-Agent LLM Systems
 
+**Authors:** Wenlong Yu, Bingxu Lu, Qilong Wang, Qinghua Hu, Qianru Sun. (arXiv:2611.31063)
+
+
 ## Overview
 In multi-agent LLM systems (MAS), a wrong or noisy message produced by one agent travels through intermediate agents before reaching the final answer. Outcome-based evaluation — scoring only the final output — hides *how* agents amplify, dampen, or fix that error along the way. This paper (arXiv:2611.31063, cs.MA) introduces **REPA** (Response-Aware Error Propagation among Agents), a structural model that connects measured per-agent responses to system-level error propagation, plus **ErrPropBench-10**, a benchmark for studying it.
 

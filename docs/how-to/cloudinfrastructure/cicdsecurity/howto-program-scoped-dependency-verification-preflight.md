@@ -14,6 +14,9 @@ keywords:
 ---
 # How to Verify Python Dependencies in the Context of Your Own Program — the Preflight Recipe
 
+**Authors:** Yaman Jandali, Nojan Sheybani, Farinaz Koushanfar, Tara Javidi. (arXiv:2611.31110)
+
+
 ## Objective
 Decide, **before execution**, whether a released dependency artifact behaves maliciously *for your specific application* — not in the abstract. Provenance, static analysis, and package-level behavioral testing all answer "is this package evil somewhere?"; none answers "does this artifact do anything security-relevant on the code paths my program actually reaches?"
 

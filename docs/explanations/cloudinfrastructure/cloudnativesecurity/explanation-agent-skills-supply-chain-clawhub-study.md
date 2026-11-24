@@ -14,6 +14,9 @@ keywords:
 ---
 # Carried-Over and Agent-Native Threats in the Supply Chain of LLM Agent Skills
 
+**Authors:** Kaixuan Li, Wenbo Guo, Sen Chen, Yang Liu. (arXiv:2611.30932)
+
+
 ## Overview
 Agent *skills* are reusable packages that extend an LLM agent with scripts, third-party dependencies, and natural-language instructions. Because the agent builds a skill's arguments from user requests **and untrusted external content**, a flaw left innocently by a benign author can escalate a prompt injection into code execution. This paper (arXiv:2611.30932, cs.CR/cs.SE) is the **first registry-scale empirical study** of that attack surface: all **48,682 skills in the ClawHub registry**, screened statically, with all **3,428** cases flagged by the four main detectors manually reviewed, and reachability tested in a sandbox and with a live LLM agent under indirect prompt injection.
 

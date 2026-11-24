@@ -14,6 +14,9 @@ keywords:
 ---
 # LiveLoRA: Exact KV Cache Migration Across LoRA Updates for LLM Agents
 
+**Authors:** Tianyi Huang, Samuel Xu, Ivy Gu, Nathan Huang, Siqi Zhang. (arXiv:2611.31105)
+
+
 ## Overview
 Long-lived LLM agents keep a persistent interaction history whose KV cache dominates serving cost. When the LoRA adapter powering such an agent is updated (new fine-tune, policy refresh), every active session normally faces a dilemma: reuse KV entries computed under the previous adapter version — silently mixing model versions — or re-prefill the full history, whose cost grows with both history length and session-fleet size. LiveLoRA (arXiv:2611.31105, cs.AI) is a model-runtime co-design that migrates the final-block KV cache **exactly** across adapter versions, letting persistent agents adopt new adapters without replaying their histories.
 

@@ -14,6 +14,9 @@ keywords:
 ---
 # sudo L7: Can Coding Agents Act Like Staff Engineers?
 
+**Authors:** Nick Heiner, Ian Niebres, Suhaas Garre, Sushant Mehta, Edwin Chen. (arXiv:2611.30517)
+
+
 ## Overview
 sudo L7 (arXiv:2611.30517, cs.SE/cs.AI) is a benchmark of **60 software-engineering tasks authored by staff-level engineers**, mostly drawn from **private production codebases**, each built around a place where a frontier model previously failed. It targets the gap between "turn a well-specified ticket into a passing patch" and the judgment experienced engineers apply: noticing unmentioned risks, questioning flawed premises, reusing what exists, and reporting truthfully what was and wasn't checked.
 

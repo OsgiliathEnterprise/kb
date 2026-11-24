@@ -15,6 +15,9 @@ keywords:
 ---
 # How to Defend SE Coding Agents at Runtime — the AgentBouncer System-Call Mediation Recipe
 
+**Authors:** Pascal Joos, Michael Pradel. (arXiv:2611.30621)
+
+
 ## Objective
 Prevent a software-engineering agent (one that reads/writes files, runs commands, downloads resources) from carrying out malicious actions delivered via prompt injection, malicious tools, or supply-chain compromise — without breaking its ability to complete legitimate tasks.
 

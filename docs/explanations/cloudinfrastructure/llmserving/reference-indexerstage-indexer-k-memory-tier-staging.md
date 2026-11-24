@@ -15,6 +15,9 @@ keywords:
 ---
 # IndexerStage: Staging Indexer-K across Memory Tiers for Sparse-Attention LLM Serving
 
+**Authors:** Xin Zhang, Weifeng Zhang, Xianyan Xie, Huijun Shen, Xijin Yin, Zhen He, Yinben Xia, Xiang Li, ZeKun He, Yachen Wang, Xianneng Zou, Guo Chen. (arXiv:2611.28625)
+
+
 ## Overview
 Offloading attention data out of GPU HBM is not enough for long-context sparse-attention serving: the **Indexer-K** state used by DeepSeek Sparse Attention (DSA) to choose which tokens attention will read still pins GPU memory, because the indexer scans this growing state in full at every layer and every decode step. IndexerStage (arXiv:2611.28625, cs.DC) is a serving runtime that externalizes Indexer-K state to a backing memory tier while keeping the native GPU score, top-k, and attention kernels untouched.
 

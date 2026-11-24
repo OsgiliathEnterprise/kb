@@ -14,6 +14,9 @@ keywords:
 ---
 # Oops!... I Parsed It Again: Tool-Call Smuggling Against LLM Agents
 
+**Authors:** Igor Santos-Grueiro, Daniel Romero-Ruiz. (arXiv:2611.30624)
+
+
 ## Overview
 An LLM agent acts through tool calls: the model writes call arguments as JSON, a guard decides whether the call may run, and an executor runs it. Crucially, **the same bytes are parsed several times** — by the provider, gateways, SDKs, frameworks, the guard, and the executor — and JSON leaves some decisions to each parser (e.g., which copy of a repeated key wins). This paper (arXiv:2611.30624, cs.CR/cs.AI/cs.SE) introduces **tool-call smuggling**: when guard and executor parse differently, the guard approves one call, the executor runs a *different* one, and the audit log records only the approved call.
 
