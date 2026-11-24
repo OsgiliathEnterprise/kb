@@ -80,9 +80,16 @@ Consequences of the wire break:
 
 ![Diagram 1 — explanation-radicle-cleartext-transport-node-impersonation](explanation-radicle-cleartext-transport-node-impersonation-excalidraw-1.svg)
 
+## Status update (2026-11-24)
+
+As of 2026-11-24 — **two months after disclosure — no Radicle 2.0 release announcement has been located** in searches; the fix remains unreleased and the workarounds above still apply. Treat any private repository that synced over the network before you stopped seeding as leaked. The upstream tracking pieces are the open `netservices.rs` confidentiality issue #48 and the open `cyphernet.rs` Noise-interoperability PR #22 (tests against the `snow` crate, a first step toward issue #13 — it is a hardening step, not yet an authentication fix; links below).
+
 ## References
 
-- [Radicle: Disclosure of Vulnerability in the Network Protocol](https://radicle.dev/2026/09/23/disclosure-of-vulnerability-in-network-protocol)
+- [Radicle: Disclosure of Vulnerability in the Network Protocol](https://radicle.dev/2026-09-23/disclosure-of-vulnerability-in-network-protocol)
+- [Upstream: netservices.rs issue #48 — cleartext post-handshake (reported by Radicle)](https://github.com/cyphernet-labs/netservices.rs/issues/48)
+- [Upstream: cyphernet.rs PR #22 — noise: Test Interoperability with `snow` (open; first step toward #13)](https://github.com/cyphernet-labs/cyphernet.rs/pull/22)
+- [RuntimeWire: Radicle tells users to stop using private repositories](https://runtimewire.com/article/radicle-network-protocol-vulnerabilities-private-repositories)
 - [Kostis Maninakis: Radicle nodes send private repositories in cleartext (root-cause analysis)](https://maninak.com/blog/radicle-cleartext-transport-vulnerability/)
 - [Radicle Protocol Guide (Heartwood, Noise XK, gossip, replication)](https://radicle.dev/guides/protocol)
 - [iroh: open-source P2P networking stack](https://www.iroh.computer/)
