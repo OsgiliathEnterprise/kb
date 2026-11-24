@@ -15,6 +15,9 @@ keywords:
 ---
 # Detecting Word-Substitution Poisoning of a RAG Knowledge Base with Relative Entropy and Runtime Verification
 
+**Authors:** Ali Yousefi, Nikos Komninos, Hafizul Asad
+
+
 ## Overview
 
 This paper studies a stealthy attacker who silently edits existing passages in a RAG knowledge base by swapping words for their synonyms (PWWS, TextFooler attacks), using a cybersecurity RAG system built from **MITRE ATT&CK and CAPEC** content. Whole-passage statistical tests are too weak to catch the edits, but a single term of the **relative entropy** — the log-ratio between a word and its most probable synonym, scored against a small reference language model — detects edited passages at AUROC 0.95, and a runtime monitor against trusted MITRE STIX data restores answer correctness.

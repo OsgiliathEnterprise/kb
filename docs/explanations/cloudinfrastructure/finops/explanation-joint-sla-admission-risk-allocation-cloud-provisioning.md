@@ -14,6 +14,9 @@ keywords:
 ---
 # Joint SLA Admission and Risk Allocation for Cloud Resource Provisioning
 
+**Authors:** Yihua Xu, Jize Li, Yan Lyu, Jiani He, You Lin, Shangjing Tang, Dishu Yang
+
+
 ## Overview
 
 A cloud controller must reserve enough CPU **and** memory to meet demand without leaving too much capacity idle. This paper studies what happens when both resources share a **single service-level agreement (SLA)**: a shortage of either CPU or memory counts against the same violation budget, so how you split that budget between the two resources directly changes how much headroom each one needs. The paper proposes a controller that chooses the risk split — and the matching reserve — from historical forecast errors.

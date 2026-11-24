@@ -15,6 +15,9 @@ keywords:
 ---
 # Breaking the Long Horizon: Short-Horizon Process Supervision for Long-Form Generation in LLMs
 
+**Authors:** Heyang Xu, HanWen Hao, Qianren Mao, Zhuo Liu, Qili Zhang, Sheng Yang, Jianxin Li
+
+
 ## Overview
 
 Reinforcement learning for long-form generation typically optimizes a whole document with a **single outcome-level reward** — supervision that is delayed and coarse-grained, so errors cannot be localized and credit cannot be assigned across semantically distinct parts of the output. This paper proposes **SH-PRM**, a short-horizon process-reward method that reformulates long-form generation as a sequence of **segment-level decisions** supervised locally, instantiated under the same GRPO optimizer as the outcome-level baseline.

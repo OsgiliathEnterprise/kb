@@ -15,6 +15,9 @@ keywords:
 ---
 # Epistemic Guard: Out-of-Process MCP Receipt Proxying, Post-Turn Prose Supervision, and Provenance-Gated Memory for Tool-Using Autonomous Agents
 
+**Authors:** Sean Maxwell
+
+
 ## Overview
 
 `epistemic-guard` (v0.5.2) is an open-source Python library and **out-of-process stdio MCP receipt proxy** (15 modules, **0 MiB GPU VRAM**) that closes three runtime-verification gaps in MCP tool-using agents: **action fabrication** (post-tool prose claiming side effects that failed, timed out, or never ran), **provenance collapse** (unverified model/web prose entering durable memory alongside real tool outputs), and **syndicated echo amplification** (mirrored web pages faking multi-source corroboration from a single origin).

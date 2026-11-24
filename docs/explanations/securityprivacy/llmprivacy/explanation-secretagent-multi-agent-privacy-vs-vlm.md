@@ -15,6 +15,9 @@ keywords:
 ---
 # SecretAgent: A Multi-Agent Framework for Privacy Protection against Vision Language Models
 
+**Authors:** Minda Zhao, Yue Zhang, Mengyu Wang
+
+
 ## Overview
 
 Vision-language models can infer private information from shared images — locations, PII, personal attributes like age and sex, even from medical images. Adversarial perturbations can block black-box VLM inference, but existing methods ignore image quality and leave **visible artifacts** in the protected image. **SecretAgent** is presented as the first general **multi-agent framework** that protects image privacy against VLMs **while preserving visual fidelity**.

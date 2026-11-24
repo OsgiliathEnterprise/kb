@@ -15,6 +15,9 @@ keywords:
 ---
 # Reasoning in Fewer Tokens: Concept-Normalized Multilingual Scratchpads and Reversible Model-Adaptive Reasoning Codes
 
+**Authors:** Rabimba Karanjai, Suryabhan Singh Hada, Hemanth Hegadehalli Madhavarao, Qun Gu, Libin N. George, Wenhuan Sun, Neha Monga, Richard Williamson, Prakhar Mehrotra
+
+
 ## Overview
 
 Chain-of-thought prompting improves LLM reasoning but is expensive because the scratchpad is decoded autoregressively at full length. Existing efficiency tricks either **discard tokens or move reasoning into continuous latents — lossy methods that sacrifice interpretability and auditability**. This paper introduces a **lossless compression framework for intermediate reasoning**: a Byte-Pair Encoding vocabulary learned on reasoning corpora maps frequent semantic spans to **Private Use Area (PUA) tokens**, and the model is fine-tuned to reason in this compressed language and decode it back 1:1.

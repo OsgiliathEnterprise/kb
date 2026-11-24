@@ -14,6 +14,9 @@ keywords:
 ---
 # Belief-State Management Meets Rubric Rewards for Agentic Forecasting
 
+**Authors:** Jingyi Chai, Yun Liao, Hao Lu, Kemeng Zhang, Bingyang Zheng, Yujie Ge, Xiangrui Liu, Linfeng Zhang, Siheng Chen
+
+
 ## Overview
 
 LLM agents remain poor at forecasting real-world events, and the paper pins the causes on two harness/training flaws: the standard **ReAct loop accumulates all reasoning and evidence in one ever-growing context**, and **outcome-based rewards** give a slow, noisy signal that cannot separate sound reasoning from lucky guesses. The fix pairs a harness innovation — **Proactive Belief-State Management (PBM)** with a `fold` tool — with a five-dimensional, outcome-blind process rubric (**SEIPH**) used for post-training, producing the 35B **DeepForecaster** models.
