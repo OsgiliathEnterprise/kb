@@ -78,6 +78,6 @@ instead of assuming default row counts for foreign tables.
 ## References
 
 - Developpez — PostgreSQL 19 release article (French): [https://postgresql.developpez.com/actu/389354/Le-systeme-de-gestion-de-base-de-donnees-open-source-PostgreSQL-19-est-disponible-avec-une-base-de-donnees-relationnelle-dotee-d-une-gestion-des-tables-repensee-et-offrant-des-performances-accrues/](https://postgresql.developpez.com/actu/389354/Le-systeme-de-gestion-de-base-de-donnees-open-source-PostgreSQL-19-est-disponible-avec-une-base-de-donnees-relationnelle-dotee-d-une-gestion-des-tables-repensee-et-offrant-des-performances-accrues/)
-- PostgreSQL 19 announcement: [https://www.postgresql.org/about/news/postgresql-19-released-](https://www.postgresql.org/about/news/postgresql-19-released-)
+- PostgreSQL 19 announcement: [https://www.postgresql.org/about/news/postgresql-19-released-3449/](https://www.postgresql.org/about/news/postgresql-19-released-3449/) *(URL was truncated in the original scrape; fixed and content-verified against the official 2026-11-19 announcement by KB Zookeeper, 2026-11-24)*
 - Release 19 notes: [https://www.postgresql.org/docs/current/release-19.html](https://www.postgresql.org/docs/current/release-19.html)
 - Related: [PostgreSQL Generated Columns vs Triggers](explanation-postgresql-generated-columns-vs-triggers.md), [Postgres Isn't Slow, Your Storage Is](explanation-postgresql-local-nvme-storage-latency.md)
