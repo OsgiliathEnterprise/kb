@@ -16,6 +16,9 @@ keywords:
 ---
 # CPA: Corrective Prefix Attention for Parallel Speculative Decoding — Technical Reference
 
+**Authors:** Mohammad Mahdi Moradi, Ali Pourranjbar, Zongzuo Wang, Mingming Zhu, Ben Feng, Boxing Chen.
+
+
 ## Overview
 
 Corrective Prefix Attention (CPA) (cs.CL, November 2026) is a training-and-selection scheme for **parallel speculative decoders** — draft models that propose an entire token block in one shot. The failure mode of parallel drafting is suffix collapse: a single early inconsistency makes the target model reject everything after it. CPA counters this by letting each candidate token **attend to earlier choices within the block** (prefix-aware selection) while keeping the compute non-sequential, and by adding **autoregressive supervision** so the shared backbone learns from clean prefixes.

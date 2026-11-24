@@ -14,6 +14,9 @@ keywords:
 ---
 # Improving Repair Agents with Cause-Chain Diagnoses (How-to)
 
+**Authors:** Marius Smytzek, Martin Eberlein, Lars Grunske, Andreas Zeller.
+
+
 ## Overview
 
 This paper (cs.SE, November 2026) tackles the **diagnosis step that precedes any repair**: starting from the same information a developer gets from a bug report, a repair agent must first figure out *how* the program fails before it can fix it. The authors' remedy is not a stronger planner but better *diagnosis input*: **FORECAST** infers a **cause chain** — a short sequence of execution features (conditions, data flow) inferred from comparing passing and failing test runs that explains how failing runs diverge — and appends it to the issue text the agent receives.

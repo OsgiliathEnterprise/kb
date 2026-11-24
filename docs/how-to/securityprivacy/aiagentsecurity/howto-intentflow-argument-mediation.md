@@ -16,6 +16,9 @@ keywords:
 ---
 # IntentFlow: Blocking Trusted-but-Unauthorized Tool Arguments (How-to)
 
+**Authors:** Yulliwas Ameur (CEDRIC - ROC), Miqeas Pedro Mendes (CEDRIC - ROC), Samia Bouzefrane (CEDRIC - ROC); Accepted at ICAART 2027 (SCITEPRESS); code & data: https://doi.org/10.5281/zenodo.24233094.
+
+
 ## Overview
 
 IntentFlow (cs.AI/cs.CR, November 2026) is a **mediation layer inserted between an unmodified planner LLM and its tools** that checks every *authority-bearing argument* of each tool call against two things: an **intent contract** (what the user actually asked for) and a **provenance policy** (where the value came from). It targets the gap that argument-level provenance alone leaves open: provenance blocks values originating from untrusted content, but happily passes a *trusted* value the user never requested — e.g., an email address from the user's own contacts that was injected into the conversation as the "correct" recipient.

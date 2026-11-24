@@ -15,6 +15,9 @@ keywords:
 ---
 # SchemaCaps: When a Compatible Tool Update Silently Widens an AI Agent's Authority
 
+**Authors:** Yulliwas Ameur (CEDRIC - ROC), Samia Bouzefrane (CEDRIC - ROC, CNAM Paris), Soumya Banerjee (CEDRIC); Accepted at ICAART 2027 (SCITEPRESS); artefact: https://doi.org/10.5281/zenodo.24233014.
+
+
 ## Overview
 
 SchemaCaps (cs.AI/cs.CR, November 2026) exposes a quiet supply-chain hole in the MCP ecosystem: users approve an agent tool once, but the tool's **JSON input schema keeps evolving underneath that approval**. The authors survey 8 public MCP clients and scanners and observe/document **none of them re-approving a tool whose input schema has widened**. They then define a formal property — *non-amplification* over schema-visible coordinates (declared arguments, undeclared fields, on effective values) — and a re-binding rule, decided by subschema inclusion, that trusts no field labels by default.

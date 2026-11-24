@@ -15,6 +15,9 @@ keywords:
 ---
 # ToolSmith: An Automatic Tool-Generation Framework for Multimodal Search Agents
 
+**Authors:** Rui Sun, Junhua Huang, Luca Zancato, Md Mofijul Islam, Kai-Wei Chang.
+
+
 ## Overview
 
 ToolSmith (cs.CL/cs.AI/cs.CV, November 2026) attacks one of the quiet bottlenecks of multimodal search agents: the **hand-crafted tool library**. State-of-the-art agents answer questions beyond their parametric knowledge by reasoning, looking, and searching the live web over many turns, orchestrating a small set of manually written search and visual tools. ToolSmith replaces curation with **self-extension**: the agent grows and reuses modules on top of a lean base tool library, the way a human practitioner fashions a new tool from familiar parts when the toolbox falls short.

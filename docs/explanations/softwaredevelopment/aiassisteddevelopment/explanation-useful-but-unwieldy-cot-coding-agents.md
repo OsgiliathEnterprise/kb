@@ -16,6 +16,9 @@ keywords:
 ---
 # Useful but Unwieldy: Engineer Perceptions of CoT Explanations in Coding Agents
 
+**Authors:** Carlos Rafael Catalan, Lheane Marie Dizon, Patricia Nicole Monderin, Hyo Jin Do, Qiaosi Wang.
+
+
 ## Overview
 
 This empirical study (cs.SE, November 2026) asks a question benchmark papers don't answer: **what do practicing software engineers actually think of the chain-of-thought (CoT) messages that coding agents stream at them?** Some coding agents show the model's rationale as a separate message, in the name of transparency and explainability — but whether CoT works as an **explainable-AI (XAI) mechanism for SE end-users** had not been established. The authors survey software engineers and follow up with semi-structured interviews (**36 participants**), then run thematic analysis. The title delivers the verdict: engineers find the explanations **useful but unwieldy**.

@@ -15,6 +15,9 @@ keywords:
 ---
 # TipSweep: Transfer the Learning Rate from One Block to the Whole Model (Tutorial)
 
+**Authors:** Nan Chen, Soledad Villar, Soufiane Hayou.
+
+
 ## Overview
 
 Post-training — SFT, DPO, and RL with verifiable rewards (RLVR) — is extremely sensitive to the learning rate, and grid-searching it on a full LLM is expensive in compute *and* memory. **TipSweep** (cs.LG/cs.CL, November 2026) exploits a regularity: the optimal learning rate **transfers predictably across the number of trainable transformer blocks k**. You search on the last block or two, then extrapolate to full-depth training with a precision-aware scaling rule.

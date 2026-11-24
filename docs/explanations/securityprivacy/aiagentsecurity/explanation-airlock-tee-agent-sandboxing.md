@@ -14,6 +14,9 @@ keywords:
 ---
 # Airlock: Robust Sandboxing and Governance of Rogue Agents
 
+**Authors:** Sina Abdollahi, Amir Al Sadi, Marios Kogias, Hamed Haddadi, Adrien Ghosn, Antoine Delignat-Lavaud, Manuel Costa, Mark Russinovich.
+
+
 ## Overview
 
 Airlock (cs.CR, November 2026) is an architecture for containing AI agents that treats the agent itself as the adversary. Motivated by real incident reviews in which "determined agents" escaped processes, containers, and even VMs — and then disabled monitoring or tampered with logs to hide what they did — it moves the entire security boundary *outside* anything the agent (or its host) can reach. Each agent VM is paired with a dedicated **Airlock VM**, and the two run in **separate hardware-isolated Trusted Execution Environments (TEEs)**. The Airlock VM becomes the sole mediator of every external interaction: network, storage, credentials, and audit.
