@@ -15,6 +15,8 @@ keywords:
 ---
 # Conartist: Adaptive Agentic Red-Teaming of Computer-Using Agents against Multi-Step Prompt Injection
 
+**Authors:** Jiaqi Rong, Yunchen Lu, Lihai Nie, Yan Jia, Tong Li, Zheli Liu
+
 ## Overview
 Agent harnesses protect computer-using agents (CUAs) with two core mechanisms: **consistency checking** (the agent must not deviate from the user's legitimate objective) and **risk auditing** (high-risk operations are proactively examined). Conartist shows both are exploitable — consistency checks can be bypassed by making malicious actions *look logically consistent* with the task, and the auditing process itself introduces new exploitable actions. The paper turns this into a **cascaded adaptive prompt-injection** red-teaming procedure.
 

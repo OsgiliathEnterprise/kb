@@ -15,6 +15,8 @@ keywords:
 ---
 # HiPerfCC-KVCache: Accelerating Confidential LLM Serving with Hierarchical KV Caching
 
+**Authors:** Haoxuan Xu, Shaoyu Wang, Minghao Lin, Beijie Liu, Potung Yu, Yongqin Wang, Vincent Quentin Ulitzsch, Seo Jin Park, Murali Annavaram, Mengyuan Li
+
 ## Overview
 Hierarchical KV caching — keeping reusable KV state in host memory to skip repeated prefill — loses most of its benefit once GPUs run in confidential-computing (CC) mode. This paper pinpoints why: **bulk KV copies hold driver locks during prolonged CPU-side processing**, stalling independent serving operations even when they live in separate threads and CUDA streams. HiPerfCC-KVCache is a set of system-level fixes in SGLang that restores most of the hierarchical-caching benefit under GPU-CC, with no hardware or driver changes.
 

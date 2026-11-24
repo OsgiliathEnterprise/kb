@@ -15,6 +15,8 @@ keywords:
 ---
 # When Does Decomposition Help? Empirical Study on Workload-Architecture Affinity in LLM Inference Serving
 
+**Authors:** Jihui Yang, Wentai Wu, Jiahua Huang, Weiwei Lin, Ligang He, Linghong Tsang
+
 ## Overview
 LLM inference can be organized three ways: independent **monolithic replicas**, tensor/pipeline-**parallel groups**, or **disaggregated prefill/decode** services. Decomposition is usually sold as the efficient option; this study isolates its effect under a fully controlled envelope and finds it is **not a monotonic optimization** — value depends on matching parallelism granularity to the dominant phase while preserving queue stability. The paper coins the term **workload-architecture affinity** for this regime dependence.
 

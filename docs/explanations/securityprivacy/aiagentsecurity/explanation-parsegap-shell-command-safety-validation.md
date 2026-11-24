@@ -14,6 +14,8 @@ keywords:
 ---
 # ParseGap: Testing What Coding Agents Authorize and What Shells Execute
 
+**Authors:** Jieyu Li
+
 ## Overview
 LLM coding agents authorize shell commands by **parsing the command string against a policy**, then handing the **raw string** to a system shell. The gate and the executor are two different interpreters — and ParseGap proves they disagree. It is a differential-testing framework that runs each command through an **unmodified vendor checker plus GNU Bash 5.2** in an isolated container, flagging a violation whenever a *policy-approved* command produces policy-violating runtime effects.
 

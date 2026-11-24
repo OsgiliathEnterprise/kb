@@ -14,6 +14,8 @@ keywords:
 ---
 # What Makes Good Data for Training Coding Agents? A Systematic Study on SWE-Gym
 
+**Authors:** Yikai Zhang, Mai Xu, Yunbei Zhang, Qirui Jin, Kenan Li, Yuwen Jia, Jinwei Yao, Xiangyu Zhang, Jielun Tan, Jin Pan, Zijian Jin, Xiao Sun
+
 ## Overview
 RL for coding agents uses hidden tests as the reward — but task collections typically validate those tests only against the *reference* fix. This paper audits **SWE-Gym** with two LLM families (a suspected label error counts only if **execution reproduces it**) and finds the reward labels themselves are badly broken: a task's pass rate tells you it *yields* reward, not that the reward is *right*. Released artifact: **SWE-Gym-Verified, 1,087 audited tasks**, every verdict with its executed evidence, plus training sets and the full audit pipeline.
 

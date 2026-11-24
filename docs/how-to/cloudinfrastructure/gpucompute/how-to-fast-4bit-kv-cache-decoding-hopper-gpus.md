@@ -15,6 +15,8 @@ keywords:
 ---
 # Fast 4-bit KV-Cache Decoding on Hopper GPUs: Why Existing Kernels Are Slow and How to Fix Them
 
+**Authors:** Jian Zhang
+
 ## Overview
 A 4-bit KV cache reads about **half the bytes of FP8** — but Hopper has no FP4 hardware, and it offers little instruction-issue capacity per byte of memory bandwidth, so 4-bit values must be decoded in software, and the decoding swamps the savings. The paper diagnoses why existing 4-bit KV decode kernels are *slower than FP8*, then presents a Hopper-native kernel that restores (and exceeds) FP8 decode speed inside vLLM.
 

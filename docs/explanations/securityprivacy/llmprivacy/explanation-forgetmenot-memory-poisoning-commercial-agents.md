@@ -14,6 +14,8 @@ keywords:
 ---
 # FORGETMENOT: Auditing Memory Driven Privacy Risks in Commercial AI Agents
 
+**Authors:** Ismat Jarin, Tu Le, Athina Markopoulou
+
 ## Overview
 Commercial AI agents increasingly rely on long-term memory — both a persistent memory store and the chat history — to personalize answers. FORGETMENOT is an **auditing framework** that measures the privacy risks of that memory across four dimensions nobody had measured together on production systems: **storage** (what gets remembered), **disclosure** (what leaks out), **transparency** (what the user can see), and **deletion control** (whether forget actually means forget). It is the first large-scale empirical audit of memory behaviour in commercial agents.
 

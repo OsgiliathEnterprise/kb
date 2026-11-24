@@ -15,6 +15,8 @@ keywords:
 ---
 # Adaptation or Poisoning? Security Risks of Conversational Test-Time Learning in Large Language Models
 
+**Authors:** Honghao Feng, Shanhan Qu, Kai Tong, Shuquan Man, Huiping Zhuang
+
 ## Overview
 Test-time learning (TTL) lets an LLM adapt during deployment: a **lightweight adapter** is updated by minimizing next-token prediction loss on the inputs it receives. When those updates **persist across conversation turns**, every user query plays a double role — the request answered this turn *and* training data for later turns. The paper shows an attacker who controls the query stream can steer the adapter's parameter updates and **weaken safety alignment through ordinary chat**, and demonstrates it with **P-TAP** (Progressive Test-Time Adaptation Poisoning).
 
