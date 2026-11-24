@@ -256,6 +256,12 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Objectstorage',
+          link: {type: 'generated-index', title: 'Objectstorage', slug: 'how-to/cloudinfrastructure/objectstorage'},
+          items: ['how-to/cloudinfrastructure/objectstorage/howto-asterisk-call-recording-storage-retention-encryption'],
+        },
+        {
+          type: 'category',
           label: 'Streaming',
           link: {type: 'generated-index', title: 'Streaming', slug: 'how-to/cloudinfrastructure/streaming'},
           items: ['how-to/cloudinfrastructure/streaming/howto-stream-llm-tokens-kinesis-lambda-sse'],
@@ -336,7 +342,7 @@ const sidebars = {
           type: 'category',
           label: 'Linux',
           link: {type: 'generated-index', title: 'Linux', slug: 'how-to/programming/linux'},
-          items: ['how-to/programming/linux/howto-fstab-instead-of-autofs-for-samba-share', 'how-to/programming/linux/howto-packaging-python-gui-app-as-flatpak', 'how-to/programming/linux/howto-swap-zram-zswap-hibernate-nixos', 'how-to/programming/linux/howto-transfer-files-over-an-ethernet-patch-cable'],
+          items: ['how-to/programming/linux/howto-fstab-instead-of-autofs-for-samba-share', 'how-to/programming/linux/howto-packaging-python-gui-app-as-flatpak', 'how-to/programming/linux/howto-replace-docker-coolify-with-systemd-low-ram', 'how-to/programming/linux/howto-swap-zram-zswap-hibernate-nixos', 'how-to/programming/linux/howto-transfer-files-over-an-ethernet-patch-cable'],
         },
         {
           type: 'category',
@@ -372,7 +378,7 @@ const sidebars = {
           type: 'category',
           label: 'Webscraping',
           link: {type: 'generated-index', title: 'Webscraping', slug: 'how-to/programming/webscraping'},
-          items: ['how-to/programming/webscraping/howto-scrape-telegram-channel-history-before-parameter', 'how-to/programming/webscraping/howto-ytdlp-youtube-live-stream-recording'],
+          items: ['how-to/programming/webscraping/howto-scrape-telegram-channel-history-before-parameter', 'how-to/programming/webscraping/howto-wayback-machine-content-recovery-cdx', 'how-to/programming/webscraping/howto-ytdlp-youtube-live-stream-recording'],
         },
         {
           type: 'category',
@@ -620,7 +626,7 @@ const sidebars = {
           type: 'category',
           label: 'Resourceoptimization',
           link: {type: 'generated-index', title: 'Resourceoptimization', slug: 'explanations/aimachinelearning/resourceoptimization'},
-          items: ['explanations/aimachinelearning/resourceoptimization/explanation-concept-normalized-reasoning-codes-token-efficiency', 'explanations/aimachinelearning/resourceoptimization/explanation-llm-cost-optimization-agent-fleets', 'explanations/aimachinelearning/resourceoptimization/reference-agentcore-environment-reservation'],
+          items: ['explanations/aimachinelearning/resourceoptimization/explanation-concept-normalized-reasoning-codes-token-efficiency', 'explanations/aimachinelearning/resourceoptimization/explanation-llm-cost-optimization-agent-fleets', 'explanations/aimachinelearning/resourceoptimization/explanation-nariq-trellis-ptq-low-bit-gguf', 'explanations/aimachinelearning/resourceoptimization/reference-agentcore-environment-reservation'],
         },
         {
           type: 'category',

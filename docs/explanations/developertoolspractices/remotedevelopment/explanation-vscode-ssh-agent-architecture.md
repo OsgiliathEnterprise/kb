@@ -50,8 +50,17 @@ The motivating use case: LLM agents close a loop (generate code → run → read
 
 ![Diagram 1 — explanation-vscode-ssh-agent-architecture](explanation-vscode-ssh-agent-architecture-excalidraw-1.svg)
 
+## Official VS Code Server docs: the same agent, productized (added 2026-11-24)
+
+Microsoft's [VS Code Server docs](https://github.com/microsoft/vscode-docs/blob/main/docs/remote/vscode-server.md) (approved 2026-11-18) make the Fly.io post's observations official architecture:
+
+- The Remote-SSH/WSL/dev-container extensions **install a server on the remote environment**; local VS Code is then just a client of that server. A standalone **"VS Code Server"** service now ships off *the same underlying server*, adding an interactive CLI and secure tunneling to vscode.dev — **without requiring SSH at all** (`code tunnel`, verbose logging via `code -v tunnel`).
+- Corollary for the security argument: the agent footprint is not a Remote-SSH quirk you can avoid by choosing a different transport — it is the product's core design. Any remote-extension workflow, SSH or tunnel-based, lands the same server binary on the target; the standalone server makes it trivially reachable on machines where you *didn't* consciously authorize an SSH-based editor session.
+- Troubleshooting/audit anchor: server install and connection issues are tracked in the [vscode-remote-release repo](https://github.com/microsoft/vscode-remote-release/issues) (`code-server` label) — a good place to inventory known agent behaviours before trusting it on shared hosts.
+
 ## References
 
 - [VSCode's SSH Agent Is Bananas — Fly.io blog (Thomas Ptacek)](https://fly.io/blog/vscode-ssh-wtf/)
+- [Microsoft: VS Code Server documentation](https://github.com/microsoft/vscode-docs/blob/main/docs/remote/vscode-server.md)
 - [Emacs Tramp](https://www.gnu.org/software/tramp/)
 - [Suspected VSCode server node source](https://github.com/microsoft/vscode/tree/c9e7e1b72f80b12ffc00e06153afcfedba9ec31f/src/vs/server/node)

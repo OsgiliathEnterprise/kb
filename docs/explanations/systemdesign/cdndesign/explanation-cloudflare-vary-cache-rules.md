@@ -66,6 +66,17 @@ Recommended post-rollout test: send the same URL with different header values th
 - **2023+**: [Availability Hints](https://dattingham.net) draft (Nottingham): each negotiation mechanism conveys the *set of available representations* along its axis, giving caches a shortcut to scanning every stored response; also useful for reducing `Accept-Language` fingerprinting risk.
 - **CDN practice** ([audit war story](https://www.cdnworld.com/article/vary-header-cache-keys)): a retailer's product pages ran an inherited `Vary: User-Agent`, yielding an 11% effective hit ratio on their most expensive pages; replacing it with edge-side device bucketing into two classes (varying on one computed header) took the ratio past 90% within a day and cut origin compute by a third. The arithmetic rule of thumb: *effective object count = objects × cardinality of every varied header* — which is why quarterly inspection of top-100 URLs' cache keys is cheap insurance.
 
+## Official docs addendum: cache-key mechanics, purge behaviour, Workers (added 2026-11-24)
+
+Cloudflare's [Vary cache concept page](https://developers.cloudflare.com/cache/concepts/vary/) confirms and sharpens the blog post:
+
+- **Cache keys follow RFC 9111.** By default the CDN builds cache keys from the URL plus a handful of specific headers (Cache Rules can add more at request time); `Vary` inverts control — the *origin response* decides which request headers join the cache key when the response arrives. The origin response must actually include `Vary`; a configured Cache Rule alone does not make responses vary.
+- **Normalization example:** with `accept-language` set to `normalize`, `Accept-Language: en-US, fr;q=0.8` and `fr;q=0.8, en-GB` both reduce to `en,fr` and share one cached version; `fr, en;q=0.8` normalizes differently and gets its own version.
+- **Generic-header normalization is deliberately conservative:** for headers other than the `Accept-*` trio, Cloudflare only combines multiple field lines (comma-joined, in order received) and trims optional whitespace — values are *not* reordered, lowercased, or deduplicated, because order/content of an arbitrary header may be significant.
+- **Purge behaviour:** purging a URL purges *all* cached variants at once (by URL, tag, hostname, prefix, or everything) — no need to purge per `Vary` value. Crucially, **changing your Vary configuration does not purge**: new keys mean requests miss and refill until old entries expire or are manually purged.
+- **Workers:** subrequests can opt in via the [`cf.vary` request property](https://developers.cloudflare.com/workers/runtime-apis/request/#the-cfvary-property) rather than a Cache Rule.
+- Not to be confused with **"Vary for images"**, a separate cache-variants rule that serves image format variants off `Accept`.
+
 ## Diagram: fragmentation vs normalization
 
 ![Diagram 1 — explanation-cloudflare-vary-cache-rules](explanation-cloudflare-vary-cache-rules-excalidraw-1.svg)
@@ -80,6 +91,7 @@ Recommended post-rollout test: send the same URL with different header values th
 ## References
 
 - [Cloudflare: We just shipped support for the ugliest part of HTTP: Vary](https://blog.cloudflare.com/vary-support/)
+- [Cloudflare Docs: Vary concept (cache keys, actions, purge)](https://developers.cloudflare.com/cache/concepts/vary/)
 - [Mark Nottingham: Linting the Web (Vary analysis)](https://mnot.net/blog/2026/linting_the_web)
 - [IETF http-wg: Vary and Availability Hints discussion](https://lists.w3.org/Archives/Public/ietf-http-wg/2025AprJun/0211.html)
 - [HTTP Representation Variants draft (draft-ietf-httpbis-variants)](https://greenbytes.de/tech/webdav/draft-ietf-httpbis-variants-latest.html)

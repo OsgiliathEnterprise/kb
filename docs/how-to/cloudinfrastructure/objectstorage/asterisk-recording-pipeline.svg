@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 -4.0 968.0 419.2" width="968" height="419">
+<rect x="16.0" y="-4.0" width="968.0" height="419.2" fill="#ffffff"/>
+<rect x="40.0" y="80.0" width="200.0" height="100.0" rx="8" fill="#d0bfff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="280.0" y="80.0" width="200.0" height="100.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="520.0" y="80.0" width="200.0" height="100.0" rx="8" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="760.0" y="80.0" width="200.0" height="100.0" rx="8" fill="#ffe066" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="760.0" y="220.0" width="200.0" height="100.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="520.0" y="220.0" width="200.0" height="100.0" rx="8" fill="#d0bfff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="280.0" y="220.0" width="200.0" height="100.0" rx="8" fill="#ffd8a8" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 240.0 130.0 L 280.0 130.0"/><line x1="280.0" y1="130.0" x2="267.4" y2="123.9"/><line x1="280.0" y1="130.0" x2="267.4" y2="136.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 480.0 130.0 L 520.0 130.0"/><line x1="520.0" y1="130.0" x2="507.4" y2="123.9"/><line x1="520.0" y1="130.0" x2="507.4" y2="136.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 720.0 130.0 L 760.0 130.0"/><line x1="760.0" y1="130.0" x2="747.4" y2="123.9"/><line x1="760.0" y1="130.0" x2="747.4" y2="136.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 860.0 180.0 L 860.0 220.0"/><line x1="860.0" y1="220.0" x2="866.1" y2="207.4"/><line x1="860.0" y1="220.0" x2="853.9" y2="207.4"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 760.0 270.0 L 720.0 270.0"/><line x1="720.0" y1="270.0" x2="732.6" y2="276.1"/><line x1="720.0" y1="270.0" x2="732.6" y2="263.9"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="18" fill="#1971c2" text-anchor="start"><tspan x="40.0" y="34.4">Asterisk call recording: record local -&gt; compress -&gt; encrypt -&gt; ship -&gt; index</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="54.0" y="118.4">Call + MixMonitor</tspan><tspan x="54.0" y="134.7">b option, UNIQUEID</tspan><tspan x="54.0" y="150.9">.wav to local spool</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="294.0" y="118.4">rec-post.sh</tspan><tspan x="294.0" y="134.7">ffmpeg -&gt; Opus 16k</tspan><tspan x="294.0" y="150.9">age -r recipient.pub</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="534.0" y="118.4">aws s3 cp</tspan><tspan x="534.0" y="134.7">s3://callrec-prod</tspan><tspan x="534.0" y="150.9">recordings/YYYY/MM/DD</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="774.0" y="118.4">MySQL index</tspan><tspan x="774.0" y="134.7">uniqueid -&gt;</tspan><tspan x="774.0" y="150.9">object_key</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="774.0" y="258.4">S3 lifecycle rule</tspan><tspan x="774.0" y="274.6">delete after N days</tspan><tspan x="774.0" y="290.9">Object Lock = legal hold</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="534.0" y="258.4">Playback service</tspan><tspan x="534.0" y="274.6">role check + audit</tspan><tspan x="534.0" y="290.9">decrypt -&gt; signed URL</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="294.0" y="258.4">Retry cron (10 min)</tspan><tspan x="294.0" y="274.6">old .wav in spool</tspan><tspan x="294.0" y="290.9">=&gt; alert</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#495057" text-anchor="start"><tspan x="40.0" y="360.4">Private age key lives ONLY on the playback service; PBX holds public recipient only.</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#495057" text-anchor="start"><tspan x="40.0" y="385.4">Delete local WAV only after upload AND DB insert succeed (set -e leaves file for retry).</tspan></text>
+</svg>

@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 -4.0 858.0 494.2" width="858" height="494">
+<rect x="16.0" y="-4.0" width="858.0" height="494.2" fill="#ffffff"/>
+<rect x="120.0" y="90.0" width="70.0" height="36.0" rx="8" fill="#d0bfff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="120.0" y="160.0" width="70.0" height="36.0" rx="8" fill="#d0bfff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="120.0" y="230.0" width="70.0" height="36.0" rx="8" fill="#d0bfff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="120.0" y="300.0" width="70.0" height="36.0" rx="8" fill="#d0bfff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="340.0" y="90.0" width="70.0" height="36.0" rx="8" fill="#e9ecef" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="340.0" y="160.0" width="70.0" height="36.0" rx="8" fill="#e9ecef" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="340.0" y="230.0" width="70.0" height="36.0" rx="8" fill="#e9ecef" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="340.0" y="300.0" width="70.0" height="36.0" rx="8" fill="#e9ecef" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="560.0" y="90.0" width="70.0" height="36.0" rx="8" fill="#e9ecef" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="560.0" y="160.0" width="70.0" height="36.0" rx="8" fill="#e9ecef" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="560.0" y="230.0" width="70.0" height="36.0" rx="8" fill="#e9ecef" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="560.0" y="300.0" width="70.0" height="36.0" rx="8" fill="#e9ecef" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="780.0" y="90.0" width="70.0" height="36.0" rx="8" fill="#d0bfff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="780.0" y="160.0" width="70.0" height="36.0" rx="8" fill="#d0bfff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="780.0" y="230.0" width="70.0" height="36.0" rx="8" fill="#d0bfff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="780.0" y="300.0" width="70.0" height="36.0" rx="8" fill="#d0bfff" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#adb5bd" stroke-width="1.5" fill="none"><path d="M 190.0 108.0 L 340.0 108.0"/><line x1="340.0" y1="108.0" x2="327.4" y2="101.9"/><line x1="340.0" y1="108.0" x2="327.4" y2="114.1"/></g>
+<g stroke="#adb5bd" stroke-width="1.5" fill="none"><path d="M 190.0 178.0 L 340.0 248.0"/><line x1="340.0" y1="248.0" x2="331.2" y2="237.1"/><line x1="340.0" y1="248.0" x2="326.0" y2="248.2"/></g>
+<g stroke="#adb5bd" stroke-width="1.5" fill="none"><path d="M 190.0 248.0 L 340.0 178.0"/><line x1="340.0" y1="178.0" x2="326.0" y2="177.8"/><line x1="340.0" y1="178.0" x2="331.2" y2="188.9"/></g>
+<g stroke="#adb5bd" stroke-width="1.5" fill="none"><path d="M 190.0 318.0 L 340.0 318.0"/><line x1="340.0" y1="318.0" x2="327.4" y2="311.9"/><line x1="340.0" y1="318.0" x2="327.4" y2="324.1"/></g>
+<g stroke="#adb5bd" stroke-width="1.5" fill="none"><path d="M 410.0 108.0 L 560.0 178.0"/><line x1="560.0" y1="178.0" x2="551.2" y2="167.1"/><line x1="560.0" y1="178.0" x2="546.0" y2="178.2"/></g>
+<g stroke="#adb5bd" stroke-width="1.5" fill="none"><path d="M 410.0 248.0 L 560.0 108.0"/><line x1="560.0" y1="108.0" x2="546.6" y2="112.1"/><line x1="560.0" y1="108.0" x2="555.0" y2="121.1"/></g>
+<g stroke="#adb5bd" stroke-width="1.5" fill="none"><path d="M 410.0 178.0 L 560.0 318.0"/><line x1="560.0" y1="318.0" x2="555.0" y2="304.9"/><line x1="560.0" y1="318.0" x2="546.6" y2="313.9"/></g>
+<g stroke="#adb5bd" stroke-width="1.5" fill="none"><path d="M 410.0 318.0 L 560.0 248.0"/><line x1="560.0" y1="248.0" x2="546.0" y2="247.8"/><line x1="560.0" y1="248.0" x2="551.2" y2="258.9"/></g>
+<g stroke="#adb5bd" stroke-width="1.5" fill="none"><path d="M 630.0 178.0 L 780.0 178.0"/><line x1="780.0" y1="178.0" x2="767.4" y2="171.9"/><line x1="780.0" y1="178.0" x2="767.4" y2="184.1"/></g>
+<g stroke="#adb5bd" stroke-width="1.5" fill="none"><path d="M 630.0 108.0 L 780.0 248.0"/><line x1="780.0" y1="248.0" x2="775.0" y2="234.9"/><line x1="780.0" y1="248.0" x2="766.6" y2="243.9"/></g>
+<g stroke="#adb5bd" stroke-width="1.5" fill="none"><path d="M 630.0 318.0 L 780.0 108.0"/><line x1="780.0" y1="108.0" x2="767.7" y2="114.7"/><line x1="780.0" y1="108.0" x2="777.7" y2="121.8"/></g>
+<g stroke="#adb5bd" stroke-width="1.5" fill="none"><path d="M 630.0 248.0 L 780.0 318.0"/><line x1="780.0" y1="318.0" x2="771.2" y2="307.1"/><line x1="780.0" y1="318.0" x2="766.0" y2="318.2"/></g>
+<g stroke="#e03131" stroke-width="1.5" fill="none"><path d="M 190.0 108.0 L 340.0 108.0"/><line x1="340.0" y1="108.0" x2="327.4" y2="101.9"/><line x1="340.0" y1="108.0" x2="327.4" y2="114.1"/></g>
+<g stroke="#e03131" stroke-width="1.5" fill="none"><path d="M 410.0 108.0 L 560.0 178.0"/><line x1="560.0" y1="178.0" x2="551.2" y2="167.1"/><line x1="560.0" y1="178.0" x2="546.0" y2="178.2"/></g>
+<g stroke="#e03131" stroke-width="1.5" fill="none"><path d="M 630.0 178.0 L 780.0 178.0"/><line x1="780.0" y1="178.0" x2="767.4" y2="171.9"/><line x1="780.0" y1="178.0" x2="767.4" y2="184.1"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="18" fill="#1971c2" text-anchor="start"><tspan x="40.0" y="34.4">Trellis-coded quantization: weights encoded as a path through a state trellis</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="134.0" y="109.6">state 0</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="134.0" y="179.6">state 1</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="134.0" y="249.6">state 2</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="134.0" y="319.6">state 3</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="354.0" y="109.6">state 0</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="354.0" y="179.6">state 1</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="354.0" y="249.6">state 2</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="354.0" y="319.6">state 3</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="574.0" y="109.6">state 0</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="574.0" y="179.6">state 1</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="574.0" y="249.6">state 2</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="574.0" y="319.6">state 3</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="794.0" y="109.6">state 0</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="794.0" y="179.6">state 1</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="794.0" y="249.6">state 2</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="794.0" y="319.6">state 3</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#495057" text-anchor="start"><tspan x="40.0" y="410.4">Each transition label = codeword from a shared codebook; a long weight sequence = one trellis path.</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#495057" text-anchor="start"><tspan x="40.0" y="435.4">Viterbi search minimizes reconstruction error globally (not per block) -&gt; near rate-distortion at 2-3 bits/w.</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#495057" text-anchor="start"><tspan x="40.0" y="460.4">NariQ = trellis PTQ calibrated on real coding-agent traces; needs the nari llama.cpp fork (new tensor types).</tspan></text>
+</svg>
