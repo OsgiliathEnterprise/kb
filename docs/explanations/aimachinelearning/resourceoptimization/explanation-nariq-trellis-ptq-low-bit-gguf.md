@@ -29,7 +29,7 @@ picks a state transition whose label is a codeword from a shared codebook, so a 
 sequence is encoded as a sequence of transitions. This achieves much higher effective
 dimensionality per bit — approaching rate-distortion limits at 2–3 bits — where independent block
 quantizers degrade sharply. QTIP established this as the state-of-the-art 2-bit PTQ frontier;
-NariQ applies it to a modern MoE-era model with agent-trace calibration.
+NariQ applies it to a modern dense hybrid-attention model (Qwen3.8-27B) with agent-trace calibration.
 
 ## The benchmark pattern that matters
 
@@ -61,13 +61,19 @@ Three conceptual takeaways:
 - **Requires a NariQ-aware runtime**: the nari-labs llama.cpp fork. Stock llama.cpp, Ollama and LM
   Studio cannot load the new tensor types yet.
 - Fork performance is focused on **SM120 (RTX PRO 6000/Blackwell)**; Ampere/Ada/Hopper and Apple
-  M-series are slower than comparable GGUFs; pre-Ampere falls back to CPU; AMD/Intel unsupported.
+  M-series are slower than comparable GGUFs (M-series needs a source build — ~3.8 tok/s 3-bit on
+  an M3 Pro 18 GB); pre-Ampere falls back to CPU; AMD/Intel unsupported. Tested GPUs: RTX PRO 6000,
+  H100, L4, A10 (GeForce untested).
 - **Vision tower stays BF16** (separate 0.93 GB mmproj); MTP module not yet quantized.
 - **KV cache and activations remain BF16** — quantizing those is the stated next step, which is
   what would let long contexts fit on 16 GB consumer GPUs (cf. the BF16-KV cache work in
   [Fast 4-bit KV-cache decoding](../../../how-to/cloudinfrastructure/gpucompute/how-to-fast-4bit-kv-cache-decoding-hopper-gpus.md)).
 - Decode speed (RTX PRO 6000, 512 greedy tokens): 3-bit ≈ 88.9 tok/s @4K down to 70.7 @64K;
-  2-bit ≈ 111.7 @4K — faster than the similarly sized Unsloth UD-IQ3_XXS on the same GPU.
+  2.5-bit ≈ 99.2 @4K; 2-bit ≈ 111.7 @4K. The size-matched third-party baseline is Unsloth's
+  UD-IQ3_XXS (10.9 GB) at 94.7 tok/s @4K — so at like-for-like ~10 GB size, NariQ 3-bit decodes
+  *slower* than UD-IQ3_XXS; its speed advantage only appears at the smaller 2.5/2-bit files.
+  &lt;!-- zookeeper 2026-11-24: corrected an earlier "2-bit faster than similarly sized UD-IQ3_XXS"
+       phrasing — the card's comparison pairs the 10.1 GB 3-bit file with the 10.9 GB UD-IQ3_XXS. -->
 
 ## Quickstart (from the model card)
 
