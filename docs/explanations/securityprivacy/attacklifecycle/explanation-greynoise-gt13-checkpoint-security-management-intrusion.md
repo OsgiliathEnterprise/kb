@@ -30,7 +30,7 @@ Rejetto HFS (CVE-2026-61500, PRNG session forgery)
 ```
 
 ### The HFS entry bug (CVE-2026-61500) — a predictable-PRNG lesson
-Each POST to HFS's `loginSrp1` endpoint returns a signed session cookie whose `sid` comes from **JavaScript `Math.random()`**. The actor did several consecutive logins, collected outputs, **reconstructed V8's PRNG internal state, recovered the cookie signing key, and forged a signed admin session cookie** — logging in as admin with no password. The forged cookie included `allow_session_ip_change:true`, so it worked from any IP (handy behind VPN egresses). Days later, middleware hooks were installed via HFS `server_code`, and an SSH key was appended to `/root/.ssh/authorized_keys`.
+Each POST to HFS's `loginSrp1` endpoint returns a signed session cookie whose `sid` comes from **JavaScript `Math.random()`**. The actor did several consecutive logins, collected outputs, **reconstructed V8's PRNG internal state, recovered the cookie signing key, and forged a signed admin session cookie** — logging in as admin with no password. The forged cookie included `allow_session_ip_change:true`, so it worked from any IP (handy behind VPN egresses). Days later, the actor used the same forged-cookie flow to install HFS **middleware hooks** issuing commands on the compromised server, and an SSH key was appended to `/root/.ssh/authorized_keys`. (The HFS `server_code` feature was used later, on Oct 19, to attempt downloading a "ZULT" implant — which failed.)
 
 ### The Check Point flaw (CVE-2026-16232)
 Advisory published **2026-07-22**: authentication bypass in the SmartConsole login process affecting **Security Management Server and Multi-Domain Server (MDS)** — an unauthenticated remote attacker obtains an application login token and authenticates **with full administrative privileges**. Public exploit chain (Metasploit module exists): forge an application certificate bind → mint and redeem an SSO ticket → submit a `run-script` command executing attacker payload. GT13 used a script adapted from that Metasploit module as its command channel into victim SMS hosts.
@@ -41,7 +41,7 @@ Advisory published **2026-07-22**: authentication bypass in the SmartConsole log
 | CVE-2026-61500 | Rejetto HFS | Initial access (PRNG cookie forgery) |
 | CVE-2026-16232 | Check Point SmartConsole | Auth bypass → Run Script RCE on SMS |
 | CVE-2026-98432 | Linux IPv4 | UAF; actor self-checked then patched its own hop with `nftables` rules dropping IPv4 packets with IP options |
-| CVE-2026-41089 / CVE-2020-1472 | Windows Netlogon | Privilege escalation attempts (DcShadow/Zerologon family) |
+| CVE-2026-41089 / CVE-2020-1472 | Windows Netlogon | Privilege escalation attempts (Netlogon elevation family; CVE-2020-1472 = Zerologon) |
 | CVE-2025-5777 / CVE-2023-4966 | Citrix NetScaler | Lateral probing |
 | CVE-2024-21893 | Ivanti Connect Secure | Lateral probing |
 | CVE-2021-26855 / 34473 | Microsoft Exchange | Lateral probing |

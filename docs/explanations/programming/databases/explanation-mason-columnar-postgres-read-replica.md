@@ -69,7 +69,7 @@ The pattern is the classic columnar trade-off: **fast for many rows × few colum
 - Use it to offload analytics/agent traffic from a primary that's being saturated by dashboards — without standing up a warehouse or a second Postgres.
 - Keep OLTP point queries on Postgres; route only analytical SQL to Mason.
 - For agent fleets, the per-agent user + RBAC + full query audit log is the differentiator vs a plain DuckDB sync: agents get read-scoped, row-limited, attributable access.
-- Evaluate honestly with your own data: methodology is published ([docs/MEASUREMENTS.md](https://github.com/embeddable-hq/mason-data/blob/main/docs/MEASUREMENTS.md)), but results depend on data size/distribution, and it's a young project (YC-adjacent, single-process, Node.js).
+- Evaluate honestly with your own data: methodology is published ([docs/MEASUREMENTS.md](https://github.com/embeddable-hq/mason-data/blob/main/docs/MEASUREMENTS.md)), but results depend on data size/distribution, and it's a young project (single-process, Node.js, by the Embeddable team).
 
 ## References
 
