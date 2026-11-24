@@ -54,6 +54,21 @@ Limitations:
 | `writev` throughput gains (Linux/Android) | partially done spring 2026; remainder after v1.104 |
 | Netmap caching | feature flag now; default in v1.104; mobile clients after v1.104 |
 
+## Rollout status — verified November 2026 (v1.104 shipped)
+
+The v1.104 series has shipped (security-fix releases through v1.104.4/v1.104.7 per the Tailscale changelog). Actual availability, confirmed against the v1.104 source (`ipn/ipnlocal/local.go`, `tailcfg/nodecap/nodecap.go`, `ipn/ipnlocal/netmapcache`):
+
+| Item | Status in v1.104 | Platforms |
+|---|---|---|
+| Small-packet shared buffer (no copy into private 64 KiB buffer) | **Shipped, automatic** — "WireGuard allocates a single packet buffer for batched I/O"; queue depth scales with CPU core count | Buffer change: Linux/Android; queue-depth scaling: all platforms |
+| Netmap caching | **Shipped in v1.104, opt-in**: activates only when the node is granted the `cache-network-maps` node attribute via the tailnet policy file; client env knob `TS_USE_CACHED_NETMAP` exists but defaults true (it can only disable, not force-enable). Docs state it will become default-on in a future release | Desktop (Linux/Windows/macOS); mobile not yet supported |
+| Multi-queue (subnet routers / app connectors / exit nodes) | **Not yet landed** — still "planned for a release after v1.104"; no flag or node attribute exists to enable it | n/a |
+| Remaining `writev` gains | After v1.104 (per official blog) | Linux/Android |
+
+Practical note: per-stream ordering is preserved in the planned multi-queue design by pinning each flow to one lane; until it lands, subnet routers and exit nodes still forward all flows through a single ordered, single-threaded pipeline regardless of core count.
+
+> **Audit note (2026-11-24):** an earlier enrichment stated netmap caching was "on by default" in v1.104 — corrected against the official docs ("Currently... opt-in. Nodes use the feature only when they are granted the `cache-network-maps` node attribute"; default-on is future work) and the v1.104 source, where activation requires `SelfHasCap(nodecap.CacheNetworkMaps)` and `TS_USE_CACHED_NETMAP` is only a default-true kill switch.
+
 ## Open problem: performance tooling
 
 Tailscale is exploring a Tailscale-aware monitoring/testing toolkit, motivated by four gaps in general-purpose tooling: **distribution tax** (point-to-point tools need installation on every endpoint), **rigid workflows** (easy to run the wrong test and chase a phantom problem), **protocol support** (QUIC/HTTP3 often missing), and **Tailscale-awareness** (can't tell DERP vs direct paths, whether a peer relay would help, or how the path changes over time).
@@ -65,5 +80,8 @@ Tailscale is exploring a Tailscale-aware monitoring/testing toolkit, motivated b
 ## References
 
 - [We're making Tailscale faster — Tailscale blog](https://tailscale.com/blog/making-tailscale-faster)
+- [Tailscale changelog (v1.104 rollout verification)](https://tailscale.com/changelog)
+- [Client-side netmap caching — official reference](https://tailscale.com/docs/reference/client-side-netmap-caching)
+- [Netmap caching: keeping Tailscale up on iffy connections](https://tailscale.com/blog/netmap-caching)
 - [Tailscale Peer Relays (beta)](https://tailscale.com/blog/peer-relays-beta)
 - [Linux writev man page](https://linux.die.net/man/2/writev)

@@ -99,6 +99,7 @@ Only compressed bitstream leaves for streaming; buffer handles, fences, CUDA dev
 ## References
 
 - [nestrilabs/virtio-nvgpu — GitHub repository](https://github.com/nestrilabs/virtio-nvgpu)
+- [virtio-nvgpu: Near-Native Nvidia GPU in KVM VMs — coverage confirming ~98% of bare-metal performance via driver-ioctl forwarding (Sep 2026)](https://imasters.com/news/open-source-project-gives-kvm-virtual-machines-near-native-nvidia-gpu-access)
 - [BENCHMARKS.md — measurement method and what the numbers do not support](https://github.com/nestrilabs/virtio-nvgpu/blob/dev/BENCHMARKS.md)
 - [ARCHITECTURE.md — how it works in prose](https://github.com/nestrilabs/virtio-nvgpu/blob/dev/ARCHITECTURE.md)
 - [chromeos/virtio-media — layout template (GPL driver beside VMM-agnostic Rust device crate)](https://chromium.googlesource.com/chromiumos/platform/virtio-media/)

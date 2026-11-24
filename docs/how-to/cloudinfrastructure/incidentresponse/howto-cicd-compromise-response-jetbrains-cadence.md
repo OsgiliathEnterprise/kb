@@ -72,6 +72,7 @@ The CVE behind this incident kept escalating after JetBrains' disclosure:
 ## References
 
 - [JetBrains told everyone to patch. It didn't patch itself. (The New Stack)](https://thenewstack.io/jetbrains-told-everyone-to-patch-it-didnt-patch-itself/)
+- [Security Incident Affecting JetBrains Cadence (official JetBrains post, Aug 2026)](https://blog.jetbrains.com/pycharm/2026/08/cadence-security-incident-august-2026/)
 - [CVE-2026-63077 — TeamCity On-Premises critical vulnerability disclosure](https://blog.jetbrains.com/teamcity/2026/07/cve-2026-63077/)
 - [CVE-2026-63077: Additional Guidance Following Reports of Active Exploitation (JetBrains, Aug 2026)](https://blog.jetbrains.com/teamcity/2026/08/cve-2026-63077-update/)
 - [CISA's TeamCity KEV Addition: A Three-Day Deadline (Cloud Security Alliance research note)](https://labs.cloudsecurityalliance.org/research/csa-research-note-teamcity-cve-2026-63077-kev-20260806-csa-s/)
