@@ -81,6 +81,35 @@ http_headers = { "CF-Access-Client-Id" = "abc", "CF-Access-Client-Secret" = "xyz
 1. Restart Codex and open a **new** chat session.
 2. Confirm traffic is flowing through the gateway in the LiteLLM dashboard logs (request entries appear there).
 
+## Optional: let Codex list the gateway's models (Codex CLI 0.159+)
+
+By default Codex never asks a custom provider which models it serves — the `/model` picker only shows Codex's built-in OpenAI models and a gateway-only alias like `my-coding-model` never appears. Two settings are needed **together** (either one alone changes nothing): `model_catalog_url` on the provider block plus `api_key_model_discovery` under `[features]`:
+
+```toml
+suppress_unstable_features_warning = true   # top level, before the first table
+
+[features]
+api_key_model_discovery = true
+
+[model_providers.litellm]
+name = "LiteLLM"
+base_url = "http://localhost:4000/v1"
+model_catalog_url = "http://localhost:4000/v1/models"
+env_key = "LITELLM_API_KEY"
+wire_api = "responses"
+request_max_retries = 4
+```
+
+How it works and what to expect (verified against LiteLLM's Codex CLI setup docs, 2026-11-24):
+
+- On startup Codex calls `GET /v1/models?client_version=<version>` with your virtual key; the gateway answers in Codex's own catalog format (top-level `models` key, not `data`).
+- The picker lists gateway chat models in `model_list` order, named by `model_info.display_name` when set, else `model_name`. Wildcard entries (`openai/*`) and non-chat models (embeddings) are excluded.
+- A model the gateway recognizes (by `model_name` or upstream `litellm_params.model`) keeps Codex's own metadata — reasoning levels, tool support, context window — under your alias; unknown models get fallback metadata (works, but no reasoning-effort choices).
+- Codex caches the catalog for **5 minutes** in `models_cache.json` under its home directory; gateway changes appear only after that cache expires.
+- Debugging: `curl <base_url>/v1/models?client_version=0.159.3` with your key shows which side is at fault — a catalog-capable gateway responds with `models`, a plain one with `data`.
+- Per-run override without touching config: `codex --model gemini-3.1-pro-preview`.
+- Requests carry no end user by default (Codex sends none in the body); attribute per developer/project with LiteLLM tracking headers via `http_headers` / `env_http_headers` in the provider block.
+
 ## Known limitation: no mid-session model switching
 
 With a custom provider, Codex has **no UI for changing the model of an existing session** ([openai/codex#15364](https://github.com/openai/codex/issues/15364)). A session uses whatever `model` was in `config.toml` when the session was created. To use a different LiteLLM model: update `model` in `config.toml`, then start a new session.
