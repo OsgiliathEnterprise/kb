@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="36.0 -4.0 1128.0 583.0" width="1128" height="583">
+<rect x="36.0" y="-4.0" width="1128.0" height="583.0" fill="#ffffff"/>
+<rect x="60.0" y="120.0" width="180.0" height="80.0" rx="8" fill="input embedding" stroke="#e7f5ff" stroke-width="1.5"/>
+<rect x="320.0" y="120.0" width="240.0" height="140.0" rx="8" fill="per-token gates regulate
+residual-stream updates" stroke="#d0ebff" stroke-width="1.5"/>
+<rect x="320.0" y="330.0" width="240.0" height="140.0" rx="8" fill="same weights, extra depth
+no added parameters" stroke="#e5dbff" stroke-width="1.5"/>
+<rect x="650.0" y="330.0" width="220.0" height="140.0" rx="8" fill="fewer generated tokens:
+reasoning in the layers" stroke="#d3f9d8" stroke-width="1.5"/>
+<rect x="60.0" y="330.0" width="200.0" height="140.0" rx="8" fill="iter-1 cache shared;
+separate sliding window
+for pass 2; sparse attn
+indices reused" stroke="#fff3bf" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 240.0 160.0 L 320.0 160.0"/><line x1="320.0" y1="160.0" x2="307.4" y2="153.9"/><line x1="320.0" y1="160.0" x2="307.4" y2="166.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 440.0 260.0 L 440.0 330.0"/><line x1="440.0" y1="330.0" x2="446.1" y2="317.4"/><line x1="440.0" y1="330.0" x2="433.9" y2="317.4"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 560.0 400.0 L 650.0 400.0"/><line x1="650.0" y1="400.0" x2="637.4" y2="393.9"/><line x1="650.0" y1="400.0" x2="637.4" y2="406.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 260.0 400.0 L 320.0 400.0"/><line x1="320.0" y1="400.0" x2="307.4" y2="393.9"/><line x1="320.0" y1="400.0" x2="307.4" y2="406.1"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="24" fill="#1e1e1e" text-anchor="start"><tspan x="220.0" y="39.2">GLM-5.4 Loop Transformer: one 28-layer block, executed twice</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="18" fill="#1e1e1e" text-anchor="start"><tspan x="70.0" y="140.4">Tokens</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="18" fill="#1e1e1e" text-anchor="start"><tspan x="70.0" y="164.4">#1971c2</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="18" fill="#1e1e1e" text-anchor="start"><tspan x="330.0" y="170.4">Shared block: 28 layers</tspan><tspan x="330.0" y="192.9">(iteration 1)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="18" fill="#1e1e1e" text-anchor="start"><tspan x="330.0" y="194.4">#1971c2</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="18" fill="#1e1e1e" text-anchor="start"><tspan x="330.0" y="380.4">Shared block: 28 layers</tspan><tspan x="330.0" y="402.9">(iteration 2)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="18" fill="#1e1e1e" text-anchor="start"><tspan x="330.0" y="404.4">#6741d9</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="18" fill="#1e1e1e" text-anchor="start"><tspan x="660.0" y="380.4">Output head</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="18" fill="#1e1e1e" text-anchor="start"><tspan x="660.0" y="404.4">#2f9e44</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="18" fill="#1e1e1e" text-anchor="start"><tspan x="70.0" y="380.4">KV cache</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="18" fill="#1e1e1e" text-anchor="start"><tspan x="70.0" y="404.4">#f08c00</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="15" fill="#495057" text-anchor="start"><tspan x="60.0" y="152.0">1M-token context kept affordable</tspan><tspan x="60.0" y="170.8">by KV sharing + fused kernels</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#495057" text-anchor="start"><tspan x="320.0" y="522.8">Claim: 750B looped params rival 2-3T conventional params (full benchmarks not yet published)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#495057" text-anchor="start"><tspan x="320.0" y="547.8">30B results: better math/science/long-context vs same-size transformer at ~10% more train compute</tspan></text>
+</svg>

@@ -572,7 +572,7 @@ const sidebars = {
           type: 'category',
           label: 'Dlarchitectures',
           link: {type: 'generated-index', title: 'Dlarchitectures', slug: 'explanations/aimachinelearning/dlarchitectures'},
-          items: ['explanations/aimachinelearning/dlarchitectures/explanation-glide-distilled-calibrated-decision-models', 'explanations/aimachinelearning/dlarchitectures/explanation-hisa-hidden-dimension-sparse-attention-rope', 'explanations/aimachinelearning/dlarchitectures/explanation-latent-lattice-language-models', 'explanations/aimachinelearning/dlarchitectures/explanation-memonce-scalable-llm-memory-architecture', 'explanations/aimachinelearning/dlarchitectures/explanation-positional-embeddings-rope-nope-modern-llms', 'explanations/aimachinelearning/dlarchitectures/explanation-thot-topology-hub-optimal-transport-long-context', 'explanations/aimachinelearning/dlarchitectures/explanation-zero-gradient-circuit-grafting', 'explanations/aimachinelearning/dlarchitectures/reference-beam-moe-agentic-coding-model'],
+          items: ['explanations/aimachinelearning/dlarchitectures/explanation-glide-distilled-calibrated-decision-models', 'explanations/aimachinelearning/dlarchitectures/explanation-glm-5-4-loop-transformer', 'explanations/aimachinelearning/dlarchitectures/explanation-hisa-hidden-dimension-sparse-attention-rope', 'explanations/aimachinelearning/dlarchitectures/explanation-latent-lattice-language-models', 'explanations/aimachinelearning/dlarchitectures/explanation-memonce-scalable-llm-memory-architecture', 'explanations/aimachinelearning/dlarchitectures/explanation-positional-embeddings-rope-nope-modern-llms', 'explanations/aimachinelearning/dlarchitectures/explanation-thot-topology-hub-optimal-transport-long-context', 'explanations/aimachinelearning/dlarchitectures/explanation-zero-gradient-circuit-grafting', 'explanations/aimachinelearning/dlarchitectures/reference-beam-moe-agentic-coding-model'],
         },
         {
           type: 'category',
@@ -740,7 +740,7 @@ const sidebars = {
           type: 'category',
           label: 'Kubernetes',
           link: {type: 'generated-index', title: 'Kubernetes', slug: 'explanations/cloudinfrastructure/kubernetes'},
-          items: ['explanations/cloudinfrastructure/kubernetes/explanation-gvisor-cncf-donation-agent-sandbox', 'explanations/cloudinfrastructure/kubernetes/explanation-ineffective-occupancy-gpu-clusters', 'explanations/cloudinfrastructure/kubernetes/explanation-k8s-control-plane-scale-failure-modes', 'explanations/cloudinfrastructure/kubernetes/explanation-k8s-device-management-dra', 'explanations/cloudinfrastructure/kubernetes/explanation-k8s-v1-37-pod-certificates-cluster-trust-bundles', 'explanations/cloudinfrastructure/kubernetes/explanation-k8s-v1-37-pvc-last-used-time', 'explanations/cloudinfrastructure/kubernetes/explanation-securing-kubernetes-ai-agent-workloads', 'explanations/cloudinfrastructure/kubernetes/reference-scalebench-kubernetes-autoscaling-platform'],
+          items: ['explanations/cloudinfrastructure/kubernetes/explanation-gvisor-cncf-donation-agent-sandbox', 'explanations/cloudinfrastructure/kubernetes/explanation-ineffective-occupancy-gpu-clusters', 'explanations/cloudinfrastructure/kubernetes/explanation-k8s-control-plane-scale-failure-modes', 'explanations/cloudinfrastructure/kubernetes/explanation-k8s-device-management-dra', 'explanations/cloudinfrastructure/kubernetes/explanation-k8s-v1-37-pod-certificates-cluster-trust-bundles', 'explanations/cloudinfrastructure/kubernetes/explanation-k8s-v1-37-pvc-last-used-time', 'explanations/cloudinfrastructure/kubernetes/explanation-k8s-v1-38-sneak-peek-breaking-changes', 'explanations/cloudinfrastructure/kubernetes/explanation-securing-kubernetes-ai-agent-workloads', 'explanations/cloudinfrastructure/kubernetes/reference-scalebench-kubernetes-autoscaling-platform'],
         },
         {
           type: 'category',
@@ -886,6 +886,7 @@ const sidebars = {
         'explanations/general/2026-11-21',
         'explanations/general/2026-11-22',
         'explanations/general/2026-11-23',
+        'explanations/general/2026-11-24',
         {
           type: 'category',
           label: 'Authorization',
@@ -1068,6 +1069,12 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Emailsecurity',
+          link: {type: 'generated-index', title: 'Emailsecurity', slug: 'explanations/securityprivacy/emailsecurity'},
+          items: ['explanations/securityprivacy/emailsecurity/explanation-stalwart-exchange-protocol-replacement'],
+        },
+        {
+          type: 'category',
           label: 'Fuzzing',
           link: {type: 'generated-index', title: 'Fuzzing', slug: 'explanations/securityprivacy/fuzzing'},
           items: ['explanations/securityprivacy/fuzzing/explanation-mlir-mracle-memory-model-fuzzing'],
@@ -1160,7 +1167,7 @@ const sidebars = {
           type: 'category',
           label: 'Vulnerabilitymanagement',
           link: {type: 'generated-index', title: 'Vulnerabilitymanagement', slug: 'explanations/securityprivacy/vulnerabilitymanagement'},
-          items: ['explanations/securityprivacy/vulnerabilitymanagement/explanation-cve-2026-91510-exposure-vs-compromise', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-ghes-prereceive-sandbox-escape-cve-2026-112740', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-ghostscript-upload2shell-cve-2026-125396', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-gpgme-double-free-cve-2026-129975', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-hardening-js-against-llm-vuln-detection', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-internet-exposure-measurement-server-header-recon', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-java4shell-openjdk-base64-rce', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-kvm-guest-to-host-escape-cve-2026-99312', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-machine-speed-vulnerability-discovery', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-nginx-http2-rce-cve-2026-123633-123007', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-openssl-evp-encodeblock-buffer-overflow-cve-2026-121481', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-procreverser-multi-agent-microarch-reverse-engineering', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-ruby-regexp-case-conversion-heap-overflows', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-sbind-behavioral-containment-1-day-detection', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-sok-llm-vuln-research-autonomy', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-synology-sa-26-21-dsm-oauth-cve-2026-120382', 'explanations/securityprivacy/vulnerabilitymanagement/reference-crossploit-cross-version-poc-migration-benchmark', 'explanations/securityprivacy/vulnerabilitymanagement/reference-cybergym-evaluation-reliability'],
+          items: ['explanations/securityprivacy/vulnerabilitymanagement/explanation-cve-2026-91510-exposure-vs-compromise', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-ghes-prereceive-sandbox-escape-cve-2026-112740', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-ghostscript-upload2shell-cve-2026-125396', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-gpgme-double-free-cve-2026-129975', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-hardening-js-against-llm-vuln-detection', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-internet-exposure-measurement-server-header-recon', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-java4shell-openjdk-base64-rce', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-kvm-guest-to-host-escape-cve-2026-99312', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-machine-speed-vulnerability-discovery', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-nginx-http2-rce-cve-2026-123633-123007', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-openssl-evp-encodeblock-buffer-overflow-cve-2026-121481', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-procreverser-multi-agent-microarch-reverse-engineering', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-ruby-regexp-case-conversion-heap-overflows', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-sbind-behavioral-containment-1-day-detection', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-shirudo-ebpf-runtime-shields', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-sok-llm-vuln-research-autonomy', 'explanations/securityprivacy/vulnerabilitymanagement/explanation-synology-sa-26-21-dsm-oauth-cve-2026-120382', 'explanations/securityprivacy/vulnerabilitymanagement/reference-crossploit-cross-version-poc-migration-benchmark', 'explanations/securityprivacy/vulnerabilitymanagement/reference-cybergym-evaluation-reliability'],
         },
         {
           type: 'category',
