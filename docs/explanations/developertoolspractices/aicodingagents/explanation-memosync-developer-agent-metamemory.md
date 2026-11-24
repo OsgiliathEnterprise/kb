@@ -32,6 +32,16 @@ The developer's meta-level judgment about *what should be remembered* is separat
 - The week-long field deployment showed memory monitoring/control integrates into everyday development work rather than disrupting it.
 - Open source: https://github.com/SLEEPYBQ/MemoSync
 
+## System Mechanics (from paper)
+MemoSync operationalises the propose → report → review loop with five concrete affordances:
+- **Authorize proposed changes** — memory candidates proposed by the agent require explicit developer approval before persisting.
+- **Inspect and adjust per-turn context** — the developer can see and dynamically adjust which memory items were selected for every code-generation turn.
+- **Trace rule application in real time** — live visibility into which memory rules the agent is applying as it generates.
+- **Interrupt on error** — the developer can stop the process whenever a memory misapplication is spotted.
+- **Audit compliance** — the final output is checked against the memory specification (what should have been honored).
+
+The N=132 between-subjects study compared MemoSync against two baselines: an **automatic memory baseline** (ChatGPT/Claude-style agent-managed memory) and a **static configuration baseline** (developer-maintained Markdown memory files). MemoSync beat both on task performance and developer-agent memory alignment.
+
 ## Relevance to Our Domain
 The KB maintains substantial coverage of coding-agent memory (memory files, session persistence, skills). This paper supplies the HCI-grounded design pattern missing from most agent memory stacks: the agent must *declare usage* of memory items, not just store them, because alignment is driven by monitoring accuracy. Concrete adoptable mechanics: memory-candidate proposals surfaced for human review, per-item scoping (session/project), and usage reporting after task completion.
 

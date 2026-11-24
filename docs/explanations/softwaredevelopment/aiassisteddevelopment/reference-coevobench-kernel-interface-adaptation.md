@@ -35,6 +35,11 @@ Kernel interface churn forces driver maintainers into mechanical-but-tricky adap
 ## Key Findings
 - With DeepSeek Flash, default Direct generation achieves strict reference agreement on **41.0%** of build-breaking tasks but only **3.3%** of build-compatible tasks — LLMs handle "won't compile" signals well, but the subtle case where old code still builds against changed semantics is nearly unsolved.
 - The build-compatible category is the real benchmark differentiator; compile failure alone is a weak proxy for correctness.
+- CoEvoBench is, to the authors' knowledge, the **first benchmark** evaluating LLM updates of Linux driver modules against real kernel-developer patches for collateral evolutions.
+- Code is publicly released with the paper.
+
+## Why It Matters Methodologically
+Any agent-evaluation harness that gates on "does it compile" systematically overstates capability on migration/refactoring work: a patch can build cleanly and still silently miss the semantic change the kernel developer made (e.g. changed locking contract, renamed semantics, altered callback behaviour). Use build-compatible tasks as the hard tier when benchmarking agents on code migration.
 
 ## Relevance to Our Domain
 A rigorous, ground-truthed benchmark for AI-assisted system software maintenance — useful both as a capability probe for coding agents on low-level code and as a caution: **build-compatible semantic drift is where agents silently fail**, a failure mode relevant to any large-scale automated refactoring we would delegate to agents (cf. [[explanation-llm-c-to-rust-translation-retesting]]).

@@ -33,6 +33,13 @@ The exploit is purely structural: the adversary never breaks the policy language
 ## Relevance to Our Domain
 A new class of agentic web threat that bypasses the prompt-injection-centric defenses we track (SEAM, OPA, tool-flywheel attacks): the lesson is that **output-side gates outperform input-side instructions** for data-leak prevention. For anyone running browser/web agents with access to personal or corporate data: log which sources fed each field, and gate submissions on that provenance ledger. Related: [[explanation-synthesis-smuggling-steganographic-privacy-leaks]], [[reference-seam-cross-screen-harm-cua-benchmark]].
 
+## Follow-up & Status (checked 2026-11-24)
+
+- **Venue**: accepted for **PoPETs (Proceedings on Privacy Enhancing Technologies), 2027, Issue 2** — peer-reviewed acceptance strengthens the findings beyond the arXiv preprint.
+- **Authors**: Chaklam Cheong, Tiancong Cao, Qi Li, Zelin Zhang, Jianbing Ni, Rongxing Lu, Mohammad Zulkernine (v1: 2026-11-17).
+- **Experimental setup caveat**: all experiments ran on **locally hosted websites designed by the authors with entirely synthetic user profiles and task materials**. Real-world disclosure rates against live sites may differ; the 37% and >96% numbers are benchmark figures, not field measurements.
+- **Nuance on the ">50%" figure**: the abstract frames it as *eliminating* the information gap reducing disclosure by more than 50% (some summaries invert this as "gap present increases disclosure by >50%") — cite the abstract's direction when quoting.
+
 ## References
 - Paper: https://arxiv.org/abs/2611.22223
 - Semantic Scholar: https://api.semanticscholar.org/graph/v1/paper/arXiv:2611.22223

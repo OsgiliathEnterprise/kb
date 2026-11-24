@@ -35,6 +35,18 @@ Evaluated on a two-GPU testbed replaying SWE-agent sessions across three model f
 ## Relevance to Our Domain
 PD disaggregation is the default architecture for GPU serving platforms; agent workloads with heavy context editing (SWE-agent-style sessions) are exactly the case where prefix caches churn and re-prefill dominates TTFT. Callo's "recycle invalidated KV as speculation, verify before commit" pattern is a concrete design idea for vLLM/SGLang-class serving stacks and for sizing P:D pools. See also [[reference-kvcompass-prefix-cache-discovery]] and [[explanation-mosaickv-dynamic-2d-kv-cache-compression]] in this topic.
 
+## Follow-up & Reproduction (checked 2026-11-24)
+
+- **Authors**: Jianjun Ou and Matthew Lentz; v1 posted 2026-11-13 (arXiv cs.DC). No official code release.
+- **Independent reproduction**: [`tatra-labs/stale-kv`](https://github.com/tatra-labs/stale-kv) (MIT-licensed, laptop-scale, Qwen3-0.6B/1.7B on a SWE-smith SWE-agent trajectory shard) confirms the core mechanism and several specifics:
+  - **Workload reproduces**: ~81% cache-miss rate under L5 `LastNObservations` masking, median re-prefill ~2.9k tokens — close to the paper's 79% / 3.1k for Llama-3.3-70B.
+  - **Drafting on stale KV crushes naive baselines**: prompt-lookup n-grams and valid-prefix-only drafting accept near-zero drafts, vs 11.5–16.6 accepted of 32 for stale-KV drafting.
+  - **RoPE key re-rotation matters**: skipping re-rotation of reused runs drops whole-window acceptance from ~21–32% to 6–9%.
+  - **Scale caveat**: whole-window acceptance is only 15–32% at 0.6–1.7B vs the paper's 65–70% at 70B — the benefit appears strongly model-size-dependent, and the repo does not establish where the knee sits.
+  - **Gotcha**: chat templates that mutate the previous reply (Qwen3's empty `<think>` block) silently stale the KV even before masking; normalizing the reply to its in-history form substantially lifts acceptance.
+  - What was *not* reproduced: real disaggregated serving (no vLLM / KV transfer / preemption) — all latency figures there are modelled, and the paper's speedup claims should be treated as unreplicated.
+
 ## References
 - Paper: https://arxiv.org/abs/2611.18459
 - Semantic Scholar: https://api.semanticscholar.org/graph/v1/paper/arXiv:2611.18459
+- Third-party reproduction: https://github.com/tatra-labs/stale-kv
