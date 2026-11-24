@@ -45,3 +45,11 @@ Sets the current bar for "can an agent build my RAG stack?" — directly applica
 ## References
 - Paper: https://arxiv.org/abs/2611.25582 (cs.CL, cs.AI, cs.IR — Hang Zhang et al., 2026-11-19)
 - Related in vault: ai-machine-learning/rag notes on hybrid search and retrieval evaluation
+
+## Enrichment (KB Zookeeper, 2026-11-24 — verified against arxiv.org/html/2611.25582v1)
+- **Authors/affiliations**: Hang Zhang*, Yuzhi Pan*, Ziyao Zhong*, Chaokun Wang et al. — School of Software, **Tsinghua University** + **Sina Weibo Corp** (*equal contribution). Submitted to IEEE.
+- **Task design**: the 9 tasks span **five categories**; corpora cover domains such as **news and medicine**, with question types including **multi-hop reasoning and fact verification** — deliberately diverse because effective RAG strategy varies by corpus/question type.
+- **Anti-cheat isolation protocol** (why the numbers are attributable): each build runs in a **fresh container with its own workspace**; the **test set stays outside the container**; agents may use only provided task data — no downloading external corpora/datasets; all development trajectories and submissions are **audited for leaked test answers or external data**.
+- **Answer-model confound control**: each test question is answered by **five held-out answering models** independently, all using the *same retrieved evidence* from the agent's system; scores are averaged across models and **system rankings are checked for stability** against the answering model. Retrieval latency is also measured.
+- **Trajectory scoring detail**: within each build, the last observed development score is compared against the first and best comparable scores — measuring both overall progress and **whether earlier gains persist** (vs. thrashing).
+- **Additional baselines**: GPT-6.1 Sol + Codex CLI exceeds **Reference RAG by 9.7 points** and the composite Human-SOTA by **11.7 points** under their protocol, and **outperforms automated search over predefined RAG pipelines** (AutoRAG-style config search) in adapted comparisons — the open-code-space advantage over closed search spaces.
