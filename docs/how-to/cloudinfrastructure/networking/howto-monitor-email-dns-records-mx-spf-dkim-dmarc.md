@@ -58,7 +58,20 @@ All four are plain DNS records, so `dig` is most of a monitor already: run on a 
 
 The hardest part of fixing a broken SPF record is working out what it used to say. Baseline all four records (MX set, SPF line, each DKIM selector, DMARC policy + rua) before anything breaks — that baseline *is* the monitor's expected state.
 
+## Why a drifted DMARC policy is now an outage, not a warning
+
+Since February 2024, Gmail and Yahoo enforce bulk-sender rules for anyone sending **5,000+ messages/day** to their domains; Microsoft formalized parallel rules effective May 5, 2025. The requirements turn the four records above from best practice into hard gates:
+
+- **SPF + DKIM on every message**, with at least one *aligned* with the `From:` domain (both is best).
+- **DMARC published at the apex** — `p=none` is the bare floor; marketing/newsletter volume is expected at `p=quarantine` or `p=reject`. A record silently stuck at `p=none` (the debugging accident in Step 2) now measurably degrades delivery, so treat it as an alert condition, not a setting.
+- **Spam complaint rate under 0.30%** (measured in Google Postmaster Tools as the user-reported spam rate; sustained >0.10% already degrades placement — alert early at 0.10–0.25%).
+- **One-click unsubscribe** per RFC 8058: `List-Unsubscribe` + `List-Unsubscribe-Post: List-Unsubscribe=One-Click` headers, honored within two days, with a per-recipient token (a shared URL unsubscribes your whole list).
+- **Valid PTR / forward-confirmed reverse DNS** on the sending IP, and **STARTTLS minimum for SMTP transport** (MTA-STS preferred).
+
+Monitor implication: baseline and alert on the DMARC *policy tag* and the presence of SPF/DKIM alignment, not just record existence — and watch the `rua` mailbox, since aggregate reports are how you'd notice a forged-mail campaign (or a rogue sending IP) in the first place.
+
 ## References
 
+- [InboxGuard — Gmail & Yahoo bulk-sender requirements (2026 update)](https://inboxguard.io/guides/gmail-yahoo-bulk-sender-2026)
 - [DEV.to — Catch Broken Email DNS Before Your Client Hears "Your Messages Are Bouncing"](https://dev.to/dnsnotify/email-dns-monitoring-the-four-records-that-break-mail-while-your-site-stays-up-ckl)
 - [Same author — the seven false alarms to kill in DNS change monitoring](https://dev.to/dnsnotify/dns-change-monitoring-the-seven-false-alarms-i-had-to-kill-hh3)
