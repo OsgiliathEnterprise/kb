@@ -17,6 +17,8 @@ keywords:
 ## Overview
 AZOWL AgentOps proposes a *shared governance layer* between humans and deployed agents: instead of each agent application implementing its own admission, routing, and approval logic, a platform layer binds every accepted unit of work to a stable identifier that links sender authority, assigned runner, required approvals, and result evidence. Written as an industrial experience report with paired pilots against a configured LangGraph application.
 
+**Publication metadata** (verified on arXiv, 2026-11-25): single-author (Taeoh Hong), submitted 19 Nov 2026, categorized cs.CR (Cryptography and Security) with cross-list to cs — i.e., the paper frames agent governance as a *security* problem, not an ops problem. Both human and agent senders can exchange messages or explicitly delegate a business task through the same governance path.
+
 ## Problem Statement
 Delegating business tasks to agents requires answering, per task: who authorized this, who may execute it, what approval was required, and what evidence proves the result? When applications answer these in their own code, governance is invisible to the rest of the organization and unverifiable across systems.
 
@@ -38,3 +40,4 @@ Adds a platform-governance viewpoint to the KB's agent-control stack: Tether ver
 ## References
 - Paper: https://arxiv.org/abs/2611.25562
 - Related: [[explanation-tether-verified-policy-engine]]
+- Further reading (industry AgentOps): Amazon Bedrock AgentCore AgentOps — https://aws.amazon.com/blogs/machine-learning/agentops-operationalize-agentic-ai-at-scale-with-amazon-bedrock-agentcore/

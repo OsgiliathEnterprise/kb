@@ -41,7 +41,11 @@ Energy estimates for LLM workloads are either performance-model based — blind 
 ## Relevance to Our Domain
 For GPU-finops and capacity planning, TokenJoule's value is the *derivation* stance: because energy is priced from derived kernel/communication activity rather than fitted to a device, its errors stay low on hardware it was not calibrated on — the property needed for pre-purchase power planning and for comparing proposed hardware (3D-DRAM packaging, collective-heavy topologies) before it exists. Treat the component decomposition (kernels, tiling, shared memory, cache residency, collectives) as the checklist for where LLM jobs actually spend energy.
 
+## Adjacent Work: Measurement vs. Derivation
+TokenJoule predicts; its natural measurement counterpart is **TokenPowerBench** (arXiv:2512.03024, Niu et al., Dec 2025) — the first lightweight benchmark purpose-built for LLM-*inference* power studies (inference accounts for >90% of fleet power per industry reports cited there). It combines a declarative config interface (model / prompt set / engine), a measurement layer capturing GPU-, node-, and system-level power without specialized power meters, and a phase-aligned pipeline attributing energy to prefill vs. decode per request — reporting joules-per-token under varying batch size, context length, parallelism, and quantization. A useful pairing: validate TokenJoule-style analytical estimates against TokenPowerBench-style measured joules/token on deployed hardware before extrapolating to pre-silicon designs.
+
 ## References
 - Paper: https://arxiv.org/abs/2611.31509
+- TokenPowerBench (measurement-side benchmark): https://arxiv.org/abs/2512.03024
 - Related: cloud-infrastructure/gpu-compute/explanation-pacer-gpu-power-excursions-edpp.md
 - Related: cloud-infrastructure/gpu-compute/explanation-berth-slo-preserving-gpu-sharing.md
