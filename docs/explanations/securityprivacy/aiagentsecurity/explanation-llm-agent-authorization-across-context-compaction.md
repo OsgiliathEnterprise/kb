@@ -14,6 +14,9 @@ keywords:
 ---
 # LLM Agent Authorization Across Context Compaction
 
+**Authors:** Zeming Fei, Hongming Fei, Yi Xu, Xiaoyang Wang, Ying Zhang
+
+
 ## Overview
 Request-derived authorizers (such as **Progent**) protect LLM agents from prompt injection by deriving what an agent may do directly from the user's request. This paper shows that **context compaction silently breaks the attribution assumption** underneath that guarantee: coding agents like Claude Code and Codex inject their model-written conversation summaries into the transcript *as user messages*, so an authorizer that trusts "user text" ends up trusting the compactor's quotations — including attacker-injected data. The authors prove an impossibility bound and ship a fix based on authenticated, verbatim user text.
 

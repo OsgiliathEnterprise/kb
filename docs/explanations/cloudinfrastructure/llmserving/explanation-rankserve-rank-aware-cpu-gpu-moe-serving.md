@@ -14,6 +14,9 @@ keywords:
 ---
 # RankServe: Rank-Aware CPU-GPU Scheduling for Memory-Constrained MoE Serving
 
+**Authors:** Hengyi Zhu, Zhendong Mi, Pu Zhao, Yanzhi Wang, Hao Wang, Shaoyi Huang
+
+
 ## Overview
 Low-rank compression shrinks the expert pools that make Mixture-of-Experts models so memory-hungry at inference, but it creates a new scheduling problem: experts now have **different ranks**, so their storage, transfer and execution costs differ. RankServe is a CPU-GPU serving system for compressed MoE checkpoints whose core idea is to price GPU residency against the cheaper "nonresident path" (CPU execution, or transfer-then-GPU-execute) for each expert, given its rank and current token load — then keep on GPU only the experts with the best savings per byte.
 

@@ -14,6 +14,9 @@ keywords:
 ---
 # Attestation is All You Need: Toward a Zero-Trust Architecture for HPC AI Agents
 
+**Authors:** Jie Li, Chenxu Niu, Tongyang Wang, Yong Chen
+
+
 ## Overview
 AI agents are starting to automate data analysis, orchestration and simulation steering on HPC clusters — and they introduce a threat that existing cluster defenses miss: the **hijacked authorized agent**. An adversary subverts a legitimately authorized agent (prompt injection, poisoned shared data, compromised tools, or multi-agent coordination), then exfiltrates sensitive data through *legitimate, encrypted LLM API traffic*, which network-level defenses cannot flag. The paper proposes **behavioral attestation** as a runtime defense and implements it in **AEGIS**, a zero-trust monitor for HPC AI agents.
 

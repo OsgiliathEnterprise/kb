@@ -15,6 +15,9 @@ keywords:
 ---
 # Generalized Tensor Parallelism: Powering Trillion-Parameter LLM Training at 10+ EFLOP/s
 
+**Authors:** Shiqing Fan, Deepak Narayanan, Jimmy Zhang, Jiangfei Duan, Prajwal Singhania, Haoran Zhang, Wanying Wang, Philip Monk, Xuwen Chen, Jared Casper, Jun Yang, Mohammad Shoeybi, Bryan Catanzaro, Vijay Anand Korthikanti
+
+
 ## Overview
 This paper unifies the five parallelism strategies routinely used to pretrain trillion-parameter LLMs — data, tensor, sequence and context parallelism, plus fully sharded data parallelism (FSDP) — into a single framework called **Generalized Tensor Parallelism (GTP)**. The key reframing: for linear layers, every one of these schemes is just a different way of partitioning a layer's parameters and activations, where either side can be re-materialized on demand with an all-gather before use. Implemented in open-source Megatron-LM, the GTP view lifts a 2T-parameter MoE model to 13.0 model EFLOP/s on 12,288 GB300 GPUs.
 

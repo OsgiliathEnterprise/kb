@@ -14,6 +14,9 @@ keywords:
 ---
 # RePrism: Joint Request and Representation Scheduling for LLM Agent Serving
 
+**Authors:** Xijiang Shen, Aoli Zhu, Yanbo Tan, Xiyuan Hu, Huailiang Tan
+
+
 ## Overview
 Agentic workflows call an LLM many times per session, and when the serving system can see the workflow's dependency graph, it can exploit that visibility to reorder requests and reuse prompt content. RePrism's twist: a reusable prompt (the system prompt that specifies model behavior) can exist in **multiple representations** — e.g. under different LoRA adapters or cache states — so the scheduler must decide *both* which ready request to serve *and* which eligible representation to use, as one joint decision rather than two sequential ones.
 

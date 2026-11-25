@@ -14,6 +14,9 @@ keywords:
 ---
 # LoomKV: Lossless KV Cache Compression from GPU Memory to SSD for LLM Serving
 
+**Authors:** Wentao Zhu, Ziao Sheng, Peng Deng, Huiqi Hu, Xuan Zhou, Xing Wei, Zhuang Wang
+
+
 ## Overview
 LoomKV applies **lossless** (bit-exact) compression to the KV cache in two places at once — the external DRAM/SSD offload tiers and the GPU KV pool itself — on an unmodified serving engine. Because it never alters KV values, it sidesteps the accuracy risk that plagues lossy KV compression, while making tiers act ~1.4× larger and letting the GPU pool hold ~1.3× more tokens.
 

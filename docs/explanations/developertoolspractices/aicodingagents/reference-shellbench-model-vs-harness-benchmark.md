@@ -15,6 +15,9 @@ keywords:
 ---
 # ShellBench: What Matters More for AI Agents, Models, or Harness for Everyday Tasks
 
+**Authors:** Vincent Koc, Aditya Washikar, Rishab Naveen Venkataraman, Onur Solmaz, Zhentong Fan, Xinyang Han, Toby Vincent John, Hao Li, Achyut Mukund, Biresh Chandra Biswas, Eshan Shukla, Louis Pan, Ivan Kudryavtsev, Patthigulla Sai Surendra, Krish Oberoi, Ayaan Zaidi, Hema Veeradhi, Taylor Agarwal, Erik Erlandson, Agustin Rivera, Jacob Tomlinson, Louka Ewington-Pitsos
+
+
 ## Overview
 ShellBench is a benchmark of **100 day-to-day tasks** for personal AI agents, derived from more than 10 million real user requests. Each task runs in a realistic workspace with messy files and competing data sources, and is graded on **both correctness and safety**. Its experimental design — 12 models × 5 agent harnesses × 3 reasoning levels, 53,100 total rollouts — is aimed at a consumer question: which configuration (model vs. harness) should a user optimize when deploying a general-purpose agent?
 

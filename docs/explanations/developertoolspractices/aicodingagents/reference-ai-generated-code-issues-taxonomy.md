@@ -15,6 +15,9 @@ keywords:
 ---
 # AI-Generated Code Issues: A Taxonomy from Repository Histories, AI Conversations, and Developer Interviews
 
+**Authors:** Rosalia Tufano, Nargiz Humbatova, Daniele Bifolco, Gunel Jahangirova, Fiorella Zampetti, Massimiliano Di Penta, Paolo Tonella, Gabriele Bavota
+
+
 ## Overview
 An ICSE 2027 mixed-methods empirical study that builds an **evidence-grounded taxonomy of 87 types of developer-attributed quality issues in AI-generated code**, going beyond functional bugs. The purpose is practical: let teams adapt code review and testing to the defect classes that are *more common in AI-generated than in human-written code*.
 
