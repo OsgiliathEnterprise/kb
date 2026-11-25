@@ -14,6 +14,9 @@ keywords:
 ---
 # Demystifying Detectors Guarding Agent Skill Hubs
 
+**Authors:** Kang Yang, Kevin Ying, Xiaojing Liao, Guanhong Tao, Jun Xu
+
+
 ## Overview
 Yang, Ying, Liao, Tao & Xu (arXiv:2611.30913, cs.CR, submitted 2026-11-23) run the **first systematic evaluation of the security detectors that public Agent Skills hubs actually deploy**. On 1,477 agent skills drawn from seven datasets, they test four hub-adopted and two community-provided malicious-skill detectors and find that even the best one both misses malicious skills and mislabels benign ones at rates that matter for real moderation workflows.
 

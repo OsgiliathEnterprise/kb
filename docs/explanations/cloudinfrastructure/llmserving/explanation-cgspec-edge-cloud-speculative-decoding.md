@@ -15,6 +15,9 @@ keywords:
 ---
 # CGSpec: Consistency-Guided Speculative Decoding with Overlap-Aware Verification Scheduling for Edge-Cloud Inference
 
+**Authors:** Yuanbing Ouyang, Xiaoli Liu, Shirong Wei, Hao Wang, Xiang Su
+
+
 ## Overview
 Ouyang, Liu, Wei, Wang & Su (arXiv:2611.30455, cs.DC, submitted 2026-11-23) address **collaborative speculative decoding**: edge clients draft tokens locally, a shared cloud verifier checks them. Their framework, CGSpec, attacks the two failure modes that make multi-client edge-cloud speculation inefficient — draft/verifier disagreement and heterogeneous client return times — and reports double-digit throughput gains over the prior SOTA.
 
@@ -31,7 +34,7 @@ In multi-client edge-cloud speculative decoding, every wasted draft token costs 
 The design splits into a client-side policy (divergence-adaptive budget, local token selection) and a server-side policy (global tree growth control, competition among nominated candidates, work/return-time-aware prioritization). The scheduler's overlap awareness is the distributed-systems core: it treats the verifier as a shared resource whose utilization depends on the *temporal overlap* between arriving draft batches and pending verification work, not just queue order.
 
 ## Results
-Highest mean system and client throughput among evaluated methods in all 24 tested configurations; improvements of 10–33% over SOTA depending on metric and configuration.
+Highest mean system and client throughput among evaluated methods across the 24 tested configurations (8 and 16 clients); improvements of 10–33% over SOTA depending on metric and configuration.
 
 ## Relevance to Our Domain
 Edge–cloud inference is becoming a real deployment topology for on-device assistants; this note documents how speculative decoding must co-design *acceptance statistics* and *cluster scheduling* once the verifier is shared. Pairs with our KB coverage of speculative decoding (SpecSearch, NarrowSpec, Callo) from the distributed-scheduling angle rather than the draft-model angle.

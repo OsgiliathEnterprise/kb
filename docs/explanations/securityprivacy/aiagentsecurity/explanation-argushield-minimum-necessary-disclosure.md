@@ -14,26 +14,30 @@ keywords:
 ---
 # ArguShield: Enforcing Minimum-Necessary Disclosure in Tool-Calling LLM Agents
 
+**Authors:** Ying Fu, Yulong Fu
+
 ## Overview
-Shayegan, Mohammadi, Pourreza, Farnia & Afroz (arXiv:2611.30360, cs.CR/cs.AI/cs.CL, submitted 2026-11-23) formalize a governance principle for agentic tool use — **minimum necessary disclosure**, the agentic analogue of least privilege — and implement it in **ArguShield**, a defense that verifies whether every sensitive field in a proposed tool call is actually justified by the user's stated goal *before* execution.
+Fu & Fu (arXiv:2611.30360, cs.CR, submitted 2026-11-23) address a quiet failure mode of tool-calling agents: **even without malicious intent**, agents fill broad or weakly constrained tool-call fields with private information the receiving tool doesn't need — a call that satisfies the schema and completes the task, yet violates **minimum-necessary disclosure**. Their answer, **ArguShield**, is a mediation layer that intercepts proposed tool calls *before execution* and justifies each candidate value individually.
 
 ## Problem Statement
-Tool-calling agents mediate access to sensitive systems (email, cloud APIs, internal data), and a growing class of attacks exploits this by inducing **unauthorized tool invocations that expose sensitive information**, amplified through indirect prompt injection and malicious tool outputs. Existing defenses fail in three ways: they react *after* the action has happened; they check the *action type* without reasoning about *data flow* (which fields, why); and they lack an explicit, auditable decision record.
+Agents increasingly hand user data to third-party tools via tool calls. Tool schemas validate *structure*, not *necessity*: a field that legitimately accepts a string will happily receive a phone number, an address, or a medical detail the task never required. The result is silent over-disclosure to external endpoints, invisible to task-success metrics. Prompt-level protection ("don't share unnecessary data") reduces unauthorized disclosure but substantially lowers task success.
 
 ## Key Contribution
-- **Policy formulation**: minimum necessary disclosure — every field of a requested tool call must be justified by the user's stated goal for the call to be permitted.
-- **Runtime verification architecture**: two independent **Verifier Agents** score field-level sensitivity and goal-relevance; a **Policy Agent** consolidates the justifications and applies a thresholded, fine-grained accept/reject decision.
-- **Governance-grade auditability**: every decision emits structured justifications — decision rationale, per-field relevance scores, risk attribution — instead of an opaque allow/block.
-- **Adversarial robustness study**: three novel attack vectors probing the defense mechanism itself (subverting the verifiers or the policy aggregation).
-
-## Technical Approach
-The design decouples *what the model wants to send* from *what the goal warrants*: sensitive-field detection and goal-relevance scoring run in parallel verifiers, and the policy layer enforces thresholds on aggregated justification quality. Because the decision process is itself a small multi-agent protocol, it is also an attack surface — hence the dedicated adversarial evaluation of the defense internals, not just the agent.
+- **Principle**: minimum-necessary disclosure as a per-value governance rule for tool calls — every sensitive field must be justified before it leaves the agent.
+- **Three-signal evaluation** of each candidate value before execution:
+  1. **Value Provenance** — where did this value come from?
+  2. **Task Relevance** — does the task actually require this field to carry this value?
+  3. **Disclosure Boundary** — is this value within the permitted scope for the receiving tool?
+- **Three-way enforcement actions**: *release* justified values, *defer* values that need user confirmation, *withhold* values outside the permitted scope — instead of an opaque allow/block.
 
 ## Results
-Substantially reduces unauthorized data disclosure relative to strong baselines across benchmark settings, while preserving task utility; the paper reports the defense remains effective under the three proposed defense-targeting attacks.
+Evaluated with **four tool-calling models** on **ArgPrivBench** — a 120-task benchmark spanning Travel, Shopping, and Healthcare:
+- Unprotected agents frequently over-disclose private information despite high task success.
+- Prompt-only protection cuts unauthorized disclosure but at a substantial cost to task success.
+- **ArguShield reduces unauthorized silent release to 9% on Standard tasks and 6% on High-risk tasks**, while preserving recoverable task success under simulated user confirmation (deferred values flow back through the user).
 
 ## Relevance to Our Domain
-Least privilege is standard for *access*; this work pushes the same discipline down to the *argument/data-field* level of tool calls — the natural next control plane for agent gateways. Our KB's agent-security cluster (prompt injection, data exfiltration, tool misuse) gains a concrete enforcement pattern: dual independent verifiers + policy aggregator + justification log, directly reusable in agent platform design.
+This pushes least privilege from *access control* down to the **argument/data-field level** of tool calls — the natural next control plane for agent gateways and MCP-style tool bridges. The release/defer/withhold trichotomy maps cleanly onto human-in-the-loop approval UIs (defer = ask the user), and the three signals are implementable as a pre-execution check without touching model weights. Pairs with our agent-security cluster (tool misuse, data exfiltration, prompt injection) and with the hub-detector audit note added the same day.
 
 ## References
 - Paper: https://arxiv.org/abs/2611.30360

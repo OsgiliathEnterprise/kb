@@ -15,26 +15,30 @@ keywords:
 ---
 # Does the Agent's Map Match the Territory? Architectural Claims in AI Agent Context Files and Their Fit with the Code
 
+**Authors:** Bachan Ghimire, Daniela Damian
+
 ## Overview
-Boukhris, Gharbi, Hassine & Bouassida (arXiv:2611.29916, cs.SE, submitted 2026-11-22) study **agent context files** — AGENTS.md, CLAUDE.md, .cursorrules and friends — as a new artifact class in AI-assisted development. These files are "instructions-for-observing" repositories: they claim what the architecture is and how to work with it. The paper asks whether those claims actually hold against the code, and finds a striking **claim–code gap**.
+Ghimire & Damian (arXiv:2611.29916, cs.SE, submitted 2026-11-23) audit whether the architectural descriptions embedded in **AI agent context files** (CLAUDE.md, AGENTS.md and similar repo-level instruction files) still match the code they claim to describe. Across **3,602 context files in 3,346 open-source projects**, they check **41,090 file path claims** and **184 file-to-file dependency rules** — motivated by the fact that coding agents load these files into their model context before any tool call, so an out-of-date file can mislead the agent into navigating to the wrong places.
 
 ## Problem Statement
-Context files are now central to how coding agents orient in a codebase, yet they are maintained outside the repository's normal validation regime — no tests, no CI, no review gate. Nothing enforces that their architectural claims match the code they describe. Stale or aspirational context files risk steering agents toward non-existent modules, wrong boundaries, and phantom workflows.
+Context files are written by humans and maintained outside the repository's validation regime — no tests, no CI, nothing enforces that their architectural claims match the code. They extend the classic documentation-drift problem (stale README/docs) with a new operational stake: agents consume them *pre-emptively*, before seeing any code. The paper asks how stale these files actually are and what stale content means for agent navigation.
 
-## Key Contribution
-- **First systematic audit of context-file architectural claims vs code** across **50 real-world repositories** spanning **22 languages**, using a two-stage LLM-assisted pipeline that extracts claims from context files and checks each against the corresponding code evidence.
-- **Headline result**: only **44%** of architectural claims are **supported** by the code.
-- **Distribution of the rest**: **21% partial** support, **14% undocumented** (code exists but doesn't match the framing), **13% unsupported**, **8% absent** (the thing described simply isn't there).
-- **A typology of claim–code relationships** — supported / partial / undocumented / unsupported / absent — giving the field a vocabulary for context-file fidelity.
+## Method
+- Corpus: 3,602 agent context files from 3,346 open-source projects, with **LLM-assisted claim extraction and human adjudication** of all flagged findings.
+- Two claim classes audited: *file path claims* (references to files/directories) and *file-to-file dependency rules* (asserted dependencies between files).
+- Drift dynamics analyzed over **7,480 commits** (stale-path rate vs. commit frequency).
 
-## Technical Approach
-The pipeline separates *claim extraction* (what the context file asserts about modules, dependencies, patterns, workflows) from *code-side adjudication* (does the repository evidence support, partially support, or contradict the claim?). The five-way typology is what makes the results interpretable: "absent" claims (pure hallucination or drift) are qualitatively different from "partial" ones (right idea, incomplete code).
+## Key Findings
+- **Path claims mostly resolve, and failures are mostly benign**: ~5% of path claims fail to resolve, but only **2.2%** are true errors — the rest are alternative file references. For comparison, ~**3.5%** of README path claims are broken.
+- **Stale paths get repaired**: when a commit breaks a context-file path, **61%** of stale references are corrected in the *same* commit.
+- **Dependency rules rot silently**: **33 of 184 (18%)** asserted file-to-file dependency rules were already broken at the time of writing — high-value cross-file claims are neither validated nor repaired.
+- **Activity doesn't correlate with freshness**: the relationship between stale-path rate and commit frequency is not significant over 7,480 commits (0.29% vs 0.16%, 1.8×, under-powered) — busy repos don't keep their context files fresher.
 
-## Results
-44% supported / 21% partial / 14% undocumented / 13% unsupported / 8% absent across 50 repos, 22 languages. Implication: more than half of the architectural guidance agents read is at best partially grounded in reality.
+## Interpretation
+The authors' synthesis: agent context files are **good maps, not reliable rulebooks**. File-level orientation content (where things live) is accurate and self-correcting; cross-file dependency assertions are neither validated nor repaired, so they should not be trusted as ground truth — agents navigating by them can confidently walk to the wrong place.
 
 ## Relevance to Our Domain
-Directly actionable for our own agent workflows (this KB's agent setups rely on context files too): context files should be treated as *code-adjacent artifacts needing validation*, with periodic claim-vs-code audits as a maintenance practice. Motivates tooling: CI checks for context-file drift. Fits our growing cluster of notes on agent memory/context quality and repo-understanding.
+Actionable for our own agent workflows (this KB's agent setups rely on context files too): (1) keep CLAUDE.md/AGENTS.md-style maps — the path layer is trustworthy; (2) don't encode asserted file-to-file dependency rules in context files as verified facts — roughly 1 in 5 is already wrong; (3) a cheap lint resolving every path claim would catch the residual true errors; (4) extends documentation-drift literature to the new artifact class agents read verbatim.
 
 ## References
 - Paper: https://arxiv.org/abs/2611.29916

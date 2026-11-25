@@ -14,6 +14,9 @@ keywords:
 ---
 # Beyond Self-Consistency: Recursive Self-Improvement at Test Time
 
+**Authors:** Jianyu Wu, Yizhou Wang, Encheng Su, Jinouwen Zhang, Pengze Li, Lintao Wang, Chen Tang, Aoran Wang, Wanli Ouyang, Shixiang Tang
+
+
 ## Overview
 Wu, Wang, Su et al. (arXiv:2611.30965, cs.CL/cs.AI/cs.LG, submitted 2026-11-23) argue that the dominant test-time improvement recipe — self-consistency with majority voting — wastes the reasoning already produced, and propose **TT-RSI** (Test-Time Recursive Self-Improvement), a label-free framework where the model iteratively re-solves each question using its *full previous solution* as reference, and then distills those successive refinements back into its own weights.
 

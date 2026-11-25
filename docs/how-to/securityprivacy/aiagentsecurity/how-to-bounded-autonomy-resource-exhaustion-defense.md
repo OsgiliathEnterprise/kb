@@ -15,6 +15,9 @@ keywords:
 ---
 # Bounded Autonomy: A Trust-Anchored Defense Against Resource-Exhaustion Attacks on Tool-Augmented LLM Agents
 
+**Authors:** Ziyuan Chen, Yueming Lyu, Songze Li, Huafeng Chen, Caifeng Shan
+
+
 ## Overview
 Chen, Lyu, Li, Chen & Shan (arXiv:2611.30383, cs.CR, submitted 2026-11-23) target a specific, under-defended attack class against tool-augmented LLM agents: **resource-exhaustion attacks** that inflate token spend. Their answer, *Bounded Autonomy*, is a trust-anchored, closed-loop defense framework with four deterministic runtime phases — a shift from prompt-level safeguards toward accountably *enforced* budgets.
 

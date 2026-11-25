@@ -15,6 +15,9 @@ keywords:
 ---
 # ARC: Adaptive Rollout Control for Efficient Synchronous LLM Reinforcement Learning
 
+**Authors:** Yihui Zhang, Tianyu Wo, Jinghao Wang, Xiao Zhou, Huitian Xue, Xiaoyang Sun, Zeying Wang, Chunming Hu, Renyu Yang
+
+
 ## Overview
 Zhang, Wo, Wang, Zhou, Xue, Sun et al. (arXiv:2611.29156, cs.LG/cs.DC, submitted 2026-11-22) optimize the most expensive phase of synchronous LLM RL: the **rollout–barrier–update loop**. ARC is a closed-loop rollout controller that operates at *group* granularity (the group-relative unit GRPO needs), deciding live which generations are still worth completing. Reported: **37.4% less rollout time (1.60× speedup)** and **+50.1% effective GRPO throughput**.
 

@@ -14,6 +14,9 @@ keywords:
 ---
 # ReproShift: Cross-Version Adaptation of Linux Kernel Fuzzing Crash Reproducers
 
+**Authors:** Changjian Liu, Zhiwen Tang, Xianying Wang, Fan Ding, Zhengshu Wang, Chao Hu, Yuheng Shen, Ying Fu, Heyuan Shi
+
+
 ## Overview
 Liu, Tang, Wang, Ding, Wang, Hu et al. (arXiv:2611.30655, cs.SE, submitted 2026-11-23) tackle a chronic pain point of kernel fuzzing programs: crash reproducers written against one kernel version rot as the kernel evolves. **ReproShift** automates migrating a working reproducer to a new kernel version by adapting only version-sensitive behavior while pinning the bug-triggering semantics — turning yesterday's reproducer into today's regression test.
 
