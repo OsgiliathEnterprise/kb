@@ -26,13 +26,13 @@ Context files are written by humans and maintained outside the repository's vali
 ## Method
 - Corpus: 3,602 agent context files from 3,346 open-source projects, with **LLM-assisted claim extraction and human adjudication** of all flagged findings.
 - Two claim classes audited: *file path claims* (references to files/directories) and *file-to-file dependency rules* (asserted dependencies between files).
-- Drift dynamics analyzed over **7,480 commits** (stale-path rate vs. commit frequency).
+- Exploratory commit analysis over **7,480 commits** (new rule-break rates, agent-assisted vs. other commits).
 
 ## Key Findings
 - **Path claims mostly resolve, and failures are mostly benign**: ~5% of path claims fail to resolve, but only **2.2%** are true errors — the rest are alternative file references. For comparison, ~**3.5%** of README path claims are broken.
-- **Stale paths get repaired**: when a commit breaks a context-file path, **61%** of stale references are corrected in the *same* commit.
+- **Stale paths get repaired**: when code moves, **61%** of claims that became stale are fixed, most of them in the *same* commit.
 - **Dependency rules rot silently**: **33 of 184 (18%)** asserted file-to-file dependency rules were already broken at the time of writing — high-value cross-file claims are neither validated nor repaired.
-- **Activity doesn't correlate with freshness**: the relationship between stale-path rate and commit frequency is not significant over 7,480 commits (0.29% vs 0.16%, 1.8×, under-powered) — busy repos don't keep their context files fresher.
+- **Agent-assisted rule breaks: early signal only**: in an exploratory comparison over 7,480 commits, new rule breaks were rare; agent-assisted commits broke rules about **1.8× as often** as other commits (0.29% vs 0.16%), but with only **14 breaks total** this is *not significant* — an early signal, not evidence of a difference or of its absence.
 
 ## Interpretation
 The authors' synthesis: agent context files are **good maps, not reliable rulebooks**. File-level orientation content (where things live) is accurate and self-correcting; cross-file dependency assertions are neither validated nor repaired, so they should not be trusted as ground truth — agents navigating by them can confidently walk to the wrong place.
