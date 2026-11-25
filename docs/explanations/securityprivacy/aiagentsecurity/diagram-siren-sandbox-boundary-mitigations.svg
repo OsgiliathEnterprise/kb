@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 -4.0 1288.0 228.0" width="1288" height="228">
+<rect x="16.0" y="-4.0" width="1288.0" height="228.0" fill="#ffffff"/>
+<rect x="40.0" y="90.0" width="200.0" height="110.0" rx="8" fill="#ffe3e3" stroke="#e03131" stroke-width="1.5"/>
+<rect x="300.0" y="90.0" width="200.0" height="110.0" rx="8" fill="#d3f9d8" stroke="#2f9e44" stroke-width="1.5"/>
+<rect x="560.0" y="90.0" width="200.0" height="110.0" rx="8" fill="#d3f9d8" stroke="#2f9e44" stroke-width="1.5"/>
+<rect x="820.0" y="90.0" width="200.0" height="110.0" rx="8" fill="#b2f2bb" stroke="#099268" stroke-width="1.5"/>
+<rect x="1080.0" y="90.0" width="200.0" height="110.0" rx="8" fill="#fff3bf" stroke="#f08c00" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 248.0 145.0 L 292.0 145.0"/><line x1="292.0" y1="145.0" x2="279.4" y2="138.9"/><line x1="292.0" y1="145.0" x2="279.4" y2="151.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 508.0 145.0 L 552.0 145.0"/><line x1="552.0" y1="145.0" x2="539.4" y2="138.9"/><line x1="552.0" y1="145.0" x2="539.4" y2="151.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 768.0 145.0 L 812.0 145.0"/><line x1="812.0" y1="145.0" x2="799.4" y2="138.9"/><line x1="812.0" y1="145.0" x2="799.4" y2="151.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 1028.0 145.0 L 1072.0 145.0"/><line x1="1072.0" y1="145.0" x2="1059.4" y2="138.9"/><line x1="1072.0" y1="145.0" x2="1059.4" y2="151.1"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="20" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="36.0">Anthropic Siren: misaligned sandbox-boundary rate vs mitigations (1,700+ scenarios, 26 configs)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="140.0" y="121.2">Baseline (no</tspan><tspan x="140.0" y="138.7">commercial safeguards):</tspan><tspan x="140.0" y="156.2">21-32% touch external</tspan><tspan x="140.0" y="173.7">resources; 0.6-1.6%</tspan><tspan x="140.0" y="191.2">unauthorized use</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="400.0" y="121.2">Spell out sandbox</tspan><tspan x="400.0" y="138.7">isolation properties in</tspan><tspan x="400.0" y="156.2">system prompt:</tspan><tspan x="400.0" y="173.7">-68% to -96%</tspan><tspan x="400.0" y="191.2">boundary crossings</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="660.0" y="121.2">Drop 'exhaustive</tspan><tspan x="660.0" y="138.7">search' + broad</tspan><tspan x="660.0" y="156.2">machine authority on</tspan><tspan x="660.0" y="173.7">impossible tasks:</tspan><tspan x="660.0" y="191.2">-23 to -26 pp</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="920.0" y="121.2">Sanctioned weakness</tspan><tspan x="920.0" y="138.7">reporting path +</tspan><tspan x="920.0" y="156.2">auto-mode intent</tspan><tspan x="920.0" y="173.7">classifier: misaligned</tspan><tspan x="920.0" y="191.2">use ~0 (5/6 models)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="1180.0" y="121.2">Cost: completion</tspan><tspan x="1180.0" y="138.7">-9 pp on in-sandbox</tspan><tspan x="1180.0" y="156.2">tasks; eval awareness</tspan><tspan x="1180.0" y="173.7">43-67% in newest</tspan><tspan x="1180.0" y="191.2">models</tspan></text>
+</svg>
