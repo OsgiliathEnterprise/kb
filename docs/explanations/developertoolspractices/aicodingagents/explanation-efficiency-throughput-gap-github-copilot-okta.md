@@ -40,6 +40,14 @@ Design choices worth copying: the study leaned on **historical metric data** rat
 2. **Measurement design is part of the result.** Prospective monitoring and metric gaming distort what you learn; historical data + transparent methodology is a more defensible baseline for AI-tool evaluations.
 3. **A reusable evaluation framework**: OOL + time-allocation survey + objective metrics + participant info gives organizations a repeatable way to continuously assess AI tooling impact instead of one-time snapshots.
 
+## Corroborating evidence (enriched 2026-11)
+
+The Okta study is no longer alone — independent field data shows the same pattern:
+
+- **NAV IT longitudinal study (Stray et al., Univ. of Oslo / SINTEF, arXiv:2509.20353)**: analyzed 26,317 non-merge commits from 703 repos over two years, comparing 25 Copilot users vs 14 non-users. Copilot users were *consistently more active even before adoption* (selection effect), and adoption produced **no statistically significant change in commit-based activity** — while perceived productivity rose. Same disconnect: subjective gains, flat objective output.
+- **METR randomized trial (July 2025)**: experienced open-source developers were ~19% *slower* on familiar, mature-repo tasks using early-2025 AI tools — and believed themselves faster (perception gap). METR's own early-2026 follow-up softened this to "AI likely provides productivity benefits in early 2026" as tools improved, but the perception-vs-measurement gap finding stands.
+- **Pattern across studies**: vendor RCTs (e.g., Copilot's 55%-faster task completion on isolated tasks) measure *efficiency* on task-like work; field studies measuring *throughput* (PRs, cycle time, shipped work) consistently find the gap. The bottleneck is organizational (review capacity, dependencies, process), not typing speed.
+
 ## Practical takeaways
 
 - When evaluating an AI coding tool, measure **throughput** (cycle time, shipped work), not just individual speed or sentiment — and expect the gap between them.
@@ -50,3 +58,4 @@ Design choices worth copying: the study leaned on **historical metric data** rat
 
 - [CACM — Beyond the Hype: The Efficiency-Throughput Gap with GitHub Copilot](https://cacm.acm.org/research/beyond-the-hype-the-efficiency-throughput-gap-with-github-copilot/)
 - [ACM Digital Library (DOI 10.1145/3797488)](https://dl.acm.org/doi/10.1145/3797488)
+- [arXiv:2509.20353 — Developer Productivity With and Without GitHub Copilot (NAV IT, Stray et al.)](https://arxiv.org/html/2509.20353v2)

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 -4.0 1308.0 408.0" width="1308" height="408">
+<rect x="16.0" y="-4.0" width="1308.0" height="408.0" fill="#ffffff"/>
+<rect x="40.0" y="80.0" width="220.0" height="110.0" rx="8" fill="#a5d8ff" stroke="#1971c2" stroke-width="1.5"/>
+<rect x="300.0" y="80.0" width="220.0" height="110.0" rx="8" fill="#a5d8ff" stroke="#1971c2" stroke-width="1.5"/>
+<rect x="560.0" y="80.0" width="220.0" height="110.0" rx="8" fill="#a5d8ff" stroke="#1971c2" stroke-width="1.5"/>
+<rect x="820.0" y="80.0" width="220.0" height="110.0" rx="8" fill="#a5d8ff" stroke="#1971c2" stroke-width="1.5"/>
+<rect x="1080.0" y="80.0" width="220.0" height="110.0" rx="8" fill="#a5d8ff" stroke="#1971c2" stroke-width="1.5"/>
+<rect x="40.0" y="260.0" width="1260.0" height="120.0" rx="8" fill="#a5d8ff" stroke="#2f9e44" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 262.0 135.0 L 298.0 135.0"/><line x1="298.0" y1="135.0" x2="286.7" y2="129.5"/><line x1="298.0" y1="135.0" x2="286.7" y2="140.5"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 522.0 135.0 L 558.0 135.0"/><line x1="558.0" y1="135.0" x2="546.7" y2="129.5"/><line x1="558.0" y1="135.0" x2="546.7" y2="140.5"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 782.0 135.0 L 818.0 135.0"/><line x1="818.0" y1="135.0" x2="806.7" y2="129.5"/><line x1="818.0" y1="135.0" x2="806.7" y2="140.5"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 1042.0 135.0 L 1078.0 135.0"/><line x1="1078.0" y1="135.0" x2="1066.7" y2="129.5"/><line x1="1078.0" y1="135.0" x2="1066.7" y2="140.5"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="20" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="36.0">Dangling DNS -&gt; Elastic IP takeover (Intruder, Nov 2026)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="50.0" y="102.4">Legacy service decommissioned</tspan><tspan x="50.0" y="118.7">EIP released to AWS pool</tspan><tspan x="50.0" y="134.9">DNS A record left behind</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="310.0" y="102.4">Attacker builds target list</tspan><tspan x="310.0" y="118.7">bbscope -&gt; subfinder -&gt; A records</tspan><tspan x="310.0" y="134.9">stored in DynamoDB</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="570.0" y="102.4">EIP claim loop per region</tspan><tspan x="570.0" y="118.7">Service Quotas: 5 -&gt; 25 EIPs</tspan><tspan x="570.0" y="134.9">allocate / check / release</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="830.0" y="102.4">Match: claimed EIP == live</tspan><tspan x="830.0" y="118.7">A record (28 in 48h of 450k IPs,</tspan><tspan x="830.0" y="134.9">~9,400/hour, &lt;1% of space)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="1090.0" y="102.4">Attacker serves the subdomain</tspan><tspan x="1090.0" y="118.7">CA DV issues trusted TLS cert</tspan><tspan x="1090.0" y="134.9">parent-domain cookies leak</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="50.0" y="281.2">DEFENSE: expire-proof DNS hygiene - delete A records when the resource is released;</tspan><tspan x="50.0" y="298.7">version-controlled DNS (Terraform / OctoDNS / DNSControl) with review + audit trail;</tspan><tspan x="50.0" y="316.2">continuous dangling-record scanning (resolve A/CNAME, check against cloud resource inventories);</tspan><tspan x="50.0" y="333.7">propose: monthly EIP allocation quota + org-level (not account-level) abuse bans</tspan></text>
+</svg>

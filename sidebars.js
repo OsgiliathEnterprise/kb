@@ -32,6 +32,12 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Httpframeworks',
+          link: {type: 'generated-index', title: 'Httpframeworks', slug: 'tutorials/backendengineering/httpframeworks'},
+          items: ['tutorials/backendengineering/httpframeworks/tutorial-fastify-request-lifecycle-hooks'],
+        },
+        {
+          type: 'category',
           label: 'Aws',
           link: {type: 'generated-index', title: 'Aws', slug: 'tutorials/cloudinfrastructure/aws'},
           items: ['tutorials/cloudinfrastructure/aws/tutorial-full-stack-app-on-aws-fargate-vue-express-dynamodb'],
@@ -174,7 +180,7 @@ const sidebars = {
           type: 'category',
           label: 'Aws',
           link: {type: 'generated-index', title: 'Aws', slug: 'how-to/cloudinfrastructure/aws'},
-          items: ['how-to/cloudinfrastructure/aws/howto-aws-cicd-codepipeline-codebuild-ecr-fargate', 'how-to/cloudinfrastructure/aws/howto-deploy-aws-from-github-actions-with-oidc', 'how-to/cloudinfrastructure/aws/howto-deploy-ml-model-to-sagemaker-endpoint'],
+          items: ['how-to/cloudinfrastructure/aws/howto-aws-cicd-codepipeline-codebuild-ecr-fargate', 'how-to/cloudinfrastructure/aws/howto-deploy-aws-from-github-actions-with-oidc', 'how-to/cloudinfrastructure/aws/howto-deploy-ml-model-to-sagemaker-endpoint', 'how-to/cloudinfrastructure/aws/howto-serverless-media-watermark-s3-lambda-sharp-ffmpeg'],
         },
         {
           type: 'category',
@@ -1083,7 +1089,7 @@ const sidebars = {
           type: 'category',
           label: 'Dnssecurity',
           link: {type: 'generated-index', title: 'Dnssecurity', slug: 'explanations/securityprivacy/dnssecurity'},
-          items: ['explanations/securityprivacy/dnssecurity/explanation-dns-security-benchmark-dmarc-caa-gaps', 'explanations/securityprivacy/dnssecurity/explanation-domain-redemption-vs-pending-delete'],
+          items: ['explanations/securityprivacy/dnssecurity/explanation-dangling-dns-elastic-ip-takeover', 'explanations/securityprivacy/dnssecurity/explanation-dns-security-benchmark-dmarc-caa-gaps', 'explanations/securityprivacy/dnssecurity/explanation-domain-redemption-vs-pending-delete'],
         },
         {
           type: 'category',
@@ -1368,6 +1374,12 @@ const sidebars = {
           label: 'Aiagentsecurity',
           link: {type: 'generated-index', title: 'Aiagentsecurity', slug: 'examples/securityprivacy/aiagentsecurity'},
           items: ['examples/securityprivacy/aiagentsecurity/example-mcp-tool-poisoning-fixture-set'],
+        },
+        {
+          type: 'category',
+          label: 'Blockchainforensics',
+          link: {type: 'generated-index', title: 'Blockchainforensics', slug: 'examples/securityprivacy/blockchainforensics'},
+          items: ['examples/securityprivacy/blockchainforensics/example-tron-usdt-multisig-freeze-decoder'],
         },
         {
           type: 'category',

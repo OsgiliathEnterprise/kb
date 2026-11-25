@@ -44,6 +44,14 @@ CREATE POLICY tenant_isolation ON invoices
 
 Set `app.current_tenant` from the authenticated session at request start. RLS is the difference between "safe shared-schema multi-tenancy" and "one code-review miss away from a very bad day."
 
+### Production pitfalls with RLS (enriched 2026-11)
+
+- **`FORCE ROW LEVEL SECURITY`**: plain `ENABLE` still exempts the table owner and superusers. Add `ALTER TABLE invoices FORCE ROW LEVEL SECURITY;` and run the app as a non-owner role without `BYPASSRLS`, or your isolation policy silently doesn't apply to your own migrations/admin role.
+- **Connection pooling silently breaks the session variable**: a plain `SET app.current_tenant` persists on the server connection after the request ends — the pool hands that connection to the next request, which then runs with the *previous tenant's* ID. Transaction-mode poolers (PgBouncer) make this worse since server connections are shared across clients at transaction boundaries. Use `SET LOCAL` inside the request's transaction (it resets at commit/rollback), never session-level `SET`.
+- **RLS is a backstop, not the whole defense**: you still need verified tenant identity at the API boundary, tenant context propagated through background jobs and queues (they bypass the web request path), and strict namespacing for caches and object storage. A shared Redis key without a tenant prefix leaks data no matter how good your RLS policies are.
+- **Views and functions**: policies apply to views based on the querying role, but `SECURITY DEFINER` functions run as the function owner and can bypass policies — audit them explicitly.
+- **Test isolation, don't hope**: add integration tests that set one tenant's context, query another tenant's rows by ID, and assert empty results — proving the policy holds rather than assuming it.
+
 ## Option 2: Shared database, schema-per-tenant
 
 Each tenant gets its own Postgres schema in one physical database (`CREATE SCHEMA tenant_acme;`).
@@ -93,3 +101,4 @@ Combine with per-tenant scoped IAM policies or server-side-generated presigned U
 
 - [DEV.to — Multi-Tenancy in SaaS: The Architecture Decision You Can't Undo Later](https://dev.to/macrogenltd/multi-tenancy-in-saas-the-architecture-decision-you-cant-undo-later-4l8c)
 - [PostgreSQL — Row Security Policies](https://www.postgresql.org/docs/current/ddl-rowsecurity.html)
+- [Rico Fritzsche — Mastering PostgreSQL RLS for Rock-Solid Multi-Tenancy](https://ricofritzsche.me/mastering-postgresql-row-level-security-rls-for-rock-solid-multi-tenancy/)
