@@ -836,7 +836,7 @@ const sidebars = {
           type: 'category',
           label: 'Aicodingagents',
           link: {type: 'generated-index', title: 'Aicodingagents', slug: 'explanations/developertoolspractices/aicodingagents'},
-          items: ['explanations/developertoolspractices/aicodingagents/explanation-agent-context-files-architectural-claims', 'explanations/developertoolspractices/aicodingagents/explanation-ai-slop-pull-requests-oss-study', 'explanations/developertoolspractices/aicodingagents/explanation-bash-write-targets-static-extraction', 'explanations/developertoolspractices/aicodingagents/explanation-codex-cli-managed-daemon-trust-concerns', 'explanations/developertoolspractices/aicodingagents/explanation-coding-agent-failure-prediction-confounds', 'explanations/developertoolspractices/aicodingagents/explanation-cut-agent-tool-schemas-47-percent-yaml-duplicate-key-trap', 'explanations/developertoolspractices/aicodingagents/explanation-efficiency-throughput-gap-github-copilot-okta', 'explanations/developertoolspractices/aicodingagents/explanation-evidence-interpretation-coding-agents', 'explanations/developertoolspractices/aicodingagents/explanation-higher-scoring-coding-models-did-not-get-more-work-done', 'explanations/developertoolspractices/aicodingagents/explanation-markdown-is-not-a-firewall', 'explanations/developertoolspractices/aicodingagents/explanation-memosync-developer-agent-metamemory', 'explanations/developertoolspractices/aicodingagents/explanation-overclaimbench-quantifying-agent-overclaiming', 'explanations/developertoolspractices/aicodingagents/explanation-rasoi-visual-diffs-structural-agent-changes', 'explanations/developertoolspractices/aicodingagents/explanation-readie-low-latency-code-sandboxes', 'explanations/developertoolspractices/aicodingagents/explanation-valkey-ai-agents-backporting-provenance', 'explanations/developertoolspractices/aicodingagents/reference-buggymle-difficulty-graded-mle-bench', 'explanations/developertoolspractices/aicodingagents/reference-sudo-l7-staff-engineer-coding-benchmark', 'explanations/developertoolspractices/aicodingagents/reference-swe-bench-pro-v2-coding-benchmark', 'explanations/developertoolspractices/aicodingagents/reference-swe-gym-data-audit-coding-agents'],
+          items: ['explanations/developertoolspractices/aicodingagents/explanation-agent-context-files-architectural-claims', 'explanations/developertoolspractices/aicodingagents/explanation-ai-slop-pull-requests-oss-study', 'explanations/developertoolspractices/aicodingagents/explanation-bash-write-targets-static-extraction', 'explanations/developertoolspractices/aicodingagents/explanation-codex-cli-managed-daemon-trust-concerns', 'explanations/developertoolspractices/aicodingagents/explanation-coding-agent-failure-prediction-confounds', 'explanations/developertoolspractices/aicodingagents/explanation-confluent-kafka-java-rust-agent-translation', 'explanations/developertoolspractices/aicodingagents/explanation-cut-agent-tool-schemas-47-percent-yaml-duplicate-key-trap', 'explanations/developertoolspractices/aicodingagents/explanation-efficiency-throughput-gap-github-copilot-okta', 'explanations/developertoolspractices/aicodingagents/explanation-evidence-interpretation-coding-agents', 'explanations/developertoolspractices/aicodingagents/explanation-higher-scoring-coding-models-did-not-get-more-work-done', 'explanations/developertoolspractices/aicodingagents/explanation-markdown-is-not-a-firewall', 'explanations/developertoolspractices/aicodingagents/explanation-memosync-developer-agent-metamemory', 'explanations/developertoolspractices/aicodingagents/explanation-overclaimbench-quantifying-agent-overclaiming', 'explanations/developertoolspractices/aicodingagents/explanation-rasoi-visual-diffs-structural-agent-changes', 'explanations/developertoolspractices/aicodingagents/explanation-readie-low-latency-code-sandboxes', 'explanations/developertoolspractices/aicodingagents/explanation-valkey-ai-agents-backporting-provenance', 'explanations/developertoolspractices/aicodingagents/reference-buggymle-difficulty-graded-mle-bench', 'explanations/developertoolspractices/aicodingagents/reference-sudo-l7-staff-engineer-coding-benchmark', 'explanations/developertoolspractices/aicodingagents/reference-swe-bench-pro-v2-coding-benchmark', 'explanations/developertoolspractices/aicodingagents/reference-swe-gym-data-audit-coding-agents'],
         },
         {
           type: 'category',
@@ -878,7 +878,7 @@ const sidebars = {
           type: 'category',
           label: 'Mcp',
           link: {type: 'generated-index', title: 'Mcp', slug: 'explanations/developertoolspractices/mcp'},
-          items: ['explanations/developertoolspractices/mcp/explanation-mcp-code-mode-context-engineering', 'explanations/developertoolspractices/mcp/explanation-mcp-context-tax-tool-schema-tokens', 'explanations/developertoolspractices/mcp/explanation-mcp-discovery-storms-sep-2549-caching', 'explanations/developertoolspractices/mcp/explanation-mcp-protocol-era-silent-downgrade-2026-07-28', 'explanations/developertoolspractices/mcp/explanation-mcp-servers-writing-public-content', 'explanations/developertoolspractices/mcp/explanation-mcp-step-up-authorization-vs-oauth-incremental', 'explanations/developertoolspractices/mcp/explanation-mcp-vs-rest-kafka-complementary-layers', 'explanations/developertoolspractices/mcp/explanation-tool-descriptions-are-the-contract'],
+          items: ['explanations/developertoolspractices/mcp/explanation-mcp-code-mode-context-engineering', 'explanations/developertoolspractices/mcp/explanation-mcp-context-tax-tool-schema-tokens', 'explanations/developertoolspractices/mcp/explanation-mcp-discovery-storms-sep-2549-caching', 'explanations/developertoolspractices/mcp/explanation-mcp-protocol-era-silent-downgrade-2026-07-28', 'explanations/developertoolspractices/mcp/explanation-mcp-second-anniversary-skills-tasks-uploads', 'explanations/developertoolspractices/mcp/explanation-mcp-servers-writing-public-content', 'explanations/developertoolspractices/mcp/explanation-mcp-step-up-authorization-vs-oauth-incremental', 'explanations/developertoolspractices/mcp/explanation-mcp-vs-rest-kafka-complementary-layers', 'explanations/developertoolspractices/mcp/explanation-tool-descriptions-are-the-contract'],
         },
         {
           type: 'category',
@@ -1083,7 +1083,7 @@ const sidebars = {
           type: 'category',
           label: 'Dnssecurity',
           link: {type: 'generated-index', title: 'Dnssecurity', slug: 'explanations/securityprivacy/dnssecurity'},
-          items: ['explanations/securityprivacy/dnssecurity/explanation-domain-redemption-vs-pending-delete'],
+          items: ['explanations/securityprivacy/dnssecurity/explanation-dns-security-benchmark-dmarc-caa-gaps', 'explanations/securityprivacy/dnssecurity/explanation-domain-redemption-vs-pending-delete'],
         },
         {
           type: 'category',
@@ -1284,6 +1284,12 @@ const sidebars = {
           label: 'Multimodal',
           link: {type: 'generated-index', title: 'Multimodal', slug: 'examples/aimachinelearning/multimodal'},
           items: ['examples/aimachinelearning/multimodal/example-whistle-on-device-speech-to-text'],
+        },
+        {
+          type: 'category',
+          label: 'Trainingoptimization',
+          link: {type: 'generated-index', title: 'Trainingoptimization', slug: 'examples/aimachinelearning/trainingoptimization'},
+          items: ['examples/aimachinelearning/trainingoptimization/example-pytorch-autograd-60-line-python-scalar-engine'],
         },
         {
           type: 'category',
