@@ -14,6 +14,8 @@ keywords:
 ---
 # Anatomy of an Agent Harness: Decisions, Invariants and Corner Cases
 
+**Authors:** Resham Joshi
+
 ## Overview
 
 The *agent harness* is the program wrapped around a language model that turns replies into actions: it builds each request, executes requested tools, decides what the model may do without asking, persists the conversation, recovers from failures, and reports what happened to the human. Most of these decisions live silently in code, so every harness team rediscovers the same corner cases. This paper writes them down — as **testable invariants** — derived from building one desktop harness (Crewroom), manually testing ten others, and studying open-source harnesses.
@@ -29,6 +31,14 @@ Harness engineering knowledge is tacit and scattered. Without a written catalogu
 - **Six cause classes** for harness failures.
 - A **test method** built on scripted providers, recorded behaviour, and planted changes (mutation-style).
 - A practical **checklist** — applied to the author's own harness as one worked example.
+
+## Inside a Decision Card
+
+Each card (e.g. T1, F3, P5) is structured as: **a sentence in plain words; the Decision and why it is forced; Options, each choice with its gain and cost; the Invariant, in lettered clauses a test can check; Corner cases that break it; a Test; and — for permission cards — a Cost and limit, i.e. explicitly what the rule does _not_ prevent.** The paper also pins down easily-confused vocabulary: a *checker* decides **before** a command runs whether it may run without asking; an *approval request* asks the person; a *prompt* is always text sent to the model.
+
+## Related framing
+
+The broader "Code as Agent Harness" literature frames harness control as a **Plan-Execute-Verify loop**: plans form contracts over intended changes, execution applies them inside sandboxed and permissioned environments, and verification uses deterministic sensors and human-review gates to decide whether state should be accepted, revised, escalated, or rolled back — the same invariant-driven discipline this paper catalogs per-decision.
 
 ## Evidence Discipline
 
