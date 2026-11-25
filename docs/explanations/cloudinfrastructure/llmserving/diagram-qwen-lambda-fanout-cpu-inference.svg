@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 -4.0 948.0 458.0" width="948" height="458">
+<rect x="16.0" y="-4.0" width="948.0" height="458.0" fill="#ffffff"/>
+<rect x="60.0" y="100.0" width="190.0" height="30.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="100.0" y="136.0" width="190.0" height="30.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="140.0" y="172.0" width="190.0" height="30.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="180.0" y="208.0" width="190.0" height="30.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="220.0" y="244.0" width="190.0" height="30.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="560.0" y="100.0" width="220.0" height="60.0" rx="8" fill="#ffd8a8" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="560.0" y="220.0" width="220.0" height="60.0" rx="8" fill="#d0bfff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="60.0" y="340.0" width="300.0" height="90.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="420.0" y="340.0" width="340.0" height="90.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 155.0 130.0 L 195.0 136.0"/><line x1="195.0" y1="136.0" x2="183.5" y2="128.1"/><line x1="195.0" y1="136.0" x2="181.6" y2="140.2"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 250.0 115.0 L 290.0 115.0"/><line x1="290.0" y1="115.0" x2="277.4" y2="108.9"/><line x1="290.0" y1="115.0" x2="277.4" y2="121.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 195.0 166.0 L 235.0 172.0"/><line x1="235.0" y1="172.0" x2="223.5" y2="164.1"/><line x1="235.0" y1="172.0" x2="221.6" y2="176.2"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 290.0 151.0 L 330.0 151.0"/><line x1="330.0" y1="151.0" x2="317.4" y2="144.9"/><line x1="330.0" y1="151.0" x2="317.4" y2="157.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 235.0 202.0 L 275.0 208.0"/><line x1="275.0" y1="208.0" x2="263.5" y2="200.1"/><line x1="275.0" y1="208.0" x2="261.6" y2="212.2"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 330.0 187.0 L 370.0 187.0"/><line x1="370.0" y1="187.0" x2="357.4" y2="180.9"/><line x1="370.0" y1="187.0" x2="357.4" y2="193.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 275.0 238.0 L 315.0 244.0"/><line x1="315.0" y1="244.0" x2="303.5" y2="236.1"/><line x1="315.0" y1="244.0" x2="301.6" y2="248.2"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 370.0 223.0 L 410.0 223.0"/><line x1="410.0" y1="223.0" x2="397.4" y2="216.9"/><line x1="410.0" y1="223.0" x2="397.4" y2="229.1"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="22" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="37.6">Qwen on 5,600 Lambdas: layer-staircase fan-out (one read = 32 layers x blocks)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="middle"><tspan x="155.0" y="127.8">Lambda: layer 1 x block j</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="middle"><tspan x="195.0" y="163.8">Lambda: layer 2 x block j</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="middle"><tspan x="235.0" y="199.8">Lambda: layer 3 x block j</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="middle"><tspan x="275.0" y="235.8">Lambda: layer 4 x block j</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="middle"><tspan x="315.0" y="271.8">Lambda: layer 5 x block j</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="middle"><tspan x="670.0" y="132.8">S3 objects</tspan><tspan x="670.0" y="152.8">key: doc/layer/block</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="middle"><tspan x="670.0" y="252.8">activation dependency:</tspan><tspan x="670.0" y="272.8">layer above + prev block</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="middle"><tspan x="210.0" y="377.8">92% parallel / 8% serial</tspan><tspan x="210.0" y="397.8">serial chain = 32 layers x ~0.33 s</tspan><tspan x="210.0" y="417.8">=&gt; 17 s per 4k-token read</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="middle"><tspan x="590.0" y="377.8">$8.40 / M tokens read</tspan><tspan x="590.0" y="397.8">vs $0.10 hosted decision model</tspan><tspan x="590.0" y="417.8">=&gt; 80x more expensive</tspan></text>
+</svg>
