@@ -38,6 +38,19 @@ Quality: mean benchmark scores at most 3.1% below baseline in the authors' evalu
 ## Relevance to Our Domain
 Extends the KB's KV-offloading line (TripleKV, Aggron) one layer deeper: when main-KV offloading matures, the *indexer cache* is the next capacity limiter for sparse-attention serving. The "cheap on-device proxy proposes, exact on-host model disposes" pattern is reusable for any learned index kept too large for HBM.
 
+## Context & Related Work
+
+Twindex sits on top of the mature main-KV-offloading stack; the surrounding ecosystem matters for when its gains materialize:
+
+- **Mooncake** (arXiv:2407.00079) established the KVCache-centric disaggregated architecture (Moonshot/Kimi's serving platform); its transfer engine and paged DRAM pooling are the de-facto substrate Twindex assumes when it says "main KV already in host memory." TensorRT-LLM merged a native Mooncake Store connector (KVCMv2) in Oct 2026, so prefix-reuse pools across instances are now commodity — making the *indexer* cache, not main KV, the scarce HBM resident.
+- **FlatCake** (arXiv:2610.38355) and the OSDI'26 zero-copy offloading work (USENIX OSDI'26, Luo et al.) attack the remaining staging-buffer overhead in HBM — complementary: they shrink the host↔device path, Twindex shrinks what must live on-device at all.
+- **llm-d's KV offloader** shows the industry pattern of tiering KV to CPU DRAM/storage; Twindex's "compact on-device proxy proposes, exact on-host indexer disposes" is the same tiering philosophy applied to learned index structures.
+
+**Design caveat:** the coarse-to-fine two-stage selection adds a host round-trip per decode step; Twindex's throughput wins hold only "when host memory does not limit the batch" — on bandwidth-constrained nodes the candidate re-scoring path can dominate, so benchmark before assuming the 1.44–2.54× numbers.
+
 ## References
-- Paper: https://arxiv.org/abs/2611.25078
+- Paper: https://arxiv.org/abs/2611.25078 (v1, 2026-11-18, cs.DC, 25 pages)
+- Mooncake: https://arxiv.org/abs/2407.00079 · https://kvcache-ai.github.io/Mooncake/
+- FlatCake: https://arxiv.org/html/2610.38355
+- llm-d KV-Cache offloading: https://llm-d.ai/docs/0.10/architecture/advanced/kv-management/kv-offloader
 - Related: [[explanation-triplekv-kv-cache-management-ai-agents]], [[explanation-aggron-agentic-kv-cache-compression]]

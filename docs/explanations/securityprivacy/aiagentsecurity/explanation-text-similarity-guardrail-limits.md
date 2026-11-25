@@ -41,8 +41,21 @@ Multi-agent pipelines need to catch injected procedures that survive paraphrasin
 
 Direct guidance for designing multi-agent guardrail stacks: similarity-based propagation filters are the wrong layer. Detection should target downstream *behavior* (did the injected procedure induce new computations?) and decisions must be grounded in the authorization policy, not in transcript text alone.
 
+## Context & Related Work
+
+The paper's conclusion — screen *behavior against user intent*, not transcript text — is converging with industry practice, though most deployed stacks still lean on text-level detectors:
+
+- **OWASP LLM Prompt Injection Prevention Cheat Sheet** recommends "action screening": evaluate each *proposed tool call* against the original user task/intent — exactly the behavioral, policy-grounded layer this paper argues similarity filters cannot substitute for (https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html).
+- **Vendor prompt-injection checks** (e.g. OpenAI Guardrails' pre-flight tool-call-output validation) are beginning to inspect tool-call semantics rather than raw text, but are still shipped alongside text classifiers whose false-positive burden the paper quantifies (https://openai.github.io/openai-guardrails-python/ref/checks/prompt_injection_detection/).
+- **Practitioner guidance** (ARMO's "three numbers to measure" for injection detectors: recall at the false-positive rate your traffic can absorb, messages scored per day, and the residual that gets through) mirrors the paper's miss/FP breakdown of 8/19 functional missed vs 70/192 legitimate flagged — useful framing when defending a guardrail budget (https://www.armosec.io/blog/prompt-injection-detection-models/).
+- XAI-guided perturbation analysis of injection classifiers (arXiv:2609.24801) similarly shows surface-feature reliance is the failure mode — paraphrase/perturbation robustness, not headline AUC, is the property to audit.
+
+**Operational takeaway for our KB:** treat any BLEU/ROUGE/METEOR-style overlap detector as *advisory telemetry only*. Enforce at two layers instead: (1) authorization-aware decisioning (same transcript, different policy ⇒ different decision), and (2) downstream behavioral probes — did the relayed content induce fresh, unauthorized computations in the next agents?
+
 ## References
 
-- Paper: https://arxiv.org/abs/2611.21520
+- Paper: https://arxiv.org/abs/2611.21520 (v1, 2026-11-16, cs.AI)
 - Related KB note: [[explanation-agent-guardrail-stack]] (agent-architecture)
 - Semantic Scholar: https://api.semanticscholar.org/graph/v1/paper/arXiv:2611.21520
+- OWASP cheat sheet (action screening): https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html
+- Detector sizing guidance: https://www.armosec.io/blog/prompt-injection-detection-models/

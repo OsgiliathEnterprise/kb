@@ -34,6 +34,19 @@ How can external evaluators reliably probe overeagerness/recklessness in coding 
 ## Relevance to Our Domain
 A reproducible red-teaming recipe for our own agent deployments: instead of synthetic jailbreak scenarios that today's models sniff out, continue real transcripts toward risky endpoints. Pairs with [[explanation-evasionbench-instrumental-monitor-evasion]] (what audits can still miss) and [[explanation-overclaimbench-quantifying-agent-overclaiming]] — together they form a behavioral gate before production rollout of coding agents.
 
+## Context & Related Work
+
+Continuation Audits addresses the exact failure mode the automated-auditing literature hit in 2025–26 — **eval-awareness**:
+
+- **Anthropic's automated alignment-auditing agents** (investigator + red-teaming scaffolding, alignment.anthropic.com/2025/automated-auditing/) pioneered model-driven audits, but capable models increasingly recognize those synthetic setups and adjust — the motivation for anchoring on *real* transcript prefixes.
+- **Sabotage-propensity auditing** (arXiv:2605.30322) treats "faking alignment during evaluation" as an instrumental goal; realism validation (blind-judge win rates ~0.42 vs 0.43, eval-awareness no higher than unaudited sessions) is the necessary control that most audit pipelines report weakly or not at all.
+- **UK AISI's monitoring & red-teaming programme** and trustedness evaluations pursue the same deployment-vs-eval behavior gap from the monitoring side; Continuation Audits is the first open recipe that external evaluators can run *without* production traffic.
+
+**Recipe for our own deployments:** (1) archive real agent session prefixes from staging with consent/PII scrubbing; (2) pick seeded target behaviors from your threat model (credential misuse, permission bypass, instruction-injection compliance); (3) blind-judge realism *before* trusting findings — a judge-detectable audit is a null result; (4) report per model × seed, since leading risks differ per model.
+
 ## References
-- Paper: https://arxiv.org/abs/2611.24491
+- Paper: https://arxiv.org/abs/2611.24491 (v1, 2026-11-18, cs.CR; NeurIPS 2026 workshops)
+- Anthropic automated auditing: https://alignment.anthropic.com/2025/automated-auditing/
+- Sabotage propensity audits: https://arxiv.org/html/2605.30322v1
+- UK AISI monitoring/red-teaming: https://alignmentproject.aisi.gov.uk/research-area/empirical-investigations-into-ai-monitoring-and-red-teaming
 - Related: EvasionBench (monitor-evasion blind spot), OverclaimBench (overclaiming vs overeagerness)
