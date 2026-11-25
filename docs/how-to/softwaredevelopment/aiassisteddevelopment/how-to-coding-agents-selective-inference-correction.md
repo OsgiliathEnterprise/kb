@@ -14,6 +14,8 @@ keywords:
 ---
 # Inference after coding agents
 
+> **Paper metadata** (verified on arXiv, 2026-11-24): Florian Gunsilius, David Van Dijcke, Kaspar Wüthrich. Submitted 17 Nov 2026. Category: stat.ME (Statistics > Methodology).
+
 ## Overview
 Gunsilius, Van Dijcke and Wüthrich argue that coding agents doing empirical research — writing analysis code, exploring estimators, manipulating data — pose a **substantial threat to classical statistical inference**: they enable a *supercharged form of selective inference*. The paper contributes both a diagnosis (a new type of post-selection inference) and a concrete, black-box **detect-and-correct procedure** that restores nominal false-positive control.
 

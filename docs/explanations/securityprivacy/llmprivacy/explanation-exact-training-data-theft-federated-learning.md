@@ -14,6 +14,8 @@ keywords:
 ---
 # Stealing Exact Training Data from Other Clients during Federated Learning
 
+> **Paper metadata** (verified on arXiv, 2026-11-24): Omkar Shrikanth, Soham Dambalkar, Parag Jyoti Pal, Advik Raj Basani, Arnab K. Paul. Submitted 18 Nov 2026. Preprint, 22 pages, 21 figures. Categories: cs.LG, cs.CR, cs.DC. DOI: https://doi.org/10.48550/arXiv.2611.24689
+
 ## Overview
 This paper demonstrates, for the first time, that a malicious participant in Federated Learning can recover *exact* sentences of other clients' training text from a single round's aggregated model update. Prior gradient-inversion attacks could approximate text; exact recovery was considered infeasible because FedAvg entangles many clients' gradient contributions.
 
@@ -37,3 +39,4 @@ A decisive data point for federated-learning threat modeling: client-side advers
 - Semantic Scholar: https://api.semanticscholar.org/graph/v1/paper/arXiv:2611.24689
 - Related peeling-style inversion: "Cascading Gradient Inversion via LT-Code Inspired Peeling" (arXiv:2609.09659, Sep 2026) — reconstructs data by iteratively peeling recoverable components from aggregates
 - Survey/threat taxonomy: "SoK: Gradient Inversion Attacks in Federated Learning" (USENIX Security 2025, Carletti et al.)
+- arXiv HTML full text: https://arxiv.org/html/2611.24689v1
