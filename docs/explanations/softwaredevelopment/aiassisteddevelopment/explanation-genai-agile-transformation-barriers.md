@@ -39,6 +39,12 @@ keywords:
 - **Niveau organisation** : maturité IA inégale entre unités, mécanismes d'apprentissage organisationnel faibles, problèmes de coordination/alignement inter-unités.
 - **Contribution** : conditions d'une intégration GenAI durable à l'échelle, exprimées comme interaction avec le changement organisationnel en cours (pas comme défi autonome).
 
+## Travaux connexes (ajouté par KB Zookeeper, vérifié via recherche web le 2026-11-25)
+
+- **« Between Policy and Practice: GenAI Adoption in Agile Software Development »** (arXiv:2601.07051) — étude complémentaire sur l'adoption GenAI en contexte agile : conditions réglementaires, cas d'usage, bénéfices et barrières. Converge sur un point clé : la barrière n'est pas seulement bureaucratique mais l'absence de voies organisationnelles pour réconcilier exigences (sécurité, conformité) et besoins pratiques — forçant les employés à choisir entre conformité et productivité.
+- Une analyse empirique de la diffusion des outils GenAI dans le développement logiciel (Information and Software Technology, 2026, sciencedirect.com/science/article/pii/S095058492600025X) signale des profils d'adoption différents entre étudiants et développeurs professionnels — cohérent avec la « maturité IA inégale » observée par Moe et al. entre unités.
+- Le papier s'appuie sur Moe & Stray (2026) pour la thèse que les différences d'adoption GenAI entre équipes créent des défis de gouvernance, d'apprentissage, de coordination et d'alignement.
+
 ## Voir aussi
 
 - [[explanation-ai-native-vs-ai-enabled-transformation]]

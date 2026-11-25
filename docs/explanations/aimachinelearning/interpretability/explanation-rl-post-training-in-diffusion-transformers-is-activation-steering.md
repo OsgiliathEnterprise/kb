@@ -33,6 +33,13 @@ Conclusion : sans nouvelles transformations input-dépendantes, le RL post-train
 - ⚠️ Observation sur checkpoints publics RL-tuned — pas une recette d'entraînement RL complète.
 - ❌ Ne prétend pas que TOUS les gains sont input-indépendants : « la majeure partie ».
 
+## Contexte et travaux connexes (ajouté par KB Zookeeper, vérifié via recherche web le 2026-11-25)
+
+- Le **steering d'activations** vient de la littérature LLM : ajouter un vecteur fixe aux hidden states, obtenu soit par prompts contrastifs, soit par optimisation directe. Ce papier transpose la technique aux DiT et au régime RL post-training.
+- Un résultat voisin dans l'écosystème LLM : des vecteurs de steering entraînés peuvent remplacer une LoRA et servir d'« oracles d'activations » — cohérent avec la thèse « capacité déjà présente, simplement débloquée ».
+- Le positionnement des auteurs (section Related Work du papier) ancre explicitement le travail dans ces deux lignées (steering par contrastes vs. optimisé), appliquées aux modèles d'image.
+- Point de vigilance pour la reproduction : les vecteurs sont ajustés par **velocity matching** contre des checkpoints RL-tuned **publics** — la méthode dépend donc de la disponibilité de ces checkpoints, pas d'une boucle de récompense.
+
 ## Voir aussi
 
 - [[explanation-rlaif-vs-rlhf-preference-mode-collapse]]
