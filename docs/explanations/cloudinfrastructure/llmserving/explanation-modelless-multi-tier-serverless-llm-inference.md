@@ -14,30 +14,33 @@ keywords:
 ---
 # ModelLess: A Serverless System for Multi-Tier LLM Inference on Shared GPUs
 
+**Authors:** Ding Shi, Wei Wu, Jiayuan Chen, Chenghu Yang
+
 ## Overview
-ModelLess is a serverless LLM serving system that attacks cold-start cost at its root: instead of paying a full weight load on every wake-up, it keeps the model "warm at rest" across three tiers (GPU memory → host memory → NVMe), so waking a sleeping deployment reuses the part of the weights that already resides in the nearest tier. Layer-granularity sleep/wake plus a cross-request, cross-deployment prefetcher make cold starts 2–16× faster while sharing a small GPU pool across scale-to-zero deployments.
+ModelLess is a serverless system for LLM inference on shared GPUs. Today's platforms sell online, asynchronous, batch and rollout products on GPUs provisioned per product, so a service's cards sit idle between bursts while other work waits. ModelLess flips ownership: users declare model services, the platform owns the instances, and idle services scale to zero with their weights parked in host memory — making wake-up a seconds-scale operation instead of a minutes-scale cold start, and letting freed GPUs be lent to lower-priority tiers.
 
 ## Problem Statement
-Serverless computing's scale-to-zero economics depend on cold starts being cheap. For LLM serving, the wake-up cost is dominated by loading multi-gigabyte weights into GPU memory; existing sleep-wake techniques mitigate this by parking weights in host memory, but the full host→device transfer is still paid on *every* wake-up. Meanwhile, existing multi-tier weight-management designs optimize warm-path throughput and were never designed for sleep-wake serving. The gap: no system jointly optimizes wake-up cost, tiered weight management, and deployment packing for serverless LLMs.
+Per-product GPU provisioning wastes capacity between bursts. Scale-to-zero would fix that, but LLM instances are expensive to evict and restart: for GLM-5.2 at TP8, ModelLess measures ~1 s to release a GPU and ~4 s to wake with weights in host memory, versus a cold start of over four minutes. Cluster managers also treat preemption as all-or-nothing, which is wrong for LLM instances whose eviction cost depends on which parts — weights, execution state, KV cache, in-flight requests — survive it.
 
 ## Key Contribution
-- **Unified sleep-wake + weight management**: the first system to jointly optimize sleep-wake lifecycle and multi-tier (GPU/host/NVMe) weight management for serverless LLM serving.
-- **Multi-tier sleep-wake**: preemptions stage weights down the hierarchy so that reactivation only loads the layers missing from the nearest tier — warm at rest instead of cold start.
-- **Layer-granularity preemption and restoration**: sleep and wake operate per layer, enabling fine-grained overlap and partial residency.
-- **Cross-request, cross-deployment prefetching**: anticipates which weights will be needed next, across requests and across different deployments sharing the GPU.
-- **Placement and packing mechanism**: co-locates multiple scale-to-zero deployments on small GPU pools to maximize utilization and minimize GPU idle time.
+- **Sleep-with-weights-in-host-memory lifecycle**: idle services release GPUs in ~1 s and wake in ~4 s (GLM-5.2 TP8) versus a >4-minute cold start; billing follows the time a service actually holds GPUs.
+- **Tier-specific eviction semantics**: each tier (online, job, flex) declares what it may lose when preempted, instead of one-size-fits-all kills.
+- **Fail-closed preemption protocol**: closes admission before releasing memory, and re-enqueues a request durably before aborting it.
+- **Four enforcement components**: entry, dispatcher, node agent, and an SGLang plugin — providing sleep/wake, pause/resume of in-flight requests for the flex tier, and a weight-copy path (follow/seal) for RL rollout.
+- **GPU lending**: GPUs freed by sleeping services are lent to lower tiers.
 
 ## Technical Approach
-The architecture treats a sleeping model as a layered artifact spread over GPU HBM, host DRAM, and NVMe. On preemption, layers are demoted rather than discarded; on wake-up, only the residency gap is transferred, and the prefetcher hides the remaining latency by speculatively pulling layers ahead of the first token. A placement component packs many idle deployments per GPU so that scale-to-zero actually frees capacity while keeping hot sets nearby. Evaluation uses production-style traces on a 4-GPU testbed.
+The design makes eviction cheap and safe. Because an LLM instance's eviction cost is decomposable (weights, execution state, KV cache, in-flight requests), tiers specify their loss tolerance and the preemption protocol enforces it without losing requests: admission closes first, requests are durably re-enqueued before any abort, and the protocol fails closed. Sleeping instances keep weights in host memory so wake-up skips the full load path. Enforcement spans the entry point, the dispatcher, a node agent, and a plugin inside the SGLang engine.
 
 ## Results
-- Cold-start latency reduced by **2–16×** relative to existing sleep-wake baselines.
-- Up to **4.1×** more requests served on the same 4-GPU testbed under production-style traces.
+- Replaying **a week of traces from 1,100 H20 cards** serving long-tail online models: about **38% of GPU-time (417 equivalent GPUs) could be lent** to lower tiers under a coarse latency target with one fixed idle threshold. The authors flag this as an idealized upper bound that holds only if recovery takes seconds — with a 240 s cold start, only 8% remains even with per-service thresholds.
+- On one node, a single four-hour run per policy: **pausing yields 22% more borrower tokens per held-GPU sample** than abort-and-requeue, at the same median online latency.
+- Author-stated caveats: the job tier and the follow/seal weight-copy path are **not yet evaluated end to end**.
 
 ## Relevance to Our Domain
-This is directly applicable to GPU-finops and serverless inference platforms: scale-to-zero only pays off when wake-up is sub-second, and ModelLess's tiered "warm at rest" model is the design pattern to copy for multi-tenant GPU pools. It complements KV-cache offloading work (see the Norn note) — ModelLess manages *weights* across tiers, Norn manages *weights + KV cache* under context-length variation.
+For GPU-finops and multi-tenant serving platforms, ModelLess contributes two design patterns: (1) sleep-with-weights-in-host-memory as the mechanism that makes scale-to-zero viable for LLMs, and (2) per-tier eviction semantics plus a fail-closed preemption protocol for lending GPUs across priority tiers. The 38%-lent figure doubles as a capacity-planning benchmark — and its sensitivity to recovery latency (38% → 8% at a 240 s cold start) quantifies why wake-up time is the metric to engineer.
 
 ## References
 - Paper: https://arxiv.org/abs/2611.32634
-- Related: cloud-infrastructure/llm-serving/how-to-norn-context-length-aware-offloading.md
-- Related: cloud-infrastructure/llm-serving/reference-avalanche-intra-gpu-parallelism-serverless-llm.md
+- Related: cloud-infrastructure/llm-serving/explanation-aggron-agentic-kv-cache-compression.md
+- Related: cloud-infrastructure/gpu-compute/explanation-berth-slo-preserving-gpu-sharing.md

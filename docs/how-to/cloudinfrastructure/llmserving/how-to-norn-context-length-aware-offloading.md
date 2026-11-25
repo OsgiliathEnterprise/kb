@@ -15,35 +15,33 @@ keywords:
 ---
 # Norn: Context-Length-Aware Optimization of Weight and KV Cache Placement for Offloaded LLM Inference
 
+**Authors:** Naoto Sugiura, Hiroki Matsutani
+
 ## Overview
-Norn is a single-GPU inference method for models that exceed GPU memory, where both weights and the KV cache are partially offloaded to host memory. Its key observation is that weight offloading and KV-cache offloading impose *opposite* PCIe traffic patterns over a request's lifecycle: decode phases are weight-dominated (many small reads, KV reads shrinking with the attention window), while long prompts are KV-dominated (prefill is a burst of KV transfers, weight reads amortized). Norn profiles offline, precomputes placement plans per context length, and switches plans as the context grows — cutting decode latency by 30–37% and prefill latency by 33–77% on consumer and datacenter GPUs.
+Norn is a context-length-aware offloading method for running LLMs on a single memory-constrained GPU, with model weights and the KV cache partially offloaded to host memory. Its core observation: as the KV cache grows during decoding, GPU memory requirements and the costs of KV-cache transfers and attention computation *change* — so the static computation assignments and placements used by existing offloading methods become suboptimal mid-request. Norn co-optimizes placement and computation assignment offline at sublayer granularity, then switches execution plans as context grows, overlapping computation and transfers without knowing output lengths in advance.
 
 ## Problem Statement
-When LLMs outgrow even high-end GPU memory, offloading weights and the growing KV cache to host memory is the standard fallback, but it introduces large PCIe transfer overhead. Prior systems optimize *either* weight offloading *or* KV-cache placement, and none accounts for how the workloads differ across the request lifecycle and context lengths: decode is weight-read-heavy, prefill of long prompts is KV-transfer-heavy.
+Offloading weights and the growing KV cache to host memory lets LLMs exceed GPU memory, but PCIe transfer overhead dominates runtime. Existing methods use static computation assignments and static weight/KV placements that cannot adapt to how costs shift with context length, degrading inference performance across a request's lifecycle.
 
-## How-to: Optimize Offloaded Inference with Norn
-1. **Profile offline.** On your target GPU, measure the per-placement behavior of weights and KV cache — the cost of keeping each resident vs. streaming it over PCIe — across context lengths.
-2. **Precompute placement plans.** For each context-length bucket, derive the optimal split: which layers' weights stay on-device, whether KV stays on-device, and which prefill strategy to use.
-3. **Switch plans as context grows.** During serving, move between precomputed plans when the context crosses bucket boundaries, so decode phases run weight-resident and long-prompt prefills keep KV on-device.
-4. **Chunk long prefills for memory-bounded models.** Split prefill into KV-prefill chunks and weight-prefill chunks, overlapping the two so neither PCIe stream idles.
-5. **Overlap KV writes with weight reads.** Schedule concurrent PCIe transfers to hide transfer latency behind compute.
-6. **Overlap plan switching with layer prefetch.** Bring the next plan's layers in while the current plan still executes, so transitions are invisible to tokens.
-7. **Add a KV-cache compression stage for extreme settings.** When memory pressure is highest, compress KV to shrink the on-device footprint further.
+## How-to: Apply Norn's Context-Length-Aware Offloading
+1. **Profile offline on the target GPU.** Characterize, per sublayer, how weight placement, KV placement and attention cost vary with context length.
+2. **Co-optimize assignments and placements at sublayer granularity.** For each context-length regime, decide which sublayers' weights stay on-device versus streamed and where the KV cache lives.
+3. **Precompute multiple execution plans plus switching points.** Encode the optimal plan per context-length regime and the boundaries at which plans should change.
+4. **Switch plans during decoding as context grows.** At runtime, follow the plan table and overlap computation with data transfers, without needing to know the output length in advance.
+5. **Use operator-major chunked prefill for long prompts.** Chunk the prefill stage by operator to avoid repeatedly transferring weights across chunks, and select the chunk size automatically.
 
 ## Technical Approach
-Norn's engine is offline profiling + runtime plan switching. Because decode and prefill stress different PCIe directions, the placement that minimizes transfers depends on the phase and on context length; Norn encodes that dependency as a plan table and reacts to context growth. Three scheduling mechanisms (chunked prefill overlap, concurrent KV-write/weight-read overlap, plan-switch/layer-prefetch overlap) remove transfer stalls, plus an optional KV compression stage for tight memory budgets.
+Norn separates the expensive search (offline profiling and plan construction at sublayer level) from the cheap runtime action (plan switching plus compute/transfer overlap). The operator-major chunked prefill removes the repeated weight-transfer penalty of naive prefill chunking; automatic chunk-size selection and output-length-agnostic plan switching keep the method usable without a priori knowledge of request shapes.
 
 ## Results
-Evaluated on consumer-grade and datacenter GPUs:
-- Time-to-first-token **down 33–77%**.
-- Decode latency **down 30–37%**.
-- **Up to 4.5×** higher energy efficiency.
-- **Up to 8.8×** reduction in memory footprint.
+Evaluated with **Qwen3-14B and Qwen3-32B on two single-GPU systems**:
+- Up to **16.8× speedup in end-to-end latency** over Pipelined Sharding.
+- Up to **4.2× speedup over an oracle variant** of the baseline that is given the input and output lengths in advance.
 
 ## Relevance to Our Domain
-Offloaded inference on consumer/single GPUs is the cheapest tier of our inference portfolio; Norn gives an actionable recipe (profile → plan table → phase-aware overlap) instead of ad-hoc offload flags. Its energy-efficiency results also feed GPU-finops accounting (see TokenJoule). Pairs naturally with ModelLess: Norn governs weight+KV placement within a live deployment, ModelLess governs weight residency across sleep/wake cycles.
+For the cheap single-GPU tier of an inference portfolio, Norn replaces ad-hoc offload flags with a principled recipe: offline sublayer profiling → precomputed plan table keyed on context length → runtime plan switching with overlap. That it beats an oracle baseline given true lengths (4.2×) suggests the win comes from schedule structure, not from predicting request shape — practical for interactive workloads where output length is unknown.
 
 ## References
 - Paper: https://arxiv.org/abs/2611.32295
-- Related: cloud-infrastructure/llm-serving/explanation-modelless-multi-tier-serverless-llm-inference.md
 - Related: cloud-infrastructure/llm-serving/explanation-aggron-agentic-kv-cache-compression.md
+- Related: cloud-infrastructure/gpu-compute/explanation-berth-slo-preserving-gpu-sharing.md

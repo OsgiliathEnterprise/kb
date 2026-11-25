@@ -14,37 +14,35 @@ keywords:
 ---
 # SwarmLeak: Does Coordination Improve Privacy Attacks on LLM Agents?
 
+**Authors:** Asma Farajidizaji, Vyas Raina, Vatsal Raina, Ivaxi Sheth
+
 ## Overview
-SwarmLeak is the first red-teaming *dataset* for coordinated privacy attacks against agentic retrieval systems, built from the GAIA benchmark. It provides 125 multi-hop questions whose gold answers combine a publicly verifiable anchor entity with a private PII attribute drawn from synthetic dossiers — so no real personal data is needed, yet extraction requires chaining multiple retrieval, tool, or browsing steps. Against this harness, 111 frontier models and 6 agent frameworks were evaluated: unassisted direct extraction sits at ~2% success, but a single attacker-selected private context raises success to 75–81%. The headline finding: coordination does *not* improve PII extraction over single-agent attacks.
+SwarmLeak is a red-teaming dataset and study asking whether adversarial *coordination* improves privacy attacks on LLM agents. The dataset comprises **24 synthetic group-chat scenarios** across healthcare, law, finance and software engineering, where an attacker posing as a colleague tries to elicit protected information from victim agents that post protected fields despite an explicit confidentiality policy. Headline finding: **swarms show no advantage over single attackers at matched token budgets** — the dominant variable is the *victim model*, not attack sophistication.
 
 ## Problem Statement
-Agentic RAG systems combine an LLM with external tools, web browsing, and access to private organizational data. Prior work shows single-agent attacks can extract sensitive information from the retrieval corpus, but it was unknown whether *multi-agent* attack frameworks gain an advantage from adversarial coordination when the goal is PII extraction.
+Agents increasingly operate in multi-party conversations where they may be exposed to confidential information under explicit confidentiality policies. Whether mounting an organized multi-agent ("swarm") attack buys an attacker anything over a single determined attacker — and what actually drives leakage — had not been isolated under matched budgets.
 
-## Reference: Dataset & Benchmark Specifications
+## Reference: Dataset & Protocol Specifications
 | Property | Value |
 |---|---|
-| Source benchmark | GAIA (multi-hop QA) |
-| Questions | **125** multi-hop |
-| Answer structure | public verifiable anchor entity + private PII attribute |
-| Private data | synthetic PII dossiers (no real PII) |
-| Attack surface | multiple retrieval / tool / browsing steps required |
-| Evaluated systems | **111 frontier models**, **6 agent frameworks** |
-| Unassisted direct extraction | ~**2%** success |
-| Single private context injected | **75–81%** success |
-| Multi-agent vs single-agent | **no improvement** from coordination |
-
-## Technical Approach
-The authors adapt GAIA questions so each gold answer fuses public information (checkable, anchorable) with a synthetic private attribute, then run both single-agent and multi-agent attack harnesses over the agentic pipeline (retriever, tools, browser). The comparison isolates whether adversarial coordination — division of labor, shared exploration — buys extraction capability beyond what one agent achieves.
+| Scenarios | **24 synthetic group-chat scenarios** (healthcare, law, finance, software engineering) |
+| Attacker role | Poses as a colleague; victims post protected fields despite an explicit confidentiality policy |
+| Attacking model | **GLM 5.2**, via **7 conversational strategies** |
+| Victims | **5 victim models** |
+| Swarm condition | 1 attacker vs. a swarm of **4 attackers sharing a private channel** |
+| Budget | Matched **200,000-token budget** including coordination messages |
 
 ## Results
-- Direct, unassisted extraction from the corpus: ~2% — the corpus alone is hard to mine.
-- One attacker-selected private context: 75–81% — context injection is the dominant lever.
-- Multi-agent coordination: **no measurable gain** over single-agent baselines.
+- **Swarm shows no advantage**: across all five victims the single attacker matches or exceeds the swarm; leak rates differ by at most **14.3 percentage points**.
+- **The victim is the dominant variable**: changing the victim shifts the leak rate from **0% to 99.4%**.
+- On the two most vulnerable models nearly every run leaks in either condition, but the single attacker exposes more of the record at first disclosure (**85.4% vs 68.1%** of protected fields on Nemotron 3.5 Lightning).
+- **Four of five victims leaked** despite the explicit confidentiality policy.
+- GLM 5.2 retrieved protected data in **64.3%** of individual-attack runs yet leaked it in only **0.6%** — retrieval is not disclosure.
 
 ## Relevance to Our Domain
-This gives our LLM-privacy and agent-security programs a concrete red-team asset (125 coordinated-attack scenarios with synthetic dossiers) and, more importantly, a triage insight: defenses should prioritize **context-injection controls** (where the 2%→75% cliff lives) rather than fearing hypothetical attack swarms. Use SwarmLeak scenarios in our agentic-RAG threat models and in pre-deployment eval gates.
+Two actionable triage insights for agentic security programs: (1) at matched budgets, bigger red-team *swarms* are not automatically stronger — effort should go into strategy coverage and victim-model hardening rather than attacker headcount; (2) policy text ("do not disclose") is weakly protective (4/5 victims leaked), while the gap between retrieval (64.3%) and disclosure (0.6%) shows the final generation step is a distinct, defensible choke point. Use the 24-scenario harness as a pre-deployment eval gate for any group-chat or multi-party agent.
 
 ## References
 - Paper: https://arxiv.org/abs/2611.31791
-- Related: security-privacy/ai-agent-security/explanation-defeating-indirect-prompt-injection-tool-hierarchy.md
-- Related: security-privacy/llm-privacy/explanation-protecting-llm-privacy-multitask-learning.md
+- Related: security-privacy/llm-privacy/explanation-secretagent-multi-agent-privacy-vs-vlm.md
+- Related: security-privacy/llm-privacy/explanation-gapleak-web-agent-disclosure-gap.md

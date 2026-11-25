@@ -14,35 +14,34 @@ keywords:
 ---
 # TokenJoule: Energy Modeling for Distributed Training and Inference of LLMs
 
+**Authors:** George Karfakis, Lime Yao, Joyjit Kundu, Debjyoti Bhattacharjee, Puneet Gupta
+
 ## Overview
-TokenJoule is an analytical, profiling-based energy tool for LLM workloads spanning two regimes: (1) single-node training and inference across dense, MoE, long- and short-context models — where it predicts per-token energy within 5–20% — and (2) distributed multi-node training, where it decomposes end-to-end energy into GEMM computation, memory operations, communication, and idle phases with under 10% per-component error and 2–3× lower overall error than the state of the art. It is open-source (https://github.com/ai-headline/TokenJoule) and validated on H100 and GB200 NVL72 hardware.
+TokenJoule is an open-source analytical tool for the energy of distributed LLM training and inference. Unusually, the target is not operator-facing but pre-silicon design-space exploration (DSE): a DSE framework needs energy estimates before silicon exists, while conventional performance models miss the hidden work of the components that execute LLM operators, and earlier energy predictors are calibrated only on already-deployed GPUs. TokenJoule instead derives the component-level work directly from the workload.
 
 ## Problem Statement
-Energy consumption is becoming a primary constraint for LLM training and inference — cost, thermal envelopes, carbon accounting, power-aware scheduling, sustainable AI. Yet the field lacks a **unified** energy model covering both training and inference and both dense and Mixture-of-Experts (MoE) architectures, across single-node and multi-node scales.
+Energy estimates for LLM workloads are either performance-model based — blind to the component work actually performed by the executing units — or measurement-calibrated predictors that require the very hardware a design-space exploration is trying to evaluate. There is no analytical model that derives per-component energy behavior from the workload itself, with no workload fitting.
 
-## Reference: Model Capabilities & Validated Accuracy
-| Regime | Workloads covered | Architecture coverage | Validated accuracy |
-|---|---|---|---|
-| Single-node | training + inference | dense, MoE; long- and short-context | per-token energy within **5–20%** |
-| Multi-node distributed training | end-to-end training | GEMM compute, memory ops, communication, idle decomposition | **&lt;10% error per component**; 2–3× lower overall error than SOTA |
+## Reference: Model Mechanics & Validated Accuracy
+**Derivation pipeline** (zero workload fitting):
+1. Derive the sequence of device kernels an LLM workload executes.
+2. Model the resulting tiled computation, shared-memory staging, cache residency, and collective traffic.
+3. Set per-component energy by pricing that activity directly.
 
-**Validation hardware:** NVIDIA H100 and GB200 NVL72 (two experimental settings).
-**Model types tested:** dense and MoE, long- and short-context models, multiple sizes.
-**Outputs:** per-token energy (single node); energy breakdown per GEMM / memory / communication / idle (multi-node).
-**Code:** https://github.com/ai-headline/TokenJoule
+**Validated accuracy (no workload fitting):**
+| Metric | Result |
+|---|---|
+| Activity error | **3.3–6.6%** across **151 A100/H100 runs** |
+| Energy error | **3.0–6.8%** on A100 |
 
-## Technical Approach
-TokenJoule is analytical rather than measurement-only: it builds per-stage energy models (compute, memory movement, communication, idle) parameterized by profiling data, so it can predict token-level consumption for single-node jobs and attribute end-to-end consumption to components in distributed training. The component decomposition is what enables sub-10% per-component accuracy on multi-node runs, where prior black-box estimates drift badly.
+**Demonstrated uses:** guiding parallelization choices, memory packaging, and 3D-DRAM chip co-design; predicting energy before silicon exists.
 
-## Results
-- Two experimental settings (H100, GB200 NVL72), diverse model types and sizes.
-- Single-node: token-level energy predicted within 5–20%.
-- Multi-node: every component (GEMM, memory, communication, idle) predicted with &lt;10% error; 2–3× better overall accuracy than state of the art.
+**Code:** open-source (stated by the authors; no repository URL is given in the abstract — verify before citing).
 
 ## Relevance to Our Domain
-A usable open-source energy model closes a gap in our GPU-finops and capacity-planning coverage: per-token energy budgets for inference SLAs, carbon/power attribution for training jobs, and power-aware scheduling inputs. The GEMM/memory/communication decomposition also doubles as a diagnostic for where multi-node jobs waste energy — useful when comparing roofline estimates (see the related GPU roofline note) against real bills.
+For GPU-finops and capacity planning, TokenJoule's value is the *derivation* stance: because energy is priced from derived kernel/communication activity rather than fitted to a device, its errors stay low on hardware it was not calibrated on — the property needed for pre-purchase power planning and for comparing proposed hardware (3D-DRAM packaging, collective-heavy topologies) before it exists. Treat the component decomposition (kernels, tiling, shared memory, cache residency, collectives) as the checklist for where LLM jobs actually spend energy.
 
 ## References
 - Paper: https://arxiv.org/abs/2611.31509
-- Code: https://github.com/ai-headline/TokenJoule
-- Related: cloud-infrastructure/gpu-compute/reference-estimating-gpu-roofline-ai-llm-compiler-artifacts.md
+- Related: cloud-infrastructure/gpu-compute/explanation-pacer-gpu-power-excursions-edpp.md
+- Related: cloud-infrastructure/gpu-compute/explanation-berth-slo-preserving-gpu-sharing.md
