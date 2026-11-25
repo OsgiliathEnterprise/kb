@@ -53,8 +53,8 @@ Benchmark on an iPhone 18 Pro recorded at 240 FPS and slowed 8x: over 3 s of dra
 
 ## See also
 
-- `example-mouse-polling-rate-pointerrawupdate.md` — the same input-rate vs render-rate distinction on the pointer side.
-- `howto-scale-websocket-sse-redis-pubsub.md` — server-side counterpart: keeping real-time paths off critical threads.
+- `programming/web-realtime/example-mouse-polling-rate-pointerrawupdate.md` — the same input-rate vs render-rate distinction on the pointer side.
+- `programming/web-realtime/howto-scale-websocket-sse-redis-pubsub.md` — server-side counterpart: keeping real-time paths off critical threads.
 
 ## References
 
