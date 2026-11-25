@@ -1,5 +1,6 @@
 ---
-title: Scalable Placement for Disaggregated LLM Serving on Heterogeneous Edge Fleets
+title: 'Spade: Scalable Placement for Disaggregated LLM Serving on Heterogeneous Edge
+  Fleets'
 diataxis: Explanation
 domain: cloud-infrastructure
 topic: edge-compute
@@ -12,35 +13,31 @@ keywords:
 - cloud-infrastructure
 - explanations
 ---
-# Scalable Placement for Disaggregated LLM Serving on Heterogeneous Edge Fleets
-
+# Spade: Scalable Placement for Disaggregated LLM Serving on Heterogeneous Edge Fleets
+**Authors:** Truong-Thanh Le, Hoang-Loc La, Amir Taherkordi, Frank Eliassen, Phuong Hoai Ha (arXiv:2611.32881, cs.DC, 24 Nov 2026)
 ## Overview
-Spade is a centralized placement and profiling system for **disaggregated prefill/decode (d-p-d) serving of large MoE models on heterogeneous edge-device fleets** (Jetson-class boards). It models placement and routing end-to-end — KV-cache movement over the network fabric, prefill parallelism choices, per-replica decode capacity — and optimizes fleet throughput under per-device memory and SLO constraints, scaling to configurations prior approaches could not even address.
-
+Spade is a **placement planner** for disaggregated prefill/decode (d-p-d) LLM serving with **pipeline replication** across heterogeneous edge clusters. It decides how devices are grouped into model replicas, which replicas take the prefill vs decode role, and how layers are partitioned across devices — jointly optimized under a **congestion-aware objective**. Target environment: commodity local-area networks rather than high-speed interconnects such as NVLink; measurement studies cited by the paper show that queueing delay and KV-cache transfer dominate tail TTFT in loaded clusters, which is why the planner optimizes a congestion-aware objective.
 ## Problem Statement
-Fleet-wide LLM serving needs aggregate GPU capacity beyond datacenter budgets, so edge clusters (N Jetson boards) are a cost-effective alternative. Disaggregating prefill and decode onto specialized devices boosts throughput, but for MoE models the placement problem explodes: every replica needs a partitioned copy of expert parameters plus its attention components; the router must balance load while respecting memory limits and SLOs. The coupling of placement, parallelism and routing was considered intractable.
-
-## Reference: System Design & Method
+Edge clusters are attractive for privacy-sensitive, on-prem serving but are resource-poor and highly heterogeneous, and bursty demand causes congestion and queue buildup. Replicating the model into multiple pipeline instances raises capacity, yet grouping devices into replicas, assigning them prefill/decode functions, and partitioning layers across heterogeneous devices jointly form a large combinatorial optimization problem. Prior search-based planners (tabu search à la ThunderServe, genetic algorithms à la E2LLM) scale poorly and offer no optimality guarantee; Helix and Parallax maximize aggregate throughput without prefill–decode role assignment, and the exact formulations of Helix and Halda solve only layer placement (the inner problem) rather than replica formation — none handle the full joint problem at fleet scale.
+## System Design & Method
 | Aspect | Spade's choice |
 |---|---|
-| Workload | Large MoE LLMs, disaggregated prefill/decode (d-p-d) |
-| Hardware | Up to 64 heterogeneous edge devices (Jetson AGX Orin 64 GB, Jetson Orin NX 16 GB) |
-| Model scale addressed | DeepSeek-V3/R1-class, **671B parameters** |
-| Formulation | Joint placement + parallelism + **KV-cache routing** optimization |
-| Constraints | Per-device memory, decode capacity per replica, SLOs, KV-transfer cost over the interconnect |
-| Solvers | **Mixed-integer programming** for exact placement/routing; **constraint programming** for prefill parallelism |
-| Validation | Physical testbed + simulation, using **hardware-calibrated decode-time and KV-transfer models** |
-
-Key modeling insight: KV-cache movement is first-class — the router objective must charge for transfer over the network fabric, not just token load, otherwise placements that look balanced computationally collapse on transfer latency.
-
+| Workload | Disaggregated prefill/decode with replicated pipeline instances |
+| Hardware (testbed) | 8 devices spanning 5 hardware types over a LAN, CUDA–Metal mix (RTX 5070 12 GB, RTX 3060M 6 GB, DGX Spark 128 GB, Apple M1/M2 Max, Ryzen 5 5800H) |
+| Models evaluated | DeepSeek_R1_Distill_Qwen_14B_Q6_K ("DeepSeekR1": 11.3 GB stored, all 14B params activated via dense FFNs) and Qwen3-30B-A3B-Q4_K_M ("Qwen3MoE": 17.3 GB stored, ~3B activated via MoE) |
+| Search-space reduction | **Dominance-based pruning**: discard inferior replica candidates, recursively eliminate larger candidates that contain them |
+| Layer partitioning | **Water-filling** approach, reducing complexity from O(KL²) to O(K) |
+| Placement | **Bounded multidimensional knapsack** under a congestion-aware objective; solved by knapsack DP (~109 ms) or MILP when memory limits bind |
+| Topology | Decentralized routing (vs the star topology routing all activations through one node used by llama.cpp/E2LLM) |
+| Validation | 8-device physical CUDA–Metal testbed + synthetic fleets; throughput predictor with &lt;0.5 % error |
+Key modeling insight: the placement objective must be **congestion-aware** (charge KV-cache transfer and queueing, not just token load), otherwise placements that look balanced computationally collapse on tail latency over a commodity LAN.
 ## Results
-- **Up to 64 Jetson-class devices**, two hardware tiers, DeepSeek-V3/R1-scale (671B) MoE models — configurations beyond prior d-p-d placement work.
-- Throughput gains up to **~1.6×** over strong d-p-d placement baselines; **~4×** over replicated-model baselines (with lower time-per-output-token).
-- Accuracy grounded in both a real testbed and calibrated simulation (device-specific decode and KV-transfer latency models).
-
+- **Synthetic fleet of 30 devices / 5 hardware classes**: Spade finds the **optimal placement in 441 ms**, whereas the state-of-the-art genetic-search baseline with DP partitioning needs ~**6855 s (≈2 h)** and still ends **19.7 % worse** on the congestion objective.
+- **Fleets with 10 device types**: dominance pruning eliminates **99.6 % of candidate placements** while yielding the *same surviving candidate set* as exhaustive enumeration (correctness-preserving reduction).
+- On the 8-device CUDA–Metal testbed, Spade-selected placements reduce worst-case waiting time vs role-agnostic baselines (FT, E2LLM, Splitwise incur maximum waiting times on the DeepSeekR1 workload).
+- Planner runtime: knapsack DP best ~109 ms; full-MILP Pareto solve ~223 ms–11.3 s depending on memory constraints.
 ## Relevance to Our Domain
-Complements the KB's edge-serving line (LEDGE request-level simulator, edge-inference offloading notes): Spade supplies the *fleet-planning* layer — an MILP/CP formulation anyone building on-prem Jetson/edge inference clusters can adapt, and a quantitative case that KV-transfer-aware routing is what makes disaggregation pay off outside the datacenter.
-
+Complements the KB's edge-serving line (LEDGE request-level simulator, edge-inference offloading notes): Spade supplies the *fleet-planning* layer — a knapsack/DP + MILP formulation anyone building on-prem heterogeneous inference clusters (consumer RTX GPUs, DGX Spark, commodity LAN) can adapt, plus a quantitative case that congestion-aware (KV-transfer-aware) placement is what makes disaggregation pay off outside the datacenter. Note for tooling: the planner's inputs are (device inventory, layer costs, demand profile, SLO) → outputs (replica grouping, prefill/decode roles, layer partition) — a clean candidate for a coded AI tool.
 ## References
-- Paper: https://arxiv.org/abs/2611.32881
-- Related: [[explanation-ledge-edge-llm-serving-simulator]], [[explanation-edge-inference-offloading-sinkhorn-collision-avoidance]], [[reference-gpu-scheduling-systems-llm-serving]]
+- Paper: https://arxiv.org/abs/2611.32881 (Le, La, Taherkordi, Eliassen, Hoai Ha)
+- Related: [[reference-ledge-edge-llm-serving-simulator]], , 
