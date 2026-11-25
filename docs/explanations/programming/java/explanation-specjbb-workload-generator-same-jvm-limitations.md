@@ -5,7 +5,7 @@ diataxis: Explanation
 domain: programming
 topic: java
 source: inside java
-source_url: https://inside.java/2026-09-25/limitations-of-running-a-workload-generator-in-the-same-jvm/
+source_url: https://inside.java/2026/09/25/limitations-of-running-a-workload-generator-in-the-same-jvm/
 date: 2026-09-25
 keywords:
 - knowledge-base
@@ -15,7 +15,9 @@ keywords:
 ---
 # Why Running a Workload Generator in the Same JVM as the System Under Test Skews Tail Latency
 
-Jonas Norlinder (Oracle) uses SPECjbb2015's flexibility to quantify what happens when the workload generator shares a JVM with the backend: **GC pauses of the whole application stop request scheduling, and no amount of coordinated-omission correction can recreate traffic that never got sent.**
+Jonas Norlinder (Oracle) — with Anil Rajput and Tobias Wrigstad — uses SPECjbb2015's flexibility to quantify what happens when the workload generator shares a JVM with the backend: **GC pauses of the whole application stop request scheduling, and no amount of coordinated-omission correction can recreate traffic that never got sent.**
+
+> **Added 2026-11-25 (enrichment):** Related tooling note — HdrHistogram's `RecordedIterator` ("coordinated omission omission") can *correct* histograms once you can prove requests were dropped by the client, but as this post shows, when the generator itself is suspended you lack the evidence that a request was ever intended, so the correction cannot be applied. This is why the authors treat generator placement (separate JVM) as the only sound fix rather than post-hoc correction.
 
 ## The core problem: coordinated omission you cannot correct
 
@@ -54,6 +56,6 @@ If you care about tail latency of a GC'd system, **run the workload generator in
 
 ## References
 
-- [Inside Java — The Limitations of Running a Workload Generator In the Same JVM as the System-Under-Test](https://inside.java/2026-09-25/limitations-of-running-a-workload-generator-in-the-same-jvm/)
+- [Inside Java — The Limitations of Running a Workload Generator In the Same JVM as the System-Under-Test](https://inside.java/2026/09/25/limitations-of-running-a-workload-generator-in-the-same-jvm/)
 - [Jonas Norlinder's original post (full figures)](https://norlinder.nu/posts/The-Limitations-of-Running-a-Workload-Generator-In-the-Same-JVM-as-the-System-Under-Test-f2b798209d4ddda10f738f94578af197/)
 - [SPECjbb2015 design document](https://www.spec.org/jbb2015/docs/designdocument.pdf)
