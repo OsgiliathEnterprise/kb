@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 -4.0 1228.0 492.0" width="1228" height="492">
+<rect x="16.0" y="-4.0" width="1228.0" height="492.0" fill="#ffffff"/>
+<rect x="40.0" y="80.0" width="250.0" height="100.0" rx="8" fill="#ffec99" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="350.0" y="80.0" width="250.0" height="100.0" rx="8" fill="#ffec99" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="660.0" y="80.0" width="250.0" height="100.0" rx="8" fill="#ffec99" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="40.0" y="300.0" width="250.0" height="110.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="350.0" y="300.0" width="250.0" height="110.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="660.0" y="300.0" width="250.0" height="110.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="970.0" y="300.0" width="250.0" height="110.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 165.0 180.0 L 475.0 300.0"/><line x1="475.0" y1="300.0" x2="465.5" y2="289.7"/><line x1="475.0" y1="300.0" x2="461.0" y2="301.2"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 475.0 180.0 L 165.0 300.0"/><line x1="165.0" y1="300.0" x2="179.0" y2="301.2"/><line x1="165.0" y1="300.0" x2="174.5" y2="289.7"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 785.0 180.0 L 1095.0 300.0"/><line x1="1095.0" y1="300.0" x2="1085.5" y2="289.7"/><line x1="1095.0" y1="300.0" x2="1081.0" y2="301.2"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 475.0 180.0 L 785.0 300.0"/><line x1="785.0" y1="300.0" x2="775.5" y2="289.7"/><line x1="785.0" y1="300.0" x2="771.0" y2="301.2"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="400.0" y="29.6">K8s control plane: three failure modes -&gt; four seams</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="165.0" y="124.6">NODE-BOUND</tspan><tspan x="165.0" y="139.6">100k nodes x 10s heartbeats</tspan><tspan x="165.0" y="154.6">~10k writes/s, ~70% lease QPS</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="475.0" y="124.6">CHURN-BOUND</tspan><tspan x="475.0" y="139.6">agent platforms: sessions</tspan><tspan x="475.0" y="154.6">tousands of writes/min (CRDs)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="785.0" y="124.6">STATE-BOUND</tspan><tspan x="785.0" y="139.6">heavy object state</tspan><tspan x="785.0" y="154.6">resident bytes x every apiserver</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="165.0" y="349.6">Seam 1: storage contract</tspan><tspan x="165.0" y="364.6">KEP-4743 / -etcd-servers-overrides</tspan><tspan x="165.0" y="379.6">ephemeral writes -&gt; separate store</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="475.0" y="349.6">Seam 2: node liveness contract</tspan><tspan x="475.0" y="364.6">node-facing tier + etcd</tspan><tspan x="475.0" y="379.6">in-memory lease refresh</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="785.0" y="349.6">Seam 3: shard axis</tspan><tspan x="785.0" y="364.6">KEP-5866 hash-range filtering</tspan><tspan x="785.0" y="379.6">(relieves all three)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="1095.0" y="349.6">Seam 4: cache residency</tspan><tspan x="1095.0" y="364.6">2-shard prototype halves heap</tspan><tspan x="1095.0" y="379.6">~0.9 KB floor per RBAC object</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="400.0" y="449.6">recipe ladder: Classic HA (&lt;=5k) -&gt; Role-Split (5-20k) -&gt; Node Plane (20-65k) -&gt; Partitioned Store (~100k) -&gt; Sharded Slice (beyond, unbuilt)</tspan></text>
+</svg>

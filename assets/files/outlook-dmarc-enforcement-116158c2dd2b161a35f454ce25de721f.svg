@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="36.0 -4.0 868.0 278.0" width="868" height="278">
+<rect x="36.0" y="-4.0" width="868.0" height="278.0" fill="#ffffff"/>
+<rect x="60.0" y="80.0" width="160.0" height="60.0" rx="8" fill="#d0bfff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="280.0" y="80.0" width="170.0" height="60.0" rx="8" fill="#ffec99" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="520.0" y="30.0" width="240.0" height="60.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="520.0" y="130.0" width="240.0" height="60.0" rx="8" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="280.0" y="190.0" width="480.0" height="60.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 222.0 110.0 L 277.0 110.0"/><line x1="277.0" y1="110.0" x2="264.4" y2="103.9"/><line x1="277.0" y1="110.0" x2="264.4" y2="116.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 452.0 85.0 L 517.0 85.0"/><line x1="517.0" y1="85.0" x2="504.4" y2="78.9"/><line x1="517.0" y1="85.0" x2="504.4" y2="91.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 452.0 135.0 L 517.0 135.0"/><line x1="517.0" y1="135.0" x2="504.4" y2="128.9"/><line x1="517.0" y1="135.0" x2="504.4" y2="141.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 365.0 143.0 L 365.0 143.0"/><line x1="365.0" y1="143.0" x2="357.8" y2="139.5"/><line x1="365.0" y1="143.0" x2="357.8" y2="146.5"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="60.0" y="32.8">Outlook.com DMARC enforcement (Nov 5 2026): failure mode and fix</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="140.0" y="119.6">Your domain sends mail to Outlook.com/Hotmail</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="365.0" y="119.6">TXT record at _dmarc.yourdomain?</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="640.0" y="69.6">550 5.7.1 lacks SPF/DKIM/DMARC Auth Records (AS9031519) — PARTIAL, silent</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="640.0" y="169.6">Delivered</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="520.0" y="229.6">Fix: publish TXT  _dmarc  -&gt;  v=DMARC1; p=none  (verify SPF/DKIM aligns with From domain)</tspan></text>
+</svg>

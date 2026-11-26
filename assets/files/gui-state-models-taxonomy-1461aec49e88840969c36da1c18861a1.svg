@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="36.0 -4.0 868.0 440.0" width="868" height="440">
+<rect x="36.0" y="-4.0" width="868.0" height="440.0" fill="#ffffff"/>
+<rect x="60.0" y="70.0" width="780.0" height="46.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="60.0" y="132.0" width="780.0" height="46.0" rx="8" fill="#ffd8a8" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="60.0" y="194.0" width="780.0" height="46.0" rx="8" fill="#ffec99" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="60.0" y="256.0" width="780.0" height="46.0" rx="8" fill="#d0ebff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="60.0" y="318.0" width="780.0" height="46.0" rx="8" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="60.0" y="32.8">&quot;When one value changes, what runs?&quot; — the question every UI framework must answer</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="450.0" y="102.6">Immediate (egui): ALL UI code, next frame | nobody detects the change</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="450.0" y="164.6">Elm (Iced): all of view(), then a diff | the diff finds the change</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="450.0" y="226.6">Views (GPUI): every view without a cache | YOU, with cx.notify() — 'notify is zone.js'</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="450.0" y="288.6">Signals + re-run (Freya, Compose): components that read it | the framework</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="450.0" y="350.6">Signals, run-once (Floem, Solid, zgui): closures that read it | the framework</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="60.0" y="397.6">Scaling law (author's benchmark): GPUI cached-row label ~3 ms per 1,000 live rows — cost follows the tree, not the change</tspan></text>
+</svg>

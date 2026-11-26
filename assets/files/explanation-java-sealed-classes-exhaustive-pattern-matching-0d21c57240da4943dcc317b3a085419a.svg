@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 -4.0 1058.0 582.0" width="1058" height="582">
+<rect x="16.0" y="-4.0" width="1058.0" height="582.0" fill="#ffffff"/>
+<rect x="40.0" y="80.0" width="300.0" height="100.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="440.0" y="80.0" width="300.0" height="100.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="230.0" y="260.0" width="340.0" height="70.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="40.0" y="400.0" width="300.0" height="100.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="440.0" y="400.0" width="300.0" height="100.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 340.0 130.0 L 440.0 130.0"/><line x1="440.0" y1="130.0" x2="427.4" y2="123.9"/><line x1="440.0" y1="130.0" x2="427.4" y2="136.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 590.0 180.0 L 400.0 260.0"/><line x1="400.0" y1="260.0" x2="414.0" y2="260.8"/><line x1="400.0" y1="260.0" x2="409.2" y2="249.5"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 320.0 330.0 L 190.0 400.0"/><line x1="190.0" y1="400.0" x2="204.0" y2="399.4"/><line x1="190.0" y1="400.0" x2="198.2" y2="388.6"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 480.0 330.0 L 610.0 400.0"/><line x1="610.0" y1="400.0" x2="601.8" y2="388.6"/><line x1="610.0" y1="400.0" x2="596.0" y2="399.4"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="350.0" y="29.6">Java sealed types: exhaustive checking + the breaking-change trap</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="190.0" y="124.6">Sealed type (JEP 409, Java 17)</tspan><tspan x="190.0" y="139.6">explicit permitted subtypes</tspan><tspan x="190.0" y="154.6">~ ADT: data T = A | B</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="590.0" y="124.6">Exhaustive switch</tspan><tspan x="590.0" y="139.6">no default clause needed</tspan><tspan x="590.0" y="154.6">missing case = compile error</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="400.0" y="304.6">Add new subtype to EXPORTED sealed type</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="190.0" y="444.6">Consumer RECOMPILED</tspan><tspan x="190.0" y="459.6">-&gt; compile-time error</tspan><tspan x="190.0" y="474.6">SemVer: major bump</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="590.0" y="444.6">Consumer NOT recompiled</tspan><tspan x="590.0" y="459.6">-&gt; runtime java.lang.MatchException</tspan><tspan x="590.0" y="474.6">(Javadoc notes this case)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="300.0" y="539.6">takeaway: sealed types shine inside one module (recompiled together); across public APIs they add runtime breakage modes</tspan></text>
+</svg>
