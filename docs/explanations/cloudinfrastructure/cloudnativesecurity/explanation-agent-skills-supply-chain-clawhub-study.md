@@ -5,7 +5,7 @@ domain: cloud-infrastructure
 topic: cloud-native-security
 source: arXiv
 source_url: https://arxiv.org/abs/2611.30932
-date: '2026-11-24'
+date: 2026-11-24
 keywords:
 - knowledge-base
 - cloud-native-security

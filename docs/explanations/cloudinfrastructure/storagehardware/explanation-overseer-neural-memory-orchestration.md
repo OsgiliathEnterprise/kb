@@ -5,7 +5,7 @@ domain: cloud-infrastructure
 topic: storage-hardware
 source: arXiv
 source_url: https://arxiv.org/abs/2611.23857
-date: '2026-11-22'
+date: 2026-11-22
 keywords:
 - knowledge-base
 - storage-hardware

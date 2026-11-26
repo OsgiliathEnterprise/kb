@@ -5,7 +5,7 @@ domain: security-privacy
 topic: llm-privacy
 source: arXiv
 source_url: https://arxiv.org/abs/2611.32864
-date: '2026-11-25'
+date: 2026-11-24
 keywords:
 - knowledge-base
 - llm-privacy

@@ -5,7 +5,7 @@ domain: security-privacy
 topic: hardware-security
 source: arXiv
 source_url: https://arxiv.org/abs/2611.25324
-date: 2026-11-22
+date: 2026-11-19
 keywords:
 - knowledge-base
 - hardware-security

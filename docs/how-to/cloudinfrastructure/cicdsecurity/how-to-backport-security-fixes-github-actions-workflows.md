@@ -5,7 +5,7 @@ domain: cloud-infrastructure
 topic: ci-cd-security
 source: arXiv
 source_url: https://arxiv.org/abs/2611.22519
-date: '2026-11-18'
+date: 2026-11-18
 keywords:
 - knowledge-base
 - ci-cd-security

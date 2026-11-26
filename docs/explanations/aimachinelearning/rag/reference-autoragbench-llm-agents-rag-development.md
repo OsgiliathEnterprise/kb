@@ -5,7 +5,7 @@ domain: ai-machine-learning
 topic: rag
 source: arXiv
 source_url: https://arxiv.org/abs/2611.25582
-date: '2026-11-22'
+date: 2026-11-22
 keywords:
 - knowledge-base
 - rag

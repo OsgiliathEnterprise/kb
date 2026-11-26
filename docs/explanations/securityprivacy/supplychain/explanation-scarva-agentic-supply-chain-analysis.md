@@ -5,7 +5,7 @@ domain: security-privacy
 topic: supply-chain
 source: arXiv
 source_url: https://arxiv.org/abs/2611.26131
-date: 2026-11-20
+date: 2026-11-19
 keywords:
 - knowledge-base
 - supply-chain
