@@ -39,6 +39,13 @@ Référence d'évaluation pour les agents « deep research » : DRBench Pro fait
 | Meilleur score de couverture global | 57,04 % |
 | Validité | jugements de rubriques proches de l'annotation humaine ; classements stables across configurations de métriques |
 
+## Method Details (verified against arXiv v1, 2026-11-26)
+
+- Rubrics are **evidence-grounded** and *hidden* from the agent: the pipeline jointly generates each research query and its hidden rubric set from sampled subgraphs of local Wikipedia knowledge trees.
+- Scoring decomposes into **breadth** (coverage of major research directions) and **depth** (exploration along related knowledge chains); the **geometric mean** of the two is the overall coverage score — a deliberate anti-gaming choice, since it punishes lopsided profiles.
+- Validation: rubric-level judgments agree closely with human annotation; the 16-agent ranking is **stable across tested metric configurations**.
+- arXiv: submitted 2026-11-25, cs.CL (also cs.AI), CC BY 4.0, DOI 10.48550/arXiv.2611.34852.
+
 ## Reading the Results
 
 Le plafond à ~57 % révèle que même les meilleurs agents laissent plus de 40 % de la couverture de connaissances sur la table — la moyenne géométrique breadth×depth pénalise les agents qui couvrent large mais superficiellement (ou l'inverse), ce qui différencie réellement les forces des 16 agents testés.
