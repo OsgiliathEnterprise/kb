@@ -115,12 +115,26 @@ boundaries, and organizational data.
 
 ![Diagram 1 — explanation-microsoft-copilot-agent-identity-runtime](explanation-microsoft-copilot-agent-identity-runtime-excalidraw-1.svg)
 
+## Status update — post-launch (verified 2026-11-26)
+
+The September launch has since hardened (Microsoft Learn *What's new in Microsoft Entra Agent ID*, last updated 2026-11-17):
+
+- **Entra Agent ID is now generally available** — first-class identity/IAM for agents with Zero Trust constructs, specialized OAuth flows, and security controls at enterprise scale. Third-party coverage also reports **Agent 365 reached GA**, and since **May 2026 Copilot Studio automatically creates an Entra Agent ID for every new agent** (existing app-registration-identity agents are migrated).
+- **Local agent authentication (preview):** agents on endpoint devices can act as OAuth **public clients** — auth-code flow with PKCE, no stored client credential (register a public-client Agent ID, MSAL, or a CIMD URL as client ID).
+- **Client ID Metadata Documents (CIMD, preview):** an OAuth client can use a public HTTPS metadata URL *as its client ID*, so **MCP clients can reach Entra-protected MCP servers without pre-registration** — directly relevant to the MCP governance story above.
+- **Blueprint instance modes (preview):** single-instance (one client ID shared across tenants) vs multi-instance (a fleet of Agent IDs with distinct client IDs, immutable `isSingleInstance`) — the blueprint model from this note now has two explicit topologies.
+- **Agent-specific Conditional Access templates:** block-high-risk-agent-identities, autonomous-agent access (no user context), and on-behalf-of-agent policies — the autonomous vs interactive token table above now maps to ready-made CA templates.
+- **Lifecycle tooling:** admin-center wizards for blueprint/agent-identity creation, AI-guided setup, and automated cascade cleanup + soft-delete for agent identities (the governance gap of orphaned agent SPs is being closed).
+
+The architectural claims in this note (service principal + sponsor + audit, agent user accounts for autopilots, two-step OAuth token exchange, Agent 365 registry) remain consistent with current Microsoft Learn documentation.
+
 ## References
 
 - [The New Stack: Microsoft's new Copilot agents get their own email, calendar — and a place in the org chart](https://thenewstack.io/copilot-agents-identity-runtime/)
 - [Microsoft Foundry: What is an autopilot? (agent identity vs agent user account)](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/autopilot-overview)
 - [Microsoft Learn: Agent 365 integration with Foundry](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/agent-365-integration)
 - [Microsoft Learn: Plan your agent identity architecture (Entra Agent ID)](https://learn.microsoft.com/en-us/entra/agent-id/how-to-plan-agent-identity-architecture)
+- [Microsoft Learn: What's new in Microsoft Entra Agent ID (GA, updated 2026-11-17)](https://learn.microsoft.com/en-us/entra/agent-id/whats-new-agent-id)
 
 ## Related
 

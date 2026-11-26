@@ -33,6 +33,12 @@ Longitudinal trace analysis over 2.5 years of issue-tracker history in 101 proje
 ## Results
 Rising completeness and validity of AI-involved reports over time; reproduction/diagnosis-oriented AI use is the reliable signal; ~70% acceptance rate for carefully prepared AI-discovered bug reports.
 
+## Methodology detail (from the paper)
+
+- **Completeness** is scored over **seven report elements** — summary, affected component, triggering conditions, reproduction steps, observed behavior, expected behavior, environment — grading each report as high/medium/low completeness (following prior bug-report-quality studies).
+- **Validity is assessed separately** from completeness, using *maintainer responses* as the signal — a complete report can still describe an invalid bug.
+- **Maintainer replies** are classified into **six actions across three stages**: *Triage* (Information Request, Duplicate Checking), *Validation* (Reproduction and Testing, Code and API Investigation), *Resolution* (Fix Recommendation, Patch Review and Testing). The effort-asymmetry finding lives in the Validation stage: maintainers spend more AI-assisted investigation effort on human-discovered bugs than on AI-discovered ones.
+
 ## Relevance to Our Domain
 Directly operational for AI-assisted development practice: when our coding agents find bugs, the report must ship with a runnable reproducer and an independent verification step, not just a fluent description. The "effort asymmetry" finding is a calibration warning — AI-discovered findings need extra credibility scaffolding to get maintainer attention.
 

@@ -36,6 +36,11 @@ The method is classic systematization-of-knowledge: define architectural layers 
 ## Relevance to Our Domain
 For anyone operating or consuming MaaS platforms, this is the threat-modeling map: it tells us which security goals our vendor assessments likely miss (availability/cost integrity, accountability, service integrity), warns that provider-trust defenses (e.g., confidential computing attestations) can't be self-serve, and gives a standards/regulation comparison baseline for compliance work.
 
+## Where this sits among existing standards
+
+The de-facto practitioner baseline for LLM application security is the **OWASP Top 10 for LLM Applications**, now hosted under the broader **OWASP GenAI Security Project** (genai.owasp.org); the current Top 10 edition is the 2025 release of the Top 10 risks for LLM and GenAI applications. This maps almost perfectly onto the paper's coverage-gap finding: the OWASP list is dominated by *behavioral* risks (prompt injection as LLM01, improper output handling, excessive agency) — the same behavioral-integrity cluster where the paper measures **44.2%** of research attention. Service-side goals (service integrity, availability/cost integrity, accountability) have no OWASP-equivalent checklist, which is precisely why vendor assessments tend to miss them. The paper's standards/regulation comparison extends this gap analysis to formal regulation, where the provider-side cooperation requirement for cryptographic/hardware customer-protection mechanisms has no compliance mandate forcing adoption.
+
 ## References
 - Paper: https://arxiv.org/abs/2611.34623
 - Semantic Scholar: https://api.semanticscholar.org/graph/v1/paper/arXiv:2611.34623
+- OWASP GenAI Security Project / Top 10 for LLM Applications 2026: https://genai.owasp.org/top-10-for-llm-applications-2026/

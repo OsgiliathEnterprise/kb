@@ -32,6 +32,10 @@ AI-assisted development accelerates code production while requirements analysis 
 ## Technical Approach
 DLA treats parallel and sequential development workflows as sources of differential evidence: logical inference over their artifacts surfaces internal contradictions and unspecified assumptions — "logic drift" — that individual-workflow testing misses. No ground-truth oracle is required; inconsistency between workflows is itself the evidence of a defect.
 
+## Framing detail (from the paper)
+
+The paper's core mechanism claim: AI-assisted development **bypasses formal requirements, relying on LLMs to bridge sparse natural-language prompts to executable instructions**. That bridging step introduces a *"Logic-Consistency" problem* — the LLM must fill specification gaps with **unverified assumptions**, and those assumptions, not the visible code, are where defects hide. DLA is positioned as the audit layer for this: it checks **alignment among artifacts** produced by parallel/sequential workflows rather than against a spec. The oracle problem it sidesteps is an active research topic in its own right — e.g., Bodicoat, Jahangirova & Terragni, *Understanding LLM-Driven Test Oracle Generation* (IEEE/ACM AIware 2025) — making "consistency instead of correctness" a pragmatic response to a known open problem rather than an isolated claim.
+
 ## Results
 Preliminary simulations demonstrate that DLA successfully intercepts logic drift — contradictions and unspecified assumptions. A conceptual/methodological contribution with simulation support, not large-scale benchmarks.
 
