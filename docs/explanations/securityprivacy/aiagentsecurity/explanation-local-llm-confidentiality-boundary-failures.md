@@ -44,6 +44,13 @@ The study isolates each confidentiality boundary and probes it independently rat
 
 This is a direct correction to the "local LLMs are private" assumption that many teams rely on for data-sensitive workloads. If you deploy local inference expecting confidentiality, this paper tells you exactly where to look: runtime memory residue (sanitize aggressively), wrapper disk persistence (audit what gets written), and tenant isolation at the serving layer (the llama.cpp cross-tenant flaw is a concrete, reproducible bug). The takeaway: local systems need *explicit* guarantees for prompt lifetime, persistent storage, and tenant isolation — locality alone provides none of them.
 
+## Paper Metadata (verified 2026-11-27)
+
+- **Authors**: Youssef Hamdi Zafan Ibrahim, Muhammad Ikram, Mohammed Khalaf Salama.
+- **Status**: v3 (revised 2026-10-29), 21 pages, 13 tables — preprint submitted to **IEEE Transactions on Information Forensics and Security (T-IFS)**; cs.CR.
+- **Reproducible artifacts**: code and experimental artifacts released at https://github.com/0xzodiac/Local-LLMs-Forensics — you can re-run the LLAnalyzer boundary tests against your own local serving stack.
+- **Deployment checklist implied by the findings**: (1) treat post-inference process memory as containing recoverable plaintext prompts — restart/scrub worker processes handling sensitive prompts; (2) audit wrapper tools (GUIs, history plugins) for plaintext prompt persistence to disk; (3) if running llama.cpp serving multiple tenants, patch/segment — cross-tenant conversation-state restore succeeded 200/200 in the study; (4) assume shared prompt-prefix caching leaks via timing, even across WAN.
+
 ## References
-- Paper: https://arxiv.org/abs/2609.18526
+- Paper: https://arxiv.org/abs/2609.18526 (v3)
 - Semantic Scholar: https://api.semanticscholar.org/graph/v1/paper/arXiv:2609.18526

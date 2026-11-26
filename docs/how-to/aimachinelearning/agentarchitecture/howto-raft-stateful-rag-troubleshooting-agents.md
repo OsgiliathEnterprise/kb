@@ -42,6 +42,14 @@ To build RAFT: (1) decompose each historical case into an ordered chain of timel
 
 If you're building support or troubleshooting agents (or any agent that must reason about *progression* through states rather than static facts), RAFT is a working recipe: model history as stateful chains, retrieve at the entry level, and anchor retrieval on matched intermediate states. The released benchmark and Jira evaluation set give you a way to validate your own retrieval layer without standing up a full production agent — a significant practical advantage given how little public multi-stage troubleshooting data exists.
 
+## Paper Metadata (verified 2026-11-27)
+
+- **Venue**: Accepted to the **EMNLP 2026 Industry Track** — peer-reviewed industry paper, not just a preprint.
+- **Authors**: Mingxuan Zhang, Xiaowen Wang, Anupma Sharan, Zhengyi Chen, Chenyu Diana Zhang, Shanshan Yang, Chittibabu Pacharu (7 authors).
+- **arXiv**: 2609.20754, submitted 2026-09-17, cs.AI, licensed CC BY 4.0 — safe to reuse figures/method descriptions with attribution.
+- **Practical note**: the 114 KB submission size and released benchmark/implementation artifacts make this a low-friction starting point for prototyping entry-level retrieval before committing to a full agent stack.
+
 ## References
 - Paper: https://arxiv.org/abs/2609.20754
+- HTML full text: https://arxiv.org/html/2609.20754v1
 - Semantic Scholar: https://api.semanticscholar.org/graph/v1/paper/arXiv:2609.20754

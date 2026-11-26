@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 -14.0 868.0 318.0" width="868" height="318">
+<rect x="16.0" y="-14.0" width="868.0" height="318.0" fill="#ffffff"/>
+<rect x="40.0" y="70.0" width="180.0" height="70.0" rx="8" fill="#e7f5ff" stroke="#1971c2" stroke-width="1.5"/>
+<rect x="360.0" y="40.0" width="170.0" height="44.0" rx="8" fill="#ebfbee" stroke="#2f9e44" stroke-width="1.5"/>
+<rect x="360.0" y="100.0" width="170.0" height="44.0" rx="8" fill="#fff5f5" stroke="#e03131" stroke-width="1.5"/>
+<rect x="360.0" y="160.0" width="170.0" height="44.0" rx="8" fill="#ebfbee" stroke="#2f9e44" stroke-width="1.5"/>
+<rect x="660.0" y="70.0" width="200.0" height="70.0" rx="8" fill="#fff9db" stroke="#f08c00" stroke-width="1.5"/>
+<rect x="360.0" y="230.0" width="170.0" height="50.0" rx="8" fill="#e7f5ff" stroke="#1971c2" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 225.0 95.0 L 355.0 55.0"/><line x1="355.0" y1="55.0" x2="341.2" y2="52.8"/><line x1="355.0" y1="55.0" x2="344.8" y2="64.6"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 225.0 105.0 L 355.0 120.0"/><line x1="355.0" y1="120.0" x2="343.2" y2="112.5"/><line x1="355.0" y1="120.0" x2="341.8" y2="124.7"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 225.0 115.0 L 355.0 180.0"/><line x1="355.0" y1="180.0" x2="346.5" y2="168.9"/><line x1="355.0" y1="180.0" x2="341.0" y2="179.9"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 535.0 62.0 L 655.0 92.0"/><line x1="655.0" y1="92.0" x2="644.3" y2="83.0"/><line x1="655.0" y1="92.0" x2="641.3" y2="94.9"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 535.0 122.0 L 655.0 112.0"/><line x1="655.0" y1="112.0" x2="642.0" y2="106.9"/><line x1="655.0" y1="112.0" x2="643.0" y2="119.2"/></g>
+<g stroke="#e03131" stroke-width="1.5" fill="none"><path d="M 445.0 145.0 L 445.0 225.0"/><line x1="445.0" y1="225.0" x2="451.1" y2="212.4"/><line x1="445.0" y1="225.0" x2="438.9" y2="212.4"/></g>
+<g stroke="#1971c2" stroke-width="1.5" fill="none"><path d="M 535.0 255.0 L 695.0 160.0"/><line x1="695.0" y1="160.0" x2="681.0" y2="161.1"/><line x1="695.0" y1="160.0" x2="687.3" y2="171.7"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="22.8">Batch = fan-out of independent jobs: one failure spoils one item, only that job is retried</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="50.0" y="102.2">POST /batches</tspan><tspan x="50.0" y="119.7">+ Idempotency-Key</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="370.0" y="59.2">job 1: succeeded</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="370.0" y="119.2">job 2: NO_CAPTIONS</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="370.0" y="179.2">job 3: succeeded</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="670.0" y="102.2">status:</tspan><tspan x="670.0" y="119.7">partial_success</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="370.0" y="252.2">POST /jobs/2/retry</tspan><tspan x="370.0" y="269.7">(retryable only)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="550.0" y="60.6">succeeded_items</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="550.0" y="100.6">failed_items</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#e03131" text-anchor="start"><tspan x="400.0" y="168.6">error.retryable=true</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1971c2" text-anchor="start"><tspan x="570.0" y="191.1">re-poll job 2 only</tspan></text>
+</svg>

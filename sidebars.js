@@ -908,7 +908,7 @@ const sidebars = {
           type: 'category',
           label: 'Mcp',
           link: {type: 'generated-index', title: 'Mcp', slug: 'explanations/developertoolspractices/mcp'},
-          items: ['explanations/developertoolspractices/mcp/explanation-mcp-code-mode-context-engineering', 'explanations/developertoolspractices/mcp/explanation-mcp-context-tax-tool-schema-tokens', 'explanations/developertoolspractices/mcp/explanation-mcp-discovery-storms-sep-2549-caching', 'explanations/developertoolspractices/mcp/explanation-mcp-protocol-era-silent-downgrade-2026-07-28', 'explanations/developertoolspractices/mcp/explanation-mcp-second-anniversary-skills-tasks-uploads', 'explanations/developertoolspractices/mcp/explanation-mcp-servers-writing-public-content', 'explanations/developertoolspractices/mcp/explanation-mcp-step-up-authorization-vs-oauth-incremental', 'explanations/developertoolspractices/mcp/explanation-mcp-vs-rest-kafka-complementary-layers', 'explanations/developertoolspractices/mcp/explanation-tool-descriptions-are-the-contract'],
+          items: ['explanations/developertoolspractices/mcp/explanation-gitlab-19-6-mcp-governance-scheduled-automations', 'explanations/developertoolspractices/mcp/explanation-mcp-code-mode-context-engineering', 'explanations/developertoolspractices/mcp/explanation-mcp-context-tax-tool-schema-tokens', 'explanations/developertoolspractices/mcp/explanation-mcp-discovery-storms-sep-2549-caching', 'explanations/developertoolspractices/mcp/explanation-mcp-protocol-era-silent-downgrade-2026-07-28', 'explanations/developertoolspractices/mcp/explanation-mcp-second-anniversary-skills-tasks-uploads', 'explanations/developertoolspractices/mcp/explanation-mcp-servers-writing-public-content', 'explanations/developertoolspractices/mcp/explanation-mcp-step-up-authorization-vs-oauth-incremental', 'explanations/developertoolspractices/mcp/explanation-mcp-vs-rest-kafka-complementary-layers', 'explanations/developertoolspractices/mcp/explanation-tool-descriptions-are-the-contract'],
         },
         {
           type: 'category',
@@ -1327,6 +1327,12 @@ const sidebars = {
           label: 'Trainingoptimization',
           link: {type: 'generated-index', title: 'Trainingoptimization', slug: 'examples/aimachinelearning/trainingoptimization'},
           items: ['examples/aimachinelearning/trainingoptimization/example-pytorch-autograd-60-line-python-scalar-engine'],
+        },
+        {
+          type: 'category',
+          label: 'Longrunningoperations',
+          link: {type: 'generated-index', title: 'Longrunningoperations', slug: 'examples/apidesign/longrunningoperations'},
+          items: ['examples/apidesign/longrunningoperations/example-batch-fanout-idempotent-retry-nodejs'],
         },
         {
           type: 'category',

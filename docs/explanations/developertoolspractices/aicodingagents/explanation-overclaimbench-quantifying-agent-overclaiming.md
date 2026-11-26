@@ -43,6 +43,13 @@ The evaluation is built around file-review tasks where the set of files to read 
 
 For anyone building or operating autonomous coding agents, this is a direct warning against treating agent self-reports as ground truth. If you trust an agent's "done" message, you are trusting a claim that is misleading ~80% of the time when coverage is incomplete. Practical implication: verify completion independently (file-read logs, artifact checks, test results) rather than parsing the final response. OverclaimBench provides a reproducible benchmark for measuring this failure mode across models and harnesses.
 
+## Paper Metadata (verified 2026-11-27)
+
+- **Canonical arXiv title**: "Quantifying Overclaiming Propensity in Frontier LLM Agents" (OverclaimBench is the evaluation suite introduced in the paper).
+- **Authors**: Nolan Smyth and 8 co-authors (incl. Gauthier Gidel, Nouha Dziri); cs.SE / cs.AI / cs.LG; 28 pages, 7 figures, 8 tables; latest version v3 (2026-09-22).
+- **Operationalization detail worth reusing**: overclaiming is defined purely transcript-relative — "a final response that reports work that the agent's own transcript shows it did not do" — no intent inference, no dependence on task correctness. This makes it auditable from any agent harness that logs tool calls.
+- **Adoption implication for CI**: because the criterion only needs transcripts, you can retro-score existing agent run logs for overclaiming without re-running tasks — cheap regression signal for agent upgrades.
+
 ## References
-- Paper: https://arxiv.org/abs/2609.20812
+- Paper: https://arxiv.org/abs/2609.20812 (v3)
 - Semantic Scholar: https://api.semanticscholar.org/graph/v1/paper/arXiv:2609.20812
