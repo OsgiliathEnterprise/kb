@@ -911,6 +911,7 @@ const sidebars = {
         'explanations/general/2026-11-22',
         'explanations/general/2026-11-23',
         'explanations/general/2026-11-24',
+        'explanations/general/2026-11-26',
         {
           type: 'category',
           label: 'Authentication',
@@ -1125,7 +1126,7 @@ const sidebars = {
           type: 'category',
           label: 'Kernelexploitation',
           link: {type: 'generated-index', title: 'Kernelexploitation', slug: 'explanations/securityprivacy/kernelexploitation'},
-          items: ['explanations/securityprivacy/kernelexploitation/explanation-cve-2025-13032-avast-sandbox-double-fetch-lpe', 'explanations/securityprivacy/kernelexploitation/explanation-cve-2026-98432-ipv4-tcp-uaf-rce', 'explanations/securityprivacy/kernelexploitation/explanation-ps5-relapse-browser-to-kernel-exploit-chain'],
+          items: ['explanations/securityprivacy/kernelexploitation/explanation-cve-2025-13032-avast-sandbox-double-fetch-lpe', 'explanations/securityprivacy/kernelexploitation/explanation-cve-2026-98432-ipv4-tcp-uaf-rce', 'explanations/securityprivacy/kernelexploitation/explanation-cve-2026-99362-nfs2root-nfsd-preauth-root', 'explanations/securityprivacy/kernelexploitation/explanation-ps5-relapse-browser-to-kernel-exploit-chain'],
         },
         {
           type: 'category',
