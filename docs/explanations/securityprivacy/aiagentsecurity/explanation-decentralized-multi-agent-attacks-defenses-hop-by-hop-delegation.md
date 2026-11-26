@@ -17,7 +17,9 @@ keywords:
 
 ## Paper Metadata
 - Authors: Matthew D. Laws, Maria Lazou, Alina Oprea, Cristina Nita-Rotaru (security group at Northeastern University)
-- Submitted: 2026-11-18 (v1) · Category: cs.CR (Cryptography and Security)
+- Submitted: 2026-11-18 (v1, 948 KB) · Categories: cs.CR (primary), cross-listed cs.MA · License: CC-BY 4.0
+- Format: 17 pages, 5 figures, 7 tables
+- Study design (stated threefold goal): (1) demonstrate existing hop-by-hop systems are vulnerable to a range of attacks; (2) develop a protocol producing an irrefutable verified execution trace; (3) build an auditor that analyzes traces to detect and attribute malicious behavior.
 
 ## Overview
 A systematization of threats in decentralized multi-agent LLM systems, where independently administered agents (own operator, model, memory, configuration) collaborate without central coordination: each agent decomposes tasks, executes subtasks, and delegates remaining work to peers. The paper quantifies how much damage one malicious agent can do and proposes a cryptographic trace protocol plus an auditor to catch it.
