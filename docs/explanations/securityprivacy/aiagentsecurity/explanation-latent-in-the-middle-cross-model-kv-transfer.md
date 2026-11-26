@@ -6,7 +6,7 @@ domain: security-privacy
 topic: ai-agent-security
 source: arXiv
 source_url: https://arxiv.org/abs/2611.34278
-date: 2026-11-26
+date: '2026-11-25'
 keywords:
 - knowledge-base
 - ai-agent-security
@@ -14,6 +14,7 @@ keywords:
 - explanations
 ---
 # Latent-in-the-Middle: On the Security of Cross-Model Latent Communication in Multi-Agent Systems
+**Authors:** Manit Baser, Vyoman Jain, Rachel Yeo Hui Min, Xianglin Yang, Meenatchi Sundaram Muthu Selva Annamalai, Dinil Mon Divakaran
 
 ## Overview
 Cross-model KV-cache transfer lets a target LLM consume a source model's internal Key-Value cache through a learned mapper, skipping re-encoding of shared context and saving prefill compute. This paper shows that the efficiency trick silently voids the target model's safety alignment: a context the target never encoded itself carries the *source's* alignment, and the handoff becomes a new attack surface.

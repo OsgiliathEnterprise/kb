@@ -5,7 +5,7 @@ domain: security-privacy
 topic: ai-agent-security
 source: arXiv
 source_url: https://arxiv.org/abs/2611.34380
-date: 2026-11-26
+date: '2026-11-25'
 keywords:
 - knowledge-base
 - ai-agent-security
@@ -13,6 +13,7 @@ keywords:
 - how-to
 ---
 # AgentLens: Graph-guided Security Auditing for LLM-based Agents
+**Authors:** Peizhuo Lv, Tao Chen, Mengya Shi, Ziyu Lin, Yuxuan Chen, Ruigang Liang, Tianwei Zhang, Wei Dong, XiaoFeng Wang
 
 ## Overview
 AgentLens is a pre-deployment auditing framework for LLM-based agents that combines static analysis of the agent's implementation with dynamic, execution-based validation. It models the agent as an Audit Knowledge Graph, derives candidate attack paths from it, and proves each suspected weakness is real by triggering it at runtime. Applied to five popular agent applications (>24k GitHub stars each), it found 44 vulnerabilities — all execution-validated — with 12 CVE IDs assigned.

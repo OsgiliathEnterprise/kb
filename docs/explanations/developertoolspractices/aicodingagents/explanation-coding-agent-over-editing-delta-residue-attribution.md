@@ -6,7 +6,7 @@ domain: developer-tools-practices
 topic: ai-coding-agents
 source: arXiv
 source_url: https://arxiv.org/abs/2611.34875
-date: 2026-11-26
+date: '2026-11-25'
 keywords:
 - knowledge-base
 - ai-coding-agents
@@ -14,6 +14,7 @@ keywords:
 - explanations
 ---
 # How Much Do Coding Agents Over-Edit, and Why?
+**Authors:** Aakash Goel, Benjamin Steenhoek, Yu Hu
 
 ## Overview
 Coding-agent patches are bigger than human patches, which the community habitually reads as "over-editing". This paper shows that patch size alone is a misleading proxy: when every hunk of an agent patch is tested for actual necessity, agent-written *code* is on average at least as necessary as developer-written code. The bulk of the "extra" edits come from tests and documentation the agent adds, not from superfluous code.

@@ -5,7 +5,7 @@ domain: security-privacy
 topic: cloud-devsecops
 source: arXiv
 source_url: https://arxiv.org/abs/2611.34623
-date: 2026-11-26
+date: '2026-11-25'
 keywords:
 - knowledge-base
 - cloud-devsecops
@@ -13,6 +13,7 @@ keywords:
 - explanations
 ---
 # From Models to Services: Systematizing Security Assurance for Model-as-a-Service
+**Authors:** Jianming Zhou, Yang Luo, Guangpu Chen, Zhaoyu Chen, Yifeng Gao, Qingni Shen, Zhonghai Wu
 
 ## Overview
 LLMs are overwhelmingly consumed as cloud services, where assets of multiple principals (customer data, provider models, third-party pipelines) are coupled inside one service pipeline, while the security literature is scattered across fields with incompatible threat models. This SoK-style paper rebuilds that literature from a *service* perspective: a layered stack with explicit trust boundaries, adversary classes, and security goals, used to code 120 studies and grade 50 defenses.

@@ -6,7 +6,7 @@ domain: cloud-infrastructure
 topic: llm-serving
 source: arXiv
 source_url: https://arxiv.org/abs/2611.34615
-date: 2026-11-26
+date: 2026-11-25
 keywords:
 - knowledge-base
 - llm-serving
@@ -14,27 +14,31 @@ keywords:
 - how-to
 ---
 # PipeAxes: Decoupling Compute and Communication Granularities for Pipeline-Parallel LLM Serving
+**Authors:** Xiaoqiang Guo, Yifan Lin, Yang Liu, Jianan Zhang, Yingqi Peng, Jiamei Lv, Yi Gao, Wei Dong
 
 ## Overview
-PipeAxes makes pipeline parallelism practical for serving long-context LLMs on workstations and edge devices connected by **PCIe** — where the low interconnect bandwidth wrecks both tensor and pipeline parallelism (31%–79% of GPU time spent idle or communicating). The trick: stop forcing activation communication and expert computation to share a granularity. On 4× RTX 4090 it delivers **1.53–2.28× throughput** over SOTA pipeline parallelism at the same quality, and up to **2.10×/2.33×** the throughput of tensor parallelism at comparable memory footprint.
+Pipeline parallelism lets you serve long-context language models on PCIe servers and across heterogeneous GPU clusters, where NVLink-class bandwidth is unavailable. Existing engines split prefill into token chunks to limit decode stalls — but that single chunk size simultaneously fixes the GPU batch width *and* the size of activation transfers between stages: small chunks force frequent model-weight reloads, large chunks keep the GPU and the link busy long enough to delay interactive requests. PipeAxes' insight is to stop coupling compute and communication into one granularity and tune each independently.
 
 ## Problem Statement
-Long context pushes a model beyond a single GPU's memory. Tensor/pipeline parallelism solves capacity but not PCIe-era bandwidth: both schemes communicate activations at **token granularity**, so every token's activation crosses the interconnect. Expert-weight loading is *also* per-token. Result: communication dominates, GPUs stall.
-
-## Key Contribution
-Observation: activation communication and expert computation have **different natural granularities**. PipeAxes decouples them with three mechanisms:
+On PCIe fabrics, per-chunk activation transfers and weight reloads dominate pipeline-parallel serving. Token-chunked prefill conflates several knobs (batch width, transfer size, stall behaviour) into one, so no single chunk size satisfies both throughput and interactive latency, especially in mixed long-context + decode workloads.
 
 ## How-to: apply the PipeAxes design
-1. **Batch activations at micro-batch granularity.** Instead of shipping per-token activations across stages, aggregate them per micro-batch to amortize communication costs over all tokens — this removes the per-token interconnect bottleneck on bandwidth-constrained fabrics like PCIe.
-2. **Keep expert computation at token granularity.** Split the expert FFN of each stage into a dedicated **compute stream** and prefetch expert weights **proactively**, so loading hides behind the compute stream instead of stalling the main path.
-3. **Make the two streams coexist via SM partitioning.** Because communication (batched) and expert compute (per-token) now run concurrently, partition GPU streaming multiprocessors between the streams to protect throughput and latency instead of letting them interfere.
+1. **Run wide prefill batches, sliced by layers.** Instead of token-chunked prefill, take wide batches and process them a few layers at a time, so decode requests can run *between* slices — this decouples prefill batch width from stage-transfer size.
+2. **Compress activations at the wire boundary.** Use a fused Triton Hadamard-INT4 codec to compress inter-stage activations, cutting the bandwidth each transfer needs.
+3. **Transfer in independently sized row groups over parallel TCP sockets.** Do not tie transfer granularity to compute granularity: row groups are sized independently and streamed over multiple parallel sockets.
+4. **Let a slack-aware scheduler choose the three granularities.** The scheduler uses available latency slack to pick batch width, slice depth, and row-group size per situation rather than fixing a single chunk size.
 
-## Results
-- 4× RTX 4090 workstations, long-context serving: 1.53–2.28× throughput vs SOTA pipeline parallelism at comparable output quality; up to 2.10× (comparable memory) / 2.33× (higher quality) vs tensor parallelism.
-- 8× RTX 4090 cluster: sustains **32K-token** contexts on a **110B-parameter** model where prior systems OOM.
+## Results (reported in the paper)
+- Evaluation via 97 replays covering 5,016 requests on A800, RTX 4090 and RTX 3090 GPUs; all 74 requests met their latency targets during a tenfold bandwidth swing.
+- Four-stage mixture-of-experts pipeline: requests served within latency targets at **23.3×** the rate of calibrated Revisit-PP and **4.44×** the rate of Fixed-4096 with Express.
+- Mixed 64K-context workload: p95 time-to-first-token for short requests fell from **129.8 s** (native vLLM) to **512 ms**.
+- Quality with INT4 transport vs BF16: MMLU **+0.06 pp**, GSM8K **−0.46 pp** — near-lossless for the bandwidth saved.
+
+## Verification
+Replay traces (as in the paper's 97-replay methodology) while sweeping bandwidth by 10× and check per-request latency-target attainment; re-run the mixed 64K-context mix and compare p95 TTFT against native vLLM; re-check MMLU/GSM8K under INT4 transport to bound accuracy drift.
 
 ## Relevance to Our Domain
-The go-to recipe when serving long-context open-weight models on commodity GPU nodes (workstation/edge inference, lab clusters) without NVLink-class interconnects. The decoupling principle — batch what crosses the wire, keep fine-grained what stays local, partition SMs for concurrency — generalizes to other bandwidth-bound distributed inference designs.
+Concrete recipe for long-context serving on commodity PCIe boxes and heterogeneous clusters: treat batch width, slice depth and transfer granularity as *separate* schedulable knobs, compress activations near the wire, and use latency slack as the scheduling signal. The INT4 Hadamard transport result (≈0.5 pp accuracy drift) makes lossy activation compression a viable default on cheap interconnects.
 
 ## References
 - Paper: https://arxiv.org/abs/2611.34615

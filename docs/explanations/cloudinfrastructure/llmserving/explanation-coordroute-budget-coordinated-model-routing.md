@@ -5,7 +5,7 @@ domain: cloud-infrastructure
 topic: llm-serving
 source: arXiv
 source_url: https://arxiv.org/abs/2611.34161
-date: 2026-11-26
+date: 2026-11-25
 keywords:
 - knowledge-base
 - llm-serving
@@ -13,29 +13,31 @@ keywords:
 - explanations
 ---
 # CoordRoute: Coordinated Multi-Model Routing for Maximum Compute-Budget Utility
+**Authors:** Boning Huangfu, Boxiao Du, Chen Chen
 
 ## Overview
-Budget-aware routing normally picks a model per request to maximize utility minus cost — a greedy formulation that ignores cross-request interactions, so it misallocates tokens from the *service-wide* optimum. CoordRoute treats budget-constrained routing as **global token allocation across a model pool**: a predict-plan-rectify loop that hit its target budget within **±0.8%**, delivered **13% higher average utility** than the strongest baseline, and stayed robust when budget estimates shifted **30%**.
+Model routing sends each request to one of several LLMs of different sizes. In practice requests share a *fixed compute budget* — a spending cap on rented model APIs or the capacity of a private GPU cluster — yet most routers decide each request in isolation, so per-request optima are not optimal overall. CoordRoute advocates **coordinated routing**: allocating the budget *across* requests to maximize total satisfaction, along a predict–plan–rectify route.
 
 ## Problem Statement
-Per-request greedy routing optimizes each decision in isolation. But tokens compete for a shared budget across the whole workload; greedy choices interact, so the aggregate outcome drifts from what coordinated allocation would achieve. There was no routing layer that plans token counts across a model pool at inference time while keeping utility above a fixed quality floor.
+Three challenges make cross-request budget allocation hard at inference time:
+- a request's gain from each model is uncertain before generation;
+- later arrivals are unknown when the current request must start;
+- observing answers during generation to correct course consumes budget itself.
 
 ## Key Contribution
-CoordRoute is a three-stage online controller:
-- **Predict** — estimate per-query response lengths via a lightweight regression; **quantile calibration** turns point estimates into uncertainty-aware token budgets.
-- **Plan** — solve a **water-filling problem over the log-utility curves** of the available models to allocate the budget across the pool, subject to a minimum-utility constraint.
-- **Rectify** — when a live response is about to deviate from its planned token budget, steer it with **inference-time budget control** so the realized spend matches the plan.
+CoordRoute addresses each challenge with a dedicated mechanism:
+- **Predict — relative demand prediction.** Instead of predicting absolute gain/cost per model, compare candidate models through past requests that led to the same routing choices, sidestepping pre-generation uncertainty.
+- **Plan — lookahead solver.** When choosing a model for the current request, charge each choice for what its compute could have earned for later (anticipated) requests — turning the unknown-future problem into an opportunity-cost calculation.
+- **Rectify — budget-aware runtime correction.** During generation, drop or upgrade in-flight requests at the same price the planner used, and inspect answers only when inspection itself pays off, so course-correction doesn't eat the budget it protects.
 
 ## Technical Approach
-The water-filling formulation is the conceptual core: each model's marginal utility per token defines a curve, and the allocator equalizes marginal utility across models (subject to the floor), exactly like bandwidth allocation in networking. Prediction error is handled twice — conservatively at planning time (quantiles) and reactively at serving time (rectification). Evaluation spans five benchmark datasets and five model pools; the ablation studies the effects of prediction accuracy, budget over/under-provisioning, and the quality floor.
+The predict-plan-rectify loop is the conceptual core: prediction is *relative* (same-choice history), planning is *charging* (opportunity cost against later requests), rectification is *price-consistent* (same price as the plan, pay-per-look inspection). This separates routing quality from budget adherence in a way per-request greedy routers cannot.
 
 ## Results
-- Target budget met within ±0.8%.
-- +13% average utility over the strongest baseline.
-- Robust to 30% shifts in budget estimation — the controller absorbs planning error rather than amplifying it.
+On the **Azure Conversation** and **BurstGPT** traces, CoordRoute improves total satisfaction by **18.72%** over the strongest existing router.
 
 ## Relevance to Our Domain
-A concrete architecture for cost-controlled LLM gateways serving many agents/workloads under a monthly token budget: it turns "route to the cheapest model that works" into coordinated pool-level allocation with provable budget adherence. Directly applicable to our agent infrastructure's FinOps concerns and any multi-model serving layer.
+A concrete architecture for cost-controlled LLM gateways serving many agents/workloads under a fixed spending cap or private-cluster capacity: shift from "best model per request" to coordinated allocation that prices each choice against the future queue, with in-generation upgrade/downgrade as the safety valve. The relative-demand trick is reusable wherever absolute gain prediction is unreliable but historical routing decisions are logged.
 
 ## References
 - Paper: https://arxiv.org/abs/2611.34161

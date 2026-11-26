@@ -5,7 +5,7 @@ domain: ai-machine-learning
 topic: llm-evaluation
 source: arXiv
 source_url: https://arxiv.org/abs/2611.34934
-date: 2026-11-26
+date: 2026-11-25
 keywords:
 - knowledge-base
 - llm-evaluation
@@ -13,26 +13,25 @@ keywords:
 - explanations
 ---
 # Attack Policy Selection can Mislead Monitor Evaluators
+**Authors:** Charlie Griffin, Oliver Makins, Asa Cooper Stickland, Alessandro Abate, Yarin Gal, Abby D'Cruz, Xander Davies
 
 ## Overview
-Safety monitors are evaluated for how well they catch worst-case attackers, and the standard recipe optimizes the attacker to maximize the monitor's false-negative rate (FNR). This note-taking-worthy negative result shows the recipe itself is flawed: because FNR is **discontinuous** in attack-policy parameters, the attacker found by gradient-style optimization is often a *poor approximation* of the true worst case. Replicating an established monitor-evaluation protocol, the authors find the selected attacks achieve only **65% of the worst-case FNR** attainable at the same compute, and that evaluation results are unstable across optimizer seeds.
+AI monitors are classifiers that flag dangerous agentic behaviour, and they are evaluated on transcripts produced by attack policies acting as proxies for dangerous behaviour at deployment. This paper shows, in a case study replicating an established safety-monitor evaluation protocol (the ex-production OpenAI monitor), that the measured false-negative rate (FNR) is **highly sensitive to both the method used to generate attack policies and the level of optimization within it** — so the single FNR number a study reports can swing by an order of magnitude depending on choices that have nothing to do with the monitor itself.
 
 ## Problem Statement
-Post-training reduces misaligned behavior but does not eliminate it, so frontier labs monitor models for safety-relevant deviations and need high-confidence estimates of monitor reliability against adaptive attackers. The field assumes "optimize attacker to maximize FNR" yields the worst case. The assumptions underlying that estimate have not been examined.
+Post-training reduces misaligned behaviour without eliminating it, so frontier labs monitor models for safety-relevant deviations and need confidence in monitor reliability against adaptive attackers. Evaluation pipelines typically report one FNR figure obtained from selected attack policies; whether those figures support deployment conclusions has not been examined.
 
 ## Key Contribution
-- Identifies two problems with the **FNR-optimizing attacker-selection objective**:
-  - **Discontinuity**: small parameter changes in the attack policy can jump the FNR discontinuously, breaking the optimization landscape.
-  - **Suboptimal attack selection**: the optimizer settles on policies far below the true worst case.
-- Empirical replication of a recent monitor evaluation protocol: selected attacks reach just **65% of achievable worst-case FNR** under equal compute.
-- **Seed instability**: different optimizer seeds select different attacks with *different* true worst-case FNRs — the evaluation protocol lacks a well-defined target quantity, so results can't be compared across studies.
-- Proposes **evaluation- and audit-time techniques** for the two failure modes and discusses implications for interpreting monitor-evaluation results, arguing for evaluation protocols robust to optimizer artifacts.
+- **Method- and optimization-sensitivity of FNR**: in the case study, the measured FNR ranges from **0.5% to 20.8% across optimization levels of a single method (reinforcement learning)**, and from **6.4% to 23.0% across methods** (optimized prompting versus transcript editing) at their best observed optimization level.
+- **Proxy-transfer setup**: all attack policies were developed only against proxy monitors; all reported results show the attacks transfer to the held-out GPT-5.4 target monitor — so proxy-based red-teaming worked here, yet the resulting FNR figures remain method-dependent.
+- **Proxy artifacts**: some attack-policy transcripts contain visible artifacts — e.g. "side task" reasoning that was not included in the monitor's instructions — that can change the monitor's verdict, a known concern for proxy monitor design.
+- **Legitimacy argument**: interpreting any evaluation result as evidence about deployment requires an argument that the proxy is legitimate for the target population; the paper shows this is an open problem and that evaluations using only basic attack methods risk providing false confidence.
 
 ## Technical Approach
-The analysis treats attacker selection as an optimization problem and interrogates its objective function's regularity. By measuring the gap between optimized-attack FNR and best-observed FNR at matched compute, and varying optimizer seeds, the paper separates genuine monitor weakness from optimizer artifacts.
+Attack policies are produced by different generation methods (RL optimization at various levels, optimized prompting, transcript editing) and measured against the monitor at matched settings; the spread of FNR across methods and optimization levels, plus held-out target-monitor transfer, separates genuine monitor weakness from artifacts of how the attacks were manufactured.
 
 ## Relevance to Our Domain
-For anyone building agent oversight or red-teaming pipelines: a monitor-eval number produced by FNR-optimizing an adaptive attacker is an *optimizer-dependent estimate*, not a worst-case guarantee. When consuming or reporting monitor reliability metrics, check for seed-stability and worst-case-gap reporting; when designing eval harnesses, add audit-time probes that test whether the selected attack is representative.
+For anyone building agent oversight or red-teaming pipelines: a single monitor FNR from a chosen attack-generation recipe is an *artifact-dependent estimate*, not a worst-case guarantee. When consuming or reporting monitor reliability, demand the method, the optimization level, and the range across both; when designing eval harnesses, sweep attack-generation methods and check for proxy artifacts leaking into transcripts.
 
 ## References
 - Paper: https://arxiv.org/abs/2611.34934
