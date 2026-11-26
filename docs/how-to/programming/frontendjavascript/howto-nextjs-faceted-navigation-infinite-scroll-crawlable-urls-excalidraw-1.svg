@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 16.0 728.0 388.0" width="728" height="388">
+<rect x="16.0" y="16.0" width="728.0" height="388.0" fill="#ffffff"/>
+<rect x="60.0" y="40.0" width="240.0" height="70.0" rx="0" fill="#d0bfff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="40.0" y="170.0" width="280.0" height="90.0" rx="0" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="40.0" y="290.0" width="280.0" height="90.0" rx="0" fill="#ffd8a8" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="420.0" y="170.0" width="300.0" height="90.0" rx="0" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="420.0" y="290.0" width="300.0" height="70.0" rx="0" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 180.0 115.0 L 180.0 165.0"/><line x1="180.0" y1="165.0" x2="186.1" y2="152.4"/><line x1="180.0" y1="165.0" x2="173.9" y2="152.4"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="180.0" y="77.5">Filter state</tspan><tspan x="180.0" y="95.0">(category + active filters)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="180.0" y="208.7">landingPath() != null</tspan><tspan x="180.0" y="226.2">→ real &lt;a href&gt;, clean path,</tspan><tspan x="180.0" y="243.7">self-canonical, sitemap</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="180.0" y="328.7">landingPath() == null</tspan><tspan x="180.0" y="346.2">→ router.replace query param,</tspan><tspan x="180.0" y="363.7">robots.txt disallow, no links</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="570.0" y="208.7">Pagination: ?page=N own URL,</tspan><tspan x="570.0" y="226.2">real next-page &lt;a href&gt;,</tspan><tspan x="570.0" y="243.7">self-referencing canonical</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="570.0" y="318.7">Empty / out-of-range result</tspan><tspan x="570.0" y="336.2">→ real 404 (notFound()),</tspan><tspan x="570.0" y="353.7">never empty 200 grids</tspan></text>
+</svg>

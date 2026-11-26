@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 106.0 968.0 238.0" width="968" height="238">
+<rect x="16.0" y="106.0" width="968.0" height="238.0" fill="#ffffff"/>
+<rect x="40.0" y="140.0" width="140.0" height="70.0" rx="0" fill="#d0bfff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="250.0" y="140.0" width="170.0" height="70.0" rx="0" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="490.0" y="140.0" width="170.0" height="70.0" rx="0" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="730.0" y="130.0" width="230.0" height="90.0" rx="0" fill="#ffd8a8" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 185.0 175.0 L 245.0 175.0"/><line x1="245.0" y1="175.0" x2="232.4" y2="168.9"/><line x1="245.0" y1="175.0" x2="232.4" y2="181.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 425.0 175.0 L 485.0 175.0"/><line x1="485.0" y1="175.0" x2="472.4" y2="168.9"/><line x1="485.0" y1="175.0" x2="472.4" y2="181.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 665.0 175.0 L 725.0 175.0"/><line x1="725.0" y1="175.0" x2="712.4" y2="168.9"/><line x1="725.0" y1="175.0" x2="712.4" y2="181.1"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="110.0" y="186.2">Browser</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="335.0" y="177.4">Cloud Run instance</tspan><tspan x="335.0" y="194.9">(Next.js server)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="575.0" y="177.4">cache-handler.mjs</tspan><tspan x="575.0" y="194.9">v8.serialize/deserialize</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="845.0" y="159.9">GCS bucket</tspan><tspan x="845.0" y="177.4">next-cache/{BUILD_ID}/</tspan><tspan x="845.0" y="194.9">entries/{hash}.value.bin</tspan><tspan x="845.0" y="212.4">(lifecycle: 30 days)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1971c2" text-anchor="start"><tspan x="250.0" y="272.8">New deploy = new BUILD_ID prefix = clean slate.</tspan><tspan x="250.0" y="292.8">Old HTML can never be served against new hashed assets.</tspan></text>
+</svg>

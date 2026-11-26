@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 -4.0 708.0 388.0" width="708" height="388">
+<rect x="16.0" y="-4.0" width="708.0" height="388.0" fill="#ffffff"/>
+<rect x="40.0" y="140.0" width="170.0" height="80.0" rx="0" fill="#d0bfff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="280.0" y="140.0" width="160.0" height="80.0" rx="0" fill="#fff3bf" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="510.0" y="140.0" width="190.0" height="80.0" rx="0" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="280.0" y="20.0" width="220.0" height="60.0" rx="0" fill="#ffc9c9" stroke="#c92a2a" stroke-width="1.5"/>
+<g stroke="#e8590c" stroke-width="1.5" fill="none"><path d="M 215.0 180.0 L 275.0 180.0"/><line x1="275.0" y1="180.0" x2="262.4" y2="173.9"/><line x1="275.0" y1="180.0" x2="262.4" y2="186.1"/></g>
+<g stroke="#e8590c" stroke-width="1.5" fill="none"><path d="M 445.0 180.0 L 505.0 180.0"/><line x1="505.0" y1="180.0" x2="492.4" y2="173.9"/><line x1="505.0" y1="180.0" x2="492.4" y2="186.1"/></g>
+<g stroke="#1971c2" stroke-width="1.5" fill="none"><path d="M 605.0 230.0 L 115.0 290.0"/><line x1="115.0" y1="290.0" x2="128.2" y2="294.6"/><line x1="115.0" y1="290.0" x2="126.7" y2="282.4"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="125.0" y="173.7">Server racks</tspan><tspan x="125.0" y="191.2">(45°C inlet liquid,</tspan><tspan x="125.0" y="208.7">cold plates)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="360.0" y="173.7">Heat exchanger</tspan><tspan x="360.0" y="191.2">(primary loop →</tspan><tspan x="360.0" y="208.7">secondary loop)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="605.0" y="173.7">Rooftop dry coolers</tspan><tspan x="605.0" y="191.2">(+ adiabatic assist</tspan><tspan x="605.0" y="208.7">on hottest hours)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="390.0" y="43.7">CHILLER — eliminated</tspan><tspan x="390.0" y="61.2">(no compressors,</tspan><tspan x="390.0" y="78.7">no evaporative tower)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="332.8">Two closed loops: heat out from gear (left→right), cooled water back (right→left).</tspan><tspan x="40.0" y="352.8">Dry coolers reject to ambient; adiabatic assist adds 10–20% effective delta on peak hours.</tspan></text>
+</svg>
