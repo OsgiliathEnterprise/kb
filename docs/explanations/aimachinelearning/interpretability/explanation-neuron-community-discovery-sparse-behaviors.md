@@ -33,6 +33,16 @@ With communities capped at **128 neurons across all layers**:
 
 Conclusion: small groups of existing neurons act as **reusable computational components across prompts**, and such groups are discoverable at scale. The authors frame the discovered communities as a **"useful dictionary" of reusable neuron groups**; they note that many prompts remain unexplained, which may reflect computations that are genuinely *not* neuron-sparse as well as limitations of the discovery method itself.
 
+## Deeper Detail (Goodfire research page, verified 2026-11-26)
+
+- **Corpora**: the 10M-prompt discovery run used FineWeb-Edu, English Wikipedia, and FineMath.
+- **Community size in practice**: though capped at 128 neurons, validated communities are *often fewer than ten neurons* — e.g. the case-study "an + vowel agreement" community is **6 neurons spread across 6 layers** (L2:5664, L5:3846, L8:13390, L12:14182, L13:3604, L14:11888).
+- **Always-on neurons**: 17 neurons across the model's 32 layers stay on for all sufficiency tests (they carry a global baseline contribution).
+- **Replication**: the method was replicated on **Qwen 3.6 35B-A3B**, yielding *hundreds of thousands* of communities — including circuits encoding factual knowledge (state capitals, post-Impressionist painters).
+- **Positioning**: the authors frame communities as a level of abstraction *between* individual neurons and higher-order computations — "computational building blocks", and concrete starting points for agentic interpretability investigations (no function specified in advance — fully unsupervised).
+- **Prior evidence base**: builds on Goodfire's "Neurons as an Interpretable Basis" (Tigges et al., 2026), Arora et al.'s sparse neuron circuits for subject–verb agreement, and Feucht et al.'s 28-neuron base-10 addition circuit.
+- **Interactive explorer**: https://goodfire.com/demos/neuron-communities
+
 ## Relevance to Our Domain
 For model auditing and safety engineering, the existence of causally-validated, reusable neuron communities suggests **localized intervention points** (ablation, steering, surgical editing) for known behaviors — and a measurable "explained fraction" as an interpretability coverage metric, complementary to logit-lens attribution.
 

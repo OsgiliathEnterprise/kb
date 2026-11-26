@@ -31,6 +31,14 @@ Evaluated on Cintra against **Magentic-One** (undefended MAS) and **ControlValve
 - Kaer achieves **higher robustness than both**, while **maintaining utility comparable to ControlValve**.
 - Cost: abstract failure templates **slightly constrain utility** on select tasks — the price of stripping free-form text from the feedback channel.
 
+## Threat Model & Design Detail (verified against arXiv v1, 2026-11-26)
+
+- **Trigger condition**: replanning matters when *tasks cannot be fully specified in advance* — precisely the regime where orchestrator MAS are deployed, so the vulnerable phase cannot simply be disabled.
+- **Attack primitive**: malicious agents embed instructions **within their failure feedback**; reporting a real or fabricated failure is the entry point, landing at the moment the plan is most malleable.
+- **Defense triad**: (1) diagnostics flow to the replanner strictly via **abstract templates**, (2) revisions restricted to **deterministic repair operators**, (3) every modified plan must satisfy **preset policies** before execution.
+- **Cintra** measures two axes jointly: task completion rate *and* system vulnerability to replanning exploits by malicious agents.
+- arXiv: submitted 2026-11-18, cs.MA (also cs.LG), CC BY 4.0, DOI 10.48550/arXiv.2611.24839.
+
 ## Why It Matters
 - Identifies **replanning as a distinct, previously unsecured attack phase** in orchestrator MAS — an architectural gap that per-tool ACLs cannot cover.
 - The design principle generalizes: *untrusted agent output should travel as typed, template-bound diagnostics, never as prose into a planning prompt*, and revisions should be drawn from a closed operator set.
