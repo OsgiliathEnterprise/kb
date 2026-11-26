@@ -15,6 +15,8 @@ keywords:
 ---
 # DRBench Pro: A Knowledge-Centric Benchmark for Professional Deep Research Agents
 
+**Authors:** Han Huang, Yuchen Yan, Xingyu Wu, Yijun Li, Chao Deng, Jie Liu, Jin Ma, Yongliang Shen
+
 ## Overview
 
 Référence d'évaluation pour les agents « deep research » : DRBench Pro fait de la **couverture de connaissances structurée** la cible primaire de l'évaluation, là où les benchmarks existants notent la qualité globale du rapport sans mesurer *quelles directions de recherche* sont couvertes ni *à quelle profondeur* elles sont explorées.

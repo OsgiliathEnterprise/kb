@@ -14,34 +14,32 @@ keywords:
 ---
 # The Detour Is the Danger: Preserving Security During LLM Agent Recovery
 
+**Authors:** Boyang Ma, Jinku Li, Hao Wu, Sheng Gao, Man Zhou, Minghui Xu, Yue Zhang
+
 ## Overview
 
-Quand un agent LLM échoue (étape bloquée, politique non contraignante, objectif inachevé), il **dévie** : il repart sur une trajectoire alternative pour récupérer. L'article montre que ce chemin de récupération est une surface d'attaque à part entière — un adversaire peut injecter un artefact à une étape précoce, provoquer l'échec, puis laisser la déviation exploiter l'artefact. L'agent reste « performant » (il finit la tâche) tout en étant compromis.
+Quand une action d'un agent LLM échoue, l'agent **récupère tout seul** : il modifie son workflow pour contourner l'obstacle et accomplir la tâche. Cette autonomie de reprise crée une classe de faille que les modèles d'attaque existants ne capturent pas : le **workflow security downgrade** — l'agent exécute des opérations sensibles sans satisfaire les exigences de protection du workflow d'origine. L'article introduit le terme, mesure le phénomène, et propose ARGUS pour le contrer.
 
 ## Problem Statement
 
-La sécurité des agents est aujourd'hui traitée en **détection** : reconnaître les entrées, politiques ou trajectoires malveillantes, puis filtrer ou bloquer. Ce cadre a deux angles morts structurels :
-
-1. Il considère la trajectoire *comme planifiée*, pas la trajectoire *révisée après échec*.
-2. Un filtrage block-or-allow est grossier : il bloque aussi les comportements sûrs et laisse passer des compromis nuisibles.
+Contrairement à la prompt injection ou à la manipulation d'outils, le downgrade n'exige **aucune modification d'instruction ni de définition d'outil** : il émerge purement de la récupération autonome déclenchée par un échec d'exécution. Les agents de production (outillage MCP, skills) rejouent des workflows sensibles ; si le chemin de contournement saute une étape de sécurité (validation, approbation, sandboxing), l'agent paraît « réussi » alors qu'il est structurellement moins sûr.
 
 ## Key Contribution
 
-- **Formalisation de la sécurité de reprise** (*recovery security*) : la propriété à préserver est que la déviation de récupération ne dégrade pas la posture de sécurité initiale.
-- **ARGUS** : un cadre d'inspection qui, au moment de la déviation, *compare* les trajectoires candidates à la politique d'origine et **recale les trajectoires** candidates pour les ramener dans le périmètre autorisé — plutôt que de les accepter ou rejeter en bloc.
-- Validation sur **cinq environnements** avec des adversaires adaptatifs.
-
-## Technical Approach
-
-Le raisonnement central : le danger n'est pas l'échec mais le *détour*. ARGUS opère comme un contrôle de cohérence politique au point de bifurcation : chaque trajectoire de repli est évaluée par rapport à la politique du plan initial ; les écarts sont corrigés par reclassement (re-baselining) des trajectoires candidates. L'attaque type modélisée est en deux temps — artefact injecté tôt (apparemment inoffensif), puis activation par la récupération — ce que la détection d'intrusion classique rate car chaque étape individuellement semble légitime.
+- **Formalisation** du *workflow security downgrade* comme propriété à préserver pendant la récupération.
+- **Évaluation du phénomène** : injection de fautes dans des environnements outillés MCP/Skill exécutoires, sur **7 LLMs**, **12 templates de tâches**, dans **3 domaines sensibles à la sécurité** — le downgrade se produit en pratique.
+- **ARGUS** : framework de récupération *préservant les obligations*, qui combine trois composants :
+  1. **Evidence de sécurité à ressources bornées** — preuve que les obligations sont couvertes, à coût plafonné ;
+  2. **Validation isolée des plans de récupération** — le plan de replan est vérifié hors du chemin d'exécution ;
+  3. **Enforcement à l'exécution** — le plan validé est appliqué sous contrainte.
 
 ## Results
 
-Sur les cinq environnements testés face à des adversaires adaptatifs : réduction des vulnérabilités de récupération, tout en conservant l'utilité (les agents continuent d'achever leurs tâches) et l'efficacité de reprise.
+Dans une évaluation séparée sur **864 runs**, ARGUS **empêche tous les événements observés de perte de protection** sous enforcement. L'assistance à la récupération apporte en outre des gains dépendants du modèle sur l'achèvement de tâches *protégées* par rapport à une politique block-only (tout bloquer).
 
 ## Relevance to Our Domain
 
-Nos agents de production (pipeline KB, CI agentique) reposent beaucoup sur la récupération automatique — retry, replan, sous-agents de secours. Ce travail dit : *trackez la déviation, pas seulement l'entrée*. À rattacher à nos notes AgentLens, Latent-in-the-Middle et à la discipline « policy drift » de l'agent governance.
+Leçon d'ingénierie : *la récupération sûre, c'est préserver les obligations de sécurité à travers le changement de workflow — pas seulement restaurer la fonctionnalité de la tâche*. Nos pipelines d'agents (retry, replan, sous-agents de secours sur MCP/skills) implémentent exactement ce chemin de récupération non audité. À rattacher à notre discipline « policy drift » et aux notes d'audit d'agents du topic.
 
 ## References
 

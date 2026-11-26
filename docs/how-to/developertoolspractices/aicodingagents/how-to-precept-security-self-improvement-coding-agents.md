@@ -14,30 +14,32 @@ keywords:
 ---
 # PRECEPT: Security Self-Improvement of Coding Agents via Evolving Principles
 
+**Authors:** Keyan Guo, Rupam Patir, Haipeng Cai, Hongxin Hu
+
 ## Overview
 
-Recette d'auto-amélioration **security-first** pour agents de code : PRECEPT ne cherche pas à faire mieux passer les benchmarks fonctionnels, mais à réduire les vulnérabilités *gérées* par les correctifs de l'agent, en apprenant à partir du retour des outils d'analyse de sécurité du cycle de développement (SAST, scanners de dépendances, etc.).
+Recette d'auto-amélioration sécurité pour agents de code, fondée sur un diagnostic précis : les agents **savent** produire du code sûr quand la preuve d'échec est devant eux, mais ne le **retiennent pas** — et les correctifs persistés ne changent rien. PRECEPT construit une **bibliothèque de principes de code sûr qui évolue**, calibrée sur les échecs *du propre agent*, et ne conserve une révision que si des exécutions fraîches le justifient.
 
 ## Problem Statement
 
-Les agents de code actuels ne s'auto-améliorent que sur des métriques fonctionnelles (tests qui passent, problèmes résolus). Cette boucle ne filtre pas la sécurité, voire la dégrade : un agent qui optimise le pass-rate peut introduire des failles. Les approches existantes d'auto-amélioration orientée sécurité restent faibles, et **aucune** n'utilise le retour des outils de sécurité du SDLC comme source d'apprentissage.
+Sur des séquences de **14 tâches**, les agents **Codex, Claude Code et Qwen Code corrigent la vulnérabilité dans 85,7 % des cas** quand on leur montre le test de sécurité en échec — mais **réintroduisent la même classe de vulnérabilité dans 26,7 % des cas** quand la même tâche est refaite dans une session propre, contre **27,5 % pour un agent naïf**. Autrement dit : la capacité existe, la rétention manque ; enregistrer les correctifs dans un contexte persistant ne comble pas l'écart, et les principes de code sûr publiés sont **trop généraux** pour déclencher une implémentation fiable par l'agent lui-même.
 
 ## Procedure (PRECEPT)
 
-1. **Exécuter l'agent de code** sur des dépôts réels (ici SWE-Bench Pro) ; laisser le candidat correctif passer dans le pipeline de sécurité existant.
-2. **Interroger les outils de sécurité du SDLC** sur les correctifs produits (analyse statique, scanners de dépendances) et garder le retour structuré — c'est le signal d'entraînement, pas les tests unitaires.
-3. **Distiller le retour en principes évolutifs** : des règles réutilisables (« principes ») inférées des vulnérabilités détectées, révisées à chaque itération (la bibliothèque de principes *évolue*).
-4. **Injecter les principes** dans le contexte/prompt de l'agent à l'itération suivante.
-5. **Itérer** en mesurant les vulnérabilités *gérées* (vulns effectivement évitées/corrigées) plutôt que le seul pass-rate fonctionnel.
+1. **Partir de principes de code sûr faisant autorité** (source normative externe, pas de règles inventées).
+2. **Faire tourner l'agent** sur des tâches réelles et **collecter ses échecs de sécurité** (les vulnérabilités que ses correctifs réintroduisent).
+3. **Réviser les principes contre ces échecs** : chaque révision rend le principe déclenchable sur *le code de cet agent* — c'est la calibration par l'expérience propre qui manque aux principes génériques.
+4. **Porter une révision uniquement si des exécutions fraîches** montrent une amélioration de la sécurité, tout en maintenant le succès fonctionnel dans une **petite plage de tolérance** (gate empirique anti-régression).
+5. **Itérer** : les gains continuent de croître au fil des pas d'évolution — ils ne saturent pas après la première boucle d'évolution.
 
 ## Results
 
-- Évalué sur des dépôts **SWE-Bench Pro**.
-- **−52 %** de vulnérabilités gérées vs la base de référence *sans retour de sécurité*.
+- Sur des familles de tâches **jamais vues pendant l'évolution**, l'agent **le plus faible avec PRECEPT atteint 97,1 % de code fonctionnel sûr** — au-dessus du meilleur agent sans aide (**81,9 %**) et du meilleur baseline (**87,7 %**).
+- Le mécanisme clé est le couplage « principes autoritatifs + révision sur échecs propres + gate sur exécutions fraîches » : ni la mémoire de correctifs, ni les principes publiés seuls n'obtiennent ce résultat.
 
 ## Relevance to Our Domain
 
-C'est l'angle DevSecOps de l'agentique de code : plutôt qu'un garde-fou externe, la boucle d'amélioration elle-même consomme le feedback SAST. Directement applicable à nos pipelines d'agents de code (ajouter les scanners à la boucle de feedback des agents, formaliser des principes versionnés). À relier à nos notes over-editing et ShellBench.
+Transposable à nos pipelines d'agents de code : brancher la boucle d'auto-amélioration sur les **échecs de sécurité observés en propre** (tests de sécurité en échec, pas des scans génériques), versionner la bibliothèque de principes, et n'accepter une révision qu'après runs frais avec garde-fou fonctionnel. À relier à nos notes over-editing et ShellBench du même topic.
 
 ## References
 

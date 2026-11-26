@@ -15,6 +15,8 @@ keywords:
 ---
 # Collect for Coverage, Replay with Evidence: Adaptive and Efficient On-Policy Distillation for Long-Horizon Agents (CARE-OPD)
 
+**Authors:** Haowen Hou, Gen Li, Ruilin Li, Yicheng Liu, Zhen Huang, Shuai Dong, Congcong Wang, Kaiwen Tuo, Hongrui Wu, Zelin Peng, Kanghui Tian, Ji Zhao, Dianyi Wang, Jiaqi Wang
+
 ## Overview
 
 La distillation on-policy entièrement en ligne (OPD) est coûteuse pour les agents à long horizon : chaque mise à jour exige des rollouts frais dans l'environnement. CARE-OPD (« Collect for coverAge, Replay with Evidence ») rend le *prefix replay* efficace en longue trajectoire en corrigeant ses deux angles morts — la couverture des historiques et l'allocation du rejeu — et obtient 59,5 % de réussite sur SWE-bench Verified avec 45 % de temps d'entraînement en moins.

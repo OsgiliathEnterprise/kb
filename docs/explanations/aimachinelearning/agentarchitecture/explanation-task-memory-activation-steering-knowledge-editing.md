@@ -15,6 +15,8 @@ keywords:
 ---
 # TASK Memory: Beyond Text-Only Memory with Activation Steering and Knowledge Editing against Memory Hallucination
 
+**Authors:** Jinkun Zhao, Wenjun Wu
+
 ## Overview
 
 Les agents LLM s'appuient de plus en plus sur une mémoire externe, mais ils hallucinent aussi sur *ce dont ils se souviennent*. Pire : même quand la bonne mémoire est récupérée et placée dans le prompt, la réponse la contredit ou l'applique au mauvais objet. L'article nomme ce phénomène les **hallucinations de mémoire à l'usage** (*use-time memory hallucinations*) et propose TASK, une mémoire à trois couches qui combine texte, *activation steering* et édition de connaissances partageant une même adresse interne au modèle.

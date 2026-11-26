@@ -14,36 +14,37 @@ keywords:
 ---
 # RankCast: Phase-Aware Rank Balancing in MoE Serving
 
+**Authors:** Kaidi Fu, Xu-Hao Lu, Pingwei Sun, Jianchao Tan, Yuchen Xie, Xunliang Cai
+
 ## Overview
 
-Recette d'ordonnancement pour servir des MoE en parallélisme d'experts (EP) : au lieu de répartir les experts sur les GPUs, RankCast **fixe le placement des experts et équilibre les rangs de communication (EP-ranks)** par réplication sélective, en tirant parti du fait que la composition des experts change avec la phase (prefill/decode) et le batch. Résultat phare : jusqu'à **2,0× de débit** et **4,5× de réduction de la latence moyenne par token** vs l'état de l'art.
+Recette d'ordonnancement pour servir des MoE en parallélisme d'experts (EP) dans une architecture disagrégée Prefill/Decode : la latence MoE est dictée par le rang EP le plus chargé, et la source dominante de charge **diffère selon la phase** (prefill = calcul borne, piloté par le max de tokens par rang ; decode = mémoire bornée, pilotée par le max d'experts actifs par rang à batch modéré). RankCast ramène les deux maximums au lieu de traiter les deux phases de la même façon.
 
 ## Problem Statement
 
-Le goulot d'étranglement du serving MoE en EP est la **charge déséquilibrée des experts**. Les approches existantes migrent la réplication d'experts *entre GPUs* pour corriger la surcharge des GPUs chauds — mais elles négligent la **nature dynamique** de la charge, qui varie avec la composition du batch et la phase de serving. Résultat : les EP-ranks (rangs de communication) restent déséquilibrés et la latence de communication domine.
+Dans le serving MoE disagrégé (phases Prefill et Decode séparées) avec Expert Parallelism, chaque couche doit attendre le rang EP le plus occupé : le déséquilibre de charge ralentit l'inférence. Or les recettes uniformes échouent parce que le facteur de latence n'est pas le même en prefill (nombre maximal de tokens sur un rang) qu'en decode (nombre maximal d'experts actifs sur un rang).
 
 ## Procedure (RankCast)
 
-1. **Figer le placement des experts** sur les GPUs — ne pas migrer les experts ; mesurer la désynchronisation des rangs de communication.
-2. **Estimer la charge par rang** : la distribution des experts activés dépend du batch et de la phase (prefill vs decode) ; instrumenter les deux.
-3. **Répliquer sélectivement les experts chauds** — seuls ceux qui déséquilibrent — pour **rééquilibrer les EP-ranks** (et non les GPUs).
-4. **Basculer en phase-aware** : changer le schéma de réplication quand la phase de serving change ; le système réagit à la dérive de composition en runtime.
-5. **Valider sur 4 modèles × 4 workloads** en comparant débit et latence moyenne par token aux systèmes déplaçant la réplication entre GPUs.
+1. **Cadre unifié par token** : pour chaque token, préserver les experts Top-p prédits et choisir les `k−p` experts restants parmi les candidats Top-L (`L > k`) — c'est cette flexibilité que l'ordonnanceur exploite.
+2. **Prefill — pilotage par prix** : calculer un *price per rank* qui oriente les assignations flexibles (les `k−p` libres) vers les rangs les moins chargés, pour abaisser le max de tokens par rang.
+3. **Decode — fermeture d'experts** : fermer des experts sur les rangs les plus chargés tout en respectant les contraintes de chaque token, pour abaisser le max d'experts actifs.
+4. **Implémenter dans les frameworks de production** : les deux chemins sont implémentés et testés dans SGLang et DeepEP.
+5. **Masquer le surcoût** : chevaucher les noyaux RankCast avec l'exécution du modèle et réutiliser le canal de communication DeepEP existant pour transmettre les métadonnées (pas de communication supplémentaire).
 
 ## Results
 
-- Jusqu'à **2,0× de débit** vs l'état de l'art en serving MoE.
-- Jusqu'à **4,5× de réduction de la latence moyenne par token**.
-- Évaluation : 4 modèles MoE, 4 workloads.
-- Code open source : `github.com/CTMS-Research/RankCast`.
+- Évaluation sur **Qwen3-235B-A22B (EP=8)** et **Qwen3.5-397B-A17B (EP=16)**.
+- RankCast **supprime plus de 75 % de la charge excédentaire prefill** du rang le plus occupé.
+- **Jusqu'à +19 % de débit d'entrée prefill** et **jusqu'à −10 % de temps de décodage par token de sortie**.
+- Coût qualité **inférieur à un point de pourcentage**.
 
 ## Relevance to Our Domain
 
-Pour l'infrastructure de serving de nos modèles (et les workloads agentiques à longs contextes) : l'insight « les GPUs des experts peuvent rester sous-chargés tant que les EP-ranks sont balancés » inverse l'objectif d'ordonnancement habituel. À croiser avec nos notes PipeAxes et CoordRoute du même topic.
+Pour nos serveurs MoE disagrégés : le signal clé est que l'équilibrage doit être **phase-aware** — un même ordonnanceur ne peut pas optimiser le max-de-tokens (prefill, compute-bound) et le max-d'experts-actifs (decode, memory-bound). Le couplage « Top-p figé + Top-L flexible + prix par rang » est une recette réutilisable sans toucher au placement physique des experts. À croiser avec nos notes PipeAxes et CoordRoute du même topic.
 
 ## References
 
 - Paper: https://arxiv.org/abs/2611.33542
-- Code: https://github.com/CTMS-Research/RankCast
 - Semantic Scholar: https://api.semanticscholar.org/graph/v1/paper/arXiv:2611.33542
 - Related: [[how-to-pipeaxes-pipeline-parallel-pcie-serving]], [[explanation-coordroute-budget-coordinated-model-routing]]

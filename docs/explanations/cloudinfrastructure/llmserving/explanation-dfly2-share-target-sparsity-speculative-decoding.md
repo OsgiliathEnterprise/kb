@@ -15,31 +15,40 @@ keywords:
 ---
 # DFly2: Turbocharging Long-Context Speculative Decoding by Sharing the Target's Sparsity
 
+**Authors:** Hong Liu, Rui Cen, Junhan Shi, Lin Niu, Runzhi Fan, Zhaojing Zhou, Haodi Lei, Jiebin Zhang, Saiyong Yang, Junqiang Zheng, Zhenghai Xue, Guanghua Yu, Jianchen Zhu
+
 ## Overview
 
-DFly2 est un décodeur spéculatif **haute concurrence** pour longs contextes, construit sur un drafter diffusion semi-autorégressif. Son innovation : le drafter **partage les indices de sélection d'attention du modèle cible** pour lire un cache KV en attention creuse, et un pipeline en deux phases découple l'arborescence coûteuse (dans le drafter) du traitement des trees par la cible (attention creuse + noyaux optimisés). Sur DeepSeek-V4-Flash, jusqu'à **7,03× de vitesse de décodage par utilisateur**.
+Les modèles récents (DeepSeek-V4, Hy4) rendent l'attention **nativement creuse** pour éviter le coût quadratique de l'attention dense en long contexte — et le décodage spéculatif tourne désormais dessus. Le problème : le drafter garde son **propre cache KV** (sur tout le prompt ou une fenêtre glissante), ce qui coûte du préfixe, empêche les hits du prefix-cache et bride la concurrence en décodage. DFly2 est un drafter **block-parallèle qui partage la sparsité de la cible** : ni cache propre, ni passe de scoring.
 
 ## Problem Statement
 
-La décodage spéculatif bute sur la limite de bande passante du **décodage préfixe dense** quand le contexte s'allonge. Les approches qui l'attaquent — attention creuse ou drafter diffusion — fonctionnent en batch=1 mais **ne tiennent pas à haute concurrence**. Le problème ouvert était de combiner drafter diffusion + attention creuse + batching chargé.
+Un drafter qui lit le cache de la cible évite d'avoir son propre cache, mais ne tranche que la question *quel cache*, pas *quelles positions* — il lit tout ou une fenêtre récente. Un calcul de sélection par requête dans le drafter coûterait de plus en plus cher à mesure que le contexte croît. Or une cible nativement sparse **a déjà choisi** les positions pour chaque requête, sur un cache qu'elle conserve de toute façon : les deux décisions du drafter (cache + positions) sont déjà prises et payées par la cible.
+
+## Key Insight
+
+La sélection de positions faite **un pas en avance** reste valable : mesurée sur DS-V4.1-Flash, elle couvre près de **neuf dixièmes** de ce que chaque token ultérieur sélectionne. Il suffit donc de réutiliser la sélection de l'indexeur de la cible plutôt que d'en calculer une.
 
 ## Technical Approach
 
-Trois mécaniques coordonnées :
+Deux partages coordonnés, par couche :
 
-1. **Partage de la creusité** : le drafter diffusion semi-autorégressif réutilise les *indices de sélection d'attention* calculés par la cible, puis accède au cache KV en attention creuse — le coût de lecture croît sub-linéairement avec la longueur de contexte.
-2. **Découplage en deux phases** : construire l'arbre par DFS dans le drafter (opération lourde côté drafter) pendant que la cible traite les trees en attention creuse, avec des noyaux kernels optimisés — ainsi aucune des deux phases ne bloque l'autre.
-3. **Validation à haute concurrence** sur serving complet (DeepSeek-V4-Flash), y compris l'activation du **MTP** (multi-token prediction) de la cible.
+1. **KV sharing** : chaque couche du drafter lit le KV que sa couche cible appariée a mis en cache.
+2. **Index sharing** : elle le lit exactement aux positions choisies par l'indexeur de cette couche — un nombre fixe de positions, réparties **n'importe où** dans le contexte.
+
+DFly2 tourne ainsi **sans passe de scoring et sans cache propre**, éliminant les coûts de préfixe, de prefix-cache et de concurrence associés au cache du drafter.
 
 ## Results
 
-- DeepSeek-V4-Flash : jusqu'à **7,03×** de vitesse de décodage par utilisateur (vs décodage standard), avec MTP cible activé.
-- À débit de sortie par utilisateur égal sur deux jeux de prompts 64K, DFly2 bat la speculative decoding de l'état de l'art de **+62 %** et **+81 %** de débit.
-- 20 pages, 8 figures ; équipe de 13 auteurs (Hong Liu et al.).
+- Targets de natures différentes — **DS-V4.1-Flash, GLM-5.3-Flash, Hy4~flash** (attention creuse et architectures distinctes) — pour un seul drafter.
+- **Accepte plus de tokens par pas** que DFlash et DSpark entraînés avec la même recette, sur benchmarks généraux, long-contexte et agentiques.
+- La marge sur le baseline le plus fort **s'élargit de 3,9–10,5 % (général) à 10,0–31,5 % (long-contexte et agentique)**.
+- À haute concurrence sur DS-V4.1-Flash, à vitesse de décodage par utilisateur égale : **+62 % et +81 % de débit** sur deux jeux de prompts 64K.
+- 13 auteurs (Hong Liu et al.).
 
 ## Relevance to Our Domain
 
-Le couplage « drafter qui vole les indices de sparsity de la cible » est l'answer élégante à l'objection classique « le drafter doit lui-même lire tout le KV ». Pour nos serveurs de longs contextes (repos de code entiers, transcripts d'agents), c'est la voie speculative decoding + sparse attention qui tient enfin en batch chargé. À relier à nos notes KV-cache du topic.
+Le couplage « le drafter vole le cache ET la sélection de positions de la cible » est la réponse élégante à l'objection classique « le drafter doit lui-même lire le KV » : en long contexte, le drafter ne doit rien calculer ni stocker qui ne le soit déjà. C'est la voie speculative decoding + sparse attention qui tient enfin à haute concurrence sur nos serveurs de longs contextes (repos de code entiers, transcripts d'agents). À relier à nos notes KV-cache du topic.
 
 ## References
 

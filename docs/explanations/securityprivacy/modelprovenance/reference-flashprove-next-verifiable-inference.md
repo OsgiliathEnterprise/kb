@@ -14,6 +14,8 @@ keywords:
 ---
 # FlashProve-Next: Verifiable Inference for Production LLM APIs
 
+**Authors:** Liang Song
+
 ## Overview
 
 Référence technique du successeur de FlashProve : production de preuves vérifiables et zero-knowledge-masked pour des réponses individuelles d'API LLM closed-weight, **sans modifier le serving natif** et sans divulguer poids, prompts cachés, raisonnement caché ni activations. Note de référence : paramètres de sécurité, garanties formelles et chiffres de performance tels que rapportés dans le résumé de l'article.
