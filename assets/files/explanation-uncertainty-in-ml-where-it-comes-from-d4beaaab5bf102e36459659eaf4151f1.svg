@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 36.0 818.0 388.0" width="818" height="388">
+<rect x="16.0" y="36.0" width="818.0" height="388.0" fill="#ffffff"/>
+<rect x="40.0" y="180.0" width="150.0" height="80.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="260.0" y="60.0" width="230.0" height="70.0" rx="8" fill="#e9ecef" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="260.0" y="180.0" width="230.0" height="80.0" rx="8" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="260.0" y="320.0" width="230.0" height="80.0" rx="8" fill="#d0bfff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="560.0" y="60.0" width="250.0" height="70.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="560.0" y="180.0" width="250.0" height="80.0" rx="8" fill="#ffd8a8" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="560.0" y="320.0" width="250.0" height="80.0" rx="8" fill="#ff8787" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#c92a2a" stroke-width="1.5" fill="none"><path d="M 495.0 95.0 L 555.0 95.0"/><line x1="555.0" y1="95.0" x2="542.4" y2="88.9"/><line x1="555.0" y1="95.0" x2="542.4" y2="101.1"/></g>
+<g stroke="#d9480f" stroke-width="1.5" fill="none"><path d="M 495.0 220.0 L 555.0 220.0"/><line x1="555.0" y1="220.0" x2="542.4" y2="213.9"/><line x1="555.0" y1="220.0" x2="542.4" y2="226.1"/></g>
+<g stroke="#c92a2a" stroke-width="1.5" fill="none"><path d="M 495.0 360.0 L 555.0 360.0"/><line x1="555.0" y1="360.0" x2="542.4" y2="353.9"/><line x1="555.0" y1="360.0" x2="542.4" y2="366.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 195.0 215.0 L 255.0 215.0"/><line x1="255.0" y1="215.0" x2="242.4" y2="208.9"/><line x1="255.0" y1="215.0" x2="242.4" y2="221.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 375.0 135.0 L 375.0 175.0"/><line x1="375.0" y1="175.0" x2="381.1" y2="162.4"/><line x1="375.0" y1="175.0" x2="368.9" y2="162.4"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 375.0 265.0 L 375.0 315.0"/><line x1="375.0" y1="315.0" x2="381.1" y2="302.4"/><line x1="375.0" y1="315.0" x2="368.9" y2="302.4"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="20" fill="#1e1e1e" text-anchor="start"><tspan x="60.0" y="221.0">Input x</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="272.0" y="89.2">True p*(y|x)</tspan><tspan x="272.0" y="106.7">(possibly outside model)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="272.0" y="206.2">Model family p_theta</tspan><tspan x="272.0" y="223.7">(e.g. 1 Gaussian vs mixture)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="272.0" y="346.2">Posterior over hypotheses</tspan><tspan x="272.0" y="363.7">(Bayes keeps them all)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="572.0" y="81.2">ALEATORIC: truth is noisy</tspan><tspan x="572.0" y="98.7">irreducible by more data</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="572.0" y="203.2">APPROXIMATION: which hypothesis?</tspan><tspan x="572.0" y="220.7">captured by posterior spread</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="572.0" y="343.2">MODEL MISSPECIFICATION:</tspan><tspan x="572.0" y="360.7">truth outside model - posterior blind</tspan></text>
+</svg>
