@@ -47,6 +47,36 @@ The expected digest is verifiable: `echo -n hello | sha256sum` produces the same
 - Comparing two blobs of text
 - Checking test output against a known value
 
+## The related primitives you actually reach for
+
+**HMAC — don't hand-roll `H(secret || msg)`.** Import a key in the `"HMAC"` format and use `sign()`:
+
+```js
+const key = await crypto.subtle.importKey(
+  "raw", new TextEncoder().encode(secret),
+  { name: "HMAC", hash: "SHA-256" }, false, ["sign", "verify"]);
+const mac = await crypto.subtle.sign("HMAC", key, new TextEncoder().encode(msg));
+```
+
+**Password hashing — PBKDF2 via `deriveBits`, never a fast digest.** The [MDN `deriveBits()` example](https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/deriveBits) is the canonical shape: import the password as raw key material for `"PBKDF2"`, then derive bits with a random salt (`crypto.getRandomValues(new Uint8Array(16))`) and a high iteration count:
+
+```js
+async function pbkdf2(password, salt, iterations = 600_000) {
+  const km = await crypto.subtle.importKey(
+    "raw", new TextEncoder().encode(password), "PBKDF2", false, ["deriveBits"]);
+  const bits = await crypto.subtle.deriveBits(
+    { name: "PBKDF2", salt, iterations, hash: "SHA-256" }, km, 256);
+  return [...new Uint8Array(bits)].map(b => b.toString(16).padStart(2, "0")).join("");
+}
+```
+
+bcrypt/scrypt/Argon2 are not in Web Crypto — those belong server-side. And even a correct digest comparison should use a constant-time compare (`crypto.subtle.verify` for MACs) when the value is a secret.
+
+## Runtime notes
+
+- `crypto.subtle` is exposed on `globalThis.crypto` in browsers and in **Node.js ≥ 19** natively; older Node needs `require("node:crypto").webcrypto`. The snippet above is portable as-is.
+- `digest()` is one-shot — there is no streaming/incremental hashing in `SubtleCrypto`. For hashing large streams you must buffer, hash chunks yourself, or use Node's `crypto.createHash`.
+
 ## Related
 
 - Browser-side PDF processing with CSP (same folder): [example-browser-only-pdf-processing-with-csp-enforcement.md](example-browser-only-pdf-processing-with-csp-enforcement.md)
@@ -56,3 +86,4 @@ The expected digest is verifiable: `echo -n hello | sha256sum` produces the same
 
 - [DEV.to: SHA-256 in the browser with Web Crypto (and why MD5 isn't there)](https://dev.to/gotoolsonline/sha-256-in-the-browser-with-web-crypto-and-why-md5-isnt-there-4ljk) — original snippet source
 - [MDN: SubtleCrypto.digest()](https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/digest) — verified 2026-11-27: supported algorithm list and SHA-1 warning match this note; MDN also points HMAC use cases to `SubtleCrypto.sign()`
+- [MDN: SubtleCrypto.deriveBits()](https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/deriveBits) — verified 2026-11-27: canonical PBKDF2 password-derivation example (importKey → deriveBits with salt + iterations)
