@@ -102,6 +102,15 @@ Two design details worth copying:
 
 On the billing side, a failed job releases its reserved credit in full — the server's reservation model matches the client's retry model.
 
+## How this maps to general batch-API guidance
+
+The Transcript Dock example lines up with the consensus patterns for bulk endpoints ([Bulk and Batch Operations in REST APIs](https://restfulapi.net/bulk-and-batch-operations-in-rest-apis/), [Batch API endpoints — patterns](https://codelit.io/blog/api-batch-endpoints)):
+
+- **Decide atomicity explicitly, up front.** Either *all-or-nothing* (reject the whole batch at validation time with a 4xx and per-item details) or *best-effort* (this note's shape: process everything, report per-item outcomes). The worst design hides failures — a `200` that quietly dropped items. Partial-success responses need an explicit aggregate status (`partial_success`) rather than an ambiguous status code.
+- **Idempotency must exist at *both* levels.** A batch-level key makes resubmitting the whole request return the original batch; but after a `partial_success`, blindly retrying the full batch duplicates work unless *per-item* idempotency exists. The safe client rules: retry only the failed `externalId`s, or reuse the **same batch idempotency key** to get the cached original response.
+- **Cap batch size, per plan/tier.** Commercial transcription APIs make this concrete: TranscriptFetch, for instance, caps batches at 50 items on free/Basic/Pro and 500 on higher tiers, with duplicate inputs collapsing to one job ([batch API reference](https://transcriptfetch.com/docs/batch)) — the same dedup + quota mechanics this note's server shows.
+- **Return per-item results in the payload even on success**, so the client can build the failed-only retry set without re-deriving it from logs.
+
 ## Checklist for your own batch endpoint
 
 - [ ] Items map to independently-statused jobs; batch aggregates, never gates.
@@ -115,4 +124,5 @@ On the billing side, a failed job releases its reserved credit in full — the s
 
 - Original article: [Transcribing a Whole List of YouTube Videos in One Request with Node.js](https://dev.to/taimur_khan_441354c7efc16/transcribing-a-whole-list-of-youtube-videos-in-one-request-with-nodejs-2a91) (DEV.to, 2026-11-26)
 - Vendor docs for the batch/job/webhook model: [Transcript Dock quickstart](https://www.transcriptdock.com/docs/quickstart)
+- General patterns: [Bulk and Batch Operations in REST APIs](https://restfulapi.net/bulk-and-batch-operations-in-rest-apis/), [Batch API Endpoints — Patterns for Bulk Operations](https://codelit.io/blog/api-batch-endpoints), a second vendor's limits/dedup model: [TranscriptFetch batch reference](https://transcriptfetch.com/docs/batch)
 - Related in KB: How to Resolve an Operation: Polling vs Blocking, Deduplicate Write Requests with Client Tokens, Request Deduplication Algorithm

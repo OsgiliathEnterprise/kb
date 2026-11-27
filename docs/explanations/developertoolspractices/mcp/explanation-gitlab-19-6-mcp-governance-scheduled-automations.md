@@ -26,6 +26,18 @@ External AI tools (Claude Code, Cursor, other agents) increasingly reach reposit
 
 The GitLab Orbit context-graph toolset was also folded into the main MCP server connection, eliminating a separate endpoint to govern.
 
+### How enforcement actually works (official docs detail)
+
+The governance layer sits **at the execution boundary**: after an agent is admitted to a project and before a tool is invoked, GitLab consults rules for the user's role and the tool's action category, then enforces the mode ([Agent tool governance](https://docs.gitlab.com/user/ai-governance/tool-governance/)). Key mechanics worth copying into any MCP gateway design:
+
+- **Action categories**: every tool is classified `Read`, `Write`, or `Delete`. The default matrix is Read → *Always Allow*, Write and Delete → *Always Ask*.
+- **Access types**: each tool has a separate mode per access type — **cloud** (runs on GitLab as the user), **local** (runs on the user's machine, e.g. via the GitLab MCP server from IDE extensions), and **background** (runs as a *service account*, no human waiting). Local-access modes apply only to GitLab MCP server calls, not to built-in IDE/CLI tools. Note how the background access type is exactly what the new scheduled automations execute under.
+- **Fail-closed option**: with the `duo_workflow_background_fail_closed` flag on, background write/delete tools with no explicit rule default to **Always Deny** — the right posture for unattended agents.
+- **Governance is not new in 19.6**: tool governance was introduced in 19.1 (beta), extended to background flows in 19.3, local-file reads flipped to Always Allow in 19.5, and 19.6 adds *per-tab* permissions. Treat "AI governance" as an evolving surface, not a launch feature.
+- **Enforcement is server-side and client-agnostic**: rules apply "for every client that connects" — a policy the MCP server enforces beats policy each agent client claims to honor (cf. [Docker MCP Gateway governed MCP servers](../../../how-to/securityprivacy/aiagentsecurity/howto-docker-mcp-gateway-governed-mcp-servers.md)).
+
+**Gotcha: the aggregated `search` tool breaks fine-grained rules.** The MCP server's `search` tool aggregates GitLab Duo's narrower search tools and *replaces* them — rules set on `gitlab_issue_search`, `gitlab_blob_search`, etc. have no effect while `search` is available, even though the UI still shows them as allowed. Denying `search` restores the narrower tools (fixed in 19.5; in 19.4 denying it left agents with *no* search at all), and some tool names are aliases — denying `gitlab_merge_request_search` also denies `list_merge_requests`. When auditing a governance config, verify it against the tool list the agent actually sees, not the management UI.
+
 ## Scheduled automations: agents move off human triggers
 
 Until 19.6, Duo Agent Platform flows required a human prompt or a webhook event. 19.6 adds **scheduled automations** (beta, Premium/Ultimate):
@@ -52,6 +64,8 @@ Why this matters beyond GitLab: it is the same trajectory seen at Cognition (whe
 2. **Pipeline variable cap: 1,200 variables per pipeline** on GitLab.com — heavily templated pipelines can silently start failing.
 3. **Duo credit efficiency** changes model-request behavior: automatic for new customers on Nov 19, existing accounts transition **Dec 18** unless an admin opts in early — budget dashboards may shift under you mid-quarter.
 
+Patch cadence to note: **19.6.1 (critical) shipped 2026-11-20, one day after release, and 19.6.2 on 2026-11-25** — for self-managed, plan the upgrade against the patched patch level, not the .0 tag ([patch releases](https://docs.gitlab.com/releases/patches/patch-release-gitlab-19-6-2-released/)).
+
 ## Feature summary
 
 | Feature | Availability | Key technical change |
@@ -68,5 +82,6 @@ Why this matters beyond GitLab: it is the same trajectory seen at Cognition (whe
 
 - Original article: [GitLab 19.6 Cuts AI Credit Costs in Half and Adds Scheduled Agent Automations](https://dev.to/mango7777/gitlab-196-cuts-ai-credit-costs-in-half-and-adds-scheduled-agent-automations-k2d) (DEV.to, 2026-11-26)
 - Official release notes: [GitLab 19.6 release notes](https://docs.gitlab.com/releases/19/gitlab-19-6-released/)
+- Governance mechanics: [Agent tool governance — GitLab Docs](https://docs.gitlab.com/user/ai-governance/tool-governance/) (access types, default matrix, `search` aliasing gotcha, fail-closed flag)
 - Vendor announcement: [New GitLab Agentic Automations Clear the Security Backlog](https://www.businesswire.com/news/home/20261119042648/en/New-GitLab-Agentic-Automations-Clear-the-Security-Backlog-and-Do-Up-to-Twice-the-Work-For-The-Same-Cost)
 - Related in KB: [AI Agent Identity Patterns Production Agents Need](../../securityprivacy/aiagentsecurity/explanation-ai-agent-identity-patterns-production.md), [Tool Descriptions Are the Contract](explanation-tool-descriptions-are-the-contract.md), [Governed MCP Servers with Docker MCP Gateway](../../../how-to/securityprivacy/aiagentsecurity/howto-docker-mcp-gateway-governed-mcp-servers.md)
