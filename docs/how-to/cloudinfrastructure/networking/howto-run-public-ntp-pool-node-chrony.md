@@ -6,7 +6,7 @@ domain: cloud-infrastructure
 topic: networking
 source: HackerNews
 source_url: https://www.jeffgeerling.com/blog/2026/i-joined-the-ntp-pool/
-date: 2026-11-22
+date: 2026-11-23
 keywords:
 - knowledge-base
 - networking

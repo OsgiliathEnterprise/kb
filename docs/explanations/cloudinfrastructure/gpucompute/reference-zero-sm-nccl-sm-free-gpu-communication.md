@@ -5,7 +5,7 @@ domain: cloud-infrastructure
 topic: gpu-compute
 source: arXiv
 source_url: https://arxiv.org/abs/2611.18075
-date: '2026-11-16'
+date: '2026-11-17'
 keywords:
 - knowledge-base
 - gpu-compute

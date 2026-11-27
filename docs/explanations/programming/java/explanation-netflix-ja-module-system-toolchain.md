@@ -5,7 +5,7 @@ domain: programming
 topic: java
 source: Netflix TechBlog
 source_url: https://netflixtechblog.com/leave-the-class-path-in-the-rearview-mirror-67a85b15b6be
-date: 2026-09-20
+date: 2026-11-20
 keywords:
 - knowledge-base
 - java

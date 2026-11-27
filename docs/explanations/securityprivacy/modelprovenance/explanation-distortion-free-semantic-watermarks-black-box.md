@@ -5,7 +5,7 @@ domain: security-privacy
 topic: model-provenance
 source: arXiv
 source_url: https://arxiv.org/abs/2611.23208
-date: '2026-11-18'
+date: '2026-11-20'
 keywords:
 - knowledge-base
 - model-provenance

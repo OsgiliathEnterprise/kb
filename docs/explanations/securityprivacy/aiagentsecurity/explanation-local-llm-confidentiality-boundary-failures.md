@@ -6,7 +6,7 @@ domain: security-privacy
 topic: ai-agent-security
 source: arXiv
 source_url: https://arxiv.org/abs/2609.18526
-date: 2026-09-20
+date: 2026-11-27
 keywords:
 - knowledge-base
 - ai-agent-security

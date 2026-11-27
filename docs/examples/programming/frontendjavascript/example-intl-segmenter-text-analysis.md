@@ -5,7 +5,7 @@ domain: programming
 topic: frontend-javascript
 source: DZone AI/ML
 source_url: https://feeds.dzone.com/link/23558/17427684/text-analysis-without-backend
-date: 2026-08-25
+date: 2026-11-13
 keywords:
 - knowledge-base
 - frontend-javascript

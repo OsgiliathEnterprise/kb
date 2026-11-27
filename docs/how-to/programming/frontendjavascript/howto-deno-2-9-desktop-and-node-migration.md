@@ -5,7 +5,7 @@ domain: programming
 topic: frontend-javascript
 source: Developpez
 source_url: https://javascript.developpez.com/actu/384649/Le-moteur-d-execution-pour-JavaScript-TypeScript-et-WebAssembly-Deno-2-9-est-disponible-integrant-un-generateur-d-applications-de-bureau-natives-et-facilite-la-migration-des-projets-Node-js/
-date: 2026-09-09
+date: 2026-11-11
 keywords:
 - knowledge-base
 - frontend-javascript

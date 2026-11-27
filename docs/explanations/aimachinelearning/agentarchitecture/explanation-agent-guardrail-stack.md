@@ -5,7 +5,7 @@ domain: ai-machine-learning
 topic: agent-architecture
 source: DEV.to Tech News
 source_url: https://dev.to/rulestack/rate-limits-are-not-quality-gates-the-guardrail-stack-behind-an-ai-agent-that-posts-publicly-every-2b6k
-date: 2026-08-25
+date: 2026-11-13
 keywords:
 - knowledge-base
 - agent-architecture

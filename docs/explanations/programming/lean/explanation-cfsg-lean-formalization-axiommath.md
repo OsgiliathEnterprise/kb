@@ -6,7 +6,7 @@ domain: programming
 topic: lean
 source: HackerNews
 source_url: https://cfsg.axiommath.ai/
-date: 2026-10-28
+date: 2026-10-29
 keywords:
 - knowledge-base
 - lean

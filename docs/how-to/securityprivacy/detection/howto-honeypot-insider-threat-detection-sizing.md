@@ -6,7 +6,7 @@ domain: security-privacy
 topic: detection
 source: arxiv
 source_url: https://arxiv.org/abs/2611.26353
-date: 2026-11-22
+date: 2026-11-23
 keywords:
 - knowledge-base
 - detection

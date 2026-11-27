@@ -6,7 +6,7 @@ domain: cloud-infrastructure
 topic: networking
 source: HackerNews
 source_url: https://tailscale.com/blog/making-tailscale-faster
-date: 2026-09-24
+date: 2026-11-24
 keywords:
 - knowledge-base
 - networking

@@ -5,7 +5,7 @@ domain: cloud-infrastructure
 topic: incident-response
 source: DEV.to Tech News
 source_url: https://dev.to/nghidanh2005/-stopping-s3-data-exfiltration-in-real-time-a-step-by-step-incident-response-2jp
-date: 2026-08-25
+date: 2026-11-16
 keywords:
 - knowledge-base
 - incident-response

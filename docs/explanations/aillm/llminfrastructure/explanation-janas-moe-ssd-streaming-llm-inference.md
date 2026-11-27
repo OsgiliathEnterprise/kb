@@ -5,7 +5,7 @@ domain: AI-LLM
 topic: LLM-Infrastructure
 source: HackerNews
 source_url: https://github.com/prabanta-dev/janas
-date: 2026-10-13
+date: 2026-10-19
 keywords:
 - knowledge-base
 - LLM-Infrastructure

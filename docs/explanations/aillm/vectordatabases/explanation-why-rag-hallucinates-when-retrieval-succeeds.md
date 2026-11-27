@@ -6,7 +6,7 @@ domain: AI-LLM
 topic: vector-databases
 source: DEV.to Tech News
 source_url: https://dev.to/pallavi_sharma_10c1a6f1da/why-does-rag-hallucinate-when-the-right-documents-exist-1cnn
-date: 2026-10-21
+date: 2026-10-28
 keywords:
 - knowledge-base
 - vector-databases

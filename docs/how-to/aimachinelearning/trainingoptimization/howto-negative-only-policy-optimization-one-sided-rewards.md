@@ -6,7 +6,7 @@ domain: ai-machine-learning
 topic: training-optimization
 source: arXiv
 source_url: https://arxiv.org/abs/2611.17287
-date: '2026-11-13'
+date: '2026-11-14'
 keywords:
 - knowledge-base
 - training-optimization

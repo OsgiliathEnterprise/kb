@@ -5,7 +5,7 @@ domain: developer-tools-practices
 topic: code-quality
 source: 'DEV.to Tech News: I priced my own dead code and got a $775 bill'
 source_url: https://dev.to/muhammad_abdullahshah_96/i-priced-my-own-dead-code-and-got-a-75-bill-162
-date: 2026-10-18
+date: 2026-10-20
 keywords:
 - knowledge-base
 - code-quality

@@ -6,7 +6,7 @@ domain: developer-tools-practices
 topic: browser-internals
 source: HackerNews
 source_url: https://lunarwatcher.codeberg.page/til/firefox/resumable-big-downloads.html
-date: 2026-10-13
+date: 2026-10-19
 keywords:
 - knowledge-base
 - browser-internals

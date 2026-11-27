@@ -6,7 +6,7 @@ domain: ai-machine-learning
 topic: agent-architecture
 source: MartinFowler
 source_url: https://martinfowler.com/articles/reliable-llm-bayer.html
-date: 2026-09-03
+date: 2026-11-17
 keywords:
 - knowledge-base
 - agent-architecture

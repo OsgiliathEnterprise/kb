@@ -6,7 +6,7 @@ domain: cloud-infrastructure
 topic: aws
 source: DEV.to Tech News
 source_url: https://dev.to/aws-builders/from-empty-folder-to-live-url-a-beginners-full-stack-app-on-aws-fargate-3e6g
-date: 2026-08-30
+date: 2026-11-16
 keywords:
 - knowledge-base
 - aws

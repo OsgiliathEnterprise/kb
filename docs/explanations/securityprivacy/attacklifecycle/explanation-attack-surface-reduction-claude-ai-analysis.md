@@ -6,7 +6,7 @@ domain: security-privacy
 topic: attack-lifecycle
 source: Anthropic Research
 source_url: https://www.anthropic.com/research/attack-surface-reduction
-date: 2026-10-22
+date: 2026-10-23
 keywords:
 - knowledge-base
 - attack-lifecycle

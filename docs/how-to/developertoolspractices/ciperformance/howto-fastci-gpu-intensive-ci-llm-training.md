@@ -5,7 +5,7 @@ domain: developer-tools-practices
 topic: ci-performance
 source: arXiv
 source_url: https://arxiv.org/abs/2610.01967
-date: 2026-10-04
+date: 2026-10-05
 keywords:
 - knowledge-base
 - ci-performance

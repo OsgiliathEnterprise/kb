@@ -5,7 +5,7 @@ domain: security-privacy
 topic: p2p-security
 source: HackerNews
 source_url: https://radicle.dev/2026/09/23/disclosure-of-vulnerability-in-network-protocol
-date: 2026-09-24
+date: 2026-11-24
 keywords:
 - knowledge-base
 - p2p-security

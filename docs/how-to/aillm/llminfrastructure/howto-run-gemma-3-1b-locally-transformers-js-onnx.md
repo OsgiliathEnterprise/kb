@@ -6,7 +6,7 @@ domain: AI-LLM
 topic: LLM-Infrastructure
 source: DEV.to Tech News
 source_url: https://dev.to/khizzcr7/seance-a-terminal-that-channels-dead-programming-languages-525k
-date: 2026-10-27
+date: 2026-11-09
 keywords:
 - knowledge-base
 - LLM-Infrastructure

@@ -6,7 +6,7 @@ domain: security-privacy
 topic: ai-agent-security
 source: TheNewStack
 source_url: https://thenewstack.io/bionic-shell-command-safety/
-date: 2026-08-29
+date: 2026-11-10
 keywords:
 - knowledge-base
 - ai-agent-security

@@ -5,7 +5,7 @@ domain: programming
 topic: databases
 source: DEV.to Tech News
 source_url: https://dev.to/tbson87/postgresql-generated-column-vs-trigger-which-to-use-for-a-derived-column-518p
-date: 2026-09-27
+date: 2026-10-19
 keywords:
 - knowledge-base
 - databases

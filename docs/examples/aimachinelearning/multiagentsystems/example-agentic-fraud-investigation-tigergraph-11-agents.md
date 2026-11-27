@@ -6,7 +6,7 @@ domain: ai-machine-learning
 topic: multi-agent-systems
 source: DEV.to Tech News
 source_url: https://dev.to/pritha_pal_14bfa4d9871f59/building-an-agentic-fraud-investigation-system-with-tigergraph-and-11-ai-agents-29c7
-date: 2026-09-25
+date: 2026-09-26
 keywords:
 - knowledge-base
 - multi-agent-systems

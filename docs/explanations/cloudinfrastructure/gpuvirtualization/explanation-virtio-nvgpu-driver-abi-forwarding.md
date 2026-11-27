@@ -5,7 +5,7 @@ domain: cloud-infrastructure
 topic: gpu-virtualization
 source: HackerNews
 source_url: https://github.com/nestrilabs/virtio-nvgpu
-date: 2026-09-24
+date: 2026-11-24
 keywords:
 - knowledge-base
 - gpu-virtualization

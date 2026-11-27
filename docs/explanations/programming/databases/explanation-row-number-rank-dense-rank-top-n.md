@@ -5,7 +5,7 @@ domain: programming
 topic: databases
 source: DEV.to Tech News
 source_url: https://dev.to/sharefun2023/rownumber-vs-rank-vs-denserank-one-of-them-silently-duplicates-your-top-n-i6a
-date: 2026-09-29
+date: 2026-10-19
 keywords:
 - knowledge-base
 - databases

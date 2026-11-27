@@ -5,7 +5,7 @@ domain: cloud-infrastructure
 topic: distributed-tracing
 source: TheNewStack
 source_url: https://thenewstack.io/jaeger-clickhouse-storage-backend/
-date: 2026-09-04
+date: 2026-11-23
 keywords:
 - knowledge-base
 - distributed-tracing

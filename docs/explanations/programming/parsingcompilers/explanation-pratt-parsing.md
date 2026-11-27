@@ -5,7 +5,7 @@ domain: programming
 topic: parsing-compilers
 source: HackerNews
 source_url: https://www.unix.dog/~yosh/blog/2026-10-25_pratt-parsing.html
-date: 2026-10-27
+date: 2026-11-09
 keywords:
 - knowledge-base
 - parsing-compilers

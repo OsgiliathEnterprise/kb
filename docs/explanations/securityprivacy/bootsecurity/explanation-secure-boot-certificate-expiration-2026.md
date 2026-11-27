@@ -6,7 +6,7 @@ domain: security-privacy
 topic: boot-security
 source: Wired Backchannel
 source_url: https://www.wired.com/story/a-critical-deadline-is-approaching-for-windows-and-linux-security/
-date: 2026-09-12
+date: 2026-10-19
 keywords:
 - knowledge-base
 - boot-security

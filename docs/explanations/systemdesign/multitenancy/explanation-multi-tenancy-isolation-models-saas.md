@@ -6,7 +6,7 @@ domain: system-design
 topic: Multi-Tenancy
 source: DEV.to Tech News
 source_url: https://dev.to/macrogenltd/multi-tenancy-in-saas-the-architecture-decision-you-cant-undo-later-4l8c
-date: 2026-09-25
+date: 2026-11-25
 keywords:
 - knowledge-base
 - Multi-Tenancy

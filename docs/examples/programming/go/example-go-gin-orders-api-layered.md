@@ -5,7 +5,7 @@ domain: programming
 topic: go
 source: DEV.to Tech News
 source_url: https://dev.to/mihirmohapatra/building-my-first-real-api-in-go-with-gin-3kio
-date: 2026-09-10
+date: 2026-11-17
 keywords:
 - knowledge-base
 - go

@@ -6,7 +6,7 @@ domain: programming
 topic: rust
 source: DEV.to Tech News
 source_url: https://dev.to/stratumstack/porting-concurrent-c-to-rust-field-notes-from-a-few-migrations-5gia
-date: 2026-10-28
+date: 2026-10-29
 keywords:
 - knowledge-base
 - rust

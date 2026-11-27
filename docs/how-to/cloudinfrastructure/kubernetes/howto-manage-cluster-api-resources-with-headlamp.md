@@ -5,7 +5,7 @@ domain: cloud-infrastructure
 topic: kubernetes
 source: Kubernetes Blog
 source_url: https://kubernetes.io/blog/2026-06-25/headlamp-cluster-api-plugin/
-date: 2026-09-04
+date: 2026-11-11
 keywords:
 - knowledge-base
 - kubernetes

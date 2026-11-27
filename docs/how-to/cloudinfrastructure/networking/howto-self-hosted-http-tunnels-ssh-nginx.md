@@ -5,7 +5,7 @@ domain: cloud-infrastructure
 topic: networking
 source: HackerNews
 source_url: https://vincent.bernat.ch/en/blog/2026-http-over-ssh
-date: 2026-10-05
+date: 2026-10-08
 keywords:
 - knowledge-base
 - networking

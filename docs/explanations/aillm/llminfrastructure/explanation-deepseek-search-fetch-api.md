@@ -6,7 +6,7 @@ domain: AI-LLM
 topic: LLM-Infrastructure
 source: 'HackerNews: DeepSeek search and fetch – $0.75 per 1000 successful requests'
 source_url: https://api-docs.deepseek.com/guides/search/
-date: 2026-10-18
+date: 2026-10-28
 keywords:
 - knowledge-base
 - LLM-Infrastructure

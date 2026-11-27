@@ -5,7 +5,7 @@ domain: developer-tools-practices
 topic: agent-documentation
 source: DEV.to Tech News
 source_url: https://dev.to/kissoid/we-started-writing-docs-for-ai-agents-not-humans-and-made-it-an-open-standard-3ija
-date: 2026-08-30
+date: 2026-10-18
 keywords:
 - knowledge-base
 - agent-documentation

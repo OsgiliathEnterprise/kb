@@ -5,7 +5,7 @@ domain: programming
 topic: databases
 source: DEV.to Tech News
 source_url: https://dev.to/danbasseda/why-paying-invoices-doesnt-find-paid-in-postgresql-full-text-search-3j4b
-date: '2026-11-17'
+date: '2026-11-20'
 keywords:
 - knowledge-base
 - databases

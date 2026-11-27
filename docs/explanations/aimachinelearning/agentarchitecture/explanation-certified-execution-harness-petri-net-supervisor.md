@@ -7,7 +7,7 @@ topic: agent-architecture
 source: 'arXiv: Certified Execution Harness for Agentic AI: Safe and Least-Intrusive
   Petri-Net Supervisory Control Between Reasoning and Action (arXiv:2610.31376)'
 source_url: https://arxiv.org/abs/2610.31376
-date: 2026-10-25
+date: 2026-10-28
 keywords:
 - knowledge-base
 - agent-architecture

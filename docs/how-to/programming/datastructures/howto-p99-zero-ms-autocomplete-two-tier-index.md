@@ -5,7 +5,7 @@ domain: programming
 topic: data-structures
 source: HackerNews
 source_url: https://ruurtjan.com/articles/p99-0ms-autocomplete-for-240-million-domain-names
-date: 2026-08-31
+date: 2026-10-19
 keywords:
 - knowledge-base
 - data-structures

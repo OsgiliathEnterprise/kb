@@ -5,7 +5,7 @@ domain: security-privacy
 topic: ai-agent-security
 source: DEV.to Tech News
 source_url: https://dev.to/coridev/the-miasma-worm-how-ai-coding-agents-became-a-supply-chain-attack-surface-5af
-date: 2026-09-06
+date: 2026-10-19
 keywords:
 - knowledge-base
 - ai-agent-security

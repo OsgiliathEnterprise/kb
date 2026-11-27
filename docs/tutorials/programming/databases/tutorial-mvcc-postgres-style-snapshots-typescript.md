@@ -5,7 +5,7 @@ domain: programming
 topic: databases
 source: DEV.to Tech News
 source_url: https://dev.to/jatin510/mvcc-explained-build-postgres-style-snapshots-in-100-lines-of-typescript-37be
-date: 2026-08-27
+date: 2026-11-15
 keywords:
 - knowledge-base
 - databases

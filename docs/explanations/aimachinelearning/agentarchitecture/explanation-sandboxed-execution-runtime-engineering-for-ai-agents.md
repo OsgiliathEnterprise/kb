@@ -6,7 +6,7 @@ domain: ai-machine-learning
 topic: agent-architecture
 source: DEV.to Tech News
 source_url: https://dev.to/guyoung/boxagnts-runtime-7-sandboxed-execution-rebuilding-agent-infrastructure-4kj3
-date: 2026-09-09
+date: 2026-11-17
 keywords:
 - knowledge-base
 - agent-architecture

@@ -121,7 +121,7 @@ def fix_yaml_frontmatter(content: str, meta: dict, diataxis_type: str) -> str:
 
     if meta.get('source_url'):
         frontmatter['source_url'] = meta.get('source_url')
-    pub_date = meta.get('date') or meta.get('created')
+    pub_date = meta.get('date') or meta.get('updated') or meta.get('created')
     if pub_date:
         frontmatter['date'] = pub_date
     if meta.get('source_url'):
@@ -483,6 +483,7 @@ def map_kb_to_docs_path(kb_file: Path) -> tuple:
         'source': meta.get('source', ''),
         'source_url': meta.get('source_url', ''),
         'created': meta.get('created', meta.get('research_date', '')),
+        'updated': meta.get('updated', ''),
         'date': meta.get('date', ''),
         'diataxis': diataxis_path,
         'diataxis_label': diataxis_label,

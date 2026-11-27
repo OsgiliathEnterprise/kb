@@ -5,7 +5,7 @@ domain: programming
 topic: java
 source: Inside Java
 source_url: https://inside.java/2026-06-30/zgc-performance-decade/
-date: 2026-09-05
+date: 2026-11-10
 keywords:
 - knowledge-base
 - java

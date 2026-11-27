@@ -6,7 +6,7 @@ domain: security-privacy
 topic: web-security
 source: DEV.to Tech News
 source_url: https://dev.to/kriosa/open-redirect-vulnerabilities-in-php-and-laravel-when-your-own-domain-becomes-the-attack-43cf
-date: 2026-08-28
+date: 2026-11-10
 keywords:
 - knowledge-base
 - web-security

@@ -6,7 +6,7 @@ domain: ai-machine-learning
 topic: agent-architecture
 source: TheNewStack
 source_url: https://thenewstack.io/claude-memory-chat-cowork/
-date: 2026-08-26
+date: 2026-09-28
 keywords:
 - knowledge-base
 - agent-architecture

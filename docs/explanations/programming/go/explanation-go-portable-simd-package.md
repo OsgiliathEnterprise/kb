@@ -5,7 +5,7 @@ domain: programming
 topic: go
 source: HackerNews
 source_url: https://go.dev/blog/simd-experiment
-date: 2026-09-26
+date: 2026-10-19
 keywords:
 - knowledge-base
 - go

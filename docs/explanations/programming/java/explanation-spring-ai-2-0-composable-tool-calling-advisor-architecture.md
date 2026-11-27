@@ -5,7 +5,7 @@ domain: programming
 topic: java
 source: Spring Blog
 source_url: https://spring.io/blog/2026-06-15/spring-ai-composable-tool-calling
-date: 2026-09-08
+date: 2026-10-19
 keywords:
 - knowledge-base
 - java

@@ -5,7 +5,7 @@ domain: cloud-infrastructure
 topic: kubernetes
 source: Kubernetes
 source_url: https://kubernetes.io/blog/2026/06/24/wg-device-management-spotlight-2026/
-date: 2026-09-07
+date: 2026-11-23
 keywords:
 - knowledge-base
 - kubernetes

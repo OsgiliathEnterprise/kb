@@ -5,7 +5,7 @@ domain: security-privacy
 topic: ai-agent-security
 source: DEV.to Tech News
 source_url: https://dev.to/rimsha_kanwal/day-2990-building-a-read-only-mcp-server-a-practical-approach-to-safer-ai-agents-1n73
-date: 2026-11-22
+date: 2026-11-23
 keywords:
 - knowledge-base
 - ai-agent-security

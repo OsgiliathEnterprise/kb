@@ -5,7 +5,7 @@ domain: developer-tools-practices
 topic: ai-coding-agents
 source: TheNewStack (VMware Tanzu)
 source_url: https://thenewstack.io/deterministic-ai-spring-upgrades/
-date: 2026-09-04
+date: 2026-11-15
 keywords:
 - knowledge-base
 - ai-coding-agents

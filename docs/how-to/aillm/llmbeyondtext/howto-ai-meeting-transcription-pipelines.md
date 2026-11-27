@@ -6,7 +6,7 @@ domain: AI-LLM
 topic: LLM-Beyond-Text
 source: DEV.to Tech News
 source_url: https://dev.to/albert_nahas_cdc8469a6ae8/ai-meeting-transcription-in-2025-what-actually-works-3o6c
-date: 2026-10-27
+date: 2026-10-28
 keywords:
 - knowledge-base
 - LLM-Beyond-Text

@@ -7,7 +7,7 @@ topic: agent-architecture
 source: 'arXiv: More Memory, Worse Agents: Error Reproduction and Anti-Persistence
   in LLM Agents (arXiv:2610.27406)'
 source_url: https://arxiv.org/abs/2610.27406
-date: 2026-10-25
+date: 2026-10-28
 keywords:
 - knowledge-base
 - agent-architecture

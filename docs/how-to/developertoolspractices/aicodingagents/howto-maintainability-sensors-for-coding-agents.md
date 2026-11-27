@@ -5,7 +5,7 @@ domain: developer-tools-practices
 topic: ai-coding-agents
 source: MartinFowler (Thoughtworks)
 source_url: https://martinfowler.com/articles/sensors-for-coding-agents.html
-date: 2026-09-04
+date: 2026-11-15
 keywords:
 - knowledge-base
 - ai-coding-agents

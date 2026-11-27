@@ -6,7 +6,7 @@ domain: ai-machine-learning
 topic: agent-architecture
 source: HackerNews
 source_url: https://pwning.systems/posts/llm-memory-program-analysis/
-date: 2026-08-29
+date: 2026-11-14
 keywords:
 - knowledge-base
 - agent-architecture

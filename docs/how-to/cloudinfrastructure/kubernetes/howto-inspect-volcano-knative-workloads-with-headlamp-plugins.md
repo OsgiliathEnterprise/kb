@@ -5,7 +5,7 @@ domain: cloud-infrastructure
 topic: kubernetes
 source: Kubernetes Blog
 source_url: https://kubernetes.io/blog/2026-06-25/visual-context-volcano-headlamp-plugin/
-date: 2026-09-05
+date: 2026-11-23
 keywords:
 - knowledge-base
 - kubernetes

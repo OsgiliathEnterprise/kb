@@ -5,7 +5,7 @@ domain: developer-tools-practices
 topic: local-ai-agents
 source: TheNewStack
 source_url: https://thenewstack.io/jetbrains-junie-local-agent/
-date: 2026-08-25
+date: 2026-11-14
 keywords:
 - knowledge-base
 - local-ai-agents

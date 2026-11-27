@@ -6,7 +6,7 @@ domain: ai-machine-learning
 topic: agent-architecture
 source: DEV.to Tech News
 source_url: https://dev.to/haoli/contradiction-judge-the-memory-auditor-your-ai-agents-are-missing-4288
-date: 2026-10-21
+date: 2026-11-07
 keywords:
 - knowledge-base
 - agent-architecture

@@ -5,7 +5,7 @@ domain: developer-tools-practices
 topic: ai-coding-agents
 source: TheNewStack
 source_url: https://thenewstack.io/valkey-ai-backporting-agents/
-date: 2026-09-09
+date: 2026-11-14
 keywords:
 - knowledge-base
 - ai-coding-agents

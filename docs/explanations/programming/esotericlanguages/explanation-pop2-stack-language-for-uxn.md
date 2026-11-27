@@ -5,7 +5,7 @@ domain: programming
 topic: esoteric-languages
 source: HackerNews
 source_url: https://wiki.xxiivv.com/site/pop2.html
-date: 2026-08-30
+date: 2026-10-25
 keywords:
 - knowledge-base
 - esoteric-languages

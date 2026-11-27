@@ -5,7 +5,7 @@ domain: developer-tools-practices
 topic: git-workflow
 source: DEV.to Tech News
 source_url: https://dev.to/prabhat_5d3435e0689f9f964/git-github-masterclass-version-control-ka-complete-practical-guide-1kpn
-date: 2026-10-27
+date: 2026-11-04
 keywords:
 - knowledge-base
 - git-workflow

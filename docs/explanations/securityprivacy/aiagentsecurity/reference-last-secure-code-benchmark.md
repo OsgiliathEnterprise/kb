@@ -5,7 +5,7 @@ domain: security-privacy
 topic: ai-agent-security
 source: 'arXiv: Last Secure Code Benchmark: Is the Code You Vibe Secure? (arXiv:2610.14766)'
 source_url: https://arxiv.org/abs/2610.14766
-date: 2026-10-18
+date: 2026-10-19
 keywords:
 - knowledge-base
 - ai-agent-security

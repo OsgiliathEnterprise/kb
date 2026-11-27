@@ -5,7 +5,7 @@ domain: programming
 topic: java
 source: Spring Blog
 source_url: https://spring.io/blog/2026-06-21/spring-boot-41-and-spring-batch
-date: 2026-09-06
+date: 2026-10-19
 keywords:
 - knowledge-base
 - java

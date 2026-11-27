@@ -6,7 +6,7 @@ domain: cloud-infrastructure
 topic: incident-response
 source: TheNewStack
 source_url: https://thenewstack.io/jetbrains-told-everyone-to-patch-it-didnt-patch-itself/
-date: 2026-08-29
+date: 2026-11-24
 keywords:
 - knowledge-base
 - incident-response

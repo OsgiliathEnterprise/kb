@@ -6,7 +6,7 @@ domain: developer-tools-practices
 topic: ai-coding-agents
 source: HackerNews
 source_url: https://cacm.acm.org/research/beyond-the-hype-the-efficiency-throughput-gap-with-github-copilot/
-date: 2026-09-25
+date: 2026-11-25
 keywords:
 - knowledge-base
 - ai-coding-agents

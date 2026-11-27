@@ -5,7 +5,7 @@ domain: programming
 topic: linux
 source: DEV.to Tech News
 source_url: https://dev.to/jantolentino/suspend-background-disown-3hj1
-date: 2026-09-27
+date: 2026-10-03
 keywords:
 - knowledge-base
 - linux

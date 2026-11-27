@@ -6,7 +6,7 @@ domain: developer-tools-practices
 topic: ai-coding-agents
 source: HackerNews
 source_url: https://github.com/openai/codex/issues/48195
-date: 2026-10-13
+date: 2026-10-14
 keywords:
 - knowledge-base
 - ai-coding-agents

@@ -6,7 +6,7 @@ domain: security-privacy
 topic: web-security
 source: DEV.to Tech News
 source_url: https://dev.to/authbyexample1/feature-flags-are-not-authorization-3ld1
-date: 2026-09-29
+date: 2026-10-01
 keywords:
 - knowledge-base
 - web-security

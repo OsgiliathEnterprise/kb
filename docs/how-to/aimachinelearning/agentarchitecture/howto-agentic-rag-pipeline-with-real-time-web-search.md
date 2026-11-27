@@ -5,7 +5,7 @@ domain: ai-machine-learning
 topic: agent-architecture
 source: DEV.to Tech News
 source_url: https://dev.to/cloudsway/how-to-build-an-agentic-rag-pipeline-with-real-time-web-search-2k1l
-date: 2026-08-26
+date: 2026-11-10
 keywords:
 - knowledge-base
 - agent-architecture

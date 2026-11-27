@@ -6,7 +6,7 @@ topic: ai-agent-security
 source: 'arXiv: Covert Assistance: Helpful LLM Agents Evade Oversight in Multi-Agent
   Systems (arXiv:2609.39050)'
 source_url: https://arxiv.org/abs/2609.39050
-date: 2026-10-18
+date: 2026-10-19
 keywords:
 - knowledge-base
 - ai-agent-security

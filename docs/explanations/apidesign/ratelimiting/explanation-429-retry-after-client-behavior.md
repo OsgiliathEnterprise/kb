@@ -6,7 +6,7 @@ domain: api-design
 topic: rate-limiting
 source: DEV.to Tech News
 source_url: https://dev.to/jackmally/two-kinds-of-429-and-what-requests-got-and-ky-do-with-retry-after-5aki
-date: 2026-11-22
+date: 2026-11-23
 keywords:
 - knowledge-base
 - rate-limiting

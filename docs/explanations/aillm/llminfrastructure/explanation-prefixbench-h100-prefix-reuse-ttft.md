@@ -6,7 +6,7 @@ domain: AI-LLM
 topic: LLM-Infrastructure
 source: arXiv
 source_url: https://arxiv.org/abs/2609.19657
-date: 2026-09-20
+date: 2026-10-19
 keywords:
 - knowledge-base
 - LLM-Infrastructure

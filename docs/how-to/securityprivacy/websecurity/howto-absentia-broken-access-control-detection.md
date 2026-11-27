@@ -5,7 +5,7 @@ domain: security-privacy
 topic: web-security
 source: arXiv
 source_url: https://arxiv.org/abs/2610.00977
-date: 2026-10-04
+date: 2026-10-16
 keywords:
 - knowledge-base
 - web-security

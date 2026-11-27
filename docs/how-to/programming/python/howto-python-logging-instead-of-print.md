@@ -5,7 +5,7 @@ domain: programming
 topic: python
 source: DEV.to Tech News
 source_url: https://dev.to/sameerqaisar17/python-logging-how-to-stop-using-print-for-debugging-54b6
-date: 2026-10-10
+date: 2026-10-12
 keywords:
 - knowledge-base
 - python

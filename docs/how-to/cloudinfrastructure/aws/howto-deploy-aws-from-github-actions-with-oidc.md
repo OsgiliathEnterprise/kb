@@ -6,7 +6,7 @@ domain: cloud-infrastructure
 topic: aws
 source: DEV.to Tech News
 source_url: https://dev.to/jcbone16/deployer-sur-aws-avec-github-actions-sans-cles-dacces-oidc-controles-et-un-retour-arriere-3gja
-date: 2026-09-25
+date: 2026-11-10
 keywords:
 - knowledge-base
 - aws

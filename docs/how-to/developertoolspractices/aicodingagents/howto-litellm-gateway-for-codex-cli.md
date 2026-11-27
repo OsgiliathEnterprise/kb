@@ -5,7 +5,7 @@ domain: developer-tools-practices
 topic: ai-coding-agents
 source: DEV.to Tech News
 source_url: https://dev.to/juliashevchenko/configure-litellm-as-a-gateway-for-a-custom-model-provider-for-codex-2e3f
-date: 2026-08-28
+date: 2026-11-24
 keywords:
 - knowledge-base
 - ai-coding-agents

@@ -5,7 +5,7 @@ domain: ai-machine-learning
 topic: agent-architecture
 source: DEV.to Tech News
 source_url: https://dev.to/ribhavmodi/what-is-x402-the-http-payment-standard-built-for-ai-agents-explained-gie
-date: 2026-09-09
+date: 2026-11-13
 keywords:
 - knowledge-base
 - agent-architecture

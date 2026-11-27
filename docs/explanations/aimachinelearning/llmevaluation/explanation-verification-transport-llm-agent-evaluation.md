@@ -5,7 +5,7 @@ domain: ai-machine-learning
 topic: llm-evaluation
 source: arXiv
 source_url: https://arxiv.org/abs/2611.18471
-date: '2026-11-16'
+date: '2026-11-17'
 keywords:
 - knowledge-base
 - llm-evaluation

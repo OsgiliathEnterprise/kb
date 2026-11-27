@@ -6,7 +6,7 @@ domain: ai-machine-learning
 topic: interpretability
 source: arXiv
 source_url: https://arxiv.org/abs/2611.23112
-date: '2026-11-18'
+date: '2026-11-26'
 keywords:
 - knowledge-base
 - interpretability

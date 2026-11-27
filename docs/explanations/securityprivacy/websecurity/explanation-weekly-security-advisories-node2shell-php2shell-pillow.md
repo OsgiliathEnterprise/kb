@@ -6,7 +6,7 @@ domain: security-privacy
 topic: web-security
 source: DEV.to Tech News
 source_url: https://dev.to/deepak_kumar_44eb8741f4b2/i-read-every-security-advisory-this-week-so-you-dont-have-to-this-is-the-most-personal-and-54jc
-date: 2026-10-24
+date: 2026-10-27
 keywords:
 - knowledge-base
 - web-security

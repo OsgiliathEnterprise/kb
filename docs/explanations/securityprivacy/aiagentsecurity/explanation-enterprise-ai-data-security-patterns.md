@@ -5,7 +5,7 @@ domain: security-privacy
 topic: ai-agent-security
 source: DZone AI/ML
 source_url: https://dzone.com/articles/enterprise-ai-data-security
-date: 2026-09-27
+date: 2026-10-01
 keywords:
 - knowledge-base
 - ai-agent-security

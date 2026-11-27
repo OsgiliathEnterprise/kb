@@ -6,7 +6,7 @@ domain: developer-tools-practices
 topic: ai-coding-agents
 source: DEV.to Tech News
 source_url: https://dev.to/haoli/i-built-the-tool-my-agent-guard-readme-said-didnt-exist-yet-5acp
-date: 2026-10-21
+date: 2026-10-22
 keywords:
 - knowledge-base
 - ai-coding-agents

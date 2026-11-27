@@ -6,7 +6,7 @@ domain: AI-LLM
 topic: LLM-Limits
 source: HackerNews
 source_url: https://arxiv.org/abs/2610.13928
-date: 2026-10-13
+date: 2026-10-19
 keywords:
 - knowledge-base
 - LLM-Limits

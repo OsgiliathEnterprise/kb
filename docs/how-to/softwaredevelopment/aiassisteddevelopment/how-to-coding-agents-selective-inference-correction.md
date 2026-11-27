@@ -5,7 +5,7 @@ domain: software-development
 topic: ai-assisted-development
 source: arXiv
 source_url: https://arxiv.org/abs/2611.23174
-date: '2026-11-18'
+date: '2026-11-24'
 keywords:
 - knowledge-base
 - ai-assisted-development

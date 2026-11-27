@@ -5,7 +5,7 @@ domain: programming
 topic: linux
 source: HackerNews
 source_url: https://maurycyz.com/misc/etherfiles/
-date: 2026-08-31
+date: 2026-10-19
 keywords:
 - knowledge-base
 - linux

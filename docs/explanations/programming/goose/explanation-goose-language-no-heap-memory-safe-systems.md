@@ -5,7 +5,7 @@ domain: programming
 topic: goose
 source: HackerNews
 source_url: https://aardappel.github.io/goose/
-date: 2026-10-25
+date: 2026-10-26
 keywords:
 - knowledge-base
 - goose

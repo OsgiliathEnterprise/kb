@@ -5,7 +5,7 @@ domain: programming
 topic: java
 source: Inside Java
 source_url: https://inside.java/2026/06/11/thesis-simplify-weak-reference-processing-zgc/
-date: 2026-09-07
+date: 2026-11-11
 keywords:
 - knowledge-base
 - java

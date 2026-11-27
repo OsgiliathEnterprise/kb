@@ -5,7 +5,7 @@ domain: programming
 topic: linux-kernel
 source: DEV.to Tech News
 source_url: https://dev.to/sunshoutkernel/isolcpus-takes-cpus-off-the-scheduler-hardware-irqs-still-land-there-ihe
-date: 2026-08-25
+date: 2026-11-06
 keywords:
 - knowledge-base
 - linux-kernel

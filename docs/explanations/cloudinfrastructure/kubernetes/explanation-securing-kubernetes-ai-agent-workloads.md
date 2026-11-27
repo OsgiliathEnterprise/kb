@@ -5,7 +5,7 @@ domain: cloud-infrastructure
 topic: kubernetes
 source: The New Stack
 source_url: https://thenewstack.io/securing-kubernetes-ai-agents/
-date: 2026-09-08
+date: 2026-11-15
 keywords:
 - knowledge-base
 - kubernetes

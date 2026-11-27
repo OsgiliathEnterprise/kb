@@ -5,7 +5,7 @@ domain: programming
 topic: frontend-javascript
 source: DEV.to Tech News
 source_url: https://dev.to/gaurang_learn/pdf-toolkit-where-your-files-cant-leave-the-browser-and-the-csp-enforces-it-jgn
-date: 2026-09-27
+date: 2026-10-19
 keywords:
 - knowledge-base
 - frontend-javascript

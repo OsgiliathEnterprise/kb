@@ -5,7 +5,7 @@ domain: ai-machine-learning
 topic: agent-architecture
 source: DEV.to
 source_url: https://dev.to/opsveritas/when-llm-agent-token-spikes-hide-real-failures-kh8
-date: 2026-10-25
+date: 2026-10-28
 keywords:
 - knowledge-base
 - agent-architecture

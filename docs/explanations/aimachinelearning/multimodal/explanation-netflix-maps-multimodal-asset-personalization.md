@@ -6,7 +6,7 @@ domain: ai-machine-learning
 topic: multimodal
 source: Netflix TechBlog
 source_url: https://netflixtechblog.com/maps-netflixs-multimodal-asset-personalization-at-scale-32f96320785e
-date: 2026-08-29
+date: 2026-11-18
 keywords:
 - knowledge-base
 - multimodal

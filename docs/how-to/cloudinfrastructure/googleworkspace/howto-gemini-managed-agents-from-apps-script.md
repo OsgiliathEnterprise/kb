@@ -6,7 +6,7 @@ domain: cloud-infrastructure
 topic: google-workspace
 source: DEV.to Tech News
 source_url: https://dev.to/gde/taking-advantage-of-gemini-managed-agents-with-google-apps-script-5cdp
-date: 2026-08-30
+date: 2026-11-08
 keywords:
 - knowledge-base
 - google-workspace

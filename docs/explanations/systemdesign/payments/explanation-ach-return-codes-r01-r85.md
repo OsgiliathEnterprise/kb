@@ -6,7 +6,7 @@ topic: Payments
 source: 'DEV.to Tech News: ACH Return Codes Explained: R01–R85 and How to Handle Them
   in Production'
 source_url: https://dev.to/payout_rail/ach-return-codes-explained-r01-r85-and-how-to-handle-them-in-production-23l5
-date: 2026-10-18
+date: 2026-11-03
 keywords:
 - knowledge-base
 - Payments

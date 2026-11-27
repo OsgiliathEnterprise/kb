@@ -5,7 +5,7 @@ domain: developer-tools-practices
 topic: ai-coding-agents
 source: arXiv
 source_url: https://arxiv.org/abs/2609.20812
-date: 2026-09-20
+date: 2026-11-27
 keywords:
 - knowledge-base
 - ai-coding-agents

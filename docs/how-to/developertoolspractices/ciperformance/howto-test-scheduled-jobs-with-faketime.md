@@ -5,7 +5,7 @@ domain: developer-tools-practices
 topic: ci-performance
 source: DEV.to Tech News
 source_url: https://dev.to/jantolentino/testing-scheduled-jobs-using-faketime-2b4l
-date: 2026-09-27
+date: 2026-10-03
 keywords:
 - knowledge-base
 - ci-performance

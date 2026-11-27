@@ -6,7 +6,7 @@ domain: cloud-infrastructure
 topic: networking
 source: DEV.to Tech News
 source_url: https://dev.to/dnsnotify/email-dns-monitoring-the-four-records-that-break-mail-while-your-site-stays-up-ckl
-date: 2026-09-25
+date: 2026-11-25
 keywords:
 - knowledge-base
 - networking

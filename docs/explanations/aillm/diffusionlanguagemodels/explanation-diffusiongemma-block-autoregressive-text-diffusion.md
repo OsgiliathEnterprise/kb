@@ -5,7 +5,7 @@ domain: AI-LLM
 topic: diffusion-language-models
 source: Developpez
 source_url: https://intelligence-artificielle.developpez.com/actu/384080/DiffusionGemma-Google-DeepMind-lance-un-modele-dote-d-une-nouvelle-architecture-appelee-diffusion-parallele-qui-genere-du-texte-en-bloc-et-permet-de-executer-l-IA-quatre-fois-plus-rapidement-en-local/
-date: 2026-09-03
+date: 2026-11-13
 keywords:
 - knowledge-base
 - diffusion-language-models

@@ -6,7 +6,7 @@ domain: ai-machine-learning
 topic: multimodal
 source: DEV.to Tech News
 source_url: https://dev.to/susiewang/commit-the-conversation-keep-partial-voice-turns-out-of-your-ai-companions-context-mb
-date: 2026-08-30
+date: 2026-11-16
 keywords:
 - knowledge-base
 - multimodal

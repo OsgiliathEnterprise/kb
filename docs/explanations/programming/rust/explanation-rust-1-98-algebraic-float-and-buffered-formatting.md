@@ -5,7 +5,7 @@ domain: programming
 topic: rust
 source: Developpez
 source_url: https://rust.developpez.com/actu/386430/La-version-1-98-de-Rust-introduit-des-methodes-algebriques-pour-les-nombres-a-virgule-flottante-le-formatage-des-entiers-avec-mise-en-memoire-tampon-et-ameliore-la-documentation-de-ManuallyDrop/
-date: 2026-08-26
+date: 2026-10-19
 keywords:
 - knowledge-base
 - rust

@@ -5,7 +5,7 @@ domain: programming
 topic: java
 source: Inside Java
 source_url: https://inside.java/2026-06-10/hat-tensors-computation/
-date: 2026-09-05
+date: 2026-11-17
 keywords:
 - knowledge-base
 - java

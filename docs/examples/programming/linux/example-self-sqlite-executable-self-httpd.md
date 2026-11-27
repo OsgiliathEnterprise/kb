@@ -5,7 +5,7 @@ domain: programming
 topic: linux
 source: HackerNews
 source_url: https://fzakaria.com/2026/08/24/actually-queryable-executables
-date: 2026-08-26
+date: 2026-09-28
 keywords:
 - knowledge-base
 - linux

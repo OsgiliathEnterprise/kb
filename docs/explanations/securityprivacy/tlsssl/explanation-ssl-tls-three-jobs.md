@@ -5,7 +5,7 @@ domain: security-privacy
 topic: tls-ssl
 source: DEV.to Tech News
 source_url: https://dev.to/sunshoutkernel/stop-saying-ssl-tls-only-does-three-jobs-and-your-ssl-cert-is-usually-not-the-outage-26dh
-date: 2026-08-25
+date: 2026-11-25
 keywords:
 - knowledge-base
 - tls-ssl

@@ -5,7 +5,7 @@ domain: ai-machine-learning
 topic: multimodal
 source: DEV.to Tech News
 source_url: https://dev.to/forestlioooooo/deepseeks-vision-lineage-from-deepseek-vl-to-vision-exp-45ki
-date: 2026-08-25
+date: 2026-11-06
 keywords:
 - knowledge-base
 - multimodal

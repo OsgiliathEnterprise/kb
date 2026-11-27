@@ -5,7 +5,7 @@ domain: AI-LLM
 topic: diffusion-language-models
 source: arXiv
 source_url: https://arxiv.org/abs/2611.17320
-date: '2026-11-13'
+date: '2026-11-14'
 keywords:
 - knowledge-base
 - diffusion-language-models

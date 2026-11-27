@@ -6,7 +6,7 @@ domain: security-privacy
 topic: fuzzing
 source: DEV.to Tech News
 source_url: https://dev.to/jamilxt/21-bytes-can-crash-ffmpeg-inside-the-vibecoded-fuzzer-that-found-what-years-of-audits-missed-fpe
-date: 2026-08-29
+date: 2026-11-10
 keywords:
 - knowledge-base
 - fuzzing

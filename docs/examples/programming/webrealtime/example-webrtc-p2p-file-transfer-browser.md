@@ -6,7 +6,7 @@ domain: programming
 topic: web-realtime
 source: DEV.to Tech News
 source_url: https://dev.to/kingupe/how-i-built-a-zero-install-multi-gigabyte-p2p-file-transfer-engine-in-the-browser-with-webrtc--1doe
-date: 2026-08-28
+date: 2026-11-09
 keywords:
 - knowledge-base
 - web-realtime

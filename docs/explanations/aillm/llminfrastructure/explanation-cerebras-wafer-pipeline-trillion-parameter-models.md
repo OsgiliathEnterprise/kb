@@ -5,7 +5,7 @@ domain: AI-LLM
 topic: LLM-Infrastructure
 source: HackerNews
 source_url: https://www.cerebras.ai/blog/how-we-deploy-trillion-parameter-frontier-models-on-cerebras
-date: 2026-10-25
+date: 2026-10-26
 keywords:
 - knowledge-base
 - LLM-Infrastructure

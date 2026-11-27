@@ -6,7 +6,7 @@ domain: security-privacy
 topic: ssh
 source: HackerNews
 source_url: https://tailscale.com/ssh-investigation-update
-date: 2026-10-28
+date: 2026-10-29
 keywords:
 - knowledge-base
 - ssh

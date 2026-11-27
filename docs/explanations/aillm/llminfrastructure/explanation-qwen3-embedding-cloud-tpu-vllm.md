@@ -5,7 +5,7 @@ domain: AI-LLM
 topic: LLM-Infrastructure
 source: DEV.to Tech News
 source_url: https://dev.to/cheng_zhang_45ee857b979b0/qwen3-embedding-on-cloud-tpu-production-long-context-retrieval-with-vllm-2oe4
-date: 2026-08-27
+date: 2026-11-06
 keywords:
 - knowledge-base
 - LLM-Infrastructure

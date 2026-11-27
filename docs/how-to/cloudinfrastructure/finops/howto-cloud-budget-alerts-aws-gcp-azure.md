@@ -5,7 +5,7 @@ domain: cloud-infrastructure
 topic: finops
 source: DEV.to Tech News
 source_url: https://dev.to/muskan_8abedcc7e12/how-to-set-up-cloud-budget-alerts-on-aws-gcp-azure-4ne
-date: 2026-09-10
+date: 2026-11-14
 keywords:
 - knowledge-base
 - finops

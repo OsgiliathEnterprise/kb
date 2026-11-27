@@ -6,7 +6,7 @@ domain: ai-machine-learning
 topic: multi-agent-systems
 source: DEV.to Tech News
 source_url: https://dev.to/debashish_ghosal/the-same-model-debating-itself-was-more-self-critical-than-two-different-models-2569
-date: 2026-08-30
+date: 2026-10-05
 keywords:
 - knowledge-base
 - multi-agent-systems

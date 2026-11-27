@@ -5,7 +5,7 @@ domain: cloud-infrastructure
 topic: kubernetes
 source: kubernetes io
 source_url: https://kubernetes.io/blog/2026/08/28/kubernetes-v1-37-pod-certificates-and-cluster-trust-bundles/
-date: 2026-08-29
+date: 2026-11-23
 keywords:
 - knowledge-base
 - kubernetes

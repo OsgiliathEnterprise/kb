@@ -5,7 +5,7 @@ domain: cloud-infrastructure
 topic: llm-serving
 source: arXiv
 source_url: https://arxiv.org/abs/2611.18392
-date: '2026-11-16'
+date: '2026-11-27'
 keywords:
 - knowledge-base
 - llm-serving

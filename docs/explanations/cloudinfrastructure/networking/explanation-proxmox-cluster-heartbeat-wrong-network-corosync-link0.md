@@ -6,7 +6,7 @@ domain: cloud-infrastructure
 topic: networking
 source: DEV.to Tech News
 source_url: https://dev.to/captkay/the-cluster-joined-fine-its-heartbeat-was-on-the-wrong-network-45hp
-date: 2026-10-15
+date: 2026-10-23
 keywords:
 - knowledge-base
 - networking

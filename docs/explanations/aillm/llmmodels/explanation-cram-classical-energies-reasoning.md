@@ -6,7 +6,7 @@ domain: AI-LLM
 topic: LLM-Models
 source: arXiv
 source_url: https://arxiv.org/abs/2611.17309
-date: '2026-11-13'
+date: '2026-11-14'
 keywords:
 - knowledge-base
 - LLM-Models

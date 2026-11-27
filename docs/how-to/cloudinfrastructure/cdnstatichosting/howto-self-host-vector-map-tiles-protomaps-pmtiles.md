@@ -5,7 +5,7 @@ domain: cloud-infrastructure
 topic: cdn-static-hosting
 source: Bruce Röttgers blog via HackerNews
 source_url: https://bruceroettgers.eu/blog/protomaps/
-date: 2026-11-15
+date: 2026-11-16
 keywords:
 - knowledge-base
 - cdn-static-hosting

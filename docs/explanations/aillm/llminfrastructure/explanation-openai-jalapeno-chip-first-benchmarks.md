@@ -5,7 +5,7 @@ domain: AI-LLM
 topic: LLM-Infrastructure
 source: TheNewStack
 source_url: https://thenewstack.io/openai-jalapeno-inference-chip/
-date: 2026-08-26
+date: 2026-11-13
 keywords:
 - knowledge-base
 - LLM-Infrastructure

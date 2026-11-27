@@ -5,7 +5,7 @@ domain: programming
 topic: java
 source: inside java
 source_url: https://inside.java/2026-10-27/quality-heads-up/
-date: 2026-10-27
+date: 2026-11-04
 keywords:
 - knowledge-base
 - java

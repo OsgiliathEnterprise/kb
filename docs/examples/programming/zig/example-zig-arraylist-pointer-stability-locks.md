@@ -5,7 +5,7 @@ domain: programming
 topic: zig
 source: HackerNews
 source_url: https://ziglang.org/devlog/2026/#2026-08-27
-date: 2026-08-31
+date: 2026-11-06
 keywords:
 - knowledge-base
 - zig

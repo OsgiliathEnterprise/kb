@@ -6,7 +6,7 @@ domain: cloud-infrastructure
 topic: ci-cd-security
 source: DEV.to Tech News
 source_url: https://dev.to/sergey_shinder_ab2d943365/one-secret-in-our-task-definition-hid-the-database-change-sitting-next-to-it-5eod
-date: 2026-10-28
+date: 2026-10-29
 keywords:
 - knowledge-base
 - ci-cd-security

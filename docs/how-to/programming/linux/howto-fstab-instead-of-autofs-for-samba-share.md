@@ -5,7 +5,7 @@ domain: programming
 topic: linux
 source: DEV.to Tech News
 source_url: https://dev.to/jantolentino/using-fstab-instead-of-autofs-for-a-samba-share-18a0
-date: 2026-09-27
+date: 2026-10-05
 keywords:
 - knowledge-base
 - linux

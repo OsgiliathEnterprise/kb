@@ -5,7 +5,7 @@ domain: developer-tools-practices
 topic: local-ai-agents
 source: TheNewStack
 source_url: https://thenewstack.io/perplexity-portable-computer-nvidia/
-date: 2026-08-26
+date: 2026-11-11
 keywords:
 - knowledge-base
 - local-ai-agents

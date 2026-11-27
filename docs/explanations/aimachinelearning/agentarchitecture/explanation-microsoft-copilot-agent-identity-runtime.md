@@ -6,7 +6,7 @@ domain: ai-machine-learning
 topic: agent-architecture
 source: TheNewStack
 source_url: https://thenewstack.io/copilot-agents-identity-runtime/
-date: 2026-09-26
+date: 2026-11-26
 keywords:
 - knowledge-base
 - agent-architecture

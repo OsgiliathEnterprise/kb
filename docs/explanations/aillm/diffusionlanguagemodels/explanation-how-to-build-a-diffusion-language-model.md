@@ -5,7 +5,7 @@ domain: AI-LLM
 topic: diffusion-language-models
 source: HackerNews
 source_url: https://kuleshov-group.github.io/blog/blog/2026/how-to-build-a-diffusion-language-model/
-date: 2026-08-31
+date: 2026-09-28
 keywords:
 - knowledge-base
 - diffusion-language-models

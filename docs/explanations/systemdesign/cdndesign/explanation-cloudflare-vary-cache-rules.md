@@ -5,7 +5,7 @@ domain: system-design
 topic: CDN-Design
 source: HackerNews
 source_url: https://blog.cloudflare.com/vary-support/
-date: 2026-09-24
+date: 2026-11-24
 keywords:
 - knowledge-base
 - CDN-Design

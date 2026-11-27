@@ -5,7 +5,7 @@ domain: cloud-infrastructure
 topic: gpu-compute
 source: HackerNews
 source_url: https://github.com/Zagitta/gpu-unlock
-date: 2026-10-25
+date: 2026-10-26
 keywords:
 - knowledge-base
 - gpu-compute

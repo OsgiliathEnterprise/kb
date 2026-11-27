@@ -6,7 +6,7 @@ domain: api-design
 topic: request-body-framing
 source: DEV.to Tech News
 source_url: https://dev.to/sergey_shinder_ab2d943365/we-streamed-our-claims-file-to-save-memory-and-the-insurers-gateway-asked-how-long-it-was-12c1
-date: 2026-10-27
+date: 2026-10-28
 keywords:
 - knowledge-base
 - request-body-framing

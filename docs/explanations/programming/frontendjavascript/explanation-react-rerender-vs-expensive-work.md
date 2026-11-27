@@ -5,7 +5,7 @@ domain: programming
 topic: frontend-javascript
 source: DEV.to Tech News
 source_url: https://dev.to/tanu_priya/why-does-your-react-app-re-render-so-much-45co
-date: 2026-08-30
+date: 2026-11-16
 keywords:
 - knowledge-base
 - frontend-javascript

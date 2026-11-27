@@ -5,7 +5,7 @@ domain: security-privacy
 topic: ai-agent-security
 source: DEV.to Tech News
 source_url: https://dev.to/prabhu_kalyansamal_f743d/-mcp-security-threat-model-hardening-guide-2026--3enn
-date: 2026-08-25
+date: 2026-10-15
 keywords:
 - knowledge-base
 - ai-agent-security

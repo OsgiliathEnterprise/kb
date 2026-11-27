@@ -6,7 +6,7 @@ domain: developer-tools-practices
 topic: remote-development
 source: HackerNews
 source_url: https://fly.io/blog/vscode-ssh-wtf/
-date: 2026-09-24
+date: 2026-11-24
 keywords:
 - knowledge-base
 - remote-development

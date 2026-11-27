@@ -6,7 +6,7 @@ domain: developer-tools-practices
 topic: mcp
 source: DEV.to Tech News
 source_url: https://dev.to/bhavyshekhaliya/mapping-api-path-query-header-and-body-parameters-to-mcp-tool-schemas-48k5
-date: 2026-08-29
+date: 2026-11-11
 keywords:
 - knowledge-base
 - mcp

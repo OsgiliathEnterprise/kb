@@ -5,7 +5,7 @@ domain: AI-LLM
 topic: LLM-Ethics
 source: arXiv
 source_url: https://arxiv.org/abs/2611.16890
-date: 2026-11-15
+date: 2026-11-26
 keywords:
 - knowledge-base
 - LLM-Ethics

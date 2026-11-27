@@ -5,7 +5,7 @@ domain: AI-LLM
 topic: LLM-Models
 source: TheNewStack
 source_url: https://thenewstack.io/ibm-granite-reasoning-models/
-date: 2026-08-26
+date: 2026-11-24
 keywords:
 - knowledge-base
 - LLM-Models

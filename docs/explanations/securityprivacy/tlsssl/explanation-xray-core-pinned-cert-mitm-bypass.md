@@ -6,7 +6,7 @@ domain: security-privacy
 topic: tls-ssl
 source: HackerNews
 source_url: https://github.com/net4people/bbs/issues/672
-date: 2026-10-05
+date: 2026-10-19
 keywords:
 - knowledge-base
 - tls-ssl

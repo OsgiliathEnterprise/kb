@@ -5,7 +5,7 @@ domain: ai-machine-learning
 topic: agent-architecture
 source: arXiv
 source_url: https://arxiv.org/abs/2611.05709
-date: '2026-11-17'
+date: '2026-11-18'
 keywords:
 - knowledge-base
 - agent-architecture

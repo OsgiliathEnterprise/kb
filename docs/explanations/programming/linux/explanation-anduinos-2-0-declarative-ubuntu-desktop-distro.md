@@ -5,7 +5,7 @@ domain: programming
 topic: linux
 source: Developpez
 source_url: https://linux.developpez.com/actu/384663/La-distribution-Linux-gratuite-et-open-source-AnduinOS-2-0-est-disponible-avec-son-systeme-de-compilation-entierement-repense-sa-nouvelle-architecture-declarative-et-des-protections-de-la-vie-privee-ameliore/
-date: 2026-09-12
+date: 2026-11-13
 keywords:
 - knowledge-base
 - linux

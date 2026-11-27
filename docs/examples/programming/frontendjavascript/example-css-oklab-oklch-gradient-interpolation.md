@@ -6,7 +6,7 @@ domain: programming
 topic: frontend-javascript
 source: DEV.to Tech News
 source_url: https://dev.to/gotoolsonline/why-your-css-gradients-look-muddy-in-the-middle-and-the-one-word-fix-4phj
-date: 2026-11-20
+date: 2026-11-20 (enriched by KB Zookeeper)
 keywords:
 - knowledge-base
 - frontend-javascript

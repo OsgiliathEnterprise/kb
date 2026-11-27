@@ -5,7 +5,7 @@ domain: developer-tools-practices
 topic: git-workflow
 source: arxiv
 source_url: https://arxiv.org/abs/2611.25912
-date: 2026-11-22
+date: 2026-11-23
 keywords:
 - knowledge-base
 - git-workflow

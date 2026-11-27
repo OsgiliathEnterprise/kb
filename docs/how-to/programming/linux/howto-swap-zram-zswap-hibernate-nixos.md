@@ -5,7 +5,7 @@ domain: programming
 topic: linux
 source: HackerNews
 source_url: https://blog.matthewbrunelle.com/swap-zram-zswap-and-hibernate-on-nixos/
-date: 2026-09-24
+date: 2026-10-19
 keywords:
 - knowledge-base
 - linux

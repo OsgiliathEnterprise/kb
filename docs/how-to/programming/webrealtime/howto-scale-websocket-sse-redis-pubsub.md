@@ -6,7 +6,7 @@ domain: programming
 topic: web-realtime
 source: DEV.to Tech News
 source_url: https://dev.to/dzakiamriz/scaling-real-time-apis-to-100k-concurrent-connections-websockets-sse-and-redis-pubsub-5hhm
-date: 2026-08-28
+date: 2026-11-23
 keywords:
 - knowledge-base
 - web-realtime

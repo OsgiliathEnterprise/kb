@@ -6,7 +6,7 @@ domain: security-privacy
 topic: ai-agent-security
 source: HackerNews
 source_url: https://openai.com/index/hugging-face-incident-and-the-road-ahead/
-date: 2026-08-27
+date: 2026-11-21
 keywords:
 - knowledge-base
 - ai-agent-security

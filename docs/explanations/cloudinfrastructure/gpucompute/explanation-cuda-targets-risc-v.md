@@ -5,7 +5,7 @@ domain: cloud-infrastructure
 topic: gpu-compute
 source: HackerNews
 source_url: https://chipsandcheese.com/p/hot-chips-2026-cuda-targets-risc
-date: 2026-08-25
+date: 2026-11-08
 keywords:
 - knowledge-base
 - gpu-compute

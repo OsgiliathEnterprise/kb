@@ -5,7 +5,7 @@ domain: programming
 topic: java
 source: inside java
 source_url: https://inside.java/2026/10/05/confined-pools/
-date: 2026-10-05
+date: 2026-10-08
 keywords:
 - knowledge-base
 - java

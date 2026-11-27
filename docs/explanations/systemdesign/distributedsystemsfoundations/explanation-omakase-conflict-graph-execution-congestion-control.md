@@ -6,7 +6,7 @@ domain: system-design
 topic: distributed-systems-foundations
 source: arXiv
 source_url: https://arxiv.org/abs/2611.17184
-date: '2026-11-13'
+date: '2026-11-14'
 keywords:
 - knowledge-base
 - distributed-systems-foundations
