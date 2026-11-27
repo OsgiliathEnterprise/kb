@@ -58,8 +58,7 @@ Executing self-generated tests measurably sharpens the agent's defect hypothesis
 ## Relevance to Our Domain
 For our AI-assisted development coverage (SWE-bench Pro, Terminal-Bench 2.0, SWE-Growth notes), this benchmark fills the **specification layer** gap: it is the closest public measure of whether coding agents can do the pre-implementation work (acceptance criteria, reproducible failure tests) that gates CI/CD pipelines. Practical implications for our pipeline design:
 - Do not let an agent-authored test suite merge on Head Pass Rate alone — Fail-to-Pass (26.36%) is the metric that predicts real defect-catching.
-- Agent-driven defect triage is file-level reliable (78%) but function-level coin-flip (51%): route agent findings to humans at function granularity.
-- Running agent-generated tests before localization is a cheap recall booster (+~3-5 pp across granularities).
+- Agent-driven defect triage is file-level reliable (localization precision 75.33%) but function-level coin-flip (53.77%, a 21.56 pp drop), rebounding to 68.78% at hunk level (τ=3 line tolerance): route agent findings to humans at function granularity.
 
 ## Caveats
 - Python-only, 100 instances — narrow vs multi-language fleets; treat rankings as directional.

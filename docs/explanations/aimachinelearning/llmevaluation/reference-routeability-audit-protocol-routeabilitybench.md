@@ -43,7 +43,7 @@ Router gains should be reported together with:
 4. family-corrected statistical tests.
 
 ## Relevance to Our Domain
-This is the evaluation hygiene companion to our routing notes (Ballad of Ballots and Tokens — voting-based aggregator routers with ~30–50k queries vs 350k+ scalar). Both papers converge on the same lesson from different angles: routing gains are environment-dependent and must be measured against the *best single model under matched budget*, with explicit headroom accounting before crediting the router's architecture. Adopt RAP-style pre-checks for any internal LLM-gateway routing A/B test, and treat "router beats best single model" claims on coarse benchmarks as unverified until tied-best analysis is attached.
+Routing gains are environment-dependent and must be measured against the *best single model under matched budget*, with explicit headroom accounting before crediting the router's architecture. Adopt RAP-style pre-checks for any internal LLM-gateway routing A/B test, and treat "router beats best single model" claims on coarse benchmarks as unverified until tied-best analysis is attached.
 
 ## Caveats
 - Audit is retrospective only — no ex-ante portfolio certification.
