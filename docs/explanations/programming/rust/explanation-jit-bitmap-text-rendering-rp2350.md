@@ -52,7 +52,7 @@ orr  r2, r3, lsl #(x % 32)
 Two micro-optimizations worth stealing:
 
 - **Delay-slot shuffling:** the result-use delay between `ldr` and `ubfx` is filled by reordering glyph *i*'s last instruction after glyph *i+1*'s `ldr` — cutting the inner step from 4 to 3 cycles.
-- **Table-driven instruction synthesis:** the `ubfx` and `orr` encodings are built by indexing precomputed instruction tables (`*(ubfx_table + bit_offset * 4)`, then `+= width &lt;&lt; 16`) instead of bit-fiddling the encoding at JIT time.
+- **Table-driven instruction synthesis:** the `ubfx` and `orr` encodings are built by indexing precomputed instruction tables (`*(ubfx_table + bit_offset * 4)`, then `+= width << 16`) instead of bit-fiddling the encoding at JIT time.
 
 Compiled inner loop: **23 cycles per glyph iteration** (symbolasm's cycle analyzer flags `H` = 32-bit encoding from hi-register use, `K 0/2` = branch-predicted-taken penalty).
 

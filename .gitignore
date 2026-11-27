@@ -23,6 +23,8 @@ tutorials/**/*.html
 
 # Misc
 .DS_Store
+__pycache__/
+*.pyc
 .env.local
 .env.development.local
 .env.test.local

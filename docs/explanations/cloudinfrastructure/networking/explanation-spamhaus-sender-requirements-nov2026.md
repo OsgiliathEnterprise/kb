@@ -30,7 +30,7 @@ Starting **November 2026**, Spamhaus is gradually rolling out a hard requirement
 - **SPF has a hard 10-DNS-lookup limit** including nested `include:` — exceeding it returns `PermError`, which is *not a pass*, so SPF can no longer satisfy DMARC alignment. Prefer `ip4:`/`ip6:` mechanisms (zero lookups) over `a`/`mx` (one lookup each); avoid macros; never use `+all`; prune `include:` entries for former providers.
 - **DKIM: every outbound message signed; 1024-bit minimum, 2048-bit recommended**; rotate keys at least annually; use separate `d=` subdomains per mailstream (transactional vs marketing) so each builds its own reputation.
 - **DMARC: `p=none` is a starting point, not an end state** — Spamhaus expects an enforcement policy; set the `rua=` aggregate report address from day one.
-- **Envelope FROM (RFC 5321 MAIL FROM)** needs its own valid SPF pointing at the sending infrastructure; use **SRS** when forwarding so SPF still aligns; never `gmail.com`-style freemail as envelope sender; reserve the `&lt;>` null sender for DSNs/MDNs only.
+- **Envelope FROM (RFC 5321 MAIL FROM)** needs its own valid SPF pointing at the sending infrastructure; use **SRS** when forwarding so SPF still aligns; never `gmail.com`-style freemail as envelope sender; reserve the `<>` null sender for DSNs/MDNs only.
 - **Never bounce after accepting** — reject during the SMTP transaction. Bouncing to forged senders creates *backscatter*, counted as indirect spam.
 
 ## DNS hygiene

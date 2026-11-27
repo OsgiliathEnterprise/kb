@@ -32,8 +32,8 @@ Origin: the author's **agent-guard** project ships a Bash PreToolUse hook that a
 
 ## What it catches (per repo README, verified 2026-10-22)
 
-- Redirections: `>`, `>>`, `>|`, `&>`, `&>>`, `2>`, `2>>`, `&lt;>`
-- **Heredocs** — bodies are stripped so `&lt;<EOF` content isn't mistaken for targets
+- Redirections: `>`, `>>`, `>|`, `&>`, `&>>`, `2>`, `2>>`, `<>`
+- **Heredocs** — bodies are stripped so `<<EOF` content isn't mistaken for targets
 - `$(...)` and backticks — scanned **recursively**
 - `tee` — all operands, `-a` aware
 - `cp` (incl. `cp -t`) / `mv` / `install` destinations
@@ -47,7 +47,7 @@ Origin: the author's **agent-guard** project ships a Bash PreToolUse hook that a
 - fd duplications (`2>&1`)
 - unresolvable `$VAR`s
 - bare globs
-- input-side `&lt;` redirections (reads are not write targets)
+- input-side `<` redirections (reads are not write targets)
 
 ## The safety property
 

@@ -18,7 +18,7 @@ A master's thesis (Fredrik Hammarberg, Uppsala University, with Oracle's GC team
 
 ## The problem
 
-`WeakReference` holds an object without keeping it alive. When the GC finds a weakly reachable object it clears the referent and — *if a `ReferenceQueue` was registered* — enqueues the reference so the app can react. The queue is optional (`new WeakReference&lt;>(obj, null)`), and most real uses (caches, interning maps, listener registries) never register one.
+`WeakReference` holds an object without keeping it alive. When the GC finds a weakly reachable object it clears the referent and — *if a `ReferenceQueue` was registered* — enqueues the reference so the app can react. The queue is optional (`new WeakReference<>(obj, null)`), and most real uses (caches, interning maps, listener registries) never register one.
 
 Yet ZGC's pipeline treats **every** discovered weak reference identically:
 

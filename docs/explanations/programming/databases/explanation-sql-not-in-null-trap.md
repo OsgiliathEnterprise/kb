@@ -44,14 +44,14 @@ It returns **zero rows**. Not Linus. Nobody. The single `NULL` in the subquery p
 id <> 1 AND id <> NULL
 ```
 
-And `3 &lt;> NULL` does not evaluate to `true`. It evaluates to **`UNKNOWN`**, because `NULL` means "unknown value" — you cannot assert that 3 differs from a value you do not know. SQL uses three-valued logic: every comparison is `TRUE`, `FALSE`, or `UNKNOWN`:
+And `3 <> NULL` does not evaluate to `true`. It evaluates to **`UNKNOWN`**, because `NULL` means "unknown value" — you cannot assert that 3 differs from a value you do not know. SQL uses three-valued logic: every comparison is `TRUE`, `FALSE`, or `UNKNOWN`:
 
 | Expression | Result |
 | --- | --- |
 | `3 = 1` | `FALSE` |
-| `3 &lt;> 1` | `TRUE` |
+| `3 <> 1` | `TRUE` |
 | `3 = NULL` | `UNKNOWN` |
-| `3 &lt;> NULL` | `UNKNOWN` |
+| `3 <> NULL` | `UNKNOWN` |
 | `NULL = NULL` | `UNKNOWN` |
 
 `WHERE` keeps a row only when the condition is `TRUE`. `TRUE AND UNKNOWN` is `UNKNOWN`, so every candidate row is dropped. Note that even `NULL = NULL` is `UNKNOWN`: `NULL` is not equal to itself — it is not a value, it is the *absence* of one.

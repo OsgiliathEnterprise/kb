@@ -69,7 +69,7 @@ Split conformal prediction, in four steps:
 
 ## Calibration: "calibrated against whom?"
 
-Cost-threshold decisions (`deploy if p &lt; c`) assume the model is calibrated: of all parts scored 0.1, about 10% should be defective. Two practical caveats from the quality-inspection example:
+Cost-threshold decisions (`deploy if p < c`) assume the model is calibrated: of all parts scored 0.1, about 10% should be defective. Two practical caveats from the quality-inspection example:
 
 - Labels come from *one* inspector; the model can only ever be calibrated **against whoever labeled the data**, and inspectors disagree on borderline cases.
 - The cost ratio (missed defect vs. false reject) is rarely a known number — so the threshold is a hand-tuned guess, and then only the **order** of scores matters: they should grow with flaw severity. A model that ranks severity correctly is "not faithful, but useful".

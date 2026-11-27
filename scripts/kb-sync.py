@@ -141,6 +141,74 @@ def fix_yaml_frontmatter(content: str, meta: dict, diataxis_type: str) -> str:
     return yaml_block + body
 
 
+_AUTOURL_PREFIX = re.compile(r'(?:https?|ftp|mailto)://')
+# '<' starts a real JSX/HTML tag only when followed by '</?name' and then
+# whitespace, '/', or '>'. Prose like 'y<t)' or 'a<b,' is NOT a tag.
+_TAG_START = re.compile(r'/?[a-zA-Z][a-zA-Z0-9.-]*(?:[\s/>]|$)')
+_CODE_SPAN = re.compile(r'(`+)(?:(?!\1).)+?\1')
+_BRACE_PAIR = re.compile(r'\{[^{}]*\}')
+_STR_LITERALS = re.compile(r"'(?:\\.|[^'\\])*'|\"(?:\\.|[^\"\\])*\"")
+_IDENT_SPACE_IDENT = re.compile(r'[A-Za-z_$][\w$]*\s+[A-Za-z_$]')
+_JS_KEYWORDS = {
+    'new', 'typeof', 'instanceof', 'return', 'case', 'default', 'in', 'of',
+    'void', 'delete', 'await', 'yield', 'function', 'class', 'extends',
+    'let', 'const', 'var', 'if', 'else', 'for', 'while', 'do', 'switch',
+    'try', 'catch', 'finally', 'throw', 'import', 'export', 'from', 'as',
+    'async', 'null', 'undefined', 'true', 'false', 'this',
+}
+
+
+def _is_prose_expression(inner: str) -> bool:
+    """Decide whether {inner} is prose rather than a real JS expression.
+
+    Conservative: content is escaped to literal text only when it clearly
+    cannot be valid JS (non-ASCII math/units, 'ident ident' word pairs,
+    empty, or an object-key pattern after string masking).
+    """
+    s = inner.strip()
+    if not s:
+        return True
+    if not all(0x20 <= ord(c) <= 0x7E for c in s):
+        return True
+    masked = _STR_LITERALS.sub('', s)
+    if masked.lstrip().startswith(':'):
+        return True
+    for m in _IDENT_SPACE_IDENT.finditer(masked):
+        first = m.group(0).split()[0]
+        if first not in _JS_KEYWORDS:
+            return True
+    return False
+
+
+def _escape_segment(seg: str) -> str:
+    """Escape MDX-hostile < and { } in one plain-text segment."""
+    def _angle(m):
+        rest = seg[m.end():]
+        if _AUTOURL_PREFIX.match(rest) or _TAG_START.match(rest):
+            return m.group(0)
+        return '&lt;'
+    seg = re.sub(r'(?<!")<', _angle, seg)
+    seg = _BRACE_PAIR.sub(
+        lambda m: ('&#123;' + m.group(0)[1:-1] + '&#125;')
+        if _is_prose_expression(m.group(0)[1:-1]) else m.group(0),
+        seg)
+    return seg
+
+
+def _escape_non_code(line: str) -> str:
+    """Apply MDX escaping to a line, leaving inline code spans untouched."""
+    out = []
+    pos = 0
+    for m in _CODE_SPAN.finditer(line):
+        if m.start() > pos:
+            out.append(_escape_segment(line[pos:m.start()]))
+        out.append(m.group(0))
+        pos = m.end()
+    if pos < len(line):
+        out.append(_escape_segment(line[pos:]))
+    return ''.join(out)
+
+
 def fix_mdx_issues(content: str) -> str:
     """Fix common MDX parsing issues.
 
@@ -183,12 +251,12 @@ def fix_mdx_issues(content: str) -> str:
         # Convert them to explicit [url](url) links. Skip '(<url>)' link
         # destinations, which CommonMark/MDX handle natively.
         fixed = re.sub(
-            r'(?<!\()<((?:https?|ftp|mailto)://[^>\s]+)>', r'[\1](\1)', line
+            r'(?<!\()<((?:https?|ftp|mailto)://[^\>\s]+)>', r'[\1](\1)', line
         )
-        # Escape < followed by non-alpha/non-slash (triggers JSX parsing).
-        # Applied to body lines, headings, tables, and prose alike so that
-        # constructs like '<5 MiB' or 'a<b' become '&lt;...' and are safe.
-        fixed = re.sub(r'(?<!")<(?![a-zA-Z/])', '&lt;', fixed)
+        # Escape MDX-hostile '<' and prose '{...}' outside inline code spans:
+        # '<' stays literal unless it starts a plausible tag or scheme URL;
+        # '{...}' becomes literal text when its content cannot be JS.
+        fixed = _escape_non_code(fixed)
         fixed_lines.append(fixed)
 
     return '\n'.join(fixed_lines)

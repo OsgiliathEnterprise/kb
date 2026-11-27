@@ -63,12 +63,12 @@ g.Go(func() error { // consumer — group member
 err := g.Wait() // returns at the consumer's error
 ```
 
-When the consumer returns, `gctx` cancels and `Wait` returns. The producer is parked on `results &lt;- i` — **and context cancellation does not unblock a channel send.** Nobody owns that goroutine, so it stays parked for the life of the process. Run this shape in a loop and the leak is exactly linear:
+When the consumer returns, `gctx` cancels and `Wait` returns. The producer is parked on `results <- i` — **and context cancellation does not unblock a channel send.** Nobody owns that goroutine, so it stays parked for the life of the process. Run this shape in a loop and the leak is exactly linear:
 
 | Variant | Live goroutines after 500 iterations |
 | --- | --- |
 | Send without a `ctx.Done` arm | 501 (+500 leaked, one per iteration) |
-| Send wrapped in `select` with `&lt;-gctx.Done()` | 502 (+1 baseline) |
+| Send wrapped in `select` with `<-gctx.Done()` | 502 (+1 baseline) |
 
 The fix — every channel operation inside a cancellable task gets a `Done` arm:
 
@@ -82,7 +82,7 @@ case <-gctx.Done():
 }
 ```
 
-The same gap exists on the receive side. The rule is mechanical: **every channel operation inside code that can be cancelled gets a `&lt;-ctx.Done()` arm, and every goroutine has an owner** that waits on it or cancels it. `goleak` in CI catches the cases review misses.
+The same gap exists on the receive side. The rule is mechanical: **every channel operation inside code that can be cancelled gets a `<-ctx.Done()` arm, and every goroutine has an owner** that waits on it or cancels it. `goleak` in CI catches the cases review misses.
 
 Two related shapes worth naming:
 
