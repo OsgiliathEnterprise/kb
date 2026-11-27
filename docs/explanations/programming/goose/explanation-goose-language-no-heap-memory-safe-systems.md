@@ -90,7 +90,7 @@ to an element block:
 | `T[]`, `T[varint]` | sized at construction, frozen after; fixed or variable-width length |
 | `T[..k]`, `T[..]` | capacity inline; grows and shrinks within it |
 | `T[>..]` | **grow-only**: the workhorse; references into it stay valid |
-| `T[>..&lt;]` | **grow-shrink**: stacks, queues, heaps |
+| `T[>..<]` | **grow-shrink**: stacks, queues, heaps |
 
 Strings are just `u8` arrays. Nested variable-size data sits **inline** in
 declaration order — a record is a run of bytes with nothing indirect:

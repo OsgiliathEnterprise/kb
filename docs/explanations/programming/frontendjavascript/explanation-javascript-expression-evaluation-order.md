@@ -43,9 +43,9 @@ Two separate orders are at work — this is where people get confused:
 1. **Variable reads** happen left to right (`a`, then `b`, then `c`), regardless of precedence.
 2. **Operator application** follows precedence: `*` (highest) → `+` → `>` → `&&` (lowest). Since `&&` is lowest, the expression means `(a + b * c > 10) && d`.
 
-## Trap 1 — you can't write a range as `0 &lt; x &lt; 10`
+## Trap 1 — you can't write a range as `0 < x < 10`
 
-Same-precedence operators group by **associativity**; `&lt;` is left-associative, which produces a silent bug:
+Same-precedence operators group by **associativity**; `<` is left-associative, which produces a silent bug:
 
 ```javascript
 let x = 15;
@@ -53,7 +53,7 @@ let inRange = 0 < x < 10;
 console.log(inRange); // true (!)
 ```
 
-The hidden middle step: `0 &lt; 15` becomes `true`, leaving `true &lt; 10`. JavaScript coerces `true` to `1` when comparing, so the whole thing is `true`. Math notation does not carry over — the correct form is `0 &lt; x && x &lt; 10`.
+The hidden middle step: `0 < 15` becomes `true`, leaving `true < 10`. JavaScript coerces `true` to `1` when comparing, so the whole thing is `true`. Math notation does not carry over — the correct form is `0 < x && x < 10`.
 
 ## Trap 2 — the right side of `&&` may never run
 
@@ -72,7 +72,7 @@ Strictly, `&&`/`||` work with non-booleans too, returning one of the operands: `
 
 1. Find the **lowest-precedence** operator — that's the last thing applied and the true "split" of the expression (here: `&&`).
 2. Reads/evaluations of operands proceed left to right.
-3. Equal-precedence runs group by associativity (`&lt;` left → `0 &lt; x &lt; 10` is `(0 &lt; x) &lt; 10`, a bug magnet).
+3. Equal-precedence runs group by associativity (`<` left → `0 < x < 10` is `(0 < x) < 10`, a bug magnet).
 4. `&&` and `||` may skip the right operand — order guards *before* risky access, never after.
 5. When unsure, add parentheses: `(a + b) * c` documents intent and removes precedence from the equation.
 
@@ -80,7 +80,7 @@ Strictly, `&&`/`||` work with non-booleans too, returning one of the operands: `
 
 - Change `a + b * c` to `(a + b) * c` — which part collapses first now?
 - Change `&& d` to `|| d` — does `d` still get evaluated when the left side is `true`?
-- For `0 &lt; x &lt; 10`: is there any `x` that makes it false? (Yes — the coercion `true &lt; 10` is always true once `x > 0`, so negative `x` is the falsifying case.)
+- For `0 < x < 10`: is there any `x` that makes it false? (Yes — the coercion `true < 10` is always true once `x > 0`, so negative `x` is the falsifying case.)
 
 ## References
 

@@ -15,7 +15,7 @@ keywords:
 ---
 # Lakegres: IVF Vector Search Inside Hudi/Iceberg Table Metadata, Queried over the Postgres Wire Protocol
 
-Unstructured content and its embeddings already sit in lake tables, yet serving vector search traditionally means syncing them into a **separate index store** (a dedicated vector DB or a managed serving endpoint) and living with the drift, duplication and second system of record. **Lakegres** (Onehouse) removes the round-trip: it stores an **IVF vector index inside the table's own metadata, in the same bucket as the data files**, keeps it consistent through ordinary table commits, and answers similarity queries **over the Postgres wire protocol** — so any Postgres client or agent framework runs `ORDER BY embedding &lt;-> ?` against lake data directly.
+Unstructured content and its embeddings already sit in lake tables, yet serving vector search traditionally means syncing them into a **separate index store** (a dedicated vector DB or a managed serving endpoint) and living with the drift, duplication and second system of record. **Lakegres** (Onehouse) removes the round-trip: it stores an **IVF vector index inside the table's own metadata, in the same bucket as the data files**, keeps it consistent through ordinary table commits, and answers similarity queries **over the Postgres wire protocol** — so any Postgres client or agent framework runs `ORDER BY embedding <-> ?` against lake data directly.
 
 ![Lakegres: index in table metadata, Postgres protocol, benchmark](explanation-lakegres-vector-search-open-table-formats.svg)
 

@@ -58,7 +58,7 @@ FROM (
 WHERE rnk <= 3;
 ```
 
-With the tie at rank 1, both tied products pass `rnk &lt;= 3`, and the next two rows also get rank 3 — so "top 3" emits **four** rows. If a downstream system paginates on the count, totals are wrong. Swapping in `ROW_NUMBER()` gives exactly 3 rows, but which of the tied pair wins is undefined unless you add a tiebreaker.
+With the tie at rank 1, both tied products pass `rnk <= 3`, and the next two rows also get rank 3 — so "top 3" emits **four** rows. If a downstream system paginates on the count, totals are wrong. Swapping in `ROW_NUMBER()` gives exactly 3 rows, but which of the tied pair wins is undefined unless you add a tiebreaker.
 
 ## The fix: ROW_NUMBER with an explicit tiebreaker
 
@@ -94,7 +94,7 @@ You get tiers 1, 1, 2, 3 — consecutive, no holes. That reads correctly as "the
 ## Three things that bite people
 
 1. **`ROW_NUMBER()` without a tiebreaker is non-deterministic.** The database may return either tied row first, and it can change between runs, after an `ANALYZE`, or after a version upgrade. If the result feeds anything with a count or a diff, you will eventually see a phantom change.
-2. **Window functions need the filter outside the query.** You cannot write `WHERE ROW_NUMBER() OVER (...) &lt;= 3` — window functions are evaluated after `WHERE`. The subquery (or CTE) is required, not stylistic.
+2. **Window functions need the filter outside the query.** You cannot write `WHERE ROW_NUMBER() OVER (...) <= 3` — window functions are evaluated after `WHERE`. The subquery (or CTE) is required, not stylistic.
 3. **Version support.** Window functions landed in MySQL 8.0, PostgreSQL 8.4, SQL Server 2005, and SQLite 3.25. On MySQL 5.7 there is no `ROW_NUMBER()` at all; the usual workaround is a correlated subquery counting better rows — which also makes the semantics explicit:
 
 ```sql

@@ -29,7 +29,7 @@ just good at *appearing* good" answerable.
    attempt starts from the exact same clean state or comparisons are
    meaningless.
 2. **A plain-language task that says *what*, never *how*** — "open the file,
-   find the loop on line 12, change `&lt;=` to `&lt;`" tests instruction-following,
+   find the loop on line 12, change `<=` to `<`" tests instruction-following,
    not debugging. Describe the *symptom*, like a real bug report.
 3. **A check hidden from the thing being tested** — if the agent can read the
    test file, it can satisfy the assertions directly or edit the test. This

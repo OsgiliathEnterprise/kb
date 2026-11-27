@@ -34,7 +34,7 @@ Un client d'API closed-weight ne peut pas vérifier que le fournisseur a bien ex
 | Contrats d'arrondi | contrats d'arrondi par opérateur en local — suppriment les substituts entiers et la fuite du bit de refus |
 | Vérification publique NI | mode spot-checking pondéré par coût : NI-315, ε ≤ 2⁻⁴⁰, Q ≤ 2⁶⁴ |
 | Mode graine externe | ExtSeed-153, ε ≤ 2⁻²⁰, Q_samp ≤ 2³⁰ |
-| Formatisation | 28 modules Lean 4, 696 déclarations, zéro `sorry`, axiomes standards uniquement (soundness tour-par-tour, échantillonnage bucketisé, binding des masques contraints sur F_{p³}, masking causal, 6 gadgets IR, vérificateurs FPN2 exécutables) |
+| Formatisation | 28 modules Lean 4, 696 déclarations, zéro `sorry`, axiomes standards uniquement (soundness tour-par-tour, échantillonnage bucketisé, binding des masques contraints sur F_&#123;p³&#125;, masking causal, 6 gadgets IR, vérificateurs FPN2 exécutables) |
 | Calibration | 5 modèles sur Blackwell : zéro faux rejet sur 1,85 M de blocs GEMM/MoE et 1,96 M de lignes non-GEMM |
 | Preuve GPU (Qwen3-0.6B, ExtSeed-153, 1,47 Md de cellules, 8 MiB) | 450,2 s GPU / 10,76 s CPU à décodage unique Q=128 ; matrice de triche 14/14 |
 | Scale | Qwen3-4B 36 couches (dev 4+2) ; vLLM live Qwen3-30B-A3B-FP8 Relation 6 : preuve 1,49 s, vérification Rust 23,4 ms |

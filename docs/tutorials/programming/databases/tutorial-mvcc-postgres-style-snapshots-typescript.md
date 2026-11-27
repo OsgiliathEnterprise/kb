@@ -89,7 +89,7 @@ repeatable reads.
 
 ## Step 4 — the late-committing past transaction
 
-Transaction 5 was running when I (txid 8) began, so `xmin &lt; snap.nextTxid` says its
+Transaction 5 was running when I (txid 8) began, so `xmin < snap.nextTxid` says its
 writes are in my past — but if it commits while I'm running, they'd leak into my
 snapshot mid-flight. The `activeTxids` set closes that door: a stamp from any
 transaction in flight at my `begin()` never counts for me, no matter what it does later.
@@ -175,7 +175,7 @@ own horizon trade-off).
 
 **XID wraparound and freezing.** Txids are 32-bit and the space is *circular*: from the
 current counter, roughly 2 billion older ids are "past" and 2 billion are "future". Our
-`v.xmin &lt; snap.nextTxid` comparison silently breaks when the counter laps an old row —
+`v.xmin < snap.nextTxid` comparison silently breaks when the counter laps an old row —
 committed data simply **vanishes from query results** (no corruption, just invisibility),
 and eventually Postgres refuses new writes to protect itself. The fix mirrors the toy
 model's escape hatch: VACUUM **freezes** old tuples by setting infomask bits so they are

@@ -17,7 +17,7 @@ keywords:
 SVG icons are small and crisp, but exports from Figma/Illustrator/Sketch carry metadata, redundant attributes, excess decimal precision, and embedded payloads. Optimize before shipping.
 
 ## Manual techniques
-1. **Remove metadata and editor artifacts** — `&lt;!-- Generator: Adobe Illustrator ... -->`, `<metadata>`, `<desc>`, `<title>` (keep only what accessibility needs).
+1. **Remove metadata and editor artifacts** — `<!-- Generator: Adobe Illustrator ... -->`, `<metadata>`, `<desc>`, `<title>` (keep only what accessibility needs).
 2. **Reduce coordinate precision** — `M12.0000001 2.0000002L2.0000001 22.0000003...` → `M12 2L2 22h20L12 2z` (2–3 decimal places is plenty).
 3. **Remove unused `id`/`class`/inline `style`** — style simple icons from CSS instead.
 4. **Use `currentColor`** — `fill="currentColor"` instead of hardcoded `#000` so icons inherit the CSS color (theming).

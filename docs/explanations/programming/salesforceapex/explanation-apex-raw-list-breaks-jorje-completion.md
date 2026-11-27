@@ -61,11 +61,11 @@ java.lang.IllegalArgumentException: Expected list of size 1 but was: []
     at apex.jorje.semantic.ast.modifier.rule.InvocableContextRule.isAtMostTwoNestedLists(InvocableContextRule.java:134)
 ```
 
-The server logs the exception and **goes on** — but the file is left without resolved types, so completion after `.` returns nothing anywhere in it until the signature is fixed. Same crash with `List&lt;>`, with an unfinished `List<Req` directly followed by `)`, and with the wrong number of type arguments (`List<String, String>`).
+The server logs the exception and **goes on** — but the file is left without resolved types, so completion after `.` returns nothing anywhere in it until the signature is fixed. Same crash with `List<>`, with an unfinished `List<Req` directly followed by `)`, and with the wrong number of type arguments (`List<String, String>`).
 
 ## A second, separate mechanism: the parser dropping the method
 
-A raw collection as a **return type** (`List check(...)`, `List&lt;>`, `List<List>`) makes the **parser drop the whole method**. Same for a parameter cut off right after `&lt;` or a comma (`List&lt;`). That one is **local**: only completion inside that method is gone.
+A raw collection as a **return type** (`List check(...)`, `List<>`, `List<List>`) makes the **parser drop the whole method**. Same for a parameter cut off right after `<` or a comma (`List<`). That one is **local**: only completion inside that method is gone.
 
 ![Diagram 1 — explanation-apex-raw-list-breaks-jorje-completion](explanation-apex-raw-list-breaks-jorje-completion-excalidraw-1.svg)
 
@@ -95,8 +95,8 @@ The author's VS Code extension **Virga** ([github.com/wiktormalyska/virga](https
 
 | Situation | What to do |
 | --- | --- |
-| Completion died file-wide in an Apex class | Search the class for raw `List`/`List&lt;>`/`List<Req` in `@InvocableMethod`, `@AuraEnabled`, `@Http*`, `webservice`, `global` signatures before blaming your setup |
-| Completion died in one method only | Check for a raw collection **return type** or a parameter cut off after `&lt;`/comma |
+| Completion died file-wide in an Apex class | Search the class for raw `List`/`List<>`/`List<Req` in `@InvocableMethod`, `@AuraEnabled`, `@Http*`, `webservice`, `global` signatures before blaming your setup |
+| Completion died in one method only | Check for a raw collection **return type** or a parameter cut off after `<`/comma |
 | Building Apex tooling on LSP | Treat an empty completion response + logged `IllegalArgumentException` in `CollectionTypeInfoUtil` as "file unresolved", not "no members" |
 | Writing `@InvocableMethod` signatures | Always parameterize: `List<Request> requests`, never `List requests` |
 

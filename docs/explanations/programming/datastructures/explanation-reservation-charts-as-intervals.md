@@ -40,7 +40,7 @@ List<VacantSeatRange> vacantSeatRanges(SeatResult seat, Map<String, int> index) 
 }
 ```
 
-A single-berth trip check is now just a range test: is there a vacant range with `from &lt;= boarding` and `to >= destination`?
+A single-berth trip check is now just a range test: is there a vacant range with `from <= boarding` and `to >= destination`?
 
 ## Seat hopping: a shortest path, built backwards
 

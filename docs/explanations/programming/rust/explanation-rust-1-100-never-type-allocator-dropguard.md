@@ -61,7 +61,7 @@ This is the std version of the `guard`/`scopeguard` crate pattern.
 let token: Python<'py> = unsafe { std::mem::conjure_zst() };
 ```
 
-During the unsafe-code-guidelines process it became clear the language needed *one* dedicated way to create an inhabited ZST (instead of `transmute::&lt;(), T>(())` or `MaybeUninit::uninit().assume_init()`). It is `unsafe` because APIs guard safety with ZSTs — e.g. PyO3's zero-sized `Python&lt;'py>` token *is* proof you hold the GIL; conjuring it from thin air would break that contract.
+During the unsafe-code-guidelines process it became clear the language needed *one* dedicated way to create an inhabited ZST (instead of `transmute::<(), T>(())` or `MaybeUninit::uninit().assume_init()`). It is `unsafe` because APIs guard safety with ZSTs — e.g. PyO3's zero-sized `Python<'py>` token *is* proof you hold the GIL; conjuring it from thin air would break that contract.
 
 ## `Allocator` API core stabilized
 

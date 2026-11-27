@@ -13,7 +13,7 @@ keywords:
 - programming
 - explanations
 ---
-# Why span() = default and span() {} Compile to Different Code — Triviality, Value-Initialization, and a GCC 15/16 Regression
+# Why span() = default and span() &#123;&#125; Compile to Different Code — Triviality, Value-Initialization, and a GCC 15/16 Regression
 
 `span() = default` and `span() {}` look like two spellings of "empty constructor." They are not the same constructor: one leaves the class **trivial**, the other makes it **non-trivial** (user-provided), and the difference changes what `span s;` vs `span s{}` *mean* — and, on some compilers, how fast loops over the type run.
 
@@ -73,5 +73,5 @@ The trivial-type path gives the optimizer *more* freedom in theory (no construct
 
 ## References
 
-- [In C++, = default and {} are not the same constructor — Daniel Lemire](https://lemire.me/blog/2026/11/02/default-and-braces-are-not-the-same-constructor/)
+- [In C++, = default and &#123;&#125; are not the same constructor — Daniel Lemire](https://lemire.me/blog/2026/11/02/default-and-braces-are-not-the-same-constructor/)
 - [Benchmark source code](https://github.com/lemire/Code-used-on-Daniel-Lemire-s-blog/tree/master/2026/10/cppinit)

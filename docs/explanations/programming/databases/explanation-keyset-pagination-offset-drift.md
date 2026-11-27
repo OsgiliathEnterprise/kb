@@ -36,7 +36,7 @@ LIMIT 2;
 
 Returns **4, 3** whether ID 7 was inserted above or ID 6 deleted. SQLite supports these **row-value comparisons** (left-to-right component compare); all-ascending order uses `>`; **mixed sort directions need a hand-built predicate** following each column's direction.
 
-Why the cursor must carry the tie-breaker: `created_at &lt; 400` skips ID 4 (same timestamp, lower id); `created_at &lt;= 400` re-admits ID 5. The boundary values stay valid even if the boundary row itself is later deleted.
+Why the cursor must carry the tie-breaker: `created_at < 400` skips ID 4 (same timestamp, lower id); `created_at <= 400` re-admits ID 5. The boundary values stay valid even if the boundary row itself is later deleted.
 
 ## What a cursor does NOT fix
 

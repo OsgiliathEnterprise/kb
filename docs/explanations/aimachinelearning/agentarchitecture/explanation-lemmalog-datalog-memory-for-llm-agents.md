@@ -51,7 +51,7 @@ The first standardized LongMemEval configuration scored 0.226; the current one s
 
 - **Accidentally teaching refusal.** An anti-hallucination instruction ("make sure the answer is supported by retrieved facts") was interpreted as "if no single fact literally contains the final answer, refuse" — 32 of 102 questions (all answerable) got "Not mentioned." Fix: separate *absent/misattributed premise → refuse* from *evidence exists but requires counting/comparing/combining → reason over it*.
 - **A dead counting path.** Count lines passed through a relevance filter whose plural stemmer only folded words longer than four characters, so `owns` never matched `own`, every count line was dropped, and counting questions silently received no counts. Fixing the stemmer + rendering counts with their facts + precomputing date arithmetic brought F1 to 0.463.
-- **Dates as interned symbols.** Comparing date-like values as Datalog symbols meant `&lt;` compared internal ids — not dates. Normalizing extracted dates into comparable integers and deriving `happened_before` from real timestamps gained ~20 F1 points on temporal reasoning.
+- **Dates as interned symbols.** Comparing date-like values as Datalog symbols meant `<` compared internal ids — not dates. Normalizing extracted dates into comparable integers and deriving `happened_before` from real timestamps gained ~20 F1 points on temporal reasoning.
 - **Entity reconciliation.** "I bought a Honda Civic" / "my car broke down" / "the Civic is fixed" extract as three different objects unless an episode-local → canonical-entity reconciliation pass connects them.
 
 ## What it still can't do (and the target architecture)

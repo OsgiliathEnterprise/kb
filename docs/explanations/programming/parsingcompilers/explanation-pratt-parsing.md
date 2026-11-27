@@ -46,7 +46,7 @@ void expr(Parser *p, int left_bp) {
 
 Pratt's full scheme gives each operator **two** numbers, left and right binding power (lbp/rbp), and the choice between them encodes associativity — no extra machinery:
 
-- **Left-associative** (`+`, `*`): recurse with `lbp` equal to the operator's own bp → the loop's `left_bp &lt; bp(top)` test fails against another same-precedence operator, so it unwinds. The C example above does this implicitly (`new_left_bp = get_bindpower(cur(p))`).
+- **Left-associative** (`+`, `*`): recurse with `lbp` equal to the operator's own bp → the loop's `left_bp < bp(top)` test fails against another same-precedence operator, so it unwinds. The C example above does this implicitly (`new_left_bp = get_bindpower(cur(p))`).
 - **Right-associative** (`^`, assignment `=`): recurse with `bp - 1` → the same-precedence operator on the right gets consumed by the *inner* call, building a right-leaning tree: `2^3^4` → `2^(3^4)`.
 
 This is why exponentiation is a two-character change in Pratt but a special case in shunting-yard.
