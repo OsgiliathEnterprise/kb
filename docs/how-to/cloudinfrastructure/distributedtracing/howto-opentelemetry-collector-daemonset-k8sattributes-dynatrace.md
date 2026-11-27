@@ -32,7 +32,7 @@ If OneAgent also runs in the cluster, check duplicate-span avoidance before enab
 ## Prerequisites
 
 - Kubernetes 1.26+, `kubectl`, Helm 3.
-- Dynatrace API token with scopes `openTelemetryTrace.ingest`, `metrics.ingest`, `logs.ingest`.
+- Dynatrace API token with the three ingest scopes minimum: **Ingest OpenTelemetry traces** (`openpipeline:traces:ingest`), **Ingest metrics** (`openpipeline:metrics:ingest`), **Ingest logs** (`openpipeline:logs:ingest`) — per Dynatrace's OTel Collector configuration docs.
 - OTLP URL: SaaS `https://<env-id>.live.dynatrace.com/api/v2/otlp`; Managed `https://<your-domain>/e/<env-id>/api/v2/otlp` (or via ActiveGate).
 - Apps already instrumented with an OTel SDK/agent.
 

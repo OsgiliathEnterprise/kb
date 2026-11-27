@@ -45,12 +45,12 @@ The raw mechanism (`cp .git/hooks/pre-commit.sample .git/hooks/pre-commit && chm
 git config core.hooksPath .githooks   # git runs hooks from the versioned .githooks/ dir
 ```
 
-Requires Git 2.36+. The remaining problem — getting every developer to run that one command — is what the frameworks solve.
+Requires Git 2.9+ (`core.hooksPath` was added in Git 2.9, 2016). The remaining problem — getting every developer to run that one command — is what the frameworks solve.
 
 ## Step 2 — Python/polyglot projects: the `pre-commit` framework
 
 ```bash
-pip install pre-commit   # Python 3.8+
+pip install pre-commit   # Python 3.9+ (pre-commit 4.x)
 cd my-repo && pre-commit install
 ```
 

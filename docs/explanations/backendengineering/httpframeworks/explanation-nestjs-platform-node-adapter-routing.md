@@ -69,7 +69,7 @@ Express's default treats `/Users/me` and `/users/me` as the same route. `platfor
 
 ## Version timeline (verify against npm dist-tags before acting)
 
-- `@nestjs/platform-node` landed in **12.3.0** (opt-in), published through 12.6.x; `@nestjs/core` `latest` at time of writing is 12.6.2, with the 11.x line on the `legacy` tag.
+- `@nestjs/platform-node` landed in **12.3.0** (opt-in), published through 12.6.x; `@nestjs/core` and `@nestjs/platform-node` `latest` are 12.6.3, with the 11.x line on the `legacy` tag (11.2.12).
 - Official NestJS docs confirm: Express remains the default when no adapter is passed; **`NodeAdapter` becomes the default in v13** — so these behavior changes will be made *for* you unless you migrate deliberately.
 - The adapter's own docs state limitations honestly: it is not 100% Express parity.
 
