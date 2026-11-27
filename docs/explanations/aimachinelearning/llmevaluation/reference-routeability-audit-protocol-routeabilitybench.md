@@ -27,6 +27,15 @@ On coarse-scored benchmarks many models tie at the top and the single best model
 - **When it runs**: retrospectively, once a benchmark×portfolio score matrix exists, before interpreting router comparisons — it does *not* certify unevaluated portfolios.
 - **What it checks**: prompt-specific variation vs tie structure (tied-best analysis), headroom over the single-best model, family-correlated score inflation, predictor sensitivity.
 - **Scale of the study**: 4 benchmarks × 66 LLMs.
+- **Five diagnostics (D1–D5)**: D1 SBS→VBS routing headroom Δroute = VBS − SBS (max average gain of a perfect selector); D2 tied-best saturation via the |Ti| distribution (how often many LLMs share the top score); D3 embedding→performance predictability (row-wise ranking/correlation); D4 realized decision utility (regret, gap closure for forced policies); D5 calibration-sensitive selective routing (coverage, threshold transfer, abstention).
+
+## Full-Text Details (v1 audit design)
+- **Corpus**: four HELM-style single-turn benchmarks — GPQA (446 prompts), IFEval (541), MMLU-Pro (1000), Omni-MATH (1000) = 2,987 score-matrix rows; compact three-view routing analyses use the exact finite prompt-ID intersection (445/541/1000/998); a 2,984-row registry maps every filtered index to prompt ID with exact-ID verification across all 120 dataset–seed partitions; WildBench excluded.
+- **Portfolio**: fixed 66-LLM snapshot — 22 open-weight, 8 gated-weight, 36 closed-weight (binary sensitivity: 22 open vs 44 gated/closed); weight access recorded for all 66, service access for 38.
+- **Embedding views**: three compact encoder views (BGE, E5, GIST) plus three decoder-based views (Qwen3-8B, Qwen3-4B, Nemotron-8B) with/without chunking.
+- **Protocol hygiene**: frozen 30-seed splits indexed on the filtered order, train-only transformations (incl. PCA), `argmax_random_tiebreak` to avoid alphabetic bias under tied score vectors, paired Wilcoxon signed-rank with within-family Holm correction; forced gap closure = 1 − r̄forced/Δroute.
+- **Boundary findings**: GPQA = high-headroom tied-best boundary (SBS closure negative, −0.135 ± 0.126); MMLU-Pro = tied-best/low-utility boundary; IFEval = low headroom with the heaviest tied-best saturation; Omni-MATH is the only setting with retained protocol-specific routable cells (routing favorable at the K=33 sub-portfolio median; no single-model deletion flips a regime). Cluster analysis: mean embedding-to-oracle ARI 0.058, routable-cluster fraction ≈ 0 — the "routable structure" in embeddings is largely illusory.
+- **Release scope**: runnable claim-verification package (derived score/evidence tables, metadata, one-command claim scripts); ships **no** embeddings, prediction caches, or router-training pipelines.
 
 ## Key Findings (lookup table)
 | Setting | Result |

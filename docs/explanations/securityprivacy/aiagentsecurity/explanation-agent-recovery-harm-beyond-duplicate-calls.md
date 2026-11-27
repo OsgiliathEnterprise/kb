@@ -14,7 +14,7 @@ keywords:
 ---
 # Agent Recovery Gone Wrong: Measuring Harm Beyond Duplicate Calls
 
-**Authors:** Artem Trofimov, Boris Novikov (arXiv 2611.31554, submitted 2026-11-23, primary cs.CR)
+**Authors:** Artem Trofimov, Boris Novikov (arXiv 2611.31554, submitted 2026-11-23, primary cs.AI)
 
 ## Overview
 Code-executing LLM agents submit blocks of code that issue several API writes; when a block fails *after some writes have already taken effect*, the agent rewrites the block and continues. Trofimov & Novikov measure what that recovery loop actually does to external state when the failure arises naturally from the agent's own code: on recorded AppWorld trajectories, **a stratification-weighted 24.6% of confirmed partial executions are followed by a harmful recovery whose violation persists to the end of the run** — and duplicate-call detectors, the standard mitigation, catch only 41% of the harm.

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 -4.0 988.0 438.0" width="988" height="438">
+<rect x="16.0" y="-4.0" width="988.0" height="438.0" fill="#ffffff"/>
+<rect x="40.0" y="70.0" width="430.0" height="210.0" rx="8" fill="#d0bfff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="550.0" y="70.0" width="190.0" height="60.0" rx="8" fill="#ffd8a8" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="760.0" y="70.0" width="190.0" height="60.0" rx="8" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="655.0" y="160.0" width="190.0" height="70.0" rx="8" fill="#74c0fc" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="40.0" y="300.0" width="300.0" height="110.0" rx="8" fill="#ffe066" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="370.0" y="300.0" width="330.0" height="110.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="730.0" y="300.0" width="250.0" height="110.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 475.0 175.0 L 545.0 175.0"/><line x1="545.0" y1="175.0" x2="532.4" y2="168.9"/><line x1="545.0" y1="175.0" x2="532.4" y2="181.1"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="18" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="34.4">NestJS: engine-agnostic container above a pluggable HttpAdapter</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="60.0" y="93.2">Nest container (HTTP-engine-agnostic)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="60.0" y="124.6">DI graph, modules, guards, interceptors,</tspan><tspan x="60.0" y="139.6">pipes, exception filters,</tspan><tspan x="60.0" y="154.6">@Controller()/@Get() route metadata</tspan><tspan x="60.0" y="169.6">(discovered by reflection)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="11" fill="#1e1e1e" text-anchor="start"><tspan x="460.0" y="158.8">NestFactory.create(</tspan><tspan x="460.0" y="172.6">  AppModule, adapter)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="11" fill="#1e1e1e" text-anchor="start"><tspan x="562.0" y="88.8">platform-express</tspan><tspan x="562.0" y="102.5">path-to-regexp, decl. order,</tspan><tspan x="562.0" y="116.3">case-INsensitive</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="11" fill="#1e1e1e" text-anchor="start"><tspan x="772.0" y="88.8">platform-fastify</tspan><tspan x="772.0" y="102.5">find-my-way radix tree,</tspan><tspan x="772.0" y="116.3">specificity, case-sensitive</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="11" fill="#1e1e1e" text-anchor="start"><tspan x="667.0" y="178.8">platform-node (NEW 12.3)</tspan><tspan x="667.0" y="192.6">node:http + find-my-way</tspan><tspan x="667.0" y="206.3">path-to-regexp fallback</tspan><tspan x="667.0" y="220.1">Express-shaped res helpers</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="11" fill="#1e1e1e" text-anchor="start"><tspan x="52.0" y="318.8">Same code, different outcome</tspan><tspan x="52.0" y="332.6">Express:   GET /users/Me -&gt; 200</tspan><tspan x="52.0" y="346.3">platform-node: /users/Me -&gt; 404</tspan><tspan x="52.0" y="360.1">(findOne ':id' never matched caps)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="11" fill="#1e1e1e" text-anchor="start"><tspan x="382.0" y="318.8">Express declaration-order trap</tspan><tspan x="382.0" y="332.6">@Get(':id') above @Get('me')</tspan><tspan x="382.0" y="346.3">swallows /users/me</tspan><tspan x="382.0" y="360.1">platform-node orders by specificity</tspan><tspan x="382.0" y="373.8">=&gt; already-safe order not required</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="11" fill="#1e1e1e" text-anchor="start"><tspan x="742.0" y="318.8">Rollout gate before v13 default</tspan><tspan x="742.0" y="332.6">1. case-normalising middleware</tspan><tspan x="742.0" y="346.3">2. e2e on mixed-case paths</tspan><tspan x="742.0" y="360.1">3. e2e on overlapping prefixes</tspan><tspan x="742.0" y="373.8">4. keep platform-express in CI</tspan></text>
+</svg>

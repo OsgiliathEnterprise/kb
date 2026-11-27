@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 -4.0 978.0 388.0" width="978" height="388">
+<rect x="16.0" y="-4.0" width="978.0" height="388.0" fill="#ffffff"/>
+<rect x="40.0" y="70.0" width="430.0" height="230.0" rx="8" fill="#fff3bf" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="60.0" y="120.0" width="150.0" height="42.0" rx="8" fill="#ffd8a8" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="60.0" y="175.0" width="150.0" height="42.0" rx="8" fill="#ffd8a8" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="60.0" y="230.0" width="150.0" height="42.0" rx="8" fill="#ffd8a8" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="550.0" y="70.0" width="420.0" height="230.0" rx="8" fill="#d0ebff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="570.0" y="120.0" width="150.0" height="42.0" rx="8" fill="#74c0fc" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="570.0" y="175.0" width="150.0" height="42.0" rx="8" fill="#74c0fc" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="570.0" y="230.0" width="150.0" height="42.0" rx="8" fill="#74c0fc" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 475.0 185.0 L 545.0 185.0"/><line x1="545.0" y1="185.0" x2="532.4" y2="178.9"/><line x1="545.0" y1="185.0" x2="532.4" y2="191.1"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="18" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="34.4">Git hooks: client speed bumps vs server gates</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="60.0" y="92.4">CLIENT (developer machine) - bypassable via --no-verify</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="70.0" y="136.4">pre-commit</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="230.0" y="139.6">lint, format, secret scan</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="70.0" y="191.4">commit-msg</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="230.0" y="194.6">conventional-commit check</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="70.0" y="246.4">pre-push</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="230.0" y="249.6">tests, protected branches</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="470.0" y="169.6">git push</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="570.0" y="92.4">SERVER - the real policy boundary (not bypassable)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="580.0" y="136.4">pre-receive</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="740.0" y="139.6">no force-push, no large files</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="580.0" y="191.4">update</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="740.0" y="194.6">per-branch rules</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="580.0" y="246.4">post-receive</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="740.0" y="249.6">trigger CI / deploy</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="329.6">GitHub.com hosts no server hooks: substitute branch protection + required status checks (GH Actions).</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="354.6">Distribution fix: git config core.hooksPath .githooks  (versioned), or pre-commit / Husky installer.</tspan></text>
+</svg>

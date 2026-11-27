@@ -31,6 +31,15 @@ SpecEngineeringBench positions coding agents as **autonomous specification engin
 | Task 2 | Defect discovery via execution analysis |
 
 ## Headline Metrics
+### Agent lineup (7 frontier coding agents, vendor-recommended production configs, high reasoning effort)
+| Vendor | Agents | Harness |
+|---|---|---|
+| Anthropic | Claude-Opus-5, Claude-Sonnet-5 | Claude Code |
+| OpenAI | GPT-6-Astra, GPT-5.6-Sol | Codex |
+| Moonshot | Kimi-K3 | Claude Code |
+| DeepSeek | DeepSeek-V4.1-Flash | Claude Code |
+| Z.ai | GLM-5.3 | Claude Code |
+
 ### Task 1 — test-suite generation
 | Metric | Value |
 |---|---|
@@ -39,6 +48,8 @@ SpecEngineeringBench positions coding agents as **autonomous specification engin
 | Fail-to-Pass Rate | **26.36%** |
 
 Interpretation: agents get existing tests passing and cover changed code well, but the low Fail-to-Pass rate shows they struggle to write tests that *fail on the bug and pass on the fix* — the actual specification value of a test.
+
+**Root cause (v1 full text)**: in **67.44%** of test outcomes, tests execute across both defective and repaired snapshots without detecting the defect — agents encode existing implementation outputs into assertions, treating the *implementation* rather than the specification as source of truth, and omit discriminating oracles derived from the PRD. Submitted suites distinguish unit, integration, and acceptance tests.
 
 ### Task 2 — defect localization recall
 | Granularity | Recall |

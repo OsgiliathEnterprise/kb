@@ -216,7 +216,7 @@ const sidebars = {
           type: 'category',
           label: 'Distributedtracing',
           link: {type: 'generated-index', title: 'Distributedtracing', slug: 'how-to/cloudinfrastructure/distributedtracing'},
-          items: ['how-to/cloudinfrastructure/distributedtracing/howto-fix-context-propagation-grpc-rest', 'how-to/cloudinfrastructure/distributedtracing/howto-store-jaeger-spans-in-clickhouse'],
+          items: ['how-to/cloudinfrastructure/distributedtracing/howto-fix-context-propagation-grpc-rest', 'how-to/cloudinfrastructure/distributedtracing/howto-opentelemetry-collector-daemonset-k8sattributes-dynatrace', 'how-to/cloudinfrastructure/distributedtracing/howto-store-jaeger-spans-in-clickhouse'],
         },
         {
           type: 'category',
@@ -307,6 +307,12 @@ const sidebars = {
           label: 'Ciperformance',
           link: {type: 'generated-index', title: 'Ciperformance', slug: 'how-to/developertoolspractices/ciperformance'},
           items: ['how-to/developertoolspractices/ciperformance/howto-decide-github-actions-test-sharding-count', 'how-to/developertoolspractices/ciperformance/howto-fastci-gpu-intensive-ci-llm-training', 'how-to/developertoolspractices/ciperformance/howto-keep-ci-fast-under-agent-driven-development', 'how-to/developertoolspractices/ciperformance/howto-test-scheduled-jobs-with-faketime'],
+        },
+        {
+          type: 'category',
+          label: 'Gitworkflow',
+          link: {type: 'generated-index', title: 'Gitworkflow', slug: 'how-to/developertoolspractices/gitworkflow'},
+          items: ['how-to/developertoolspractices/gitworkflow/howto-configure-git-hooks-precommit-husky-secret-scanning'],
         },
         {
           type: 'category',
@@ -711,6 +717,12 @@ const sidebars = {
           label: 'Appserverarchitecture',
           link: {type: 'generated-index', title: 'Appserverarchitecture', slug: 'explanations/backendengineering/appserverarchitecture'},
           items: ['explanations/backendengineering/appserverarchitecture/explanation-muru-edge-host-worker-controller-architecture'],
+        },
+        {
+          type: 'category',
+          label: 'Httpframeworks',
+          link: {type: 'generated-index', title: 'Httpframeworks', slug: 'explanations/backendengineering/httpframeworks'},
+          items: ['explanations/backendengineering/httpframeworks/explanation-nestjs-platform-node-adapter-routing'],
         },
         {
           type: 'category',
