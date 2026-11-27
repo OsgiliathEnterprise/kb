@@ -5,7 +5,7 @@ domain: developer-tools-practices
 topic: ai-coding-agents
 source: arXiv
 source_url: https://arxiv.org/abs/2609.30178
-date: 2026-09-27
+date: 2026-11-27
 keywords:
 - knowledge-base
 - ai-coding-agents
@@ -35,9 +35,14 @@ Pipeline: (1) target statements are identified within a method; (2) a symbolic a
 
 ## Results
 
-- Outperforms state-of-the-art test generation across four different LLM backbones on a standard benchmark.
+Evaluated on the **Defects4J** benchmark — 2,971 methods from 130 classes across 14 projects — against Panta, the state-of-the-art hybrid (static control-flow analysis + dynamic coverage feedback) baseline:
+
+- **Best configuration (Claude Sonnet 4.6): 92.91% line coverage and 88.89% branch coverage** while maintaining high test validity.
+- Consistently outperforms Panta across all four LLM backbones (Llama 3.3 70B, GPT-4o Mini, Claude 3.5 Haiku, Claude Sonnet 4.6).
 - Gains are largest for smaller models — symbolic guidance compensates for weaker constraint reasoning in the language model itself.
-- The hybrid handles both branch-level and line-level targets, including paths with complex object-state constraints that defeat pure SMT approaches.
+- The hybrid handles both branch-level and line-level targets, including paths with complex object-state constraints (aliasing, heap structures, API-specific semantics) that defeat pure SMT approaches.
+- **Why it beats Panta:** Panta feeds uncovered paths straight into prompts without checking feasibility, so the LLM burns tokens generating tests for infeasible paths; NeuroTestGen's Z3 pass filters infeasible paths and resolves constraints *before* generation.
+- **Failure analysis (appendix):** correct path solving alone is not sufficient — the generated test must also construct inputs, invoke the method, and assert correctly. In a JXPath `canConvert()` case the path was solved correctly but three fix rounds still failed on a wrong assertion, showing raw test-writing ability remains the bottleneck with weak LLMs.
 
 ## How to Apply This Pattern
 
