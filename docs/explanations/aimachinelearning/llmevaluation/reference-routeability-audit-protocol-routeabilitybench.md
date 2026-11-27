@@ -52,4 +52,4 @@ Routing gains are environment-dependent and must be measured against the *best s
 ## References
 - Paper: https://arxiv.org/abs/2611.34825
 - Semantic Scholar: https://api.semanticscholar.org/graph/v1/paper/arXiv:2611.34825
-- Related in vault: ai-machine-learning/llm-evaluation/, ai-machine-learning/agent-architecture/ (Ballad of Ballots and Tokens)
+- Related in vault: ai-machine-learning/llm-evaluation/, ai-machine-learning/agent-architecture/
