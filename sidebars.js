@@ -650,7 +650,7 @@ const sidebars = {
           type: 'category',
           label: 'Rag',
           link: {type: 'generated-index', title: 'Rag', slug: 'explanations/aimachinelearning/rag'},
-          items: ['explanations/aimachinelearning/rag/explanation-agentic-rag-grade-rewrite-retry-cap', 'explanations/aimachinelearning/rag/explanation-cited-but-unused-attribution-gaps-rag', 'explanations/aimachinelearning/rag/explanation-futurebench-knowledge-context-conflict', 'explanations/aimachinelearning/rag/explanation-jetriever-utility-memory-retrieval', 'explanations/aimachinelearning/rag/reference-autoragbench-llm-agents-rag-development'],
+          items: ['explanations/aimachinelearning/rag/explanation-agentic-rag-grade-rewrite-retry-cap', 'explanations/aimachinelearning/rag/explanation-cited-but-unused-attribution-gaps-rag', 'explanations/aimachinelearning/rag/explanation-futurebench-knowledge-context-conflict', 'explanations/aimachinelearning/rag/explanation-jetriever-utility-memory-retrieval', 'explanations/aimachinelearning/rag/explanation-two-stage-rag-semantic-discovery-entity-validation', 'explanations/aimachinelearning/rag/reference-autoragbench-llm-agents-rag-development'],
         },
         {
           type: 'category',
@@ -669,6 +669,12 @@ const sidebars = {
           label: 'Trainingoptimization',
           link: {type: 'generated-index', title: 'Trainingoptimization', slug: 'explanations/aimachinelearning/trainingoptimization'},
           items: ['explanations/aimachinelearning/trainingoptimization/explanation-arc-adaptive-rollout-control-llm-rl', 'explanations/aimachinelearning/trainingoptimization/explanation-breaking-long-horizon-short-horizon-process-supervision', 'explanations/aimachinelearning/trainingoptimization/explanation-complete-svd-functional-norm-low-rank-llm-compression', 'explanations/aimachinelearning/trainingoptimization/explanation-edit-based-training-reasoning-instructions', 'explanations/aimachinelearning/trainingoptimization/explanation-group-standard-deviation-identity-grpo-drgrpo-dapo', 'explanations/aimachinelearning/trainingoptimization/explanation-model-carving-self-optimizing-topology', 'explanations/aimachinelearning/trainingoptimization/explanation-spice-sparse-parameter-gossip-pretraining', 'explanations/aimachinelearning/trainingoptimization/explanation-stablekl-pytorch-kl-divergence-precision', 'explanations/aimachinelearning/trainingoptimization/explanation-tailroll-tail-aware-rollout-acceleration', 'explanations/aimachinelearning/trainingoptimization/explanation-what-if-chain-of-thought-is-not-enough', 'explanations/aimachinelearning/trainingoptimization/reference-opengns-gradient-noise-scale-dataset'],
+        },
+        {
+          type: 'category',
+          label: 'Uncertaintyquantification',
+          link: {type: 'generated-index', title: 'Uncertaintyquantification', slug: 'explanations/aimachinelearning/uncertaintyquantification'},
+          items: ['explanations/aimachinelearning/uncertaintyquantification/explanation-uncertainty-in-ml-where-it-comes-from'],
         },
         {
           type: 'category',
@@ -1380,7 +1386,7 @@ const sidebars = {
           type: 'category',
           label: 'Frontendjavascript',
           link: {type: 'generated-index', title: 'Frontendjavascript', slug: 'examples/programming/frontendjavascript'},
-          items: ['examples/programming/frontendjavascript/example-browser-only-pdf-processing-with-csp-enforcement', 'examples/programming/frontendjavascript/example-clock-based-countdown-timer', 'examples/programming/frontendjavascript/example-css-oklab-oklch-gradient-interpolation', 'examples/programming/frontendjavascript/example-css-starting-style-allow-discrete-transitions', 'examples/programming/frontendjavascript/example-hldays-business-day-api-jurisdiction-holidays', 'examples/programming/frontendjavascript/example-intl-segmenter-text-analysis'],
+          items: ['examples/programming/frontendjavascript/example-browser-hashing-web-crypto-sha256', 'examples/programming/frontendjavascript/example-browser-only-pdf-processing-with-csp-enforcement', 'examples/programming/frontendjavascript/example-clock-based-countdown-timer', 'examples/programming/frontendjavascript/example-css-oklab-oklch-gradient-interpolation', 'examples/programming/frontendjavascript/example-css-starting-style-allow-discrete-transitions', 'examples/programming/frontendjavascript/example-hldays-business-day-api-jurisdiction-holidays', 'examples/programming/frontendjavascript/example-intl-segmenter-text-analysis'],
         },
         {
           type: 'category',

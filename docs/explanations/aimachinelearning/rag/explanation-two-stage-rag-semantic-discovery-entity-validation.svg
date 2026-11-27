@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 66.0 948.0 398.0" width="948" height="398">
+<rect x="16.0" y="66.0" width="948.0" height="398.0" fill="#ffffff"/>
+<rect x="40.0" y="140.0" width="150.0" height="70.0" rx="8" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="250.0" y="140.0" width="170.0" height="70.0" rx="8" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="480.0" y="140.0" width="200.0" height="70.0" rx="8" fill="#ffd8a8" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="740.0" y="140.0" width="170.0" height="70.0" rx="8" fill="#e9ecef" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="740.0" y="300.0" width="200.0" height="80.0" rx="8" fill="#d0bfff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="480.0" y="300.0" width="200.0" height="80.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="220.0" y="300.0" width="200.0" height="80.0" rx="8" fill="#fff3bf" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="40.0" y="300.0" width="130.0" height="80.0" rx="8" fill="#96f2d7" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 195.0 175.0 L 245.0 175.0"/><line x1="245.0" y1="175.0" x2="232.4" y2="168.9"/><line x1="245.0" y1="175.0" x2="232.4" y2="181.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 425.0 175.0 L 475.0 175.0"/><line x1="475.0" y1="175.0" x2="462.4" y2="168.9"/><line x1="475.0" y1="175.0" x2="462.4" y2="181.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 685.0 175.0 L 735.0 175.0"/><line x1="735.0" y1="175.0" x2="722.4" y2="168.9"/><line x1="735.0" y1="175.0" x2="722.4" y2="181.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 830.0 215.0 L 830.0 295.0"/><line x1="830.0" y1="295.0" x2="836.1" y2="282.4"/><line x1="830.0" y1="295.0" x2="823.9" y2="282.4"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 735.0 340.0 L 685.0 340.0"/><line x1="685.0" y1="340.0" x2="697.6" y2="346.1"/><line x1="685.0" y1="340.0" x2="697.6" y2="333.9"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 475.0 340.0 L 425.0 340.0"/><line x1="425.0" y1="340.0" x2="437.6" y2="346.1"/><line x1="425.0" y1="340.0" x2="437.6" y2="333.9"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 215.0 340.0 L 175.0 340.0"/><line x1="175.0" y1="340.0" x2="187.6" y2="346.1"/><line x1="175.0" y1="340.0" x2="187.6" y2="333.9"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="20" fill="#1e1e1e" text-anchor="start"><tspan x="55.0" y="176.0">Question</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="20" fill="#1e1e1e" text-anchor="start"><tspan x="262.0" y="168.0">Embed query</tspan><tspan x="262.0" y="193.0">(384-d vector)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="20" fill="#1e1e1e" text-anchor="start"><tspan x="492.0" y="168.0">Vector search</tspan><tspan x="492.0" y="193.0">(Qdrant, stage 1)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="20" fill="#1e1e1e" text-anchor="start"><tspan x="752.0" y="168.0">Candidate</tspan><tspan x="752.0" y="193.0">UUIDs only</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="20" fill="#1e1e1e" text-anchor="start"><tspan x="752.0" y="332.0">Load typed entities</tspan><tspan x="752.0" y="357.0">(JNoSQL, stage 2)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="20" fill="#1e1e1e" text-anchor="start"><tspan x="492.0" y="326.0">Domain rules</tspan><tspan x="492.0" y="351.0">appliesOn(date)</tspan><tspan x="492.0" y="376.0">policyCode, state</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="20" fill="#1e1e1e" text-anchor="start"><tspan x="232.0" y="332.0">Validated evidence</tspan><tspan x="232.0" y="357.0">-&gt; LLM context</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="20" fill="#1e1e1e" text-anchor="start"><tspan x="55.0" y="342.0">LLM answer</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="480.0" y="102.8">STAGE 1: discovery</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="500.0" y="422.8">STAGE 2: entity retrieval + business validation</tspan></text>
+</svg>
