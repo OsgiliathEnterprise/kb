@@ -24,7 +24,7 @@ Asgari, Olsthoorn, van Deursen & Panichella (arXiv:2611.34617, submitted 2026-11
 4. **Pick the strategy per objective** — the study's central finding is that *no single strategy dominates* both Success-Rate estimation and early failure detection:
    - **Success-Rate estimation** → adapted black-box regression-testing strategies, best: **Category Partition** (lowest median error on 5 of 10 benchmarks at a 20% task budget).
    - **Early failure detection** → **LLM-as-judge selection**.
-5. **Validate on realistic scale**: the study covers **14 selection strategies** (+ random sampling and a historical-data baseline) across **10 AI agent benchmarks** with 12–101 agents per benchmark.
+5. **Validate on realistic scale**: the study covers **14 selection strategies** (random sampling included among them) **plus a historical-data baseline**, across **10 AI agent benchmarks** with 12–101 agents per benchmark.
 
 ## Concrete Numbers
 - **GPT 5.2 Codex on SWE-bench Verified**: Category Partition selects **100 instead of 500 tasks**, cutting execution cost from **$225 to $47**, with Success-Rate estimation error of **0.8 percentage points**.

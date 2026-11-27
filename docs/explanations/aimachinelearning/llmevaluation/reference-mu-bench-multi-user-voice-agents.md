@@ -47,7 +47,7 @@ Lin, Chen, Zheng et al. (arXiv:2611.34920, submitted 2026-11-25) introduce **μ-
 - Use the Attribution/Threading/Coordination diagnostic split to localise regressions in multi-user agent builds.
 
 ## Relevance to Our Domain
-Extends this topic's agent evaluation stack ([[reference-tau-bench-agent-evaluation]]) to the voice modality with per-user authority/privacy as first-class assertions — directly applicable to shared-assistant product testing.
+Extends this topic's agent evaluation stack (text-tool-use benchmarks such as τ-bench) to the voice modality with per-user authority/privacy as first-class assertions — directly applicable to shared-assistant product testing.
 
 ## References
 - Paper: https://arxiv.org/abs/2611.34920
