@@ -42,6 +42,24 @@ To defend against tool hallucination: (1) treat the tool registry as a *closed w
 
 If you build tool-using agents, this reframes hallucination defense as a *precondition*, not an afterthought: validate registry membership + signature **before** any selection/gating logic runs, because downstream gates structurally cannot reject fabricated calls. The MCP finding is especially important for anyone merging multiple MCP servers — the merged namespace introduces new hallucination surfaces (collisions/shadowing) that single-registry defenses miss. HTB gives you a standard way to benchmark your own resolver.
 
+## Taxonomy & Mechanism — Details (enriched 2026-11-27 from paper full text)
+
+*(Iyer, arXiv:2609.19425, 16 Sep 2026, cs.AI — primarily a measurement/benchmark study.)*
+
+- **Single-registry taxonomy H1–H5**: H1 nonexistent tools, H2 hallucinated arguments, H3 type violations, H4 off-frontier real tools, H5 borrowed signatures — each with a detectability characterization. A model that has seen `delete_file` in a thousand traces happily emits `wipe_disk`; a model that knows `transfer_funds` takes `amount` invents an override flag no schema declares.
+- **MCP taxonomy M1–M5** (multi-server): cross-server fabrication, namespace collision, tool shadowing / rug pull, stale definitions, cross-server signature borrowing. The MCP Resolution Rung resolves a call to a `(server, tool)` pair rather than a bare tool name.
+- **The Resolution Rung is deliberately trivial**: registry membership + signature type-check — "no more than disciplined input validation." The claim is *placement*, not mechanism: selection optimizes which real tool to prefer, gating reasons only about tools it exposed, contract verification has nothing to verify for a fabricated tool — so resolution falls between them and is provably the one placement (before the gate) that is sound against fabrication. It needs no model access, no fine-tuning, no decoder change — it drops in front of *any* function-calling agent.
+- **Ablation result**: zeros the schema-detectable classes with no honest over-rejection; only the schema-indistinguishable H5 residue survives, which reduces to the tool-selection setting.
+- **MCP results**: synthetic benchmark — naive host 1.00 vs resolver 0.00 hallucination rate on all five M-classes; live ten-model study — 154 MCP hallucinations spanning M1–M3, resolver rejected 154/154.
+- **HTB (Hallucinated-Tools Benchmark)**: installable, deterministic suite scoring any resolver on H1–H5 + M1–M5 with a single HTB score; leaderboard against the baselines practitioners actually reach for (allowlist, fuzzy-name router, JSON-schema validator, first-provider/highest-trust MCP hosts); adapters for real catalogs (API-Bank-style registry, real MCP manifests with naturally-occurring collisions and shadows).
+
+## Practical Checklist
+
+1. Validate registry membership + argument signature on every emitted call, *before* any router/gate/contract layer — treat it as input validation, not security tooling.
+2. When merging MCP servers, resolve to `(server, tool)` pairs and audit namespace collisions/shadowing — frontier models hallucinate here even when clean on single-registry surfaces.
+3. Prefer schema-enforcing invocation APIs over raw-JSON surfaces (34 vs 3 fabricated calls in this study).
+4. Don't assume bigger models hallucinate less: a 675B model matched a 7–8B one.
+
 ## References
 - Paper: https://arxiv.org/abs/2609.19425
 - Semantic Scholar: https://api.semanticscholar.org/graph/v1/paper/arXiv:2609.19425
