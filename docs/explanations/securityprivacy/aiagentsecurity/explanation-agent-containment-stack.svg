@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="126.0 -4.0 748.0 598.0" width="748" height="598">
+<rect x="126.0" y="-4.0" width="748.0" height="598.0" fill="#ffffff"/>
+<rect x="150.0" y="90.0" width="700.0" height="65.0" rx="8" fill="#d0bfff" stroke="#6741d9" stroke-width="1.5"/>
+<rect x="150.0" y="170.0" width="700.0" height="65.0" rx="8" fill="#ffd8a8" stroke="#e8590c" stroke-width="1.5"/>
+<rect x="150.0" y="250.0" width="700.0" height="65.0" rx="8" fill="#b2f2bb" stroke="#2f9e44" stroke-width="1.5"/>
+<rect x="150.0" y="330.0" width="700.0" height="65.0" rx="8" fill="#a5d8ff" stroke="#1971c2" stroke-width="1.5"/>
+<rect x="150.0" y="410.0" width="700.0" height="65.0" rx="8" fill="#ffe066" stroke="#f08c00" stroke-width="1.5"/>
+<rect x="320.0" y="510.0" width="360.0" height="60.0" rx="8" fill="#ffc9c9" stroke="#e03131" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 500.0 508.0 L 500.0 478.0"/><line x1="500.0" y1="478.0" x2="495.4" y2="487.4"/><line x1="500.0" y1="478.0" x2="504.6" y2="487.4"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="28" fill="#1e1e1e" text-anchor="start"><tspan x="180.0" y="42.4">Autonomous Agent Containment Stack</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="165.0" y="116.2">L5  Observe the boundary: audit log on separate failure domain, alerts on DNS entropy / egress denials / budget exhaust</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="165.0" y="196.2">L4  Action budgets + dispatch choke point; human gate on irreversible actions</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="165.0" y="276.2">L3  Provenance tags on every input; untrusted content never authorizes sensitive actions</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="165.0" y="356.2">L2  Default-deny egress: domain allowlist, HTTPS only, no raw IPs, no 169.254/16, proxies ignored</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="165.0" y="436.2">L1  Isolate runtime: microVM / locked container, read-only rootfs, seccomp, no metadata endpoint, short-lived creds</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="340.0" y="536.2">Agent run (tools, network, long-horizon loop)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="12" fill="#495057" text-anchor="start"><tspan x="510.0" y="489.6">every action passes the stack</tspan></text>
+</svg>
