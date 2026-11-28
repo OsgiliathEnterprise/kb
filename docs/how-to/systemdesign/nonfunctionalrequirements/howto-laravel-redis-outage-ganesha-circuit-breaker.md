@@ -5,7 +5,7 @@ domain: system-design
 topic: Non-Functional-Requirements
 source: DEV.to Tech News
 source_url: https://dev.to/jantolentino/when-redis-goes-down-does-your-app-die-4kmf
-date: 2026-09-27
+date: 2026-11-27
 keywords:
 - knowledge-base
 - Non-Functional-Requirements
@@ -52,6 +52,8 @@ trait ResilientCacheAside
 A **circuit breaker** tracks failures over time. Once a threshold is reached, the circuit *opens* and the app skips the cache entirely for a set period (straight to the database — no timeout waiting). After a cooling-off period it goes *half-open* to probe whether Redis is back; if so, it closes and normal operation resumes. This eliminates the per-request timeout delay during an outage.
 
 The [Ganesha](https://github.com/ackintosh/ganesha) PHP library implements this with pluggable strategies (rate or count) and storage adapters (APCu, Redis, Memcached, MongoDB). Confirmed on Packagist as `ackintosh/ganesha`.
+
+> **Version note (verified 2026-11-27):** Latest release is **4.0.0**, which bumped the minimum supported PHP from 8.0 to **8.1** with no interface/feature changes — the API below is unchanged from 3.x. Earlier releases drop EOL PHP versions, so pin a release matching your PHP (see the repo's Version Guidance table).
 
 ## Steps
 

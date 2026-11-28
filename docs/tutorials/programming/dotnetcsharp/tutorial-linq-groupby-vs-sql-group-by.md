@@ -180,7 +180,32 @@ var ordersByMonth = orders
 | Multiple key accesses | `ToLookup` instead of `GroupBy` (O(1) lookup, empty for missing keys) |
 | Composite keys | Anonymous types containing all grouping columns |
 
+## Where things stand (EF Core 10 LTS, verified 2026-11-28)
+
+EF Core 10 (released November 2025, LTS supported until 2028-11-10, requires .NET 10; EF Core 11 is scheduled for November 2026) makes **no changes to `GroupBy` translation** — its release notes contain no `GroupBy`-related items, so the three rules above, settled in EF Core 7.0, remain the working model.
+
+One adjacent change worth knowing, because it fixes the *other* LINQ join/group confusion: .NET 10 adds first-class `LeftJoin`/`RightJoin` LINQ operators ([dotnet/efcore#12793](https://github.com/dotnet/efcore/issues/12793)), and EF Core 10 translates them to SQL `LEFT JOIN`/`RIGHT JOIN`:
+
+```csharp
+// EF Core 10 / .NET 10 — no more SelectMany + GroupJoin + DefaultIfEmpty idiom
+var query = context.Students
+    .LeftJoin(
+        context.Departments,
+        student => student.DepartmentID,
+        department => department.ID,
+        (student, department) => new
+        {
+            student.FirstName,
+            student.LastName,
+            Department = department.Name ?? "[NONE]"
+        });
+```
+
+This matters for the mental model in this tutorial: for years the only outer-join construct in LINQ was built *on top of* `GroupJoin` — the group-based operator — which reinforced the false "GroupBy ≈ GROUP BY" intuition. With `LeftJoin`/`RightJoin`, group-based operators (`GroupBy`, `GroupJoin`) finally stop doubling as join operators, and each LINQ operator maps to what it actually does. (Caveat: query syntax `from … select …` cannot yet express left/right joins.)
+
 ## References
 
 - [DEV.to: LINQ GroupBy — The Operator Everyone Uses Wrong](https://dev.to/homolibere/linq-groupby-the-operator-everyone-uses-wrong-59d5)
 - [dotnet/efcore#19929 — Query: Support GroupBy when it is final operator (EF Core 7.0)](https://github.com/dotnet/efcore/issues/19929)
+- [Microsoft Learn: What's New in EF Core 10](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-10.0/whatsnew)
+- [Microsoft Learn: EF Core releases and planning](https://learn.microsoft.com/en-us/ef/core/what-is-new/)
