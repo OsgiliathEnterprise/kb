@@ -5,7 +5,7 @@ domain: programming
 topic: databases
 source: DEV.to Tech News
 source_url: https://dev.to/superlede/pgrestore-finished-fine-one-of-my-tables-wasnt-there-2kaj
-date: 2026-09-27
+date: 2026-11-28
 keywords:
 - knowledge-base
 - databases
@@ -78,7 +78,28 @@ select count(*) from public.notes;
 
 A restore that "worked" but is missing a table fails this check in five seconds. Don't rely on the exit code: `pg_restore` returns non-zero on any error, including the harmless ones every Supabase restore produces.
 
+### 4. Make failures loud and atomic with pg_restore flags
+
+Once your stubs are in place (step 2), stop relying on the permissive default and let `pg_restore` police itself:
+
+- **`-e` / `--exit-on-error`** — exit immediately on the first SQL error instead of the default (continue and print an error count at the end). Use it in CI so a missing `auth.uid()` stub fails the job on the spot rather than hiding behind "N errors ignored".
+- **`-1` / `--single-transaction`** — wrap the whole restore in `BEGIN`/`COMMIT`, so either everything applies or nothing does; it implies `--exit-on-error`. This is the strongest completeness guarantee and turns silent table loss into a full abort. Caveats: cannot combine with `--create` or `--jobs`.
+- **`--transaction-size=N`** — the practical middle ground for large dumps: restores in batches of N objects, each its own transaction, also implying `--exit-on-error`. It gives nearly the same performance as `--single-transaction` without the risk of exhausting the server's lock table (a single transaction takes a lock on every restored object). A few thousand is a good starting value.
+
+```bash
+docker exec rt pg_restore -U postgres --no-owner --no-privileges \
+  --single-transaction -d postgres /tmp/app.dump   # aborts on the first real error
+```
+
+- **`-l` / `--list` (TOC diff)** — a pre-flight completeness check that costs nothing: list the archive's table of contents and diff the expected tables before restoring. If a table is absent from the TOC, no restore flags will save you — the dump itself is wrong.
+
+```bash
+pg_restore -l /tmp/app.dump | grep -E 'TABLE DATA' | sort   # expected tables present?
+```
+
+Note: `--jobs` (parallel restore) works only with the custom/directory formats and cannot be combined with `--single-transaction`, so for big dumps prefer `--jobs` with `--exit-on-error` plus the step-3 count check, and reserve `--single-transaction` for the smaller sandbox restores where atomic verification is the point.
+
 ## References
 
 - [pg_restore finished fine. One of my tables wasn't there (DEV.to)](https://dev.to/superlede/pgrestore-finished-fine-one-of-my-tables-wasnt-there-2kaj)
-- [PostgreSQL Documentation: pg_restore](https://www.postgresql.org/docs/current/app-pgrestore.html)
+- [PostgreSQL Documentation: pg_restore](https://www.postgresql.org/docs/current/app-pgrestore.html) — `-e/--exit-on-error`, `-1/--single-transaction`, `--transaction-size`, `-l/--list` semantics

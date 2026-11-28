@@ -6,7 +6,7 @@ domain: ai-machine-learning
 topic: agent-architecture
 source: arXiv
 source_url: https://arxiv.org/abs/2609.30233
-date: 2026-09-27
+date: 2026-11-28
 keywords:
 - knowledge-base
 - agent-architecture
@@ -47,6 +47,12 @@ This is strong evidence for the "coding agents as general-purpose problem solver
 
 1. **Interaction is the differentiator** — agents that can run their candidate programs against a real environment substantially outperform one-shot generation; budgeting for environment access matters more than model scale alone.
 2. **Frozen-program evaluation as methodology** — freezing the synthesized artifact and testing on held-out instances is a clean way to separate "the agent learned the domain" from "the agent memorized the test set"; worth adopting when evaluating any agentic code synthesis pipeline.
+
+## Related Literature (added 2026-11-28)
+
+- **Onto-LLM-TAMP** (Robotics and Autonomous Systems, 2026) — knowledge-oriented TAMP: LLMs paired with an ontology to bridge symbolic task planning and geometric motion planning. Contrasts with this paper's "let the coding agent write the planner" thesis by keeping an explicit knowledge scaffold instead of synthesizing programs from simulator interaction. https://www.sciencedirect.com/science/article/pii/S0921889026000771
+- **Multi-agent TAMP trends survey** (Artificial Intelligence Review, 2026) — broad map of multi-agent TAMP as a research frontier; useful context for where agent-synthesized planners sit relative to cooperative/multi-robot TAMP. https://oadoi.org/10.1007/s10462-026-11588-5
+- **CoTAMP** (arXiv:2611.33911, Nov 2026) — cooperative TAMP for quadruped robots mixing LLM-based and code-based modules: LLM handles task decomposition and pose fixing, kinematic synthesis produces trajectories. An example of the hybrid LLM+code architecture this paper's results implicitly argue against (frozen synthesized programs beat per-instance LLM involvement). https://arxiv.org/abs/2611.33911
 
 ## References
 

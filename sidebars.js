@@ -160,6 +160,12 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Resourceoptimization',
+          link: {type: 'generated-index', title: 'Resourceoptimization', slug: 'how-to/aimachinelearning/resourceoptimization'},
+          items: ['how-to/aimachinelearning/resourceoptimization/howto-prompt-caching-append-only-transcript-coding-agents'],
+        },
+        {
+          type: 'category',
           label: 'Trainingoptimization',
           link: {type: 'generated-index', title: 'Trainingoptimization', slug: 'how-to/aimachinelearning/trainingoptimization'},
           items: ['how-to/aimachinelearning/trainingoptimization/howto-negative-only-policy-optimization-one-sided-rewards', 'how-to/aimachinelearning/trainingoptimization/howto-taco-memory-efficient-llm-fine-tuning-optimizer'],
@@ -626,7 +632,7 @@ const sidebars = {
           type: 'category',
           label: 'Dlarchitectures',
           link: {type: 'generated-index', title: 'Dlarchitectures', slug: 'explanations/aimachinelearning/dlarchitectures'},
-          items: ['explanations/aimachinelearning/dlarchitectures/explanation-glide-distilled-calibrated-decision-models', 'explanations/aimachinelearning/dlarchitectures/explanation-glm-5-4-loop-transformer', 'explanations/aimachinelearning/dlarchitectures/explanation-hisa-hidden-dimension-sparse-attention-rope', 'explanations/aimachinelearning/dlarchitectures/explanation-latent-lattice-language-models', 'explanations/aimachinelearning/dlarchitectures/explanation-memonce-scalable-llm-memory-architecture', 'explanations/aimachinelearning/dlarchitectures/explanation-mixture-of-loops-transformer', 'explanations/aimachinelearning/dlarchitectures/explanation-positional-embeddings-rope-nope-modern-llms', 'explanations/aimachinelearning/dlarchitectures/explanation-thot-topology-hub-optimal-transport-long-context', 'explanations/aimachinelearning/dlarchitectures/explanation-zero-gradient-circuit-grafting', 'explanations/aimachinelearning/dlarchitectures/reference-aliceai-foundation-80b-a3b-moe', 'explanations/aimachinelearning/dlarchitectures/reference-beam-moe-agentic-coding-model'],
+          items: ['explanations/aimachinelearning/dlarchitectures/explanation-deepcrossattention-dynamic-residual-routing', 'explanations/aimachinelearning/dlarchitectures/explanation-glide-distilled-calibrated-decision-models', 'explanations/aimachinelearning/dlarchitectures/explanation-glm-5-4-loop-transformer', 'explanations/aimachinelearning/dlarchitectures/explanation-hisa-hidden-dimension-sparse-attention-rope', 'explanations/aimachinelearning/dlarchitectures/explanation-latent-lattice-language-models', 'explanations/aimachinelearning/dlarchitectures/explanation-memonce-scalable-llm-memory-architecture', 'explanations/aimachinelearning/dlarchitectures/explanation-mixture-of-loops-transformer', 'explanations/aimachinelearning/dlarchitectures/explanation-positional-embeddings-rope-nope-modern-llms', 'explanations/aimachinelearning/dlarchitectures/explanation-thot-topology-hub-optimal-transport-long-context', 'explanations/aimachinelearning/dlarchitectures/explanation-zero-gradient-circuit-grafting', 'explanations/aimachinelearning/dlarchitectures/reference-aliceai-foundation-80b-a3b-moe', 'explanations/aimachinelearning/dlarchitectures/reference-beam-moe-agentic-coding-model'],
         },
         {
           type: 'category',
@@ -902,7 +908,7 @@ const sidebars = {
           type: 'category',
           label: 'Browserinternals',
           link: {type: 'generated-index', title: 'Browserinternals', slug: 'explanations/developertoolspractices/browserinternals'},
-          items: ['explanations/developertoolspractices/browserinternals/explanation-wasm-3ds-emulator-browser-webgl-bottlenecks'],
+          items: ['explanations/developertoolspractices/browserinternals/explanation-unkernel-linux-kernel-webassembly', 'explanations/developertoolspractices/browserinternals/explanation-wasm-3ds-emulator-browser-webgl-bottlenecks'],
         },
         {
           type: 'category',
