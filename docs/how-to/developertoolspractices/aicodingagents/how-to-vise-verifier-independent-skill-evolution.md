@@ -30,11 +30,25 @@ Derived from the paper's method, the procedure is:
 5. **Plug it in as an extra revision stage.** VISE composes with existing skill-evolution loops — the authors evaluate it as an additional revision stage on top of four evolution methods.
 
 ## Results
-Evaluated on **SkillsBench** and **SkillLearnBench**, as an added revision stage over four evolution methods, versus the corresponding No-verifier conditions:
+Evaluated on **SkillsBench** and **SkillLearnBench**, as an added revision stage over four evolution methods (**Self-Refine, TraceEvo, SkillLearn, SkillRevise** — applied to their No-verifier outputs), versus the corresponding No-verifier conditions:
 
 - Overall average task success improves by **9.14–13.35 percentage points**.
 - Tasks solved in **all three runs** (consistency) increase by **12.36–18.29 points**.
+- VISE also exceeds the verifier-based **Binary, Report, and Diagnostic** feedback conditions on both overall metrics — tool-source feedback beats weak verifiers.
 - A case study traces revised instructions back to connecting tool outputs to later workflow steps.
+
+## Caveats From Their Own Studies
+- **Repeated evaluations**: similar overall gains can hide shifts in *which* tasks benefit — aggregate deltas alone are not sufficient evidence a skill revision helped.
+- **Task variants**: newly constructed SkillsBench variants show that changing task requirements can reduce or even reverse the skill benefits observed on the original tasks. Skills are requirement-sensitive; re-evaluate after workload drift.
+
+## Related Work (skill-evolution landscape)
+- **SkillLearnBench** (Zhong et al., 2026) — self-feedback skill revision without external supervision.
+- **SkillEvolver** (Zhang et al., 2026a) — revises instructions/code after deployment failures (verifier-based).
+- **SPARK** (Zhou et al., 2026) — distills skills from environment-verified trajectories.
+- **SkillRevise** (Liu et al., 2026c) — defect diagnosis + retrieved repair principles, re-executes candidates to pick the best.
+- **EvoSkill / SkillOpt** — task evaluation for candidate selection / gated bounded skill edits.
+- **Repo-To-Skill** (Chen et al., 2026) — closest neighbour: distils repository knowledge into reusable skills; VISE instead uses implementation facts as *revision feedback*.
+- Classic feedback baselines: Self-Refine (self-feedback), Reflexion (verbal reflections from execution experience).
 
 ## Relevance to Our Domain
 This is directly actionable for our own agent-skill pipeline (Hermes skills are SKILL.md + scripts): when no test oracle exists for a skill, reading the scripts' source as ground truth is a cheap, principled feedback source. It also argues for keeping tool implementations in-repo with skills so the feedback loop stays available.
