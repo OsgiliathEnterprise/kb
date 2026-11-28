@@ -149,6 +149,18 @@ _CODE_SPAN = re.compile(r'(`+)(?:(?!\1).)+?\1')
 _BRACE_PAIR = re.compile(r'\{[^{}]*\}')
 _STR_LITERALS = re.compile(r"'(?:\\.|[^'\\])*'|\"(?:\\.|[^\"\\])*\"")
 _IDENT_SPACE_IDENT = re.compile(r'[A-Za-z_$][\w$]*\s+[A-Za-z_$]')
+_ROOT_IDENT = re.compile(r'(?<![.\w$])[A-Za-z_$][\w$]*')
+# Inline $...$ math spans (LaTeX in arXiv notes). Opening '$' must not be
+# escaped, followed by whitespace/$/digit (so currency like '$5' is safe).
+_INLINE_MATH = re.compile(r'(?<!\\)\$(?![\s$\d])([^$\n]+?)(?<!\\)\$')
+_JS_GLOBALS = {
+    'Math', 'JSON', 'Object', 'Array', 'String', 'Number', 'Boolean', 'Date',
+    'RegExp', 'Map', 'Set', 'WeakMap', 'WeakSet', 'Promise', 'BigInt', 'Intl',
+    'Symbol', 'Infinity', 'NaN', 'undefined', 'null', 'true', 'false',
+    'this', 'globalThis', 'process', 'console',
+    'parseInt', 'parseFloat', 'isNaN', 'isFinite',
+    'encodeURI', 'decodeURI', 'encodeURIComponent', 'decodeURIComponent',
+}
 _JS_KEYWORDS = {
     'new', 'typeof', 'instanceof', 'return', 'case', 'default', 'in', 'of',
     'void', 'delete', 'await', 'yield', 'function', 'class', 'extends',
@@ -161,18 +173,47 @@ _JS_KEYWORDS = {
 def _is_prose_expression(inner: str) -> bool:
     """Decide whether {inner} is prose rather than a real JS expression.
 
-    Conservative: content is escaped to literal text only when it clearly
-    cannot be valid JS (non-ASCII math/units, 'ident ident' word pairs,
-    empty, or an object-key pattern after string masking).
+    Conservative: content is escaped to literal text unless it is clearly
+    valid, self-contained JS (only known globals, no LaTeX backslashes,
+    compiles as an expression). Prose such as LaTeX math '{n/M_0}' or
+    '{\\Delta_0}' is escaped even when it happens to parse as JS, because
+    referencing an undefined identifier crashes MDX SSG with a
+    ReferenceError at render time.
     """
     s = inner.strip()
     if not s:
         return True
     if not all(0x20 <= ord(c) <= 0x7E for c in s):
         return True
+    # Preserve MDX comments {/* ... */}.
+    if s.startswith('/*') and s.endswith('*/'):
+        return False
     masked = _STR_LITERALS.sub('', s)
     if masked.lstrip().startswith(':'):
         return True
+    # Backslashes outside string literals: LaTeX macros (\\Delta, \\sqrt).
+    if '\\' in masked:
+        return True
+    try:
+        compile(s, '<mdx-expression>', 'eval')
+    except SyntaxError:
+        return True
+    # A top-level comma means prose set notation ({4,8,16}); as JSX it would
+    # compile to a sequence expression and silently render only the last value.
+    depth = 0
+    for ch in masked:
+        if ch in '([':
+            depth += 1
+        elif ch in ')]':
+            depth -= 1
+        elif ch == ',' and depth == 0:
+            return True
+    # Any root identifier not in the JS-globals whitelist is an undefined
+    # reference at MDX render time (e.g. math like {n/M_0} compiles fine
+    # but throws ReferenceError: n is not defined during SSG).
+    for m in _ROOT_IDENT.finditer(masked):
+        if m.group(0) not in _JS_GLOBALS:
+            return True
     for m in _IDENT_SPACE_IDENT.finditer(masked):
         first = m.group(0).split()[0]
         if first not in _JS_KEYWORDS:
@@ -188,6 +229,10 @@ def _escape_segment(seg: str) -> str:
             return m.group(0)
         return '&lt;'
     seg = re.sub(r'(?<!")<', _angle, seg)
+    # Curly braces inside $...$ math spans are always literal prose.
+    seg = _INLINE_MATH.sub(
+        lambda m: '$' + m.group(1).replace('{', '&#123;').replace('}', '&#125;') + '$',
+        seg)
     seg = _BRACE_PAIR.sub(
         lambda m: ('&#123;' + m.group(0)[1:-1] + '&#125;')
         if _is_prose_expression(m.group(0)[1:-1]) else m.group(0),
