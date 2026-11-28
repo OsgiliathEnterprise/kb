@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 -4.0 948.0 563.0" width="948" height="563">
+<rect x="16.0" y="-4.0" width="948.0" height="563.0" fill="#ffffff"/>
+<rect x="40.0" y="90.0" width="170.0" height="50.0" rx="8" fill="#f5e6d3" stroke="#8a5a2b" stroke-width="1.5"/>
+<rect x="40.0" y="160.0" width="170.0" height="50.0" rx="8" fill="#f5e6d3" stroke="#8a5a2b" stroke-width="1.5"/>
+<rect x="40.0" y="230.0" width="170.0" height="50.0" rx="8" fill="#f5e6d3" stroke="#8a5a2b" stroke-width="1.5"/>
+<rect x="280.0" y="90.0" width="170.0" height="50.0" rx="8" fill="#e6d3f5" stroke="#5a2b8a" stroke-width="1.5"/>
+<rect x="280.0" y="160.0" width="170.0" height="50.0" rx="8" fill="#e6d3f5" stroke="#5a2b8a" stroke-width="1.5"/>
+<rect x="280.0" y="230.0" width="170.0" height="50.0" rx="8" fill="#e6d3f5" stroke="#5a2b8a" stroke-width="1.5"/>
+<rect x="520.0" y="160.0" width="170.0" height="50.0" rx="8" fill="#f5d3d3" stroke="#8a2b2b" stroke-width="1.5"/>
+<rect x="40.0" y="360.0" width="420.0" height="55.0" rx="8" fill="#d3f5e0" stroke="#2b8a4b" stroke-width="1.5"/>
+<rect x="480.0" y="360.0" width="420.0" height="55.0" rx="8" fill="#d3f5e0" stroke="#2b8a4b" stroke-width="1.5"/>
+<rect x="40.0" y="430.0" width="420.0" height="55.0" rx="8" fill="#d3f5e0" stroke="#2b8a4b" stroke-width="1.5"/>
+<rect x="480.0" y="430.0" width="420.0" height="55.0" rx="8" fill="#d3f5e0" stroke="#2b8a4b" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 210.0 115.0 L 280.0 115.0"/><line x1="280.0" y1="115.0" x2="267.4" y2="108.9"/><line x1="280.0" y1="115.0" x2="267.4" y2="121.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 210.0 185.0 L 280.0 185.0"/><line x1="280.0" y1="185.0" x2="267.4" y2="178.9"/><line x1="280.0" y1="185.0" x2="267.4" y2="191.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 210.0 255.0 L 280.0 255.0"/><line x1="280.0" y1="255.0" x2="267.4" y2="248.9"/><line x1="280.0" y1="255.0" x2="267.4" y2="261.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 450.0 115.0 L 520.0 115.0"/><line x1="520.0" y1="115.0" x2="507.4" y2="108.9"/><line x1="520.0" y1="115.0" x2="507.4" y2="121.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 450.0 185.0 L 520.0 185.0"/><line x1="520.0" y1="185.0" x2="507.4" y2="178.9"/><line x1="520.0" y1="185.0" x2="507.4" y2="191.1"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 450.0 255.0 L 520.0 255.0"/><line x1="520.0" y1="255.0" x2="507.4" y2="248.9"/><line x1="520.0" y1="255.0" x2="507.4" y2="261.1"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="24" fill="#1e1e1e" text-anchor="start"><tspan x="100.0" y="39.2">The recurring pattern: native code decodes untrusted bytes</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="50.0" y="111.2">URL fetch</tspan><tspan x="50.0" y="128.7">Content-Encoding: br</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="50.0" y="181.2">HTTP request body</tspan><tspan x="50.0" y="198.7">(Express 5 parsers)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="50.0" y="251.2">Image upload</tspan><tspan x="50.0" y="268.7">(content-detected)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="290.0" y="111.2">Brotli decoder</tspan><tspan x="290.0" y="128.7">(node:zlib)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="290.0" y="181.2">PHP engine</tspan><tspan x="290.0" y="198.7">memory bugs</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="290.0" y="251.2">Pillow decoder</tspan><tspan x="290.0" y="268.7">(FPX / multi-frame)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="535.0" y="181.2">OOB write -&gt; RCE</tspan><tspan x="535.0" y="198.7">process privileges</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="20" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="336.0">Patch matrix + check commands</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="55.0" y="380.4">Node.js: 22.23.4+ / 24.22.1+ / 26.12.1+ (20.x: none)</tspan><tspan x="55.0" y="396.6">node -v ; zlib BROTLI_DECODER_ERROR_FORMAT_BLOCK_SWITCH == -17</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="495.0" y="380.4">PHP: 8.5.12 / 8.4.27 / 8.3.36 / 8.2.35+</tspan><tspan x="495.0" y="396.6">php -v is CLI — web server may run other PHP-FPM</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="55.0" y="450.4">Pillow 13.0.0 (needs Python 3.11+)</tspan><tspan x="55.0" y="466.6">pip install -U &quot;Pillow&gt;=13.0.0&quot; (fail loudly on 3.10)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="13" fill="#1e1e1e" text-anchor="start"><tspan x="495.0" y="450.4">CISA KEV: CVE-2026-110447 (Collabora 26.4.303+)</tspan><tspan x="495.0" y="466.6">CVE-2026-114625 (Arista VeloCloud) — find shx*.php after patch</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="18" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="524.4">Post-patch rule: patched != safe — hunt for what got in before the update</tspan></text>
+</svg>

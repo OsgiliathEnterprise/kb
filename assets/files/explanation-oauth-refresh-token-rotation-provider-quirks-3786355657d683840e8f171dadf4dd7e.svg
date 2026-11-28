@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="36.0 -4.0 818.0 453.0" width="818" height="453">
+<rect x="36.0" y="-4.0" width="818.0" height="453.0" fill="#ffffff"/>
+<rect x="60.0" y="90.0" width="180.0" height="80.0" rx="8" fill="#cfe0f0" stroke="#2b5a8c" stroke-width="1.5"/>
+<rect x="320.0" y="90.0" width="190.0" height="80.0" rx="8" fill="#cfe0f0" stroke="#2b5a8c" stroke-width="1.5"/>
+<rect x="590.0" y="90.0" width="180.0" height="80.0" rx="8" fill="#d3ecd6" stroke="#2e7d32" stroke-width="1.5"/>
+<rect x="60.0" y="240.0" width="230.0" height="90.0" rx="8" fill="#f6d5d2" stroke="#b3261e" stroke-width="1.5"/>
+<rect x="380.0" y="240.0" width="200.0" height="90.0" rx="8" fill="#f6d5d2" stroke="#b3261e" stroke-width="1.5"/>
+<rect x="660.0" y="240.0" width="170.0" height="90.0" rx="8" fill="#f6d5d2" stroke="#b3261e" stroke-width="1.5"/>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="22" fill="#1e1e1e" text-anchor="start"><tspan x="60.0" y="37.6">OAuth Refresh Token Rotation: Success Path and Irreversible Failure</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="80.0" y="122.8">Scheduled</tspan><tspan x="80.0" y="142.8">refresh job</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="245.0" y="111.2">new RT</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="335.0" y="122.8">Provider issues</tspan><tspan x="335.0" y="142.8">new RT, rotates</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="605.0" y="117.8">Persist new RT</tspan><tspan x="605.0" y="137.8">BEFORE anything</tspan><tspan x="605.0" y="157.8">else can fail</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="15" fill="#1e1e1e" text-anchor="start"><tspan x="75.0" y="267.0">BUG: response lost /</tspan><tspan x="75.0" y="285.8">not saved (Nango</tspan><tspan x="75.0" y="304.5">May 2025 revert)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="15" fill="#1e1e1e" text-anchor="start"><tspan x="395.0" y="267.0">Old RT already</tspan><tspan x="395.0" y="285.8">invalidated by</tspan><tspan x="395.0" y="304.5">provider</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="675.0" y="266.2">Recovery?</tspan><tspan x="675.0" y="283.7">Non-rotating:</tspan><tspan x="675.0" y="301.2">OK. Rotating:</tspan><tspan x="675.0" y="318.7">user re-consent</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="15" fill="#1e1e1e" text-anchor="start"><tspan x="60.0" y="392.0">Serialize per connection (distributed lock) - per-provider expiry buffers (Exact Online: reject refresh &gt;30s early) -</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="15" fill="#1e1e1e" text-anchor="start"><tspan x="60.0" y="417.0">expires_in optional (RFC 6749) -&gt; Salesforce introspection, Zendesk opt-in expiry - alert on refresh anomalies</tspan></text>
+</svg>
