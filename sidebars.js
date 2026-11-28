@@ -972,6 +972,7 @@ const sidebars = {
         'explanations/general/2026-11-23',
         'explanations/general/2026-11-24',
         'explanations/general/2026-11-26',
+        'explanations/general/2026-11-28',
         {
           type: 'category',
           label: 'Authentication',

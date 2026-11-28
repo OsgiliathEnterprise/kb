@@ -38,5 +38,12 @@ LLM estimates are not profiling replacements, but they are good enough to **prio
 ## Relevance to Our Domain
 For our GPU-compute and LLM-serving coverage, this is a concrete data point on LLMs-as-systems-assistants: cheap triage before burning scarce GPU time, with a clear recipe (attach compiler artifacts) and a clear limit (don't trust memory-traffic predictions, don't default to agent loops).
 
+## Related Literature
+- **Bolet et al., arXiv:2505.03988 (May 2025)** — *Can Large Language Models Predict Parallel Code Performance?* The same group's earlier paper that introduced the framing used here: LLM-based **roofline classification** (compute-bound vs bandwidth-bound) from kernel source + hardware specs alone, without target-hardware profiling. This newer study extends that binary classification to quantitative arithmetic-intensity estimation and adds the compiler-artifacts and agentic query modes. https://arxiv.org/abs/2505.03988
+- **O'Bank et al., KernelBench (arXiv:2502.10517)** — *Can LLMs Write Efficient GPU Kernels?* The standard benchmark for the *generation* side of LLM-for-systems (250 PyTorch ops → custom CUDA/DSL kernels, speedup measured against hardware). Complementary to this paper's *prediction* side: if an LLM cannot reliably predict a kernel's bound, its kernel-optimization suggestions on KernelBench-style tasks should be treated with the same skepticism. https://arxiv.org/abs/2502.10517
+- Williams, Waterman & Patterson, *Roofline: An Insightful Visual Performance Model* (CACM 2009) — the original roofline model; arithmetic intensity is FLOPs per byte of device-memory traffic, and the ridge point of a GPU decides which roof applies.
+
 ## References
 - Paper: https://arxiv.org/abs/2611.32975 (26 pages, 21 figures, 15 tables)
+- Prior paper (same group): https://arxiv.org/abs/2505.03988
+- KernelBench: https://arxiv.org/abs/2502.10517 · https://github.com/ScalingIntelligence/KernelBench

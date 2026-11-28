@@ -38,6 +38,18 @@ Extensive experiments on real-world and synthetic datasets show the proposed att
 ## Relevance to Our Domain
 For our privacy and data-pipeline security coverage, the takeaway is architectural: **LDP secures confidentiality only; integrity of the ingest path must be defended separately** (anomaly screening of contributed perturbations, rate/scale limits on new participants, temporal monitoring of metric drift). Any telemetry or graph-analytics product using LDP-style client-side randomization should treat the absolute-gain metric as a red-team KPI.
 
+## Related Literature
+This paper sits on a fast-moving line of LDP-integrity work; understanding it requires the static predecessors and the defense side:
+
+- **Cao et al., USENIX Security 2021** — *Data Poisoning Attacks to Local Differential Privacy Protocols*: the foundational study showing malicious users can skew LDP frequency/oracle-based estimation; established that LDP's privacy proof offers zero integrity protection. https://www.usenix.org/conference/usenixsecurity21/presentation/cao-xiaoyu
+- **He, Huang, Ye & Hu (arXiv:2412.19837, ICDE 2025)** — *Data Poisoning Attacks to LDP Protocols for Graphs*: the direct static-graph predecessor. Attacks inject fake users into LDP graph-collection protocols that gather atomic metrics (adjacency bit vectors, node degrees) per node; demonstrated on degree centrality and clustering coefficient. Notably, the authors' own two countermeasures **failed to offset the damage**, motivating stronger defenses. https://arxiv.org/abs/2412.19837
+- **Li, Li, Wang & Sun (arXiv:2506.02156)** — *Mitigating Data Poisoning Attacks to Local Differential Privacy*: the current defense reference for frequency estimation — malicious-user detection, hidden attack-pattern recognition (for stealthy adaptive attackers), and post-processing recovery of corrupted aggregates, all without extra data or attack knowledge. The dynamic-graph analogue of this mitigation stack is still an open gap that TEA-era work highlights. https://arxiv.org/abs/2506.02156
+
+Read order for the area: Cao (static, frequency) → He (static, graphs, weak countermeasures) → Liu (dynamic graphs, temporal scheduling) → Li (defenses).
+
 ## References
 - Paper: https://arxiv.org/abs/2611.34340
 - Code: https://github.com/spiralfood/GraphPoison-LDP
+- Cao et al., USENIX Sec '21: https://www.usenix.org/conference/usenixsecurity21/presentation/cao-xiaoyu
+- He et al., static-graph poisoning: https://arxiv.org/abs/2412.19837
+- Li et al., mitigation framework: https://arxiv.org/abs/2506.02156
