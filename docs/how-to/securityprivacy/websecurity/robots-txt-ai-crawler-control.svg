@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16.0 -8.0 1028.0 456.0" width="1028" height="456">
+<rect x="16.0" y="-8.0" width="1028.0" height="456.0" fill="#ffffff"/>
+<rect x="60.0" y="115.0" width="260.0" height="44.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="60.0" y="175.0" width="260.0" height="44.0" rx="8" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="400.0" y="115.0" width="280.0" height="44.0" rx="8" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="400.0" y="175.0" width="280.0" height="44.0" rx="8" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="740.0" y="115.0" width="280.0" height="44.0" rx="8" fill="#ffec99" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="740.0" y="175.0" width="280.0" height="44.0" rx="8" fill="#ffec99" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="60.0" y="270.0" width="960.0" height="60.0" rx="8" fill="#d0ebff" stroke="#1e1e1e" stroke-width="1.5"/>
+<rect x="60.0" y="370.0" width="960.0" height="54.0" rx="8" fill="#e5dbff" stroke="#1e1e1e" stroke-width="1.5"/>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 190.0 220.0 L 190.0 270.0"/><line x1="190.0" y1="270.0" x2="196.1" y2="257.4"/><line x1="190.0" y1="270.0" x2="183.9" y2="257.4"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 540.0 220.0 L 540.0 270.0"/><line x1="540.0" y1="270.0" x2="546.1" y2="257.4"/><line x1="540.0" y1="270.0" x2="533.9" y2="257.4"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 880.0 220.0 L 880.0 270.0"/><line x1="880.0" y1="270.0" x2="886.1" y2="257.4"/><line x1="880.0" y1="270.0" x2="873.9" y2="257.4"/></g>
+<g stroke="#1e1e1e" stroke-width="1.5" fill="none"><path d="M 540.0 330.0 L 540.0 370.0"/><line x1="540.0" y1="370.0" x2="546.1" y2="357.4"/><line x1="540.0" y1="370.0" x2="533.9" y2="357.4"/></g>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="20" fill="#1e1e1e" text-anchor="start"><tspan x="40.0" y="32.0">robots.txt AI crawler control: who to block, who to allow</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="60.0" y="92.8">TRAINING bots (block?)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="400.0" y="92.8">AI SEARCH bots (usually allow)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="16" fill="#1e1e1e" text-anchor="start"><tspan x="740.0" y="92.8">CONTROL tokens (no UA!)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="72.0" y="135.2">GPTBot (OpenAI)</tspan><tspan x="72.0" y="152.7">ClaudeBot (Anthropic)</tspan><tspan x="72.0" y="170.2">CCBot (Common Crawl)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="72.0" y="195.2">Training crawlers collect pages</tspan><tspan x="72.0" y="212.7">for model training - the main</tspan><tspan x="72.0" y="230.2">opt-out target</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="412.0" y="135.2">OAI-SearchBot -&gt; ChatGPT</tspan><tspan x="412.0" y="152.7">search; PerplexityBot -&gt;</tspan><tspan x="412.0" y="170.2">Perplexity answers</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="412.0" y="195.2">ChatGPT-User: user-triggered</tspan><tspan x="412.0" y="212.7">fetch; may SKIP robots.txt</tspan><tspan x="412.0" y="230.2">by design (vendor docs)</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="752.0" y="135.2">Google-Extended / Applebot-</tspan><tspan x="752.0" y="152.7">Extended never appear in</tspan><tspan x="752.0" y="170.2">logs - policy signals only</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="752.0" y="195.2">Blocking Google-Extended</tspan><tspan x="752.0" y="212.7">!= opt-out of Google Search</tspan><tspan x="752.0" y="230.2">/ AI Overviews</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="72.0" y="289.2">Decision: want AI traffic?  allow search bots + user fetchers, block only training bots.</tspan><tspan x="72.0" y="306.7">Premium content? block training bots, allow search on public pages, also Disallow: /members/ for AI bots.</tspan></text>
+<text font-family="Excalifont, 'Segoe UI', sans-serif" font-size="14" fill="#1e1e1e" text-anchor="start"><tspan x="72.0" y="389.2">After every change, TEST the live file (fetch https://your.site/robots.txt; check per-path decisions)</tspan><tspan x="72.0" y="406.7">and check CDN bot-fight settings - they can override robots.txt rules.</tspan></text>
+</svg>

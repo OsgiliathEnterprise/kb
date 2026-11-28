@@ -5,7 +5,7 @@ domain: ai-infrastructure
 topic: hardware-acceleration
 source: arXiv
 source_url: https://arxiv.org/abs/2611.34273
-date: '2026-11-27'
+date: '2026-11-28'
 keywords:
 - knowledge-base
 - hardware-acceleration
@@ -46,6 +46,16 @@ Conformance: **passes most of the JAX and TorchTPU test suites**.
 ## Relevance to Our Domain
 Practical datapoint for accelerator-portable AI infrastructure beyond CUDA/TPU: a thin PJRT layer re-targeting the TPU software ecosystem changes the economics of evaluating alternative AI processors for serving/fine-tuning/RL fleets.
 
+## Ecosystem Context: Libtt vs. Official Tenstorrent Stack (added 2026-11-28)
+Tenstorrent's own path to the same PJRT strategy is **tt-xla** (Apache-2.0, ~2.9k commits), the official PJRT-device repo in the company's AI-compiler stack:
+- tt-xla ingests JAX/PyTorch models via a **PJRT plugin** and lowers through **TT-MLIR** to Tenstorrent hardware.
+- Thin framework wrappers: `jax_plugin_tt` (JAX) and `torch_plugin_tt` (PyTorch/XLA) import and configure the PJRT plugin.
+- Ships a **vLLM integration** (`integrations/vllm_plugin`) plus mixed-precision tooling and a public model-bring-up guide; development runs partly through Tenstorrent's bounty program.
+
+Read alongside Libtt: the PJRT-plugin pattern is now **the** consensus integration seam for alternative AI accelerators (official tt-xla for the supported path; Libtt as a research-grade single-shared-library reimplementation demonstrating full-stack portability of the TPU estate, incl. SGLang/TorchTitan/Miles workloads). When evaluating Tenstorrent silicon for serving/fine-tuning, start from tt-xla docs and treat Libtt as evidence of how far the TPU-software-portability bet extends.
+
 ## References
 - Paper: https://arxiv.org/abs/2611.34273 (28 pages, 5 figures, 13 tables)
 - Code: https://github.com/pcmoritz/libtt
+- Official PJRT stack: https://github.com/tenstorrent/tt-xla
+- TT-XLA getting started (jax_plugin_tt / torch_plugin_tt): https://docs.tenstorrent.com/tt-xla/getting_started.html

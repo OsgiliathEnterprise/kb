@@ -498,7 +498,7 @@ const sidebars = {
           type: 'category',
           label: 'Websecurity',
           link: {type: 'generated-index', title: 'Websecurity', slug: 'how-to/securityprivacy/websecurity'},
-          items: ['how-to/securityprivacy/websecurity/howto-absentia-broken-access-control-detection', 'how-to/securityprivacy/websecurity/howto-emergency-response-critical-php-rce-audit-patch-offline', 'how-to/securityprivacy/websecurity/howto-frontend-secrets-audit-before-shipping', 'how-to/securityprivacy/websecurity/howto-patch-apache-httpd-2-4-71-mod-http2-rce-cve-2026-119618'],
+          items: ['how-to/securityprivacy/websecurity/howto-absentia-broken-access-control-detection', 'how-to/securityprivacy/websecurity/howto-emergency-response-critical-php-rce-audit-patch-offline', 'how-to/securityprivacy/websecurity/howto-frontend-secrets-audit-before-shipping', 'how-to/securityprivacy/websecurity/howto-patch-apache-httpd-2-4-71-mod-http2-rce-cve-2026-119618', 'how-to/securityprivacy/websecurity/howto-robots-txt-ai-crawler-blocklist'],
         },
         {
           type: 'category',
@@ -680,7 +680,7 @@ const sidebars = {
           type: 'category',
           label: 'Resourceoptimization',
           link: {type: 'generated-index', title: 'Resourceoptimization', slug: 'explanations/aimachinelearning/resourceoptimization'},
-          items: ['explanations/aimachinelearning/resourceoptimization/explanation-concept-normalized-reasoning-codes-token-efficiency', 'explanations/aimachinelearning/resourceoptimization/explanation-llm-cost-optimization-agent-fleets', 'explanations/aimachinelearning/resourceoptimization/explanation-nariq-trellis-ptq-low-bit-gguf', 'explanations/aimachinelearning/resourceoptimization/reference-agentcore-environment-reservation'],
+          items: ['explanations/aimachinelearning/resourceoptimization/explanation-concept-normalized-reasoning-codes-token-efficiency', 'explanations/aimachinelearning/resourceoptimization/explanation-json-ensure-ascii-prompt-token-bloat', 'explanations/aimachinelearning/resourceoptimization/explanation-llm-cost-optimization-agent-fleets', 'explanations/aimachinelearning/resourceoptimization/explanation-nariq-trellis-ptq-low-bit-gguf', 'explanations/aimachinelearning/resourceoptimization/reference-agentcore-environment-reservation'],
         },
         {
           type: 'category',
@@ -1361,6 +1361,12 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Llmevaluation',
+          link: {type: 'generated-index', title: 'Llmevaluation', slug: 'examples/aimachinelearning/llmevaluation'},
+          items: ['examples/aimachinelearning/llmevaluation/example-mcnemar-paired-model-comparison'],
+        },
+        {
+          type: 'category',
           label: 'Multiagentsystems',
           link: {type: 'generated-index', title: 'Multiagentsystems', slug: 'examples/aimachinelearning/multiagentsystems'},
           items: ['examples/aimachinelearning/multiagentsystems/example-agentic-fraud-investigation-tigergraph-11-agents'],
@@ -1394,6 +1400,12 @@ const sidebars = {
           label: 'Networking',
           link: {type: 'generated-index', title: 'Networking', slug: 'examples/cloudinfrastructure/networking'},
           items: ['examples/cloudinfrastructure/networking/example-usb-ethernet-burst-bottleneck-debugging'],
+        },
+        {
+          type: 'category',
+          label: 'Abtesting',
+          link: {type: 'generated-index', title: 'Abtesting', slug: 'examples/datascience/abtesting'},
+          items: ['examples/datascience/abtesting/example-clopper-pearson-implementation-validation'],
         },
         {
           type: 'category',
