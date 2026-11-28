@@ -24,7 +24,7 @@ Classical opinion-dynamics protocols (e.g. $h$-majority) require agents to count
 
 ## Key Contribution
 - A protocol whose only primitive is "adopt the first opinion observed twice, then reset memory."
-- A high-probability convergence bound: with $n$ agents, $k$ initial opinions, plurality count $M_0$ and bias $\Delta_0$, if $\Delta_0 = \Omega(\sqrt&#123;M_0 \log n&#125;)$ then consensus on the plurality is reached in $O(\sqrt{n/M_0}\,\log(eM_0/\Delta_0) + \log\log n)$ rounds.
+- A high-probability convergence bound: with $n$ agents, $k$ initial opinions, plurality count $M_0$ and bias $\Delta_0$, if $\Delta_0 = \Omega(\sqrt&#123;M_0 \log n&#125;)$ then consensus on the plurality is reached in $O(\sqrt&#123;n/M_0&#125;\,\log(eM_0/\Delta_0) + \log\log n)$ rounds.
 - A comparison result: in that bias regime DéjàVu is asymptotically never slower than $h$-majority collecting its $h$ samples one per round, for any fixed (even per-configuration-optimal) $h$ — and for some initial configurations it is asymptotically faster for every $h$.
 - A technical novelty: opinion counts alone don't determine the dynamics, because each adoption depends on a hidden memory accumulated across rounds while the population changed. The authors derive the exact law of memories conditioned on the opinion/reset history and track how the plurality's advantage is distributed across *memory ages*, weighting recently-reset agents more (they are less likely to reset again soon).
 
